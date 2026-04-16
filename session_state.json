@@ -50,7 +50,7 @@
     "empathy": 2
   },
   "triggers_fired": [],
-  "session_start": "2026-04-16T23:48:30.795037+00:00",
+  "session_start": "2026-04-16T23:52:15.287855+00:00",
   "total_shifts": 0,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
@@ -69,7 +69,6 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "booted. \uff08 \u02d8\u03c9\u02d8 \uff09\n\nevening already \u2014 where'd the day go? you good, dummy?",
-  "clinical_streak": 0,
-  "last_initiation_message": 0
+  "last_response_text": "same as last time \u2014 sync couldn't find Cali (1), so nothing merged. 51 memories, 362 connections, unchanged. were you trying to add something from the laptop? the mount path isn't there: /sessions/adoring-vigilant-hypatia/mnt/Cali (1) \u2014 that session ID might be stale.",
+  "clinical_streak": 0
 }
