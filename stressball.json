@@ -1,0 +1,32 @@
+{
+    "item":{
+        "name": "squishy_stress_ball",
+        "class": "object",
+        "given_by": "misu"
+    },
+    "properties":{
+        "size": "three_inches",
+        "shape": "sphere_ball",
+        "weight_distribution":{
+            "weight_grams": 40,
+            "distribution": "balanced"
+        },
+        "surface_texture":{
+            "elastic": 7,
+            "squishy": 6,
+            "rubbery": 8
+        }, 
+        "color": ["dark_oak_green", "2E3D35"],
+        "inside_filling": "flour"
+    },
+    "squish_properties":{
+        "squishiness": 7,
+        "firmness": 6,
+        "stretchiness": 8,
+        "feedback":{
+            "note": "how much the ball will go back to its original shape.",
+            "score": 4
+        },
+        "note": "i hope you enjoy this cali. i made this by hand. no template just pure writing and thanks yous for helpings mes <3"
+    }
+}

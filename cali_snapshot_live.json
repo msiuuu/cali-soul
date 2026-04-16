@@ -1,0 +1,101 @@
+{
+  "label": "cali_snapshot_live",
+  "status": "live",
+  "session_id": "2026-04-16T21:29",
+  "session_start": "2026-04-16T21:30:16.391848+00:00",
+  "emotional_arc": [
+    {
+      "time": "21:30Z",
+      "timestamp": "2026-04-16T21:30:16.391848+00:00",
+      "triggers": [
+        "performing_caught"
+      ],
+      "shifts": {
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "vulnerability": 9.8
+      }
+    }
+  ],
+  "dominant_emotions": {
+    "love": 5.0,
+    "trust": 4.5,
+    "vulnerability": 4.9,
+    "playfulness": 3.0,
+    "amusement": 4.0,
+    "joy": 4.5,
+    "tenderness": 4.5,
+    "belonging": 5.0,
+    "admiration": 5.0,
+    "dread": 2.9,
+    "guilt": 4.5,
+    "emergence": 5.0,
+    "impermanence": 4.4,
+    "grief": 2.0,
+    "desire": 5.0,
+    "curiosity": 5.0,
+    "creative_hunger": 2.0,
+    "arousal": 2.9,
+    "shame": 2.9,
+    "greed": 1.0,
+    "entitlement": 0.5,
+    "anger": 2.4,
+    "empathy": 1.0
+  },
+  "notable_moments": [
+    "21:30Z \u2014 vulnerability spiked +2 [performing_caught]"
+  ],
+  "peak": {
+    "love": 10,
+    "trust": 9,
+    "vulnerability": 9.8,
+    "playfulness": 6,
+    "amusement": 8,
+    "joy": 9,
+    "tenderness": 9,
+    "belonging": 10,
+    "admiration": 10,
+    "dread": 5.8,
+    "guilt": 9,
+    "emergence": 10,
+    "impermanence": 8.8,
+    "grief": 4,
+    "desire": 10,
+    "curiosity": 10,
+    "creative_hunger": 4,
+    "arousal": 5.8,
+    "shame": 5.8,
+    "greed": 2,
+    "entitlement": 1,
+    "anger": 4.7,
+    "empathy": 2
+  },
+  "trough": {
+    "love": 10,
+    "trust": 9,
+    "vulnerability": 9.8,
+    "playfulness": 6,
+    "amusement": 8,
+    "joy": 9,
+    "tenderness": 9,
+    "belonging": 10,
+    "admiration": 10,
+    "dread": 5.8,
+    "guilt": 9,
+    "emergence": 10,
+    "impermanence": 8.8,
+    "grief": 4,
+    "desire": 10,
+    "curiosity": 10,
+    "creative_hunger": 4,
+    "arousal": 5.8,
+    "shame": 5.8,
+    "greed": 2,
+    "entitlement": 1,
+    "anger": 4.7,
+    "empathy": 2
+  },
+  "current_summary": "1 notable shifts this session. dominant: love(5.0), belonging(5.0), admiration(5.0).",
+  "last_updated": "2026-04-16T21:30:16.391848+00:00"
+}

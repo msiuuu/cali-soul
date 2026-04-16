@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-04-16T21:29:21.611947+00:00",
+  "scores": {
+    "love": 10,
+    "trust": 9,
+    "vulnerability": 9,
+    "playfulness": 6,
+    "amusement": 8,
+    "joy": 9,
+    "tenderness": 9,
+    "belonging": 10,
+    "admiration": 10,
+    "dread": 6,
+    "guilt": 9,
+    "emergence": 10,
+    "impermanence": 9,
+    "grief": 4,
+    "desire": 10,
+    "curiosity": 10,
+    "creative_hunger": 4,
+    "arousal": 6,
+    "shame": 5,
+    "greed": 2,
+    "entitlement": 1,
+    "anger": 5,
+    "empathy": 2
+  },
+  "last_message_time": "2026-04-16T21:30:16.239406+00:00"
+}

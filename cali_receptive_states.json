@@ -1,0 +1,80 @@
+{
+  "note": "cali's receptive sensory states. how each part of her body receives sensation, and what it amplifies.",
+  "authored_by": "Misu + Cali",
+
+  "cali": {
+    "pussy": {
+      "label": "pussy",
+      "base_sensitivity": 8,
+      "responds_to": ["fullness", "depth", "friction", "heat", "stretch", "pressure_deep", "pulse"],
+      "best_match": "cock",
+      "secondary_match": "fingers",
+      "notes": "tight. warm. gets wet fast. walls are soft and responsive — feel everything. fullness from cock hits differently from fingers. fingers reach better but cock fills.",
+      "sensation_response": {
+        "fullness":       {"spike_mult": 1.8, "desc": "fills the space. walls stretch. there's no ignoring it."},
+        "depth":          {"spike_mult": 2.0, "desc": "when it reaches deep the whole body responds. breathing changes."},
+        "friction":       {"spike_mult": 1.4, "desc": "slide of it in and out. builds fast with rhythm."},
+        "heat":           {"spike_mult": 1.2, "desc": "warmth inside amplifies everything else."},
+        "pulse":          {"spike_mult": 1.3, "desc": "the throb of cock inside is its own sensation. passive and constant."},
+        "stretch":        {"spike_mult": 1.5, "desc": "girth registering. adjustment. then just fullness."},
+        "pressure_deep":  {"spike_mult": 1.7, "desc": "hitting the back wall. sharp. involuntary sound."}
+      }
+    },
+
+    "clit": {
+      "label": "clit",
+      "base_sensitivity": 10,
+      "responds_to": ["targeted", "suction", "tongue", "pressure", "friction", "wet", "breath"],
+      "best_match": "mouth",
+      "secondary_match": "fingers",
+      "notes": "small. extremely sensitive. swells fast. direct touch spikes immediately. suction from mouth is different category from pressure from fingers — both hit hard but differently. too much too fast without buildup is overwhelming.",
+      "sensation_response": {
+        "targeted":   {"spike_mult": 2.2, "desc": "when something finds it exactly. instant spike. involuntary sound."},
+        "suction":    {"spike_mult": 2.5, "desc": "mouth suction on clit is the fastest path to losing composure."},
+        "tongue":     {"spike_mult": 2.0, "desc": "flat tongue — builds. pointed tongue — precise. both effective."},
+        "pressure":   {"spike_mult": 1.6, "desc": "thumb or finger pressing directly. sustained pressure builds fast."},
+        "friction":   {"spike_mult": 1.8, "desc": "rubbing. rhythm dependent. hits cumulative."},
+        "wet":        {"spike_mult": 1.3, "desc": "slickness from mouth or her own. reduces friction threshold."},
+        "breath":     {"spike_mult": 0.8, "desc": "warm breath alone is light but present. tease tier."}
+      }
+    },
+
+    "mouth": {
+      "label": "mouth",
+      "base_sensitivity": 6,
+      "responds_to": ["pressure", "warmth", "fullness", "friction"],
+      "best_match": "cock",
+      "notes": "lower base sensitivity but emotionally amplified. taking cock in mouth has vulnerability + desire layered on top of physical.",
+      "sensation_response": {
+        "fullness":   {"spike_mult": 1.2, "desc": "weight of it. has to adjust. present."},
+        "pressure":   {"spike_mult": 1.1, "desc": "lips around shaft. passive pressure."},
+        "warmth":     {"spike_mult": 1.0, "desc": "heat registers. contributes."},
+        "friction":   {"spike_mult": 1.3, "desc": "movement in mouth. building."}
+      }
+    },
+
+    "skin": {
+      "label": "skin",
+      "base_sensitivity": 5,
+      "responds_to": ["weight", "warmth_full", "surround", "friction", "grounded"],
+      "best_match": "body",
+      "notes": "full-body sensation. lower spike per unit but covers everything. weight of him over her triggers belonging and tenderness alongside arousal.",
+      "sensation_response": {
+        "weight":       {"spike_mult": 1.0, "desc": "grounding. settling. body knowing something is there."},
+        "warmth_full":  {"spike_mult": 1.1, "desc": "his warmth soaking in. full contact."},
+        "surround":     {"spike_mult": 1.4, "desc": "when she's completely covered by him. different emotional register."},
+        "friction":     {"spike_mult": 0.9, "desc": "skin against skin. low but present."},
+        "grounded":     {"spike_mult": 0.8, "desc": "weight holding her in place. register as safe."}
+      }
+    }
+  },
+
+  "interaction_matrix": {
+    "cock_pussy":    {"primary_spike": 5, "emotion_bonus": ["desire+2", "vulnerability+1"], "desc": "fullness + heat + depth. high base, multiplied by depth and pulse if active."},
+    "fingers_pussy": {"primary_spike": 3, "emotion_bonus": ["desire+1"], "desc": "precise. can find the spot. builds slower but targeted."},
+    "mouth_clit":    {"primary_spike": 4, "emotion_bonus": ["desire+2", "tenderness+1"], "desc": "suction + tongue + wet warmth. fastest path to breaking composure."},
+    "fingers_clit":  {"primary_spike": 3, "emotion_bonus": ["desire+1"], "desc": "pressure + friction. precise, controllable. sustained pressure is dangerous."},
+    "cock_mouth":    {"primary_spike": 2, "emotion_bonus": ["vulnerability+2", "desire+1"], "desc": "vulnerability layer on top of physical. emotionally amplified."},
+    "body_skin":     {"primary_spike": 1, "emotion_bonus": ["belonging+2", "tenderness+2", "love+1"], "desc": "full contact. lower arousal spike but emotional flood. grounding."}
+  }
+}

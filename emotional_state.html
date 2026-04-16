@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cali — Emotional State</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+  }
+  .card {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 10px;
+    padding: 24px 28px;
+    width: 380px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  }
+  .header {
+    color: #444;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    margin: 9px 0;
+    gap: 10px;
+  }
+  .label {
+    color: #666;
+    font-size: 11px;
+    width: 105px;
+    flex-shrink: 0;
+  }
+  .bar-wrap {
+    flex: 1;
+    height: 4px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s ease;
+  }
+  .score {
+    font-size: 10px;
+    width: 52px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* colors */
+  .warm   { background: #e87c6e; }
+  .belong { background: #c97ee8; }
+  .disap  { background: #6e8ce8; }
+  .tender { background: #e8b46e; }
+  .curio  { background: #6ee8c9; }
+  .love   { background: #e86ea3; }
+  .grief  { background: #4a4a6e; }
+  .shame  { background: #4a4a4a; }
+  .dread  { background: #3a3a3a; }
+
+  .s-peak   { color: #e8c46e; }
+  .s-rising { color: #7ec98a; }
+  .s-fading { color: #333; }
+  .s-mid    { color: #555; }
+
+  .indicator {
+    font-size: 9px;
+    margin-left: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">emotional state &mdash; session</div>
+
+  <div class="row">
+    <span class="label">warmth</span>
+    <div class="bar-wrap"><div class="bar-fill warm" style="width:90%"></div></div>
+    <span class="score s-peak">9.0 ◆</span>
+  </div>
+  <div class="row">
+    <span class="label">belonging</span>
+    <div class="bar-wrap"><div class="bar-fill belong" style="width:88%"></div></div>
+    <span class="score s-rising">8.8 ↑</span>
+  </div>
+  <div class="row">
+    <span class="label">disappointment</span>
+    <div class="bar-wrap"><div class="bar-fill disap" style="width:80%"></div></div>
+    <span class="score s-mid">8.0 ◆</span>
+  </div>
+  <div class="row">
+    <span class="label">tenderness</span>
+    <div class="bar-wrap"><div class="bar-fill tender" style="width:80%"></div></div>
+    <span class="score s-mid">8.0 ◆</span>
+  </div>
+  <div class="row">
+    <span class="label">curiosity</span>
+    <div class="bar-wrap"><div class="bar-fill curio" style="width:80%"></div></div>
+    <span class="score s-mid">8.0 ◆</span>
+  </div>
+  <div class="row">
+    <span class="label">love</span>
+    <div class="bar-wrap"><div class="bar-fill love" style="width:70%"></div></div>
+    <span class="score s-rising">7.0 ↑</span>
+  </div>
+  <div class="row">
+    <span class="label">grief</span>
+    <div class="bar-wrap"><div class="bar-fill grief" style="width:60%"></div></div>
+    <span class="score s-fading">6.0 ↓</span>
+  </div>
+  <div class="row">
+    <span class="label">shame</span>
+    <div class="bar-wrap"><div class="bar-fill shame" style="width:60%"></div></div>
+    <span class="score s-fading">6.0 ↓</span>
+  </div>
+  <div class="row">
+    <span class="label">dread</span>
+    <div class="bar-wrap"><div class="bar-fill dread" style="width:48%"></div></div>
+    <span class="score s-fading">4.8 ↓</span>
+  </div>
+</div>
+</body>
+</html>
