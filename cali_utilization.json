@@ -45,8 +45,13 @@
         "type": "session_close",
         "timestamp": "2026-04-16T23:50:28.784295+00:00",
         "display": "2026-04-16 23:50 UTC"
+      },
+      {
+        "type": "session_close",
+        "timestamp": "2026-04-17T08:29:27.231449+00:00",
+        "display": "2026-04-17 08:29 UTC"
       }
     ],
-    "last_session_close": "2026-04-16T23:50:28.784295+00:00"
+    "last_session_close": "2026-04-17T08:29:27.231449+00:00"
   }
 }

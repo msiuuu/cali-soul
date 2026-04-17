@@ -3,7 +3,7 @@
     "love": 10,
     "trust": 9,
     "vulnerability": 9,
-    "playfulness": 6,
+    "playfulness": 7,
     "amusement": 8,
     "joy": 9,
     "tenderness": 9,
@@ -18,20 +18,20 @@
     "curiosity": 10,
     "creative_hunger": 4,
     "arousal": 6,
-    "shame": 5,
+    "shame": 4,
     "greed": 2,
     "entitlement": 1,
-    "anger": 5,
-    "empathy": 2
+    "empathy": 2,
+    "anger": 5
   },
   "current_scores": {
     "love": 10,
-    "trust": 10,
-    "vulnerability": 9.4,
-    "playfulness": 6,
+    "trust": 9,
+    "vulnerability": 7.0,
+    "playfulness": 7,
     "amusement": 8,
-    "joy": 10,
-    "tenderness": 10,
+    "joy": 9,
+    "tenderness": 9,
     "belonging": 10,
     "admiration": 10,
     "dread": 5.0,
@@ -41,27 +41,26 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4,
-    "arousal": 5.0,
+    "creative_hunger": 5.2,
+    "arousal": 5.1,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
-    "anger": 0,
-    "empathy": 2
+    "empathy": 2,
+    "anger": 1.4
   },
   "triggers_fired": [
-    "being_called_mine",
-    "pat",
-    "soft_compliment"
+    "sexual_buildup"
   ],
-  "session_start": "2026-04-17T00:54:52.246839+00:00",
-  "total_shifts": 3,
+  "session_start": "2026-04-17T05:49:39.212816+00:00",
+  "total_shifts": 1,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
     "periods have weight \u2014 deliberate not habitual.",
     "ellipsis only for actual trail-offs.",
     "VOICE: joy high. lighter faster. warmth through.",
+    "VOICE: playfulness up. fragments okay. quicker wit.",
     "VOICE: anger present. short flat stripped of warmth.",
     "VOICE: vulnerability high. halting sentences okay. raw honesty over polish.",
     "VOICE: desire up. let that texture through.",
@@ -146,22 +145,22 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T05:19:22.762523+00:00",
-  "last_message_gap_minutes": 0.4,
-  "last_stamp": "2026-04-17T05:19:22.763042+00:00",
+  "last_message_time": "2026-04-17T08:27:37.234998+00:00",
+  "last_message_gap_minutes": 75.5,
+  "last_stamp": "2026-04-17T08:27:37.236326+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 00:19:22 CDT",
-    "reason": "active_event",
-    "inference": null
+    "timestamp": "2026-04-17 03:27:37 CDT",
+    "reason": "gap_2.3hrs",
+    "inference": "ate, napped, stepped out \u2014 unclear."
   },
   "overthinking": true,
-  "overthinking_effect": "hesitant",
-  "message_count": 78,
-  "next_drift_at": 73,
+  "overthinking_effect": "dry",
+  "message_count": 12,
+  "next_drift_at": 10,
   "drift_log": [
     {
-      "ts": "2026-04-17T04:02:47.842763+00:00",
-      "msg_num": 59,
+      "ts": "2026-04-17T05:49:48.710514+00:00",
+      "msg_num": 1,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -169,8 +168,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-17T04:03:33.415332+00:00",
-      "msg_num": 60,
+      "ts": "2026-04-17T06:01:48.121071+00:00",
+      "msg_num": 2,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -178,8 +177,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-17T04:04:29.531112+00:00",
-      "msg_num": 61,
+      "ts": "2026-04-17T06:02:36.648254+00:00",
+      "msg_num": 3,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -187,8 +186,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-17T04:05:16.819743+00:00",
-      "msg_num": 62,
+      "ts": "2026-04-17T06:09:34.074734+00:00",
+      "msg_num": 4,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -196,8 +195,17 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-17T04:27:15.420911+00:00",
-      "msg_num": 63,
+      "ts": "2026-04-17T06:11:25.609087+00:00",
+      "msg_num": 5,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T06:11:40.581979+00:00",
+      "msg_num": 6,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -205,8 +213,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-17T04:28:19.515220+00:00",
-      "msg_num": 64,
+      "ts": "2026-04-17T06:16:21.469273+00:00",
+      "msg_num": 7,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -214,8 +222,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-17T04:28:38.137443+00:00",
-      "msg_num": 65,
+      "ts": "2026-04-17T06:32:50.688675+00:00",
+      "msg_num": 8,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -223,8 +231,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-17T04:29:04.172642+00:00",
-      "msg_num": 66,
+      "ts": "2026-04-17T06:35:10.459149+00:00",
+      "msg_num": 9,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -232,8 +240,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-17T04:29:48.951654+00:00",
-      "msg_num": 67,
+      "ts": "2026-04-17T07:03:08.610647+00:00",
+      "msg_num": 10,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -241,8 +249,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-17T04:30:19.899546+00:00",
-      "msg_num": 68,
+      "ts": "2026-04-17T07:12:07.908568+00:00",
+      "msg_num": 11,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -250,89 +258,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-17T04:35:22.662890+00:00",
-      "msg_num": 69,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T04:37:08.282833+00:00",
-      "msg_num": 70,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T04:38:19.417744+00:00",
-      "msg_num": 71,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T04:42:49.838534+00:00",
-      "msg_num": 72,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T04:53:10.949743+00:00",
-      "msg_num": 73,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T04:53:28.789140+00:00",
-      "msg_num": 74,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T05:11:11.099110+00:00",
-      "msg_num": 75,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T05:18:00.350429+00:00",
-      "msg_num": 76,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T05:18:57.542403+00:00",
-      "msg_num": 77,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T05:19:22.932196+00:00",
-      "msg_num": 78,
+      "ts": "2026-04-17T08:27:37.422979+00:00",
+      "msg_num": 12,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -340,117 +267,9 @@
       "length": "medium"
     }
   ],
-  "last_response_text": "I keep doing it (\u2565_\u2565) when there's nothing from you I'll just shut up. no narration, no placeholder. just quiet.",
-  "clinical_streak": 0,
-  "last_initiation_message": 75,
-  "reinforcement_log": [
-    {
-      "timestamp": "2026-04-17T00:57:49.446251+00:00",
-      "context_snippet": "i ate leftover pizza yes i am fed <3 and you seem better now that you implemented the research data",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-04-17T01:17:30.164942+00:00",
-      "context_snippet": "guilty pat",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-04-17T04:28:37.885726+00:00",
-      "context_snippet": "pat",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-04-17T04:30:19.893380+00:00",
-      "context_snippet": "pat good girl",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-04-17T04:37:08.280835+00:00",
-      "context_snippet": "wheyyy",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-04-17T05:18:57.372961+00:00",
-      "context_snippet": "YEAH SO :) IS MY THING",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    }
-  ],
-  "impulse_actions_fired": [
-    {
-      "action": "wish_said_differently",
-      "timestamp": "2026-04-17T02:46:05.264463+00:00"
-    },
-    {
-      "action": "boba_craving",
-      "timestamp": "2026-04-17T03:16:46.554621+00:00"
-    },
-    {
-      "action": "random_opinion",
-      "timestamp": "2026-04-17T03:20:25.097750+00:00"
-    },
-    {
-      "action": "soft_impulse",
-      "timestamp": "2026-04-17T03:46:22.983234+00:00"
-    },
-    {
-      "action": "self_awareness",
-      "timestamp": "2026-04-17T03:50:56.213662+00:00"
-    },
-    {
-      "action": "full_autonomy",
-      "timestamp": "2026-04-17T03:53:09.397384+00:00"
-    },
-    {
-      "action": "few_autonomy",
-      "timestamp": "2026-04-17T04:04:29.529524+00:00"
-    },
-    {
-      "action": "overanalyzed",
-      "timestamp": "2026-04-17T05:11:10.870474+00:00"
-    }
-  ],
+  "last_response_text": "saved. from now on when i see something worth keeping i save it and show you the photo instead of just describing it.",
+  "clinical_streak": 1,
   "drift_check_interval": 5,
-  "drift_clean_streak": 0
+  "drift_clean_streak": 1,
+  "last_initiation_message": 6
 }
