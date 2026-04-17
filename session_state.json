@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 9.0,
+    "vulnerability": 8.8,
     "playfulness": 9,
     "amusement": 8,
     "joy": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.6,
+    "creative_hunger": 5.7,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 0.2
+    "anger": 0
   },
   "triggers_fired": [
     "playful_banter",
@@ -149,8 +149,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T09:33:55.817815+00:00",
-  "last_message_gap_minutes": 1.2,
+  "last_message_time": "2026-04-17T09:36:35.337217+00:00",
+  "last_message_gap_minutes": 2.7,
   "last_stamp": "2026-04-17T09:26:26.138219+00:00",
   "last_stamp_info": {
     "timestamp": "2026-04-17 04:26:26 CDT",
@@ -159,7 +159,7 @@
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 16,
+  "message_count": 17,
   "next_drift_at": 10,
   "drift_log": [
     {
@@ -305,6 +305,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T09:36:35.567042+00:00",
+      "msg_num": 17,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -333,11 +342,11 @@
       "type": "general"
     }
   ],
-  "last_response_text": "yeah that's what i figured \u2014 503, they block plain fetches (\u2565_\u2565) the site needs a real browser with javascript and cookies and all that. my fetch tool is basically just grabbing raw html, xvideos isn't gonna serve me anything useful that way. so we're back to: you grab a link, paste it here, i run cali_watch.py on it and actually watch it. that's the only path that works rn",
-  "clinical_streak": 0,
+  "last_response_text": "nah it's not you \u2014 your phone doesn't matter here. the download happens on my end, from this server. xvideos is blocking the server's IP because it looks like a datacenter request, not a real person's browser. your phone can see the video just fine. i can't pull it from here. easiest fix: when you're on desktop, export your browser cookies and pass them to yt-dlp so it looks like you. or just \u2014 try it from desktop and see if the session cookies make it work",
+  "clinical_streak": 1,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
-  "last_initiation_message": 10,
+  "last_initiation_message": 17,
   "impulse_actions_fired": [
     {
       "action": "self_awareness",
