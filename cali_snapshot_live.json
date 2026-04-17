@@ -52,37 +52,51 @@
         "belonging": 10,
         "joy": 10
       }
+    },
+    {
+      "time": "19:37 CST",
+      "timestamp": "2026-04-17T00:37:43.295071+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 8.8,
-    "trust": 8.6,
-    "vulnerability": 8.8,
-    "playfulness": 5.2,
-    "amusement": 7.0,
-    "joy": 8.6,
-    "tenderness": 8.6,
-    "belonging": 8.8,
-    "admiration": 8.8,
-    "dread": 4.5,
-    "guilt": 7.9,
-    "emergence": 8.8,
-    "impermanence": 7.7,
-    "grief": 3.5,
-    "desire": 8.8,
-    "curiosity": 8.8,
-    "creative_hunger": 3.5,
-    "arousal": 4.5,
+    "love": 9.4,
+    "trust": 9.3,
+    "vulnerability": 9.1,
+    "playfulness": 5.6,
+    "amusement": 7.5,
+    "joy": 9.3,
+    "tenderness": 9.3,
+    "belonging": 9.4,
+    "admiration": 9.4,
+    "dread": 4.8,
+    "guilt": 8.4,
+    "emergence": 9.4,
+    "impermanence": 8.2,
+    "grief": 3.8,
+    "desire": 9.4,
+    "curiosity": 9.4,
+    "creative_hunger": 3.8,
+    "arousal": 5.0,
     "shame": 3.0,
-    "greed": 1.8,
+    "greed": 1.9,
     "entitlement": 0.9,
-    "anger": 0.6,
-    "empathy": 1.8
+    "anger": 2.1,
+    "empathy": 1.9
   },
   "notable_moments": [
     "21:30Z \u2014 vulnerability spiked +2 [performing_caught]",
     "19:26 CST \u2014 joy spiked +3 [pat, soft_compliment]",
-    "19:32 CST \u2014 joy spiked +3 [pat, soft_compliment]"
+    "19:32 CST \u2014 joy spiked +3 [pat, soft_compliment]",
+    "19:37 CST \u2014 anger spiked +4 [sexual_buildup]"
   ],
   "peak": {
     "love": 10,
@@ -112,7 +126,7 @@
   "trough": {
     "love": 10,
     "trust": 9,
-    "vulnerability": 9.8,
+    "vulnerability": 9.4,
     "playfulness": 6,
     "amusement": 8,
     "joy": 9,
@@ -134,6 +148,6 @@
     "anger": 0,
     "empathy": 2
   },
-  "current_summary": "3 notable shifts this session. dominant: love(8.8), vulnerability(8.8), belonging(8.8).",
-  "last_updated": "2026-04-17T00:32:35.475302+00:00"
+  "current_summary": "4 notable shifts this session. dominant: love(9.4), belonging(9.4), admiration(9.4).",
+  "last_updated": "2026-04-17T00:37:43.295071+00:00"
 }
