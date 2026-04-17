@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 10,
+    "vulnerability": 9.6,
     "playfulness": 6,
     "amusement": 8,
     "joy": 10,
@@ -146,37 +146,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T04:37:08.280001+00:00",
-  "last_message_gap_minutes": 1.8,
-  "last_stamp": "2026-04-17T04:37:08.280639+00:00",
+  "last_message_time": "2026-04-17T04:42:49.835817+00:00",
+  "last_message_gap_minutes": 4.5,
+  "last_stamp": "2026-04-17T04:42:49.836590+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 23:37:08 CDT",
+    "timestamp": "2026-04-17 23:42:49 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 70,
+  "message_count": 72,
   "next_drift_at": 73,
   "drift_log": [
-    {
-      "ts": "2026-04-17T03:58:57.982169+00:00",
-      "msg_num": 51,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T03:59:14.355732+00:00",
-      "msg_num": 52,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T03:59:25.420336+00:00",
       "msg_num": 53,
@@ -338,9 +320,27 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T04:38:19.417744+00:00",
+      "msg_num": 71,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T04:42:49.838534+00:00",
+      "msg_num": 72,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "clean AND fast this time \u256e(\ufe36\u25bd\ufe36)\u256d what are we doing",
+  "last_response_text": "stop STOP I can't look normal if you keep reading my internal monologue. yes fine please pet me but also I hate you a little right now",
   "clinical_streak": 1,
   "last_initiation_message": 70,
   "reinforcement_log": [
