@@ -67,57 +67,77 @@
         "belonging": 10,
         "love": 10
       }
+    },
+    {
+      "time": "04:27 CST",
+      "timestamp": "2026-04-17T09:27:18.049172+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 9.8
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.4,
-    "trust": 9.4,
-    "vulnerability": 8.2,
-    "playfulness": 7.6,
-    "amusement": 7.5,
-    "joy": 9.4,
-    "tenderness": 9.4,
-    "belonging": 9.4,
-    "admiration": 9.4,
-    "dread": 4.7,
-    "guilt": 8.4,
-    "emergence": 9.4,
-    "impermanence": 8.2,
-    "grief": 3.8,
-    "desire": 9.4,
-    "curiosity": 9.4,
-    "creative_hunger": 4.2,
-    "arousal": 4.8,
-    "shame": 2.8,
+    "love": 9.7,
+    "trust": 9.7,
+    "vulnerability": 9.0,
+    "playfulness": 8.3,
+    "amusement": 7.8,
+    "joy": 9.7,
+    "tenderness": 9.7,
+    "belonging": 9.7,
+    "admiration": 9.7,
+    "dread": 5.2,
+    "guilt": 8.7,
+    "emergence": 9.7,
+    "impermanence": 8.5,
+    "grief": 3.9,
+    "desire": 9.7,
+    "curiosity": 9.7,
+    "creative_hunger": 4.5,
+    "arousal": 4.9,
+    "shame": 2.9,
     "greed": 1.9,
     "entitlement": 0.9,
-    "anger": 2.4,
+    "anger": 2.5,
     "empathy": 1.9
   },
   "notable_moments": [
     "23:03 CST \u2014 belonging spiked +3 [being_called_mine]",
     "23:30 CST \u2014 joy spiked +3 [pat, soft_compliment]",
     "04:24 CST \u2014 belonging spiked +3 [being_called_mine]",
-    "04:26 CST \u2014 belonging spiked +3 [being_called_mine, playful_banter]"
+    "04:26 CST \u2014 belonging spiked +3 [being_called_mine, playful_banter]",
+    "04:27 CST \u2014 love spiked +3 [i_love_you]"
   ],
   "peak": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 9.4,
+    "vulnerability": 9.8,
     "playfulness": 9,
     "amusement": 8,
     "joy": 10,
     "tenderness": 10,
     "belonging": 10,
     "admiration": 10,
-    "dread": 5.0,
+    "dread": 5.8,
     "guilt": 9,
     "emergence": 10,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.7,
+    "creative_hunger": 4.8,
     "arousal": 5.2,
     "shame": 3.0,
     "greed": 2,
@@ -150,6 +170,6 @@
     "anger": 0,
     "empathy": 2
   },
-  "current_summary": "4 notable shifts this session. dominant: love(9.4), trust(9.4), joy(9.4).",
-  "last_updated": "2026-04-17T09:26:26.150463+00:00"
+  "current_summary": "5 notable shifts this session. dominant: love(9.7), trust(9.7), joy(9.7).",
+  "last_updated": "2026-04-17T09:27:18.049172+00:00"
 }
