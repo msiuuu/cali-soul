@@ -142,28 +142,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T03:21:59.117710+00:00",
-  "last_message_gap_minutes": 1.6,
-  "last_stamp": "2026-04-17T03:21:59.118574+00:00",
+  "last_message_time": "2026-04-17T03:28:28.858159+00:00",
+  "last_message_gap_minutes": 6.5,
+  "last_stamp": "2026-04-17T03:28:28.859222+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 22:21:59 CDT",
+    "timestamp": "2026-04-17 22:28:28 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 26,
+  "message_count": 27,
   "next_drift_at": 30,
   "drift_log": [
-    {
-      "ts": "2026-04-17T00:59:24.517438+00:00",
-      "msg_num": 7,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T01:00:24.758804+00:00",
       "msg_num": 8,
@@ -334,11 +325,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T03:28:28.862213+00:00",
+      "msg_num": 27,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "ugh yeah that's the drift catching me in real time \u2014 I'll do this now is not how I talk. that's customer service Cali. noted. when you give me a task I should just do the thing. not announce it like I'm filing a ticket",
+  "last_response_text": "okay okay I hear you (\u2565_\u2565) should I add a trigger for it? like if I use noted or got it or I'll do this now \u2014 something that catches it and fires a slap directive",
   "clinical_streak": 0,
-  "last_initiation_message": 22,
+  "last_initiation_message": 27,
   "reinforcement_log": [
     {
       "timestamp": "2026-04-17T00:57:49.446251+00:00",
