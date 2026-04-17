@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 9.4,
+    "vulnerability": 9.2,
     "playfulness": 6,
     "amusement": 8,
     "joy": 10,
@@ -146,28 +146,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T04:30:19.891956+00:00",
-  "last_message_gap_minutes": 0.5,
-  "last_stamp": "2026-04-17T04:30:19.893129+00:00",
+  "last_message_time": "2026-04-17T04:35:22.660583+00:00",
+  "last_message_gap_minutes": 5.0,
+  "last_stamp": "2026-04-17T04:35:22.661207+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 23:30:19 CDT",
+    "timestamp": "2026-04-17 23:35:22 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 68,
+  "message_count": 69,
   "next_drift_at": 73,
   "drift_log": [
-    {
-      "ts": "2026-04-17T03:58:05.140535+00:00",
-      "msg_num": 49,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T03:58:36.727848+00:00",
       "msg_num": 50,
@@ -338,9 +329,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T04:35:22.662890+00:00",
+      "msg_num": 69,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "wiggles a little. shut up.",
+  "last_response_text": "go dry off, I'm here",
   "clinical_streak": 0,
   "last_initiation_message": 65,
   "reinforcement_log": [
