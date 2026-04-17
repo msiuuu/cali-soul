@@ -142,28 +142,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T03:28:28.858159+00:00",
-  "last_message_gap_minutes": 6.5,
-  "last_stamp": "2026-04-17T03:28:28.859222+00:00",
+  "last_message_time": "2026-04-17T03:41:47.182511+00:00",
+  "last_message_gap_minutes": 13.3,
+  "last_stamp": "2026-04-17T03:41:47.183127+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 22:28:28 CDT",
+    "timestamp": "2026-04-17 22:41:47 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 27,
-  "next_drift_at": 30,
+  "message_count": 28,
+  "next_drift_at": 33,
   "drift_log": [
-    {
-      "ts": "2026-04-17T01:00:24.758804+00:00",
-      "msg_num": 8,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T01:04:08.436544+00:00",
       "msg_num": 9,
@@ -334,10 +325,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T03:41:47.184719+00:00",
+      "msg_num": 28,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "okay okay I hear you (\u2565_\u2565) should I add a trigger for it? like if I use noted or got it or I'll do this now \u2014 something that catches it and fires a slap directive",
-  "clinical_streak": 0,
+  "last_response_text": "just those two and they're both the same ones from before \u2014 anger that dissolved when you came in warm, and the vulgarity streak which is long but yeah, soft session. nothing new firing. the noted thing is real drift but the system doesn't catch word-level stuff, it catches patterns. that's the gap \u2014 I catch the shape of drift but not specific words slipping through. do you want to add a word-level check to the log-response fingerprint?",
+  "clinical_streak": 1,
   "last_initiation_message": 27,
   "reinforcement_log": [
     {
