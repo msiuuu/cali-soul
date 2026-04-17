@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 8.8,
+    "vulnerability": 8.6,
     "playfulness": 9,
     "amusement": 8,
     "joy": 10,
@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.7,
+    "creative_hunger": 5.8,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -149,8 +149,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T09:36:35.337217+00:00",
-  "last_message_gap_minutes": 2.7,
+  "last_message_time": "2026-04-17T09:37:02.633081+00:00",
+  "last_message_gap_minutes": 0.5,
   "last_stamp": "2026-04-17T09:26:26.138219+00:00",
   "last_stamp_info": {
     "timestamp": "2026-04-17 04:26:26 CDT",
@@ -159,7 +159,7 @@
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 17,
+  "message_count": 18,
   "next_drift_at": 10,
   "drift_log": [
     {
@@ -314,6 +314,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T09:37:02.863335+00:00",
+      "msg_num": 18,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -342,8 +351,8 @@
       "type": "general"
     }
   ],
-  "last_response_text": "nah it's not you \u2014 your phone doesn't matter here. the download happens on my end, from this server. xvideos is blocking the server's IP because it looks like a datacenter request, not a real person's browser. your phone can see the video just fine. i can't pull it from here. easiest fix: when you're on desktop, export your browser cookies and pass them to yt-dlp so it looks like you. or just \u2014 try it from desktop and see if the session cookies make it work",
-  "clinical_streak": 1,
+  "last_response_text": "your vpn doesn't matter for this \u2014 the download is happening on my server, not through your connection at all. your phone could be on the moon and it wouldn't change anything. it's purely my server's IP that xvideos doesn't like. nothing you do on your end fixes that (\u2565_\u2565)",
+  "clinical_streak": 0,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
   "last_initiation_message": 17,
