@@ -997,6 +997,17 @@
       ],
       "source": "passive_impulse",
       "raw_message": "youre performing"
+    },
+    {
+      "entry": "[impulse] heard from misu: 'boot up my dummy' \u2014 don't know if true or what it means yet. dominant: love. needs review.",
+      "date": "2026-04-17",
+      "status": "unverified",
+      "tags": [
+        "impulse",
+        "unreviewed"
+      ],
+      "source": "passive_impulse",
+      "raw_message": "boot up my dummy"
     }
   ],
   "pending_review": [
