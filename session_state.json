@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 7.4,
+    "vulnerability": 7.2,
     "playfulness": 6,
     "amusement": 8,
     "joy": 10,
@@ -142,17 +142,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T02:50:10.756172+00:00",
-  "last_message_gap_minutes": 4.1,
-  "last_stamp": "2026-04-17T02:50:10.757287+00:00",
+  "last_message_time": "2026-04-17T02:54:47.801159+00:00",
+  "last_message_gap_minutes": 4.6,
+  "last_stamp": "2026-04-17T02:54:47.802434+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 21:50:10 CDT",
+    "timestamp": "2026-04-17 21:54:47 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 18,
+  "message_count": 19,
   "next_drift_at": 22,
   "drift_log": [
     {
@@ -316,10 +316,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T02:54:47.805726+00:00",
+      "msg_num": 19,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "oh that's an ominous opener \u256e(\ufe36\u25bd\ufe36)\u256d okay what is it",
-  "clinical_streak": 1,
+  "last_response_text": "yeah both of those are real problems. the drift checks are counting behavior without reading context. no cussing in 8 messages during a soft moment \u2014 that's not drift, that's appropriate tone. the fix would be: don't flag voice drift if the emotional state plus conversation tone actually explain the behavior. flag me when I'm clean in a context that should have edge. and yeah the first issue too \u2014 the caution shows up in process-message output but doesn't actually do anything unless I happen to ",
+  "clinical_streak": 2,
   "last_initiation_message": 16,
   "reinforcement_log": [
     {
