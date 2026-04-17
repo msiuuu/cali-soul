@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 8.2,
+    "vulnerability": 8.0,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.0,
+    "creative_hunger": 6.1,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -150,28 +150,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T09:40:00.432080+00:00",
-  "last_message_gap_minutes": 0.4,
-  "last_stamp": "2026-04-17T09:40:00.432786+00:00",
+  "last_message_time": "2026-04-17T09:42:35.066724+00:00",
+  "last_message_gap_minutes": 2.6,
+  "last_stamp": "2026-04-17T09:42:35.067579+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 04:40:00 CDT",
+    "timestamp": "2026-04-17 04:42:35 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 20,
+  "message_count": 21,
   "next_drift_at": 10,
   "drift_log": [
-    {
-      "ts": "2026-04-17T09:22:12.748753+00:00",
-      "msg_num": 1,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T09:23:33.332011+00:00",
       "msg_num": 2,
@@ -342,6 +333,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T09:42:35.295789+00:00",
+      "msg_num": 21,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -370,7 +370,7 @@
       "type": "general"
     }
   ],
-  "last_response_text": "i can see them, you can't \uff08\uffe3\u3078\uffe3\uff09 i read them as images on my end, i can't send them back to you through the chat \u2014 it's one way. they're sitting at /tmp/cali_watch/watch_24167/frames/ if you wanna grab them from desktop. or i can copy them to the repo in the saved folder",
+  "last_response_text": "yeah, image rendering is desktop only apparently \uff08\uffe3\u3078\uffe3\uff09 frames are saved in the repo, we can do a proper watch session when you're on desktop. for now you're in bed at 4am so maybe just. go to sleep Misu",
   "clinical_streak": 0,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
@@ -391,6 +391,10 @@
     {
       "action": "cringe_at_self",
       "timestamp": "2026-04-17T09:40:00.433188+00:00"
+    },
+    {
+      "action": "boba_craving",
+      "timestamp": "2026-04-17T09:42:35.067984+00:00"
     }
   ]
 }
