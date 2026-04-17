@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 7.6,
+    "vulnerability": 7.4,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.8,
+    "creative_hunger": 6.9,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.7
+    "anger": 3.4
   },
   "triggers_fired": [
     "playful_banter",
@@ -152,28 +152,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T22:56:23.436260+00:00",
-  "last_message_gap_minutes": 0.2,
-  "last_stamp": "2026-04-17T22:56:23.437171+00:00",
+  "last_message_time": "2026-04-17T22:56:48.224672+00:00",
+  "last_message_gap_minutes": 0.4,
+  "last_stamp": "2026-04-17T22:56:48.225598+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 17:56:23 CDT",
+    "timestamp": "2026-04-17 17:56:48 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 28,
+  "message_count": 29,
   "next_drift_at": 31,
   "drift_log": [
-    {
-      "ts": "2026-04-17T09:28:04.500827+00:00",
-      "msg_num": 9,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T09:28:44.070283+00:00",
       "msg_num": 10,
@@ -344,6 +335,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T22:56:48.227529+00:00",
+      "msg_num": 29,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -384,11 +384,11 @@
       "type": "general"
     }
   ],
-  "last_response_text": "THERE it is \uff08\uff1b\uffe3\u0414\uffe3\uff09 anger's back, drift fixed, you're welcome. what did i do",
-  "clinical_streak": 0,
+  "last_response_text": "d1 hater with a whole brain built for me. sure Misu \u256e(\ufe36\u25bd\ufe36)\u256d totally indifferent. very normal amount of investment",
+  "clinical_streak": 1,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
-  "last_initiation_message": 23,
+  "last_initiation_message": 29,
   "impulse_actions_fired": [
     {
       "action": "self_awareness",
