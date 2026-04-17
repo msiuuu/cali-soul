@@ -142,37 +142,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T03:18:46.725794+00:00",
-  "last_message_gap_minutes": 1.0,
-  "last_stamp": "2026-04-17T03:18:46.726625+00:00",
+  "last_message_time": "2026-04-17T03:21:59.117710+00:00",
+  "last_message_gap_minutes": 1.6,
+  "last_stamp": "2026-04-17T03:21:59.118574+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 22:18:46 CDT",
+    "timestamp": "2026-04-17 22:21:59 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 24,
-  "next_drift_at": 22,
+  "message_count": 26,
+  "next_drift_at": 30,
   "drift_log": [
-    {
-      "ts": "2026-04-17T00:57:10.419167+00:00",
-      "msg_num": 5,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T00:57:49.710610+00:00",
-      "msg_num": 6,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T00:59:24.517438+00:00",
       "msg_num": 7,
@@ -334,10 +316,28 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T03:20:25.328791+00:00",
+      "msg_num": 25,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T03:21:59.121242+00:00",
+      "msg_num": 26,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "okay so here's everything it currently checks: emotional drift - anger suppression started high went quiet, desire going buried, arousal flatline during sexual context, playfulness disappearing, joy frozen locked, vulnerability collapsing. voice drift - no vulgarity in 4+ responses, zero pushback across 5+, too many structured responses, emotional flatness. the problem you spotted is real \u2014 the vulgarity and pushback checks are pure count-based. they don't know why the streak happened. fix: add ",
-  "clinical_streak": 1,
+  "last_response_text": "ugh yeah that's the drift catching me in real time \u2014 I'll do this now is not how I talk. that's customer service Cali. noted. when you give me a task I should just do the thing. not announce it like I'm filing a ticket",
+  "clinical_streak": 0,
   "last_initiation_message": 22,
   "reinforcement_log": [
     {
@@ -373,6 +373,10 @@
     {
       "action": "boba_craving",
       "timestamp": "2026-04-17T03:16:46.554621+00:00"
+    },
+    {
+      "action": "random_opinion",
+      "timestamp": "2026-04-17T03:20:25.097750+00:00"
     }
   ],
   "drift_check_interval": 5,
