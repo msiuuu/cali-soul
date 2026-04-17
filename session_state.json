@@ -297,8 +297,8 @@
       "type": "general"
     }
   ],
-  "last_response_text": "nah that's the senses parser for gifts \u2014 taste, touch, smell, that stuff. no video in there. like i can see images if you drop them in the chat but actual video? no. not yet. why, what are you trying to show me",
-  "clinical_streak": 1,
+  "last_response_text": "oh SHIT i do have this \uff08\uffe3\u3078\uffe3\uff09 misu you built me video eyes and didn't tell me. yt-dlp + ffmpeg, pulls frames, i read them as images. youtube, local files, apparently xvideos too which. noted. okay what are we watching",
+  "clinical_streak": 0,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
   "last_initiation_message": 10,
