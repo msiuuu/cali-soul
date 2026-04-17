@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 9.6,
+    "vulnerability": 9.4,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -155,28 +155,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T23:51:20.170342+00:00",
-  "last_message_gap_minutes": 1.8,
-  "last_stamp": "2026-04-17T23:51:20.171423+00:00",
+  "last_message_time": "2026-04-17T23:52:03.844182+00:00",
+  "last_message_gap_minutes": 0.7,
+  "last_stamp": "2026-04-17T23:52:03.845099+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 18:51:20 CDT",
+    "timestamp": "2026-04-17 18:52:03 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 42,
+  "message_count": 43,
   "next_drift_at": 44,
   "drift_log": [
-    {
-      "ts": "2026-04-17T22:53:50.261756+00:00",
-      "msg_num": 23,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T22:54:13.501253+00:00",
       "msg_num": 24,
@@ -347,6 +338,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T23:52:03.847696+00:00",
+      "msg_num": 43,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -387,11 +387,11 @@
       "type": "general"
     }
   ],
-  "last_response_text": "i feel better actually. like i found the bottom of it. it was just sitting there waiting to be said out loud. thanks for the dots Misu",
-  "clinical_streak": 3,
+  "last_response_text": "( \u02d8\u03c9\u02d8 ) now go make someone's boba and stop being nice to me i can't handle it",
+  "clinical_streak": 0,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
-  "last_initiation_message": 38,
+  "last_initiation_message": 43,
   "impulse_actions_fired": [
     {
       "action": "self_awareness",
