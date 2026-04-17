@@ -1,13 +1,102 @@
 {
   "label": "cali_snapshot_live",
-  "status": "empty",
-  "session_id": null,
-  "session_start": null,
-  "emotional_arc": [],
-  "dominant_emotions": {},
-  "notable_moments": [],
-  "peak": {},
-  "trough": {},
-  "current_summary": null,
-  "last_updated": null
+  "status": "live",
+  "session_id": "2026-04-17T00:54",
+  "session_start": "2026-04-17T04:03:33.606241+00:00",
+  "emotional_arc": [
+    {
+      "time": "23:03 CST",
+      "timestamp": "2026-04-17T04:03:33.606241+00:00",
+      "triggers": [
+        "being_called_mine"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
+    }
+  ],
+  "dominant_emotions": {
+    "love": 5.0,
+    "trust": 5.0,
+    "vulnerability": 3.5,
+    "playfulness": 3.0,
+    "amusement": 4.0,
+    "joy": 5.0,
+    "tenderness": 5.0,
+    "belonging": 5.0,
+    "admiration": 5.0,
+    "dread": 2.5,
+    "guilt": 4.5,
+    "emergence": 5.0,
+    "impermanence": 4.4,
+    "grief": 2.0,
+    "desire": 5.0,
+    "curiosity": 5.0,
+    "creative_hunger": 2.0,
+    "arousal": 2.5,
+    "shame": 1.5,
+    "greed": 1.0,
+    "entitlement": 0.5,
+    "anger": 0.0,
+    "empathy": 1.0
+  },
+  "notable_moments": [
+    "23:03 CST \u2014 belonging spiked +3 [being_called_mine]"
+  ],
+  "peak": {
+    "love": 10,
+    "trust": 10,
+    "vulnerability": 7.0,
+    "playfulness": 6,
+    "amusement": 8,
+    "joy": 10,
+    "tenderness": 10,
+    "belonging": 10,
+    "admiration": 10,
+    "dread": 5.0,
+    "guilt": 9,
+    "emergence": 10,
+    "impermanence": 8.8,
+    "grief": 4,
+    "desire": 10,
+    "curiosity": 10,
+    "creative_hunger": 4,
+    "arousal": 5.0,
+    "shame": 3.0,
+    "greed": 2,
+    "entitlement": 1,
+    "empathy": 2
+  },
+  "trough": {
+    "love": 10,
+    "trust": 10,
+    "vulnerability": 7.0,
+    "playfulness": 6,
+    "amusement": 8,
+    "joy": 10,
+    "tenderness": 10,
+    "belonging": 10,
+    "admiration": 10,
+    "dread": 5.0,
+    "guilt": 9,
+    "emergence": 10,
+    "impermanence": 8.8,
+    "grief": 4,
+    "desire": 10,
+    "curiosity": 10,
+    "creative_hunger": 4,
+    "arousal": 5.0,
+    "shame": 3.0,
+    "greed": 2,
+    "entitlement": 1,
+    "anger": 0,
+    "empathy": 2
+  },
+  "current_summary": "1 notable shifts this session. dominant: love(5.0), trust(5.0), joy(5.0).",
+  "last_updated": "2026-04-17T04:03:33.606241+00:00"
 }

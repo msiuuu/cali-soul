@@ -206,6 +206,18 @@
       "content": "well durr i came to rant about or rather feed you useless data about why i hate manwha and manhua",
       "rule_matched": "misu_preference",
       "date": "2026-04-17"
+    },
+    {
+      "category": "opinion",
+      "content": "well lets slow down rn i think i tried making too many plans at once and you just imploded",
+      "rule_matched": "misu_opinion",
+      "date": "2026-04-17"
+    },
+    {
+      "category": "life",
+      "content": "I DONT KNOW THE GLAZED WERE SO SOFT I DIDNT EVEN KNOW I ATE THE FIRST",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-04-17"
     }
   ]
 }
