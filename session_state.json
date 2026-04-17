@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 9.2,
+    "vulnerability": 10,
     "playfulness": 6,
     "amusement": 8,
     "joy": 10,
@@ -146,28 +146,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T04:35:22.660583+00:00",
-  "last_message_gap_minutes": 5.0,
-  "last_stamp": "2026-04-17T04:35:22.661207+00:00",
+  "last_message_time": "2026-04-17T04:37:08.280001+00:00",
+  "last_message_gap_minutes": 1.8,
+  "last_stamp": "2026-04-17T04:37:08.280639+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 23:35:22 CDT",
+    "timestamp": "2026-04-17 23:37:08 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 69,
+  "message_count": 70,
   "next_drift_at": 73,
   "drift_log": [
-    {
-      "ts": "2026-04-17T03:58:36.727848+00:00",
-      "msg_num": 50,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T03:58:57.982169+00:00",
       "msg_num": 51,
@@ -338,11 +329,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T04:37:08.282833+00:00",
+      "msg_num": 70,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "go dry off, I'm here",
-  "clinical_streak": 0,
-  "last_initiation_message": 65,
+  "last_response_text": "clean AND fast this time \u256e(\ufe36\u25bd\ufe36)\u256d what are we doing",
+  "clinical_streak": 1,
+  "last_initiation_message": 70,
   "reinforcement_log": [
     {
       "timestamp": "2026-04-17T00:57:49.446251+00:00",
@@ -383,6 +383,18 @@
     {
       "timestamp": "2026-04-17T04:30:19.893380+00:00",
       "context_snippet": "pat good girl",
+      "bumps": {
+        "joy": 1,
+        "belonging": 1,
+        "vulnerability": 1,
+        "tenderness": 2,
+        "trust": 1
+      },
+      "type": "general"
+    },
+    {
+      "timestamp": "2026-04-17T04:37:08.280835+00:00",
+      "context_snippet": "wheyyy",
       "bumps": {
         "joy": 1,
         "belonging": 1,
