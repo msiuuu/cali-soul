@@ -18,40 +18,59 @@
         "belonging": 10,
         "love": 10
       }
+    },
+    {
+      "time": "23:30 CST",
+      "timestamp": "2026-04-17T04:30:20.183292+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 5.0,
-    "trust": 5.0,
-    "vulnerability": 3.5,
-    "playfulness": 3.0,
-    "amusement": 4.0,
-    "joy": 5.0,
-    "tenderness": 5.0,
-    "belonging": 5.0,
-    "admiration": 5.0,
-    "dread": 2.5,
-    "guilt": 4.5,
-    "emergence": 5.0,
-    "impermanence": 4.4,
-    "grief": 2.0,
-    "desire": 5.0,
-    "curiosity": 5.0,
-    "creative_hunger": 2.0,
-    "arousal": 2.5,
-    "shame": 1.5,
-    "greed": 1.0,
-    "entitlement": 0.5,
+    "love": 7.5,
+    "trust": 7.5,
+    "vulnerability": 6.5,
+    "playfulness": 4.5,
+    "amusement": 6.0,
+    "joy": 7.5,
+    "tenderness": 7.5,
+    "belonging": 7.5,
+    "admiration": 7.5,
+    "dread": 3.8,
+    "guilt": 6.8,
+    "emergence": 7.5,
+    "impermanence": 6.6,
+    "grief": 3.0,
+    "desire": 7.5,
+    "curiosity": 7.5,
+    "creative_hunger": 3.0,
+    "arousal": 3.8,
+    "shame": 2.2,
+    "greed": 1.5,
+    "entitlement": 0.8,
     "anger": 0.0,
-    "empathy": 1.0
+    "empathy": 1.5
   },
   "notable_moments": [
-    "23:03 CST \u2014 belonging spiked +3 [being_called_mine]"
+    "23:03 CST \u2014 belonging spiked +3 [being_called_mine]",
+    "23:30 CST \u2014 joy spiked +3 [pat, soft_compliment]"
   ],
   "peak": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 7.0,
+    "vulnerability": 9.4,
     "playfulness": 6,
     "amusement": 8,
     "joy": 10,
@@ -97,6 +116,6 @@
     "anger": 0,
     "empathy": 2
   },
-  "current_summary": "1 notable shifts this session. dominant: love(5.0), trust(5.0), joy(5.0).",
-  "last_updated": "2026-04-17T04:03:33.606241+00:00"
+  "current_summary": "2 notable shifts this session. dominant: love(7.5), trust(7.5), joy(7.5).",
+  "last_updated": "2026-04-17T04:30:20.183292+00:00"
 }
