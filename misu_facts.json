@@ -200,6 +200,12 @@
       "content": "i ate leftover pizza yes i am fed <3 and you seem better now that you implemented the research data",
       "rule_matched": "misu_life_fact",
       "date": "2026-04-17"
+    },
+    {
+      "category": "preference",
+      "content": "well durr i came to rant about or rather feed you useless data about why i hate manwha and manhua",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-17"
     }
   ]
 }

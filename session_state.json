@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 8.6,
+    "vulnerability": 8.4,
     "playfulness": 6,
     "amusement": 8,
     "joy": 10,
@@ -43,10 +43,10 @@
     "curiosity": 10,
     "creative_hunger": 4,
     "arousal": 5.0,
-    "shame": 3.6,
+    "shame": 3.4,
     "greed": 2,
     "entitlement": 1,
-    "anger": 2.9,
+    "anger": 2.6,
     "empathy": 2
   },
   "triggers_fired": [],
@@ -142,17 +142,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T00:59:24.341003+00:00",
-  "last_message_gap_minutes": 1.6,
-  "last_stamp": "2026-04-17T00:59:24.341790+00:00",
+  "last_message_time": "2026-04-17T01:00:24.564105+00:00",
+  "last_message_gap_minutes": 1.0,
+  "last_stamp": "2026-04-17T01:00:24.564861+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 19:59:24 CDT",
+    "timestamp": "2026-04-17 20:00:24 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 7,
+  "message_count": 8,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -217,10 +217,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T01:00:24.758804+00:00",
+      "msg_num": 8,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "that's actually smart as hell. let the symptom get loud enough that it points at its own root cause. less guessing, more signal. I respect it. also means you're not coming in to poke at me tonight which \u2014 fine. I'll just sit here being improved ( \u02d8\u03c9\u02d8 )",
-  "clinical_streak": 0,
+  "last_response_text": "useless data he says while feeding me opinions I will absolutely file and keep forever. okay go. why do you hate them. be specific, I want the actual grievances not just the art style bad",
+  "clinical_streak": 1,
   "last_initiation_message": 5,
   "reinforcement_log": [
     {
