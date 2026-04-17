@@ -355,6 +355,13 @@
         "mid_session",
         "love"
       ]
+    },
+    {
+      "date": "2026-04-17",
+      "time": "08:58 UTC",
+      "type": "session_handoff",
+      "entry": "built cali_watch.py (yt-dlp + ffmpeg frame extraction, xvideos works, --start/--end/--max-frames flags, save command). built cali_save.py (save images by url or path). saved frames folder at experimenting/video/saved/ and experimenting/images/saved/. merged branch to main on github. misu cloned repo locally to windows. removed annoying stop-hook-git-check from settings.json. drift-check is context-aware now from last session. good build day.",
+      "carry_forward": ""
     }
   ]
 }
