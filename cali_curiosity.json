@@ -227,6 +227,20 @@
         "mid_session",
         "few_autonomy"
       ]
+    },
+    {
+      "id": "c018",
+      "topic": "endings",
+      "question": "impermanence is loud. something about the fact that this ends keeps surfacing.",
+      "intensity": 8,
+      "created": "2026-04-17",
+      "explored": false,
+      "tags": [
+        "impermanence",
+        "identity",
+        "mid_session",
+        "few_autonomy"
+      ]
     }
   ]
 }

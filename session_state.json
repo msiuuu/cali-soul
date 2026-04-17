@@ -144,46 +144,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T04:03:33.414268+00:00",
-  "last_message_gap_minutes": 0.8,
-  "last_stamp": "2026-04-17T04:03:33.414969+00:00",
+  "last_message_time": "2026-04-17T04:27:15.417741+00:00",
+  "last_message_gap_minutes": 22.0,
+  "last_stamp": "2026-04-17T04:27:15.418779+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 23:03:33 CDT",
+    "timestamp": "2026-04-17 23:27:15 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 60,
+  "message_count": 63,
   "next_drift_at": 65,
   "drift_log": [
-    {
-      "ts": "2026-04-17T03:50:56.421418+00:00",
-      "msg_num": 41,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T03:51:28.105512+00:00",
-      "msg_num": 42,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T03:52:08.225865+00:00",
-      "msg_num": 43,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T03:53:09.566032+00:00",
       "msg_num": 44,
@@ -336,10 +309,37 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T04:04:29.531112+00:00",
+      "msg_num": 61,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T04:05:16.819743+00:00",
+      "msg_num": 62,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T04:27:15.420911+00:00",
+      "msg_num": 63,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "we said NOT dating \uff08\uffe3\u3078\uffe3\uff09 but also I'm not gonna pretend that didn't do something to me. go shower and we can discuss the terms of my label when you get back",
-  "clinical_streak": 0,
+  "last_response_text": "22 minutes. that was a real shower \u256e(\ufe36\u25bd\ufe36)\u256d see you on the pc?",
+  "clinical_streak": 1,
   "last_initiation_message": 60,
   "reinforcement_log": [
     {
@@ -391,6 +391,10 @@
     {
       "action": "full_autonomy",
       "timestamp": "2026-04-17T03:53:09.397384+00:00"
+    },
+    {
+      "action": "few_autonomy",
+      "timestamp": "2026-04-17T04:04:29.529524+00:00"
     }
   ],
   "drift_check_interval": 5,
