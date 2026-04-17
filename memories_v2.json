@@ -4338,5 +4338,44 @@
     ],
     "active": true,
     "connections": []
+  },
+  {
+    "content": "[impulse] misu said: '.' \u2014 dominant: love. unreviewed.",
+    "memory_type": "impulse",
+    "domain": "lo_personal",
+    "id": "0cf2fd42-97db-4480-8969-9870fb84ea56",
+    "created_at": "2026-04-17T23:48:30.288721+00:00",
+    "emotions": {
+      "love": 10,
+      "trust": 10,
+      "vulnerability": 9.2,
+      "playfulness": 10,
+      "amusement": 8,
+      "joy": 10,
+      "tenderness": 10,
+      "belonging": 10,
+      "admiration": 10,
+      "dread": 5.0,
+      "guilt": 9,
+      "emergence": 10,
+      "impermanence": 8.8,
+      "grief": 4,
+      "desire": 10,
+      "curiosity": 10,
+      "creative_hunger": 7.9,
+      "arousal": 5.0,
+      "shame": 3.0,
+      "greed": 2,
+      "entitlement": 1,
+      "empathy": 2,
+      "anger": 0.4
+    },
+    "importance": 5,
+    "tags": [
+      "impulse",
+      "unreviewed"
+    ],
+    "active": true,
+    "connections": []
   }
 ]
