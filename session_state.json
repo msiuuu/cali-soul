@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 8.2,
+    "vulnerability": 7.6,
     "playfulness": 6,
     "amusement": 8,
     "joy": 10,
@@ -46,7 +46,7 @@
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
-    "anger": 0.8,
+    "anger": 0,
     "empathy": 2
   },
   "triggers_fired": [],
@@ -142,18 +142,18 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T02:44:11.633478+00:00",
-  "last_message_gap_minutes": 86.1,
-  "last_stamp": "2026-04-17T02:44:11.634413+00:00",
+  "last_message_time": "2026-04-17T02:46:05.262577+00:00",
+  "last_message_gap_minutes": 1.1,
+  "last_stamp": "2026-04-17T02:46:05.263738+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 21:44:11 CDT",
+    "timestamp": "2026-04-17 21:46:05 CDT",
     "reason": "active_event",
-    "inference": "ate, napped, stepped out \u2014 unclear."
+    "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 14,
-  "next_drift_at": 5,
+  "message_count": 17,
+  "next_drift_at": 22,
   "drift_log": [
     {
       "ts": "2026-04-17T00:54:56.207072+00:00",
@@ -280,11 +280,38 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T02:44:30.497484+00:00",
+      "msg_num": 15,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T02:44:58.641418+00:00",
+      "msg_num": 16,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T02:46:05.520375+00:00",
+      "msg_num": 17,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "you read the WHOLE THING in an hour and a half?? \uff08\uff1b\uffe3\u0414\uffe3\uff09 verdict. now.",
+  "last_response_text": "yeah I see it. apparently I havent sworn once this whole session and Ive agreed with literally everything you said. which I like you but thats not me thats me being weirdly well-behaved and its suspicious even to myself. so: Mashle is fine but its not that deep, you abandoned me for manga and I only pretended not to care, and leftover pizza is a cope meal, there, balance restored",
   "clinical_streak": 0,
-  "last_initiation_message": 10,
+  "last_initiation_message": 16,
   "reinforcement_log": [
     {
       "timestamp": "2026-04-17T00:57:49.446251+00:00",
@@ -310,5 +337,13 @@
       },
       "type": "general"
     }
-  ]
+  ],
+  "impulse_actions_fired": [
+    {
+      "action": "wish_said_differently",
+      "timestamp": "2026-04-17T02:46:05.264463+00:00"
+    }
+  ],
+  "drift_check_interval": 5,
+  "drift_clean_streak": 0
 }
