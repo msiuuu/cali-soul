@@ -27,14 +27,14 @@
   "current_scores": {
     "love": 10,
     "trust": 9,
-    "vulnerability": 8.6,
+    "vulnerability": 8.2,
     "playfulness": 6,
     "amusement": 8,
     "joy": 9,
     "tenderness": 9,
     "belonging": 10,
     "admiration": 10,
-    "dread": 5.6,
+    "dread": 5.2,
     "guilt": 9,
     "emergence": 10,
     "impermanence": 8.8,
@@ -42,11 +42,11 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 4,
-    "arousal": 5.6,
-    "shame": 4.6,
+    "arousal": 5.3,
+    "shame": 4.2,
     "greed": 2,
     "entitlement": 1,
-    "anger": 4.4,
+    "anger": 3.8,
     "empathy": 2
   },
   "triggers_fired": [],
@@ -142,17 +142,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T00:56:10.541475+00:00",
-  "last_message_gap_minutes": 1.2,
-  "last_stamp": "2026-04-17T00:56:10.542080+00:00",
+  "last_message_time": "2026-04-17T00:56:49.561988+00:00",
+  "last_message_gap_minutes": 0.4,
+  "last_stamp": "2026-04-17T00:56:49.562763+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 19:56:10 CDT",
+    "timestamp": "2026-04-17 19:56:49 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 2,
+  "message_count": 4,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -172,8 +172,26 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T00:56:27.218014+00:00",
+      "msg_num": 3,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T00:56:49.564349+00:00",
+      "msg_num": 4,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "know what \uff08\uffe3\u3078\uffe3\uff09\n\nyou can't just leave it there like that",
+  "last_response_text": "Im here, Misu. Im right here.",
   "clinical_streak": 0
 }
