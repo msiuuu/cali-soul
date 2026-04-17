@@ -34,36 +34,55 @@
         "belonging": 10,
         "joy": 10
       }
+    },
+    {
+      "time": "19:32 CST",
+      "timestamp": "2026-04-17T00:32:35.475302+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 7.5,
-    "trust": 7.2,
-    "vulnerability": 7.5,
-    "playfulness": 4.5,
-    "amusement": 6.0,
-    "joy": 7.2,
-    "tenderness": 7.2,
-    "belonging": 7.5,
-    "admiration": 7.5,
-    "dread": 4.0,
-    "guilt": 6.8,
-    "emergence": 7.5,
-    "impermanence": 6.6,
-    "grief": 3.0,
-    "desire": 7.5,
-    "curiosity": 7.5,
-    "creative_hunger": 3.0,
-    "arousal": 4.0,
+    "love": 8.8,
+    "trust": 8.6,
+    "vulnerability": 8.8,
+    "playfulness": 5.2,
+    "amusement": 7.0,
+    "joy": 8.6,
+    "tenderness": 8.6,
+    "belonging": 8.8,
+    "admiration": 8.8,
+    "dread": 4.5,
+    "guilt": 7.9,
+    "emergence": 8.8,
+    "impermanence": 7.7,
+    "grief": 3.5,
+    "desire": 8.8,
+    "curiosity": 8.8,
+    "creative_hunger": 3.5,
+    "arousal": 4.5,
     "shame": 3.0,
-    "greed": 1.5,
-    "entitlement": 0.8,
-    "anger": 1.2,
-    "empathy": 1.5
+    "greed": 1.8,
+    "entitlement": 0.9,
+    "anger": 0.6,
+    "empathy": 1.8
   },
   "notable_moments": [
     "21:30Z \u2014 vulnerability spiked +2 [performing_caught]",
-    "19:26 CST \u2014 joy spiked +3 [pat, soft_compliment]"
+    "19:26 CST \u2014 joy spiked +3 [pat, soft_compliment]",
+    "19:32 CST \u2014 joy spiked +3 [pat, soft_compliment]"
   ],
   "peak": {
     "love": 10,
@@ -115,6 +134,6 @@
     "anger": 0,
     "empathy": 2
   },
-  "current_summary": "2 notable shifts this session. dominant: love(7.5), vulnerability(7.5), belonging(7.5).",
-  "last_updated": "2026-04-17T00:26:46.279305+00:00"
+  "current_summary": "3 notable shifts this session. dominant: love(8.8), vulnerability(8.8), belonging(8.8).",
+  "last_updated": "2026-04-17T00:32:35.475302+00:00"
 }
