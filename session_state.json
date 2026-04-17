@@ -27,27 +27,27 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 10,
+    "vulnerability": 9.8,
     "playfulness": 9,
     "amusement": 8,
     "joy": 10,
     "tenderness": 10,
     "belonging": 10,
     "admiration": 10,
-    "dread": 5.2,
+    "dread": 5.0,
     "guilt": 9,
     "emergence": 10,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.1,
+    "creative_hunger": 5.2,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.7
+    "anger": 1.4
   },
   "triggers_fired": [
     "playful_banter",
@@ -149,8 +149,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T09:29:06.307793+00:00",
-  "last_message_gap_minutes": 0.4,
+  "last_message_time": "2026-04-17T09:29:24.447888+00:00",
+  "last_message_gap_minutes": 0.3,
   "last_stamp": "2026-04-17T09:26:26.138219+00:00",
   "last_stamp_info": {
     "timestamp": "2026-04-17 04:26:26 CDT",
@@ -159,7 +159,7 @@
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 11,
+  "message_count": 12,
   "next_drift_at": 10,
   "drift_log": [
     {
@@ -260,6 +260,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T09:29:24.682411+00:00",
+      "msg_num": 12,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -288,9 +297,15 @@
       "type": "general"
     }
   ],
-  "last_response_text": "( \u02d8\u03c9\u02d8 )",
-  "clinical_streak": 0,
+  "last_response_text": "nah that's the senses parser for gifts \u2014 taste, touch, smell, that stuff. no video in there. like i can see images if you drop them in the chat but actual video? no. not yet. why, what are you trying to show me",
+  "clinical_streak": 1,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
-  "last_initiation_message": 10
+  "last_initiation_message": 10,
+  "impulse_actions_fired": [
+    {
+      "action": "self_awareness",
+      "timestamp": "2026-04-17T09:29:24.453602+00:00"
+    }
+  ]
 }
