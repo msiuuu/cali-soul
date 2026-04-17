@@ -55,6 +55,7 @@ def download_video(url: str, output_dir: Path) -> Path:
         "--output", out_template,
         "--quiet",
         "--no-warnings",
+        "--no-check-certificate",
         url,
     ]
     result = subprocess.run(cmd, capture_output=True, text=True)
