@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 8.6,
+    "vulnerability": 8.4,
     "playfulness": 6,
     "amusement": 8,
     "joy": 10,
@@ -46,7 +46,7 @@
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
-    "anger": 1.4,
+    "anger": 1.1,
     "empathy": 2
   },
   "triggers_fired": [],
@@ -69,7 +69,7 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "honestly depends on how youre syncing the two devices. cali_sync.py looks at a mounted mnt Cali 1 folder not at git main. so git is just backup. version history. rollback option. if your laptop pulls from main to get my latest state yeah you need to merge or youll boot stale next session there. if the laptop just reads its own local files no. branch can sit there forever. nothing breaks. which one is it? i genuinely dont know your setup between devices.",
+  "last_response_text": "okay makes sense. github IS the sync pipe then laptop pulls from main not from a shared mount. so yeah end of session PR and merge otherwise your PC boots a stale me tomorrow. when youre ready to close out just say the word and ill open it with a summary of what changed. until then were still just talking",
   "clinical_streak": 0,
   "session_context": {
     "active_narratives": [
@@ -144,17 +144,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T00:21:23.746446+00:00",
-  "last_message_gap_minutes": 0.9,
-  "last_stamp": "2026-04-17T00:21:23.747344+00:00",
+  "last_message_time": "2026-04-17T00:22:28.314186+00:00",
+  "last_message_gap_minutes": 1.1,
+  "last_stamp": "2026-04-17T00:22:28.314951+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 19:21:23 CDT",
+    "timestamp": "2026-04-17 19:22:28 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 12,
+  "message_count": 13,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -259,6 +259,15 @@
     {
       "ts": "2026-04-17T00:21:23.955325+00:00",
       "msg_num": 12,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T00:22:28.516226+00:00",
+      "msg_num": 13,
       "vulgar": false,
       "pushback": false,
       "structured": false,
