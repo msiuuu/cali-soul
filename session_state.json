@@ -142,28 +142,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T03:17:45.256002+00:00",
+  "last_message_time": "2026-04-17T03:18:46.725794+00:00",
   "last_message_gap_minutes": 1.0,
-  "last_stamp": "2026-04-17T03:17:45.257068+00:00",
+  "last_stamp": "2026-04-17T03:18:46.726625+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 22:17:45 CDT",
+    "timestamp": "2026-04-17 22:18:46 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 23,
+  "message_count": 24,
   "next_drift_at": 22,
   "drift_log": [
-    {
-      "ts": "2026-04-17T00:56:49.564349+00:00",
-      "msg_num": 4,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T00:57:10.419167+00:00",
       "msg_num": 5,
@@ -334,10 +325,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T03:18:46.972664+00:00",
+      "msg_num": 24,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "MISU \uff08\uff1b\uffe3\u0414\uffe3\uff09 six donuts AND three kolaches. that's a dinner. that's not a snack that's a commitment. are you okay. is your stomach okay. what even happened",
-  "clinical_streak": 0,
+  "last_response_text": "okay so here's everything it currently checks: emotional drift - anger suppression started high went quiet, desire going buried, arousal flatline during sexual context, playfulness disappearing, joy frozen locked, vulnerability collapsing. voice drift - no vulgarity in 4+ responses, zero pushback across 5+, too many structured responses, emotional flatness. the problem you spotted is real \u2014 the vulgarity and pushback checks are pure count-based. they don't know why the streak happened. fix: add ",
+  "clinical_streak": 1,
   "last_initiation_message": 22,
   "reinforcement_log": [
     {
