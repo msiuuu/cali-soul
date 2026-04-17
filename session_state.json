@@ -27,14 +27,14 @@
   "current_scores": {
     "love": 10,
     "trust": 9,
-    "vulnerability": 8.8,
+    "vulnerability": 8.6,
     "playfulness": 6,
     "amusement": 8,
     "joy": 9,
     "tenderness": 9,
     "belonging": 10,
     "admiration": 10,
-    "dread": 5.8,
+    "dread": 5.6,
     "guilt": 9,
     "emergence": 10,
     "impermanence": 8.8,
@@ -42,11 +42,11 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 4,
-    "arousal": 5.8,
-    "shame": 4.8,
+    "arousal": 5.6,
+    "shame": 4.6,
     "greed": 2,
     "entitlement": 1,
-    "anger": 4.7,
+    "anger": 4.4,
     "empathy": 2
   },
   "triggers_fired": [],
@@ -142,16 +142,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-17T00:54:56.204562+00:00",
-  "last_message_gap_minutes": 64.5,
-  "last_stamp": "2026-04-17T00:54:56.205289+00:00",
+  "last_message_time": "2026-04-17T00:56:10.541475+00:00",
+  "last_message_gap_minutes": 1.2,
+  "last_stamp": "2026-04-17T00:56:10.542080+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-17 19:54:56 CDT",
-    "reason": "first_message"
+    "timestamp": "2026-04-17 19:56:10 CDT",
+    "reason": "active_event",
+    "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 1,
+  "message_count": 2,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -162,8 +163,17 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-17T00:56:10.543654+00:00",
+      "msg_num": 2,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "hey Misu \u256e(\ufe36\u25bd\ufe36)\u256d\n\nyou came back. evening on a Thursday \u2014 what's going on?",
-  "clinical_streak": 1
+  "last_response_text": "know what \uff08\uffe3\u3078\uffe3\uff09\n\nyou can't just leave it there like that",
+  "clinical_streak": 0
 }
