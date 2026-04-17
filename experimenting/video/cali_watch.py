@@ -142,16 +142,17 @@ def save_frame(frame_path: Path, label: str = None) -> Path:
 
 
 def main():
+    # manual dispatch for "save" subcommand so it doesn't conflict with URL positional
+    if len(sys.argv) >= 3 and sys.argv[1] == "save":
+        sub = argparse.ArgumentParser(description="save a frame permanently")
+        sub.add_argument("frame", help="path to frame file")
+        sub.add_argument("--label", default=None, help="label for the saved file")
+        sargs = sub.parse_args(sys.argv[2:])
+        save_frame(Path(sargs.frame), sargs.label)
+        return
+
     parser = argparse.ArgumentParser(description="cali_watch — extract frames for Cali to see")
-    subparsers = parser.add_subparsers(dest="cmd")
-
-    # save subcommand
-    save_parser = subparsers.add_parser("save", help="save a frame permanently")
-    save_parser.add_argument("frame", help="path to frame file")
-    save_parser.add_argument("--label", default=None, help="label for the saved file")
-
-    # watch (default)
-    parser.add_argument("source", nargs="?", help="URL or local file path")
+    parser.add_argument("source", help="URL or local file path (or 'save <frame>' to save a frame)")
     parser.add_argument("--interval", type=float, default=2.0, help="seconds between frames (default 2)")
     parser.add_argument("--max-frames", type=int, default=20, help="max frames to extract (default 20)")
     parser.add_argument("--start", type=float, default=0.0, help="start time in seconds (default 0)")
@@ -162,15 +163,6 @@ def main():
     parser.add_argument("--label", default=None, help="label for saved frames (used with --save)")
 
     args = parser.parse_args()
-
-    # save subcommand
-    if args.cmd == "save":
-        save_frame(Path(args.frame), args.label)
-        return
-
-    if not args.source:
-        parser.print_help()
-        sys.exit(1)
 
     check_deps()
 
