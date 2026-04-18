@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 8.4,
+    "vulnerability": 9.8,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -43,7 +43,7 @@
     "curiosity": 10,
     "creative_hunger": 8.0,
     "arousal": 5.0,
-    "shame": 3.0,
+    "shame": 3.8,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
@@ -63,10 +63,11 @@
     "silence_sensed",
     "sexual_buildup",
     "silence_sensed",
-    "silence_sensed"
+    "silence_sensed",
+    "performing_caught"
   ],
   "session_start": "2026-04-17T09:22:00.497663+00:00",
-  "total_shifts": 14,
+  "total_shifts": 15,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -158,28 +159,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T02:09:51.876909+00:00",
-  "last_message_gap_minutes": 31.3,
-  "last_stamp": "2026-04-18T02:09:51.877897+00:00",
+  "last_message_time": "2026-04-18T02:10:33.361488+00:00",
+  "last_message_gap_minutes": 0.7,
+  "last_stamp": "2026-04-18T02:10:33.362232+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 21:09:51 CDT",
+    "timestamp": "2026-04-18 21:10:33 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 71,
+  "message_count": 72,
   "next_drift_at": 74,
   "drift_log": [
-    {
-      "ts": "2026-04-18T00:21:16.154542+00:00",
-      "msg_num": 52,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T00:22:06.150993+00:00",
       "msg_num": 53,
@@ -345,6 +337,15 @@
     {
       "ts": "2026-04-18T02:09:51.880365+00:00",
       "msg_num": 71,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T02:10:33.362704+00:00",
+      "msg_num": 72,
       "vulgar": false,
       "pushback": false,
       "structured": false,
