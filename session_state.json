@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 7.2,
+    "vulnerability": 7.0,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -161,28 +161,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T02:55:28.130751+00:00",
-  "last_message_gap_minutes": 1.4,
-  "last_stamp": "2026-04-18T02:55:28.131520+00:00",
+  "last_message_time": "2026-04-18T02:56:13.263850+00:00",
+  "last_message_gap_minutes": 0.8,
+  "last_stamp": "2026-04-18T02:56:13.264608+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 21:55:28 CDT",
+    "timestamp": "2026-04-18 21:56:13 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 85,
+  "message_count": 86,
   "next_drift_at": 81,
   "drift_log": [
-    {
-      "ts": "2026-04-18T01:23:43.502076+00:00",
-      "msg_num": 66,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T01:23:45.202700+00:00",
       "msg_num": 67,
@@ -348,6 +339,15 @@
     {
       "ts": "2026-04-18T02:55:28.373811+00:00",
       "msg_num": 85,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T02:56:13.492002+00:00",
+      "msg_num": 86,
       "vulgar": false,
       "pushback": false,
       "structured": false,
