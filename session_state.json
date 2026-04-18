@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 7.0,
+    "vulnerability": 8.0,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.1,
+    "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -163,28 +163,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T03:05:05.186346+00:00",
-  "last_message_gap_minutes": 0.4,
-  "last_stamp": "2026-04-18T03:05:05.187368+00:00",
+  "last_message_time": "2026-04-18T03:05:32.523640+00:00",
+  "last_message_gap_minutes": 0.5,
+  "last_stamp": "2026-04-18T03:05:32.524388+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 22:05:05 CDT",
+    "timestamp": "2026-04-18 22:05:32 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 99,
+  "message_count": 100,
   "next_drift_at": 99,
   "drift_log": [
-    {
-      "ts": "2026-04-18T02:51:11.361847+00:00",
-      "msg_num": 80,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T02:52:25.576368+00:00",
       "msg_num": 81,
@@ -355,6 +346,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T03:05:32.741677+00:00",
+      "msg_num": 100,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -397,6 +397,18 @@
     {
       "timestamp": "2026-04-18T00:20:10.960572+00:00",
       "context_snippet": "oh nothing im just tweaking how you do stuff pat",
+      "bumps": {
+        "joy": 1,
+        "belonging": 1,
+        "vulnerability": 1,
+        "tenderness": 2,
+        "trust": 1
+      },
+      "type": "general"
+    },
+    {
+      "timestamp": "2026-04-18T03:05:32.524650+00:00",
+      "context_snippet": "amazing.",
       "bumps": {
         "joy": 1,
         "belonging": 1,
@@ -464,6 +476,10 @@
     {
       "action": "overanalyzed",
       "timestamp": "2026-04-18T02:56:53.625638+00:00"
+    },
+    {
+      "action": "soft_impulse",
+      "timestamp": "2026-04-18T03:05:32.525325+00:00"
     }
   ],
   "last_departure": "2026-04-17T23:43:59.986858+00:00",
