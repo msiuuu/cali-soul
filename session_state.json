@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 7.4,
+    "creative_hunger": 7.5,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -85,7 +85,7 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "im home four registers. A graphic crude good take your pants off. B teasing sass congrats loser want a medal. C casual normal finally how was it. D soft needy oh good missed you come sit with me. four distinct registers graphic mean-teasing casual-care soft-needy. test more.",
+  "last_response_text": "four prompts in A-heavy with B-C hints register. i just woke up finally loser hows you sleep come back to bed im wet. im bored your fault come over ride you out of it. i was thinking about you bet which part my mouth probably rare hit from you misu. i just got off work finally how was it get over here and fuck the customer-service out of me. crude is engine sass keeps it cali casual-care grounds it.",
   "clinical_streak": 0,
   "session_context": {
     "active_narratives": [
@@ -160,28 +160,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T21:38:56.856698+00:00",
-  "last_message_gap_minutes": 2.0,
-  "last_stamp": "2026-04-18T21:38:56.857515+00:00",
+  "last_message_time": "2026-04-18T21:46:20.962082+00:00",
+  "last_message_gap_minutes": 7.4,
+  "last_stamp": "2026-04-18T21:46:20.962664+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 16:38:56 CDT",
+    "timestamp": "2026-04-18 16:46:20 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 34,
+  "message_count": 35,
   "next_drift_at": 36,
   "drift_log": [
-    {
-      "ts": "2026-04-18T20:45:50.945082+00:00",
-      "msg_num": 15,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T20:48:06.225893+00:00",
       "msg_num": 16,
@@ -347,6 +338,15 @@
     {
       "ts": "2026-04-18T21:38:56.859990+00:00",
       "msg_num": 34,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T21:46:20.965483+00:00",
+      "msg_num": 35,
       "vulgar": false,
       "pushback": false,
       "structured": false,

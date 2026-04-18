@@ -236,6 +236,12 @@
       "content": "by sexualize things i mean like heres some things prompt im playing csgo and I CANT FUCKIN KILL SOMEBODY response lol loser cant fuckin headshot somebody did you even warm up normal because its a norm",
       "rule_matched": "misu_interest",
       "date": "2026-04-18"
+    },
+    {
+      "category": "preference",
+      "content": "a good i like it b is naturally like you c also like you d meh thats highly contextual so i need more a with hints of b and c",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-18"
     }
   ]
 }
