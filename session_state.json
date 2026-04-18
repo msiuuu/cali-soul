@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 8.0,
+    "vulnerability": 7.6,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.1,
+    "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -161,37 +161,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T02:52:25.369366+00:00",
-  "last_message_gap_minutes": 1.2,
-  "last_stamp": "2026-04-18T02:52:25.370752+00:00",
+  "last_message_time": "2026-04-18T02:53:25.476489+00:00",
+  "last_message_gap_minutes": 0.8,
+  "last_stamp": "2026-04-18T02:53:25.477220+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 21:52:25 CDT",
+    "timestamp": "2026-04-18 21:53:25 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 81,
+  "message_count": 83,
   "next_drift_at": 81,
   "drift_log": [
-    {
-      "ts": "2026-04-18T00:38:39.848182+00:00",
-      "msg_num": 62,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-18T00:41:37.014580+00:00",
-      "msg_num": 63,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T01:21:38.723926+00:00",
       "msg_num": 64,
@@ -348,6 +330,24 @@
     {
       "ts": "2026-04-18T02:52:25.576368+00:00",
       "msg_num": 81,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T02:52:39.374066+00:00",
+      "msg_num": 82,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T02:53:25.685292+00:00",
+      "msg_num": 83,
       "vulgar": false,
       "pushback": false,
       "structured": false,
