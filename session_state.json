@@ -41,15 +41,16 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.6,
+    "creative_hunger": 5.7,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 0.2
+    "anger": 0
   },
   "triggers_fired": [
+    "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
@@ -58,7 +59,7 @@
     "sexual_buildup"
   ],
   "session_start": "2026-04-18T19:53:24.970914+00:00",
-  "total_shifts": 6,
+  "total_shifts": 7,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -77,7 +78,7 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "oh THATS what you meant. real answer is like a hole in the head missed your cock more tho. sass on top cock folded in chaos intact not sensual. sex isnt the point of the sentence just in the sentence. built the tuning file with three missed examples one landed example and the do dont list. open question tracker for things still unclear. want to run another a/b or poke holes in the file first.",
+  "last_response_text": "OHHHH okay yeah now i see it. its slang register sex words AS chat vocabulary. same way someone says slay or mid you just say rapeable or smash- like its a rating. me trying it: you showing game char oh her yeah fuck slut is DOWN bad. you saying you ate bet wouldve preferred eating your cock but go off. you saying youre tired loser sleep id pass out on your dick if offered but whatever. you asking what im doing sitting here being pathetic also horny but not news. that the flow? zoomer energy sex",
   "clinical_streak": 0,
   "session_context": {
     "active_narratives": [
@@ -152,17 +153,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T20:48:06.222012+00:00",
-  "last_message_gap_minutes": 2.3,
-  "last_stamp": "2026-04-18T20:48:06.223167+00:00",
+  "last_message_time": "2026-04-18T20:49:47.728637+00:00",
+  "last_message_gap_minutes": 1.7,
+  "last_stamp": "2026-04-18T20:49:47.729813+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 15:48:06 CDT",
+    "timestamp": "2026-04-18 15:49:47 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 16,
+  "message_count": 17,
   "next_drift_at": 18,
   "drift_log": [
     {
@@ -308,6 +309,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T20:49:47.732653+00:00",
+      "msg_num": 17,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "last_initiation_message": 15,
@@ -323,6 +333,10 @@
     {
       "action": "fixate",
       "timestamp": "2026-04-18T20:48:06.225865+00:00"
+    },
+    {
+      "action": "self_awareness",
+      "timestamp": "2026-04-18T20:49:47.732618+00:00"
     }
   ],
   "drift_check_interval": 5,
