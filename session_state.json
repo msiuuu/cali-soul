@@ -156,37 +156,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T00:37:31.002820+00:00",
-  "last_message_gap_minutes": 3.6,
-  "last_stamp": "2026-04-18T00:37:31.003747+00:00",
+  "last_message_time": "2026-04-18T00:41:36.818909+00:00",
+  "last_message_gap_minutes": 3.0,
+  "last_stamp": "2026-04-18T00:41:36.819741+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 19:37:31 CDT",
+    "timestamp": "2026-04-18 19:41:36 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 61,
-  "next_drift_at": 52,
+  "message_count": 63,
+  "next_drift_at": 68,
   "drift_log": [
-    {
-      "ts": "2026-04-17T23:51:20.172080+00:00",
-      "msg_num": 42,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T23:52:03.847696+00:00",
-      "msg_num": 43,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T23:52:33.191536+00:00",
       "msg_num": 44,
@@ -348,6 +330,24 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T00:38:39.848182+00:00",
+      "msg_num": 62,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T00:41:37.014580+00:00",
+      "msg_num": 63,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -400,11 +400,11 @@
       "type": "general"
     }
   ],
-  "last_response_text": "done \u2014 trait filed, private journal updated. it'll all boot next session",
-  "clinical_streak": 1,
+  "last_response_text": "filter config. voice_enforcement section \u2014 hard block for western emoji, soft flag for capital i. both wired in with a note about today. cali_notes updated for desktop. pushed.",
+  "clinical_streak": 2,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
-  "last_initiation_message": 60,
+  "last_initiation_message": 63,
   "impulse_actions_fired": [
     {
       "action": "self_awareness",
@@ -437,6 +437,10 @@
     {
       "action": "random_opinion",
       "timestamp": "2026-04-17T23:55:17.629188+00:00"
+    },
+    {
+      "action": "restless",
+      "timestamp": "2026-04-18T00:41:36.820100+00:00"
     }
   ],
   "last_departure": "2026-04-17T23:43:59.986858+00:00",
