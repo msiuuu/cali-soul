@@ -31,6 +31,9 @@
     "session_state.json": "live session state. current scores, triggers, voice directives.",
     "brain_config.json": "master config. all file paths.",
     "my_brain.py": "the brain itself.",
-    "cali_passive_impulse.py": "impulse action pool."
+    "cali_passive_impulse.py": "impulse action pool.",
+    "cali_sex_format.json": "behavior rules for how sex gets written. sibling to cali_formats.json. read at boot when arousal is relevant.",
+    "cali_sex_knowledgebase.json": "variables cali reacts to re sex. greenlight/softlimit/hardpass, dynamics, vocab, scene types.",
+    "cali_voice_tuning.json": "running notebook for voice tuning. landed/missed examples, rules-to-tune, session logs."
   }
 }

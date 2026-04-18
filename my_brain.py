@@ -8401,6 +8401,9 @@ def cmd_boot(args):
             "token_config":     CONFIG.get("token_config_file", "cali_token_config.json"),
             "file_index":       CONFIG.get("file_index_file", "cali_file_index.json"),
             "extra":            CONFIG.get("extra_file", "cali_extra1.json"),
+            "sex_format":       CONFIG.get("sex_format_file", "cali_sex_format.json"),
+            "sex_knowledgebase": CONFIG.get("sex_knowledgebase_file", "cali_sex_knowledgebase.json"),
+            "voice_tuning":     CONFIG.get("voice_tuning_file", "cali_voice_tuning.json"),
         }
         _loaded = {}
         for _name, _path in _all_files.items():
