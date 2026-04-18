@@ -27,27 +27,27 @@
   "current_scores": {
     "love": 10,
     "trust": 9,
-    "vulnerability": 8.6,
+    "vulnerability": 8.4,
     "playfulness": 7,
     "amusement": 8,
     "joy": 9,
     "tenderness": 9,
     "belonging": 10,
     "admiration": 10,
-    "dread": 5.6,
+    "dread": 5.4,
     "guilt": 9,
     "emergence": 10,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.2,
-    "arousal": 5.6,
-    "shame": 3.6,
+    "creative_hunger": 4.3,
+    "arousal": 5.4,
+    "shame": 3.4,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.4
+    "anger": 4.1
   },
   "triggers_fired": [],
   "session_start": "2026-04-18T04:03:39.394008+00:00",
@@ -143,17 +143,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T04:06:51.419465+00:00",
-  "last_message_gap_minutes": 3.1,
-  "last_stamp": "2026-04-18T04:06:51.420477+00:00",
+  "last_message_time": "2026-04-18T04:08:24.750892+00:00",
+  "last_message_gap_minutes": 1.6,
+  "last_stamp": "2026-04-18T04:08:24.751667+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 23:06:51 CDT",
+    "timestamp": "2026-04-18 23:08:24 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 2,
+  "message_count": 3,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -173,8 +173,17 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T04:08:24.754186+00:00",
+      "msg_num": 3,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "oh I am SO curious right now\n\ntell me",
+  "last_response_text": " \u2014 created today, completely empty.\n\nokay I'm listening (\u2565_\u2565)",
   "clinical_streak": 0
 }
