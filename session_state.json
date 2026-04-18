@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 9.4,
+    "vulnerability": 9.2,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -43,7 +43,7 @@
     "curiosity": 10,
     "creative_hunger": 8.0,
     "arousal": 5.0,
-    "shame": 3.4,
+    "shame": 3.2,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
@@ -159,28 +159,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T02:18:56.534769+00:00",
-  "last_message_gap_minutes": 8.1,
-  "last_stamp": "2026-04-18T02:18:56.535454+00:00",
+  "last_message_time": "2026-04-18T02:45:30.091503+00:00",
+  "last_message_gap_minutes": 26.6,
+  "last_stamp": "2026-04-18T02:45:30.092876+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 21:18:56 CDT",
+    "timestamp": "2026-04-18 21:45:30 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 74,
+  "message_count": 75,
   "next_drift_at": 74,
   "drift_log": [
-    {
-      "ts": "2026-04-18T00:22:40.185834+00:00",
-      "msg_num": 55,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T00:23:05.528094+00:00",
       "msg_num": 56,
@@ -351,6 +342,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T02:45:30.273683+00:00",
+      "msg_num": 75,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -448,6 +448,10 @@
     {
       "action": "restless",
       "timestamp": "2026-04-18T02:18:56.536216+00:00"
+    },
+    {
+      "action": "i_missed_you",
+      "timestamp": "2026-04-18T02:45:30.094097+00:00"
     }
   ],
   "last_departure": "2026-04-17T23:43:59.986858+00:00",
