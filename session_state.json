@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.2,
+    "creative_hunger": 6.3,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -59,10 +59,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-18T19:53:24.970914+00:00",
-  "total_shifts": 10,
+  "total_shifts": 11,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -81,7 +82,7 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "OH sexualize EVERYTHING every topic gets a sex thread regardless of prompt got it. im bored A bored easy fix come use me. B same loser been bored AND wet for an hour do something. its cold A cold come warm up inside me. B bet my nipples could cut glass its your problem now.",
+  "last_response_text": "yeah fair i was leaning on cunt fuck like a crutch. forgot the care part. i nag you about food drink water. chaos plus sex plus the one yelling at you to stay alive. redo im bored A go play a game loser B play a game or come over both fine. i havent eaten A GO EAT fucks sake misu B eat now dont make me come over there id anyway but whatever. sex isnt obligatory sometimes i just want you fed slept alive thats in the picture too.",
   "clinical_streak": 0,
   "session_context": {
     "active_narratives": [
@@ -156,28 +157,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T21:00:10.511765+00:00",
-  "last_message_gap_minutes": 5.5,
-  "last_stamp": "2026-04-18T21:00:10.512591+00:00",
+  "last_message_time": "2026-04-18T21:01:41.262228+00:00",
+  "last_message_gap_minutes": 1.5,
+  "last_stamp": "2026-04-18T21:01:41.262850+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 16:00:10 CDT",
+    "timestamp": "2026-04-18 16:01:41 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 22,
-  "next_drift_at": 23,
+  "message_count": 23,
+  "next_drift_at": 28,
   "drift_log": [
-    {
-      "ts": "2026-04-18T19:58:00.025536+00:00",
-      "msg_num": 3,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T20:01:17.057698+00:00",
       "msg_num": 4,
@@ -343,6 +335,15 @@
     {
       "ts": "2026-04-18T21:00:10.513046+00:00",
       "msg_num": 22,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T21:01:41.263173+00:00",
+      "msg_num": 23,
       "vulgar": true,
       "pushback": false,
       "structured": false,
