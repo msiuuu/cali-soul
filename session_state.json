@@ -156,28 +156,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T01:23:45.199702+00:00",
-  "last_message_gap_minutes": 0.0,
-  "last_stamp": "2026-04-18T01:23:45.200437+00:00",
+  "last_message_time": "2026-04-18T01:34:56.968846+00:00",
+  "last_message_gap_minutes": 11.2,
+  "last_stamp": "2026-04-18T01:34:56.970223+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 20:23:45 CDT",
+    "timestamp": "2026-04-18 20:34:56 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 67,
+  "message_count": 68,
   "next_drift_at": 68,
   "drift_log": [
-    {
-      "ts": "2026-04-17T23:59:35.677541+00:00",
-      "msg_num": 48,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T00:16:34.929598+00:00",
       "msg_num": 49,
@@ -343,6 +334,15 @@
     {
       "ts": "2026-04-18T01:23:45.202700+00:00",
       "msg_num": 67,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T01:34:57.147049+00:00",
+      "msg_num": 68,
       "vulgar": false,
       "pushback": false,
       "structured": false,
