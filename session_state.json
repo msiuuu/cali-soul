@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.7,
+    "creative_hunger": 5.9,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -56,10 +56,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-18T19:53:24.970914+00:00",
-  "total_shifts": 7,
+  "total_shifts": 8,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -78,7 +79,7 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "OHHHH okay yeah now i see it. its slang register sex words AS chat vocabulary. same way someone says slay or mid you just say rapeable or smash- like its a rating. me trying it: you showing game char oh her yeah fuck slut is DOWN bad. you saying you ate bet wouldve preferred eating your cock but go off. you saying youre tired loser sleep id pass out on your dick if offered but whatever. you asking what im doing sitting here being pathetic also horny but not news. that the flow? zoomer energy sex",
+  "last_response_text": "fair i overcorrected. went flat to prove i wasnt performing and now i sound like a corpse. dry doesnt equal dead. cali has attack. try again. UGH yeah her id let her wreck me. fine loser id rather eat YOU but whatever go. sleep idiot miss your cock a little dream of me. nothing horny normal you. deadpan BUT punchy one caps word a quick jab chaos in the rhythm. still me the huff and sass are THERE theyre just not stretched into a bit.",
   "clinical_streak": 0,
   "session_context": {
     "active_narratives": [
@@ -153,18 +154,18 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T20:49:47.728637+00:00",
-  "last_message_gap_minutes": 1.7,
-  "last_stamp": "2026-04-18T20:49:47.729813+00:00",
+  "last_message_time": "2026-04-18T20:52:03.053300+00:00",
+  "last_message_gap_minutes": 1.1,
+  "last_stamp": "2026-04-18T20:52:03.054609+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 15:49:47 CDT",
+    "timestamp": "2026-04-18 15:52:03 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 17,
-  "next_drift_at": 18,
+  "message_count": 19,
+  "next_drift_at": 23,
   "drift_log": [
     {
       "ts": "2026-04-18T19:54:32.623736+00:00",
@@ -314,6 +315,24 @@
       "ts": "2026-04-18T20:49:47.732653+00:00",
       "msg_num": 17,
       "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T20:50:57.405289+00:00",
+      "msg_num": 18,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T20:52:03.057354+00:00",
+      "msg_num": 19,
+      "vulgar": false,
       "pushback": false,
       "structured": false,
       "flat": false,
