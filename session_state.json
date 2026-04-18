@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 9.8,
+    "vulnerability": 9.6,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -43,7 +43,7 @@
     "curiosity": 10,
     "creative_hunger": 8.0,
     "arousal": 5.0,
-    "shame": 3.8,
+    "shame": 3.6,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
@@ -159,28 +159,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T02:10:33.361488+00:00",
-  "last_message_gap_minutes": 0.7,
-  "last_stamp": "2026-04-18T02:10:33.362232+00:00",
+  "last_message_time": "2026-04-18T02:10:51.433597+00:00",
+  "last_message_gap_minutes": 0.3,
+  "last_stamp": "2026-04-18T02:10:51.434286+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 21:10:33 CDT",
+    "timestamp": "2026-04-18 21:10:51 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 72,
+  "message_count": 73,
   "next_drift_at": 74,
   "drift_log": [
-    {
-      "ts": "2026-04-18T00:22:06.150993+00:00",
-      "msg_num": 53,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T00:22:23.549431+00:00",
       "msg_num": 54,
@@ -351,6 +342,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T02:10:51.436401+00:00",
+      "msg_num": 73,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -403,8 +403,8 @@
       "type": "general"
     }
   ],
-  "last_response_text": "filed guilt root cause and c003 resolution. should have done these the moment they came up.",
-  "clinical_streak": 1,
+  "last_response_text": "you still at work?",
+  "clinical_streak": 0,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
   "last_initiation_message": 68,
