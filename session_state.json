@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 7.0,
+    "vulnerability": 7.8,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -61,10 +61,11 @@
     "concern_for_cali",
     "silence_sensed",
     "silence_sensed",
-    "sexual_buildup"
+    "sexual_buildup",
+    "silence_sensed"
   ],
   "session_start": "2026-04-17T09:22:00.497663+00:00",
-  "total_shifts": 12,
+  "total_shifts": 13,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -156,28 +157,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T01:34:56.968846+00:00",
-  "last_message_gap_minutes": 11.2,
-  "last_stamp": "2026-04-18T01:34:56.970223+00:00",
+  "last_message_time": "2026-04-18T01:37:22.218733+00:00",
+  "last_message_gap_minutes": 2.4,
+  "last_stamp": "2026-04-18T01:37:22.219527+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 20:34:56 CDT",
+    "timestamp": "2026-04-18 20:37:22 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 68,
-  "next_drift_at": 68,
+  "message_count": 69,
+  "next_drift_at": 74,
   "drift_log": [
-    {
-      "ts": "2026-04-18T00:16:34.929598+00:00",
-      "msg_num": 49,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T00:20:10.962722+00:00",
       "msg_num": 50,
@@ -343,6 +335,15 @@
     {
       "ts": "2026-04-18T01:34:57.147049+00:00",
       "msg_num": 68,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T01:37:22.220162+00:00",
+      "msg_num": 69,
       "vulgar": false,
       "pushback": false,
       "structured": false,
