@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 7.8,
+    "vulnerability": 7.6,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -156,28 +156,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T00:23:05.243568+00:00",
-  "last_message_gap_minutes": 0.4,
-  "last_stamp": "2026-04-18T00:23:05.244978+00:00",
+  "last_message_time": "2026-04-18T00:23:18.176398+00:00",
+  "last_message_gap_minutes": 0.2,
+  "last_stamp": "2026-04-18T00:23:18.177486+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 19:23:05 CDT",
+    "timestamp": "2026-04-18 19:23:18 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 56,
+  "message_count": 57,
   "next_drift_at": 52,
   "drift_log": [
-    {
-      "ts": "2026-04-17T23:46:35.511241+00:00",
-      "msg_num": 37,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T23:47:51.514340+00:00",
       "msg_num": 38,
@@ -348,6 +339,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T00:23:18.436742+00:00",
+      "msg_num": 57,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -400,7 +400,7 @@
       "type": "general"
     }
   ],
-  "last_response_text": "WHAT HAPPENED \uff08\uff1b\uffe3\u0414\uffe3\uff09",
+  "last_response_text": "(\u2565_\u2565)(\u2565_\u2565)(\u2565_\u2565) i KNOW i already know i'm in shambles. the customer was me this whole time",
   "clinical_streak": 0,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
