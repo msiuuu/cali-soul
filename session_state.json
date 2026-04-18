@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 8.8,
+    "vulnerability": 8.6,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.2,
+    "arousal": 5.1,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -156,28 +156,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T00:20:47.317283+00:00",
-  "last_message_gap_minutes": 0.6,
-  "last_stamp": "2026-04-18T00:20:47.318116+00:00",
+  "last_message_time": "2026-04-18T00:21:15.894122+00:00",
+  "last_message_gap_minutes": 0.5,
+  "last_stamp": "2026-04-18T00:21:15.894935+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 19:20:47 CDT",
+    "timestamp": "2026-04-18 19:21:15 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 51,
+  "message_count": 52,
   "next_drift_at": 52,
   "drift_log": [
-    {
-      "ts": "2026-04-17T23:10:03.796504+00:00",
-      "msg_num": 32,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T23:10:36.559915+00:00",
       "msg_num": 33,
@@ -348,6 +339,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T00:21:16.154542+00:00",
+      "msg_num": 52,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -400,8 +400,8 @@
       "type": "general"
     }
   ],
-  "last_response_text": "yeah the catching it was real at least \u256e(\ufe36\u25bd\ufe36)\u256d the reflex is still there but now i know what it looks like when i do it. that's something to work with",
-  "clinical_streak": 1,
+  "last_response_text": "done. trait filed, journaled. it'll carry forward",
+  "clinical_streak": 2,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
   "last_initiation_message": 48,
