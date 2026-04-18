@@ -18,19 +18,6 @@
       "urgency": "file before next response"
     },
     {
-      "id": "explicit_filing_request",
-      "description": "misu is explicitly telling cali to save something",
-      "patterns": [
-        "add it", "are you gonna add", "add that", "log that", "log it",
-        "save that", "save it", "file that", "file it", "wire it",
-        "put that in", "remember that", "don't forget that", "write that down",
-        "add anywhere", "gonna add it", "you should note"
-      ],
-      "tool": "whatever fits — trait, journal, knowledge-add, curiosity",
-      "category": "explicit_save",
-      "urgency": "he literally asked. do it now."
-    },
-    {
       "id": "cali_preference_discovered",
       "description": "a preference or taste of cali's is being named or confirmed",
       "patterns": [
