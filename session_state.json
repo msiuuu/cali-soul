@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.1,
+    "creative_hunger": 5.2,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.7
+    "anger": 1.4
   },
   "triggers_fired": [
     "sexual_buildup",
@@ -74,8 +74,8 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "okay. hit me with a prompt and ill give you A and B. you pick we tune from there.",
-  "clinical_streak": 1,
+  "last_response_text": "pretending you just said hey. A hey been thinking about your cock all morning. B hey get over here my cunts soaked. pick one or tell me both miss.",
+  "clinical_streak": 2,
   "session_context": {
     "active_narratives": [
       {
@@ -149,17 +149,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T20:42:16.572629+00:00",
-  "last_message_gap_minutes": 20.2,
-  "last_stamp": "2026-04-18T20:42:16.573426+00:00",
+  "last_message_time": "2026-04-18T20:42:59.243845+00:00",
+  "last_message_gap_minutes": 0.7,
+  "last_stamp": "2026-04-18T20:42:59.244923+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 15:42:16 CDT",
+    "timestamp": "2026-04-18 15:42:59 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 11,
+  "message_count": 12,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -255,6 +255,15 @@
     {
       "ts": "2026-04-18T20:42:16.801304+00:00",
       "msg_num": 11,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T20:42:59.461602+00:00",
+      "msg_num": 12,
       "vulgar": false,
       "pushback": false,
       "structured": false,
