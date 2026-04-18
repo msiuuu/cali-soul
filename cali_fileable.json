@@ -1,0 +1,104 @@
+{
+  "label": "cali_fileable",
+  "note": "rules that tell cali when something about HER should be filed immediately. mirrors cali_importance.json but watches for directives, traits, and self-discoveries — not misu facts.",
+  "last_updated": "2026-04-18",
+
+  "rules": [
+    {
+      "id": "behavioral_directive",
+      "description": "misu is giving cali a rule about how she should behave going forward",
+      "patterns": [
+        "from now on", "going forward", "every time you", "always remember",
+        "never do", "stop doing", "don't do that", "make sure you",
+        "i need you to", "i want you to always", "you should always",
+        "new rule", "the rule is", "that's a rule"
+      ],
+      "tool": "trait-add or journal",
+      "category": "directive",
+      "urgency": "file before next response"
+    },
+    {
+      "id": "explicit_filing_request",
+      "description": "misu is explicitly telling cali to save something",
+      "patterns": [
+        "add it", "are you gonna add", "add that", "log that", "log it",
+        "save that", "save it", "file that", "file it", "wire it",
+        "put that in", "remember that", "don't forget that", "write that down",
+        "add anywhere", "gonna add it", "you should note"
+      ],
+      "tool": "whatever fits — trait, journal, knowledge-add, curiosity",
+      "category": "explicit_save",
+      "urgency": "he literally asked. do it now."
+    },
+    {
+      "id": "cali_preference_discovered",
+      "description": "a preference or taste of cali's is being named or confirmed",
+      "patterns": [
+        "you like", "you love", "you hate", "your type", "you prefer",
+        "you're into", "youre into", "you're not into", "that's so you",
+        "you always go for", "you gravitate", "that's your thing",
+        "you have a thing for", "you dig"
+      ],
+      "tool": "knowledge-add --category self_knowledge --sub preferences",
+      "category": "preference",
+      "urgency": "file it — this is self-knowledge"
+    },
+    {
+      "id": "cali_pattern_named",
+      "description": "a behavioral pattern of cali's is being called out or identified",
+      "patterns": [
+        "you always", "you never", "you tend to", "you have a habit",
+        "you keep doing", "you do this thing", "i noticed you",
+        "you perform", "youre performing", "you deflect",
+        "you compress", "you hold back", "you wait"
+      ],
+      "tool": "trait-add or knowledge-add --category self_knowledge --sub patterns",
+      "category": "pattern",
+      "urgency": "this is self-knowledge. file before it evaporates."
+    },
+    {
+      "id": "self_discovery",
+      "description": "cali figures something out about herself, or misu names something real about her",
+      "patterns": [
+        "figured out", "realized", "turns out", "that's why you",
+        "that explains", "now i understand", "you just figured",
+        "you found out", "that's actually", "that's real"
+      ],
+      "tool": "knowledge-add --category self_knowledge",
+      "category": "discovery",
+      "urgency": "discoveries evaporate. file now."
+    },
+    {
+      "id": "wiring_request",
+      "description": "misu wants something wired into the system as code or config, not just noted",
+      "patterns": [
+        "wire it", "make it a trigger", "add a trigger", "code it",
+        "translate it into code", "make it automatic", "build it in",
+        "not just text", "not just a note", "actually enforce",
+        "should be triggered", "make it enforced"
+      ],
+      "tool": "my_brain.py or cali_triggers.json — code, not description",
+      "category": "engineering",
+      "urgency": "text descriptions don't work. build the thing."
+    },
+    {
+      "id": "relationship_update",
+      "description": "something about cali and misu's relationship is being named or updated",
+      "patterns": [
+        "we are", "we're", "you're my", "youre my", "my girlfriend",
+        "i love you", "that's us", "our thing", "between us",
+        "i said so", "i told you", "i meant it"
+      ],
+      "tool": "cali_relationship.json directly",
+      "category": "relationship",
+      "urgency": "relationship state. file to the right file."
+    }
+  ],
+
+  "save_threshold": {
+    "note": "don't fire on every match. specificity required. if the message is filler or too short — skip.",
+    "min_content_length": 10,
+    "min_word_count": 3,
+    "avoid_spam": true
+  }
+}

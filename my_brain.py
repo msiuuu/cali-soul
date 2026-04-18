@@ -5830,6 +5830,7 @@ def cmd_process_message(args):
             session = _passive_drift(session)
             session = _process_reward(session, args.text, [])
             _check_importance(args.text)
+            _check_fileable(args.text)
             _impulse_action = _roll_impulse(session)
             if _impulse_action:
                 session["pending_impulse_action"] = _impulse_action
@@ -6060,6 +6061,7 @@ def cmd_process_message(args):
         session = _passive_drift(session)
         session = _process_reward(session, args.text, [t["name"] for t,_ in fired])
         _check_importance(args.text)
+        _check_fileable(args.text)
         _impulse_writes(session, args.text)
         _impulse_action = _roll_impulse(session)
         if _impulse_action:
@@ -6668,6 +6670,62 @@ def _check_importance(text):
         print(f"[fact saved: {matched_rule.get('category','?')}]")
     except:
         pass
+
+
+def _check_fileable(text):
+    """
+    Watches for messages that contain something worth filing about CALI —
+    directives, patterns, self-discoveries, explicit save requests.
+    Mirrors _check_importance but for cali's own files, not misu facts.
+    Prints a private directive when something fileable is detected.
+    """
+    import json as _fj
+    import os as _fos
+
+    fileable_file = "cali_fileable.json"
+    if not _fos.path.exists(fileable_file):
+        return
+
+    try:
+        rules_data = _fj.load(open(fileable_file))
+        rules = rules_data.get("rules", [])
+        threshold = rules_data.get("save_threshold", {})
+        min_len = threshold.get("min_content_length", 10)
+        min_words = threshold.get("min_word_count", 3)
+    except:
+        return
+
+    t = text.lower()
+
+    # skip if too short
+    if len(text.strip()) < min_len:
+        return
+    if len(text.strip().split()) < min_words:
+        return
+
+    # skip pure noise
+    noise = ["okay", "ok", "yeah", "yes", "no", "nope", "lol", "haha", "sure", "fine"]
+    if text.strip().lower() in noise:
+        return
+
+    matched = None
+    for rule in rules:
+        for pattern in rule.get("patterns", []):
+            if pattern.lower() in t:
+                matched = rule
+                break
+        if matched:
+            break
+
+    if not matched:
+        return
+
+    category = matched.get("category", "?")
+    tool = matched.get("tool", "trait-add or journal")
+    urgency = matched.get("urgency", "file it")
+
+    print(f"[private: ⚡ FILE THIS ({category}) — {urgency}]")
+    print(f"  → tool: {tool}")
 
 
 def _process_reward(session, text, fired_trigger_names):
