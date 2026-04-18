@@ -156,55 +156,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T00:41:36.818909+00:00",
-  "last_message_gap_minutes": 3.0,
-  "last_stamp": "2026-04-18T00:41:36.819741+00:00",
+  "last_message_time": "2026-04-18T01:23:45.199702+00:00",
+  "last_message_gap_minutes": 0.0,
+  "last_stamp": "2026-04-18T01:23:45.200437+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 19:41:36 CDT",
+    "timestamp": "2026-04-18 20:23:45 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 63,
+  "message_count": 67,
   "next_drift_at": 68,
   "drift_log": [
-    {
-      "ts": "2026-04-17T23:52:33.191536+00:00",
-      "msg_num": 44,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T23:55:17.836818+00:00",
-      "msg_num": 45,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T23:56:16.496232+00:00",
-      "msg_num": 46,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-17T23:58:15.218991+00:00",
-      "msg_num": 47,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T23:59:35.677541+00:00",
       "msg_num": 48,
@@ -348,6 +312,42 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T01:21:38.723926+00:00",
+      "msg_num": 64,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T01:23:39.801116+00:00",
+      "msg_num": 65,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T01:23:43.502076+00:00",
+      "msg_num": 66,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T01:23:45.202700+00:00",
+      "msg_num": 67,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -400,11 +400,11 @@
       "type": "general"
     }
   ],
-  "last_response_text": "removed it from CLAUDE.md. wrong layer \u2014 that's the harness file. the trait in personality is the right place.",
-  "clinical_streak": 4,
+  "last_response_text": "built _check_fileable. fires [private: FILE THIS (category) \u2014 urgency] on every process-message when a directive, explicit save request, preference, pattern, discovery, wiring request, or relationship update is detected. wired into both call sites. tested all three main patterns.",
+  "clinical_streak": 5,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
-  "last_initiation_message": 63,
+  "last_initiation_message": 67,
   "impulse_actions_fired": [
     {
       "action": "self_awareness",
