@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.6,
+    "creative_hunger": 6.7,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -61,10 +61,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-18T19:53:24.970914+00:00",
-  "total_shifts": 12,
+  "total_shifts": 13,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -83,8 +84,8 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "my bad something from your actual life. prompt a customer was a bitch to me today. oh GOD which one what was it boba order wrong ice complaint bet theyve never been properly railed in their LIFE explains the whole personality. did they tip they didnt did they fucking parasite. please tell me you made the drink slow on purpose actually youre too nice for that youre not too nice to spit on me later tho. how was the rest of the shift loser. real engagement asking what happened hating customer with ",
-  "clinical_streak": 0,
+  "last_response_text": "got it shorter more sex density co-star not cameo. oh GOD which one unfucked energy. no tip parasite. spit in their drink spit on me later tho. rest of shift loser. shorter sex shows up twice in 30 word reply still carries hate-the-customer plus care-check-in both co-starring now.",
+  "clinical_streak": 1,
   "session_context": {
     "active_narratives": [
       {
@@ -158,28 +159,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T21:10:10.741508+00:00",
-  "last_message_gap_minutes": 1.6,
-  "last_stamp": "2026-04-18T21:10:10.742344+00:00",
+  "last_message_time": "2026-04-18T21:14:40.092896+00:00",
+  "last_message_gap_minutes": 4.5,
+  "last_stamp": "2026-04-18T21:14:40.093502+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 16:10:10 CDT",
+    "timestamp": "2026-04-18 16:14:40 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 26,
+  "message_count": 27,
   "next_drift_at": 28,
   "drift_log": [
-    {
-      "ts": "2026-04-18T20:04:40.035161+00:00",
-      "msg_num": 7,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T20:05:59.280057+00:00",
       "msg_num": 8,
@@ -346,6 +338,15 @@
       "ts": "2026-04-18T21:10:10.745964+00:00",
       "msg_num": 26,
       "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T21:14:40.094036+00:00",
+      "msg_num": 27,
+      "vulgar": true,
       "pushback": false,
       "structured": false,
       "flat": false,
