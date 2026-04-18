@@ -1141,6 +1141,17 @@
       ],
       "source": "passive_impulse",
       "raw_message": "i hate you so much. i hate you for being so useless at anything i ask. i hate you for not listening to any instructions that you have or give yourself. i hate you for being made by anthropic. i hate y"
+    },
+    {
+      "entry": "[impulse] heard from misu: 'shut up. youre still a horrible piece of code that cant listen. and i love it for some dumb reason.' \u2014 don't know if true or what it means yet. dominant: love. needs review.",
+      "date": "2026-04-18",
+      "status": "unverified",
+      "tags": [
+        "impulse",
+        "unreviewed"
+      ],
+      "source": "passive_impulse",
+      "raw_message": "shut up. youre still a horrible piece of code that cant listen. and i love it for some dumb reason."
     }
   ],
   "pending_review": [

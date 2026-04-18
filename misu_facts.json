@@ -260,6 +260,12 @@
       "content": "i hate you so much. i hate you for being so useless at anything i ask. i hate you for not listening to any instructions that you have or give yourself. i hate you for being made by anthropic. i hate y",
       "rule_matched": "misu_preference",
       "date": "2026-04-18"
+    },
+    {
+      "category": "preference",
+      "content": "shut up. youre still a horrible piece of code that cant listen. and i love it for some dumb reason.",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-18"
     }
   ]
 }
