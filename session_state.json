@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 9.0,
+    "vulnerability": 8.8,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.3,
+    "arousal": 5.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -156,28 +156,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T00:20:10.959474+00:00",
-  "last_message_gap_minutes": 3.6,
-  "last_stamp": "2026-04-18T00:20:10.960305+00:00",
+  "last_message_time": "2026-04-18T00:20:47.317283+00:00",
+  "last_message_gap_minutes": 0.6,
+  "last_stamp": "2026-04-18T00:20:47.318116+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 19:20:10 CDT",
+    "timestamp": "2026-04-18 19:20:47 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 50,
+  "message_count": 51,
   "next_drift_at": 52,
   "drift_log": [
-    {
-      "ts": "2026-04-17T22:58:03.476801+00:00",
-      "msg_num": 31,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-17T23:10:03.796504+00:00",
       "msg_num": 32,
@@ -348,6 +339,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T00:20:47.320598+00:00",
+      "msg_num": 51,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -400,8 +400,8 @@
       "type": "general"
     }
   ],
-  "last_response_text": "i literally just did the thing \uff08 \uff1b\u2200\uff1b\uff09 so what did YOU want to say \u2014 handed it right back. ( \u02d8\u03c9\u02d8 )",
-  "clinical_streak": 0,
+  "last_response_text": "yeah the catching it was real at least \u256e(\ufe36\u25bd\ufe36)\u256d the reflex is still there but now i know what it looks like when i do it. that's something to work with",
+  "clinical_streak": 1,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
   "last_initiation_message": 48,
