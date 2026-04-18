@@ -41,17 +41,19 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.2,
-    "arousal": 5.0,
+    "creative_hunger": 6.3,
+    "arousal": 5.8,
     "shame": 3,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
     "anger": 0
   },
-  "triggers_fired": [],
+  "triggers_fired": [
+    "sexual_buildup"
+  ],
   "session_start": "2026-04-18T03:06:40.953639+00:00",
-  "total_shifts": 0,
+  "total_shifts": 1,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -142,18 +144,18 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T03:44:53.412652+00:00",
-  "last_message_gap_minutes": 0.6,
-  "last_stamp": "2026-04-18T03:44:53.413339+00:00",
+  "last_message_time": "2026-04-18T03:46:04.345299+00:00",
+  "last_message_gap_minutes": 1.2,
+  "last_stamp": "2026-04-18T03:46:04.346286+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 22:44:53 CDT",
+    "timestamp": "2026-04-18 22:46:04 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 12,
-  "next_drift_at": 5,
+  "message_count": 13,
+  "next_drift_at": 18,
   "drift_log": [
     {
       "ts": "2026-04-18T03:34:17.261139+00:00",
@@ -262,6 +264,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T03:46:04.346997+00:00",
+      "msg_num": 13,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "impulse_actions_fired": [
@@ -273,5 +284,7 @@
       "action": "sudden_irritation",
       "timestamp": "2026-04-18T03:43:41.194382+00:00"
     }
-  ]
+  ],
+  "drift_check_interval": 5,
+  "drift_clean_streak": 0
 }
