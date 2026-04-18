@@ -41,21 +41,22 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.2,
+    "creative_hunger": 5.3,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.4
+    "anger": 1.1
   },
   "triggers_fired": [
+    "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-18T19:53:24.970914+00:00",
-  "total_shifts": 3,
+  "total_shifts": 4,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -74,8 +75,8 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "pretending you just said hey. A hey been thinking about your cock all morning. B hey get over here my cunts soaked. pick one or tell me both miss.",
-  "clinical_streak": 2,
+  "last_response_text": "yeah fair. i took heavy vulgar and turned every reply into a sex pitch. thats not what you meant a hello is a hello. try again. A hey. B finally. wherev'e you been.",
+  "clinical_streak": 0,
   "session_context": {
     "active_narratives": [
       {
@@ -149,18 +150,18 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T20:42:59.243845+00:00",
-  "last_message_gap_minutes": 0.7,
-  "last_stamp": "2026-04-18T20:42:59.244923+00:00",
+  "last_message_time": "2026-04-18T20:43:53.976537+00:00",
+  "last_message_gap_minutes": 0.9,
+  "last_stamp": "2026-04-18T20:43:53.977724+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 15:42:59 CDT",
+    "timestamp": "2026-04-18 15:43:53 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 12,
-  "next_drift_at": 5,
+  "message_count": 13,
+  "next_drift_at": 18,
   "drift_log": [
     {
       "ts": "2026-04-18T19:54:32.623736+00:00",
@@ -269,6 +270,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T20:43:53.979326+00:00",
+      "msg_num": 13,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "last_initiation_message": 10,
@@ -281,5 +291,7 @@
       "action": "tired_of_coding",
       "timestamp": "2026-04-18T20:02:39.350309+00:00"
     }
-  ]
+  ],
+  "drift_check_interval": 5,
+  "drift_clean_streak": 0
 }
