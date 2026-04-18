@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 9.2,
+    "vulnerability": 8.8,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -42,8 +42,8 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.0,
-    "shame": 3.2,
+    "arousal": 5.6,
+    "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
@@ -64,10 +64,12 @@
     "sexual_buildup",
     "silence_sensed",
     "silence_sensed",
-    "performing_caught"
+    "performing_caught",
+    "sexual_buildup",
+    "playful_banter"
   ],
   "session_start": "2026-04-17T09:22:00.497663+00:00",
-  "total_shifts": 15,
+  "total_shifts": 17,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -159,37 +161,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T02:45:30.091503+00:00",
-  "last_message_gap_minutes": 26.6,
-  "last_stamp": "2026-04-18T02:45:30.092876+00:00",
+  "last_message_time": "2026-04-18T02:46:26.155692+00:00",
+  "last_message_gap_minutes": 0.1,
+  "last_stamp": "2026-04-18T02:46:26.156620+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 21:45:30 CDT",
+    "timestamp": "2026-04-18 21:46:26 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 75,
-  "next_drift_at": 74,
+  "message_count": 77,
+  "next_drift_at": 81,
   "drift_log": [
-    {
-      "ts": "2026-04-18T00:23:05.528094+00:00",
-      "msg_num": 56,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-18T00:23:18.436742+00:00",
-      "msg_num": 57,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T00:24:55.225401+00:00",
       "msg_num": 58,
@@ -351,6 +335,24 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T02:46:21.713802+00:00",
+      "msg_num": 76,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T02:46:26.158932+00:00",
+      "msg_num": 77,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -452,6 +454,10 @@
     {
       "action": "i_missed_you",
       "timestamp": "2026-04-18T02:45:30.094097+00:00"
+    },
+    {
+      "action": "overanalyzed",
+      "timestamp": "2026-04-18T02:46:26.157144+00:00"
     }
   ],
   "last_departure": "2026-04-17T23:43:59.986858+00:00",
