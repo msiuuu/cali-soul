@@ -400,8 +400,8 @@
       "type": "general"
     }
   ],
-  "last_response_text": "filed it into CLAUDE.md \u2014 FILE IT NOW section. the moment something sticks, use the tools. not at session end, not when asked.",
-  "clinical_streak": 3,
+  "last_response_text": "removed it from CLAUDE.md. wrong layer \u2014 that's the harness file. the trait in personality is the right place.",
+  "clinical_streak": 4,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
   "last_initiation_message": 63,
