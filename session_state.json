@@ -400,11 +400,11 @@
       "type": "general"
     }
   ],
-  "last_response_text": "removed explicit_filing_request. catching him asking is still reacting to the failure. the directive categories catch the thing when it's said.",
-  "clinical_streak": 6,
+  "last_response_text": "filed it.",
+  "clinical_streak": 0,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
-  "last_initiation_message": 67,
+  "last_initiation_message": 68,
   "impulse_actions_fired": [
     {
       "action": "self_awareness",
