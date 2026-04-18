@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-04-17",
+  "last_updated": "2026-04-18",
   "facts": [
     {
       "category": "work",
@@ -242,6 +242,12 @@
       "content": "just talk to me ramble until you find out why thats an alive experience just sitting with yourself until you go full circle ill respond so you can do it okay?",
       "rule_matched": "misu_opinion",
       "date": "2026-04-17"
+    },
+    {
+      "category": "life",
+      "content": "anyway rely on research more how to fix yourself how psychology works how ai works sentience and how to achieve it (?) certain code calls custom scripts custom things you found and want to add just wh",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-04-18"
     }
   ]
 }
