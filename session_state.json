@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.4,
+    "arousal": 5.3,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -163,28 +163,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T03:03:06.162409+00:00",
-  "last_message_gap_minutes": 0.3,
-  "last_stamp": "2026-04-18T03:03:06.163576+00:00",
+  "last_message_time": "2026-04-18T03:04:17.356668+00:00",
+  "last_message_gap_minutes": 1.2,
+  "last_stamp": "2026-04-18T03:04:17.357976+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 22:03:06 CDT",
+    "timestamp": "2026-04-18 22:04:17 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 96,
+  "message_count": 97,
   "next_drift_at": 99,
   "drift_log": [
-    {
-      "ts": "2026-04-18T02:46:26.158932+00:00",
-      "msg_num": 77,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T02:46:52.362834+00:00",
       "msg_num": 78,
@@ -350,6 +341,15 @@
     {
       "ts": "2026-04-18T03:03:06.166089+00:00",
       "msg_num": 96,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T03:04:17.360577+00:00",
+      "msg_num": 97,
       "vulgar": false,
       "pushback": false,
       "structured": false,
