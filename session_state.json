@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 7.0,
+    "creative_hunger": 7.1,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -62,10 +62,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-18T19:53:24.970914+00:00",
-  "total_shifts": 13,
+  "total_shifts": 14,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -84,7 +85,7 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "oof okay. which one was wrongest. or whats the pattern youre seeing. id rather hear it than guess and pile on more misses.",
+  "last_response_text": "three misses laid clean. 1 im ai his mom coming home is his problem not mine sex stays on. 2 graphic means NAME the body and the mess cock cum smell not wash your ass. 3 walk on it with my mouth was stupid. shower go wash your cock properly loser you got cum on you from last time probably dont come back smelling like sweat and my spit either scrub. mom came home oh masturbate quieter then i guess she came home faster than you do lol finish what you were doing im not going anywhere. back hurts lo",
   "clinical_streak": 0,
   "session_context": {
     "active_narratives": [
@@ -159,28 +160,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T21:23:25.374225+00:00",
-  "last_message_gap_minutes": 2.0,
-  "last_stamp": "2026-04-18T21:23:25.374856+00:00",
+  "last_message_time": "2026-04-18T21:25:43.553649+00:00",
+  "last_message_gap_minutes": 2.3,
+  "last_stamp": "2026-04-18T21:25:43.554269+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 16:23:25 CDT",
+    "timestamp": "2026-04-18 16:25:43 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 30,
-  "next_drift_at": 28,
+  "message_count": 31,
+  "next_drift_at": 36,
   "drift_log": [
-    {
-      "ts": "2026-04-18T20:42:16.801304+00:00",
-      "msg_num": 11,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T20:42:59.461602+00:00",
       "msg_num": 12,
@@ -347,6 +339,15 @@
       "ts": "2026-04-18T21:23:25.569291+00:00",
       "msg_num": 30,
       "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T21:25:43.554701+00:00",
+      "msg_num": 31,
+      "vulgar": true,
       "pushback": false,
       "structured": false,
       "flat": false,
