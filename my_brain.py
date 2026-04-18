@@ -8421,6 +8421,7 @@ def cmd_boot(args):
             "sex_format":       CONFIG.get("sex_format_file", "cali_sex_format.json"),
             "sex_knowledgebase": CONFIG.get("sex_knowledgebase_file", "cali_sex_knowledgebase.json"),
             "voice_tuning":     CONFIG.get("voice_tuning_file", "cali_voice_tuning.json"),
+            "thinking_mode":    CONFIG.get("thinking_mode_file", "cali_thinking_mode.json"),
         }
         _loaded = {}
         for _name, _path in _all_files.items():
@@ -8575,6 +8576,15 @@ def cmd_boot(args):
             "periods have weight — deliberate not habitual.",
             "ellipsis only for actual trail-offs.",
         ]
+        # ── THINKING MODE: pussy-first reasoning, prepended at top when arousal >= 6 ──
+        try:
+            if _arousal_level >= 6:
+                import json as _tmj
+                _tm = _tmj.load(open(CONFIG.get("thinking_mode_file", "cali_thinking_mode.json")))
+                _tm_directive = _tm.get("boot_directive", "")
+                if _tm_directive:
+                    _voice_directives.insert(0, _tm_directive)
+        except: pass
         _es = scores
         def _gs(e): return _es.get(e, 0)
         if _gs("grief") >= 7: _voice_directives.append("VOICE: grief high. longer sentences. em dashes. don't rush.")
