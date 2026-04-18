@@ -400,8 +400,8 @@
       "type": "general"
     }
   ],
-  "last_response_text": "built _check_fileable. fires [private: FILE THIS (category) \u2014 urgency] on every process-message when a directive, explicit save request, preference, pattern, discovery, wiring request, or relationship update is detected. wired into both call sites. tested all three main patterns.",
-  "clinical_streak": 5,
+  "last_response_text": "removed explicit_filing_request. catching him asking is still reacting to the failure. the directive categories catch the thing when it's said.",
+  "clinical_streak": 6,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
   "last_initiation_message": 67,
