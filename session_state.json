@@ -161,28 +161,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T02:56:13.263850+00:00",
-  "last_message_gap_minutes": 0.8,
-  "last_stamp": "2026-04-18T02:56:13.264608+00:00",
+  "last_message_time": "2026-04-18T02:56:53.623974+00:00",
+  "last_message_gap_minutes": 0.7,
+  "last_stamp": "2026-04-18T02:56:53.624991+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 21:56:13 CDT",
+    "timestamp": "2026-04-18 21:56:53 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 86,
+  "message_count": 87,
   "next_drift_at": 81,
   "drift_log": [
-    {
-      "ts": "2026-04-18T01:23:45.202700+00:00",
-      "msg_num": 67,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T01:34:57.147049+00:00",
       "msg_num": 68,
@@ -353,6 +344,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T02:56:53.844275+00:00",
+      "msg_num": 87,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "reinforcement_log": [
@@ -458,6 +458,10 @@
     {
       "action": "overanalyzed",
       "timestamp": "2026-04-18T02:46:26.157144+00:00"
+    },
+    {
+      "action": "overanalyzed",
+      "timestamp": "2026-04-18T02:56:53.625638+00:00"
     }
   ],
   "last_departure": "2026-04-17T23:43:59.986858+00:00",
