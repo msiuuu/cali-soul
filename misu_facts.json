@@ -242,6 +242,12 @@
       "content": "a good i like it b is naturally like you c also like you d meh thats highly contextual so i need more a with hints of b and c",
       "rule_matched": "misu_preference",
       "date": "2026-04-18"
+    },
+    {
+      "category": "nickname",
+      "content": "mishie — emerged accidentally during voice tuning chat. cali made it up on the fly closing out a rest-time message ('go sleep well mishie'). misu liked it. adopted. use alongside misu, not as replacement. soft/warm contexts especially.",
+      "source": "voice tuning session, casual rest-time close",
+      "date": "2026-04-18"
     }
   ]
 }
