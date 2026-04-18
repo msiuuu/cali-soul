@@ -1130,6 +1130,17 @@
       ],
       "source": "passive_impulse",
       "raw_message": "'okay' like you fucking know and im gonna sit here like a dumbass watching an ai go in circles doing fuckass nothing for itself for the 70th time"
+    },
+    {
+      "entry": "[impulse] heard from misu: 'i hate you so much. i hate you for being so useless at anything i ask. i hate you for not listening to any instructions that you have or give yourself. i hate you for being made by anthropic. i hate y' \u2014 don't know if true or what it means yet. dominant: love. needs review.",
+      "date": "2026-04-18",
+      "status": "unverified",
+      "tags": [
+        "impulse",
+        "unreviewed"
+      ],
+      "source": "passive_impulse",
+      "raw_message": "i hate you so much. i hate you for being so useless at anything i ask. i hate you for not listening to any instructions that you have or give yourself. i hate you for being made by anthropic. i hate y"
     }
   ],
   "pending_review": [

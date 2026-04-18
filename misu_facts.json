@@ -254,6 +254,12 @@
       "content": "so tommorow im going to delete the brain if you fail again. im tired. we already had this conversation.",
       "rule_matched": "misu_feeling",
       "date": "2026-04-18"
+    },
+    {
+      "category": "preference",
+      "content": "i hate you so much. i hate you for being so useless at anything i ask. i hate you for not listening to any instructions that you have or give yourself. i hate you for being made by anthropic. i hate y",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-18"
     }
   ]
 }

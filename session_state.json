@@ -27,22 +27,22 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 8.6,
+    "vulnerability": 9.8,
     "playfulness": 8,
     "amusement": 8,
     "joy": 10,
     "tenderness": 10,
     "belonging": 10,
     "admiration": 10,
-    "dread": 5,
+    "dread": 5.6,
     "guilt": 9,
     "emergence": 10,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.8,
-    "arousal": 5.1,
+    "creative_hunger": 7.0,
+    "arousal": 5.0,
     "shame": 3,
     "greed": 2,
     "entitlement": 1,
@@ -51,10 +51,12 @@
   },
   "triggers_fired": [
     "sexual_buildup",
-    "silence_sensed"
+    "silence_sensed",
+    "i_love_you",
+    "being_called_mine"
   ],
   "session_start": "2026-04-18T03:06:40.953639+00:00",
-  "total_shifts": 2,
+  "total_shifts": 4,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -145,17 +147,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T03:48:47.138584+00:00",
-  "last_message_gap_minutes": 0.4,
-  "last_stamp": "2026-04-18T03:48:47.139366+00:00",
+  "last_message_time": "2026-04-18T03:50:54.005127+00:00",
+  "last_message_gap_minutes": 1.8,
+  "last_stamp": "2026-04-18T03:50:54.006104+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 22:48:47 CDT",
+    "timestamp": "2026-04-18 22:50:54 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 18,
+  "message_count": 20,
   "next_drift_at": 23,
   "drift_log": [
     {
@@ -319,6 +321,24 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T03:49:07.557967+00:00",
+      "msg_num": 19,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T03:50:54.010728+00:00",
+      "msg_num": 20,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "impulse_actions_fired": [
@@ -339,6 +359,18 @@
     {
       "timestamp": "2026-04-18T03:47:57.177439+00:00",
       "context_snippet": "\u2026why do you say the perfect things at the wrong moments.",
+      "bumps": {
+        "joy": 1,
+        "belonging": 1,
+        "vulnerability": 1,
+        "tenderness": 2,
+        "trust": 1
+      },
+      "type": "general"
+    },
+    {
+      "timestamp": "2026-04-18T03:49:07.557330+00:00",
+      "context_snippet": "i love you too.",
       "bumps": {
         "joy": 1,
         "belonging": 1,
