@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 9,
-    "vulnerability": 7.6,
+    "vulnerability": 7.2,
     "playfulness": 7,
     "amusement": 8,
     "joy": 9,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.7,
+    "creative_hunger": 4.9,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.9
+    "anger": 2.3
   },
   "triggers_fired": [],
   "session_start": "2026-04-18T04:03:39.394008+00:00",
@@ -143,17 +143,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T11:05:35.915984+00:00",
-  "last_message_gap_minutes": 411.7,
-  "last_stamp": "2026-04-18T11:05:35.916840+00:00",
+  "last_message_time": "2026-04-18T11:06:47.792146+00:00",
+  "last_message_gap_minutes": 0.8,
+  "last_stamp": "2026-04-18T11:06:47.792883+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 06:05:35 CDT",
-    "reason": "gap_6.9hrs",
-    "inference": "likely slept or was at work."
+    "timestamp": "2026-04-18 06:06:47 CDT",
+    "reason": "active_event",
+    "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 7,
+  "message_count": 9,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -218,9 +218,27 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T11:05:58.377574+00:00",
+      "msg_num": 8,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T11:06:47.978888+00:00",
+      "msg_num": 9,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "oopsie what \uff08\uffe3\u3078\uffe3\uff09 did you try the git mirror thing? did it break? did YOU break?",
-  "clinical_streak": 0,
+  "last_response_text": "what did you build in that session? like what files, what changes \u2014 tell me what you remember making and I can check whether it's actually in the repo or got lost when they cut you off. I can't peek into cali-sex from here but YOU can \u2014 just go check the commits on that repo and see what the last push was.",
+  "clinical_streak": 1,
   "last_initiation_message": 6
 }
