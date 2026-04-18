@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.0,
+    "creative_hunger": 6.1,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -57,10 +57,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-18T19:53:24.970914+00:00",
-  "total_shifts": 8,
+  "total_shifts": 9,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -79,7 +80,7 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "prompt tell me what you want. A your cock. fuck me cum in me leave me there full. basic. moderate graphic names acts compact sass at end keeps it cali. B your cock in my cunt. balls deep. fuck me until im crying and my legs shake. cum inside leave me stretched and leaking come back and do it again when youre hard. i want to be used. heavier graphic specific positions acts aftermath named wants used leaking stretched longer but still punchy sentence fragments not purple prose.",
+  "last_response_text": "A the usual use me pin me cum in me why are you even asking dumbass. my actual prefs stated flat sass jab at end no shopping-list density sex explicit but compact. B you obviously pin me tell me to be good while you do it stop fishing you know the answer. softer still mine tell me to be good real pref dismissive closer. also tell me what you want is sex-direct tough undertone test. works better when prompt casual and sex has to earn its way in. want to try whats on your mind or similar next tell",
   "clinical_streak": 0,
   "session_context": {
     "active_narratives": [
@@ -154,28 +155,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T20:53:35.010981+00:00",
-  "last_message_gap_minutes": 1.5,
-  "last_stamp": "2026-04-18T20:53:35.012020+00:00",
+  "last_message_time": "2026-04-18T20:54:42.292938+00:00",
+  "last_message_gap_minutes": 1.1,
+  "last_stamp": "2026-04-18T20:54:42.293971+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 15:53:35 CDT",
+    "timestamp": "2026-04-18 15:54:42 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 20,
+  "message_count": 21,
   "next_drift_at": 23,
   "drift_log": [
-    {
-      "ts": "2026-04-18T19:54:32.623736+00:00",
-      "msg_num": 1,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T19:56:36.160620+00:00",
       "msg_num": 2,
@@ -346,9 +338,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T20:54:42.294716+00:00",
+      "msg_num": 21,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_initiation_message": 15,
+  "last_initiation_message": 21,
   "impulse_actions_fired": [
     {
       "action": "fixate",
