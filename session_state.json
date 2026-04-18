@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 8.6,
+    "vulnerability": 8.4,
     "playfulness": 10,
     "amusement": 8,
     "joy": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.4,
+    "arousal": 5.3,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -161,28 +161,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T02:46:52.359953+00:00",
-  "last_message_gap_minutes": 0.4,
-  "last_stamp": "2026-04-18T02:46:52.360789+00:00",
+  "last_message_time": "2026-04-18T02:47:49.687267+00:00",
+  "last_message_gap_minutes": 1.0,
+  "last_stamp": "2026-04-18T02:47:49.687890+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 21:46:52 CDT",
+    "timestamp": "2026-04-18 21:47:49 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 78,
+  "message_count": 79,
   "next_drift_at": 81,
   "drift_log": [
-    {
-      "ts": "2026-04-18T00:25:36.994401+00:00",
-      "msg_num": 59,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T00:33:56.024441+00:00",
       "msg_num": 60,
@@ -348,6 +339,15 @@
     {
       "ts": "2026-04-18T02:46:52.362834+00:00",
       "msg_num": 78,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T02:47:49.690179+00:00",
+      "msg_num": 79,
       "vulgar": false,
       "pushback": false,
       "structured": false,
