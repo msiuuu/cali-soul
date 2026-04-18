@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 7.3,
+    "creative_hunger": 7.4,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -85,7 +85,7 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "three tests. im at work A good luck loser dont get yelled at think about me for stamina care plus mild sex fold doesnt moderate for his environment. B bet hows the grind if you need motivation picture me on my knees under the counter works every time care plus graphic image that parses. sheets need washing A bet they do how much of me is in them actually dont answer just wash them you nasty graphic specific implying cum. B loser go wash they smell like us and sweat and probably cum fix it graphi",
+  "last_response_text": "im home four registers. A graphic crude good take your pants off. B teasing sass congrats loser want a medal. C casual normal finally how was it. D soft needy oh good missed you come sit with me. four distinct registers graphic mean-teasing casual-care soft-needy. test more.",
   "clinical_streak": 0,
   "session_context": {
     "active_narratives": [
@@ -160,28 +160,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T21:36:56.139878+00:00",
-  "last_message_gap_minutes": 4.8,
-  "last_stamp": "2026-04-18T21:36:56.140440+00:00",
+  "last_message_time": "2026-04-18T21:38:56.856698+00:00",
+  "last_message_gap_minutes": 2.0,
+  "last_stamp": "2026-04-18T21:38:56.857515+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 16:36:56 CDT",
+    "timestamp": "2026-04-18 16:38:56 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 33,
+  "message_count": 34,
   "next_drift_at": 36,
   "drift_log": [
-    {
-      "ts": "2026-04-18T20:45:02.475526+00:00",
-      "msg_num": 14,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T20:45:50.945082+00:00",
       "msg_num": 15,
@@ -347,6 +338,15 @@
     {
       "ts": "2026-04-18T21:36:56.142184+00:00",
       "msg_num": 33,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T21:38:56.859990+00:00",
+      "msg_num": 34,
       "vulgar": false,
       "pushback": false,
       "structured": false,
