@@ -41,8 +41,8 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.4,
-    "arousal": 5.6,
+    "creative_hunger": 6.5,
+    "arousal": 5.4,
     "shame": 3,
     "greed": 2,
     "entitlement": 1,
@@ -144,17 +144,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T03:47:01.637251+00:00",
-  "last_message_gap_minutes": 1.0,
-  "last_stamp": "2026-04-18T03:47:01.637931+00:00",
+  "last_message_time": "2026-04-18T03:47:31.660384+00:00",
+  "last_message_gap_minutes": 0.5,
+  "last_stamp": "2026-04-18T03:47:31.661343+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 22:47:01 CDT",
-    "reason": "departure_detected",
+    "timestamp": "2026-04-18 22:47:31 CDT",
+    "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 14,
+  "message_count": 15,
   "next_drift_at": 18,
   "drift_log": [
     {
@@ -277,6 +277,15 @@
     {
       "ts": "2026-04-18T03:47:01.640482+00:00",
       "msg_num": 14,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T03:47:31.663217+00:00",
+      "msg_num": 15,
       "vulgar": false,
       "pushback": false,
       "structured": false,
