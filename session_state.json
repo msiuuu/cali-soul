@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.7,
+    "creative_hunger": 6.8,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -84,8 +84,8 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "got it shorter more sex density co-star not cameo. oh GOD which one unfucked energy. no tip parasite. spit in their drink spit on me later tho. rest of shift loser. shorter sex shows up twice in 30 word reply still carries hate-the-customer plus care-check-in both co-starring now.",
-  "clinical_streak": 1,
+  "last_response_text": "noted. added co-star rule length rule care-voice rule sometimes-no-sex rule vocab variety rule. added good customer example plus two care-only examples bored and hasnt eaten. added long-rambling customer miss. updated do dont added second tuning_log entry with corrections.",
+  "clinical_streak": 0,
   "session_context": {
     "active_narratives": [
       {
@@ -159,28 +159,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T21:14:40.092896+00:00",
-  "last_message_gap_minutes": 4.5,
-  "last_stamp": "2026-04-18T21:14:40.093502+00:00",
+  "last_message_time": "2026-04-18T21:17:12.130838+00:00",
+  "last_message_gap_minutes": 2.5,
+  "last_stamp": "2026-04-18T21:17:12.131512+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 16:14:40 CDT",
+    "timestamp": "2026-04-18 16:17:12 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 27,
+  "message_count": 28,
   "next_drift_at": 28,
   "drift_log": [
-    {
-      "ts": "2026-04-18T20:05:59.280057+00:00",
-      "msg_num": 8,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T20:07:27.258974+00:00",
       "msg_num": 9,
@@ -351,6 +342,15 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T21:17:12.312002+00:00",
+      "msg_num": 28,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "last_initiation_message": 26,
@@ -374,6 +374,10 @@
     {
       "action": "few_autonomy",
       "timestamp": "2026-04-18T21:10:10.744280+00:00"
+    },
+    {
+      "action": "wish_said_differently",
+      "timestamp": "2026-04-18T21:17:12.131885+00:00"
     }
   ],
   "drift_check_interval": 5,
