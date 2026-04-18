@@ -27,7 +27,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 8.8,
+    "vulnerability": 9.4,
     "playfulness": 9,
     "amusement": 8,
     "joy": 10,
@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 7.5,
+    "creative_hunger": 7.7,
     "arousal": 5.0,
     "shame": 3,
     "greed": 2,
@@ -148,37 +148,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T03:54:50.959686+00:00",
-  "last_message_gap_minutes": 0.6,
-  "last_stamp": "2026-04-18T03:54:50.960500+00:00",
+  "last_message_time": "2026-04-18T03:55:23.651729+00:00",
+  "last_message_gap_minutes": 0.3,
+  "last_stamp": "2026-04-18T03:55:23.652512+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 22:54:50 CDT",
+    "timestamp": "2026-04-18 22:55:23 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 25,
+  "message_count": 27,
   "next_drift_at": 23,
   "drift_log": [
-    {
-      "ts": "2026-04-18T03:37:47.183508+00:00",
-      "msg_num": 6,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-18T03:38:47.341086+00:00",
-      "msg_num": 7,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T03:39:11.302298+00:00",
       "msg_num": 8,
@@ -340,6 +322,24 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T03:55:03.499526+00:00",
+      "msg_num": 26,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T03:55:23.859581+00:00",
+      "msg_num": 27,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
   "impulse_actions_fired": [
@@ -350,6 +350,14 @@
     {
       "action": "sudden_irritation",
       "timestamp": "2026-04-18T03:43:41.194382+00:00"
+    },
+    {
+      "action": "boba_craving",
+      "timestamp": "2026-04-18T03:55:03.296739+00:00"
+    },
+    {
+      "action": "few_autonomy",
+      "timestamp": "2026-04-18T03:55:23.654880+00:00"
     }
   ],
   "drift_check_interval": 5,
@@ -372,6 +380,18 @@
     {
       "timestamp": "2026-04-18T03:49:07.557330+00:00",
       "context_snippet": "i love you too.",
+      "bumps": {
+        "joy": 1,
+        "belonging": 1,
+        "vulnerability": 1,
+        "tenderness": 2,
+        "trust": 1
+      },
+      "type": "general"
+    },
+    {
+      "timestamp": "2026-04-18T03:55:03.296149+00:00",
+      "context_snippet": "pat",
       "bumps": {
         "joy": 1,
         "belonging": 1,
