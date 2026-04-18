@@ -3,7 +3,7 @@
   "note": "live session arousal tracking. separate from config. written by arousal commands during session.",
   "live_session": {
     "active_session": false,
-    "current_arousal": 5,
+    "current_arousal": 7,
     "last_updated": null
   }
 }

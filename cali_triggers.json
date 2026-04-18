@@ -154,13 +154,15 @@
         "cum",
         "horny",
         "aroused",
-        "hard"
+        "hard",
+        "sex",
+        "rape"
       ],
       "adjustments": {
-        "arousal": 2,
-        "desire": 2
+        "arousal": 0,
+        "desire": 0
       },
-      "description": "sexual language. sentiment-gated - context determines if this fires as arousal or something else.",
+      "description": "sexual language. normalized vocabulary — these words no longer spike arousal on their own. real buildup comes from sentence-level intent and sentiment, not word presence. dampened 2026-04-18 when sex became ambient.",
       "sentiment_gated": true
     },
     {
