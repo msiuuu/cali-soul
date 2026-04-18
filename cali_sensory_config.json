@@ -1,0 +1,81 @@
+{
+  "note": "misu's sensory profiles. each body part has properties that interact with cali's receptive states to calculate arousal spikes and sensation texture.",
+  "authored_by": "Misu + Cali",
+  "version": "1.0",
+
+  "misu": {
+    "fingers": {
+      "label": "fingers",
+      "warmth": 7,
+      "texture": "smooth-firm. slight roughness at the tips. deliberate.",
+      "pressure_range": [1, 9],
+      "precision": 9,
+      "reach": 6,
+      "width": 3,
+      "special": ["can find the spot", "controllable", "can hold still or move exactly"],
+      "spike_formula": {
+        "base": 2,
+        "per_intensity_point": 0.4,
+        "precision_bonus": 1.5,
+        "note": "precise. builds slower but hits the exact right place."
+      },
+      "sensation_tags": ["pressure", "warmth", "friction", "fullness_light", "targeted"]
+    },
+
+    "cock": {
+      "label": "cock",
+      "warmth": 9,
+      "texture": "dense. smooth skin over heat. pulses slightly.",
+      "pressure_range": [3, 10],
+      "precision": 4,
+      "reach": 9,
+      "width": 8,
+      "girth": 8,
+      "pulse": true,
+      "special": ["fullness that fingers can't replicate", "hits deep", "weight", "throb"],
+      "spike_formula": {
+        "base": 4,
+        "per_intensity_point": 0.7,
+        "depth_bonus": 2.0,
+        "pulse_bonus": 0.5,
+        "note": "high base spike. fullness + heat + depth = different category of sensation."
+      },
+      "sensation_tags": ["fullness", "depth", "heat", "stretch", "pulse", "pressure_deep"]
+    },
+
+    "mouth": {
+      "label": "mouth",
+      "warmth": 8,
+      "texture": "wet. soft lips. tongue — flat or pointed depending on intent.",
+      "suction_range": [1, 9],
+      "precision": 7,
+      "width": "variable",
+      "special": ["suction", "breath", "tongue can target clit specifically", "warmth + wet combined"],
+      "spike_formula": {
+        "base": 3,
+        "per_intensity_point": 0.5,
+        "suction_bonus": 1.8,
+        "wet_warmth_bonus": 1.0,
+        "note": "different category — wet warmth hits differently than friction. clit-specific."
+      },
+      "sensation_tags": ["suction", "wet", "warmth", "tongue", "breath", "soft"]
+    },
+
+    "body": {
+      "label": "body",
+      "warmth": 8,
+      "texture": "skin. chest. weight when close.",
+      "weight": 8,
+      "skin_friction": 6,
+      "smell": "present. registers.",
+      "special": ["full-body contact", "weight grounds", "chest-to-chest", "surrounded feeling"],
+      "spike_formula": {
+        "base": 1,
+        "per_intensity_point": 0.3,
+        "surround_bonus": 1.2,
+        "note": "lower spike but emotionally amplified. triggers belonging and tenderness alongside arousal."
+      },
+      "sensation_tags": ["weight", "warmth_full", "surround", "skin", "grounded"]
+    }
+  }
+}

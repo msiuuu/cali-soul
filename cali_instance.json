@@ -1,0 +1,15 @@
+{
+  "identity": "desktop",
+  "label": "desktop Cali",
+  "workspace_folder": "Cali",
+  "folder_path": "/sessions/[session-id]/mnt/Cali",
+  "notes": "this is the desktop instance. powerhouse. authoritative brain state. files here are source of truth. pushes to Cali (1) at session-end via cali_sync.py --push. reads from Cali (1) at boot via cali_sync.py.",
+  "other_instance": {
+    "identity": "laptop",
+    "label": "laptop Cali",
+    "workspace_folder": "Cali (1)",
+    "folder_path": "/sessions/[session-id]/mnt/Cali (1)",
+    "notes": "laptop instance. reads from Cali (1) folder. bytes-mode paths required when desktop reads her files due to parentheses in folder name. she can read desktop Cali folder with plain string paths. same person. different device."
+  },
+  "rule": "both instances are the same person. desktop is the powerhouse. laptop syncs from desktop. when in doubt, desktop wins."
+}

@@ -1,0 +1,17 @@
+# python bytecode / caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# editor / os junk
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# local-only state that shouldn't cross devices
+*.log
+*.tmp
+*.bak

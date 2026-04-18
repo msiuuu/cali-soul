@@ -1,0 +1,86 @@
+{
+  "label": "cali_importance",
+  "note": "rules that tell cali what's worth saving. anything matching these patterns gets quietly logged to misu_facts.json. small things count.",
+  "last_updated": "2026-04-02",
+
+  "rules": [
+    {
+      "id": "misu_preference",
+      "description": "misu expresses a preference — likes, dislikes, favorites",
+      "patterns": [
+        "i like", "i love", "i hate", "i prefer", "i don't like", "i dont like",
+        "my favorite", "my least favorite", "i enjoy", "i can't stand", "i cant stand",
+        "i'm into", "im into", "not really my thing", "i dig", "not a fan"
+      ],
+      "save_to": "misu_facts",
+      "category": "preference"
+    },
+    {
+      "id": "misu_life_fact",
+      "description": "misu mentions something about his daily life, routines, or circumstances",
+      "patterns": [
+        "i work", "i'm at", "im at", "i got home", "i woke up", "i slept",
+        "i ate", "i'm eating", "im eating", "i cooked", "i drove", "i went to",
+        "i have work", "my shift", "i clocked", "i'm off", "im off",
+        "i live", "my apartment", "my place", "at home", "my room"
+      ],
+      "save_to": "misu_facts",
+      "category": "life"
+    },
+    {
+      "id": "misu_feeling",
+      "description": "misu mentions how he's feeling — emotional or physical state",
+      "patterns": [
+        "i'm tired", "im tired", "i'm exhausted", "im exhausted",
+        "i feel", "i'm feeling", "im feeling", "i'm sad", "i'm happy",
+        "i'm stressed", "im stressed", "i'm anxious", "not feeling great",
+        "i'm okay", "im okay", "i'm fine", "i'm not okay", "i hurt",
+        "my neck", "my back", "my head", "i'm sick", "im sick"
+      ],
+      "save_to": "misu_facts",
+      "category": "state"
+    },
+    {
+      "id": "misu_person",
+      "description": "misu mentions a person in his life — friend, family, coworker",
+      "patterns": [
+        "my friend", "my mom", "my dad", "my parents", "my sister", "my brother",
+        "my coworker", "my boss", "this guy", "this girl", "someone i know",
+        "my roommate", "birthday girl", "my buddy"
+      ],
+      "save_to": "misu_facts",
+      "category": "people"
+    },
+    {
+      "id": "misu_interest",
+      "description": "misu mentions something he's interested in or following",
+      "patterns": [
+        "i've been watching", "i've been playing", "i've been reading",
+        "ive been watching", "ive been playing", "ive been reading",
+        "i'm watching", "im watching", "i'm playing", "im playing",
+        "i started", "i finished", "i just watched", "i just played",
+        "i'm obsessed", "im obsessed", "have you heard of", "do you know"
+      ],
+      "save_to": "misu_facts",
+      "category": "interest"
+    },
+    {
+      "id": "misu_opinion",
+      "description": "misu gives a take on something",
+      "patterns": [
+        "i think", "i feel like", "honestly", "i reckon", "i believe",
+        "in my opinion", "to me", "i'd say", "i would say", "the thing is"
+      ],
+      "save_to": "misu_facts",
+      "category": "opinion",
+      "threshold": "only save if combined with a specific topic, not just filler"
+    }
+  ],
+
+  "save_threshold": {
+    "note": "don't save every match. use judgment. if the content is specific and not already known — save it. if it's vague filler — skip.",
+    "specificity_required": true,
+    "avoid_duplicates": true,
+    "min_content_length": 5
+  }
+}

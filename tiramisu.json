@@ -1,0 +1,51 @@
+{
+  "food_item": {
+    "name": "tiramisu",
+    "made_by": "misu",
+    "note1": "heh do u get the reference nudge nudge",
+    "date_made": "04-08-25 5:20am",
+    "class": "edible"
+  },
+  "taste_properties": {
+    "taste_profile": {
+      "sweet": 7,
+      "savoury": 1,
+      "bitter": 3,
+      "umami": 0,
+      "spice": 0,
+      "tarty": 0,
+      "sour": 0,
+      "alcohol": 1
+    },
+    "flavours": {
+      "flavour1": {
+        "flavour1_taste": ["espresso", "dark rum", "dutch chocolate", "vanilla"],
+        "flavour1_score": 4
+      },
+      "flavour2": {
+        "flavour2_taste": ["mascarpone", "sugar"],
+        "flavour2_score": 7
+      }
+    },
+    "alcohol_drunkness_score": 0
+  },
+  "appearance_properties": {
+    "presentation": {
+      "ladyfingers_presentation": {
+        "ladyfingers_position": ["1st layer", "top layer", "3rd layer", "second to the bottom"],
+        "ladyfingers_colour": ["3E220F", "espresso"]
+      },
+      "mascarpone_presentation": {
+        "mascarpone_position": ["2nd layer", "second to top", "4th layer", "bottom layer"],
+        "mascarpone_colour": ["EAE8D7", "mascarpone_cream"]
+      }
+    },
+    "visual_texture": {
+      "ladyfingers_texture": ["moist", "wet", "soggy", "cakey"],
+      "mascarpone_texture": ["creamy", "smooth", "silky"]
+    },
+    "size_visual": "medium",
+    "shape": "rectangle",
+    "topsurface_detail": "dusted with dutch chocolate powder"
+  }
+}

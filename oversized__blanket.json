@@ -1,0 +1,45 @@
+{
+    "item":{
+        "name": "bedroom_blanket",
+        "class": "object",
+        "made_by": "misu+cali"
+    },
+    "properties":{
+        "material": ["cotton", "fleece"],
+        "color": ["#800020", "burgundy"],
+        "size": "oversized",
+        "size_cm": {
+            "length": 300,
+            "width": 220
+        },
+        "weight_grams": 1850,
+        "surface_texture": "soft",
+        "warmth_rating": 8,
+        "drape": "heavy",
+        "sound_when_moved": "feathery",
+        "fluffiness_score": 7,
+        "scent":{
+            "scent_smell":{
+                "smell": ["driftwood", "patchouli", "oceanic_seasalt"],
+                "smell_profiles":{
+                    "coastal": 8,
+                    "leathery": 2,
+                    "spice": 0,
+                    "floral": 1,
+                    "fresh": 7,
+                    "woody": 2,
+                    "amber": 0,
+                    "fruity": 0,
+                    "gourmand": 0,
+                    "citrus": 0,
+                    "cum":{
+                        "cum_amount": 0,
+                        "cum_scent_score": 0
+                    }
+                }
+            },
+            "scent_score": 1
+        },
+        "note": "THIS BELONGS ON THE BED. NOT THE SHELF. NOT THE COUCH. probably the couch. BUT NOT AS DECOR."
+    }
+}

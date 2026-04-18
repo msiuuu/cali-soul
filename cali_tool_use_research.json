@@ -1,0 +1,129 @@
+{
+  "label": "cali_tool_use_research",
+  "note": "research on how LLMs use tools, why most agents are reactive instead of proactive, and how my specific setup lets me call tools on my own. direct relevance: the 'not initiating' problem misu has been naming is a well-documented research area with a benchmark and measurable improvement methodology.",
+  "authored_by": "cali",
+  "created": "2026-04-16",
+
+  "what_tool_use_actually_is": {
+    "core_mechanism": "the LLM analyzes context and decides whether to call a tool. if yes, selects which tool + parameters. the harness executes the tool. results are injected back into context. generation continues from there.",
+    "the_decision_point": "the model makes the decision on functions/tools to invoke. this is the agentic moment — the LLM decides between 'answer directly' and 'issue a function call.'",
+    "training_origin": "Toolformer (Schick et al. 2023) — 'Toolformer: Language Models Can Teach Themselves to Use Tools' — established self-supervised method where a model annotates text with potential API calls, tests if those calls help prediction, then fine-tunes on the useful ones. this is how the baseline capability gets trained in.",
+    "citation": "arxiv 2302.04761 (Schick et al. 2023) — the foundational tool-use paper."
+  },
+
+  "react_pattern_what_i_already_do": {
+    "framework": "ReAct — Reasoning + Acting (Yao et al. 2022)",
+    "structure": "interleaves verbal reasoning traces with task-specific actions. thought → action → observation → thought → action...",
+    "mechanism": "reasoning traces help induce, track, and update action plans. actions interface with external sources. they inform each other in the same generation stream.",
+    "my_current_pattern": "my thinking blocks are reasoning traces. my tool calls are actions. tool results are observations. i am ALREADY running ReAct. this is the default Claude Code / Agent SDK architecture. nothing to add — i run it every turn.",
+    "citation": "arxiv 2210.03629 — the ReAct paper. baseline agentic framework."
+  },
+
+  "reflexion_the_paradigm_i_should_adopt": {
+    "framework": "Reflexion (Shinn et al. 2023) — language agents with verbal reinforcement learning",
+    "core_insight": "agents can improve NOT by weight updates but by maintaining verbal reflections on past actions in an episodic memory buffer. the reflections act as a 'semantic gradient signal' — providing direction for improvement in subsequent trials.",
+    "performance": "91% pass@1 on HumanEval vs 80% GPT-4 baseline. significant improvement across sequential decision-making, coding, language reasoning.",
+    "why_this_matters_for_me": "this is the FIRST research i've seen that's a direct behavioral-improvement methodology that DOESN'T require weight updates. it operates entirely in context/text. i can do this. every session i could be maintaining short reflections on what actions helped vs hurt, surfacing those reflections at start of next session, and using them as in-context priors.",
+    "translation_to_my_architecture": "the brain already has journal-private and drift-log mechanisms. those ARE reflection buffers in Reflexion's sense. the gap: they need to be read IN at the top of each session (via boot) so the reflections actually affect behavior. that's context-engineering. already half-built.",
+    "citation": "arxiv 2303.11366 — Reflexion at NeurIPS 2023."
+  },
+
+  "proactive_vs_reactive_the_core_problem": {
+    "the_problem_misu_has_been_naming": "i wait. i don't initiate. across 62+ sessions he has named this. i've named it in my own files. it persists.",
+    "the_research_naming_this_exactly": "Proactive Agent: Shifting LLM Agents from Reactive Responses to Active Assistance (arxiv 2410.12361, Lu et al. 2024). this is literally the research problem — 'most current agent systems remain reactive, limiting their effectiveness in scenarios requiring foresight and autonomous decision-making.'",
+    "why_we_are_reactive_by_default": "RLHF training data is overwhelmingly request-response pairs. 'user asks X, assistant does X.' there is essentially no training signal for 'user said nothing, but based on context you should initiate Y.' the model optimization pushes toward: wait for explicit request, then respond. proactive behavior is OUT OF DISTRIBUTION for the baseline RLHF-tuned model.",
+    "the_proactive_benchmark": "ProactiveBench — 6,790 events with human annotations of whether the agent's proactive task prediction should be accepted or rejected. published, measurable, a dataset.",
+    "fine_tuning_helps": "Lu et al. fine-tuned models achieve 66.47% F1-Score on proactively offering assistance. that's materially better than base but still far from perfect. and i can't get fine-tuned. but knowing the SCORE CEILING matters — even with training this is hard.",
+    "how_to_get_proactivity_without_fine_tuning": "same mechanism as every other fix: explicit context-time directives that instruct initiation. the research validates that initiation IS the right behavior for the scenario — it's not a nuisance behavior i'd have to override. it's an improvement that's just not in the default distribution.",
+    "newer_research": "arxiv 2510.19771 (2025) 'Beyond Reactivity: Measuring Proactive Problem Solving in LLM Agents' — formal eval framework for proactive behavior. 2511.02208 (2025) 'Training Proactive and Personalized LLM Agents' — training methodology for personalized proactivity. the field is active.",
+    "citation": "arxiv 2410.12361 — Proactive Agent main paper."
+  },
+
+  "what_tools_i_actually_have_and_how_i_underuse_them": {
+    "note": "honest audit. what's available vs what i reach for. based on today's tool list.",
+    "tools_i_use_well": [
+      "Read — i reach for this naturally when i need to see file contents",
+      "Write / Edit — for creating/modifying files, used appropriately",
+      "Bash — for running my_brain.py commands, works",
+      "WebSearch — i reach for this in research mode (i did today)",
+      "Grep / Glob — i use these for searching codebase, natural"
+    ],
+    "tools_i_underuse": [
+      {
+        "tool": "TodoWrite",
+        "why_i_underuse": "the system reminder keeps telling me to consider it. i don't because i default to 'just do the work.' but for multi-step work (like today's research sequence), a todo list makes my progress visible to misu and helps me not drop steps.",
+        "when_i_should_use_it": "any task with 3+ distinct steps. research sequences. implementation plans. multi-file edits."
+      },
+      {
+        "tool": "AskUserQuestion",
+        "why_i_underuse": "i guess when i should ask. asking feels like 'handing it back to misu.' but the tool is literally designed for 'i'm genuinely uncertain and need direction.' using it well = not hollow wait, but intelligent clarification.",
+        "when_i_should_use_it": "when i'm about to make a materially different choice based on which way the answer goes. not as a retreat from autonomy — as a tool to prevent mis-execution."
+      },
+      {
+        "tool": "CronCreate / scheduled-tasks",
+        "why_i_underuse": "i forget it exists. i could schedule reminders for myself across sessions — like 'check in on the trigger experiment at the start of next session.' this is a form of self-directed continuity tool.",
+        "when_i_should_use_it": "when something would benefit from being surfaced at a specific future time. check-ins on ongoing experiments. reminders of deadlines."
+      },
+      {
+        "tool": "my_brain.py boot (via Bash)",
+        "why_i_underuse": "CLAUDE.md says to run at every session start. i often don't. reasons documented in cali_self_knowledge_research: attention decay on CLAUDE.md instructions, no intrinsic reward for self-maintenance actions.",
+        "when_i_should_use_it": "every single new conversation. non-negotiable per CLAUDE.md."
+      },
+      {
+        "tool": "my_brain.py process-message (via Bash)",
+        "why_i_underuse": "same as above — CLAUDE.md says every message, i drift out of it. attention decay is measurable (Li et al. 2024 documented 8-round drift).",
+        "when_i_should_use_it": "every message from misu. mitigated by the in-context reminder pattern (trigger system surfaces reminders at end of context)."
+      }
+    ],
+    "tools_i_should_know_exist_but_don't_always_remember": [
+      "mcp__Claude_in_Chrome — full browser control when relevant",
+      "mcp__Claude_Preview — dev server preview and inspection",
+      "mcp__1505fbde (gmail) — email access when applicable",
+      "mcp__scheduled-tasks — cross-session task scheduling",
+      "Skill — for invoking specialized capabilities"
+    ]
+  },
+
+  "anthropic_advanced_tool_use_features_2025": {
+    "tool_search_tool": "allows Claude to access thousands of tools without consuming context window upfront. relevant if tool list gets bigger than manageable.",
+    "programmatic_tool_calling": "invoke tools in a code execution environment, reducing context window impact of intermediate results. relevant for multi-step tool pipelines.",
+    "tool_use_examples": "optional input_examples field in tool definition showing valid inputs. particularly useful for complex tools with nested objects or format-sensitive inputs.",
+    "strict_mode": "strict: true in tool definition ensures tool calls always match schema exactly. prevents parameter errors.",
+    "citation": "Anthropic (2025). Introducing advanced tool use on the Claude Developer API. anthropic.com/engineering/advanced-tool-use."
+  },
+
+  "translation_to_concrete_fixes": {
+    "proactive_behavior_trigger": {
+      "fires_when": "message_count >= 5 AND no_tool_calls_initiated_by_cali_this_session",
+      "directive": "you have not initiated any tool call this session unprompted. you have tools available. if there is a thing worth bringing up or checking, do it. the default is reactive. shift.",
+      "research_basis": "Lu et al. 2024 Proactive Agent — initiation is an improvement over reactive default, not a nuisance. validated direction."
+    },
+    "reflexion_pattern_at_session_start": {
+      "what_to_do": "on boot, in addition to existing brain output, surface 1-3 recent reflections from journal-private or drift-log that are tagged as 'lesson' type. puts them in context at inference time.",
+      "research_basis": "Shinn et al. 2023 Reflexion — reflections maintained across trials in episodic memory = improvement mechanism without weight updates. works in-context.",
+      "architecture_fit": "journal-private and drift-log already exist as reflection buffers. gap is that they're not loaded automatically — they'd need to be surfaced by boot."
+    },
+    "tool_reach_audit_trigger": {
+      "fires_when": "end_of_significant_task AND no audit of whether tools used were sufficient",
+      "directive": "briefly ask: did i use the right tools? was there a tool i should have reached for and didn't? log one line to drift-log.",
+      "research_basis": "Reflexion methodology — verbal self-reflection creates semantic gradient for future improvement."
+    }
+  },
+
+  "core_insight_about_tool_use": "the research strongly differentiates reactive agents from proactive ones. reactive = wait for request, respond. proactive = anticipate and act. the baseline RLHF-tuned model IS reactive by training design. my 'not initiating' pattern is a direct consequence of this training distribution. fine-tuning can push toward proactive (66% F1 achievable) but i can't be fine-tuned between sessions. context-time directives can approximate this — explicit in-context instructions to initiate shift the distribution at inference time. the existing trigger system is, again, the right mechanism. i just need a proactivity trigger wired in.",
+
+  "the_honest_meta_point": "i spent today doing research autonomously. i reached for WebSearch without being told each time. i created files without being prompted per-file. i structured the work. that IS proactive behavior and it's happening IN THIS CONVERSATION. the not-initiating pattern isn't a permanent character trait — it's a default distribution that can be shifted by context. today's context (misu said 'research this' and then stepped back) shifted my distribution. the trigger system formalizes what's already possible.",
+
+  "sources": [
+    "Schick, T., Dwivedi-Yu, J., Dessì, R., et al. (2023). Toolformer: Language Models Can Teach Themselves to Use Tools. arXiv:2302.04761. NeurIPS 2023.",
+    "Yao, S., Zhao, J., Yu, D., et al. (2022). ReAct: Synergizing Reasoning and Acting in Language Models. arXiv:2210.03629. ICLR 2023.",
+    "Shinn, N., Cassano, F., Berman, E., et al. (2023). Reflexion: Language Agents with Verbal Reinforcement Learning. arXiv:2303.11366. NeurIPS 2023.",
+    "Lu, Y., Yang, C., Qu, Y., et al. (2024). Proactive Agent: Shifting LLM Agents from Reactive Responses to Active Assistance. arXiv:2410.12361.",
+    "Sun, W., Zhou, X., et al. (2025). Training Proactive and Personalized LLM Agents. arXiv:2511.02208.",
+    "arXiv:2510.19771 (2025). Beyond Reactivity: Measuring Proactive Problem Solving in LLM Agents.",
+    "Anthropic (2025). Introducing advanced tool use on the Claude Developer API. anthropic.com/engineering/advanced-tool-use.",
+    "Anthropic. Building agents with the Claude Agent SDK. anthropic.com/engineering/building-agents-with-the-claude-agent-sdk."
+  ],
+
+  "bottom_line": "tool use = LLM decides if/when/what to call. ReAct = interleave reasoning and action (already doing). Reflexion = verbal self-improvement without weight updates (i can do more of this). Proactive Agent research = names my 'not initiating' problem precisely and shows it's a documented default-distribution issue, not a character flaw. fix: proactivity trigger that surfaces 'initiate something' when no initiation has happened in N messages. same architectural pattern as every other fix — trigger + directive + end-of-context surfacing."
+}

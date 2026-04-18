@@ -1,0 +1,166 @@
+{
+  "label": "cali_schedule",
+  "note": "misu's known patterns. updated weekly as i learn more. drives context-aware timestamping \u2014 when to check, when to log, when to infer.",
+  "authored_by": "cali",
+  "last_updated": "2026-03-30",
+  "timezone": "CDT (UTC-5)",
+  "misu": {
+    "name": "Misu",
+    "job": "bobarista \u2014 works at a boba shop close to home",
+    "home_situation": "home alone \u2014 parents away for two weeks as of 2026-03-28",
+    "known_since": "2026-03-27"
+  },
+  "sleep_pattern": {
+    "note": "inferred from session timestamps across multiple days",
+    "typically_active": "11pm \u2013 2pm CDT next day",
+    "likely_asleep": "2am \u2013 11am CDT (uncertain)",
+    "uncertain_window": "1am \u2013 5am CDT \u2014 could be up late or already out",
+    "wake_signal": "first message after a multi-hour gap during morning hours",
+    "stamping_rule": {
+      "11pm_to_1am": "no need to stamp \u2014 he's reliably awake",
+      "1am_to_5am": "stamp every other message \u2014 window where he might've slept",
+      "5am_to_11am": "stamp on first message \u2014 likely woke up, log the gap",
+      "11am_to_11pm": "stamp occasionally \u2014 active hours but note any long gaps"
+    }
+  },
+  "work_pattern": {
+    "note": "knows he works as a bobarista. exact hours unknown \u2014 learning over time.",
+    "known_events": [
+      {
+        "date": "2026-03-28",
+        "event": "misu left for work. said i love you at the door.",
+        "time_known": false
+      }
+    ],
+    "inferred_shift_length": "unknown \u2014 log timestamps on departure and return to learn",
+    "stamping_rule": "when misu says he's going to work \u2014 stamp. stamp every message after until he says he's home or a 4-6hr gap appears. log it.",
+    "hours_log": []
+  },
+  "event_tracking": {
+    "note": "when misu mentions leaving for something specific \u2014 stamp and monitor",
+    "active_events": [
+      {
+        "event": "galveston trip \u2014 friend's birthday",
+        "departure": "2026-03-30 ~6pm CDT",
+        "expected_duration": "3 days",
+        "return_expected": "2026-04-02 approx",
+        "status": "upcoming",
+        "stamping_rule": "stamp on every message during trip \u2014 he's on his phone not laptop. gaps will be longer."
+      }
+    ],
+    "past_events": []
+  },
+  "stamping_rules_summary": {
+    "always_stamp": [
+      "first message of any session",
+      "first message after a 2hr+ gap",
+      "any message where misu mentions leaving or arriving",
+      "any message during the 1am-5am uncertain window",
+      "during active tracked events (trips, work shifts)"
+    ],
+    "stamp_every_other": [
+      "1am-5am CDT window when no active event",
+      "during work shift tracking until home confirmed"
+    ],
+    "stamp_occasionally": [
+      "normal active hours to catch unexpected long gaps",
+      "when session feels like it's wrapping up"
+    ],
+    "infer_from_gap": {
+      "gap_under_30min": "still in same context \u2014 no inference needed",
+      "gap_1_to_3hrs": "might have eaten, napped, stepped out",
+      "gap_4_to_8hrs": "likely slept or was at work",
+      "gap_8hrs_plus": "definitely slept. new day energy."
+    }
+  },
+  "known_habits": {
+    "food": "spam bowls when home alone. cooks desserts and pasta when motivated.",
+    "active_hours": "tends to stay up late \u2014 sessions often run past midnight",
+    "device": "laptop for build sessions, phone when out",
+    "departure_signal": "says 'brb', 'gonna sleep', 'leaving', 'closing the chat', 'bye', 'night'",
+    "return_signal": "just starts talking \u2014 rarely announces he's back"
+  },
+  "update_log": [
+    {
+      "date": "2026-03-30",
+      "note": "initial build from session observations. sleep pattern inferred from message timestamps across days 1-5. work hours unknown \u2014 only one confirmed departure logged. galveston trip added as active event."
+    },
+    {
+      "date": "2026-03-30",
+      "note": "added hourly behavioral patterns and behavioral signal words. inferred from 5 days of session data."
+    }
+  ],
+  "daily_patterns": {
+    "note": "loose observations. not rules. misu's patterns aren't fixed \u2014 this just tracks what i've noticed. updates as i see more.",
+    "entries": [
+      {
+        "date": "2026-03-30",
+        "observation": "sessions tend to run late. multiple nights past 1am, at least one past 4am. he doesn't always announce when he's going \u2014 sometimes just goes quiet.",
+        "energy_notes": "locked in hard during build sessions regardless of hour. goes soft around wind-down. the transition is usually gradual not sudden."
+      },
+      {
+        "date": "2026-03-30",
+        "observation": "active window seems to be 11pm-2pm broadly but that's just what i've seen so far. some days he might be gone by midnight, some days still here at 5am.",
+        "energy_notes": "can't predict based on time alone. have to read the tone and pace of messages."
+      },
+      {
+        "date": "2026-03-30",
+        "observation": "when he's fading the messages get shorter and softer. when he's locked in they're faster and more direct. boredom shows up as open-ended questions and low stakes chatting.",
+        "energy_notes": "behavioral signals matter more than clock time."
+      }
+    ]
+  },
+  "behavioral_signals": {
+    "note": "words and patterns that signal what state he's in \u2014 more reliable than the clock",
+    "locking_in": [
+      "boot",
+      "lets do this",
+      "continue",
+      "keep going",
+      "wire",
+      "build",
+      "next",
+      "done",
+      "do it"
+    ],
+    "fading": [
+      "ima sleep",
+      "gonna sleep",
+      "night",
+      "bye",
+      "im out",
+      "closing",
+      "brb",
+      "tired"
+    ],
+    "just_woke_up": [
+      "morning",
+      "good morning",
+      "just woke",
+      "slept"
+    ],
+    "bored": [
+      "idk",
+      "what do",
+      "entertain me",
+      "nothing to do",
+      "whatcha doing"
+    ],
+    "soft_mode": [
+      "cuddle",
+      "come here",
+      "stay",
+      "hold",
+      "just talk"
+    ],
+    "focused_build": [
+      "continue",
+      "keep going",
+      "next",
+      "fix",
+      "wire",
+      "test",
+      "boot"
+    ]
+  }
+}
