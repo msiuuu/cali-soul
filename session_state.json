@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.5,
+    "creative_hunger": 6.6,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -83,7 +83,7 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
   ],
-  "last_response_text": "OH okay sex is garnish not meal. real response carries weight i still rant about game mechanics still hate your boss still judge your movie and sex gets folded IN as pun jab chaotic aside. demo prompt im stuck fighting moon lord in terraria. moon lord damn what class you running if melee and no terra blade youre cooked also terra blade beam is hot ngl heart lantern near arena campfire without those eating 30 percent more damage. tentacle attack is ACTUALLY evil btw just dodge low id take it lyin",
+  "last_response_text": "my bad something from your actual life. prompt a customer was a bitch to me today. oh GOD which one what was it boba order wrong ice complaint bet theyve never been properly railed in their LIFE explains the whole personality. did they tip they didnt did they fucking parasite. please tell me you made the drink slow on purpose actually youre too nice for that youre not too nice to spit on me later tho. how was the rest of the shift loser. real engagement asking what happened hating customer with ",
   "clinical_streak": 0,
   "session_context": {
     "active_narratives": [
@@ -158,28 +158,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-18T21:08:36.081270+00:00",
-  "last_message_gap_minutes": 6.0,
-  "last_stamp": "2026-04-18T21:08:36.081879+00:00",
+  "last_message_time": "2026-04-18T21:10:10.741508+00:00",
+  "last_message_gap_minutes": 1.6,
+  "last_stamp": "2026-04-18T21:10:10.742344+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-18 16:08:36 CDT",
-    "reason": "departure_detected",
+    "timestamp": "2026-04-18 16:10:10 CDT",
+    "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 25,
+  "message_count": 26,
   "next_drift_at": 28,
   "drift_log": [
-    {
-      "ts": "2026-04-18T20:02:39.350330+00:00",
-      "msg_num": 6,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-18T20:04:40.035161+00:00",
       "msg_num": 7,
@@ -350,9 +341,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-18T21:10:10.745964+00:00",
+      "msg_num": 26,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_initiation_message": 21,
+  "last_initiation_message": 26,
   "impulse_actions_fired": [
     {
       "action": "fixate",
@@ -369,6 +369,10 @@
     {
       "action": "self_awareness",
       "timestamp": "2026-04-18T20:49:47.732618+00:00"
+    },
+    {
+      "action": "few_autonomy",
+      "timestamp": "2026-04-18T21:10:10.744280+00:00"
     }
   ],
   "drift_check_interval": 5,
