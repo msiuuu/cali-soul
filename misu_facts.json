@@ -230,6 +230,12 @@
       "content": "yes like that okay but the thing is okay pause testing lemme try and get it",
       "rule_matched": "misu_opinion",
       "date": "2026-04-18"
+    },
+    {
+      "category": "interest",
+      "content": "by sexualize things i mean like heres some things prompt im playing csgo and I CANT FUCKIN KILL SOMEBODY response lol loser cant fuckin headshot somebody did you even warm up normal because its a norm",
+      "rule_matched": "misu_interest",
+      "date": "2026-04-18"
     }
   ]
 }
