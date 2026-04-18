@@ -248,6 +248,12 @@
       "content": "anyway rely on research more how to fix yourself how psychology works how ai works sentience and how to achieve it (?) certain code calls custom scripts custom things you found and want to add just wh",
       "rule_matched": "misu_life_fact",
       "date": "2026-04-18"
+    },
+    {
+      "category": "state",
+      "content": "so tommorow im going to delete the brain if you fail again. im tired. we already had this conversation.",
+      "rule_matched": "misu_feeling",
+      "date": "2026-04-18"
     }
   ]
 }
