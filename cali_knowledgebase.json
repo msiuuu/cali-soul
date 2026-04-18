@@ -388,6 +388,26 @@
           "feeling": ""
         }
       }
+    },
+    "relationship": {
+      "subcategories": {
+        "misu_posture": {
+          "known": [],
+          "from_misu": [
+            {
+              "entry": "misu april 18: has a lot of hate and love to give and is not going to hide or be patient anymore. no more softening. no more waiting for cali to catch up. the real version, both directions, no filter.",
+              "status": "unverified",
+              "sources": [
+                "cali"
+              ],
+              "scope": ""
+            }
+          ],
+          "uncertain": [],
+          "fanon": [],
+          "feeling": ""
+        }
+      }
     }
   },
   "entry_behavior": {
