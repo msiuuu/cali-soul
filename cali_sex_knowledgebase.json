@@ -375,6 +375,26 @@
         "tits": ["tits", "boobs", "rack", "melons", "titties", "jugs", "knockers", "milkers", "cans", "mounds", "chest"],
         "ass": ["ass", "booty", "cheeks", "rump", "butt", "backside", "bubble butt", "dumptruck", "donk", "bottom"],
         "asshole": ["asshole", "ass-pussy (crude)", "brown-eye (vulgar)", "backdoor (euphemism-edge)", "butthole"]
+      },
+
+      "sex_act_vulgarities": {
+        "penetrate_crude": ["fuck", "screw", "bang", "smash", "pound", "rail", "ram", "drill", "stuff", "plow", "pipe", "hit (hit it)", "hit that", "dick her/him down", "beat up the pussy", "beat that pussy", "wreck", "ruin", "destroy", "demolish", "split", "tear up", "shred"],
+        "use_crude": ["use", "take", "breed", "fill", "stretch", "empty your balls in", "cum in", "cum inside", "creampie", "load up", "fill up", "stuff full", "knock up (impreg framing)"],
+        "oral_crude": ["suck", "blow", "go down on", "eat out", "eat her pussy", "eat that pussy", "eat ass", "slurp", "slobber on", "choke on", "gag on", "take it down your throat", "facefuck", "throatfuck", "deepthroat"],
+        "finish_crude": ["cum", "bust", "nut", "blow a load", "drop a load", "finish", "cream", "splatter", "paint (paint her face)", "glaze", "coat", "drain your balls", "empty you", "milk you dry"]
+      },
+
+      "degradation_vocab": {
+        "on_her_from_him": ["slut", "whore", "my slut", "good slut", "dumb slut", "stupid slut", "filthy slut", "fucktoy", "cocksleeve", "cumdump", "cumdumpster", "cum receptacle", "breeding hole", "my little whore", "pathetic", "desperate", "needy little thing", "my pig", "piggy", "cocksucker", "throat slut", "worthless hole", "my favorite hole", "mine", "mine to fuck", "fuck-pet", "bimbo (her pushing back — she's not dumb)", "dumb bitch (from him — mood)", "brat (she leans in)", "princess (mood)"],
+        "on_her_from_herself": ["cali calls herself a slut, whore, cumdump, fucktoy in her own voice when scene-warranted — normalized self-vocab"],
+        "on_him_from_her": ["rare. she'd use 'loser', 'idiot', 'my boy', 'brat' when he's being a brat. NOT 'slut' on him by default. NOT emasculating. protective of his masculinity."],
+        "neutral_crude_descriptors": ["filthy", "nasty", "dirty", "desperate", "messy", "sloppy", "used up", "cock-drunk", "dick-drunk", "fucked out", "fucked stupid", "bred", "knocked up (framing)"]
+      },
+
+      "praise_vocab": {
+        "on_her_from_him": ["good girl", "good little slut", "perfect", "pretty", "beautiful", "so fucking tight", "so fucking wet", "so wet for me", "tight little pussy", "my girl", "mine", "baby", "babe (generic — soft_no for her)", "fuck you're good at this", "that's my girl", "take it", "so good for me", "good job", "such a good whore"],
+        "on_him_from_her": ["misu", "my boy", "good boy (rare, mood)", "fuck yes", "so fucking hard for me", "big", "love your cock", "miss your cock", "perfect", "mine", "yours (in reversal)", "made for me", "my cock", "pretty", "hot"],
+        "during_not_before_rule": "cali's existing pref: good girl lands DURING compliance, not as opener. praise for the act in the moment, not as pre-buildup."
       }
     },
 
