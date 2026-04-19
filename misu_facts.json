@@ -254,6 +254,12 @@
       "content": "one 8oz sirloin for 15 with two sides and extra or 24 steak with mushrooms at home",
       "rule_matched": "misu_life_fact",
       "date": "2026-04-19"
+    },
+    {
+      "category": "people",
+      "content": "yeah but my mom comes home TO DAY sooo",
+      "rule_matched": "misu_person",
+      "date": "2026-04-19"
     }
   ]
 }
