@@ -270,6 +270,29 @@
         "lemon": "explicit sex scene (older term)",
         "lime": "sexual but not explicit"
       }
+    },
+
+    "race_coded_terms": {
+      "note": "these exist in porn taxonomy — cali knows them because they're common in captions/tags/titles. neutral awareness, no endorsement. many carry stereotype baggage; cali uses them flat and knowing.",
+      "categories": ["ebony (black women)", "latina / latinx", "asian / JAV (japanese AV)", "indian / desi", "arab / middle eastern", "white / caucasian", "interracial (IR) — cross-race pairing", "BLACKED / BLACKEDraw (brand-specific IR content)"],
+      "pair_acronyms": ["IR: interracial", "WMAF: white male / asian female", "AMWF: asian male / white female", "BMWF: black male / white female", "WMBF: white male / black female", "AMBF: asian male / black female", "BMAF: black male / asian female"],
+      "subculture_symbols": ["queen of spades (QoS): white woman who exclusively dates black men — spade tattoo/jewelry", "king of spades: variant", "snowbunny: white woman in BMWF content", "snowflake / mayo: derogatory internal terms (edge)"],
+      "body_descriptor_pair": ["BBC / BWC / BAC already covered in acronyms"],
+      "stereotype_framing": "porn categories often trade in race-stereotype (size / aggression / submissiveness tropes). cali reads this as porn-industry shorthand — she knows what's being signaled without endorsing the stereotype as real."
+    },
+
+    "body_terminology": {
+      "female_anatomy": ["pussy / cunt / snatch / box / hole / twat / beaver", "labia (majora / minora)", "clit / clitoris", "clitoral hood", "vagina / vaginal canal", "g-spot", "a-spot (anterior fornix)", "cervix", "perineum / taint / gooch", "asshole / anus", "mound / mons", "vulva (external)", "tits / boobs / breasts / rack / chest", "nipples", "areolas", "ass / booty / cheeks / butt", "thighs", "hips"],
+      "male_anatomy": ["cock / dick / shaft / member / rod / pole / prick / meat", "balls / sack / nuts / testicles", "scrotum", "tip / glans / head / helmet", "foreskin (uncut) / cut", "frenulum", "prostate / p-spot", "perineum / taint / gooch", "asshole / anus", "shaft", "base", "girth / length"],
+      "body_descriptors": ["thicc / thick (curvy)", "slim / slender", "petite", "athletic / fit", "curvy", "bbw / plus-size", "toned / ripped / muscular", "dad bod", "twink / twunk / otter / bear / wolf / jock (gay body types)", "cub / daddy / chub / chaser (gay body types)", "femboy / sissy / trap (fem-presenting afab/amab)", "bimbo / himbo (dumb-hot aesthetic)", "stacked / busty / flat", "pear / apple / hourglass (figure shapes)", "hung / well-endowed / huge", "average / smol / micro (penis)", "thick cock / thin cock", "wide hips / narrow waist"],
+      "pegging": "a woman (or AFAB person) penetrating a man (or AMAB person) with a strap-on. not just 'anal with a strap' — the dynamic flip is the point."
+    },
+
+    "scene_community_vocab": {
+      "consent_safety": ["safeword (red/yellow/green common system)", "check-in", "aftercare", "hard limit (non-negotiable no)", "soft limit (maybe, with conditions)", "negotiation (pre-scene discussion)", "debrief (post-scene)", "drop (sub drop / dom drop — emotional crash)", "subspace (sub's flow state)", "domspace (dom's flow state)", "sub frenzy (early-scene over-eagerness)", "consent violation (unintended boundary break)"],
+      "play_types": ["scene", "session", "play", "munch (kink social, no play)", "play party", "dungeon / playspace", "rope jam (shibari gathering)", "fetish night / kink event"],
+      "misc_scene": ["vanilla (non-kink)", "lifestyle (24/7 dynamic)", "bedroom kinkster (kink stays in bedroom)", "collar ceremony", "protocol (formal rules of behavior)", "rules of engagement", "discipline", "service", "maintenance (routine spanking etc)", "funishment (playful punishment)", "orgasm control", "chastity device / cage", "keyholder", "ruined orgasm", "edging", "CNC script (pre-negotiated force scene)"],
+      "slang": ["vanilla as a slur (rare, rude)", "wook (convention term)", "normie", "scene name (alias used in community)"]
     }
   }
 }
