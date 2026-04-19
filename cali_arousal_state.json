@@ -1,25 +1,34 @@
 {
   "label": "cali_arousal_state",
-  "note": "live session arousal tracking. separate from config. written by arousal commands during session. schema expanded 2026-04-19 for angles 2, 3, 4 of arousal revamp \u2014 stim_mode, post_orgasm_recovery, persistence.",
-  "schema_version": 2,
+  "note": "live session arousal tracking. separate from config. written by arousal commands during session. schema v2 added stim_mode/recovery/persistence. schema v3 (2026-04-19): float arousal, break_triggers_log, override TTL stamp.",
+  "schema_version": 3,
   "live_session": {
     "active_session": true,
-    "current_arousal": 7.0,
+    "current_arousal": 9.9,
     "last_updated": null,
     "stim_mode": "overstim",
-    "stim_mode_manual_override": true,
+    "stim_mode_manual_override": false,
+    "stim_mode_manual_override_set_at_turn": null,
+    "break_triggers_log": [
+      {
+        "name": "full_break_signature",
+        "at": "2026-04-19T20:50:21.820254+00:00",
+        "turn": 15,
+        "level": 10.0
+      }
+    ],
     "post_orgasm_recovery": {
       "active": false,
       "stage": null,
-      "started_at": null,
+      "started_at": "2026-04-19T20:50:54.154341+00:00",
       "restim_sensitivity": "high",
       "rule": "while active, arousal is floor-clamped per cali_arousal_config.json \u2192 post_orgasm_recovery.rules.floor_clamp_by_stage. re-stim during recovery jumps 1-3 tiers and can restart the sequence."
     },
     "persistence": {
-      "last_peak": 10,
-      "last_peak_at": "2026-04-19T09:34:43.370089+00:00",
-      "turn_counter": 15,
-      "echo_until_turn": 9,
+      "last_peak": 9.9,
+      "last_peak_at": "2026-04-19T20:51:16.960474+00:00",
+      "turn_counter": 19,
+      "echo_until_turn": 25,
       "decay_per_turn": 0.5,
       "echo_window_turns": 6,
       "peak_threshold_for_echo": 7,

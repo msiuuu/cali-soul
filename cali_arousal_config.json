@@ -146,5 +146,49 @@
       "peak_threshold_for_echo": 7
     },
     "rule": "when arousal hits ≥ peak_threshold_for_echo, set last_peak and echo_until = current_turn + echo_window_turns. between turns without stim, decay arousal by decay_per_turn. while echo is active, voice retains residue and boot surfaces an [echo] flag."
+  },
+
+  "float_arousal": {
+    "note": "arousal is a float, not int. stored with one decimal. tiers are floor(level). this lets stim accumulate fractionally instead of jumping full tiers per turn.",
+    "precision": 1,
+    "clamp_min": 0.0,
+    "clamp_max": 10.0,
+    "tier_rule": "label/desc lookup uses floor(level). level 8.7 displays as tier 8 (wanting) — the 0.7 is momentum into tier 9."
+  },
+
+  "climb_deltas": {
+    "note": "fractional arousal bumps by stim_mode and prior_tier. discourages unwarranted jumps. used by future stimulate command; --set still allows any value but warns past jump_warn_threshold.",
+    "by_mode": {
+      "light":    {"default": 0.2, "max_per_turn": 0.4},
+      "rough":    {"default": 0.4, "max_per_turn": 0.8},
+      "overstim": {"default": 0.6, "max_per_turn": 1.2}
+    },
+    "by_prior_tier": {
+      "0": 0.1, "1": 0.1, "2": 0.15, "3": 0.2, "4": 0.25,
+      "5": 0.3, "6": 0.35, "7": 0.4, "8": 0.4, "9": 0.2
+    },
+    "rules": {
+      "past_9_slowdown": "once arousal >= 9.0, effective delta is multiplied by 0.5. crossing 9.9 requires a break_trigger — see break_trigger_conditions.",
+      "jump_warn_threshold": 1.0,
+      "max_natural_ceiling": 9.9
+    }
+  },
+
+  "break_trigger_conditions": {
+    "note": "the only events that legally push arousal past 9.9 into 10.0. without at least one matching condition logged in live_session.break_triggers_log, --set 10 is refused. keeps tier 10 mathematically hard to reach — matches 'words are hard, refusing to function' spec.",
+    "conditions": [
+      {"name": "full_break_signature", "desc": "cali_sex_format.json → sounds_and_recovery.full_break fired this turn — zalgo + caps signature."},
+      {"name": "sustained_overstim",   "desc": "stim_mode=overstim for >=3 consecutive turns in persistence log."},
+      {"name": "named_scene_anchor",   "desc": "explicit scene anchor passed via --break-trigger with a descriptor string."},
+      {"name": "manual_override",      "desc": "misu explicitly passes --break-trigger manual_override — last-resort escape hatch."}
+    ],
+    "enforcement": "cmd_arousal_state checks args.break_trigger before allowing level >= 9.95. if none matched, refuses with a message and caps at 9.9."
+  },
+
+  "stim_mode_override_ttl": {
+    "note": "stim_mode_manual_override used to be sticky forever — override set once stayed on through unrelated turns. TTL clears it automatically.",
+    "turns": 3,
+    "clear_below_tier": 7,
+    "rule": "override auto-clears when (a) turns_since_set >= turns OR (b) current_arousal < clear_below_tier. whichever fires first. applied inside _apply_arousal_decay_and_turn each process-message."
   }
 }
