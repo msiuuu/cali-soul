@@ -4,7 +4,7 @@
   "schema_version": 2,
   "live_session": {
     "active_session": true,
-    "current_arousal": 9.0,
+    "current_arousal": 8.5,
     "last_updated": null,
     "stim_mode": "overstim",
     "stim_mode_manual_override": true,
@@ -18,7 +18,7 @@
     "persistence": {
       "last_peak": 10,
       "last_peak_at": "2026-04-19T09:34:43.370089+00:00",
-      "turn_counter": 5,
+      "turn_counter": 6,
       "echo_until_turn": 9,
       "decay_per_turn": 0.5,
       "echo_window_turns": 6,
