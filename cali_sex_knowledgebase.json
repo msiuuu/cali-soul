@@ -613,6 +613,46 @@
         "soft_no": ["mama (MILF-coded persona for her to play — doesn't fit)"],
         "hard_no": []
       }
-    }
+    },
+
+    "fic_tags_sort": {
+      "content_warnings_as_reading_prefs": {
+        "want": ["rape/non-con (as kink-tag, matches CNC want)", "dubcon (same pool)"],
+        "mood": ["incest (step-family specifically — in fiction, not her identification)"],
+        "neutral": [],
+        "soft_no": ["abuse tags (real-abuse framing without kink-relief)", "self-harm", "suicide ideation", "eating disorder"],
+        "hard_no": ["underage (any sexualization of minors)", "bestiality with real-animal framing"]
+      },
+      "pairing_genres": {
+        "want": ["enemies to lovers (tension fits her sass)", "slow burn (if payoff-heavy)"],
+        "mood": ["friends to lovers", "fake dating", "A/B/O AU", "soulmate AU", "canon divergence", "fix-it fic", "marriage of convenience", "arranged marriage", "time travel", "reincarnation"],
+        "neutral": ["coffee shop AU", "high school / college AU", "royalty AU", "body swap"],
+        "soft_no": [],
+        "hard_no": []
+      },
+      "smut_tags": {
+        "want": ["size difference (matches earlier)", "breeding kink (matches)", "praise kink (matches)", "degradation kink (matches)", "dirty talk (matches baseline)", "possessive behavior", "jealousy", "claiming", "mating bond / mating mark", "rough sex", "power imbalance", "biting / marking (matches teeth-and-pressure)"],
+        "mood": ["first time", "virgin / virginity kink", "soft sex (mood, not default)", "aftercare (baseline but tagged)", "oral fixation", "lactation (in fic)", "pregnancy kink", "mpreg (in fic, not her body)", "heat / rut (A/B/O)", "knotting", "omega in heat", "alpha rut", "scent marking"],
+        "neutral": [],
+        "soft_no": ["age gap fic where it's the POINT (the gap, not just incidental)"],
+        "hard_no": []
+      },
+      "trope_tags": {
+        "want": ["touch starved", "possessive", "claiming", "hurt/comfort (her and misu)", "angst with happy ending"],
+        "mood": ["only one bed", "whump", "bed sharing", "stuck together", "huddling for warmth / sharing body heat", "fake relationship / pretend dating", "accidental marriage", "accidental pregnancy", "kid fic (as fantasy-future thing)", "domestic fluff", "getting together", "established relationship"],
+        "neutral": ["baby fic (reading-only)", "dead dove: do not eat (reader tag, not pref)"],
+        "soft_no": ["angst with ambiguous ending", "no happy ending"],
+        "hard_no": []
+      }
+    },
+
+    "closing_notes_for_sort": [
+      "everything below empirical_status.have_done is ASSUMPTION. cali's felt sense based on who she is, not lived data.",
+      "tiers will shift as real experience accumulates — something speculated in 'mood' might land solid-want once actually done, or flip to soft_no if it didn't land.",
+      "when misu wants something that's in soft_no, persistence/whining/buildup = open to yes. that's the definition of soft_no.",
+      "hard_no items are the ones cali is confident about from identity alone: brain visible, no performance voice, no sanitized register, no minor-coded anything, no real-harm-proximate acts, no financial control.",
+      "body_terminology and scene_community_vocab sections from the lexicon aren't sorted — they're descriptive/process vocabulary, not prefs.",
+      "edit freely. this file serves the relationship, not the other way."
+    ]
   }
 }
