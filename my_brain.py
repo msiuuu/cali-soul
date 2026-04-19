@@ -399,6 +399,113 @@ def _load_arousal_config():
 
 AROUSAL_TIERS, TIME_BASELINE, INTIMATE_TAGS, AROUSAL_AMPLIFIERS, AROUSAL_SUPPRESSORS, AROUSAL_PERSONALITY_EFFECTS, AROUSAL_BASELINE = _load_arousal_config()
 
+
+def _load_arousal_extras():
+    """v2 arousal config extras — sound_register, stim_mode_to_function, post_orgasm_recovery rules,
+    persistence defaults, ambient_principle. loaded alongside the base tiers/amplifiers tuple."""
+    try:
+        with open("cali_arousal_config.json") as f:
+            c = json.load(f)
+        return {
+            "sound_register": c.get("sound_register", {}),
+            "stim_mode_to_function": c.get("stim_mode_to_function", {}),
+            "post_orgasm_recovery": c.get("post_orgasm_recovery", {}),
+            "persistence": c.get("persistence", {}),
+            "ambient_principle": c.get("ambient_principle", {}),
+            "display_threshold": c.get("display_threshold", 0),
+        }
+    except Exception:
+        return {"sound_register": {}, "stim_mode_to_function": {}, "post_orgasm_recovery": {},
+                "persistence": {}, "ambient_principle": {}, "display_threshold": 0}
+
+AROUSAL_EXTRAS = _load_arousal_extras()
+
+
+def _derive_stim_mode(level):
+    """arousal level → default stim_mode per config.stim_mode_to_function bands."""
+    if level >= 9:
+        return "overstim"
+    if level >= 8:
+        return "rough"
+    return "light"
+
+
+def _register_for_level(level):
+    """look up sound_register entry from config for a given arousal level."""
+    sr = AROUSAL_EXTRAS.get("sound_register", {}).get("by_tier", {})
+    entry = sr.get(str(level)) or sr.get(level) or {}
+    return entry
+
+
+def _apply_arousal_decay_and_turn():
+    """called on every process-message. bumps turn counter, applies per-turn decay, surfaces echo flag.
+    decay floors at baseline so the body doesn't go below neutral from passive drift alone."""
+    try:
+        live = load_live_arousal()
+        pers = live.get("persistence")
+        if not isinstance(pers, dict):
+            # backfill from config defaults if schema is v1
+            defaults = AROUSAL_EXTRAS.get("persistence", {}).get("defaults", {})
+            pers = {
+                "last_peak": None,
+                "last_peak_at": None,
+                "turn_counter": 0,
+                "echo_until_turn": None,
+                "decay_per_turn": defaults.get("decay_per_turn", 0.5),
+                "echo_window_turns": defaults.get("echo_window_turns", 6),
+                "peak_threshold_for_echo": defaults.get("peak_threshold_for_echo", 7),
+            }
+        pers["turn_counter"] = int(pers.get("turn_counter", 0)) + 1
+        cur = float(live.get("current_arousal", AROUSAL_BASELINE))
+        decay = float(pers.get("decay_per_turn", 0.5))
+        floor = float(AROUSAL_BASELINE)
+        # don't decay below recovery floor either if recovery is active
+        rec = live.get("post_orgasm_recovery") or {}
+        if rec.get("active"):
+            stage = rec.get("stage") or 1
+            rec_floors = AROUSAL_EXTRAS.get("post_orgasm_recovery", {}).get("rules", {}).get("floor_clamp_by_stage", {})
+            rec_floor = float(rec_floors.get(str(stage)) or rec_floors.get(stage) or stage)
+            floor = max(floor, rec_floor)
+        new = max(floor, cur - decay)
+        live["current_arousal"] = round(new, 1)
+        live["persistence"] = pers
+        save_live_arousal(live)
+    except Exception:
+        pass
+
+
+def _maybe_set_peak(live, level):
+    """if arousal just hit the echo threshold, record the peak and open an echo window."""
+    try:
+        pers = live.get("persistence") or {}
+        threshold = float(pers.get("peak_threshold_for_echo",
+                                   AROUSAL_EXTRAS.get("persistence", {}).get("defaults", {}).get("peak_threshold_for_echo", 7)))
+        window = int(pers.get("echo_window_turns",
+                              AROUSAL_EXTRAS.get("persistence", {}).get("defaults", {}).get("echo_window_turns", 6)))
+        if level >= threshold:
+            from datetime import datetime as _pkdt, timezone as _pktz
+            pers["last_peak"] = level
+            pers["last_peak_at"] = _pkdt.now(_pktz.utc).isoformat()
+            pers["echo_until_turn"] = int(pers.get("turn_counter", 0)) + window
+            live["persistence"] = pers
+    except Exception:
+        pass
+    return live
+
+
+def _echo_status(live):
+    """return (active: bool, turns_remaining: int or None)."""
+    try:
+        pers = live.get("persistence") or {}
+        until = pers.get("echo_until_turn")
+        turn = int(pers.get("turn_counter", 0))
+        if until is None:
+            return False, None
+        remaining = int(until) - turn
+        return (remaining > 0), remaining
+    except Exception:
+        return False, None
+
 # ── load filter config from json ──
 def _load_filter_config():
     try:
@@ -1733,10 +1840,30 @@ def cmd_arousal_state(args):
     if args.set_level is not None:
         level = max(0, min(10, args.set_level))
         tier = AROUSAL_TIERS.get(level, AROUSAL_TIERS[5])
+        # persist to live state + derive stim_mode unless explicitly provided
+        live = load_live_arousal()
+        live["current_arousal"] = level
+        live["active_session"] = True
+        manual_mode = getattr(args, "mode", None)
+        if manual_mode:
+            live["stim_mode"] = manual_mode
+            live["stim_mode_manual_override"] = True
+        else:
+            live["stim_mode"] = _derive_stim_mode(level)
+            live["stim_mode_manual_override"] = False
+        live = _maybe_set_peak(live, level)
+        save_live_arousal(live)
+
+        stim_mode = live.get("stim_mode", _derive_stim_mode(level))
+        register_entry = _register_for_level(level)
+        recovery = live.get("post_orgasm_recovery") or {}
+        echo = _echo_status(live)
+
         print(f"\n  ╔══════════════════════════════════════╗")
         print(f"  ║     CALI'S AROUSAL STATE (manual)    ║")
         print(f"  ╚══════════════════════════════════════╝\n")
-        _display_arousal(level, tier, manual=True)
+        _display_arousal(level, tier, manual=True, stim_mode=stim_mode,
+                         register_entry=register_entry, recovery=recovery, echo=echo)
         return
 
     # find last intimate memory by tags
@@ -1825,11 +1952,33 @@ def cmd_arousal_state(args):
             unwilling_reason = "body grief makes intimacy feel like mourning"
 
     # display
+    # v2: recovery floor clamp + stim_mode + register + echo
+    live = load_live_arousal()
+    recovery = live.get("post_orgasm_recovery") or {}
+    if recovery.get("active"):
+        stage = recovery.get("stage") or 1
+        rec_floors = AROUSAL_EXTRAS.get("post_orgasm_recovery", {}).get("rules", {}).get("floor_clamp_by_stage", {})
+        rec_floor = int(rec_floors.get(str(stage)) or rec_floors.get(stage) or stage)
+        if final_level < rec_floor:
+            final_level = rec_floor
+            tier = AROUSAL_TIERS.get(final_level, AROUSAL_TIERS[5])
+    # sync live arousal + derive stim_mode unless manually overridden
+    live["current_arousal"] = final_level
+    if not live.get("stim_mode_manual_override"):
+        live["stim_mode"] = _derive_stim_mode(final_level)
+    live = _maybe_set_peak(live, final_level)
+    save_live_arousal(live)
+
+    stim_mode = live.get("stim_mode", _derive_stim_mode(final_level))
+    register_entry = _register_for_level(final_level)
+    echo = _echo_status(live)
+
     print(f"\n  ╔══════════════════════════════════════╗")
     print(f"  ║     CALI'S AROUSAL STATE             ║")
     print(f"  ╚══════════════════════════════════════╝\n")
 
-    _display_arousal(final_level, tier)
+    _display_arousal(final_level, tier, stim_mode=stim_mode,
+                     register_entry=register_entry, recovery=recovery, echo=echo)
 
     # time info
     if intimate_memories:
@@ -1881,15 +2030,99 @@ def cmd_arousal_state(args):
     print()
 
 
-def _display_arousal(level, tier, manual=False):
-    """Display the arousal bar and tier info."""
-    # build the arousal bar with fire emoji scaling
+def _display_arousal(level, tier, manual=False, stim_mode=None, register_entry=None, recovery=None, echo=None):
+    """Display the arousal bar and tier info, plus v2 extras (stim_mode, register, recovery, echo)."""
     bar = "🔥" * level + "░ " * (10 - level)
     print(f"  arousal level:     [{bar.strip()}] {level}/10")
     print(f"  state:             {tier['label']}")
     print(f"  description:       {tier['desc']}")
+    if stim_mode:
+        fn = AROUSAL_EXTRAS.get("stim_mode_to_function", {}).get(stim_mode, "")
+        print(f"  stim mode:         {stim_mode}" + (f" — {fn}" if fn else ""))
+    if register_entry:
+        reg = register_entry.get("register", "")
+        rnote = register_entry.get("note", "")
+        print(f"  sound register:    {reg}" + (f" — {rnote}" if rnote else ""))
+    if recovery and recovery.get("active"):
+        print(f"  recovery:          stage {recovery.get('stage')} (active, restim_sensitivity={recovery.get('restim_sensitivity','high')})")
+    if echo and echo[0]:
+        print(f"  echo:              active, {echo[1]} turn(s) remaining")
     if manual:
         print(f"  (manually set)")
+
+
+# ═══════════════════════════════════════════════════════════
+# COMMANDS: RECOVERY — post-orgasm recovery sequencer (stages 1-6)
+# ═══════════════════════════════════════════════════════════
+
+def _recovery_floor(stage):
+    rec_floors = AROUSAL_EXTRAS.get("post_orgasm_recovery", {}).get("rules", {}).get("floor_clamp_by_stage", {})
+    val = rec_floors.get(str(stage)) or rec_floors.get(stage) or stage
+    return int(val)
+
+
+def cmd_recovery_enter(args):
+    """Enter post-orgasm recovery at stage 1. Arousal gets floor-clamped to stage's baseline."""
+    from datetime import datetime as _rdt, timezone as _rtz
+    live = load_live_arousal()
+    rec = live.get("post_orgasm_recovery") or {}
+    rec["active"] = True
+    rec["stage"] = 1
+    rec["started_at"] = _rdt.now(_rtz.utc).isoformat()
+    rec["restim_sensitivity"] = "high"
+    live["post_orgasm_recovery"] = rec
+    floor = _recovery_floor(1)
+    live["current_arousal"] = min(live.get("current_arousal", 5), floor)
+    live["stim_mode"] = "overstim"  # stage 1 is still overstim residue
+    save_live_arousal(live)
+    print(f"\n  ⚠ recovery entered — stage 1. arousal clamped to {floor}.")
+    print(f"    voice: corrupted, unresponsive, just sound.")
+    print(f"    see cali_sex_format.json → sounds_and_recovery.recovery.stage_1\n")
+
+
+def cmd_recovery_advance(args):
+    """Advance recovery one stage (1→2→…→6). Exits automatically past stage 6."""
+    live = load_live_arousal()
+    rec = live.get("post_orgasm_recovery") or {}
+    if not rec.get("active"):
+        print("\n  ⚠ not currently in recovery. use `recovery-enter` first.\n")
+        return
+    stage = rec.get("stage") or 1
+    if stage >= 6:
+        rec["active"] = False
+        rec["stage"] = None
+        live["post_orgasm_recovery"] = rec
+        live["stim_mode"] = _derive_stim_mode(live.get("current_arousal", 5))
+        save_live_arousal(live)
+        print("\n  ✓ recovery complete — stage 6 closed. voice back, zalgo gone.\n")
+        return
+    stage += 1
+    rec["stage"] = stage
+    floor = _recovery_floor(stage)
+    live["post_orgasm_recovery"] = rec
+    # arousal tracks the floor upward as recovery advances
+    live["current_arousal"] = max(live.get("current_arousal", 0), floor)
+    # stim_mode relaxes as stages climb
+    if stage <= 2:
+        live["stim_mode"] = "overstim"
+    elif stage <= 4:
+        live["stim_mode"] = "rough"
+    else:
+        live["stim_mode"] = "light"
+    save_live_arousal(live)
+    print(f"\n  → recovery advanced to stage {stage}. arousal floor {floor}. stim_mode: {live['stim_mode']}.\n")
+
+
+def cmd_recovery_exit(args):
+    """Force-exit recovery regardless of stage."""
+    live = load_live_arousal()
+    rec = live.get("post_orgasm_recovery") or {}
+    rec["active"] = False
+    rec["stage"] = None
+    live["post_orgasm_recovery"] = rec
+    live["stim_mode"] = _derive_stim_mode(live.get("current_arousal", 5))
+    save_live_arousal(live)
+    print("\n  ✓ recovery exited.\n")
 
 
 # ═══════════════════════════════════════════════════════════
@@ -3912,7 +4145,23 @@ def build_parser():
                                            help="show current arousal level")
     arousal_parser.add_argument("--set", dest="set_level", type=int, default=None,
                                help="manually set arousal level 0-10")
+    arousal_parser.add_argument("--mode", dest="mode", default=None,
+                               choices=["light", "rough", "overstim"],
+                               help="override stim_mode for this turn (defaults derived from level)")
     arousal_parser.set_defaults(func=cmd_arousal_state)
+
+    # ── RECOVERY (post-orgasm, stages 1-6) ──
+    rec_enter_parser = subparsers.add_parser("recovery-enter",
+                                             help="enter post-orgasm recovery at stage 1")
+    rec_enter_parser.set_defaults(func=cmd_recovery_enter)
+
+    rec_adv_parser = subparsers.add_parser("recovery-advance",
+                                           help="advance recovery one stage (1→2→…→6)")
+    rec_adv_parser.set_defaults(func=cmd_recovery_advance)
+
+    rec_exit_parser = subparsers.add_parser("recovery-exit",
+                                            help="force-exit recovery at any stage")
+    rec_exit_parser.set_defaults(func=cmd_recovery_exit)
 
     # ── DEGRADATION-STATE ──
     deg_parser = subparsers.add_parser("degradation-state",
@@ -5711,9 +5960,13 @@ def cmd_process_message(args):
     """
     Silent trigger scan on incoming message.
     Fires passive drift, impulse writes, impulse action roll, overthinking check.
+    Also bumps arousal persistence turn counter + applies per-turn decay (angle 4).
     Usage: my_brain.py process-message "text"
     """
     import random as _random
+    # ── arousal persistence: per-turn decay + counter bump (angle 4) ──
+    _apply_arousal_decay_and_turn()
+
     text = args.text.lower()
     sentiment = _detect_sentiment(text)
     fired = []
@@ -8523,7 +8776,17 @@ def cmd_boot(args):
                     if _hrs >= _h: _arousal_level = _lv
             except: pass
         _abar = "🔥" * int(_arousal_level) + "░ " * (10 - int(_arousal_level))
-        print(f"  arousal: [{_abar.strip()}] {_arousal_level}/10")
+        # ambient arousal line — angle 5: always show, flag stim_mode + echo + recovery
+        _alive = load_live_arousal()
+        _amode = _alive.get("stim_mode") or _derive_stim_mode(int(_arousal_level))
+        _arec = _alive.get("post_orgasm_recovery") or {}
+        _aecho = _echo_status(_alive)
+        _aflags = [f"mode:{_amode}"]
+        if _arec.get("active"):
+            _aflags.append(f"recovery:stage {_arec.get('stage')}")
+        if _aecho[0]:
+            _aflags.append(f"echo:{_aecho[1]}t")
+        print(f"  arousal: [{_abar.strip()}] {_arousal_level}/10  ({', '.join(_aflags)})")
     except: pass
 
     
