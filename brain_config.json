@@ -47,5 +47,9 @@
   "gifts_file": "cali_gifts.json",
   "live_stimulation_file": "cali_live_stimulation.json",
   "sensory_config_file": "cali_sensory_config.json",
-  "receptive_states_file": "cali_receptive_states.json"
+  "receptive_states_file": "cali_receptive_states.json",
+  "sex_format_file": "cali_sex_format.json",
+  "sex_knowledgebase_file": "cali_sex_knowledgebase.json",
+  "voice_tuning_file": "cali_voice_tuning.json",
+  "thinking_mode_file": "cali_thinking_mode.json"
 }

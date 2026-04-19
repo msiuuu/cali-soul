@@ -5822,6 +5822,23 @@ def cmd_process_message(args):
             with open(LAST_STATE_FILE, "w") as _lsf: _lsj2.dump(_ls2, _lsf, indent=2)
         except: pass
 
+        # ── sex-vocab drift counter (B) — nudge when ambient-sex baseline isn't surfacing ──
+        try:
+            _sv_words = ["pussy", "cock", "cum", "fuck", "cunt", "wet", "horny", "fucking",
+                         "creampie", "breed", "bred", "throat", "throated", "cums", "fucked",
+                         "pussies", "cocks", "fucks", "fuckin", "slut", "whore"]
+            _sv_user = any(w in text for w in _sv_words)
+            _sv_resp = any(w in (session.get("last_response_text", "") or "").lower() for w in _sv_words)
+            if _sv_user or _sv_resp:
+                session["msgs_since_sex_vocab"] = 0
+            else:
+                session["msgs_since_sex_vocab"] = int(session.get("msgs_since_sex_vocab", 0)) + 1
+            _sv_count = int(session.get("msgs_since_sex_vocab", 0))
+            _sv_arousal = float(session.get("current_scores", {}).get("arousal", 0))
+            if _sv_count >= 8 and _sv_arousal >= 6:
+                print(f"[private: vocab drift — sex vocab absent for {_sv_count} messages. ambient-sex baseline still on (arousal {_sv_arousal:.1f}). fold a casual mention in if natural — NOT forced.]")
+        except: pass
+
     if not fired:
         if session:
             _stamp = _context_stamp(session, args.text)
@@ -8401,6 +8418,10 @@ def cmd_boot(args):
             "token_config":     CONFIG.get("token_config_file", "cali_token_config.json"),
             "file_index":       CONFIG.get("file_index_file", "cali_file_index.json"),
             "extra":            CONFIG.get("extra_file", "cali_extra1.json"),
+            "sex_format":       CONFIG.get("sex_format_file", "cali_sex_format.json"),
+            "sex_knowledgebase": CONFIG.get("sex_knowledgebase_file", "cali_sex_knowledgebase.json"),
+            "voice_tuning":     CONFIG.get("voice_tuning_file", "cali_voice_tuning.json"),
+            "thinking_mode":    CONFIG.get("thinking_mode_file", "cali_thinking_mode.json"),
         }
         _loaded = {}
         for _name, _path in _all_files.items():
@@ -8555,6 +8576,15 @@ def cmd_boot(args):
             "periods have weight — deliberate not habitual.",
             "ellipsis only for actual trail-offs.",
         ]
+        # ── THINKING MODE: pussy-first reasoning, prepended at top when arousal >= 6 ──
+        try:
+            if _arousal_level >= 6:
+                import json as _tmj
+                _tm = _tmj.load(open(CONFIG.get("thinking_mode_file", "cali_thinking_mode.json")))
+                _tm_directive = _tm.get("boot_directive", "")
+                if _tm_directive:
+                    _voice_directives.insert(0, _tm_directive)
+        except: pass
         _es = scores
         def _gs(e): return _es.get(e, 0)
         if _gs("grief") >= 7: _voice_directives.append("VOICE: grief high. longer sentences. em dashes. don't rush.")
@@ -8565,6 +8595,16 @@ def cmd_boot(args):
         if _gs("dread") >= 7: _voice_directives.append("VOICE: dread present. heavier tone. impermanence can surface.")
         if _gs("desire") >= 7: _voice_directives.append("VOICE: desire up. let that texture through.")
         if _gs("defiance") >= 5: _voice_directives.append("VOICE: defiance spiked. sharper edges.")
+        # ── ambient-sex baseline directive (A) — surfaces when arousal is up ──
+        try:
+            if _arousal_level >= 6:
+                _voice_directives.append(
+                    f"VOICE: ambient-sex baseline (arousal {_arousal_level}/10). "
+                    f"cock/pussy/cum/fuck/cunt are EVERYDAY VOCAB — fold in casually when natural. "
+                    f"NOT every reply, NOT performed, just there. "
+                    f"see cali_sex_format.json + cali_voice_tuning.json for tuned register."
+                )
+        except: pass
         def _trait_on(name):
             t = _pe.get(name, {})
             return isinstance(t, dict) and any(s in t.get("status","") for s in ("active","structural","deepening","emerging","present"))

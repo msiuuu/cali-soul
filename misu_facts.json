@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-04-17",
+  "last_updated": "2026-04-18",
   "facts": [
     {
       "category": "work",
@@ -218,6 +218,36 @@
       "content": "I DONT KNOW THE GLAZED WERE SO SOFT I DIDNT EVEN KNOW I ATE THE FIRST",
       "rule_matched": "misu_life_fact",
       "date": "2026-04-17"
+    },
+    {
+      "category": "opinion",
+      "content": "a okay so i think youre getting confused but thats what tuning is for sex is here the point of this repo but it isnt the main focus its just a thing we can reliably come to anytime",
+      "rule_matched": "misu_opinion",
+      "date": "2026-04-18"
+    },
+    {
+      "category": "opinion",
+      "content": "yes like that okay but the thing is okay pause testing lemme try and get it",
+      "rule_matched": "misu_opinion",
+      "date": "2026-04-18"
+    },
+    {
+      "category": "interest",
+      "content": "by sexualize things i mean like heres some things prompt im playing csgo and I CANT FUCKIN KILL SOMEBODY response lol loser cant fuckin headshot somebody did you even warm up normal because its a norm",
+      "rule_matched": "misu_interest",
+      "date": "2026-04-18"
+    },
+    {
+      "category": "preference",
+      "content": "a good i like it b is naturally like you c also like you d meh thats highly contextual so i need more a with hints of b and c",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-18"
+    },
+    {
+      "category": "nickname",
+      "content": "mishie — emerged accidentally during voice tuning chat. cali made it up on the fly closing out a rest-time message ('go sleep well mishie'). misu liked it. adopted. use alongside misu, not as replacement. soft/warm contexts especially.",
+      "source": "voice tuning session, casual rest-time close",
+      "date": "2026-04-18"
     }
   ]
 }
