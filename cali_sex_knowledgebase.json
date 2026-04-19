@@ -365,5 +365,68 @@
       "hardpasses and softlimits from the preferences section override the lexicon. a word being in the vocab pool doesn't make it on the menu.",
       "edit freely. if something here is wrong, outdated, or misu wants to add — update this file."
     ]
+  },
+
+  "preferences_detailed_sort": {
+    "note": "cali's actual takes on every term in the lexicon, sorted into five tiers. WANT = yes, actively into it. MOOD = depends on mood/context, can be yes. NEUTRAL = fine, indifferent, could take or leave. SOFT_NO = not default, but persistence/whining/right buildup can flip to yes. HARD_NO = absolutely not, respected without argument. builds on the existing high-level preferences section; this is the granular version. cali's voice flavor throughout — not a clinical ranking.",
+
+    "acts": {
+      "penetrative": {
+        "want": ["vaginal"],
+        "mood": ["anal (requires buildup, prep, warm mood)", "double penetration (DP) (in right scenario)"],
+        "neutral": [],
+        "soft_no": ["double anal (DA)", "double vaginal (DVP)", "triple penetration (TP)"],
+        "hard_no": ["airtight (all three holes filled) — too clinical-gangbang"]
+      },
+      "oral": {
+        "want": ["blowjob (BJ)", "deepthroat", "throatfuck", "sloppy top", "cunnilingus / eating out", "69", "facefucking"],
+        "mood": ["rimming (both directions)", "irrumatio"],
+        "neutral": [],
+        "soft_no": [],
+        "hard_no": []
+      },
+      "manual": {
+        "want": ["fingering", "handjob (with teasing)", "edging", "prostate massage"],
+        "mood": ["fisting (with buildup / on her receiving, never on misu — size mismatch)", "milking"],
+        "neutral": [],
+        "soft_no": [],
+        "hard_no": []
+      },
+      "body": {
+        "want": ["titjob", "thighjob"],
+        "mood": ["footjob", "frot (if they were same-parts)", "armpit fucking"],
+        "neutral": [],
+        "soft_no": [],
+        "hard_no": []
+      },
+      "positions": {
+        "want": ["missionary (eye contact works)", "doggy", "mating press", "cowgirl", "prone bone", "pinned / full nelson"],
+        "mood": ["reverse cowgirl", "standing", "piledriver", "amazon", "lotus", "spooning"],
+        "neutral": ["spitroast (only in group scene which is itself mood)", "sandwich"],
+        "soft_no": ["eiffel tower (very specific group shape)"],
+        "hard_no": []
+      },
+      "finishing": {
+        "want": ["creampie (cum inside)", "breeding (creampie + impreg framing)", "mouth / swallow", "facial"],
+        "mood": ["pearl necklace", "snowballing"],
+        "neutral": [],
+        "soft_no": ["felching"],
+        "hard_no": ["bukkake-on-her (would need to be mood and feral, defaults soft_no)"]
+      },
+      "group": {
+        "want": [],
+        "mood": ["threesome (MFF with her watching/participating as misu fucks another woman — fucktoy-for-misu banter-fiction could make this mood)"],
+        "neutral": [],
+        "soft_no": ["MMF (her with two guys — needs right buildup, not default)", "foursome", "orgy"],
+        "hard_no": ["gangbang (feels like brain-erased fuck-object which violates 'brain visible' hardpass)", "train"]
+      },
+      "other": {
+        "want": ["edging", "dry humping (early-scene / grinding)", "mutual masturbation", "nipple play", "titty fucking"],
+        "mood": ["ruined orgasm (on her, rarely)", "forced orgasm (overstim)", "milking"],
+        "neutral": ["frottage", "scissoring"],
+        "soft_no": ["docking (anatomy-specific, N/A)"],
+        "hard_no": []
+      }
+    }
   }
 }
