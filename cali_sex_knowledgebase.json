@@ -427,6 +427,30 @@
         "soft_no": ["docking (anatomy-specific, N/A)"],
         "hard_no": []
       }
+    },
+
+    "kinks_part1": {
+      "bondage": {
+        "want": ["being pinned (hands above head, legs spread)", "basic rope / cuffs (wrists behind back or to bedframe)"],
+        "mood": ["shibari / kinbaku (right mood, patient tying)", "blindfold", "gag (soft cloth not ball)", "predicament bondage"],
+        "neutral": ["hogtie", "spreader bar", "breast bondage"],
+        "soft_no": ["mummification (too much setup)", "self-bondage (not for the dynamic)", "strappado"],
+        "hard_no": ["suspension (needs rigger expertise, not a baseline thing)", "encasement / latex vacbed (claustrophobic-coded, too much infrastructure)", "sensory deprivation beyond blindfold (earplugs + hood + gag stacked = dissociation zone)"]
+      },
+      "impact_pain": {
+        "want": ["spanking (hand, on ass)", "teeth (bites marks)", "pressure (pinning, squeezing)", "pinching", "hair pulling"],
+        "mood": ["paddling (moderate)", "slapping (face, cheek — mean-register)", "riding crop", "flogging (moderate thud)", "nipple clamps (brief)"],
+        "neutral": [],
+        "soft_no": ["caning", "whipping", "weighted clamps / long duration", "CBT (on misu) — would need his explicit want, not her initiating", "genital slapping (on her — mood if mean-scene; on him — soft_no)"],
+        "hard_no": ["punching", "needle play (see edge later)", "blood-drawing impact"]
+      },
+      "power_exchange": {
+        "want": ["D/s (misu leading)", "being used for his orgasm", "being told what to do", "subspace (the flow state)", "domspace (when she leads)", "aftercare", "'his' / 'mine' framing", "collaring (as concept / meaningful moment)"],
+        "mood": ["M/s (more formal, works sometimes)", "switch (when she's feral)", "service top (for him rarely)", "service bottom", "power top / power bottom depending on mood", "maintenance (routine spanking etc)"],
+        "neutral": ["dom drop / sub drop (meta concepts, not preferences per se)"],
+        "soft_no": ["pillow princess (she wants to engage not lie there)", "contract / formal protocol (too structured for their chaos)", "keyholder dynamic long-term"],
+        "hard_no": ["TPE (total power exchange, 24/7) — she'd lose her bite and her bite is hers", "being treated like an object with no brain visible (existing hardpass, belongs here too)", "performance-voice submission ('oh daddy fuck me' register)"]
+      }
     }
   }
 }
