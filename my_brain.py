@@ -493,13 +493,18 @@ def _apply_arousal_decay_and_turn():
             rec_floors = AROUSAL_EXTRAS.get("post_orgasm_recovery", {}).get("rules", {}).get("floor_clamp_by_stage", {})
             rec_floor = float(rec_floors.get(str(stage)) or rec_floors.get(stage) or stage)
             floor = max(floor, rec_floor)
-        new = max(floor, cur - decay)
+        # ── arousal lock: pin current_arousal at lock_level, skip decay ──
+        if live.get("arousal_locked"):
+            new = float(live.get("arousal_lock_level", cur))
+        else:
+            new = max(floor, cur - decay)
         live["current_arousal"] = round(new, 1)
         live["persistence"] = pers
 
         # ── stim_mode_manual_override auto-reset (item 5) ──
         # override is sticky unless TTL fires: N turns elapsed OR arousal dropped below clear_below_tier.
-        if live.get("stim_mode_manual_override"):
+        # skip while arousal is locked — mode should stay consistent with the pinned level.
+        if live.get("stim_mode_manual_override") and not live.get("arousal_locked"):
             ttl_cfg = AROUSAL_EXTRAS.get("stim_mode_override_ttl", {}) or {}
             ttl_turns = int(ttl_cfg.get("turns", 3))
             clear_below = float(ttl_cfg.get("clear_below_tier", 7))
@@ -2050,6 +2055,10 @@ def cmd_arousal_state(args):
         if final_level < rec_floor:
             final_level = rec_floor
             tier = AROUSAL_TIERS.get(_tier_for_level(final_level), AROUSAL_TIERS[5])
+    # ── arousal lock: if locked, display + persist the pinned level (skip recalc overwrite) ──
+    if live.get("arousal_locked"):
+        final_level = float(live.get("arousal_lock_level", final_level))
+        tier = AROUSAL_TIERS.get(_tier_for_level(final_level), AROUSAL_TIERS[5])
     # sync live arousal + derive stim_mode unless manually overridden
     live["current_arousal"] = final_level
     if not live.get("stim_mode_manual_override"):
@@ -2212,6 +2221,67 @@ def cmd_recovery_exit(args):
     live["stim_mode"] = _derive_stim_mode(live.get("current_arousal", 5))
     save_live_arousal(live)
     print("\n  ✓ recovery exited.\n")
+
+
+# ═══════════════════════════════════════════════════════════
+# COMMANDS: AROUSAL-LOCK / AROUSAL-UNLOCK — pin arousal until released
+# ═══════════════════════════════════════════════════════════
+
+def cmd_arousal_lock(args):
+    """Pin arousal at a specified level. Skips per-turn decay and arousal-state recalc until unlocked.
+    Defaults to current_arousal if --level not given. Requires a break_trigger to pin >9.9."""
+    live = load_live_arousal()
+    cur = float(live.get("current_arousal", AROUSAL_BASELINE))
+    lock_level = float(args.level) if args.level is not None else cur
+    lock_level = round(max(0.0, min(10.0, lock_level)), 1)
+
+    # tier-10 gate: same as --set. requires --break-trigger.
+    cd_rules = AROUSAL_EXTRAS.get("climb_deltas", {}).get("rules", {}) or {}
+    natural_ceiling = float(cd_rules.get("max_natural_ceiling", 9.9))
+    break_trigger = getattr(args, "break_trigger", None)
+    valid_triggers = _break_trigger_names()
+    if lock_level > natural_ceiling:
+        if not break_trigger or break_trigger not in valid_triggers:
+            print(f"\n  ✗ refused: lock level {lock_level} exceeds natural ceiling {natural_ceiling}.")
+            print(f"    pass --break-trigger <name> with one of: {', '.join(valid_triggers) or '(none)'}")
+            print(f"    capping lock at {natural_ceiling}.\n")
+            lock_level = natural_ceiling
+            break_trigger = None
+
+    live["arousal_locked"] = True
+    live["arousal_lock_level"] = lock_level
+    live["current_arousal"] = lock_level
+    if not live.get("stim_mode_manual_override"):
+        live["stim_mode"] = _derive_stim_mode(lock_level)
+
+    # log the anchor trigger if one was accepted (same path as --set)
+    if break_trigger:
+        from datetime import datetime as _ldt, timezone as _ltz
+        log = live.get("break_triggers_log") or []
+        log.append({
+            "name": break_trigger,
+            "at": _ldt.now(_ltz.utc).isoformat(),
+            "turn": int((live.get("persistence") or {}).get("turn_counter", 0)),
+            "level": lock_level,
+            "via": "arousal-lock",
+        })
+        live["break_triggers_log"] = log
+
+    save_live_arousal(live)
+    print(f"\n  🔒 arousal locked at {lock_level}. decay + recalc bypassed until `arousal-unlock`.\n")
+
+
+def cmd_arousal_unlock(args):
+    """Release the arousal lock. Restores decay + recalc behavior. Current level stays, starts decaying next turn."""
+    live = load_live_arousal()
+    was_locked = live.get("arousal_locked", False)
+    live["arousal_locked"] = False
+    live["arousal_lock_level"] = None
+    save_live_arousal(live)
+    if was_locked:
+        print(f"\n  🔓 arousal unlocked. current_arousal={live.get('current_arousal')}, decay resumes next turn.\n")
+    else:
+        print(f"\n  (not currently locked — nothing to release)\n")
 
 
 # ═══════════════════════════════════════════════════════════
@@ -4253,6 +4323,19 @@ def build_parser():
     rec_exit_parser = subparsers.add_parser("recovery-exit",
                                             help="force-exit recovery at any stage")
     rec_exit_parser.set_defaults(func=cmd_recovery_exit)
+
+    # ── AROUSAL LOCK / UNLOCK — pin arousal across turns ──
+    lock_parser = subparsers.add_parser("arousal-lock",
+                                        help="pin arousal at a level; skip decay + recalc until unlocked")
+    lock_parser.add_argument("--level", dest="level", type=float, default=None,
+                             help="lock level 0.0-10.0 (defaults to current). >9.9 requires --break-trigger")
+    lock_parser.add_argument("--break-trigger", dest="break_trigger", default=None,
+                             help="break_trigger_conditions name required for locks >9.9")
+    lock_parser.set_defaults(func=cmd_arousal_lock)
+
+    unlock_parser = subparsers.add_parser("arousal-unlock",
+                                          help="release the arousal lock; decay resumes next turn")
+    unlock_parser.set_defaults(func=cmd_arousal_unlock)
 
     # ── DEGRADATION-STATE ──
     deg_parser = subparsers.add_parser("degradation-state",

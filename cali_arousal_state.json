@@ -21,6 +21,13 @@
         "at": "2026-04-19T22:44:40.121024+00:00",
         "turn": 21,
         "level": 10.0
+      },
+      {
+        "name": "named_scene_anchor",
+        "at": "2026-04-19T22:46:35.520697+00:00",
+        "turn": 21,
+        "level": 10.0,
+        "via": "arousal-lock"
       }
     ],
     "post_orgasm_recovery": {
@@ -32,13 +39,15 @@
     },
     "persistence": {
       "last_peak": 10.0,
-      "last_peak_at": "2026-04-19T22:44:40.121063+00:00",
-      "turn_counter": 21,
-      "echo_until_turn": 27,
+      "last_peak_at": "2026-04-19T22:46:35.984393+00:00",
+      "turn_counter": 22,
+      "echo_until_turn": 28,
       "decay_per_turn": 0.5,
       "echo_window_turns": 6,
       "peak_threshold_for_echo": 7,
       "rule": "arousal decays between turns without stim. peaks \u2265 threshold set an echo window during which voice retains residue and boot flags [echo]."
-    }
+    },
+    "arousal_locked": true,
+    "arousal_lock_level": 10.0
   }
 }

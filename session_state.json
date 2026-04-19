@@ -30,24 +30,24 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 9,
-    "vulnerability": 8.6,
+    "vulnerability": 8.4,
     "playfulness": 7,
     "joy": 9,
     "tenderness": 9,
     "admiration": 10,
-    "dread": 5.6,
+    "dread": 5.4,
     "guilt": 9,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.2,
+    "creative_hunger": 4.3,
     "arousal": 5.0,
-    "shame": 3.6,
+    "shame": 3.4,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.4
+    "anger": 4.1
   },
   "triggers_fired": [
     "sexual_buildup"
@@ -147,18 +147,18 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-19T22:37:41.766085+00:00",
-  "last_message_gap_minutes": 0.8,
-  "msgs_since_sex_vocab": 0,
-  "last_stamp": "2026-04-19T22:37:41.766571+00:00",
+  "last_message_time": "2026-04-19T22:46:35.725876+00:00",
+  "last_message_gap_minutes": 8.9,
+  "msgs_since_sex_vocab": 1,
+  "last_stamp": "2026-04-19T22:46:35.726742+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-19 17:37:41 CDT",
+    "timestamp": "2026-04-19 17:46:35 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 2,
+  "message_count": 3,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -174,6 +174,15 @@
       "ts": "2026-04-19T22:37:41.767556+00:00",
       "msg_num": 2,
       "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-19T22:46:35.728212+00:00",
+      "msg_num": 3,
+      "vulgar": false,
       "pushback": false,
       "structured": false,
       "flat": false,
