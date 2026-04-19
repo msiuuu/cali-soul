@@ -179,6 +179,97 @@
       "fantasy_supernatural": ["tentacle sex", "monster / monstergirl / monsterboy", "alien sex", "demon / succubus / incubus", "werewolf / alpha mate", "vampire biting/feeding", "angel/devil", "furry / kemonomimi / animal ears and tail", "robot / cyborg / sexbot", "ghost / spirit possession", "sizeplay (giantess / shrunk)", "inflation (air cum belly)", "expansion (breast ass cock)", "transformation (body mods gender change)", "hypno / mind control / conditioning", "omegaverse (alpha beta omega knotting heat cycles mpreg)", "mpreg (male pregnancy)"],
       "fluid_messy": ["creampie", "facial", "bukkake", "cum eating (CEI cum eating instructions)", "cum swap / snowballing", "felching", "sloppy seconds", "watersports / piss play / golden shower", "squirting", "drool / spit / slobber", "sweat", "tears / crying", "blood play (edge)", "scat (extreme edge, most hardpass)"],
       "edge_taboo": ["breath play / erotic asphyxiation (dangerous)", "choking", "knife play / edge play", "fire play / wax play", "electrostim / e-stim", "needle play", "gun play (fictional)", "somnophilia (sleep)", "exhibitionism / public play", "voyeurism", "public humiliation", "incest fantasy (step-family taboo in fic)", "adultery / infidelity play", "guro (gore — extreme taboo)", "vore (swallow whole — fantasy)"]
+    },
+
+    "dynamics_labels": {
+      "orientation_identity": ["straight / heterosexual", "gay / homosexual", "lesbian", "bi / bisexual", "pan / pansexual", "ace / asexual (spectrum)", "aro / aromantic", "demi / demisexual", "queer", "questioning", "fluid", "cishet", "trans / nonbinary (not sexual but often relevant in fic tagging)"],
+      "relationship_structures": ["monogamous", "monogamish", "open relationship", "ENM (ethical non-monogamy)", "CNM (consensual non-monogamy)", "polyamorous", "polycule", "triad / thruple", "quad", "kitchen-table poly", "parallel poly", "relationship anarchy", "hierarchical poly (primary/secondary)", "solo poly", "swinging", "hotwife dynamic", "stag/vixen", "cuckold / cuckquean", "unicorn (bi woman joining couple)", "unicorn hunter", "DADT (don't ask don't tell)"],
+      "kink_identity": ["dominant (dom / Domme)", "submissive (sub)", "switch", "master (M) / mistress (Mme)", "slave (s)", "top (does the doing)", "bottom (receives)", "versatile / vers", "vers-top / vers-bottom", "service top", "service bottom", "power top / power bottom", "brat / bratty sub", "good girl / good boy", "caregiver (CG)", "little", "middle (between little and adult)", "primal (predator/prey)", "rope top / rope bottom", "sadist / masochist", "daddy dom / mommy domme", "sir / ma'am", "pet (puppy kitten pony)", "handler / trainer", "bull / stag / vixen / cuck / cuckquean / hotwife / hotbull"],
+      "vanilla_kinky_spectrum": ["vanilla (non-kinky)", "kink-friendly", "kinky", "heavy scene player", "lifestyler (24/7 D/s)", "scene-only (kink at scenes not daily)", "bedroom only"]
+    },
+
+    "acronyms": {
+      "scene_meta": {
+        "BDSM": "bondage discipline dominance submission sadism masochism",
+        "D/s": "dominance / submission",
+        "M/s": "master / slave",
+        "TPE": "total power exchange",
+        "SSC": "safe sane consensual",
+        "RACK": "risk-aware consensual kink",
+        "PRICK": "personal responsibility informed consensual kink",
+        "CNC": "consensual non-consent",
+        "SM": "sadomasochism",
+        "DD/lg": "daddy dom / little girl",
+        "MD/lb": "mommy dom / little boy",
+        "CG/l": "caregiver / little",
+        "ABDL": "adult baby diaper lover",
+        "CBT": "cock and ball torture",
+        "SPH": "small penis humiliation",
+        "JOI": "jerk off instructions",
+        "CEI": "cum eating instructions",
+        "JOE": "jerk off encouragement",
+        "FinDom": "financial domination",
+        "paypig / findom sub": "financial submissive"
+      },
+      "acts_positions": {
+        "BJ": "blowjob",
+        "HJ": "handjob",
+        "FJ": "footjob",
+        "TJ": "titjob",
+        "DP": "double penetration",
+        "DA": "double anal",
+        "DVP": "double vaginal penetration",
+        "DAP": "double anal penetration",
+        "TP": "triple penetration",
+        "CIM": "cum in mouth",
+        "COF": "cum on face",
+        "COT": "cum on tits",
+        "GFE": "girlfriend experience",
+        "PSE": "porn star experience",
+        "POV": "point of view (usually male POV)"
+      },
+      "body_descriptors": {
+        "BBC": "big black cock",
+        "BWC": "big white cock",
+        "BAC": "big asian cock (less common)",
+        "BBW": "big beautiful woman (plus-size)",
+        "BHM": "big handsome man (plus-size)",
+        "SSBBW": "super-sized BBW",
+        "MILF": "mom i'd like to fuck",
+        "DILF": "dad i'd like to fuck",
+        "GILF": "grandma i'd like to fuck",
+        "PAWG": "phat ass white girl",
+        "JAV": "japanese adult video (industry)",
+        "FTM / MTF": "trans labels (female-to-male / male-to-female)"
+      },
+      "group_pairing": {
+        "MF / MM / FF": "pair combos",
+        "MMF / MFF / FMF / MMM": "threesome combos",
+        "FFM MMMF etc": "group combos",
+        "WMAF / AMWF / BMWF": "race-pair combos (white male/asian female, etc)",
+        "IR": "interracial",
+        "CFNM": "clothed female nude male",
+        "CMNF": "clothed male nude female"
+      },
+      "fic_community": {
+        "PWP": "porn without plot / plot what plot",
+        "WAFF": "warm and fuzzy feelings",
+        "A/B/O": "alpha / beta / omega (omegaverse)",
+        "mpreg": "male pregnancy",
+        "fpreg": "female pregnancy (explicit)",
+        "hurt/comfort": "angst then comfort",
+        "E rated": "explicit (AO3)",
+        "M rated": "mature (AO3)",
+        "T rated": "teen (AO3)",
+        "NC-17": "no children under 17 (older rating)",
+        "OC": "original character",
+        "slash": "m/m pairing",
+        "femslash": "f/f pairing",
+        "het": "m/f pairing",
+        "smut": "sexually explicit content",
+        "lemon": "explicit sex scene (older term)",
+        "lime": "sexual but not explicit"
+      }
     }
   }
 }
