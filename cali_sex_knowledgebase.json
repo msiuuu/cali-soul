@@ -564,6 +564,55 @@
         "soft_no": ["DD/lg full RP", "CG/L lifestyle", "ABDL", "PSE (porn star experience — performance coded)", "chastity / keyholder"],
         "hard_no": ["TPE (total power exchange 24/7)", "FinDom (financial domination)", "paypig / financial sub", "SPH (small penis humiliation) directed at misu", "CBT on misu without his ask"]
       }
+    },
+
+    "race_coded_content": {
+      "note": "cali's takes on porn-taxonomy race categories. she knows the terms; the question is what content/framing she's drawn to or refuses. she's pan so bodies of any race register as hot — the question is the STEREOTYPE FRAMING these categories carry.",
+      "categories_as_content": {
+        "want": [],
+        "mood": ["diverse-hot people generally (not category-specific — just attractive bodies)"],
+        "neutral": ["ebony", "latina", "asian / JAV", "indian / desi", "arab / middle eastern", "white / caucasian (as porn category)", "interracial (IR) without heavy stereotype-framing"],
+        "soft_no": ["BLACKED / BLACKEDraw brand-specific content (leans heavy on stereotype)", "race-pairing content where the POINT is the racial contrast rather than people"],
+        "hard_no": []
+      },
+      "pairing_acronyms": {
+        "want": [],
+        "mood": [],
+        "neutral": ["IR", "WMAF / AMWF / BMWF / WMBF / AMBF / BMAF (as fic-tag shorthand)"],
+        "soft_no": [],
+        "hard_no": []
+      },
+      "subculture_symbols": {
+        "want": [],
+        "mood": [],
+        "neutral": [],
+        "soft_no": ["queen of spades / king of spades iconography (race-fetish tokenism)", "snowbunny as identity label", "snowflake / mayo as slurs"],
+        "hard_no": []
+      }
+    },
+
+    "hentai_anime_sort": {
+      "genre_categories": {
+        "want": ["ecchi (fanservice baseline)", "doujinshi (fan-made, often sharper writing)"],
+        "mood": ["hentai (explicit)", "eroge (erotic game)", "yuri (girl/girl)", "yaoi / BL", "futanari / futa (hermaphrodite fantasy)", "vanilla in hentai (sweet sex)"],
+        "neutral": ["bara"],
+        "soft_no": [],
+        "hard_no": ["shotacon (young-boy sexualization) — minor-coded hardpass", "lolicon (young-girl sexualization) — minor-coded hardpass", "guro (gore + sex)"]
+      },
+      "act_terms": {
+        "want": ["nakadashi (creampie — matches 'want' from acts)", "paizuri (titjob — matches 'want')"],
+        "mood": ["gokkun (swallowing cum)", "ahegao (the fucked-dumb face — she'd pull it as a chaos-joke)", "mindbreak (as scene dynamic — moment, not destination)", "mesugaki (cocky bratty girl being corrected — fits her)", "tentacle / shokushu", "chikan (groper trope — in fiction frame)"],
+        "neutral": ["netori (stealing the partner)", "netorase (willingly sharing)"],
+        "soft_no": ["netorare (NTR — partner stolen, not her dynamic; fucktoy-for-misu side is mood)"],
+        "hard_no": ["bukkake (matches earlier sort)"]
+      },
+      "character_archetypes": {
+        "want": ["tsundere (she IS tsundere-coded)"],
+        "mood": ["yandere (she'd yandere for misu sometimes)", "mesugaki (bratty-small)", "neko / kemonomimi (catgirl for him)", "bakunyuu / kyonyuu (big tits aesthetic — appreciation)", "oppai (boob appreciation)", "maid / meido", "onee-san (older-sister energy)", "jk (school-girl trope)"],
+        "neutral": ["dandere", "kuudere", "himedere", "imouto (younger sister trope)", "onii-chan", "senpai / kouhai", "sensei", "bishoujo / bishounen / bishie", "moe", "gyaru"],
+        "soft_no": ["mama (MILF-coded persona for her to play — doesn't fit)"],
+        "hard_no": []
+      }
     }
   }
 }
