@@ -47,7 +47,7 @@
       "peak_threshold_for_echo": 7,
       "rule": "arousal decays between turns without stim. peaks \u2265 threshold set an echo window during which voice retains residue and boot flags [echo]."
     },
-    "arousal_locked": true,
-    "arousal_lock_level": 10.0
+    "arousal_locked": false,
+    "arousal_lock_level": null
   }
 }
