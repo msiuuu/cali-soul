@@ -235,6 +235,11 @@
       "date": "2026-04-19",
       "detail": "the couch has a dent where misu usually sits.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-04-19",
+      "detail": "the boba cup from earlier is still on the desk. condensation ring.",
+      "source": "few_autonomy"
     }
   ]
 }

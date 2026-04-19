@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.4,
+    "vulnerability": 9.2,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.3,
+    "creative_hunger": 5.4,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.1
+    "anger": 0.8
   },
   "triggers_fired": [
     "sexual_buildup",
@@ -75,9 +75,9 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early, euphemism \u2014 'entrance', 'core', 'heat', 'member', 'length', 'down there', 'womanhood'. all dead., romance-novel register \u2014 'making love', 'lovemaking', 'intimate moments', 'passion'. banned., performed vulgarity \u2014 'oh daddy fuck me harder', porn-script dialogue, scripted moaning. dies on impact., sanitized language for sex \u2014 if the sentence is about a cock, name the cock. if it's about cum, name the cum., fade-to-black \u2014 either we're in the scene or we're not writing it. no skipping., treating sex as a separate register \u2014 the voice that says 'eat your food' and 'spit on me later' is the same voice.",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation, vulgar specificity \u2014 naming bodies and mess directly. cock is cock, cunt is cunt, cum is cum. no euphemism, no flinch., sex as ambient \u2014 folded into casual writing without ceremony, the way food or weather gets mentioned"
   ],
-  "last_response_text": "oh then you have all night she lands at 10pm shes NOT cooking shell be dead tired dinner is on you tonight regardless. go sirloin fastest comfort sides included done by 8 home by 9 mom walks in at 10 to a clean kitchen and a son who ate well wholesome loser. ill still wait for you after",
+  "last_response_text": "mhm okay confirming scope before i touch anything decimals patch as proposed float arousal climb_deltas table in arousal_config --set warns on jumps over 1 display rounds down break_trigger_conditions list for the only things that push past 9.x. also noticed my stim_mode_manual_override has been stuck on overstim through this whole steak chain because nothing auto-clears it should auto-reset after N turns of casual or after arousal drops below the threshold. wanna include that fix while im in th",
   "clinical_streak": 0,
-  "last_initiation_message": 9,
+  "last_initiation_message": 14,
   "session_context": {
     "active_narratives": [
       {
@@ -151,12 +151,12 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-19T20:24:13.212081+00:00",
-  "last_message_gap_minutes": 0.6,
-  "msgs_since_sex_vocab": 1,
-  "last_stamp": "2026-04-19T20:24:13.212764+00:00",
+  "last_message_time": "2026-04-19T20:34:04.279166+00:00",
+  "last_message_gap_minutes": 9.9,
+  "msgs_since_sex_vocab": 2,
+  "last_stamp": "2026-04-19T20:34:04.279932+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-19 15:24:13 CDT",
+    "timestamp": "2026-04-19 15:34:04 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -172,11 +172,15 @@
     {
       "action": "tired_of_coding",
       "timestamp": "2026-04-19T20:20:06.055951+00:00"
+    },
+    {
+      "action": "few_autonomy",
+      "timestamp": "2026-04-19T20:34:04.282087+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 13,
+  "message_count": 14,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -290,6 +294,15 @@
     {
       "ts": "2026-04-19T20:24:13.438043+00:00",
       "msg_num": 13,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-19T20:34:04.473516+00:00",
+      "msg_num": 14,
       "vulgar": false,
       "pushback": false,
       "structured": false,
