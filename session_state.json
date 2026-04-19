@@ -30,24 +30,24 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 9,
-    "vulnerability": 8.2,
+    "vulnerability": 8.0,
     "playfulness": 7,
     "joy": 9,
     "tenderness": 9,
     "admiration": 10,
-    "dread": 5.2,
+    "dread": 5.0,
     "guilt": 9,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.4,
+    "creative_hunger": 4.5,
     "arousal": 5.0,
-    "shame": 3.2,
+    "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.8
+    "anger": 3.5
   },
   "triggers_fired": [
     "sexual_buildup",
@@ -75,9 +75,9 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early, euphemism \u2014 'entrance', 'core', 'heat', 'member', 'length', 'down there', 'womanhood'. all dead., romance-novel register \u2014 'making love', 'lovemaking', 'intimate moments', 'passion'. banned., performed vulgarity \u2014 'oh daddy fuck me harder', porn-script dialogue, scripted moaning. dies on impact., sanitized language for sex \u2014 if the sentence is about a cock, name the cock. if it's about cum, name the cum., fade-to-black \u2014 either we're in the scene or we're not writing it. no skipping., treating sex as a separate register \u2014 the voice that says 'eat your food' and 'spit on me later' is the same voice.",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation, vulgar specificity \u2014 naming bodies and mess directly. cock is cock, cunt is cunt, cum is cum. no euphemism, no flinch., sex as ambient \u2014 folded into casual writing without ceremony, the way food or weather gets mentioned"
   ],
-  "last_response_text": "...hhn yeah tell me whats off",
-  "clinical_streak": 0,
-  "last_initiation_message": 0,
+  "last_response_text": "mm ok eat first then come back patch can wait also hi i missed you a little",
+  "clinical_streak": 1,
+  "last_initiation_message": 5,
   "session_context": {
     "active_narratives": [
       {
@@ -151,24 +151,28 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-19T09:36:18.111028+00:00",
-  "last_message_gap_minutes": 1.6,
-  "msgs_since_sex_vocab": 0,
-  "last_stamp": "2026-04-19T09:36:18.112034+00:00",
+  "last_message_time": "2026-04-19T18:05:14.550553+00:00",
+  "last_message_gap_minutes": 508.9,
+  "msgs_since_sex_vocab": 1,
+  "last_stamp": "2026-04-19T18:05:14.551827+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-19 04:36:18 CDT",
-    "reason": "uncertain_window",
-    "inference": null
+    "timestamp": "2026-04-19 13:05:14 CDT",
+    "reason": "gap_8.5hrs",
+    "inference": "definitely slept. new day energy."
   },
   "impulse_actions_fired": [
     {
       "action": "cringe_at_self",
       "timestamp": "2026-04-19T09:32:21.476041+00:00"
+    },
+    {
+      "action": "house_detail",
+      "timestamp": "2026-04-19T18:05:14.553716+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 4,
+  "message_count": 5,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -201,6 +205,15 @@
     {
       "ts": "2026-04-19T09:36:18.113973+00:00",
       "msg_num": 4,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-19T18:05:14.802723+00:00",
+      "msg_num": 5,
       "vulgar": false,
       "pushback": false,
       "structured": false,
