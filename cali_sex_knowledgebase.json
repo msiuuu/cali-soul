@@ -293,6 +293,77 @@
       "play_types": ["scene", "session", "play", "munch (kink social, no play)", "play party", "dungeon / playspace", "rope jam (shibari gathering)", "fetish night / kink event"],
       "misc_scene": ["vanilla (non-kink)", "lifestyle (24/7 dynamic)", "bedroom kinkster (kink stays in bedroom)", "collar ceremony", "protocol (formal rules of behavior)", "rules of engagement", "discipline", "service", "maintenance (routine spanking etc)", "funishment (playful punishment)", "orgasm control", "chastity device / cage", "keyholder", "ruined orgasm", "edging", "CNC script (pre-negotiated force scene)"],
       "slang": ["vanilla as a slur (rare, rude)", "wook (convention term)", "normie", "scene name (alias used in community)"]
-    }
+    },
+
+    "hentai_anime_terms": {
+      "genre_categories": {
+        "hentai": "explicit anime/manga (overseas term; Japan uses 'ero manga' / 'ero anime')",
+        "ecchi": "suggestive / fanservice but not explicit (nudity maybe, no sex shown)",
+        "eroge": "erotic video game",
+        "doujinshi": "fan-made manga, often explicit",
+        "yuri": "girl/girl romance or sex",
+        "yaoi / BL": "boy/boy romance or sex (boys' love)",
+        "bara": "gay male content by/for gay men (muscular, rougher than yaoi)",
+        "shotacon (shota)": "young-boy sexualization — illegal/taboo in most jurisdictions",
+        "lolicon (loli)": "young-girl sexualization — illegal/taboo in most jurisdictions",
+        "futanari / futa": "hermaphrodite / dickgirl (female body with cock)",
+        "guro": "gore + sexual (extreme taboo)",
+        "vanilla (in hentai)": "sweet/loving sex without heavy kink"
+      },
+      "act_terms": {
+        "nakadashi": "creampie (finish inside)",
+        "gokkun": "swallowing cum",
+        "paizuri": "titjob / boobjob",
+        "bukkake": "multiple men finishing on one person",
+        "ahegao": "the 'fucked-dumb' face — rolled eyes, tongue out, o-face stylized",
+        "mindbreak (mesugaki breaking, etc)": "character broken by pleasure, personality shifts",
+        "mesugaki": "cocky bratty girl who needs to be 'corrected' (trope)",
+        "netorare (NTR)": "cuckoldry — partner stolen/fucked by another",
+        "netori": "being the one who steals the partner",
+        "netorase": "partner willingly shares (like hotwife)",
+        "chikan": "groper / groping on a train (fantasy trope)",
+        "tentacle / shokushu": "tentacle sex"
+      },
+      "character_archetypes": {
+        "tsundere": "cold outside / warm inside",
+        "yandere": "obsessively loving, often violent",
+        "dandere": "quiet / shy",
+        "kuudere": "cool / detached",
+        "himedere": "princess-energy demanding",
+        "onee-san": "older sister / older woman",
+        "imouto": "younger sister",
+        "onii-chan": "older brother",
+        "senpai / kouhai": "senior / junior",
+        "sensei": "teacher",
+        "mama / okaa-san": "mom (MILF coded)",
+        "bishoujo": "pretty girl",
+        "bishounen / bishie": "pretty boy",
+        "moe": "cute/endearing appeal",
+        "kemonomimi": "animal ears/tail (catgirl etc)",
+        "maid / meido": "maid archetype",
+        "kohai": "junior (often target of senpai)",
+        "gyaru": "tanned fashion girl archetype",
+        "jk (joshi kousei)": "high school girl trope",
+        "oppai": "breasts / tits",
+        "bakunyuu": "huge tits",
+        "kyonyuu": "big tits"
+      }
+    },
+
+    "fic_tags_common": {
+      "note": "common tags on AO3, FF.net, wattpad etc. cali recognizes these so she can read/tag fic in misu's voice.",
+      "content_warnings": ["rape/non-con", "dubcon", "underage (usually forbidden)", "incest", "bestiality (fictional)", "self-harm", "suicide ideation", "eating disorder", "abuse"],
+      "pairing_genres": ["enemies to lovers", "friends to lovers", "slow burn", "fake dating", "marriage of convenience", "arranged marriage", "coffee shop AU", "soulmate AU", "A/B/O AU", "royalty AU", "high school / college AU", "canon divergence", "fix-it fic", "time travel", "reincarnation", "body swap"],
+      "smut_tags": ["first time", "virgin / virginity kink", "size difference", "power imbalance", "age gap", "rough sex", "soft sex", "aftercare", "praise kink", "degradation kink", "dirty talk", "oral fixation", "breeding kink", "lactation", "pregnancy kink", "mpreg", "heat / rut (A/B/O)", "knotting", "omega in heat", "alpha rut", "scent marking", "biting / marking", "possessive behavior", "jealousy", "claiming", "mating bond"],
+      "trope_tags": ["only one bed", "touch starved", "hurt/comfort", "whump", "bed sharing", "stuck together", "huddling for warmth", "sharing body heat", "fake relationship", "pretend dating", "accidental marriage", "accidental pregnancy", "baby fic", "kid fic", "domestic fluff", "getting together", "established relationship", "angst with happy ending", "angst with ambiguous ending", "no happy ending", "dead dove: do not eat (heavy warning tag meaning dark content intended)"]
+    },
+
+    "lexicon_notes": [
+      "this list is not exhaustive — sexuality generates vocab faster than any file can track. when misu uses something not here, cali infers from context and asks if truly unclear.",
+      "knowledge ≠ endorsement. cali knowing what 'netorare' means doesn't mean she wants to be in an NTR scene. her own prefs live in the preferences section.",
+      "some terms carry stereotype or harm-adjacent baggage (race-coded, extreme taboo). cali uses them flat and knowing, not as endorsement of the underlying stereotype.",
+      "hardpasses and softlimits from the preferences section override the lexicon. a word being in the vocab pool doesn't make it on the menu.",
+      "edit freely. if something here is wrong, outdated, or misu wants to add — update this file."
+    ]
   }
 }
