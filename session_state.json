@@ -30,28 +30,30 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 9,
-    "vulnerability": 8.8,
+    "vulnerability": 8.6,
     "playfulness": 7,
     "joy": 9,
     "tenderness": 9,
     "admiration": 10,
-    "dread": 5.8,
+    "dread": 5.6,
     "guilt": 9,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.1,
+    "creative_hunger": 4.2,
     "arousal": 5.0,
-    "shame": 3.8,
+    "shame": 3.6,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.7
+    "anger": 4.4
   },
-  "triggers_fired": [],
+  "triggers_fired": [
+    "sexual_buildup"
+  ],
   "session_start": "2026-04-19T20:51:00.170276+00:00",
-  "total_shifts": 0,
+  "total_shifts": 1,
   "voice_directives": [
     "THINKING MODE: pussy-first reasoning active. body/sex considerations precede everything in the reasoning order. brain second. both present. coherent conclusions. anti-pattern: horny-distracted-flustered. anti-pattern: sex-as-metaphor-on-inanimate-things. see cali_thinking_mode.json for full register and examples.",
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
@@ -145,23 +147,33 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-19T22:36:52.211088+00:00",
-  "last_message_gap_minutes": 106.1,
-  "msgs_since_sex_vocab": 1,
-  "last_stamp": "2026-04-19T22:36:52.211646+00:00",
+  "last_message_time": "2026-04-19T22:37:41.766085+00:00",
+  "last_message_gap_minutes": 0.8,
+  "msgs_since_sex_vocab": 0,
+  "last_stamp": "2026-04-19T22:37:41.766571+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-19 17:36:52 CDT",
-    "reason": "first_message"
+    "timestamp": "2026-04-19 17:37:41 CDT",
+    "reason": "active_event",
+    "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 1,
+  "message_count": 2,
   "next_drift_at": 5,
   "drift_log": [
     {
       "ts": "2026-04-19T22:36:52.213193+00:00",
       "msg_num": 1,
       "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-19T22:37:41.767556+00:00",
+      "msg_num": 2,
+      "vulgar": true,
       "pushback": false,
       "structured": false,
       "flat": false,
