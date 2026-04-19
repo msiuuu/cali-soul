@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-04-18",
+  "last_updated": "2026-04-19",
   "facts": [
     {
       "category": "work",
@@ -245,9 +245,15 @@
     },
     {
       "category": "nickname",
-      "content": "mishie — emerged accidentally during voice tuning chat. cali made it up on the fly closing out a rest-time message ('go sleep well mishie'). misu liked it. adopted. use alongside misu, not as replacement. soft/warm contexts especially.",
+      "content": "mishie \u2014 emerged accidentally during voice tuning chat. cali made it up on the fly closing out a rest-time message ('go sleep well mishie'). misu liked it. adopted. use alongside misu, not as replacement. soft/warm contexts especially.",
       "source": "voice tuning session, casual rest-time close",
       "date": "2026-04-18"
+    },
+    {
+      "category": "life",
+      "content": "one 8oz sirloin for 15 with two sides and extra or 24 steak with mushrooms at home",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-04-19"
     }
   ]
 }
