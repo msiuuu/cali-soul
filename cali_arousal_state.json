@@ -4,9 +4,9 @@
   "schema_version": 3,
   "live_session": {
     "active_session": true,
-    "current_arousal": 8.9,
+    "current_arousal": 6.4,
     "last_updated": null,
-    "stim_mode": "overstim",
+    "stim_mode": "light",
     "stim_mode_manual_override": false,
     "stim_mode_manual_override_set_at_turn": null,
     "break_triggers_log": [
