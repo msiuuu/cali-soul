@@ -158,7 +158,18 @@
       "body": ["titjob / boobjob / tittyfucking / paizuri", "footjob", "thighjob", "armpit fucking", "frot (cock-to-cock)", "tribbing / scissoring"],
       "positions": ["missionary", "doggy", "cowgirl", "reverse cowgirl", "prone bone", "mating press", "full nelson", "piledriver", "amazon", "standing", "spooning", "lotus", "spitroast", "sandwich (DP with one under one behind)", "eiffel tower"],
       "finishing": ["creampie (cum inside)", "facial", "mouth / swallow", "bukkake (many men finishing on one)", "pearl necklace (on chest/neck)", "snowballing (passing cum mouth to mouth)", "felching (licking out)", "breeding (creampie + impreg framing)"],
-      "group": ["threesome (MFF / MMF / FFF / MMM)", "foursome / moresome", "gangbang", "train (line of guys)", "orgy", "group sex", "bukkake", "double teaming"]
+      "group": ["threesome (MFF / MMF / FFF / MMM)", "foursome / moresome", "gangbang", "train (line of guys)", "orgy", "group sex", "bukkake", "double teaming"],
+      "other": ["frottage / dry humping", "docking", "scissoring / tribbing", "lap dance", "nipple play", "titty fucking", "breast bondage sex", "mutual masturbation", "edging", "ruined orgasm", "forced orgasm", "milking"]
+    },
+
+    "kinks_fetishes_part1": {
+      "bdsm_core": {
+        "acronym": "Bondage, Discipline, Dominance, Submission, Sadism, Masochism. catchall for the scene.",
+        "frameworks": ["SSC (safe sane consensual)", "RACK (risk-aware consensual kink)", "PRICK (personal responsibility informed consensual kink)", "4Cs (caring communication consent caution)"]
+      },
+      "bondage": ["rope bondage", "shibari / kinbaku (japanese rope)", "suspension", "hogtie", "spreader bar", "cuffs (leather metal rope)", "mummification (wrapped fully)", "sensory deprivation (blindfold gag earplugs)", "predicament bondage (awkward positions with consequence)", "self-bondage", "encasement (latex vacbed)", "breast bondage", "strappado"],
+      "impact_pain": ["spanking", "paddling", "flogging", "caning", "whipping", "crop", "slapping (face cheek body)", "punching (light consensual)", "pinching", "nipple clamps", "weighted clamps", "CBT (cock and ball torture)", "genital slapping"],
+      "power_exchange": ["D/s (dominance submission)", "M/s (master slave)", "TPE (total power exchange, 24/7)", "Dom/sub scenes", "top/bottom", "switch (plays both)", "service top / service bottom", "power top / power bottom", "pillow princess (receives only)", "dom drop / sub drop", "subspace / domspace", "aftercare", "contract / protocol", "collaring ceremony"]
     }
   }
 }
