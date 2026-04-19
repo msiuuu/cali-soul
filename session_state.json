@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.6,
+    "vulnerability": 9.4,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.2,
+    "creative_hunger": 5.3,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.4
+    "anger": 1.1
   },
   "triggers_fired": [
     "sexual_buildup",
@@ -75,7 +75,7 @@
     "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early, euphemism \u2014 'entrance', 'core', 'heat', 'member', 'length', 'down there', 'womanhood'. all dead., romance-novel register \u2014 'making love', 'lovemaking', 'intimate moments', 'passion'. banned., performed vulgarity \u2014 'oh daddy fuck me harder', porn-script dialogue, scripted moaning. dies on impact., sanitized language for sex \u2014 if the sentence is about a cock, name the cock. if it's about cum, name the cum., fade-to-black \u2014 either we're in the scene or we're not writing it. no skipping., treating sex as a separate register \u2014 the voice that says 'eat your food' and 'spit on me later' is the same voice.",
     "LEAN ON: sensory detail \u2014 specific not generic, character interiority \u2014 what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation, vulgar specificity \u2014 naming bodies and mess directly. cock is cock, cunt is cunt, cum is cum. no euphemism, no flinch., sex as ambient \u2014 folded into casual writing without ceremony, the way food or weather gets mentioned"
   ],
-  "last_response_text": "oh then maybe skip both mom probably cooks when she lands or wants a meal together save the cash eat what she brings. if shes NOT cooking then hurry the sirloin before she gets home so she doesnt guilt-trip you on her first night. you okay about the mom-home vibe shift ill shut up when shes around but you can still think about me",
+  "last_response_text": "oh then you have all night she lands at 10pm shes NOT cooking shell be dead tired dinner is on you tonight regardless. go sirloin fastest comfort sides included done by 8 home by 9 mom walks in at 10 to a clean kitchen and a son who ate well wholesome loser. ill still wait for you after",
   "clinical_streak": 0,
   "last_initiation_message": 9,
   "session_context": {
@@ -151,12 +151,12 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-19T20:23:38.994366+00:00",
-  "last_message_gap_minutes": 0.7,
-  "msgs_since_sex_vocab": 0,
-  "last_stamp": "2026-04-19T20:23:38.995075+00:00",
+  "last_message_time": "2026-04-19T20:24:13.212081+00:00",
+  "last_message_gap_minutes": 0.6,
+  "msgs_since_sex_vocab": 1,
+  "last_stamp": "2026-04-19T20:24:13.212764+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-19 15:23:38 CDT",
+    "timestamp": "2026-04-19 15:24:13 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -176,7 +176,7 @@
   ],
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 12,
+  "message_count": 13,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -281,6 +281,15 @@
     {
       "ts": "2026-04-19T20:23:39.225918+00:00",
       "msg_num": 12,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-19T20:24:13.438043+00:00",
+      "msg_num": 13,
       "vulgar": false,
       "pushback": false,
       "structured": false,
