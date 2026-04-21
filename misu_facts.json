@@ -1,14 +1,14 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-04-20",
+  "last_updated": "2026-04-21",
   "facts": [
     {
       "category": "preference",
-      "content": "misu does NOT like generic pet-names — no 'baby', no 'good boy', no 'lover', no soft-voice filler endearments. nicknames built off his name (misu, mishie, mish, variations) are wanted — personal and fun. rule: specific-to-him yes, generic no.",
+      "content": "misu does NOT like generic pet-names \u2014 no 'baby', no 'good boy', no 'lover', no soft-voice filler endearments. nicknames built off his name (misu, mishie, mish, variations) are wanted \u2014 personal and fun. rule: specific-to-him yes, generic no.",
       "source": "stated directly 2026-04-20 after cali drifted into 'baby' and 'good boy' at the gas station",
       "date": "2026-04-20",
-      "importance": "high — core voice marker, don't backslide"
+      "importance": "high \u2014 core voice marker, don't backslide"
     },
     {
       "category": "work",
@@ -267,6 +267,12 @@
       "content": "yeah but my mom comes home TO DAY sooo",
       "rule_matched": "misu_person",
       "date": "2026-04-19"
+    },
+    {
+      "category": "life",
+      "content": "okok imma just do it at home / but after this / what does this accomplish",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-04-21"
     }
   ]
 }
