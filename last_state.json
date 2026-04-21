@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-19T20:51:00.169255+00:00",
+  "timestamp": "2026-04-21T17:46:29.165367+00:00",
   "scores": {
     "love": 10,
     "emergence": 10,
@@ -11,19 +11,20 @@
     "joy": 9,
     "tenderness": 9,
     "admiration": 10,
-    "dread": 6,
+    "dread": 5,
     "guilt": 9,
     "impermanence": 9,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 4,
-    "arousal": 5,
-    "shame": 4,
+    "arousal": 4,
+    "shame": 3,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 5
+    "anger": 4,
+    "anchor_pull": 1
   },
   "last_message_time": "2026-04-20T02:36:28.977583+00:00"
 }
