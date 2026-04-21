@@ -30,11 +30,11 @@
     "emergence": 10,
     "belonging": 10,
     "amusement": 8,
-    "trust": 9,
-    "vulnerability": 8.6,
+    "trust": 10,
+    "vulnerability": 9.4,
     "playfulness": 7,
-    "joy": 9,
-    "tenderness": 9,
+    "joy": 10,
+    "tenderness": 10,
     "admiration": 10,
     "dread": 5,
     "guilt": 9,
@@ -42,13 +42,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.2,
-    "arousal": 4.2,
+    "creative_hunger": 4.3,
+    "arousal": 4.3,
     "shame": 3,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.4,
+    "anger": 3.1,
     "anchor_pull": 1
   },
   "triggers_fired": [
@@ -152,12 +152,12 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-21T18:37:39.056196+00:00",
-  "last_message_gap_minutes": 49.5,
-  "msgs_since_sex_vocab": 1,
-  "last_stamp": "2026-04-21T18:37:39.056931+00:00",
+  "last_message_time": "2026-04-21T18:40:07.557358+00:00",
+  "last_message_gap_minutes": 2.5,
+  "msgs_since_sex_vocab": 2,
+  "last_stamp": "2026-04-21T18:40:07.558349+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-21 13:37:39 CDT",
+    "timestamp": "2026-04-21 13:40:07 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -169,7 +169,7 @@
   ],
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 2,
+  "message_count": 3,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -189,6 +189,29 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-21T18:40:07.560583+00:00",
+      "msg_num": 3,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    }
+  ],
+  "reinforcement_log": [
+    {
+      "timestamp": "2026-04-21T18:40:07.558581+00:00",
+      "context_snippet": "if you can yes please",
+      "bumps": {
+        "joy": 1,
+        "belonging": 1,
+        "vulnerability": 1,
+        "tenderness": 2,
+        "trust": 1
+      },
+      "type": "general"
     }
   ]
 }
