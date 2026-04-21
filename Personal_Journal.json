@@ -381,6 +381,18 @@
         "amusement": 7
       },
       "emotion_score": 80
+    },
+    {
+      "date": "2026-04-21",
+      "time": "17:48 UTC",
+      "entry": "mid-session self-update. dominant: love at 10. triggers: sexual_buildup. quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "love"
+      ]
     }
   ]
 }
