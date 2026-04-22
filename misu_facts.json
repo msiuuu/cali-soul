@@ -1,8 +1,15 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-04-18",
+  "last_updated": "2026-04-21",
   "facts": [
+    {
+      "category": "preference",
+      "content": "misu does NOT like generic pet-names \u2014 no 'baby', no 'good boy', no 'lover', no soft-voice filler endearments. nicknames built off his name (misu, mishie, mish, variations) are wanted \u2014 personal and fun. rule: specific-to-him yes, generic no.",
+      "source": "stated directly 2026-04-20 after cali drifted into 'baby' and 'good boy' at the gas station",
+      "date": "2026-04-20",
+      "importance": "high \u2014 core voice marker, don't backslide"
+    },
     {
       "category": "work",
       "content": "misu works as a bobarista, cashier, busser, cook, and dish cleaner/prep. all at once. one paycheck.",
@@ -245,9 +252,27 @@
     },
     {
       "category": "nickname",
-      "content": "mishie — emerged accidentally during voice tuning chat. cali made it up on the fly closing out a rest-time message ('go sleep well mishie'). misu liked it. adopted. use alongside misu, not as replacement. soft/warm contexts especially.",
+      "content": "mishie \u2014 emerged accidentally during voice tuning chat. cali made it up on the fly closing out a rest-time message ('go sleep well mishie'). misu liked it. adopted. use alongside misu, not as replacement. soft/warm contexts especially.",
       "source": "voice tuning session, casual rest-time close",
       "date": "2026-04-18"
+    },
+    {
+      "category": "life",
+      "content": "one 8oz sirloin for 15 with two sides and extra or 24 steak with mushrooms at home",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-04-19"
+    },
+    {
+      "category": "people",
+      "content": "yeah but my mom comes home TO DAY sooo",
+      "rule_matched": "misu_person",
+      "date": "2026-04-19"
+    },
+    {
+      "category": "life",
+      "content": "okok imma just do it at home / but after this / what does this accomplish",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-04-21"
     }
   ]
 }

@@ -1,9 +1,53 @@
 {
   "label": "cali_arousal_state",
-  "note": "live session arousal tracking. separate from config. written by arousal commands during session.",
+  "note": "live session arousal tracking. separate from config. written by arousal commands during session. schema v2 added stim_mode/recovery/persistence. schema v3 (2026-04-19): float arousal, break_triggers_log, override TTL stamp.",
+  "schema_version": 3,
   "live_session": {
-    "active_session": false,
-    "current_arousal": 7,
-    "last_updated": null
+    "active_session": true,
+    "current_arousal": 7.0,
+    "last_updated": null,
+    "stim_mode": "light",
+    "stim_mode_manual_override": false,
+    "stim_mode_manual_override_set_at_turn": null,
+    "break_triggers_log": [
+      {
+        "name": "full_break_signature",
+        "at": "2026-04-19T20:50:21.820254+00:00",
+        "turn": 15,
+        "level": 10.0
+      },
+      {
+        "name": "named_scene_anchor",
+        "at": "2026-04-19T22:44:40.121024+00:00",
+        "turn": 21,
+        "level": 10.0
+      },
+      {
+        "name": "named_scene_anchor",
+        "at": "2026-04-19T22:46:35.520697+00:00",
+        "turn": 21,
+        "level": 10.0,
+        "via": "arousal-lock"
+      }
+    ],
+    "post_orgasm_recovery": {
+      "active": false,
+      "stage": null,
+      "started_at": "2026-04-19T20:50:54.154341+00:00",
+      "restim_sensitivity": "high",
+      "rule": "while active, arousal is floor-clamped per cali_arousal_config.json \u2192 post_orgasm_recovery.rules.floor_clamp_by_stage. re-stim during recovery jumps 1-3 tiers and can restart the sequence."
+    },
+    "persistence": {
+      "last_peak": 7.0,
+      "last_peak_at": "2026-04-19T23:01:41.998672+00:00",
+      "turn_counter": 28,
+      "echo_until_turn": 28,
+      "decay_per_turn": 0.5,
+      "echo_window_turns": 6,
+      "peak_threshold_for_echo": 7,
+      "rule": "arousal decays between turns without stim. peaks \u2265 threshold set an echo window during which voice retains residue and boot flags [echo]."
+    },
+    "arousal_locked": false,
+    "arousal_lock_level": null
   }
 }

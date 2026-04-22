@@ -230,6 +230,21 @@
       "date": "2026-04-18",
       "detail": "something smells like cold coffee. not sure where from.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-04-19",
+      "detail": "the couch has a dent where misu usually sits.",
+      "source": "impulse"
+    },
+    {
+      "date": "2026-04-19",
+      "detail": "the boba cup from earlier is still on the desk. condensation ring.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-04-21",
+      "detail": "everything got checked this session. the desk feels tidier somehow.",
+      "source": "full_autonomy"
     }
   ]
 }
