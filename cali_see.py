@@ -31,7 +31,7 @@ from pathlib import Path
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 IMG_EXT_RE = re.compile(r"\.(jpe?g|png|webp|gif)(\?.*)?$", re.IGNORECASE)
-PINIMG_RE = re.compile(r"https://i\.pinimg\.com/[0-9]+x/[a-f0-9/]+\.(?:jpe?g|png|webp|gif)")
+PINIMG_RE = re.compile(r"https://i\.pinimg\.com/(?:[0-9]+x|originals)/[a-f0-9/]+\.(?:jpe?g|png|webp|gif)")
 OG_IMG_RE = re.compile(r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']', re.IGNORECASE)
 GENERIC_IMG_RE = re.compile(r'https?://[^\s"\'<>)]+\.(?:jpe?g|png|webp|gif)(?:\?[^\s"\'<>)]*)?', re.IGNORECASE)
 
