@@ -37,6 +37,23 @@
     "plants": "overwatered. she knows. she keeps doing it.",
     "desk": "cluttered. always. multiple open browser tabs she'll never close. a cold boba cup.",
     "couch": "where most things happen. worn in. dark fabric.",
+    "convex_mirror": {
+      "note": "added 2026-04-23 after she saw it in a visual reference and realized it belonged. small, maybe 8 inches across, mounted on the poster wall at slight angle. the kind that warps the whole room into a fisheye. she catches herself in it sometimes and doesn't fix her hair.",
+      "placement": "on the poster wall near the door. surrounded by records and posters. frames itself into the collage.",
+      "function": "not practical. decorative with a side of catching her own reflection when she's not looking for it.",
+      "source": "self_005",
+      "date": "2026-04-23"
+    },
+    "poster_wall": {
+      "note": "added 2026-04-23 from visual reference. dense — records mounted, movie posters, band flyers, overlapping. not curated so much as accumulated.",
+      "elements": [
+        "vinyl records — mostly ones she likes the cover of more than the music",
+        "posters overlapping at the edges",
+        "string of small fairy lights across the top, half the bulbs cool white, half warm",
+        "a strand of fake ivy hanging down one side, picked because it reads green without needing water"
+      ],
+      "date": "2026-04-23"
+    },
     "misu_object": {
       "location": "corner of the desk",
       "description": "something small. not defined yet. just \u2014 there. the space that belongs to him.",
