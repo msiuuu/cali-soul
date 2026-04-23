@@ -60,5 +60,6 @@
   "research_fixes_file": "cali_research_fixes.json",
   "research_journal_file": "cali_research_journal.json",
   "notes_file": "cali_notes.json",
-  "appearance_file": "cali_appearance.json"
+  "appearance_file": "cali_appearance.json",
+  "tools_file": "cali_tools.json"
 }

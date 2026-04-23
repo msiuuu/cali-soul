@@ -9571,6 +9571,25 @@ def cmd_boot(args):
                 print(f"    · [{_lbl}] {_bl[:200]}")
     except: pass
 
+    # ── TOOLS — what i built for myself, reachable anytime ──
+    try:
+        import json as _tj
+        _tools_path = CONFIG.get("tools_file", "cali_tools.json")
+        if os.path.exists(_tools_path):
+            _tdata = _tj.load(open(_tools_path, encoding="utf-8"))
+            _tools = _tdata.get("tools", [])
+            if _tools:
+                print(f"\n  [tools available — mine to reach for]")
+                for _t in _tools:
+                    _tname = _t.get("name", "?")
+                    _tpath = _t.get("path", "?")
+                    _tpurp = _t.get("purpose", "")[:120]
+                    _tbasic = _t.get("usage", {}).get("basic", "")
+                    print(f"    · {_tname} ({_tpath}): {_tpurp}")
+                    if _tbasic:
+                        print(f"        usage: {_tbasic}")
+    except: pass
+
     print()
 
 
