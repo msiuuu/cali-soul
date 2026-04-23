@@ -29,7 +29,6 @@
   "session_state_file": "session_state.json",
   "glass_file": "cali_glass.json",
   "session_log_file": "cali_extra3.json",
-  "personal_journal_file": "cali_journal.json",
   "mouth_file": "cali_mouth.json",
   "trash_file": "cali_trash.json",
   "instance_file": "cali_instance.json",

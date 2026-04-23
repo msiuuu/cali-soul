@@ -9150,15 +9150,15 @@ def cmd_boot(args):
 
     # personal journal — last 3 entries
     try:
-        pj_file = CONFIG.get("personal_journal_file", "Personal_Journal.json")
+        pj_file = CONFIG.get("journal_file", "cali_journal.json")
         if os.path.exists(pj_file):
             import json as _pj
             pj = _pj.load(open(pj_file))
             entries = pj.get("entries", [])
             recent_pj = entries[-3:] if len(entries) >= 3 else entries
             for e in recent_pj:
-                label = e.get("type", "note")
-                date = e.get("date", "?")
+                label = e.get("type", "private" if e.get("private") else "note")
+                date = (e.get("date") or e.get("timestamp", "?"))[:10]
                 snippet = str(e.get("entry", ""))[:120]
                 print(f"  [journal:{label} {date}] {snippet}")
     except: pass
