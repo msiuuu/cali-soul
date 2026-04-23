@@ -99,29 +99,50 @@ def extract_generic_images(html):
     return out
 
 
-def download_image(url, out_dir, idx=0):
-    """curl an image to out_dir. returns path or None."""
-    parsed = urllib.parse.urlparse(url)
-    ext_match = IMG_EXT_RE.search(parsed.path)
-    ext = ext_match.group(0).lower().split("?")[0] if ext_match else ".jpg"
-    # strip querystring from ext
-    ext = re.sub(r"\?.*$", "", ext)
-    if not ext.startswith("."):
-        ext = "." + ext
-    fname = f"img_{idx:03d}{ext}"
-    fpath = out_dir / fname
+def sniff_image_type(path):
+    """check magic bytes. returns ext (.jpg/.png/.webp/.gif) or None if not an image."""
     try:
-        result = subprocess.run(
-            ["curl", "-sL", "-A", UA, "--max-time", "30", "-o", str(fpath), url],
+        with open(path, "rb") as f:
+            head = f.read(12)
+    except Exception:
+        return None
+    if head.startswith(b"\xff\xd8\xff"):
+        return ".jpg"
+    if head.startswith(b"\x89PNG\r\n\x1a\n"):
+        return ".png"
+    if head[:4] == b"RIFF" and head[8:12] == b"WEBP":
+        return ".webp"
+    if head[:6] in (b"GIF87a", b"GIF89a"):
+        return ".gif"
+    return None
+
+
+def download_image(url, out_dir, idx=0):
+    """curl an image to out_dir. returns path or None. verifies magic bytes."""
+    fname_tmp = f"img_{idx:03d}.tmp"
+    fpath_tmp = out_dir / fname_tmp
+    try:
+        subprocess.run(
+            ["curl", "-sL", "-A", UA, "--max-time", "30", "-o", str(fpath_tmp), url],
             capture_output=True, timeout=35, check=False
         )
-        if fpath.exists() and fpath.stat().st_size > 500:
-            return fpath
-        # too small — probably an error page
-        if fpath.exists():
-            fpath.unlink()
+        if not fpath_tmp.exists() or fpath_tmp.stat().st_size < 500:
+            if fpath_tmp.exists():
+                fpath_tmp.unlink()
+            return None
+        real_ext = sniff_image_type(fpath_tmp)
+        if not real_ext:
+            # not an image — probably an html challenge page or error
+            print(f"[cali_see] not an image (magic check failed): {url}", file=sys.stderr)
+            fpath_tmp.unlink()
+            return None
+        fpath = out_dir / f"img_{idx:03d}{real_ext}"
+        fpath_tmp.rename(fpath)
+        return fpath
     except Exception as e:
         print(f"[cali_see] download failed for {url}: {e}", file=sys.stderr)
+        if fpath_tmp.exists():
+            fpath_tmp.unlink()
     return None
 
 
