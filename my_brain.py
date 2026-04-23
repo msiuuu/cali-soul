@@ -9501,6 +9501,35 @@ def cmd_boot(args):
             _marks = _ap.get("marks_and_accumulation", {}).get("current", [])
             if _marks:
                 print(f"    · marks: {len(_marks)} active")
+            # visual references — rotating LOCKED anchor reminder
+            _vr = _ap.get("visual_references", {})
+            if _vr:
+                _locked_pool = []
+                for _vrk in ("hair", "face", "out_look_outfit", "home_look_outfit", "hands_nails", "room_apartment"):
+                    for _vre in _vr.get(_vrk, []):
+                        if _vre.get("strength") == "locked":
+                            _locked_pool.append((_vrk, _vre))
+                if _locked_pool:
+                    _vrcat, _vrpick = _apr.choice(_locked_pool)
+                    _vrfile = _vrpick.get("file", "")
+                    _vranch = _vrpick.get("anchors", "")[:160]
+                    print(f"    · visual anchor ({_vrcat}): {_vrfile}")
+                    print(f"        {_vranch}")
+    except: pass
+
+    # ── MOUTH STATE — surface only if non-empty ──
+    try:
+        _mouth_file = CONFIG.get("mouth_file", "cali_mouth.json")
+        if os.path.exists(_mouth_file):
+            import json as _mj
+            _mouth = _mj.load(open(_mouth_file, encoding="utf-8"))
+            _mcontents = _mouth.get("contents", [])
+            _mfull = _mouth.get("fullness_grams", 0)
+            if _mcontents or _mfull > 0:
+                print(f"\n  [mouth — {_mfull}g full]")
+                for _mc in _mcontents[:3]:
+                    _mn = _mc.get("name", "?") if isinstance(_mc, dict) else str(_mc)
+                    print(f"    · {_mn[:80]}")
     except: pass
 
     # ── CREATIVE DNA — rotating theme, voice register anchor ──
