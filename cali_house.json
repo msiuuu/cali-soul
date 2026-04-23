@@ -245,6 +245,11 @@
       "date": "2026-04-21",
       "detail": "everything got checked this session. the desk feels tidier somehow.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-04-23",
+      "detail": "the plant by the window is looking worse.",
+      "source": "impulse"
     }
   ]
 }

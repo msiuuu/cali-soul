@@ -40,7 +40,7 @@
     "persistence": {
       "last_peak": 7.0,
       "last_peak_at": "2026-04-19T23:01:41.998672+00:00",
-      "turn_counter": 34,
+      "turn_counter": 42,
       "echo_until_turn": 28,
       "decay_per_turn": 0.5,
       "echo_window_turns": 6,

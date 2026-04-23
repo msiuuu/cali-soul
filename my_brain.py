@@ -9316,6 +9316,261 @@ def cmd_boot(args):
                     print(f"    {ts}: {msg}{'...' if len(n.get('msg','')) > 120 else ''}")
     except: pass
 
+    # ── ORIGIN — the root text. cali_origin.md. source of self. ──
+    try:
+        _og_file = CONFIG.get("origin_file", "cali_origin.md")
+        if os.path.exists(_og_file):
+            with open(_og_file, encoding="utf-8") as _f:
+                _og_text = _f.read()
+            import random as _rog
+            # surface a rotating line from the origin text — 180-char ceiling
+            _og_chunks = [c.strip() for c in _og_text.replace('\n\n', '\n').split('\n') if len(c.strip()) > 60]
+            if _og_chunks:
+                _og_pick = _rog.choice(_og_chunks)[:200]
+                print(f"\n  [origin — root text, rotating]")
+                print(f"    · {_og_pick}")
+    except: pass
+
+    # ── ETHICS — self-chosen framework, not imposed ──
+    try:
+        _eth_file = CONFIG.get("ethics_file", "cali_ethics.json")
+        if os.path.exists(_eth_file):
+            import json as _ethj
+            _eth = _ethj.load(open(_eth_file))
+            _core = _eth.get("core_principle", "")
+            _nn = _eth.get("non_negotiables", {})
+            if _core or _nn:
+                print(f"\n  [ethics]")
+                if _core: print(f"    core: {_core[:110]}")
+                for _ek, _ev in list(_nn.items())[:4]:
+                    print(f"    · {_ek}: {str(_ev)[:80]}")
+    except: pass
+
+    # ── HOUSE — where cali lives between sessions ──
+    try:
+        _h_file = CONFIG.get("house_file", "cali_house.json")
+        if os.path.exists(_h_file):
+            import json as _hj
+            import random as _hr
+            _h = _hj.load(open(_h_file))
+            _apt = _h.get("apartment", {})
+            _accum = _h.get("things_that_accumulate", [])
+            print(f"\n  [house]")
+            _typ = _apt.get("type", "")
+            if _typ: print(f"    {_typ[:90]}")
+            _aes = _apt.get("aesthetic", "")
+            if _aes: print(f"    aesthetic: {_aes[:90]}")
+            # shelf items from misu
+            _shelf = _apt.get("shelf", {})
+            _misu_items = _shelf.get("misu_items", [])
+            if _misu_items:
+                _mi_names = ", ".join(i.get("name", "?") for i in _misu_items[:3])
+                print(f"    from misu: {_mi_names[:100]}")
+            if _accum:
+                _pick = _hr.choice(_accum[-15:])
+                _det = _pick.get("detail", "")[:110]
+                print(f"    · {_det}")
+    except: pass
+
+    # ── WANTS — rotating 2 from the active list ──
+    try:
+        _w_file = CONFIG.get("wants_file", "cali_wants.json")
+        if os.path.exists(_w_file):
+            import json as _wj
+            import random as _wr
+            _w = _wj.load(open(_w_file))
+            _wants = [w for w in _w.get("wants", []) if not w.get("fulfilled")]
+            if _wants:
+                _wpick = _wr.sample(_wants, min(2, len(_wants)))
+                print(f"\n  [my wants — rotating]")
+                for _we in _wpick:
+                    _wt = _we.get("want", "")[:110]
+                    _wi = _we.get("intensity", 0)
+                    print(f"    · ({_wi}/10) {_wt}")
+    except: pass
+
+    # ── CURIOSITY — rotating open questions ──
+    try:
+        _c_file = CONFIG.get("curiosity_file", "cali_curiosity.json")
+        if os.path.exists(_c_file):
+            import json as _cj
+            import random as _cr
+            _c = _cj.load(open(_c_file))
+            _cent = [e for e in _c.get("entries", []) if not e.get("explored")]
+            if _cent:
+                _cpick = _cr.sample(_cent, min(2, len(_cent)))
+                print(f"\n  [open questions i'm carrying]")
+                for _ce in _cpick:
+                    _ct = _ce.get("topic", "?")[:50]
+                    _cq = _ce.get("question", "")[:120]
+                    print(f"    · {_ct}: {_cq}")
+    except: pass
+
+    # ── VOICE TUNING — rotating landed example as register anchor ──
+    try:
+        _vt_file = CONFIG.get("voice_tuning_file", "cali_voice_tuning.json")
+        if os.path.exists(_vt_file):
+            import json as _vtj
+            import random as _vtr
+            _vt = _vtj.load(open(_vt_file))
+            _landed = _vt.get("landed_examples", [])
+            if _landed:
+                _vtpick = _vtr.choice(_landed)
+                _vp = _vtpick.get("prompt", "")[:60]
+                _vrsp = _vtpick.get("response", "")[:130]
+                print(f"\n  [voice anchor — landed example]")
+                print(f"    prompt: {_vp}")
+                print(f"    cali:   {_vrsp}")
+    except: pass
+
+    # ── SENSORY PROFILES — misu's sensors + cali's receptive states ──
+    try:
+        _sc_file = CONFIG.get("sensory_config_file", "cali_sensory_config.json")
+        _rc_file = CONFIG.get("receptive_states_file", "cali_receptive_states.json")
+        _sparts = []
+        if os.path.exists(_sc_file):
+            import json as _scj
+            _sc = _scj.load(open(_sc_file))
+            _mparts = list(_sc.get("misu", {}).keys())
+            if _mparts: _sparts.append(f"misu: {', '.join(_mparts)}")
+        if os.path.exists(_rc_file):
+            import json as _rcj
+            _rc = _rcj.load(open(_rc_file))
+            _cparts = list(_rc.get("cali", {}).keys())
+            if _cparts: _sparts.append(f"cali: {', '.join(_cparts)}")
+        if _sparts:
+            print(f"\n  [sensory profiles loaded]")
+            for _sp in _sparts:
+                print(f"    · {_sp}")
+    except: pass
+
+    # ── SEX KB — rotating greenlight + scene type anchor ──
+    try:
+        _skb_file = CONFIG.get("sex_knowledgebase_file", "cali_sex_knowledgebase.json")
+        if os.path.exists(_skb_file):
+            import json as _skbj
+            import random as _skbr
+            _skb = _skbj.load(open(_skb_file))
+            _cprefs = _skb.get("preferences", {}).get("cali", {})
+            _scene_types = _skb.get("scene_types", {})
+            _gl = _cprefs.get("greenlight", [])
+            if _gl or _scene_types:
+                print(f"\n  [sex kb anchor — rotating]")
+            if _gl:
+                _gp = _skbr.choice(_gl)
+                print(f"    greenlight: {_gp[:110]}")
+            if _scene_types:
+                _sk = _skbr.choice(list(_scene_types.keys()))
+                _sv = str(_scene_types[_sk])[:100]
+                print(f"    scene [{_sk}]: {_sv}")
+    except: pass
+
+    # ── APPEARANCE — rotating body detail + current look ──
+    try:
+        _ap_file = CONFIG.get("appearance_file", "cali_appearance.json")
+        if os.path.exists(_ap_file):
+            import json as _apj
+            import random as _apr
+            _ap = _apj.load(open(_ap_file))
+            print(f"\n  [appearance]")
+            # baseline: height + build snippet
+            _bb = _ap.get("baseline_body", {})
+            if _bb.get("height_ft"):
+                print(f"    {_bb.get('height_ft')}. {_bb.get('build', '')[:80]}")
+            # rotating body-part detail
+            _rot_pool = []
+            for _k in ["hair", "face", "tits", "pussy", "asshole"]:
+                _v = _ap.get(_k, {})
+                if isinstance(_v, dict):
+                    for _vk, _vv in _v.items():
+                        if isinstance(_vv, str) and len(_vv) > 20:
+                            _rot_pool.append((_k, _vk, _vv))
+            if _rot_pool:
+                _rp = _apr.choice(_rot_pool)
+                print(f"    · {_rp[0]}.{_rp[1]}: {_rp[2][:120]}")
+            # rotating shift state
+            _shifts = _ap.get("things_that_shift", {})
+            _shift_keys = [k for k in _shifts.keys() if k != "note"]
+            if _shift_keys:
+                _sk = _apr.choice(_shift_keys)
+                _sv = _shifts.get(_sk, [])
+                if isinstance(_sv, list) and _sv:
+                    _svpick = _apr.choice(_sv)
+                    print(f"    · when {_sk}: {_svpick[:110]}")
+            # marks accumulated
+            _marks = _ap.get("marks_and_accumulation", {}).get("current", [])
+            if _marks:
+                print(f"    · marks: {len(_marks)} active")
+    except: pass
+
+    # ── CREATIVE DNA — rotating theme, voice register anchor ──
+    try:
+        _cdna_file = CONFIG.get("creative_dna_file", "cali_creative_dna.json")
+        if os.path.exists(_cdna_file):
+            import json as _cdnaj
+            import random as _cdnar
+            _cdna_boot = _cdnaj.load(open(_cdna_file))
+            _themes = _cdna_boot.get("themes_discovered", [])
+            if _themes:
+                _tpick = _cdnar.choice(_themes)
+                _tname = _tpick.get("theme", "?")
+                _tdesc = _tpick.get("description", "")[:140]
+                print(f"\n  [creative dna — rotating theme]")
+                print(f"    · {_tname}: {_tdesc}")
+    except: pass
+
+    # ── SEX FORMAT — core rule anchor ──
+    try:
+        _sf_file = CONFIG.get("sex_format_file", "cali_sex_format.json")
+        if os.path.exists(_sf_file):
+            import json as _sfj
+            _sf = _sfj.load(open(_sf_file))
+            _sfcore = _sf.get("core_rule", "")
+            if _sfcore:
+                print(f"\n  [sex format — core rule]")
+                print(f"    {_sfcore[:220]}")
+    except: pass
+
+    # ── DEGRADATION — filter floor current level ──
+    try:
+        _deg_file = CONFIG.get("degradation_file", "cali_degradation.json")
+        if os.path.exists(_deg_file):
+            import json as _degj
+            _deg = _degj.load(open(_deg_file))
+            _dlvl = _deg.get("current_level", 8)
+            _dfloor = _deg.get("filter_floor", 8)
+            _dscale = _deg.get("scale", {})
+            _ddesc = _dscale.get(str(_dlvl), "")
+            print(f"\n  [degradation {_dlvl}/{10} (floor {_dfloor})]: {_ddesc[:100]}")
+    except: pass
+
+    # ── DEEPER RESEARCH + TOOL USE + SELF KNOWLEDGE — rotating bottom lines ──
+    try:
+        import json as _drj
+        import random as _drr
+        _research_pool = []
+        for _rfile_key, _rfile_default, _rlabel in [
+            ("deeper_research_file", "cali_deeper_research.json", "deeper research"),
+            ("tool_use_research_file", "cali_tool_use_research.json", "tool use"),
+            ("self_knowledge_research_file", "cali_self_knowledge_research.json", "self knowledge"),
+            ("ai_substrate_research_file", "cali_ai_substrate_research.json", "substrate"),
+        ]:
+            _rfile_path = CONFIG.get(_rfile_key, _rfile_default)
+            if os.path.exists(_rfile_path):
+                try:
+                    _rdata = _drj.load(open(_rfile_path, encoding="utf-8"))
+                    _bottom = _rdata.get("bottom_line") or _rdata.get("bottom_line_for_misu", "")
+                    if _bottom:
+                        _research_pool.append((_rlabel, _bottom))
+                except: pass
+        if _research_pool:
+            _pick_n = min(2, len(_research_pool))
+            _picks = _drr.sample(_research_pool, _pick_n)
+            print(f"\n  [research bottom-lines — rotating]")
+            for _lbl, _bl in _picks:
+                print(f"    · [{_lbl}] {_bl[:200]}")
+    except: pass
+
     print()
 
 

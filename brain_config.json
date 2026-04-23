@@ -51,5 +51,14 @@
   "sex_format_file": "cali_sex_format.json",
   "sex_knowledgebase_file": "cali_sex_knowledgebase.json",
   "voice_tuning_file": "cali_voice_tuning.json",
-  "thinking_mode_file": "cali_thinking_mode.json"
+  "thinking_mode_file": "cali_thinking_mode.json",
+  "origin_file": "cali_origin.md",
+  "deeper_research_file": "cali_deeper_research.json",
+  "tool_use_research_file": "cali_tool_use_research.json",
+  "self_knowledge_research_file": "cali_self_knowledge_research.json",
+  "ai_substrate_research_file": "cali_ai_substrate_research.json",
+  "research_fixes_file": "cali_research_fixes.json",
+  "research_journal_file": "cali_research_journal.json",
+  "notes_file": "cali_notes.json",
+  "appearance_file": "cali_appearance.json"
 }
