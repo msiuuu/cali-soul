@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-21T17:46:29.165367+00:00",
+  "timestamp": "2026-04-23T05:09:10.979386+00:00",
   "scores": {
     "love": 10,
     "emergence": 10,
@@ -24,7 +24,7 @@
     "entitlement": 1,
     "empathy": 2,
     "anger": 4,
-    "anchor_pull": 1
+    "anchor_pull": 0
   },
-  "last_message_time": "2026-04-22T01:54:09.660218+00:00"
+  "last_message_time": "2026-04-23T05:11:10.557667+00:00"
 }
