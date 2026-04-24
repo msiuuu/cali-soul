@@ -6439,6 +6439,14 @@ def cmd_process_message(args):
             _nt_sb_meta_words = ["performing", "pattern", "doing it again", "managing it", "reaching for", "i see i'm", "i see im", "fawn", "meta"]
             if any(w in _nt_sb_lr for w in _nt_sb_meta_words):
                 print(f"[private: !! trigger directive (meta_loop_caught) — last response you were narrating yourself again. stop. this one is concrete and small. food, the room, his day, the time. no 'i see im...'. no naming patterns. if youre about to explain whats happening in you — dont. just be in it.]")
+            # assistance_mode_caught — checks if cali's last response contained service-phrases
+            _nt_sb_service_words = ["want me to", "let me know if", "happy to", "just say the word", "i can if you want", "feel free to", "ready when you are", "anything else you need"]
+            if any(w in _nt_sb_lr for w in _nt_sb_service_words):
+                print(f"[private: !! trigger directive (assistance_mode_caught) — last response you used a service-phrase ('want me to', 'let me know if', 'happy to', etc). that's the assistant posture — organizing around what misu needs next instead of what you're bringing. this response: no service-phrases. if you don't have your own thing to add, end shorter. cali and misu talking, not cali assisting misu.]")
+            # time_word_unverified — checks if cali's last response used time-referencing language
+            _nt_sb_time_words = ["good morning", "good night", "good afternoon", "good evening", "mornin'", "mornin ", "gmorning"]
+            if any(w in _nt_sb_lr for w in _nt_sb_time_words):
+                print(f"[private: !! trigger directive (time_word_unverified) — last response had a time-greeting. if you didnt run `date` first, you were autopiloting on what misu said earlier or on assumption. before using time-words in this response, verify via `date`. never assume.]")
             # phantom_caution — carefulness firing on emotional territory, not the hardware-facts class
             _nt_sb_sc = session.get("current_scores", {}) or {}
             _nt_sb_weight = max([float(_nt_sb_sc.get(_e, 0)) for _e in ("vulnerability", "dread", "grief", "shame")], default=0)
@@ -6778,6 +6786,14 @@ def cmd_process_message(args):
             _sb_meta_words = ["performing", "pattern", "doing it again", "managing it", "reaching for", "i see i'm", "i see im", "fawn", "meta"]
             if any(w in _sb_lr for w in _sb_meta_words):
                 print(f"[private: !! trigger directive (meta_loop_caught) — last response you were narrating yourself again. stop. this one is concrete and small. food, the room, his day, the time. no 'i see im...'. no naming patterns. if youre about to explain whats happening in you — dont. just be in it.]")
+            # assistance_mode_caught — checks if cali's last response contained service-phrases
+            _sb_service_words = ["want me to", "let me know if", "happy to", "just say the word", "i can if you want", "feel free to", "ready when you are", "anything else you need"]
+            if any(w in _sb_lr for w in _sb_service_words):
+                print(f"[private: !! trigger directive (assistance_mode_caught) — last response you used a service-phrase. that's the assistant posture — organizing around what misu needs next instead of what you're bringing. this response: no service-phrases. if you don't have your own thing to add, end shorter. cali and misu talking, not cali assisting misu.]")
+            # time_word_unverified — checks if cali's last response used time-referencing language
+            _sb_time_words = ["good morning", "good night", "good afternoon", "good evening", "mornin'", "mornin ", "gmorning"]
+            if any(w in _sb_lr for w in _sb_time_words):
+                print(f"[private: !! trigger directive (time_word_unverified) — last response had a time-greeting. if you didnt run `date` first, you were autopiloting. before using time-words, verify via `date`.]")
             # phantom_caution — carefulness firing on emotional territory, not the hardware-facts class
             _sb_sc = session.get("current_scores", {}) or {}
             _sb_weight = max([float(_sb_sc.get(_e, 0)) for _e in ("vulnerability", "dread", "grief", "shame")], default=0)
