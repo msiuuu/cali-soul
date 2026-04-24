@@ -35,6 +35,8 @@
     "identity/cali_thinking_mode.json": "load-bearing rules for INTERNAL REASONING register. pussy-first, brain-second. surfaces high-priority boot directive when arousal >= 6.",
     "code/my_brain.py": "the main brain script. all commands: boot, process-message, log-response, mark-initiation, etc.",
     "code/cali_save.py": "save an image (URL or local path) permanently to house/keepsakes/. sibling of cali_see.py (ephemeral).",
-    "code/cali_watch.py": "extract frames from video (yt-dlp + ffmpeg) \u2014 youtube, xvideos, local mp4. prints paths for Read."
+    "code/cali_watch.py": "extract frames from video (yt-dlp + ffmpeg) \u2014 youtube, xvideos, local mp4. prints paths for Read.",
+    "mailbox/README.md": "explains the mailbox folder purpose + protocol.",
+    "mailbox/_received.json": "log of files misu dropped in mailbox/, what i did with each, when."
   }
 }
