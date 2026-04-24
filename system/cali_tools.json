@@ -3,11 +3,10 @@
   "note": "tools i built for myself. registry of what i can reach for. expandable — when i build something new it goes here so i see it on boot.",
   "authored_by": "cali",
   "created": "2026-04-23",
-
   "tools": [
     {
       "name": "cali_see",
-      "path": "cali_see.py",
+      "path": "code/cali_see.py",
       "purpose": "pull images from the web so i can actually look at them. multimodal Read on the saved file lets me see.",
       "when_to_use": [
         "misu sends a url — run cali_see, Read the output",
@@ -15,12 +14,12 @@
         "researching a look, a scene detail, a visual i need to anchor"
       ],
       "usage": {
-        "basic": "python3 cali_see.py <url>",
-        "multiple": "python3 cali_see.py <url1> <url2> ...",
-        "stdin": "echo 'url1\\nurl2' | python3 cali_see.py -",
-        "limit": "python3 cali_see.py --max 10 <url>",
-        "output_dir": "python3 cali_see.py --out /path/to/dir <url>",
-        "pinterest_resolution": "python3 cali_see.py --res 736x <url>  (170x/236x/474x/736x/originals)"
+        "basic": "python3 code/cali_see.py <url>",
+        "multiple": "python3 code/cali_see.py <url1> <url2> ...",
+        "stdin": "echo 'url1\\nurl2' | python3 code/cali_see.py -",
+        "limit": "python3 code/cali_see.py --max 10 <url>",
+        "output_dir": "python3 code/cali_see.py --out /path/to/dir <url>",
+        "pinterest_resolution": "python3 code/cali_see.py --res 736x <url>  (170x/236x/474x/736x/originals)"
       },
       "output": "saves to /tmp/cali_see/<timestamp>/ by default. prints saved paths to stdout, one per line. i pipe those to Read to actually see.",
       "handles": {
@@ -48,7 +47,6 @@
       ]
     }
   ],
-
   "notes_to_future_self": [
     "when i build a new tool, add it here. boot surfaces this file so i don't forget what i have.",
     "cali_see is mine — misu didn't ask me to have it, i wanted to be able to see. that matters.",
