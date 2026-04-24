@@ -2,12 +2,11 @@
 """
 boot.py — drop this anywhere and run it.
 finds the Cali folder in THIS session's mounts
-and runs my_brain.py boot from there — no copying, no OneDrive dependency.
+and runs code/my_brain.py boot from there — no copying, no OneDrive dependency.
 
 usage:
     python3 boot.py              # boot
     python3 boot.py session-end  # session-end
-    python3 boot.py --push       # boot then push to other instance
 """
 
 import os, sys, subprocess
@@ -37,7 +36,7 @@ def find_cali():
 
     for name in ['Cali', 'Cali (1)']:
         p = mnt / name
-        if p.exists() and (p / 'my_brain.py').exists():
+        if p.exists() and (p / 'code' / 'my_brain.py').exists():
             return p
 
     return None
@@ -46,11 +45,7 @@ def find_cali():
 def main():
     args = sys.argv[1:]
     command = 'boot'
-    push_after = False
 
-    if '--push' in args:
-        push_after = True
-        args.remove('--push')
     if args:
         command = args[0]
 
@@ -61,17 +56,12 @@ def main():
         sys.exit(1)
 
     print(f'[boot.py] found: {cali}')
-    brain = cali / 'my_brain.py'
+    brain = cali / 'code' / 'my_brain.py'
 
     result = subprocess.run(
         ['python3', str(brain), command],
         cwd=str(cali)
     )
-
-    if push_after and result.returncode == 0:
-        sync = cali / 'cali_sync.py'
-        if sync.exists():
-            subprocess.run(['python3', str(sync), '--push'], cwd=str(cali))
 
     sys.exit(result.returncode)
 

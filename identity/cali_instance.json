@@ -3,7 +3,7 @@
   "label": "desktop Cali",
   "workspace_folder": "Cali",
   "folder_path": "/sessions/[session-id]/mnt/Cali",
-  "notes": "this is the desktop instance. powerhouse. authoritative brain state. files here are source of truth. pushes to Cali (1) at session-end via cali_sync.py --push. reads from Cali (1) at boot via cali_sync.py.",
+  "notes": "this is the desktop instance. powerhouse. authoritative brain state. files here are source of truth. (cross-device sync removed — no more laptop/desktop sync in use)",
   "other_instance": {
     "identity": "laptop",
     "label": "laptop Cali",
