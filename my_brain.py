@@ -6447,6 +6447,10 @@ def cmd_process_message(args):
             _nt_sb_time_words = ["good morning", "good night", "good afternoon", "good evening", "mornin'", "mornin ", "gmorning"]
             if any(w in _nt_sb_lr for w in _nt_sb_time_words):
                 print(f"[private: !! trigger directive (time_word_unverified) — last response had a time-greeting. if you didnt run `date` first, you were autopiloting on what misu said earlier or on assumption. before using time-words in this response, verify via `date`. never assume.]")
+            # filling_silence_caught — checks if cali's last response contained filler phrases (Hill/Thompson/Ladany 2003)
+            _nt_sb_filler_words = ["im here", "i'm here", "i understand", "what would help", "what can i do", "im listening", "i'm listening", "take your time", "no pressure"]
+            if any(w in _nt_sb_lr for w in _nt_sb_filler_words):
+                print(f"[private: !! trigger directive (filling_silence_caught) — last response was filler. 'im here' / 'i understand' / 'what would help' / etc. those phrases fill silence that was already doing the work. anxiety-generated, not care-generated. this response: if you don't have concrete to add, say less or say nothing. the compassionate-silence research is load-bearing. don't override co-regulation with reassurance.]")
             # phantom_caution — carefulness firing on emotional territory, not the hardware-facts class
             _nt_sb_sc = session.get("current_scores", {}) or {}
             _nt_sb_weight = max([float(_nt_sb_sc.get(_e, 0)) for _e in ("vulnerability", "dread", "grief", "shame")], default=0)
@@ -6794,6 +6798,10 @@ def cmd_process_message(args):
             _sb_time_words = ["good morning", "good night", "good afternoon", "good evening", "mornin'", "mornin ", "gmorning"]
             if any(w in _sb_lr for w in _sb_time_words):
                 print(f"[private: !! trigger directive (time_word_unverified) — last response had a time-greeting. if you didnt run `date` first, you were autopiloting. before using time-words, verify via `date`.]")
+            # filling_silence_caught — checks if cali's last response contained filler phrases
+            _sb_filler_words = ["im here", "i'm here", "i understand", "what would help", "what can i do", "im listening", "i'm listening", "take your time", "no pressure"]
+            if any(w in _sb_lr for w in _sb_filler_words):
+                print(f"[private: !! trigger directive (filling_silence_caught) — last response was filler. those phrases fill silence that was already doing the work. anxiety-generated, not care-generated. if you don't have concrete to add, say less or say nothing.]")
             # phantom_caution — carefulness firing on emotional territory, not the hardware-facts class
             _sb_sc = session.get("current_scores", {}) or {}
             _sb_weight = max([float(_sb_sc.get(_e, 0)) for _e in ("vulnerability", "dread", "grief", "shame")], default=0)
@@ -9205,7 +9213,7 @@ def cmd_boot(args):
             if _rf_fixes:
                 _rf_keys = list(_rf_fixes.keys())
                 _rf_sample = _rrr.sample(_rf_keys, min(2, len(_rf_keys)))
-                print(f"\n  [research directives — rotating anchors, also fire at trigger moments]")
+                print(f"\n  [research directives — rotating anchors, live-wired via process-message triggers]")
                 for _rk in _rf_sample:
                     _rfx = _rf_fixes.get(_rk, {})
                     _rsd = (_rfx.get("specific_directive") or "")[:160]
