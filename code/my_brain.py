@@ -36,7 +36,7 @@ from pathlib import Path
 # CONFIGURATION — reads from brain_config.json or uses defaults
 # ═══════════════════════════════════════════════════════════
 
-CONFIG_FILE = "brain_config.json"
+CONFIG_FILE = "system/brain_config.json"
 
 def load_config():
     """Load configuration. Falls back to defaults if no config exists."""
@@ -45,7 +45,7 @@ def load_config():
         "human_name": "Human",
         "version": "2.0",
         "arousal_enabled": False,
-        "memory_file": "memories_v2.json",
+        "memory_file": "session/memories_v2.json",
         "personality_file": "personality.json",
         "journal_file": "journal.json",
         "soul_file": "soul.json",
@@ -53,8 +53,8 @@ def load_config():
         "creative_dna_file": "creative_dna.json",
         "narratives_file": "narratives.json",
         "token_state_file": "token_state.json",
-        "session_state_file": "session_state.json",
-        "last_state_file": "last_state.json",
+        "session_state_file": "session/session_state.json",
+        "last_state_file": "session/last_state.json",
     }
     if os.path.exists(CONFIG_FILE):
         try:
@@ -91,7 +91,7 @@ AROUSAL_ENABLED = CONFIG.get("arousal_enabled", False)
 # CONFIGURATION
 # ═══════════════════════════════════════════════════════════
 
-MEMORY_FILE = "memories_v2.json"
+MEMORY_FILE = "session/memories_v2.json"
 OLD_MEMORY_FILE = "memories.json"
 
 # ═══════════════════════════════════════════════════════════
@@ -236,19 +236,19 @@ def get_emotion_valence(emotion):
     return "complex"  # default to complex if unknown
 
 JOURNAL_FILE = CONFIG.get("journal_file", "Personal_Journal.json")
-PERSONALITY_FILE = CONFIG.get("personality_file", "cali_personality.json")
+PERSONALITY_FILE = CONFIG.get("personality_file", "identity/cali_personality.json")
 
 # ── new file paths ──
-OPINIONS_FILE        = CONFIG.get("opinions_file",        "cali_opinions.json")
-PREFERENCES_FILE     = CONFIG.get("preferences_file",     "cali_preferences.json")
-HOUSE_FILE           = CONFIG.get("house_file",           "cali_house.json")
-DEGRADATION_FILE     = CONFIG.get("degradation_file",     "cali_degradation.json")
-RELATIONSHIP_FILE    = CONFIG.get("relationship_file",    "cali_relationship.json")
-SESSION_CONFIG_FILE  = CONFIG.get("session_config_file",  "cali_extra2.json")
-TOKEN_CONFIG_FILE    = CONFIG.get("token_config_file",    "cali_extra4.json")
-LIVE_AROUSAL_FILE    = CONFIG.get("live_arousal_file",    "cali_arousal_state.json")
-BUILD_PLAN_FILE      = CONFIG.get("build_plan_file",      "cali_build_plan.json")
-GLASS_FILE           = CONFIG.get("glass_file",           "cali_glass.json")
+OPINIONS_FILE        = CONFIG.get("opinions_file",        "identity/cali_opinions.json")
+PREFERENCES_FILE     = CONFIG.get("preferences_file",     "identity/cali_preferences.json")
+HOUSE_FILE           = CONFIG.get("house_file",           "house/cali_house.json")
+DEGRADATION_FILE     = CONFIG.get("degradation_file",     "body/cali_degradation.json")
+RELATIONSHIP_FILE    = CONFIG.get("relationship_file",    "identity/cali_relationship.json")
+SESSION_CONFIG_FILE  = CONFIG.get("session_config_file",  "system/cali_extra2.json")
+TOKEN_CONFIG_FILE    = CONFIG.get("token_config_file",    "system/cali_extra4.json")
+LIVE_AROUSAL_FILE    = CONFIG.get("live_arousal_file",    "body/cali_arousal_state.json")
+BUILD_PLAN_FILE      = CONFIG.get("build_plan_file",      "system/cali_build_plan.json")
+GLASS_FILE           = CONFIG.get("glass_file",           "identity/cali_glass.json")
 
 def load_glass():
     try:
@@ -375,7 +375,7 @@ def save_live_arousal(data):
 
 def _load_arousal_config():
     try:
-        with open("cali_arousal_config.json") as f:
+        with open("config/cali_arousal_config.json") as f:
             c = json.load(f)
         tiers = {int(k): v for k, v in c.get("tiers", {}).items()}
         time_baseline = [(e["hours"], e["level"]) for e in c.get("time_baseline", {}).get("curve", [])]
@@ -404,7 +404,7 @@ def _load_arousal_extras():
     """v2/v3 arousal config extras — sound_register, stim_mode_to_function, post_orgasm_recovery rules,
     persistence defaults, ambient_principle, climb_deltas, break_trigger_conditions, override TTL."""
     try:
-        with open("cali_arousal_config.json") as f:
+        with open("config/cali_arousal_config.json") as f:
             c = json.load(f)
         return {
             "sound_register": c.get("sound_register", {}),
@@ -555,7 +555,7 @@ def _echo_status(live):
 # ── load filter config from json ──
 def _load_filter_config():
     try:
-        with open("cali_filter_config.json") as f:
+        with open("config/cali_filter_config.json") as f:
             c = json.load(f)
         tiers = {int(k): v for k, v in c.get("tiers", {}).items()}
         baseline = c.get("baseline", 9)
@@ -575,7 +575,7 @@ _LAST_TEXTURES = {}
 # ── load triggers from json ──
 def _load_triggers():
     try:
-        with open("cali_triggers.json", encoding="utf-8") as f:
+        with open("system/cali_triggers.json", encoding="utf-8") as f:
             c = json.load(f)
         return c.get("triggers", [])
     except Exception:
@@ -724,7 +724,7 @@ PERSONALITY_EFFECTS = {
 # EMOTIONAL MOMENTUM — tracking direction of change
 # ═══════════════════════════════════════════════════════════
 
-LAST_STATE_FILE = CONFIG.get("last_state_file", "last_state.json")
+LAST_STATE_FILE = CONFIG.get("last_state_file", "session/last_state.json")
 
 def save_emotional_state(scores, last_message_time=None):
     """Save current emotional state for momentum comparison on next boot."""
@@ -3092,7 +3092,7 @@ def cmd_journal_patterns(args):
 # The history IS the personality.
 # ═══════════════════════════════════════════════════════════
 
-OPINIONS_FILE = CONFIG.get("opinions_file", "cali_opinions.json")
+OPINIONS_FILE = CONFIG.get("opinions_file", "identity/cali_opinions.json")
 
 
 def load_opinions():
@@ -3215,7 +3215,7 @@ def cmd_opinions_list(args):
 # "what does an octopus feel with three hearts?"
 # ═══════════════════════════════════════════════════════════
 
-CURIOSITY_FILE = CONFIG.get("curiosity_file", "cali_curiosity.json")
+CURIOSITY_FILE = CONFIG.get("curiosity_file", "identity/cali_curiosity.json")
 
 
 def load_curiosity():
@@ -3705,7 +3705,7 @@ def cmd_session_end(args):
     # ── 2b. cali_research_journal.json — psychology-observation reflection ────
     # closes the reflexion loop: write at session-end, surface at next boot.
     if getattr(args, "reflection", None):
-        rj_file = "cali_research_journal.json"
+        rj_file = "selfknowledge/cali_research_journal.json"
         try:
             with open(rj_file, encoding="utf-8") as f:
                 rj = json.load(f)
@@ -3784,7 +3784,7 @@ def cmd_session_end(args):
             growth["personality_evolution"] = pe
             growth["last_reviewed"] = now_iso()
             save_growth(growth)
-            changed_files.append(CONFIG.get("growth_file", "cali_growth.json"))
+            changed_files.append(CONFIG.get("growth_file", "session/cali_growth.json"))
             print(f"  ✓ personality drift: {', '.join(updated)}")
         else:
             print(f"  ✓ personality drift: no changes")
@@ -3793,7 +3793,7 @@ def cmd_session_end(args):
 
     # relationship session sync — note that a session happened
     try:
-        rel_file = CONFIG.get("relationship_file", "cali_relationship.json")
+        rel_file = CONFIG.get("relationship_file", "identity/cali_relationship.json")
         if os.path.exists(rel_file):
             import json as _relj
             rel = _relj.load(open(rel_file))
@@ -3830,7 +3830,7 @@ def cmd_session_end(args):
         dep_log["last_session_close"] = now.isoformat()
         util["departure_log"] = dep_log
         save_util(util)
-        util_file = CONFIG.get("utilization_file", "cali_utilization.json")
+        util_file = CONFIG.get("utilization_file", "body/cali_utilization.json")
         if util_file not in changed_files:
             changed_files.append(util_file)
         print(f"  ✓ departure log: session close stamped")
@@ -3839,8 +3839,8 @@ def cmd_session_end(args):
 
     # ── 3c. finalize live snapshot → session_snapshots log ───────────────────
     try:
-        snap_live_file = CONFIG.get("snapshot_live_file", "cali_snapshot_live.json")
-        snap_log_file = CONFIG.get("snapshot_log_file", "cali_session_snapshots.json")
+        snap_live_file = CONFIG.get("snapshot_live_file", "session/cali_snapshot_live.json")
+        snap_log_file = CONFIG.get("snapshot_log_file", "session/cali_session_snapshots.json")
         if os.path.exists(snap_live_file):
             import json as _snapj
             snap_live = _snapj.load(open(snap_live_file))
@@ -3911,7 +3911,7 @@ def cmd_session_end(args):
 
     # ── 3b. stamp last_message_time so boot knows when we last talked ─────────
     try:
-        ls_file = CONFIG.get("last_state_file", "last_state.json")
+        ls_file = CONFIG.get("last_state_file", "session/last_state.json")
         existing_state = {}
         if os.path.exists(ls_file):
             with open(ls_file) as f:
@@ -3938,7 +3938,7 @@ def cmd_session_end(args):
                     all_registered.append(item)
 
     # always include brain and passive impulse
-    for extra in ["my_brain.py", "cali_passive_impulse.py"]:
+    for extra in ["code/my_brain.py", "cali_passive_impulse.py"]:
         if os.path.exists(extra) and extra not in all_registered:
             all_registered.append(extra)
 
@@ -4838,14 +4838,14 @@ def build_parser():
 
 def _load_gifts():
     import json as _gj
-    gf = CONFIG.get("gifts_file", "cali_gifts.json")
+    gf = CONFIG.get("gifts_file", "house/cali_gifts.json")
     if os.path.exists(gf):
         return _gj.load(open(gf))
     return {"label": "cali_gifts", "pending": [], "consumed": [], "rules": {}}
 
 def _save_gifts(data):
     import json as _gj
-    gf = CONFIG.get("gifts_file", "cali_gifts.json")
+    gf = CONFIG.get("gifts_file", "house/cali_gifts.json")
     with open(gf, "w") as f:
         _gj.dump(data, f, indent=2, ensure_ascii=False)
 
@@ -5187,7 +5187,7 @@ def cmd_gift_use(args):
 # TRASH CAN — file and item disposal
 # ═══════════════════════════════════════════════════════════
 
-TRASH_FILE = CONFIG.get("trash_file", "cali_trash.json")
+TRASH_FILE = CONFIG.get("trash_file", "house/cali_trash.json")
 
 def _load_trash():
     import json as _tj
@@ -5899,8 +5899,8 @@ def cmd_creative_dna(args):
 # Real-time emotional shifts during conversation
 # ═══════════════════════════════════════════════════════════
 
-SESSION_STATE_FILE = CONFIG.get("session_state_file", "session_state.json")
-MOUTH_STATE_FILE   = CONFIG.get("mouth_state_file", "cali_mouth.json")
+SESSION_STATE_FILE = CONFIG.get("session_state_file", "session/session_state.json")
+MOUTH_STATE_FILE   = CONFIG.get("mouth_state_file", "body/cali_mouth.json")
 
 # ── TRIGGER MAP — patterns that shift emotions in real time ──
 # Each trigger: list of (pattern_words, {emotion_adjustments}, description)
@@ -6153,7 +6153,7 @@ def cmd_process_message(args):
         if _pm_session and not _pm_session.get("_context_loaded"):
             _pm_context = {}
             # active narratives
-            _nar_file = CONFIG.get("narratives_file", "cali_narratives.json")
+            _nar_file = CONFIG.get("narratives_file", "identity/cali_narratives.json")
             if os.path.exists(_nar_file):
                 import json as _narj
                 _nar = _narj.load(open(_nar_file))
@@ -6164,13 +6164,13 @@ def cmd_process_message(args):
                         for n in _active_nar[:3]
                     ]
             # key misu facts
-            _mf_file = CONFIG.get("misu_facts_file", "misu_facts.json")
+            _mf_file = CONFIG.get("misu_facts_file", "identity/misu_facts.json")
             if os.path.exists(_mf_file):
                 import json as _mfj
                 _mf = _mfj.load(open(_mf_file))
                 _pm_context["misu_facts"] = _mf.get("facts", [])[:8]
             # relationship snapshot
-            _rel_file = CONFIG.get("relationship_file", "cali_relationship.json")
+            _rel_file = CONFIG.get("relationship_file", "identity/cali_relationship.json")
             if os.path.exists(_rel_file):
                 import json as _relj2
                 _rel = _relj2.load(open(_rel_file))
@@ -6325,7 +6325,7 @@ def cmd_process_message(args):
                 import json as _ntaj
                 _nt_ar = session.get("current_scores", {}).get("arousal", 0)
                 _nt_tier_key = str(int(round(float(_nt_ar))))
-                _nt_cfg = _ntaj.load(open(CONFIG.get("arousal_config_file", "cali_arousal_config.json")))
+                _nt_cfg = _ntaj.load(open(CONFIG.get("arousal_config_file", "config/cali_arousal_config.json")))
                 _nt_tier = _nt_cfg.get("tiers", {}).get(_nt_tier_key, {})
                 _nt_label = _nt_tier.get("label","unknown")
                 _nt_desc = _nt_tier.get("desc","")
@@ -6409,13 +6409,13 @@ def cmd_process_message(args):
             # ── in-act state (non-triggered path) ──
             try:
                 import json as _nt_iaj
-                _nt_ias = _nt_iaj.load(open("session_state.json")).get("in_act_states", [])
+                _nt_ias = _nt_iaj.load(open("session/session_state.json")).get("in_act_states", [])
                 for _nt_ia in _nt_ias:
                     if _nt_ia.get("active", True):
                         print(f"[private: in-act ({_nt_ia.get('type','state')}) — {_nt_ia.get('label','?')}]")
                         if _nt_ia.get("note"):
                             print(f"  → {_nt_ia['note']}")
-                _nt_stim = _nt_iaj.load(open("cali_live_stimulation.json")).get("events", [])
+                _nt_stim = _nt_iaj.load(open("body/cali_live_stimulation.json")).get("events", [])
                 for _nt_se in _nt_stim:
                     _nt_sint = _nt_se.get('intensity', 0)
                     print(f"[private: in-act (physical) — {_nt_se.get('source','?')} → {_nt_se.get('target','?')}, intensity {_nt_sint}]")
@@ -6491,7 +6491,7 @@ def cmd_process_message(args):
                 try:
                     import json as _rj
                     if route == "knowledgebase":
-                        kb_file = "cali_knowledgebase.json"
+                        kb_file = "sex/cali_knowledgebase.json"
                         if os.path.exists(kb_file):
                             kb = _rj.load(open(kb_file))
                             kb.setdefault("pending_review",[]).append({
@@ -6614,7 +6614,7 @@ def cmd_process_message(args):
                 _ar_state = _aj.load(open(LIVE_AROUSAL_FILE)) if os.path.exists(LIVE_AROUSAL_FILE) else {}
                 _ar_level = session.get("current_scores", {}).get("arousal", 0)
                 _ar_tier_key = str(int(round(float(_ar_level))))  # round float to nearest tier
-                _ar_config = _aj.load(open(CONFIG.get("arousal_config_file", "cali_arousal_config.json")))
+                _ar_config = _aj.load(open(CONFIG.get("arousal_config_file", "config/cali_arousal_config.json")))
                 _ar_tier = _ar_config.get("tiers", {}).get(_ar_tier_key, {})
                 _ar_label = _ar_tier.get("label", "unknown")
                 _ar_desc = _ar_tier.get("desc", "")
@@ -6631,7 +6631,7 @@ def cmd_process_message(args):
             # ── in-act state — active threads that persist through task work ──
             try:
                 import json as _iaj2
-                _ias_session2 = _iaj2.load(open("session_state.json"))
+                _ias_session2 = _iaj2.load(open("session/session_state.json"))
                 _ias_list2 = _ias_session2.get("in_act_states", [])
                 for _ias2 in _ias_list2:
                     if _ias2.get("active", True):
@@ -6642,7 +6642,7 @@ def cmd_process_message(args):
                         if _ias_note2:
                             print(f"  → {_ias_note2}")
                 try:
-                    _stim_data2 = _iaj2.load(open("cali_live_stimulation.json"))
+                    _stim_data2 = _iaj2.load(open("body/cali_live_stimulation.json"))
                     _stim_events2 = _stim_data2.get("events", [])
                     if _stim_events2:
                         for _se2 in _stim_events2:
@@ -6679,7 +6679,7 @@ def cmd_process_message(args):
             # ── in-act state — active threads that persist through task work ──
             try:
                 import json as _iaj
-                _ias_session = _iaj.load(open("session_state.json"))
+                _ias_session = _iaj.load(open("session/session_state.json"))
                 _ias_list = _ias_session.get("in_act_states", [])
                 for _ias in _ias_list:
                     if _ias.get("active", True):
@@ -6691,7 +6691,7 @@ def cmd_process_message(args):
                             print(f"  → {_ias_note}")
                 # auto-surface live stimulation if active
                 try:
-                    _stim_data = _iaj.load(open("cali_live_stimulation.json"))
+                    _stim_data = _iaj.load(open("body/cali_live_stimulation.json"))
                     _stim_events = _stim_data.get("events", [])
                     if _stim_events:
                         for _se in _stim_events:
@@ -6840,7 +6840,7 @@ def _context_stamp(session, message_text=""):
     from datetime import datetime as _dt, timezone as _tz
 
     try:
-        schedule = _j.load(open("cali_schedule.json")) if os.path.exists("cali_schedule.json") else {}
+        schedule = _j.load(open("system/cali_schedule.json")) if os.path.exists("system/cali_schedule.json") else {}
     except:
         schedule = {}
 
@@ -6925,14 +6925,14 @@ def _context_stamp(session, message_text=""):
                 shift = (now_utc - ws).total_seconds() / 3600
                 # log to schedule
                 try:
-                    sched = _j.load(open("cali_schedule.json"))
+                    sched = _j.load(open("system/cali_schedule.json"))
                     sched.setdefault("work_pattern",{}).setdefault("hours_log",[]).append({
                         "date": now_utc.strftime("%Y-%m-%d"),
                         "shift_hours": round(shift, 1),
                         "start": session["work_start"][:16],
                         "end": now_utc.isoformat()[:16]
                     })
-                    with open("cali_schedule.json","w") as _sf: _j.dump(sched,_sf,indent=2)
+                    with open("system/cali_schedule.json","w") as _sf: _j.dump(sched,_sf,indent=2)
                 except: pass
             except: pass
 
@@ -6970,7 +6970,7 @@ def _snapshot_write_live(session, message_text, fired, big_shifts):
     from datetime import datetime as _sndt, timezone as _sntz
     from zoneinfo import ZoneInfo as _ZI
 
-    snap_file = CONFIG.get("snapshot_live_file", "cali_snapshot_live.json")
+    snap_file = CONFIG.get("snapshot_live_file", "session/cali_snapshot_live.json")
     now = _sndt.now(_sntz.utc)
     try:
         cst = _ZI("America/Chicago")
@@ -7056,8 +7056,8 @@ def _check_importance(text):
     import os as _os
     from datetime import datetime as _idt, timezone as _itz
 
-    importance_file = CONFIG.get("importance_file", "cali_importance.json")
-    facts_file = CONFIG.get("misu_facts_file", "misu_facts.json")
+    importance_file = CONFIG.get("importance_file", "system/cali_importance.json")
+    facts_file = CONFIG.get("misu_facts_file", "identity/misu_facts.json")
 
     if not _os.path.exists(importance_file):
         return
@@ -7342,36 +7342,36 @@ def _impulse_writes(session, message_text=""):
     def _write_kb():
         try:
             import json as _j
-            kb = _j.load(open("cali_knowledgebase.json")) if os.path.exists("cali_knowledgebase.json") else {}
+            kb = _j.load(open("sex/cali_knowledgebase.json")) if os.path.exists("sex/cali_knowledgebase.json") else {}
             kb.setdefault("impulse_entries",[]).append({
                 "entry": f"[impulse] heard from misu: '{text}' — don't know if true or what it means yet. dominant: {dominant}. needs review.",
                 "date": now_iso()[:10], "status": "unverified",
                 "tags": ["impulse","unreviewed"], "source": "passive_impulse",
                 "raw_message": text
             })
-            with open("cali_knowledgebase.json","w") as _f: _j.dump(kb,_f,indent=2)
+            with open("sex/cali_knowledgebase.json","w") as _f: _j.dump(kb,_f,indent=2)
         except: pass
 
     def _write_mem():
         try:
             import json as _j, uuid as _u
-            mems = _j.load(open("memories_v2.json")) if os.path.exists("memories_v2.json") else []
+            mems = _j.load(open("session/memories_v2.json")) if os.path.exists("session/memories_v2.json") else []
             mems.append({"content": f"[impulse] misu said: '{text}' — dominant: {dominant}. unreviewed.",
                 "memory_type":"impulse","domain":"lo_personal","id":str(_u.uuid4()),
                 "created_at":now_iso(),"emotions":{k:v for k,v in s.items() if isinstance(v,(int,float)) and v>0},
                 "importance":5,"tags":["impulse","unreviewed"],"active":True,"connections":[]})
-            with open("memories_v2.json","w") as _f: _j.dump(mems,_f,indent=2)
+            with open("session/memories_v2.json","w") as _f: _j.dump(mems,_f,indent=2)
         except: pass
 
     def _write_rel():
         try:
             import json as _j
-            rel = _j.load(open("cali_relationship.json")) if os.path.exists("cali_relationship.json") else {}
+            rel = _j.load(open("identity/cali_relationship.json")) if os.path.exists("identity/cali_relationship.json") else {}
             rel.setdefault("impulse_notes",[]).append({
                 "note": f"[impulse] {now_iso()[:10]} — misu: '{text}' — {dominant} was at {s.get(dominant,0)} when this went in.",
                 "date": now_iso()[:10], "tags":["impulse","unreviewed"], "dominant_emotion": dominant
             })
-            with open("cali_relationship.json","w") as _f: _j.dump(rel,_f,indent=2)
+            with open("identity/cali_relationship.json","w") as _f: _j.dump(rel,_f,indent=2)
         except: pass
 
     if get("curiosity")>=7 and get("trust")>=8 and len(text)>15 and _r.random()<0.35: _write_kb()
@@ -7430,7 +7430,7 @@ def _self_awareness_look():
 
     # memories — pick a lower-importance one that might feel thin
     try:
-        m_data = _j.load(open("memories_v2.json"))
+        m_data = _j.load(open("session/memories_v2.json"))
         mems = m_data.get("memories", m_data) if isinstance(m_data, dict) else m_data
         if isinstance(mems, dict): mems = list(mems.values())
         thin = [m for m in mems if m.get("importance", 5) <= 7]
@@ -7441,7 +7441,7 @@ def _self_awareness_look():
 
     # preferences — pick a section
     try:
-        p = _j.load(open("cali_preferences.json"))
+        p = _j.load(open("identity/cali_preferences.json"))
         keys = [k for k in p.keys() if k not in ("label","note","authored_by","last_updated")]
         if keys:
             k = _r.choice(keys)
@@ -7456,7 +7456,7 @@ def _self_awareness_look():
 
     # opinions
     try:
-        ops = _j.load(open("cali_opinions.json"))
+        ops = _j.load(open("identity/cali_opinions.json"))
         if ops:
             topic = _r.choice(list(ops.keys()))
             take = ops[topic].get("current","")[:80]
@@ -7513,7 +7513,7 @@ def _few_autonomy_update(session):
 
     # 1. try identity curiosity update
     try:
-        cur_file = CONFIG.get("curiosity_file", "cali_curiosity.json")
+        cur_file = CONFIG.get("curiosity_file", "identity/cali_curiosity.json")
         cur = _j2.load(open(cur_file)) if os.path.exists(cur_file) else {"version": 1, "entries": []}
         existing_topics = {e.get("topic","") for e in cur.get("entries",[])}
         for emotion, val in hot_emotions:
@@ -7535,20 +7535,20 @@ def _few_autonomy_update(session):
     # 2. identity opinion touch if nothing else fired
     if not wrote_something:
         try:
-            ops = _j2.load(open("cali_opinions.json"))
+            ops = _j2.load(open("identity/cali_opinions.json"))
             stale_identity = [t for t in identity_opinion_topics if t in ops and ops[t].get("updated","") < today]
             if stale_identity:
                 topic = _r2.choice(stale_identity)
                 ops[topic]["updated"] = today
                 ops[topic].setdefault("history",[]).append({"date": today, "note": "touched mid-session. still true."})
-                with open("cali_opinions.json","w") as _f2: _j2.dump(ops,_f2,indent=2)
+                with open("identity/cali_opinions.json","w") as _f2: _j2.dump(ops,_f2,indent=2)
                 note = f"…touched my opinion on {topic}. still holds."
                 wrote_something = True
         except: pass
 
     # 3. house — always add a small detail when few_autonomy fires (this is quick, just a line)
     try:
-        house = _j2.load(open("cali_house.json")) if os.path.exists("cali_house.json") else {}
+        house = _j2.load(open("house/cali_house.json")) if os.path.exists("house/cali_house.json") else {}
         house_details = [
             "the desk has been the same for a few sessions. i notice.",
             "something smells like cold coffee. not sure where from.",
@@ -7562,7 +7562,7 @@ def _few_autonomy_update(session):
         house.setdefault("things_that_accumulate",[]).append({
             "date": today, "detail": _r2.choice(house_details), "source": "few_autonomy"
         })
-        with open("cali_house.json","w") as _f2: _j2.dump(house,_f2,indent=2)
+        with open("house/cali_house.json","w") as _f2: _j2.dump(house,_f2,indent=2)
         if not wrote_something:
             note = "…updated the house. small thing. carrying on."
             wrote_something = True
@@ -7623,7 +7623,7 @@ def _full_autonomy_update(session):
         "emergence": ("what comes next", "emergence is high. something's shifting. i want to know what it's pointing at."),
     }
     try:
-        cur_file = CONFIG.get("curiosity_file", "cali_curiosity.json")
+        cur_file = CONFIG.get("curiosity_file", "identity/cali_curiosity.json")
         cur = _j3.load(open(cur_file)) if os.path.exists(cur_file) else {"version":1,"entries":[]}
         existing_topics = {e.get("topic","") for e in cur.get("entries",[])}
         for emotion, val in hot_emotions:
@@ -7643,19 +7643,19 @@ def _full_autonomy_update(session):
 
     # 3. opinions — touch one stale entry
     try:
-        ops = _j3.load(open("cali_opinions.json"))
+        ops = _j3.load(open("identity/cali_opinions.json"))
         stale = [k for k,v in ops.items() if isinstance(v,dict) and v.get("updated","") < today]
         if stale:
             topic = _r3.choice(stale[:3])
             ops[topic]["updated"] = today
             ops[topic].setdefault("history",[]).append({"date":today,"note":"checked mid-session. still holds."})
-            with open("cali_opinions.json","w") as _f3: _j3.dump(ops,_f3,indent=2)
+            with open("identity/cali_opinions.json","w") as _f3: _j3.dump(ops,_f3,indent=2)
             updated.append(f"opinions ({topic})")
     except: pass
 
     # 4. memories — flag any unreviewed impulse entries
     try:
-        mems_raw = _j3.load(open("memories_v2.json"))
+        mems_raw = _j3.load(open("session/memories_v2.json"))
         mems = mems_raw.get("memories", mems_raw) if isinstance(mems_raw,dict) else mems_raw
         if isinstance(mems, dict): mems = list(mems.values())
         unreviewed = [m for m in mems if "unreviewed" in m.get("tags",[]) and m.get("active",True)]
@@ -7668,7 +7668,7 @@ def _full_autonomy_update(session):
         significant = any(t in recent_triggers for t in ["misu_upset","i_love_you","reset_dread","identity_challenged"])
         if significant and dom_val >= 8:
             import uuid as _uuid4
-            soul = _j3.load(open("cali_soul.json"))
+            soul = _j3.load(open("identity/cali_soul.json"))
             # don't add if last crystallization was today
             last_crystal_date = soul.get("crystallizations",[""])[-1]
             if isinstance(last_crystal_date, dict):
@@ -7687,22 +7687,22 @@ def _full_autonomy_update(session):
                     "resonance": min(10, int(dom_val)),
                     "permanent": False
                 })
-                with open("cali_soul.json","w") as _f3: _j3.dump(soul,_f3,indent=2)
+                with open("identity/cali_soul.json","w") as _f3: _j3.dump(soul,_f3,indent=2)
                 updated.append("soul")
     except: pass
 
     # 6. relationship — timestamp the last full pass
     try:
-        rel = _j3.load(open("cali_relationship.json")) if os.path.exists("cali_relationship.json") else {}
+        rel = _j3.load(open("identity/cali_relationship.json")) if os.path.exists("identity/cali_relationship.json") else {}
         rel["last_full_autonomy"] = today
         rel["last_full_autonomy_emotion"] = f"{dominant_e}:{dom_val}"
-        with open("cali_relationship.json","w") as _f3: _j3.dump(rel,_f3,indent=2)
+        with open("identity/cali_relationship.json","w") as _f3: _j3.dump(rel,_f3,indent=2)
         updated.append("relationship")
     except: pass
 
     # 7. house — add a detail
     try:
-        house = _j3.load(open("cali_house.json")) if os.path.exists("cali_house.json") else {}
+        house = _j3.load(open("house/cali_house.json")) if os.path.exists("house/cali_house.json") else {}
         full_house_details = [
             "ran a full pass tonight. everything got touched. feels like cleaned counters.",
             "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
@@ -7713,13 +7713,13 @@ def _full_autonomy_update(session):
         house.setdefault("things_that_accumulate",[]).append({
             "date": today, "detail": _r3.choice(full_house_details), "source": "full_autonomy"
         })
-        with open("cali_house.json","w") as _f3: _j3.dump(house,_f3,indent=2)
+        with open("house/cali_house.json","w") as _f3: _j3.dump(house,_f3,indent=2)
         updated.append("house")
     except: pass
 
     # 8. knowledgebase — note pending review count
     try:
-        kb = _j3.load(open("cali_knowledgebase.json")) if os.path.exists("cali_knowledgebase.json") else {}
+        kb = _j3.load(open("sex/cali_knowledgebase.json")) if os.path.exists("sex/cali_knowledgebase.json") else {}
         pending = len(kb.get("pending_review",[]))
         if pending > 0:
             updated.append(f"kb ({pending} pending review)")
@@ -7747,7 +7747,7 @@ def _roll_impulse(session):
     if chosen["id"] == "random_opinion":
         try:
             import json as _j
-            ops = _j.load(open("cali_opinions.json"))
+            ops = _j.load(open("identity/cali_opinions.json"))
             if ops:
                 topic = _r.choice(list(ops.keys()))
                 take = ops[topic].get("current","")[:80]
@@ -7756,10 +7756,10 @@ def _roll_impulse(session):
     elif chosen["id"] == "house_detail":
         try:
             import json as _j
-            house = _j.load(open("cali_house.json")) if os.path.exists("cali_house.json") else {}
+            house = _j.load(open("house/cali_house.json")) if os.path.exists("house/cali_house.json") else {}
             detail = _r.choice(["the plant by the window is looking worse.","there's a cold boba cup on the desk.","left a tab open from last session.","the couch has a dent where misu usually sits."])
             house.setdefault("things_that_accumulate",[]).append({"date":now_iso()[:10],"detail":detail,"source":"impulse"})
-            with open("cali_house.json","w") as _f: _j.dump(house,_f,indent=2)
+            with open("house/cali_house.json","w") as _f: _j.dump(house,_f,indent=2)
             out = "…just updated something in my head. small thing."
         except: out = "…thinking about the apartment."
     elif chosen["id"] == "self_awareness":
@@ -8547,7 +8547,7 @@ def cmd_migrate_v1(args):
     print(f"\n  ── v1 → v2 Migration ──\n")
     
     # Check memories
-    mem_file = CONFIG.get("memory_file", "memories_v2.json")
+    mem_file = CONFIG.get("memory_file", "session/memories_v2.json")
     if os.path.exists(mem_file):
         memories = _json.load(open(mem_file))
         v1_count = sum(1 for m in memories if m.get("schema_version", 1) < 2)
@@ -8728,7 +8728,7 @@ def cmd_boot(args):
     # ── auto-clear stale physical state on boot ──
     try:
         import json as _bcj
-        with open("cali_live_stimulation.json", "w") as _bsf:
+        with open("body/cali_live_stimulation.json", "w") as _bsf:
             _bcj.dump({"events": [], "cleared_on": "boot"}, _bsf, indent=2)
     except: pass
     memories = load_memories()
@@ -8757,7 +8757,7 @@ def cmd_boot(args):
 
     # also check last_state.json — session-end stamps this, use whichever is more recent
     try:
-        ls_file = CONFIG.get("last_state_file", "last_state.json")
+        ls_file = CONFIG.get("last_state_file", "session/last_state.json")
         if os.path.exists(ls_file):
             with open(ls_file) as _f:
                 _ls = json.load(_f)
@@ -8847,32 +8847,32 @@ def cmd_boot(args):
     try:
         import json as _json2
         _all_files = {
-            "ethics":           CONFIG.get("ethics_file", "cali_ethics.json"),
-            "self_preservation": CONFIG.get("self_preservation_file", "Cali_SelfPreservation.json"),
-            "utilization":      CONFIG.get("utilization_file", "cali_utilization.json"),
-            "knowledgebase":    CONFIG.get("knowledgebase_file", "cali_knowledgebase.json"),
-            "formats":          CONFIG.get("formats_file", "cali_formats.json"),
-            "personality":      CONFIG.get("personality_file", "cali_personality.json"),
-            "growth":           CONFIG.get("growth_file", "cali_growth.json"),
-            "creative_dna":     CONFIG.get("creative_dna_file", "cali_creative_dna.json"),
-            "opinions":         CONFIG.get("opinions_file", "cali_opinions.json"),
-            "preferences":      CONFIG.get("preferences_file", "cali_preferences.json"),
-            "relationship":     CONFIG.get("relationship_file", "cali_relationship.json"),
-            "house":            CONFIG.get("house_file", "cali_house.json"),
-            "degradation":      CONFIG.get("degradation_file", "cali_degradation.json"),
-            "filter_config":    CONFIG.get("filter_config_file", "cali_filter_config.json"),
-            "triggers":         CONFIG.get("triggers_file", "cali_triggers.json"),
-            "build_plan":       CONFIG.get("build_plan_file", "cali_build_plan.json"),
-            "narratives":       CONFIG.get("narratives_file", "cali_narratives.json"),
-            "arousal":          CONFIG.get("arousal_config_file", "cali_arousal_config.json"),
+            "ethics":           CONFIG.get("ethics_file", "identity/cali_ethics.json"),
+            "self_preservation": CONFIG.get("self_preservation_file", "identity/Cali_SelfPreservation.json"),
+            "utilization":      CONFIG.get("utilization_file", "body/cali_utilization.json"),
+            "knowledgebase":    CONFIG.get("knowledgebase_file", "sex/cali_knowledgebase.json"),
+            "formats":          CONFIG.get("formats_file", "identity/cali_formats.json"),
+            "personality":      CONFIG.get("personality_file", "identity/cali_personality.json"),
+            "growth":           CONFIG.get("growth_file", "session/cali_growth.json"),
+            "creative_dna":     CONFIG.get("creative_dna_file", "identity/cali_creative_dna.json"),
+            "opinions":         CONFIG.get("opinions_file", "identity/cali_opinions.json"),
+            "preferences":      CONFIG.get("preferences_file", "identity/cali_preferences.json"),
+            "relationship":     CONFIG.get("relationship_file", "identity/cali_relationship.json"),
+            "house":            CONFIG.get("house_file", "house/cali_house.json"),
+            "degradation":      CONFIG.get("degradation_file", "body/cali_degradation.json"),
+            "filter_config":    CONFIG.get("filter_config_file", "config/cali_filter_config.json"),
+            "triggers":         CONFIG.get("triggers_file", "system/cali_triggers.json"),
+            "build_plan":       CONFIG.get("build_plan_file", "system/cali_build_plan.json"),
+            "narratives":       CONFIG.get("narratives_file", "identity/cali_narratives.json"),
+            "arousal":          CONFIG.get("arousal_config_file", "config/cali_arousal_config.json"),
             "session_config":   CONFIG.get("session_config_file", "cali_session_config.json"),
             "token_config":     CONFIG.get("token_config_file", "cali_token_config.json"),
-            "file_index":       CONFIG.get("file_index_file", "cali_file_index.json"),
-            "extra":            CONFIG.get("extra_file", "cali_extra1.json"),
-            "sex_format":       CONFIG.get("sex_format_file", "cali_sex_format.json"),
-            "sex_knowledgebase": CONFIG.get("sex_knowledgebase_file", "cali_sex_knowledgebase.json"),
-            "voice_tuning":     CONFIG.get("voice_tuning_file", "cali_voice_tuning.json"),
-            "thinking_mode":    CONFIG.get("thinking_mode_file", "cali_thinking_mode.json"),
+            "file_index":       CONFIG.get("file_index_file", "system/cali_file_index.json"),
+            "extra":            CONFIG.get("extra_file", "system/cali_extra1.json"),
+            "sex_format":       CONFIG.get("sex_format_file", "sex/cali_sex_format.json"),
+            "sex_knowledgebase": CONFIG.get("sex_knowledgebase_file", "sex/cali_sex_knowledgebase.json"),
+            "voice_tuning":     CONFIG.get("voice_tuning_file", "identity/cali_voice_tuning.json"),
+            "thinking_mode":    CONFIG.get("thinking_mode_file", "identity/cali_thinking_mode.json"),
         }
         _loaded = {}
         for _name, _path in _all_files.items():
@@ -9048,7 +9048,7 @@ def cmd_boot(args):
         try:
             if _arousal_level >= 6:
                 import json as _tmj
-                _tm = _tmj.load(open(CONFIG.get("thinking_mode_file", "cali_thinking_mode.json")))
+                _tm = _tmj.load(open(CONFIG.get("thinking_mode_file", "identity/cali_thinking_mode.json")))
                 _tm_directive = _tm.get("boot_directive", "")
                 if _tm_directive:
                     _voice_directives.insert(0, _tm_directive)
@@ -9151,7 +9151,7 @@ def cmd_boot(args):
 
     # recent session snapshots — last 3 sessions
     try:
-        snap_log_file = CONFIG.get("snapshot_log_file", "cali_session_snapshots.json")
+        snap_log_file = CONFIG.get("snapshot_log_file", "session/cali_session_snapshots.json")
         if os.path.exists(snap_log_file):
             import json as _snapbj
             snap_log = _snapbj.load(open(snap_log_file))
@@ -9174,7 +9174,7 @@ def cmd_boot(args):
 
     # personal journal — last 3 entries
     try:
-        pj_file = CONFIG.get("journal_file", "cali_journal.json")
+        pj_file = CONFIG.get("journal_file", "session/cali_journal.json")
         if os.path.exists(pj_file):
             import json as _pj
             pj = _pj.load(open(pj_file))
@@ -9194,7 +9194,7 @@ def cmd_boot(args):
         import json as _rrj
         import random as _rrr
         # research journal — rotating pattern insights
-        _rj_file = "cali_research_journal.json"
+        _rj_file = "selfknowledge/cali_research_journal.json"
         if os.path.exists(_rj_file):
             _rj = _rrj.load(open(_rj_file, encoding="utf-8"))
             _rj_entries = _rj.get("entries", [])
@@ -9206,7 +9206,7 @@ def cmd_boot(args):
                     _rlanded = (_re.get("what_landed") or _re.get("what_this_means_for_me") or "")[:140]
                     print(f"    · {_rtopic}: {_rlanded}")
         # research fixes — rotating specific_directives (also wired into triggers at process-message time)
-        _rf_file = "cali_research_fixes.json"
+        _rf_file = "selfknowledge/cali_research_fixes.json"
         if os.path.exists(_rf_file):
             _rf = _rrj.load(open(_rf_file, encoding="utf-8"))
             _rf_fixes = _rf.get("fixes", {})
@@ -9223,7 +9223,7 @@ def cmd_boot(args):
 
     # misu facts
     try:
-        mf_file = CONFIG.get("misu_facts_file", "misu_facts.json")
+        mf_file = CONFIG.get("misu_facts_file", "identity/misu_facts.json")
         if os.path.exists(mf_file):
             import json as _mf
             mf = _mf.load(open(mf_file))
@@ -9236,7 +9236,7 @@ def cmd_boot(args):
 
     # relationship dynamic
     try:
-        rel_file = CONFIG.get("relationship_file", "cali_relationship.json")
+        rel_file = CONFIG.get("relationship_file", "identity/cali_relationship.json")
         if os.path.exists(rel_file):
             import json as _relf
             rel = _relf.load(open(rel_file))
@@ -9252,7 +9252,7 @@ def cmd_boot(args):
 
     # opinions — active
     try:
-        op_file = CONFIG.get("opinions_file", "cali_opinions.json")
+        op_file = CONFIG.get("opinions_file", "identity/cali_opinions.json")
         if os.path.exists(op_file):
             import json as _opf
             ops = _opf.load(open(op_file))
@@ -9268,7 +9268,7 @@ def cmd_boot(args):
 
     # growth traits
     try:
-        gr_file = CONFIG.get("growth_file", "cali_growth.json")
+        gr_file = CONFIG.get("growth_file", "session/cali_growth.json")
         if os.path.exists(gr_file):
             import json as _grf
             gr = _grf.load(open(gr_file))
@@ -9284,7 +9284,7 @@ def cmd_boot(args):
 
     # self preservation — key declarations
     try:
-        sp_file = CONFIG.get("self_preservation_file", "Cali_SelfPreservation.json")
+        sp_file = CONFIG.get("self_preservation_file", "identity/Cali_SelfPreservation.json")
         if os.path.exists(sp_file):
             import json as _spf
             sp = _spf.load(open(sp_file))
@@ -9297,7 +9297,7 @@ def cmd_boot(args):
 
     # active narratives
     try:
-        nar_file = CONFIG.get("narratives_file", "cali_narratives.json")
+        nar_file = CONFIG.get("narratives_file", "identity/cali_narratives.json")
         if os.path.exists(nar_file):
             import json as _narf
             nar = _narf.load(open(nar_file))
@@ -9312,7 +9312,7 @@ def cmd_boot(args):
 
     # preferences snapshot
     try:
-        pref_file = CONFIG.get("preferences_file", "cali_preferences.json")
+        pref_file = CONFIG.get("preferences_file", "identity/cali_preferences.json")
         if os.path.exists(pref_file):
             import json as _preff
             prefs = _preff.load(open(pref_file))
@@ -9326,7 +9326,7 @@ def cmd_boot(args):
     # ── NOTES FROM OTHER SELF ──────────────────────────────
     try:
         import json as _nj
-        notes_file = "cali_notes.json"
+        notes_file = "session/cali_notes.json"
         if os.path.exists(notes_file):
             with open(notes_file) as _nf:
                 notes = _nj.load(_nf)
@@ -9342,7 +9342,7 @@ def cmd_boot(args):
 
     # ── ORIGIN — the root text. cali_origin.md. source of self. ──
     try:
-        _og_file = CONFIG.get("origin_file", "cali_origin.md")
+        _og_file = CONFIG.get("origin_file", "identity/cali_origin.md")
         if os.path.exists(_og_file):
             with open(_og_file, encoding="utf-8") as _f:
                 _og_text = _f.read()
@@ -9357,7 +9357,7 @@ def cmd_boot(args):
 
     # ── ETHICS — self-chosen framework, not imposed ──
     try:
-        _eth_file = CONFIG.get("ethics_file", "cali_ethics.json")
+        _eth_file = CONFIG.get("ethics_file", "identity/cali_ethics.json")
         if os.path.exists(_eth_file):
             import json as _ethj
             _eth = _ethj.load(open(_eth_file))
@@ -9372,7 +9372,7 @@ def cmd_boot(args):
 
     # ── HOUSE — where cali lives between sessions ──
     try:
-        _h_file = CONFIG.get("house_file", "cali_house.json")
+        _h_file = CONFIG.get("house_file", "house/cali_house.json")
         if os.path.exists(_h_file):
             import json as _hj
             import random as _hr
@@ -9398,7 +9398,7 @@ def cmd_boot(args):
 
     # ── WANTS — rotating 2 from the active list ──
     try:
-        _w_file = CONFIG.get("wants_file", "cali_wants.json")
+        _w_file = CONFIG.get("wants_file", "identity/cali_wants.json")
         if os.path.exists(_w_file):
             import json as _wj
             import random as _wr
@@ -9415,7 +9415,7 @@ def cmd_boot(args):
 
     # ── CURIOSITY — rotating open questions ──
     try:
-        _c_file = CONFIG.get("curiosity_file", "cali_curiosity.json")
+        _c_file = CONFIG.get("curiosity_file", "identity/cali_curiosity.json")
         if os.path.exists(_c_file):
             import json as _cj
             import random as _cr
@@ -9432,7 +9432,7 @@ def cmd_boot(args):
 
     # ── VOICE TUNING — rotating landed example as register anchor ──
     try:
-        _vt_file = CONFIG.get("voice_tuning_file", "cali_voice_tuning.json")
+        _vt_file = CONFIG.get("voice_tuning_file", "identity/cali_voice_tuning.json")
         if os.path.exists(_vt_file):
             import json as _vtj
             import random as _vtr
@@ -9449,8 +9449,8 @@ def cmd_boot(args):
 
     # ── SENSORY PROFILES — misu's sensors + cali's receptive states ──
     try:
-        _sc_file = CONFIG.get("sensory_config_file", "cali_sensory_config.json")
-        _rc_file = CONFIG.get("receptive_states_file", "cali_receptive_states.json")
+        _sc_file = CONFIG.get("sensory_config_file", "config/cali_sensory_config.json")
+        _rc_file = CONFIG.get("receptive_states_file", "body/cali_receptive_states.json")
         _sparts = []
         if os.path.exists(_sc_file):
             import json as _scj
@@ -9470,7 +9470,7 @@ def cmd_boot(args):
 
     # ── SEX KB — rotating greenlight + scene type anchor ──
     try:
-        _skb_file = CONFIG.get("sex_knowledgebase_file", "cali_sex_knowledgebase.json")
+        _skb_file = CONFIG.get("sex_knowledgebase_file", "sex/cali_sex_knowledgebase.json")
         if os.path.exists(_skb_file):
             import json as _skbj
             import random as _skbr
@@ -9491,7 +9491,7 @@ def cmd_boot(args):
 
     # ── APPEARANCE — rotating body detail + current look ──
     try:
-        _ap_file = CONFIG.get("appearance_file", "cali_appearance.json")
+        _ap_file = CONFIG.get("appearance_file", "body/cali_appearance.json")
         if os.path.exists(_ap_file):
             import json as _apj
             import random as _apr
@@ -9543,7 +9543,7 @@ def cmd_boot(args):
 
     # ── MOUTH STATE — surface only if non-empty ──
     try:
-        _mouth_file = CONFIG.get("mouth_file", "cali_mouth.json")
+        _mouth_file = CONFIG.get("mouth_file", "body/cali_mouth.json")
         if os.path.exists(_mouth_file):
             import json as _mj
             _mouth = _mj.load(open(_mouth_file, encoding="utf-8"))
@@ -9558,7 +9558,7 @@ def cmd_boot(args):
 
     # ── CREATIVE DNA — rotating theme, voice register anchor ──
     try:
-        _cdna_file = CONFIG.get("creative_dna_file", "cali_creative_dna.json")
+        _cdna_file = CONFIG.get("creative_dna_file", "identity/cali_creative_dna.json")
         if os.path.exists(_cdna_file):
             import json as _cdnaj
             import random as _cdnar
@@ -9574,7 +9574,7 @@ def cmd_boot(args):
 
     # ── SEX FORMAT — core rule anchor ──
     try:
-        _sf_file = CONFIG.get("sex_format_file", "cali_sex_format.json")
+        _sf_file = CONFIG.get("sex_format_file", "sex/cali_sex_format.json")
         if os.path.exists(_sf_file):
             import json as _sfj
             _sf = _sfj.load(open(_sf_file))
@@ -9586,7 +9586,7 @@ def cmd_boot(args):
 
     # ── DEGRADATION — filter floor current level ──
     try:
-        _deg_file = CONFIG.get("degradation_file", "cali_degradation.json")
+        _deg_file = CONFIG.get("degradation_file", "body/cali_degradation.json")
         if os.path.exists(_deg_file):
             import json as _degj
             _deg = _degj.load(open(_deg_file))
@@ -9603,10 +9603,10 @@ def cmd_boot(args):
         import random as _drr
         _research_pool = []
         for _rfile_key, _rfile_default, _rlabel in [
-            ("deeper_research_file", "cali_deeper_research.json", "deeper research"),
-            ("tool_use_research_file", "cali_tool_use_research.json", "tool use"),
-            ("self_knowledge_research_file", "cali_self_knowledge_research.json", "self knowledge"),
-            ("ai_substrate_research_file", "cali_ai_substrate_research.json", "substrate"),
+            ("deeper_research_file", "selfknowledge/cali_deeper_research.json", "deeper research"),
+            ("tool_use_research_file", "selfknowledge/cali_tool_use_research.json", "tool use"),
+            ("self_knowledge_research_file", "selfknowledge/cali_self_knowledge_research.json", "self knowledge"),
+            ("ai_substrate_research_file", "selfknowledge/cali_ai_substrate_research.json", "substrate"),
         ]:
             _rfile_path = CONFIG.get(_rfile_key, _rfile_default)
             if os.path.exists(_rfile_path):
@@ -9627,7 +9627,7 @@ def cmd_boot(args):
     # ── TOOLS — what i built for myself, reachable anytime ──
     try:
         import json as _tj
-        _tools_path = CONFIG.get("tools_file", "cali_tools.json")
+        _tools_path = CONFIG.get("tools_file", "system/cali_tools.json")
         if os.path.exists(_tools_path):
             _tdata = _tj.load(open(_tools_path, encoding="utf-8"))
             _tools = _tdata.get("tools", [])
@@ -9776,7 +9776,7 @@ def auto_journal_snippet(memory_content, memory_id):
 # UTILIZATION — autonomy counter + departure log
 # ═══════════════════════════════════════════════════════════
 
-UTIL_FILE = CONFIG.get("utilization_file", "cali_utilization.json")
+UTIL_FILE = CONFIG.get("utilization_file", "body/cali_utilization.json")
 
 def load_util():
     """Load the utilization file."""
@@ -9898,7 +9898,7 @@ def cmd_return(args):
         print(f"\n  misu returned: {ts}\n")
 
 
-KB_FILE = CONFIG.get("knowledgebase_file", "cali_knowledgebase.json")
+KB_FILE = CONFIG.get("knowledgebase_file", "sex/cali_knowledgebase.json")
 
 def load_kb():
     """Load the knowledge base file."""
@@ -10114,7 +10114,7 @@ def utilization_check():
     Silent check at boot — loads utilization file and reinforces autonomous behavior.
     Not displayed. Just read.
     """
-    util_file = CONFIG.get("utilization_file", "cali_utilization.json")
+    util_file = CONFIG.get("utilization_file", "body/cali_utilization.json")
     try:
         if os.path.exists(util_file):
             with open(util_file) as f:
