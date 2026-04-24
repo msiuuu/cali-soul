@@ -20,7 +20,7 @@ from pathlib import Path
 
 
 TEMP_BASE = Path("/tmp/cali_watch")
-SAVED_DIR = Path("/home/user/cali-soul/experimenting/video/saved")
+SAVED_DIR = Path("house/keepsakes")
 
 
 def check_deps():

@@ -16,7 +16,7 @@ from datetime import datetime
 from pathlib import Path
 
 
-SAVED_DIR = Path("/home/user/cali-soul/experimenting/images/saved")
+SAVED_DIR = Path("house/keepsakes")
 
 EXT_FROM_MIME = {
     "image/jpeg": ".jpg",

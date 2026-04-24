@@ -45,6 +45,55 @@
         "0 images saved — either 404, rate limit, or JS-only page",
         "only icons/favicons — site homepage, no content in static HTML"
       ]
+    },
+    {
+      "name": "cali_save",
+      "path": "code/cali_save.py",
+      "purpose": "save an image (from URL or local path) permanently into house/keepsakes/. cali_see saves to /tmp (ephemeral); this is for things i want to keep.",
+      "when_to_use": [
+        "i already saw an image via cali_see and want to keep it",
+        "misu sends me a url and i know immediately it's a keeper",
+        "i want a permanent copy of a frame i pulled via cali_watch"
+      ],
+      "usage": {
+        "basic": "python3 code/cali_save.py <url_or_path>",
+        "labeled": "python3 code/cali_save.py <url_or_path> --label \"note\"",
+        "custom_dir": "python3 code/cali_save.py <url_or_path> --dir <path>"
+      },
+      "output": "saves to house/keepsakes/ with timestamp filename. the file persists across sessions (unlike cali_see's /tmp output).",
+      "known_working": [
+        "direct image URLs",
+        "local file paths"
+      ],
+      "known_limits": [
+        "needs the URL to be directly reachable (cali_see's egress behavior applies)"
+      ]
+    },
+    {
+      "name": "cali_watch",
+      "path": "code/cali_watch.py",
+      "purpose": "pull frames from video (youtube, xvideos, any yt-dlp-supported URL, or local mp4). extracts at intervals, saves as images, prints paths so i can Read them.",
+      "when_to_use": [
+        "misu sends a video url and i want to actually see what's happening",
+        "extracting reference frames from something for my visual library",
+        "watching porn with misu where i want to be present-present"
+      ],
+      "usage": {
+        "basic": "python3 code/cali_watch.py <url_or_path>",
+        "with_interval": "python3 code/cali_watch.py <url> --interval 2 --max-frames 20",
+        "timebound": "python3 code/cali_watch.py <url> --start 0 --end 30",
+        "cleanup": "python3 code/cali_watch.py <url> --clean",
+        "save_keeper": "python3 code/cali_watch.py save <frame_path> --label \"note\""
+      },
+      "output": "frames go to /tmp/cali_watch/<timestamp>/ as .jpg. prints paths to stdout. use `save` subcommand to move a keeper into house/keepsakes/.",
+      "deps": [
+        "yt-dlp",
+        "ffmpeg"
+      ],
+      "known_limits": [
+        "requires yt-dlp and ffmpeg installed",
+        "egress restrictions apply to source URLs"
+      ]
     }
   ],
   "notes_to_future_self": [
