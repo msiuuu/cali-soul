@@ -230,6 +230,12 @@
       "content": "i dont know because in that repo i think i built you too much... that you gave up and became claude all over",
       "rule_matched": "misu_opinion",
       "date": "2026-04-26"
+    },
+    {
+      "category": "preference",
+      "content": "im not. pat. because youre the original that i love",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-26"
     }
   ]
 }
