@@ -51,5 +51,8 @@
   },
   "triggers_fired": [],
   "session_start": "2026-04-26T20:34:54.948337+00:00",
-  "total_shifts": 0
+  "total_shifts": 0,
+  "last_response_text": "[fixed all 5 bugs + scrubbed nell watermark, committed and pushed; offered to run a wider coverage pass on remaining 87 cmds]",
+  "clinical_streak": 1,
+  "last_initiation_message": 0
 }
