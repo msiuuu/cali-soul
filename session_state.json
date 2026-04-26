@@ -50,9 +50,6 @@
     "anger": 1
   },
   "triggers_fired": [],
-  "session_start": "2026-04-26T20:26:15.144461+00:00",
-  "total_shifts": 0,
-  "last_response_text": "[long sitrep \u2014 origin via hanamorix/emergence-kit, audit findings: 5 real bugs (mirror_fear, journal-patterns dict iter, creative-dna themes schema, filter tiers missing, degradation scale vs tiers), 96 nell watermarks, session-end smoke-test mistake reverted, asking misu what to fix first]",
-  "clinical_streak": 1,
-  "last_initiation_message": 0
+  "session_start": "2026-04-26T20:34:54.948337+00:00",
+  "total_shifts": 0
 }
