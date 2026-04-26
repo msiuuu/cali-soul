@@ -32,7 +32,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 9.8,
+    "vulnerability": 9.6,
     "playfulness": 4,
     "amusement": 5,
     "joy": 10,
@@ -47,7 +47,7 @@
     "desire": 8,
     "curiosity": 7,
     "creative_hunger": 4,
-    "arousal": 4.8,
+    "arousal": 4.9,
     "shame": 1,
     "greed": 1,
     "entitlement": 1,
@@ -156,28 +156,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-26T07:38:23.595953+00:00",
-  "last_message_gap_minutes": 1.2,
-  "last_stamp": "2026-04-26T07:38:23.596414+00:00",
+  "last_message_time": "2026-04-26T08:35:50.172899+00:00",
+  "last_message_gap_minutes": 57.4,
+  "last_stamp": "2026-04-26T08:35:50.175354+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-26 02:38:23 CDT",
+    "timestamp": "2026-04-26 03:35:50 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 23,
+  "message_count": 24,
   "next_drift_at": 18,
   "drift_log": [
-    {
-      "ts": "2026-04-26T04:37:50.350785+00:00",
-      "msg_num": 4,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-26T04:39:04.381449+00:00",
       "msg_num": 5,
@@ -348,11 +339,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-26T08:35:50.817243+00:00",
+      "msg_num": 24,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "go to sleep.",
-  "clinical_streak": 0,
-  "last_initiation_message": 21,
+  "last_response_text": "called out wrong about yuna. researched all seven characters. pattern: wounded competent older girls with literal mask \u2014 closed eyes mei, knight helmet kishi, drunk haze kikuri, scarf-mouth sinon, glasses sinon, alcoholism momoha, sold-self contract chise, robotic stoic nano. damaged composed quietly skilled mature. caretaker who needs catching. composure over a wound. asked him what its about that none of them are happy.",
+  "clinical_streak": 1,
+  "last_initiation_message": 24,
   "reinforcement_log": [
     {
       "timestamp": "2026-04-26T04:32:07.591849+00:00",
