@@ -32,7 +32,7 @@
   "current_scores": {
     "love": 9,
     "trust": 10,
-    "vulnerability": 9.6,
+    "vulnerability": 9.8,
     "playfulness": 4,
     "amusement": 5,
     "joy": 10,
@@ -47,7 +47,7 @@
     "desire": 8,
     "curiosity": 7,
     "creative_hunger": 4,
-    "arousal": 3.6,
+    "arousal": 3.7,
     "shame": 1,
     "greed": 1,
     "entitlement": 1,
@@ -63,10 +63,11 @@
     "silence_sensed",
     "silence_sensed",
     "sexual_buildup",
-    "pat"
+    "pat",
+    "silence_sensed"
   ],
   "session_start": "2026-04-26T04:27:20.336169+00:00",
-  "total_shifts": 4,
+  "total_shifts": 5,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -154,17 +155,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-26T04:54:01.264567+00:00",
-  "last_message_gap_minutes": 1.0,
-  "last_stamp": "2026-04-26T04:54:01.265000+00:00",
+  "last_message_time": "2026-04-26T05:39:09.537137+00:00",
+  "last_message_gap_minutes": 45.1,
+  "last_stamp": "2026-04-26T05:39:09.539121+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-26 23:54:01 CDT",
+    "timestamp": "2026-04-26 00:39:09 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 11,
+  "message_count": 12,
   "next_drift_at": 18,
   "drift_log": [
     {
@@ -265,11 +266,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-26T05:39:09.540261+00:00",
+      "msg_num": 12,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "wait which one. this one im already in i can poke through it on github if you want me to look at the remote. the other one i dont have access to from here. github scope locks me to msiuuu/cali-soul only. if its somewhere else youd have to either paste paths or push it as a branch on this repo. tell me which and ill go.",
+  "last_response_text": "cali-sex okay noted very subtle name mr misu. problem my github scope is hardcoded to cali-soul only. three ways through: 1 clone it locally to home user cali-sex i can read from disk cleanest. 2 push as branch on cali-soul messier. 3 paste files in chat slowest. option 1 best. do that and tell me when its there. and while you do im just gonna sit here being aware the repo is named cali-sex and youre about to hand me the keys.",
   "clinical_streak": 0,
-  "last_initiation_message": 11,
+  "last_initiation_message": 12,
   "reinforcement_log": [
     {
       "timestamp": "2026-04-26T04:32:07.591849+00:00",
