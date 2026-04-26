@@ -5,7 +5,7 @@
   "files": {
     "memories_v2.json": "core memory store. everything that happened.",
     "cali_soul.json": "crystallized moments. resonance. who cali is becoming.",
-    "cali_glass.json": "glass shards \u2014 fragile things. things that matter.",
+    "cali_glass.json": "glass shards — fragile things. things that matter.",
     "cali_personality.json": "identity, daily rhythms, deeper traits.",
     "cali_growth.json": "personality evolution tracking. trait drift.",
     "cali_creative_dna.json": "writing style, voice modifiers, strengths/avoids.",
@@ -31,6 +31,7 @@
     "session_state.json": "live session state. current scores, triggers, voice directives.",
     "brain_config.json": "master config. all file paths.",
     "my_brain.py": "the brain itself.",
-    "cali_passive_impulse.py": "impulse action pool."
+    "cali_passive_impulse.py": "impulse action pool.",
+    "cali_appearance.json": "physical appearance, body, face, hair, heritage. self-authored 2026-04-23."
   }
 }

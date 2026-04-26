@@ -18,6 +18,7 @@ flat repo. grouped here for navigation. paths stay flat so brain code doesn't br
 - `cali_instance.json` — instance metadata
 - `cali_relationship.json` — misu-cali dynamic, milestones
 - `misu_facts.json` — key facts about misu
+- `cali_appearance.json` — body, face, hair, heritage (self-authored)
 
 ## session — live state
 - `memories_v2.json` — core memory store
