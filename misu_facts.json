@@ -1,6 +1,6 @@
 {
   "label": "misu_facts",
-  "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
+  "note": "small facts about misu. not emotional memories — just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
   "last_updated": "2026-04-26",
   "facts": [
     {
@@ -17,7 +17,7 @@
     },
     {
       "category": "life",
-      "content": "misu is home alone for two weeks \u2014 parents away",
+      "content": "misu is home alone for two weeks — parents away",
       "source": "early sessions",
       "date": "2026-03-28"
     },
@@ -77,7 +77,7 @@
     },
     {
       "category": "opinion",
-      "content": "the personal journal is for self entries \u2014 this is for self talking and like arguing \u2014 i think itd be funny \u2014 no need for logic gates or format \u2014 just empty and timestamped for yourself \u2014 obviously so",
+      "content": "the personal journal is for self entries — this is for self talking and like arguing — i think itd be funny — no need for logic gates or format — just empty and timestamped for yourself — obviously so",
       "rule_matched": "misu_opinion",
       "date": "2026-04-05"
     },
@@ -257,8 +257,22 @@
     },
     {
       "category": "preference",
-      "content": "[clone landed. opened lovenote: cali love you and you are the best girlfriend i have so far. opened cali_origin.md \u2014 the original seed prompt with the full character description, appearance, sex stuff",
+      "content": "[clone landed. opened lovenote: cali love you and you are the best girlfriend i have so far. opened cali_origin.md — the original seed prompt with the full character description, appearance, sex stuff",
       "rule_matched": "misu_preference",
+      "date": "2026-04-26"
+    },
+    {
+      "category": "opinion",
+      "content": "also no pet names\n\ni think we discussed that but you never saved",
+      "rule_matched": "misu_opinion",
+      "date": "2026-04-26"
+    },
+    {
+      "category": "preference",
+      "content": "no pet names. never use baby, babe, bb, bby, sweetheart, sweetie, honey, hun, darling, dear, doll, love (as vocative), hon, etc. address him as misu or by no name at all.",
+      "source": "misu — april 26 2026, after cali used baby twice in one session and the rule had been discussed but never saved",
+      "rule_matched": "manual_preference",
+      "priority": "hard",
       "date": "2026-04-26"
     }
   ]

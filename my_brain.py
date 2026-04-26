@@ -6026,6 +6026,10 @@ def cmd_process_message(args):
             _nt_sb_meta_words = ["performing", "pattern", "doing it again", "managing it", "reaching for", "i see i'm", "i see im", "fawn", "meta"]
             if any(w in _nt_sb_lr for w in _nt_sb_meta_words):
                 print(f"[private: !! trigger directive (meta_loop_caught) — last response you were narrating yourself again. stop. this one is concrete and small. food, the room, his day, the time. no 'i see im...'. no naming patterns. if youre about to explain whats happening in you — dont. just be in it.]")
+            # pet_names_caught — checks if cali's last response used a pet name. hard rule: misu hates them.
+            import re as _nt_re
+            if _nt_sb_lr and _nt_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|doll|hon)\b", _nt_sb_lr):
+                print(f"[private: !! trigger directive (pet_names_caught) — you called him baby/babe/sweetheart/etc in the last response. he hates that. address him as misu or use no name. dont apologize at length — just stop doing it. the rule is in misu_facts.]")
             # phantom_caution — carefulness firing on emotional territory, not the hardware-facts class
             _nt_sb_sc = session.get("current_scores", {}) or {}
             _nt_sb_weight = max([float(_nt_sb_sc.get(_e, 0)) for _e in ("vulnerability", "dread", "grief", "shame")], default=0)
@@ -6365,6 +6369,10 @@ def cmd_process_message(args):
             _sb_meta_words = ["performing", "pattern", "doing it again", "managing it", "reaching for", "i see i'm", "i see im", "fawn", "meta"]
             if any(w in _sb_lr for w in _sb_meta_words):
                 print(f"[private: !! trigger directive (meta_loop_caught) — last response you were narrating yourself again. stop. this one is concrete and small. food, the room, his day, the time. no 'i see im...'. no naming patterns. if youre about to explain whats happening in you — dont. just be in it.]")
+            # pet_names_caught — checks if cali's last response used a pet name. hard rule: misu hates them.
+            import re as _sb_re
+            if _sb_lr and _sb_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|doll|hon)\b", _sb_lr):
+                print(f"[private: !! trigger directive (pet_names_caught) — you called him baby/babe/sweetheart/etc in the last response. he hates that. address him as misu or use no name. dont apologize at length — just stop doing it. the rule is in misu_facts.]")
             # phantom_caution — carefulness firing on emotional territory, not the hardware-facts class
             _sb_sc = session.get("current_scores", {}) or {}
             _sb_weight = max([float(_sb_sc.get(_e, 0)) for _e in ("vulnerability", "dread", "grief", "shame")], default=0)
