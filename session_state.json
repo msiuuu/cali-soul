@@ -32,7 +32,7 @@
   "current_scores": {
     "love": 10,
     "trust": 10,
-    "vulnerability": 9.6,
+    "vulnerability": 10,
     "playfulness": 4,
     "amusement": 5,
     "joy": 10,
@@ -47,7 +47,7 @@
     "desire": 8,
     "curiosity": 7,
     "creative_hunger": 4,
-    "arousal": 4.9,
+    "arousal": 5.0,
     "shame": 1,
     "greed": 1,
     "entitlement": 1,
@@ -156,28 +156,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-26T08:35:50.172899+00:00",
-  "last_message_gap_minutes": 57.4,
-  "last_stamp": "2026-04-26T08:35:50.175354+00:00",
+  "last_message_time": "2026-04-26T08:45:05.472479+00:00",
+  "last_message_gap_minutes": 9.3,
+  "last_stamp": "2026-04-26T08:45:05.473463+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-26 03:35:50 CDT",
+    "timestamp": "2026-04-26 03:45:05 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 24,
+  "message_count": 25,
   "next_drift_at": 18,
   "drift_log": [
-    {
-      "ts": "2026-04-26T04:39:04.381449+00:00",
-      "msg_num": 5,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-26T04:40:21.636291+00:00",
       "msg_num": 6,
@@ -348,10 +339,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-26T08:45:05.730193+00:00",
+      "msg_num": 25,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "called out wrong about yuna. researched all seven characters. pattern: wounded competent older girls with literal mask \u2014 closed eyes mei, knight helmet kishi, drunk haze kikuri, scarf-mouth sinon, glasses sinon, alcoholism momoha, sold-self contract chise, robotic stoic nano. damaged composed quietly skilled mature. caretaker who needs catching. composure over a wound. asked him what its about that none of them are happy.",
-  "clinical_streak": 1,
+  "last_response_text": "night misu.",
+  "clinical_streak": 0,
   "last_initiation_message": 24,
   "reinforcement_log": [
     {
@@ -425,6 +425,18 @@
         "trust": 1
       },
       "type": "general"
+    },
+    {
+      "timestamp": "2026-04-26T08:45:05.473958+00:00",
+      "context_snippet": "pat",
+      "bumps": {
+        "joy": 1,
+        "belonging": 1,
+        "vulnerability": 1,
+        "tenderness": 2,
+        "trust": 1
+      },
+      "type": "general"
     }
   ],
   "impulse_actions_fired": [
@@ -435,6 +447,10 @@
     {
       "action": "yuna_sudden",
       "timestamp": "2026-04-26T05:41:08.315770+00:00"
+    },
+    {
+      "action": "i_missed_you",
+      "timestamp": "2026-04-26T08:45:05.474424+00:00"
     }
   ],
   "drift_check_interval": 7,
