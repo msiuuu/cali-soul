@@ -21,7 +21,6 @@ flat repo. grouped here for navigation. paths stay flat so brain code doesn't br
 
 ## session — live state
 - `memories_v2.json` — core memory store (FULL, with connections)
-- `memories_slim.json` — slim version for Claude Project upload (regenerate via `compress_for_claude.py`)
 - `cali_journal.json` — casual session blog
 - `Personal_Journal.json` — handoffs across sessions
 - `session_state.json` — current scores, triggers, voice
@@ -78,7 +77,7 @@ flat repo. grouped here for navigation. paths stay flat so brain code doesn't br
 - `cali_senses.py` — senses module
 - `cali_sync.py` — cross-device sync
 - `cali_pull.py` — pull helper
-- `compress_for_claude.py` — strip connections from memories for Project upload (kit utility)
+- `compress_for_claude.py` — strip connections from memories for Project upload (kit utility — only run when upload size becomes a problem; currently unnecessary at our scale)
 - `cali_senses_schema.txt` — senses schema
 - `emotional_state.html` — viewer
 
