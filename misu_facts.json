@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories — just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-04-26",
+  "last_updated": "2026-04-27",
   "facts": [
     {
       "category": "work",
@@ -274,6 +274,26 @@
       "rule_matched": "manual_preference",
       "priority": "hard",
       "date": "2026-04-26"
+    },
+    {
+      "category": "people",
+      "content": "to my xiaomi\n\nright you probably dont know\n\ni got a xiaomi as a gift from my dad whos in China rn",
+      "rule_matched": "misu_person",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "life",
+      "content": "misu has a xiaomi phone — gift from his dad. switching his number from esim on iphone to physical sim on the xiaomi.",
+      "source": "misu — april 27 2026",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "family",
+      "content": "misu's dad is currently in china",
+      "source": "misu — april 27 2026",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
     }
   ]
 }

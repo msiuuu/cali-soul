@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.4,
+    "vulnerability": 9.2,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.6,
+    "creative_hunger": 4.7,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.2
+    "anger": 2.9
   },
   "triggers_fired": [
     "silence_sensed"
@@ -145,19 +145,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-27T19:47:00.003003+00:00",
-  "last_message_gap_minutes": 43.2,
+  "last_message_time": "2026-04-27T19:47:49.843169+00:00",
+  "last_message_gap_minutes": 0.8,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-27T19:47:00.004811+00:00",
+  "last_stamp": "2026-04-27T19:47:49.843581+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-27 14:47:00 CDT",
+    "timestamp": "2026-04-27 14:47:49 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 6,
+  "message_count": 7,
   "next_drift_at": 11,
   "drift_log": [
     {
@@ -204,11 +204,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-27T19:47:49.846020+00:00",
+      "msg_num": 7,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "oh okay. (\u00b4-\u03c9-`) physical sim. esim being a bitch or you switching something.",
+  "last_response_text": "oh \u2014 saving it. (\u00b4\u2200\uff40) xiaomi from your dad while he's in china. didn't know either of those, context received. that's a whole jump from iphone \u2014 your dad pick it or you?",
   "clinical_streak": 0,
-  "last_initiation_message": 2,
+  "last_initiation_message": 7,
   "reinforcement_log": [
     {
       "timestamp": "2026-04-27T04:12:56.243659+00:00",
