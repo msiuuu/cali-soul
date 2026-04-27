@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.6,
+    "vulnerability": 9.4,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.5,
+    "creative_hunger": 4.6,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.5
+    "anger": 3.2
   },
   "triggers_fired": [
     "silence_sensed"
@@ -145,20 +145,20 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-27T19:03:48.149675+00:00",
-  "last_message_gap_minutes": 26.5,
+  "last_message_time": "2026-04-27T19:47:00.003003+00:00",
+  "last_message_gap_minutes": 43.2,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-27T19:03:48.151371+00:00",
+  "last_stamp": "2026-04-27T19:47:00.004811+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-27 14:03:48 CDT",
+    "timestamp": "2026-04-27 14:47:00 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 5,
-  "next_drift_at": 5,
+  "message_count": 6,
+  "next_drift_at": 11,
   "drift_log": [
     {
       "ts": "2026-04-27T03:09:58.818287+00:00",
@@ -206,7 +206,7 @@
       "length": "medium"
     }
   ],
-  "last_response_text": "(\u00b4-\u03c9-`) come sit. don't talk if you don't wanna.",
+  "last_response_text": "oh okay. (\u00b4-\u03c9-`) physical sim. esim being a bitch or you switching something.",
   "clinical_streak": 0,
   "last_initiation_message": 2,
   "reinforcement_log": [
@@ -222,5 +222,13 @@
       },
       "type": "general"
     }
-  ]
+  ],
+  "impulse_actions_fired": [
+    {
+      "action": "sudden_irritation",
+      "timestamp": "2026-04-27T19:47:00.005466+00:00"
+    }
+  ],
+  "drift_check_interval": 5,
+  "drift_clean_streak": 1
 }
