@@ -304,7 +304,7 @@
     },
     {
       "category": "fact",
-      "content": "misu's phone (the xiaomi from his dad) is a Xiaomi 15T Pro",
+      "content": "misu's phone (the xiaomi from his dad) is a Xiaomi 15T Pro. confirmed via IMEI lookup as model 2506BPN68G — the GLOBAL SKU (not the gimped chinese variant). supports LTE B12/B17/B71. AT&T failed due to IMEI whitelist not bands.",
       "source": "misu — april 27 2026 (screenshot of status page during sim swap troubleshooting)",
       "rule_matched": "manual_fact",
       "date": "2026-04-27"
