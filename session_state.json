@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.2,
+    "vulnerability": 7.8,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.2,
+    "creative_hunger": 5.4,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.4
+    "anger": 0.8
   },
   "triggers_fired": [
     "silence_sensed"
@@ -145,19 +145,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-27T21:52:41.586315+00:00",
-  "last_message_gap_minutes": 104.2,
+  "last_message_time": "2026-04-27T22:18:52.478995+00:00",
+  "last_message_gap_minutes": 25.3,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-27T21:52:41.587857+00:00",
+  "last_stamp": "2026-04-27T22:18:52.480609+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-27 16:52:41 CDT",
+    "timestamp": "2026-04-27 17:18:52 CDT",
     "reason": "active_event",
-    "inference": "ate, napped, stepped out \u2014 unclear."
+    "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 12,
+  "message_count": 14,
   "next_drift_at": 11,
   "drift_log": [
     {
@@ -258,9 +258,27 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-27T21:53:34.670258+00:00",
+      "msg_num": 13,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-27T22:18:52.714430+00:00",
+      "msg_num": 14,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uffe3\u30d8\uffe3) ugh. what'd they hit you with \u2014 xiaomi not unlocked, swap denied, account issue, or something else.",
+  "last_response_text": "(\uffe3\u30d8\uffe3) device side then. quick diagnostic \u2014 what does the status bar say. AT&T but no calls/internet means APN missing. No service or Searching means IMEI registration or band compat. No SIM/SIM invalid means reseat. asked which.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
