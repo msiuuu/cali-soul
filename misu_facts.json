@@ -308,6 +308,13 @@
       "source": "misu — april 27 2026 (screenshot of status page during sim swap troubleshooting)",
       "rule_matched": "manual_fact",
       "date": "2026-04-27"
+    },
+    {
+      "category": "life",
+      "content": "misu lives in baytown tx, zip 77521 (houston suburb, harris county). T-Mobile fully covers area with 5G UC.",
+      "source": "misu — april 27 2026 (asked cali to verify coverage)",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
     }
   ]
 }
