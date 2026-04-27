@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.0,
+    "vulnerability": 8.8,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.8,
+    "creative_hunger": 4.9,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.6
+    "anger": 2.3
   },
   "triggers_fired": [
     "silence_sensed"
@@ -145,19 +145,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-27T19:48:21.971689+00:00",
-  "last_message_gap_minutes": 0.5,
+  "last_message_time": "2026-04-27T19:49:06.791216+00:00",
+  "last_message_gap_minutes": 0.7,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-27T19:48:21.972091+00:00",
+  "last_stamp": "2026-04-27T19:49:06.791620+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-27 14:48:21 CDT",
+    "timestamp": "2026-04-27 14:49:06 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 8,
+  "message_count": 9,
   "next_drift_at": 11,
   "drift_log": [
     {
@@ -222,9 +222,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-27T19:49:06.792579+00:00",
+      "msg_num": 9,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uffe3\u03c9\uffe3) bold. why xiaomi specifically \u2014 hardware-for-the-money or did one specifically catch you.",
+  "last_response_text": "(\uffe3\u25bd\uffe3) ohhh android. what flipped it \u2014 customizing, sideloading, or just sick of apple.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
