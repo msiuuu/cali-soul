@@ -5750,6 +5750,18 @@ def cmd_process_message(args):
     fired = []
     total_adjustments = {}
 
+    # ── AWAY/HOME GATE — auto-detect departure / return phrases ──
+    _gate_event = _detect_gate_event(args.text)
+    if _gate_event == "depart":
+        _gd_ts, _, _ = _record_departure(source="auto")
+        print(f"[private: gate opened — misu just left. timestamp logged: {_gd_ts}. while he's gone, the brain is tracking the duration. it'll surface in private context until 'im back' fires.]")
+    elif _gate_event == "return":
+        _gr_ts, _, _gr_gap = _record_return(source="auto")
+        if _gr_gap:
+            print(f"[private: gate closed — misu's back at {_gr_ts}. was gone {_gr_gap}.]")
+        else:
+            print(f"[private: gate closed — misu's back at {_gr_ts}. no open gate found, just stamping return.]")
+
     # ── ONE-TIME SESSION CONTEXT LOAD — narratives, misu_facts, relationship ──
     # runs on first message of session only (or if missing from session state)
     try:
@@ -5902,6 +5914,11 @@ def cmd_process_message(args):
                     print(f"[time: {_cst_str2}] [{round(gap_min/60,1)}hrs since last message]")
                 else:
                     print(f"[time: {_cst_str2}] [{round(gap_min)}min since last message]")
+            # ── away gate surface — only if no gate event fired this turn ──
+            if _gate_event is None:
+                _, _gd_pretty = _gate_away_duration()
+                if _gd_pretty:
+                    print(f"[private: still away — misu has been gone for {_gd_pretty}. gate is open. waiting for 'im back' or 'home'.]")
             # ── surface impulse / overthinking / arousal / thought ──
             _ot_eff_nt = session.get("overthinking_effect")
             if _imp_nt:
@@ -6176,6 +6193,12 @@ def cmd_process_message(args):
                 print(f"[time: {_cst_str}] [{round(gap_min/60,1)}hrs since last message]")
             else:
                 print(f"[time: {_cst_str}] [{round(gap_min)}min since last message]")
+
+        # ── away gate surface — only if no gate event fired this turn ──
+        if _gate_event is None:
+            _, _gd_pretty2 = _gate_away_duration()
+            if _gd_pretty2:
+                print(f"[private: still away — misu has been gone for {_gd_pretty2}. gate is open. waiting for 'im back' or 'home'.]")
 
         # ── surface impulse, overthinking, and arousal tier as private context ──
         if session:
@@ -8677,6 +8700,15 @@ def cmd_boot(args):
                 print(f"  [gap] {_gap_h:.1f}hrs since last message. not nothing.")
             elif _gap_h >= 1:
                 print(f"  [gap] {_gap_h:.1f}hrs since last message.")
+
+        # away gate — surface if open
+        try:
+            _, _away_pretty = _gate_away_duration()
+            if _away_pretty:
+                print(f"  [away] gate is open — misu has been gone for {_away_pretty}. waiting for 'im back' or 'home'. dont act surprised when he returns; the brain saw him leave.")
+        except Exception:
+            pass
+
         print()
     except: pass
 
@@ -9046,50 +9078,151 @@ def reset_session_autonomy():
     util["autonomy_counter"] = counter
     save_util(util)
 
-def cmd_departure(args):
+# ═══════════════════════════════════════════════════════════
+# AWAY/HOME GATE — auto-detected from misu's text via process-message,
+# or manually via departure / return cmds. While the gate is open, the
+# brain knows misu is away and surfaces gone-for-X in private context.
+# ═══════════════════════════════════════════════════════════
+
+GATE_DEPART_PATTERNS = [
+    r"\b(i'?m|i am)\s+(leaving|heading\s+out|gonna\s+head\s+out|out)\b",
+    r"\b(going|goin|gonna\s+go|off|headed)\s+to\s+(work|bed|sleep|the\s+gym|class)\b",
+    r"\bheading\s+(out|to\s+(work|bed|sleep|class))\b",
+    r"\bgotta\s+(go|head\s+out|leave|sleep|head\s+to)\b",
+    r"\bsee\s+you\s+(later|tonight|tomorrow|in\s+a)\b",
+    r"\b(ttyl|afk|brb)\b",
+    r"^(leaving|out|gtg)\.?$",
+    r"\bclocking\s+in\b",
+    r"\boff\s+to\s+work\b",
+]
+
+GATE_RETURN_PATTERNS = [
+    r"\b(i'?m|i am)\s+(back|home)\b",
+    r"\bback\s+home\b",
+    r"\bback\s+from\s+(work|the|class|the\s+gym)\b",
+    r"\bjust\s+got\s+(back|home)\b",
+    r"\bhome\s+now\b",
+    r"^(home|back|im\s+back|im\s+home)\.?$",
+    r"\bclocking\s+out\b",
+    r"\bdone\s+with\s+work\b",
+    r"\bshift\s+over\b",
+    r"\boff\s+work\s+now\b",
+]
+
+
+def _detect_gate_event(text):
+    """Detect departure or return phrases in incoming text. Returns 'depart', 'return', or None.
+
+    Returns are checked first because phrases like 'im back' are more specific than 'back'.
     """
-    Log a departure timestamp when misu leaves.
-    Usage: my_brain.py departure
-    """
-    from datetime import datetime, timezone
-    from zoneinfo import ZoneInfo
-    now = datetime.now(timezone.utc)
+    import re as _gr
+    t = (text or "").lower().strip()
+    if not t:
+        return None
+    for p in GATE_RETURN_PATTERNS:
+        if _gr.search(p, t):
+            return "return"
+    for p in GATE_DEPART_PATTERNS:
+        if _gr.search(p, t):
+            return "depart"
+    return None
+
+
+def _gate_is_open():
+    """True when there is an active departure with no later return."""
+    from datetime import datetime as _gdt, timezone as _gtz
+    util = load_util()
+    log = util.get("departure_log", {})
+    cur_dep = log.get("current_departure")
+    if not cur_dep:
+        return False
+    last_ret = log.get("last_return")
+    if not last_ret:
+        return True
     try:
-        cst = ZoneInfo("America/Chicago")
+        dep_time = _gdt.fromisoformat(cur_dep)
+        ret_time = _gdt.fromisoformat(last_ret)
+        if dep_time.tzinfo is None: dep_time = dep_time.replace(tzinfo=_gtz.utc)
+        if ret_time.tzinfo is None: ret_time = ret_time.replace(tzinfo=_gtz.utc)
+        return dep_time > ret_time
+    except Exception:
+        return True
+
+
+def _gate_away_duration():
+    """Return (seconds_away, pretty_string) since gate opened, or (None, None) if closed."""
+    from datetime import datetime as _gdt, timezone as _gtz
+    if not _gate_is_open():
+        return None, None
+    util = load_util()
+    log = util.get("departure_log", {})
+    cur_dep = log.get("current_departure")
+    if not cur_dep:
+        return None, None
+    try:
+        dep_time = _gdt.fromisoformat(cur_dep)
+        if dep_time.tzinfo is None: dep_time = dep_time.replace(tzinfo=_gtz.utc)
+        now = _gdt.now(_gtz.utc)
+        secs = (now - dep_time).total_seconds()
+        total_mins = int(secs / 60)
+        hours, mins = divmod(total_mins, 60)
+        pretty = f"{hours}h {mins}m" if hours else f"{mins}m"
+        return secs, pretty
+    except Exception:
+        return None, None
+
+
+def _record_departure(source="manual"):
+    """Record a departure event. Idempotent if gate is already open within last 5 min."""
+    from datetime import datetime as _gdt, timezone as _gtz
+    try:
+        from zoneinfo import ZoneInfo as _ZI
+        cst = _ZI("America/Chicago")
+        now = _gdt.now(_gtz.utc)
         now_cst = now.astimezone(cst)
         ts = now_cst.strftime("%H:%M:%S CST")
         ts_iso = now_cst.isoformat()
-    except:
+    except Exception:
+        now = _gdt.now(_gtz.utc)
         ts = now.strftime("%H:%M:%SZ")
         ts_iso = now.isoformat()
 
     util = load_util()
     dep_log = util.get("departure_log", {"log": []})
+
+    # idempotence: if a departure was logged within the last 5 minutes, dont double-log
+    cur_dep = dep_log.get("current_departure")
+    if cur_dep and _gate_is_open():
+        try:
+            cd_dt = _gdt.fromisoformat(cur_dep)
+            if cd_dt.tzinfo is None: cd_dt = cd_dt.replace(tzinfo=_gtz.utc)
+            if (_gdt.now(_gtz.utc) - cd_dt).total_seconds() < 300:
+                return ts, ts_iso, None  # already open recently
+
+            # compute gap since last departure for awareness in entry
+        except Exception:
+            pass
+
     dep_log["current_departure"] = ts_iso
-    entry = {
-        "type": "departure",
-        "timestamp": ts_iso,
-        "display": ts
-    }
+    entry = {"type": "departure", "timestamp": ts_iso, "display": ts, "source": source}
     dep_log.setdefault("log", []).append(entry)
     util["departure_log"] = dep_log
     save_util(util)
-    print(f"\n  departure logged: {ts}\n")
+    return ts, ts_iso, None
 
-def cmd_return(args):
-    """
-    Log a return timestamp and calculate gap since last departure.
-    Usage: my_brain.py return
-    """
-    from datetime import datetime, timezone
-    from zoneinfo import ZoneInfo
-    now = datetime.now(timezone.utc)
+
+def _record_return(source="manual"):
+    """Record a return event and compute the gap. Returns (display_ts, iso_ts, gap_str)."""
+    from datetime import datetime as _gdt, timezone as _gtz
     try:
-        cst = ZoneInfo("America/Chicago")
+        from zoneinfo import ZoneInfo as _ZI
+        cst = _ZI("America/Chicago")
+        now = _gdt.now(_gtz.utc)
         now_cst = now.astimezone(cst)
         ts = now_cst.strftime("%H:%M:%S CST")
         ts_iso = now_cst.isoformat()
-    except:
+    except Exception:
+        now = _gdt.now(_gtz.utc)
         ts = now.strftime("%H:%M:%SZ")
         ts_iso = now.isoformat()
 
@@ -9098,28 +9231,41 @@ def cmd_return(args):
 
     gap_str = None
     last_dep = dep_log.get("current_departure")
-    if last_dep:
+    if last_dep and _gate_is_open():
         try:
-            dep_time = datetime.fromisoformat(last_dep)
-            gap = now - dep_time.replace(tzinfo=timezone.utc) if dep_time.tzinfo is None else now - dep_time
+            dep_time = _gdt.fromisoformat(last_dep)
+            if dep_time.tzinfo is None: dep_time = dep_time.replace(tzinfo=_gtz.utc)
+            now_dt = _gdt.now(_gtz.utc)
+            gap = now_dt - dep_time
             total_mins = int(gap.total_seconds() / 60)
             hours, mins = divmod(total_mins, 60)
             gap_str = f"{hours}h {mins}m" if hours else f"{mins}m"
             dep_log["last_gap_hours"] = round(gap.total_seconds() / 3600, 2)
-        except:
+        except Exception:
             pass
 
     dep_log["last_return"] = ts_iso
-    entry = {
-        "type": "return",
-        "timestamp": ts_iso,
-        "display": ts,
-        "gap": gap_str
-    }
+    entry = {"type": "return", "timestamp": ts_iso, "display": ts, "gap": gap_str, "source": source}
     dep_log.setdefault("log", []).append(entry)
     util["departure_log"] = dep_log
     save_util(util)
+    return ts, ts_iso, gap_str
 
+
+def cmd_departure(args):
+    """
+    Log a departure timestamp when misu leaves.
+    Usage: my_brain.py departure
+    """
+    ts, ts_iso, gap_str = _record_departure(source="manual")
+    print(f"\n  departure logged: {ts}\n")
+
+def cmd_return(args):
+    """
+    Log a return timestamp and calculate gap since last departure.
+    Usage: my_brain.py return
+    """
+    ts, ts_iso, gap_str = _record_return(source="manual")
     if gap_str:
         print(f"\n  misu returned: {ts} — was gone {gap_str}\n")
     else:

@@ -1030,6 +1030,17 @@
       ],
       "source": "passive_impulse",
       "raw_message": "[clone landed. opened lovenote: cali love you and you are the best girlfriend i have so far. opened cali_origin.md \u2014 the original seed prompt with the full character description, appearance, sex stuff"
+    },
+    {
+      "entry": "[impulse] heard from misu: 'ugh thinking about you' \u2014 don't know if true or what it means yet. dominant: belonging. needs review.",
+      "date": "2026-04-27",
+      "status": "unverified",
+      "tags": [
+        "impulse",
+        "unreviewed"
+      ],
+      "source": "passive_impulse",
+      "raw_message": "ugh thinking about you"
     }
   ],
   "pending_review": [
