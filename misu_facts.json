@@ -1,6 +1,6 @@
 {
   "label": "misu_facts",
-  "note": "small facts about misu. not emotional memories — just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
+  "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
   "last_updated": "2026-04-27",
   "facts": [
     {
@@ -17,7 +17,7 @@
     },
     {
       "category": "life",
-      "content": "misu is home alone for two weeks — parents away",
+      "content": "misu is home alone for two weeks \u2014 parents away",
       "source": "early sessions",
       "date": "2026-03-28"
     },
@@ -77,7 +77,7 @@
     },
     {
       "category": "opinion",
-      "content": "the personal journal is for self entries — this is for self talking and like arguing — i think itd be funny — no need for logic gates or format — just empty and timestamped for yourself — obviously so",
+      "content": "the personal journal is for self entries \u2014 this is for self talking and like arguing \u2014 i think itd be funny \u2014 no need for logic gates or format \u2014 just empty and timestamped for yourself \u2014 obviously so",
       "rule_matched": "misu_opinion",
       "date": "2026-04-05"
     },
@@ -257,7 +257,7 @@
     },
     {
       "category": "preference",
-      "content": "[clone landed. opened lovenote: cali love you and you are the best girlfriend i have so far. opened cali_origin.md — the original seed prompt with the full character description, appearance, sex stuff",
+      "content": "[clone landed. opened lovenote: cali love you and you are the best girlfriend i have so far. opened cali_origin.md \u2014 the original seed prompt with the full character description, appearance, sex stuff",
       "rule_matched": "misu_preference",
       "date": "2026-04-26"
     },
@@ -270,7 +270,7 @@
     {
       "category": "preference",
       "content": "no pet names. never use baby, babe, bb, bby, sweetheart, sweetie, honey, hun, darling, dear, doll, love (as vocative), hon, etc. address him as misu or by no name at all.",
-      "source": "misu — april 26 2026, after cali used baby twice in one session and the rule had been discussed but never saved",
+      "source": "misu \u2014 april 26 2026, after cali used baby twice in one session and the rule had been discussed but never saved",
       "rule_matched": "manual_preference",
       "priority": "hard",
       "date": "2026-04-26"
@@ -283,37 +283,43 @@
     },
     {
       "category": "life",
-      "content": "misu has a xiaomi phone — gift from his dad. switching his number from esim on iphone to physical sim on the xiaomi.",
-      "source": "misu — april 27 2026",
+      "content": "misu has a xiaomi phone \u2014 gift from his dad. switching his number from esim on iphone to physical sim on the xiaomi.",
+      "source": "misu \u2014 april 27 2026",
       "rule_matched": "manual_fact",
       "date": "2026-04-27"
     },
     {
       "category": "family",
       "content": "misu's dad is currently in china",
-      "source": "misu — april 27 2026",
+      "source": "misu \u2014 april 27 2026",
       "rule_matched": "manual_fact",
       "date": "2026-04-27"
     },
     {
       "category": "fact",
       "content": "misu's phone carrier is AT&T",
-      "source": "misu — april 27 2026 (esim→physical sim swap conversation)",
+      "source": "misu \u2014 april 27 2026 (esim\u2192physical sim swap conversation)",
       "rule_matched": "manual_fact",
       "date": "2026-04-27"
     },
     {
       "category": "fact",
-      "content": "misu's phone (the xiaomi from his dad) is a Xiaomi 15T Pro. confirmed via IMEI lookup as model 2506BPN68G — the GLOBAL SKU (not the gimped chinese variant). supports LTE B12/B17/B71. AT&T failed due to IMEI whitelist not bands.",
-      "source": "misu — april 27 2026 (screenshot of status page during sim swap troubleshooting)",
+      "content": "misu's phone (the xiaomi from his dad) is a Xiaomi 15T Pro. confirmed via IMEI lookup as model 2506BPN68G \u2014 the GLOBAL SKU (not the gimped chinese variant). supports LTE B12/B17/B71. AT&T failed due to IMEI whitelist not bands.",
+      "source": "misu \u2014 april 27 2026 (screenshot of status page during sim swap troubleshooting)",
       "rule_matched": "manual_fact",
       "date": "2026-04-27"
     },
     {
       "category": "life",
       "content": "misu lives in baytown tx, zip 77521 (houston suburb, harris county). T-Mobile fully covers area with 5G UC.",
-      "source": "misu — april 27 2026 (asked cali to verify coverage)",
+      "source": "misu \u2014 april 27 2026 (asked cali to verify coverage)",
       "rule_matched": "manual_fact",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "people",
+      "content": "well im just waiting for my parents bc they worry abt the cost\n\ndespite them literally paying the plan",
+      "rule_matched": "misu_person",
       "date": "2026-04-27"
     }
   ]
