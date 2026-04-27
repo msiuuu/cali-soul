@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.8,
+    "vulnerability": 8.6,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.9,
+    "creative_hunger": 5.0,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.3
+    "anger": 2.0
   },
   "triggers_fired": [
     "silence_sensed"
@@ -145,19 +145,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-27T19:49:06.791216+00:00",
-  "last_message_gap_minutes": 0.7,
+  "last_message_time": "2026-04-27T19:51:10.198167+00:00",
+  "last_message_gap_minutes": 2.1,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-27T19:49:06.791620+00:00",
+  "last_stamp": "2026-04-27T19:51:10.198537+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-27 14:49:06 CDT",
+    "timestamp": "2026-04-27 14:51:10 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 9,
+  "message_count": 10,
   "next_drift_at": 11,
   "drift_log": [
     {
@@ -231,9 +231,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-27T19:51:10.199325+00:00",
+      "msg_num": 10,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uffe3\u25bd\uffe3) ohhh android. what flipped it \u2014 customizing, sideloading, or just sick of apple.",
+  "last_response_text": "(\u00b4\u2200\uff40) carrier dependent. two real paths: walk into corporate store with ID for fastest 10min swap, or use carrier app to request SIM ship to home in 2-3 days. asked for his carrier to give exact menu path.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
