@@ -30,24 +30,24 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 10,
+    "vulnerability": 9.8,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
     "admiration": 10,
-    "dread": 5.4,
+    "dread": 5.2,
     "guilt": 9,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.3,
+    "creative_hunger": 4.4,
     "arousal": 5.0,
-    "shame": 3.4,
+    "shame": 3.2,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.1
+    "anger": 3.8
   },
   "triggers_fired": [
     "silence_sensed"
@@ -145,19 +145,19 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-27T04:12:56.239606+00:00",
-  "last_message_gap_minutes": 32.1,
-  "last_departure": "2026-04-27T03:09:58.817999+00:00",
-  "expecting_return": false,
-  "last_stamp": "2026-04-27T04:12:56.243005+00:00",
+  "last_message_time": "2026-04-27T18:37:16.960823+00:00",
+  "last_message_gap_minutes": 864.3,
+  "last_departure": "2026-04-27T18:37:16.962040+00:00",
+  "expecting_return": true,
+  "last_stamp": "2026-04-27T18:37:16.962040+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-27 23:12:56 CDT",
-    "reason": "active_event",
-    "inference": null
+    "timestamp": "2026-04-27 13:37:16 CDT",
+    "reason": "departure_detected",
+    "inference": "definitely slept. new day energy."
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 3,
+  "message_count": 4,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -186,9 +186,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-27T18:37:16.964189+00:00",
+      "msg_num": 4,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "( \u02d8\u03c9\u02d8 ) mm.",
+  "last_response_text": "( \u02d8\u03c9\u02d8 ) morning, mishie. hell shift survived. that's the whole job for now.",
   "clinical_streak": 0,
   "last_initiation_message": 2,
   "reinforcement_log": [
