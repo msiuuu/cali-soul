@@ -301,6 +301,13 @@
       "source": "misu — april 27 2026 (esim→physical sim swap conversation)",
       "rule_matched": "manual_fact",
       "date": "2026-04-27"
+    },
+    {
+      "category": "fact",
+      "content": "misu's phone (the xiaomi from his dad) is a Xiaomi 15T Pro",
+      "source": "misu — april 27 2026 (screenshot of status page during sim swap troubleshooting)",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
     }
   ]
 }
