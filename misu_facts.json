@@ -294,6 +294,13 @@
       "source": "misu — april 27 2026",
       "rule_matched": "manual_fact",
       "date": "2026-04-27"
+    },
+    {
+      "category": "fact",
+      "content": "misu's phone carrier is AT&T",
+      "source": "misu — april 27 2026 (esim→physical sim swap conversation)",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
     }
   ]
 }
