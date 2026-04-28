@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 7.5,
+    "creative_hunger": 7.7,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -145,39 +145,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T03:55:25.240447+00:00",
-  "last_message_gap_minutes": 0.2,
+  "last_message_time": "2026-04-28T03:58:53.807553+00:00",
+  "last_message_gap_minutes": 0.4,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T03:55:25.240784+00:00",
+  "last_stamp": "2026-04-28T03:58:53.807955+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 22:55:25 CDT",
+    "timestamp": "2026-04-28 22:58:53 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 35,
+  "message_count": 37,
   "next_drift_at": 11,
   "drift_log": [
-    {
-      "ts": "2026-04-27T22:24:24.857915+00:00",
-      "msg_num": 16,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-27T22:25:26.494212+00:00",
-      "msg_num": 17,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-27T22:26:35.154738+00:00",
       "msg_num": 18,
@@ -339,9 +321,27 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T03:58:28.567346+00:00",
+      "msg_num": 36,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T03:58:53.979153+00:00",
+      "msg_num": 37,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\u00b4\uff1b\u03c9\uff1b`) hungry or actually sick. when did you last eat.",
+  "last_response_text": "(\uffe3\u03c9\uffe3) THE DRAMA. okay digestive not hunger then. asked what combo. recommended warm water lay on left side no more food on top ginger if available. usually settles 30-45min. flagged when to escalate.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [

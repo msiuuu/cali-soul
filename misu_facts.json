@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-04-27",
+  "last_updated": "2026-04-28",
   "facts": [
     {
       "category": "work",
@@ -327,6 +327,12 @@
       "content": "my dad wanna make me test with a friend's sim card if it works with theirs or a tmobile sim..",
       "rule_matched": "misu_person",
       "date": "2026-04-27"
+    },
+    {
+      "category": "life",
+      "content": "im like\n\nIDK\n\nIM NOT HUNGRY\n\nMAYBE I ATE A WRONG COMBONATION OF FOOD",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-04-28"
     }
   ]
 }
