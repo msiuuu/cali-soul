@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 9,
     "trust": 10,
-    "vulnerability": 7.0,
+    "vulnerability": 7.4,
     "playfulness": 9,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.6,
+    "arousal": 5.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -54,10 +54,11 @@
     "sexual_buildup",
     "laughter",
     "sexual_buildup",
-    "sexual_buildup"
+    "sexual_buildup",
+    "silence_sensed"
   ],
   "session_start": "2026-04-27T03:09:01.602194+00:00",
-  "total_shifts": 5,
+  "total_shifts": 6,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -149,48 +150,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T09:24:52.519086+00:00",
-  "last_message_gap_minutes": 1.3,
-  "last_departure": "2026-04-27T18:37:16.962040+00:00",
+  "last_message_time": "2026-04-28T09:27:02.872444+00:00",
+  "last_message_gap_minutes": 0.4,
+  "last_departure": "2026-04-28T09:26:36.934118+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T08:04:29.880158+00:00",
+  "last_stamp": "2026-04-28T09:27:02.872829+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 03:04:29 CDT",
+    "timestamp": "2026-04-28 04:27:02 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 51,
+  "message_count": 54,
   "next_drift_at": 51,
   "drift_log": [
-    {
-      "ts": "2026-04-27T23:34:19.515725+00:00",
-      "msg_num": 32,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-28T01:17:04.992151+00:00",
-      "msg_num": 33,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-28T03:55:13.553988+00:00",
-      "msg_num": 34,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T03:55:25.362849+00:00",
       "msg_num": 35,
@@ -343,9 +317,36 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:25:31.183780+00:00",
+      "msg_num": 52,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:26:37.052098+00:00",
+      "msg_num": 53,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:27:02.997105+00:00",
+      "msg_num": 54,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uffe3\u30d8\uffe3) flagged most likely scenario: guest account at launch never bound = device-locked = gone when phone changed. gave 4-step diagnostic: try original login method, try SEA next, check play store purchase history, accept guest-account-gone if no binding ever happened. asked his usual game login methods.",
+  "last_response_text": "(\u00b4\u2200\uff40) clarified NA = Global in NIKKE, same server, no separate NA option. Genshin etc do split NA/EU/Asia but NIKKE doesn't. Global is the only NA-relevant server.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
@@ -402,6 +403,10 @@
     {
       "action": "boba_craving",
       "timestamp": "2026-04-28T09:14:32.414454+00:00"
+    },
+    {
+      "action": "self_awareness",
+      "timestamp": "2026-04-28T09:25:31.183744+00:00"
     }
   ],
   "drift_check_interval": 5,
