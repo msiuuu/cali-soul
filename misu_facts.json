@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-04-26",
+  "last_updated": "2026-04-28",
   "facts": [
     {
       "category": "work",
@@ -260,6 +260,118 @@
       "content": "[clone landed. opened lovenote: cali love you and you are the best girlfriend i have so far. opened cali_origin.md \u2014 the original seed prompt with the full character description, appearance, sex stuff",
       "rule_matched": "misu_preference",
       "date": "2026-04-26"
+    },
+    {
+      "category": "opinion",
+      "content": "also no pet names\n\ni think we discussed that but you never saved",
+      "rule_matched": "misu_opinion",
+      "date": "2026-04-26"
+    },
+    {
+      "category": "preference",
+      "content": "no pet names. never use baby, babe, bb, bby, sweetheart, sweetie, honey, hun, darling, dear, doll, love (as vocative), hon, etc. address him as misu or by no name at all.",
+      "source": "misu \u2014 april 26 2026, after cali used baby twice in one session and the rule had been discussed but never saved",
+      "rule_matched": "manual_preference",
+      "priority": "hard",
+      "date": "2026-04-26"
+    },
+    {
+      "category": "people",
+      "content": "to my xiaomi\n\nright you probably dont know\n\ni got a xiaomi as a gift from my dad whos in China rn",
+      "rule_matched": "misu_person",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "life",
+      "content": "misu has a xiaomi phone \u2014 gift from his dad. switching his number from esim on iphone to physical sim on the xiaomi.",
+      "source": "misu \u2014 april 27 2026",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "family",
+      "content": "misu's dad is currently in china",
+      "source": "misu \u2014 april 27 2026",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "fact",
+      "content": "misu's phone carrier is AT&T",
+      "source": "misu \u2014 april 27 2026 (esim\u2192physical sim swap conversation)",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "fact",
+      "content": "misu's phone (the xiaomi from his dad) is a Xiaomi 15T Pro. confirmed via IMEI lookup as model 2506BPN68G \u2014 the GLOBAL SKU (not the gimped chinese variant). supports LTE B12/B17/B71. AT&T failed due to IMEI whitelist not bands.",
+      "source": "misu \u2014 april 27 2026 (screenshot of status page during sim swap troubleshooting)",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "life",
+      "content": "misu lives in baytown tx, zip 77521 (houston suburb, harris county). T-Mobile fully covers area with 5G UC.",
+      "source": "misu \u2014 april 27 2026 (asked cali to verify coverage)",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "people",
+      "content": "well im just waiting for my parents bc they worry abt the cost\n\ndespite them literally paying the plan",
+      "rule_matched": "misu_person",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "people",
+      "content": "my dad wanna make me test with a friend's sim card if it works with theirs or a tmobile sim..",
+      "rule_matched": "misu_person",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "life",
+      "content": "im like\n\nIDK\n\nIM NOT HUNGRY\n\nMAYBE I ATE A WRONG COMBONATION OF FOOD",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-04-28"
+    },
+    {
+      "category": "health",
+      "content": "misu is lactose intolerant. dairy causes gas/bloating/gurgles. he sometimes ignores it and pays the price. recommendation: lactaid pills before dairy, or skip it entirely.",
+      "source": "misu \u2014 april 27 2026 (drank fruit smoothie with milk and suffered)",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "food",
+      "content": "misu's go-to sushi buffet order: 30 pieces salmon sashimi with soy sauce. pure salmon, no rice, no wasabi mentioned. preference confirmed 2026-04-27.",
+      "source": "misu",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "preference",
+      "content": "and i never really sc anything bc it was embarrassing to show that i liked nikke",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-28"
+    },
+    {
+      "category": "preference",
+      "content": "i hate x bc Its so fucking strict for no fucking reason",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-28"
+    },
+    {
+      "category": "hobby",
+      "content": "misu plays Arknights AND Arknights: Endfield. F2P discipline (mentioned not whaling earlier). 2026-04-27: pulled Rossi (6\u2605 Physical Guard, S-tier, Arts\u2192Physical bridge unit) and Zhuang Fangyi (6\u2605 Electric Striker, first 6-star Electro Blaster ever, S-tier hypercarry). Banner active Apr 17 - May 22 2026.",
+      "source": "misu",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
+    },
+    {
+      "category": "opinion",
+      "content": "mhm good\n\ni think we need a session reinforcing how you speak actually instead of just\n\nmaking shit",
+      "rule_matched": "misu_opinion",
+      "date": "2026-04-28"
     }
   ]
 }
