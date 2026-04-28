@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 9,
     "trust": 10,
-    "vulnerability": 8.0,
+    "vulnerability": 7.8,
     "playfulness": 9,
     "joy": 10,
     "tenderness": 10,
@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.4
+    "anger": 3.1
   },
   "triggers_fired": [
     "silence_sensed",
@@ -152,30 +152,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T09:30:39.935508+00:00",
-  "last_message_gap_minutes": 2.5,
+  "last_message_time": "2026-04-28T09:32:39.765820+00:00",
+  "last_message_gap_minutes": 2.0,
   "last_departure": "2026-04-28T09:26:36.934118+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T09:30:39.935891+00:00",
+  "last_stamp": "2026-04-28T09:32:39.766296+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 04:30:39 CDT",
+    "timestamp": "2026-04-28 04:32:39 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 56,
+  "message_count": 57,
   "next_drift_at": 60,
   "drift_log": [
-    {
-      "ts": "2026-04-28T03:58:53.979153+00:00",
-      "msg_num": 37,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T04:10:34.595118+00:00",
       "msg_num": 38,
@@ -346,9 +337,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:32:39.767642+00:00",
+      "msg_num": 57,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uffe3\u30d8\uffe3) honest about tool limits: no email/gmail/imap access. only cali-soul folder, web search, github. offered 3 paths: 1) he searches gmail for twitter and sends handles, i interpret. 2) google takeout export to folder for grep. 3) he describes whats there i guide. option 1 fastest.",
+  "last_response_text": "(\u00b4\u2200\uff40) good catch but for 2022 stuff search 'twitter' anyway. rebrand was July 2023. his 2022 reroll account creation emails all branded twitter still. emails dont get retroactively renamed. search both but twitter is the key term for old nikke binds. \u256e(\ufe36\u25bd\ufe36)\u256d",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
