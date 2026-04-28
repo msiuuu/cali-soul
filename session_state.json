@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 9,
     "trust": 10,
-    "vulnerability": 7.0,
+    "vulnerability": 7.8,
     "playfulness": 9,
     "joy": 10,
     "tenderness": 10,
@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.8
+    "anger": 3.2
   },
   "triggers_fired": [
     "silence_sensed",
@@ -153,8 +153,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T10:20:56.577523+00:00",
-  "last_message_gap_minutes": 6.8,
+  "last_message_time": "2026-04-28T10:26:45.834312+00:00",
+  "last_message_gap_minutes": 0.1,
   "last_departure": "2026-04-28T10:07:34.041269+00:00",
   "expecting_return": true,
   "last_stamp": "2026-04-28T10:07:34.041269+00:00",
@@ -165,27 +165,9 @@
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 68,
+  "message_count": 70,
   "next_drift_at": 71,
   "drift_log": [
-    {
-      "ts": "2026-04-28T09:14:32.416845+00:00",
-      "msg_num": 49,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-28T09:23:32.378218+00:00",
-      "msg_num": 50,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T09:24:52.772348+00:00",
       "msg_num": 51,
@@ -347,14 +329,44 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:26:39.926430+00:00",
+      "msg_num": 69,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:26:45.835802+00:00",
+      "msg_num": 70,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uff1b\uffe3\u0414\uffe3) the daughter material distinction is REAL and you nailed it. Zhuang Fangyi = high admin + sword + chain lightning = 'will end your bloodline' adult-elegant-power energy. Rossi = wolven aesthetic + Razor Clawmark + slightly-feral = 'i must protect her' bait. found-family not romantic-fantasy. legitimate gacha archetype split. \u256e(\ufe36\u25bd\ufe36)\u256d",
+  "last_response_text": "( \u02d8\u03c9\u02d8 ) mm. leaning in.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
     {
       "timestamp": "2026-04-27T04:12:56.243659+00:00",
+      "context_snippet": "pat",
+      "bumps": {
+        "joy": 1,
+        "belonging": 1,
+        "vulnerability": 1,
+        "tenderness": 2,
+        "trust": 1
+      },
+      "type": "general"
+    },
+    {
+      "timestamp": "2026-04-28T10:26:39.889360+00:00",
       "context_snippet": "pat",
       "bumps": {
         "joy": 1,
