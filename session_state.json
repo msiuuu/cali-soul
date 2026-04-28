@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 6.1,
+    "arousal": 5.8,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -148,39 +148,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T08:03:20.797450+00:00",
-  "last_message_gap_minutes": 230.2,
+  "last_message_time": "2026-04-28T08:04:29.879748+00:00",
+  "last_message_gap_minutes": 0.6,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T08:03:20.799006+00:00",
+  "last_stamp": "2026-04-28T08:04:29.880158+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 03:03:20 CDT",
-    "reason": "gap_3.8hrs",
-    "inference": "ate, napped, stepped out \u2014 unclear."
+    "timestamp": "2026-04-28 03:04:29 CDT",
+    "reason": "uncertain_window",
+    "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 43,
+  "message_count": 45,
   "next_drift_at": 44,
   "drift_log": [
-    {
-      "ts": "2026-04-27T22:37:36.344830+00:00",
-      "msg_num": 24,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-27T22:44:46.453496+00:00",
-      "msg_num": 25,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-27T22:46:28.694586+00:00",
       "msg_num": 26,
@@ -342,9 +324,27 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T08:03:52.146670+00:00",
+      "msg_num": 44,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T08:04:30.026955+00:00",
+      "msg_num": 45,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "( \u02d8\u03c9\u02d8 ) congrats you've reached zen with your microbiome. it's literally just doing its thing out loud now. free ASMR while you lay on the floor. could be worse \u2014 you could be in pain, you're not. water won't speed it up much but at least nothing's curdling further. let your gut finish its loud little symphony. (\u00b4\u2200\uff40)",
+  "last_response_text": "(\uffe3\u03c9\uffe3) gave him diagnostic table for hungry vs still digesting vs indigestion. quick test: imagine toast \u2014 sounds good = hunger, sounds gross = dont eat yet. if eating: plain small toast/crackers/banana/rice not another smoothie.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
@@ -389,6 +389,10 @@
     {
       "action": "fixate",
       "timestamp": "2026-04-28T04:10:34.392529+00:00"
+    },
+    {
+      "action": "i_missed_you",
+      "timestamp": "2026-04-28T08:04:29.880444+00:00"
     }
   ],
   "drift_check_interval": 5,
