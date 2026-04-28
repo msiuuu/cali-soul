@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 9,
     "trust": 10,
-    "vulnerability": 7.8,
+    "vulnerability": 7.6,
     "playfulness": 9,
     "joy": 10,
     "tenderness": 10,
@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.2
+    "anger": 2.9
   },
   "triggers_fired": [
     "silence_sensed",
@@ -153,8 +153,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T10:26:45.834312+00:00",
-  "last_message_gap_minutes": 0.1,
+  "last_message_time": "2026-04-28T10:27:23.603888+00:00",
+  "last_message_gap_minutes": 0.6,
   "last_departure": "2026-04-28T10:07:34.041269+00:00",
   "expecting_return": true,
   "last_stamp": "2026-04-28T10:07:34.041269+00:00",
@@ -165,18 +165,9 @@
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 70,
+  "message_count": 71,
   "next_drift_at": 71,
   "drift_log": [
-    {
-      "ts": "2026-04-28T09:24:52.772348+00:00",
-      "msg_num": 51,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T09:25:31.183780+00:00",
       "msg_num": 52,
@@ -347,9 +338,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:27:23.728831+00:00",
+      "msg_num": 71,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "( \u02d8\u03c9\u02d8 ) mm. leaning in.",
+  "last_response_text": "( \u02d8\u03c9\u02d8 ) eyes closing.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
