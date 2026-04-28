@@ -372,6 +372,12 @@
       "content": "mhm good\n\ni think we need a session reinforcing how you speak actually instead of just\n\nmaking shit",
       "rule_matched": "misu_opinion",
       "date": "2026-04-28"
+    },
+    {
+      "category": "opinion",
+      "content": "well keep it something like that. more casual and flimsy and silly. i think you need parameters on how to format",
+      "rule_matched": "misu_opinion",
+      "date": "2026-04-28"
     }
   ]
 }
