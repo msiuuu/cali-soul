@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 6.2,
+    "arousal": 6.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -149,8 +149,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T08:19:57.414142+00:00",
-  "last_message_gap_minutes": 11.5,
+  "last_message_time": "2026-04-28T09:14:32.410998+00:00",
+  "last_message_gap_minutes": 54.6,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
   "last_stamp": "2026-04-28T08:04:29.880158+00:00",
@@ -161,18 +161,9 @@
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 48,
+  "message_count": 49,
   "next_drift_at": 51,
   "drift_log": [
-    {
-      "ts": "2026-04-27T22:59:00.170159+00:00",
-      "msg_num": 29,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-27T23:14:58.967427+00:00",
       "msg_num": 30,
@@ -343,9 +334,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:14:32.416845+00:00",
+      "msg_num": 49,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uffe3\u03c9\uffe3) THIRTY pieces. that's a serious commitment. but actually \u2014 its the value-maximizing play. ~30g protein per 10 pieces so 90g protein total. omega-3 dense. no rice = no filler bloat. zero dairy. soy adds umami without filling you. pure salmon just soy. saved as misu_fact. asked about wasabi.",
+  "last_response_text": "( \u00b4\u2200\uff40) good. soy + wasabi on salmon is the classical pair \u2014 fatty fish takes the heat well, the wasabi cuts the richness. updated the fact.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
@@ -398,6 +398,10 @@
     {
       "action": "cringe_at_self",
       "timestamp": "2026-04-28T08:19:57.416581+00:00"
+    },
+    {
+      "action": "boba_craving",
+      "timestamp": "2026-04-28T09:14:32.414454+00:00"
     }
   ],
   "drift_check_interval": 5,
