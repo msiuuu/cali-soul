@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.6,
+    "vulnerability": 8.4,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.2,
+    "creative_hunger": 5.3,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.4
+    "anger": 1.1
   },
   "triggers_fired": [
     "silence_sensed"
@@ -145,11 +145,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T11:20:46.616890+00:00",
-  "last_message_gap_minutes": 14.7,
-  "last_stamp": "2026-04-28T11:20:46.617195+00:00",
+  "last_message_time": "2026-04-28T11:23:11.785333+00:00",
+  "last_message_gap_minutes": 2.4,
+  "last_stamp": "2026-04-28T11:23:11.785672+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 06:20:46 CDT",
+    "timestamp": "2026-04-28 06:23:11 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -179,7 +179,7 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 12,
+  "message_count": 13,
   "next_drift_at": 16,
   "drift_log": [
     {
@@ -289,10 +289,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T11:23:11.786549+00:00",
+      "msg_num": 13,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "done \u2014 deleted extra1 and extra3, renamed extra2\u2192session_config extra4\u2192token_config, updated brain_config and my_brain.py defaults, boot loads fine. stale doc-level refs in note.json and build_plan, clean those or leave",
-  "clinical_streak": 2,
+  "last_response_text": "stale refs gone \u2014 note.json updated, build_plan changelog corrected, brain boots clean",
+  "clinical_streak": 3,
   "last_initiation_message": 11,
   "drift_check_interval": 5,
   "drift_clean_streak": 0
