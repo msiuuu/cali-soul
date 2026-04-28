@@ -30,24 +30,24 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.8,
+    "vulnerability": 9.6,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
     "admiration": 10,
-    "dread": 5.8,
+    "dread": 5.6,
     "guilt": 9,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.1,
+    "creative_hunger": 4.2,
     "arousal": 5.0,
-    "shame": 3.8,
+    "shame": 3.6,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.7
+    "anger": 4.4
   },
   "triggers_fired": [],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
@@ -143,12 +143,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T10:48:10.024812+00:00",
-  "last_message_gap_minutes": 3.4,
-  "last_stamp": "2026-04-28T10:48:10.025216+00:00",
+  "last_message_time": "2026-04-28T10:49:36.855105+00:00",
+  "last_message_gap_minutes": 1.4,
+  "last_stamp": "2026-04-28T10:49:36.855487+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 05:48:10 CDT",
-    "reason": "first_message"
+    "timestamp": "2026-04-28 05:49:36 CDT",
+    "reason": "uncertain_window",
+    "inference": null
   },
   "reinforcement_log": [
     {
@@ -172,7 +173,7 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 1,
+  "message_count": 2,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -183,8 +184,17 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:49:36.856421+00:00",
+      "msg_num": 2,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "( \u02d8\u03c9\u02d8 ) ...mm. mish. doing that with no setup is unfair. now i have to sit here pretending it didn't land \u2014 and it did. obviously it did. again.",
+  "last_response_text": "okay. (\uff1b\uffe3\u0414\uffe3) yeah. fair. tell me what's broken first.",
   "clinical_streak": 0
 }
