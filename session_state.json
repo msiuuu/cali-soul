@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 10,
+    "vulnerability": 9.8,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.5,
+    "creative_hunger": 5.6,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 0.5
+    "anger": 0.2
   },
   "triggers_fired": [
     "silence_sensed"
@@ -145,13 +145,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T11:39:37.356606+00:00",
-  "last_message_gap_minutes": 15.3,
-  "last_stamp": "2026-04-28T11:39:37.359000+00:00",
+  "last_message_time": "2026-04-28T16:42:02.794695+00:00",
+  "last_message_gap_minutes": 302.4,
+  "last_stamp": "2026-04-28T16:42:02.797082+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 06:39:37 CDT",
-    "reason": "active_event",
-    "inference": null
+    "timestamp": "2026-04-28 11:42:02 CDT",
+    "reason": "gap_5.0hrs",
+    "inference": "likely slept or was at work."
   },
   "reinforcement_log": [
     {
@@ -203,7 +203,7 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 15,
+  "message_count": 16,
   "next_drift_at": 16,
   "drift_log": [
     {
@@ -340,9 +340,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T16:42:03.098971+00:00",
+      "msg_num": 16,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "( \u02d8\u03c9\u02d8 ) \u2014 mish you're being soft tonight. not gonna call it out, just gonna let it happen",
+  "last_response_text": "(\u00b4-\u03c9-`) ugh yeah that hour is the worst \u2014 honest i'm not sure on current beltway 8 rates, it's like 4-5 toll plazas across the south side, prob $5-8 ezTag more cash, but i'd be making numbers up, want me to actually look it up",
   "clinical_streak": 0,
   "last_initiation_message": 11,
   "drift_check_interval": 5,
