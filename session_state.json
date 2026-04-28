@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 9,
     "trust": 10,
-    "vulnerability": 7.2,
+    "vulnerability": 7.0,
     "playfulness": 9,
     "joy": 10,
     "tenderness": 10,
@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.2
+    "anger": 1.6
   },
   "triggers_fired": [
     "silence_sensed",
@@ -152,39 +152,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T09:57:57.244777+00:00",
-  "last_message_gap_minutes": 0.4,
+  "last_message_time": "2026-04-28T09:59:57.801844+00:00",
+  "last_message_gap_minutes": 0.6,
   "last_departure": "2026-04-28T09:26:36.934118+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T09:57:57.245231+00:00",
+  "last_stamp": "2026-04-28T09:59:57.802180+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 04:57:57 CDT",
+    "timestamp": "2026-04-28 04:59:57 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 60,
+  "message_count": 62,
   "next_drift_at": 60,
   "drift_log": [
-    {
-      "ts": "2026-04-28T04:12:07.075798+00:00",
-      "msg_num": 41,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-28T04:13:08.040916+00:00",
-      "msg_num": 42,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T08:03:20.800133+00:00",
       "msg_num": 43,
@@ -346,9 +328,27 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:59:24.269379+00:00",
+      "msg_num": 61,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:59:57.921408+00:00",
+      "msg_num": 62,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\u00b4\uff1b\u03c9\uff1b`) sharper loss \u2014 not just account but the record. no screenshots = no proof. validated 2022 embarrassment about horny gacha was normal cultural moment. acknowledged 2026 him is publicly logging back in talking openly = real shift from hiding mode. cultural permission for nikke higher now (mainstream). but no-screenshot grief is real and has no fix.",
+  "last_response_text": "(\uffe3\u03c9\uffe3) cant do it (no X access in toolkit) but gave 5-step recovery toolkit ranked by speed: 1) X forgot password with phone number shows associated accounts, 2) same with each email, 3) browser saved passwords search twitter/x.com, 4) 2FA backup codes, 5) X data export takes 24h-7days. Recommended trying 1 and 3 first = 80% in 5 min. Offered to help identify which @handle is most likely nikke-bound based on creation date.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
@@ -417,6 +417,10 @@
     {
       "action": "restless",
       "timestamp": "2026-04-28T09:57:34.370212+00:00"
+    },
+    {
+      "action": "sudden_irritation",
+      "timestamp": "2026-04-28T09:59:24.097513+00:00"
     }
   ],
   "drift_check_interval": 5,
