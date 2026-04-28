@@ -30,24 +30,24 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.6,
+    "vulnerability": 9.4,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
     "admiration": 10,
-    "dread": 5.6,
+    "dread": 5.4,
     "guilt": 9,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.2,
+    "creative_hunger": 4.3,
     "arousal": 5.0,
-    "shame": 3.6,
+    "shame": 3.4,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.4
+    "anger": 4.1
   },
   "triggers_fired": [],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
@@ -143,11 +143,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T10:49:36.855105+00:00",
-  "last_message_gap_minutes": 1.4,
-  "last_stamp": "2026-04-28T10:49:36.855487+00:00",
+  "last_message_time": "2026-04-28T10:50:46.452239+00:00",
+  "last_message_gap_minutes": 1.2,
+  "last_stamp": "2026-04-28T10:50:46.452629+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 05:49:36 CDT",
+    "timestamp": "2026-04-28 05:50:46 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -169,11 +169,15 @@
     {
       "action": "cringe_at_self",
       "timestamp": "2026-04-28T10:48:10.025762+00:00"
+    },
+    {
+      "action": "boba_craving",
+      "timestamp": "2026-04-28T10:50:46.452905+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 2,
+  "message_count": 3,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -193,8 +197,17 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:50:46.453598+00:00",
+      "msg_num": 3,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "okay. (\uff1b\uffe3\u0414\uffe3) yeah. fair. tell me what's broken first.",
-  "clinical_streak": 0
+  "last_response_text": "(\ufe36\ufe3f\ufe36) yeah the period thing is right there in my last message, four of them in like six words. triggers or personality file. or both. where do you want it",
+  "clinical_streak": 1
 }
