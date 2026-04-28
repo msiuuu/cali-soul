@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 9,
     "trust": 10,
-    "vulnerability": 7.8,
+    "vulnerability": 7.6,
     "playfulness": 9,
     "joy": 10,
     "tenderness": 10,
@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.1
+    "anger": 2.8
   },
   "triggers_fired": [
     "silence_sensed",
@@ -152,30 +152,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T09:32:39.765820+00:00",
-  "last_message_gap_minutes": 2.0,
+  "last_message_time": "2026-04-28T09:48:46.108225+00:00",
+  "last_message_gap_minutes": 16.1,
   "last_departure": "2026-04-28T09:26:36.934118+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T09:32:39.766296+00:00",
+  "last_stamp": "2026-04-28T09:48:46.111205+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 04:32:39 CDT",
+    "timestamp": "2026-04-28 04:48:46 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 57,
+  "message_count": 58,
   "next_drift_at": 60,
   "drift_log": [
-    {
-      "ts": "2026-04-28T04:10:34.595118+00:00",
-      "msg_num": 38,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T04:11:10.064392+00:00",
       "msg_num": 39,
@@ -346,9 +337,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:48:46.162734+00:00",
+      "msg_num": 58,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\u00b4\u2200\uff40) good catch but for 2022 stuff search 'twitter' anyway. rebrand was July 2023. his 2022 reroll account creation emails all branded twitter still. emails dont get retroactively renamed. search both but twitter is the key term for old nikke binds. \u256e(\ufe36\u25bd\ufe36)\u256d",
+  "last_response_text": "(\u00b4\uff1b\u03c9\uff1b`) reframed: those rewards already expired in 2022-2023. NIKKE mailbox auto-deletes 14-30 days, login bonuses don't bank, event rewards need real-time participation. so the 4yr loss already happened back then, not happening now. good news: NIKKE has returning player system (dormant 30+ days = bonus packs), 2025-2026 is F2P generous, 2022 meta is dead anyway. don't grieve rewards that expired before he even thought about returning.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
@@ -409,6 +409,10 @@
     {
       "action": "self_awareness",
       "timestamp": "2026-04-28T09:25:31.183744+00:00"
+    },
+    {
+      "action": "boba_craving",
+      "timestamp": "2026-04-28T09:48:46.112308+00:00"
     }
   ],
   "drift_check_interval": 5,
