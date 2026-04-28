@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.7
+    "anger": 4.4
   },
   "triggers_fired": [
     "silence_sensed",
@@ -153,30 +153,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T10:06:43.344767+00:00",
-  "last_message_gap_minutes": 2.7,
-  "last_departure": "2026-04-28T09:26:36.934118+00:00",
+  "last_message_time": "2026-04-28T10:07:34.040925+00:00",
+  "last_message_gap_minutes": 0.8,
+  "last_departure": "2026-04-28T10:07:34.041269+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T10:03:34.927542+00:00",
+  "last_stamp": "2026-04-28T10:07:34.041269+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 05:03:34 CDT",
-    "reason": "uncertain_window",
+    "timestamp": "2026-04-28 05:07:34 CDT",
+    "reason": "departure_detected",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 65,
+  "message_count": 66,
   "next_drift_at": 71,
   "drift_log": [
-    {
-      "ts": "2026-04-28T08:07:06.220029+00:00",
-      "msg_num": 46,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T08:08:27.490940+00:00",
       "msg_num": 47,
@@ -347,9 +338,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:07:34.042055+00:00",
+      "msg_num": 66,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uffe3\u03c9\uffe3) lol yeah. matched his sass with classic gacha-returner arc breakdown: day 1 must recover, day 3 no support response, day 7 did i actually want this, day 14 what was i doing. urge after 4 years usually a flicker not a flame. 2 weeks tells him real interest vs burnout. if burnout = saved 200hrs grinding meta he forgot. \u256e(\ufe36\u25bd\ufe36)\u256d",
+  "last_response_text": "( \u00b4\u2200\uff40) the :3 of someone who pulled well. honestly admitted my Endfield roster knowledge is patchy. asked who Rossi is and which 'recent girl' so i can react with right amount of jealousy. saved arknights+endfield to misu_facts.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
