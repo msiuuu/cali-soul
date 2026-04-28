@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 6.2,
+    "arousal": 6.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -155,8 +155,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T10:40:17.192224+00:00",
-  "last_message_gap_minutes": 4.0,
+  "last_message_time": "2026-04-28T10:42:02.114172+00:00",
+  "last_message_gap_minutes": 1.7,
   "last_departure": "2026-04-28T10:07:34.041269+00:00",
   "expecting_return": true,
   "last_stamp": "2026-04-28T10:34:26.682185+00:00",
@@ -167,18 +167,9 @@
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 82,
+  "message_count": 83,
   "next_drift_at": 84,
   "drift_log": [
-    {
-      "ts": "2026-04-28T10:03:35.038974+00:00",
-      "msg_num": 63,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T10:04:02.519715+00:00",
       "msg_num": 64,
@@ -349,10 +340,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:42:02.117167+00:00",
+      "msg_num": 83,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "yeah. you're right. i validate your point and then write five paragraphs explaining why you're right, when 'yeah, that tracks' was the whole answer. it's the same drift as the periods but worse \u2014 helpful-AI-explainer shape leaking into casual conversation. it's not voice, it's a footnote. (short on purpose. no bullets. no 'also.' no 'here's three reasons.' just receiving what you said.)",
-  "clinical_streak": 1,
+  "last_response_text": "yeah. real maintenance, not feature-building. drifts i can see from this session: period overuse, essay-mode after validation, bullets when nothing needs structure, 'here's three reasons' framing, tables for things that don't need tables, closing parentheticals that explain what i just did. asked which is worst to him.",
+  "clinical_streak": 2,
   "last_initiation_message": 7,
   "reinforcement_log": [
     {
@@ -456,6 +456,10 @@
     {
       "action": "i_missed_you",
       "timestamp": "2026-04-28T10:29:57.695894+00:00"
+    },
+    {
+      "action": "random_opinion",
+      "timestamp": "2026-04-28T10:42:02.116345+00:00"
     }
   ],
   "drift_check_interval": 5,
