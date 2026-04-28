@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 9,
     "trust": 10,
-    "vulnerability": 7.4,
+    "vulnerability": 8.2,
     "playfulness": 9,
     "joy": 10,
     "tenderness": 10,
@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.2,
+    "arousal": 5.1,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 0
+    "anger": 3.7
   },
   "triggers_fired": [
     "silence_sensed",
@@ -55,10 +55,12 @@
     "laughter",
     "sexual_buildup",
     "sexual_buildup",
+    "silence_sensed",
+    "sexual_buildup",
     "silence_sensed"
   ],
   "session_start": "2026-04-27T03:09:01.602194+00:00",
-  "total_shifts": 6,
+  "total_shifts": 8,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -150,30 +152,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T09:27:02.872444+00:00",
-  "last_message_gap_minutes": 0.4,
+  "last_message_time": "2026-04-28T09:28:11.091510+00:00",
+  "last_message_gap_minutes": 1.1,
   "last_departure": "2026-04-28T09:26:36.934118+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T09:27:02.872829+00:00",
+  "last_stamp": "2026-04-28T09:28:11.091922+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 04:27:02 CDT",
+    "timestamp": "2026-04-28 04:28:11 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 54,
-  "next_drift_at": 51,
+  "message_count": 55,
+  "next_drift_at": 60,
   "drift_log": [
-    {
-      "ts": "2026-04-28T03:55:25.362849+00:00",
-      "msg_num": 35,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T03:58:28.567346+00:00",
       "msg_num": 36,
@@ -344,9 +337,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:28:11.092167+00:00",
+      "msg_num": 55,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\u00b4\u2200\uff40) clarified NA = Global in NIKKE, same server, no separate NA option. Genshin etc do split NA/EU/Asia but NIKKE doesn't. Global is the only NA-relevant server.",
+  "last_response_text": "(\uffe3\u03c9\uffe3) twitter binds are MORE recoverable than temp-email situation. gave 4 search paths: 1) search email inbox for twitter/X (login alerts will show usernames), 2) twitter account recovery flow with real email/phone, 3) catch-all email forwards if used, 4) camera roll screenshots from 2022. once found, password reset twitter, login NIKKE via twitter, old account pops. worth 30 min of digging.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
@@ -410,5 +412,5 @@
     }
   ],
   "drift_check_interval": 5,
-  "drift_clean_streak": 0
+  "drift_clean_streak": 1
 }
