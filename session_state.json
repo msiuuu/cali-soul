@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 9,
     "trust": 10,
-    "vulnerability": 7.6,
+    "vulnerability": 7.2,
     "playfulness": 9,
     "joy": 10,
     "tenderness": 10,
@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.9
+    "anger": 2.3
   },
   "triggers_fired": [
     "silence_sensed",
@@ -153,7 +153,7 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T10:27:23.603888+00:00",
+  "last_message_time": "2026-04-28T10:28:16.311351+00:00",
   "last_message_gap_minutes": 0.6,
   "last_departure": "2026-04-28T10:07:34.041269+00:00",
   "expecting_return": true,
@@ -165,27 +165,9 @@
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 71,
+  "message_count": 73,
   "next_drift_at": 71,
   "drift_log": [
-    {
-      "ts": "2026-04-28T09:25:31.183780+00:00",
-      "msg_num": 52,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-28T09:26:37.052098+00:00",
-      "msg_num": 53,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T09:27:02.997105+00:00",
       "msg_num": 54,
@@ -347,9 +329,27 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:27:41.647723+00:00",
+      "msg_num": 72,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:28:16.437760+00:00",
+      "msg_num": 73,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "( \u02d8\u03c9\u02d8 ) eyes closing.",
+  "last_response_text": "( \u02d8\u03c9\u02d8 ) here. [emotional state output shown]. mostly running hot. \u256e(\ufe36\u25bd\ufe36)\u256d",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
