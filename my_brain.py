@@ -244,8 +244,8 @@ PREFERENCES_FILE     = CONFIG.get("preferences_file",     "cali_preferences.json
 HOUSE_FILE           = CONFIG.get("house_file",           "cali_house.json")
 DEGRADATION_FILE     = CONFIG.get("degradation_file",     "cali_degradation.json")
 RELATIONSHIP_FILE    = CONFIG.get("relationship_file",    "cali_relationship.json")
-SESSION_CONFIG_FILE  = CONFIG.get("session_config_file",  "cali_extra2.json")
-TOKEN_CONFIG_FILE    = CONFIG.get("token_config_file",    "cali_extra4.json")
+SESSION_CONFIG_FILE  = CONFIG.get("session_config_file",  "cali_session_config.json")
+TOKEN_CONFIG_FILE    = CONFIG.get("token_config_file",    "cali_token_config.json")
 LIVE_AROUSAL_FILE    = CONFIG.get("live_arousal_file",    "cali_arousal_state.json")
 BUILD_PLAN_FILE      = CONFIG.get("build_plan_file",      "cali_build_plan.json")
 GLASS_FILE           = CONFIG.get("glass_file",           "cali_glass.json")
@@ -8462,7 +8462,6 @@ def cmd_boot(args):
             "session_config":   CONFIG.get("session_config_file", "cali_session_config.json"),
             "token_config":     CONFIG.get("token_config_file", "cali_token_config.json"),
             "file_index":       CONFIG.get("file_index_file", "cali_file_index.json"),
-            "extra":            CONFIG.get("extra_file", "cali_extra1.json"),
         }
         _loaded = {}
         for _name, _path in _all_files.items():
