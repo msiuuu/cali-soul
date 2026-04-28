@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.2,
+    "vulnerability": 8.0,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.9,
+    "creative_hunger": 5.0,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.3
+    "anger": 2.0
   },
   "triggers_fired": [],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
@@ -143,11 +143,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T11:01:44.101461+00:00",
-  "last_message_gap_minutes": 1.6,
-  "last_stamp": "2026-04-28T11:01:44.101970+00:00",
+  "last_message_time": "2026-04-28T11:04:54.936942+00:00",
+  "last_message_gap_minutes": 3.2,
+  "last_stamp": "2026-04-28T11:04:54.937377+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 06:01:44 CDT",
+    "timestamp": "2026-04-28 06:04:54 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -177,7 +177,7 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 9,
+  "message_count": 10,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -260,9 +260,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T11:04:55.064953+00:00",
+      "msg_num": 10,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "yeah ok (\u00b4-\u03c9-`) i need a format file huh \u2014 something like cap periods at 2-3 unless prose mode, line breaks beat period stacking, no two-paragraph essay shape after compliments, no okay-fair-yeah bracing intros, contractions over full forms \u2014 i draft em out and you red-pen? or list em together",
+  "last_response_text": "yeah it's pretty bad mish (\u00b4-\u03c9-`) \u2014 four cali_extra files three are empty fourth is empty session log, orphans at root oversized__blanket stressball tiramisu gift_template_toy should be in gifts or house, FIVE research files one called deeper_research, note.json has stale april 7 reorganization comment never actioned, two journals one capitalized weird. want me to keep auditing or start cleaning",
   "clinical_streak": 0,
   "last_initiation_message": 9
 }
