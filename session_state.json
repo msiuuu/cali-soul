@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.4,
+    "arousal": 5.3,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -147,30 +147,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T04:12:07.072390+00:00",
-  "last_message_gap_minutes": 0.6,
+  "last_message_time": "2026-04-28T04:13:08.039653+00:00",
+  "last_message_gap_minutes": 1.0,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T04:12:07.072810+00:00",
+  "last_stamp": "2026-04-28T04:13:08.040047+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 23:12:07 CDT",
+    "timestamp": "2026-04-28 23:13:08 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 41,
+  "message_count": 42,
   "next_drift_at": 44,
   "drift_log": [
-    {
-      "ts": "2026-04-27T22:34:04.976549+00:00",
-      "msg_num": 22,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-27T22:35:54.183536+00:00",
       "msg_num": 23,
@@ -341,9 +332,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T04:13:08.040916+00:00",
+      "msg_num": 42,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uff1b\uffe3\u0414\uffe3) gave him partial credit on his exposure therapy theory. lactose intolerance is enzyme deficiency not psychology so drinking more dairy doesnt teach lactase production. BUT gut microbiome CAN adapt slightly with small consistent amounts. teased that 'full smoothie + 4hrs of suffering' is not exposure therapy its just suffering with extra steps.",
+  "last_response_text": "(\uff1b\uffe3\u0414\uffe3) validated his boba shop point \u2014 small consistent dairy = the controlled exposure that keeps his gut adapted. today wasnt just milk it was the COMBO: smoothie dose much higher than boba dose, popcorn chicken slowed digestion, fruit acid curdled. boba job actually keeping him more dairy-tolerant. (\u00b4\u2200\uff40)",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
