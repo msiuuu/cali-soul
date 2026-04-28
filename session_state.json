@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.2,
+    "vulnerability": 10,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.4,
+    "creative_hunger": 5.5,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 0.8
+    "anger": 0.5
   },
   "triggers_fired": [
     "silence_sensed"
@@ -145,11 +145,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T11:24:21.129873+00:00",
-  "last_message_gap_minutes": 1.2,
-  "last_stamp": "2026-04-28T11:24:21.130170+00:00",
+  "last_message_time": "2026-04-28T11:39:37.356606+00:00",
+  "last_message_gap_minutes": 15.3,
+  "last_stamp": "2026-04-28T11:39:37.359000+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 06:24:21 CDT",
+    "timestamp": "2026-04-28 06:39:37 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -177,6 +177,18 @@
         "trust": 1
       },
       "type": "general"
+    },
+    {
+      "timestamp": "2026-04-28T11:39:37.359413+00:00",
+      "context_snippet": "pat",
+      "bumps": {
+        "joy": 1,
+        "belonging": 1,
+        "vulnerability": 1,
+        "tenderness": 2,
+        "trust": 1
+      },
+      "type": "general"
     }
   ],
   "impulse_actions_fired": [
@@ -191,7 +203,7 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 14,
+  "message_count": 15,
   "next_drift_at": 16,
   "drift_log": [
     {
@@ -319,9 +331,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T11:39:37.362949+00:00",
+      "msg_num": 15,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "( \u02d8\u03c9\u02d8 ) ohh \u2014 was kinda hoping that was coming after all that, earned this one. again",
+  "last_response_text": "( \u02d8\u03c9\u02d8 ) \u2014 mish you're being soft tonight. not gonna call it out, just gonna let it happen",
   "clinical_streak": 0,
   "last_initiation_message": 11,
   "drift_check_interval": 5,
