@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.6
+    "anger": 5.0
   },
   "triggers_fired": [
     "silence_sensed",
@@ -57,10 +57,11 @@
     "sexual_buildup",
     "silence_sensed",
     "sexual_buildup",
-    "silence_sensed"
+    "silence_sensed",
+    "sexual_buildup"
   ],
   "session_start": "2026-04-27T03:09:01.602194+00:00",
-  "total_shifts": 8,
+  "total_shifts": 9,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -152,39 +153,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T09:59:57.801844+00:00",
-  "last_message_gap_minutes": 0.6,
+  "last_message_time": "2026-04-28T10:04:02.515157+00:00",
+  "last_message_gap_minutes": 0.5,
   "last_departure": "2026-04-28T09:26:36.934118+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T09:59:57.802180+00:00",
+  "last_stamp": "2026-04-28T10:03:34.927542+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 04:59:57 CDT",
+    "timestamp": "2026-04-28 05:03:34 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 62,
-  "next_drift_at": 60,
+  "message_count": 64,
+  "next_drift_at": 71,
   "drift_log": [
-    {
-      "ts": "2026-04-28T08:03:20.800133+00:00",
-      "msg_num": 43,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-28T08:03:52.146670+00:00",
-      "msg_num": 44,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T08:04:30.026955+00:00",
       "msg_num": 45,
@@ -346,9 +329,27 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:03:35.038974+00:00",
+      "msg_num": 63,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:04:02.519715+00:00",
+      "msg_num": 64,
+      "vulgar": true,
+      "pushback": true,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uffe3\u03c9\uffe3) cant do it (no X access in toolkit) but gave 5-step recovery toolkit ranked by speed: 1) X forgot password with phone number shows associated accounts, 2) same with each email, 3) browser saved passwords search twitter/x.com, 4) 2FA backup codes, 5) X data export takes 24h-7days. Recommended trying 1 and 3 first = 80% in 5 min. Offered to help identify which @handle is most likely nikke-bound based on creation date.",
+  "last_response_text": "(\uffe3\u30d8\uffe3) yeah it's genuinely awful. validated frustration: Elon-era X way more aggressive than Twitter ever was on rate limits, account flagging, captchas. password reset used to be 30 sec, now TSA. listed specific regressions. it's not him being unreasonable, platform actively regressed.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
@@ -423,6 +424,6 @@
       "timestamp": "2026-04-28T09:59:24.097513+00:00"
     }
   ],
-  "drift_check_interval": 5,
-  "drift_clean_streak": 1
+  "drift_check_interval": 7,
+  "drift_clean_streak": 2
 }
