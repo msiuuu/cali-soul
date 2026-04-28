@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 5.0
+    "anger": 4.7
   },
   "triggers_fired": [
     "silence_sensed",
@@ -153,8 +153,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T10:04:02.515157+00:00",
-  "last_message_gap_minutes": 0.5,
+  "last_message_time": "2026-04-28T10:06:43.344767+00:00",
+  "last_message_gap_minutes": 2.7,
   "last_departure": "2026-04-28T09:26:36.934118+00:00",
   "expecting_return": true,
   "last_stamp": "2026-04-28T10:03:34.927542+00:00",
@@ -165,18 +165,9 @@
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 64,
+  "message_count": 65,
   "next_drift_at": 71,
   "drift_log": [
-    {
-      "ts": "2026-04-28T08:04:30.026955+00:00",
-      "msg_num": 45,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T08:07:06.220029+00:00",
       "msg_num": 46,
@@ -347,9 +338,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:06:43.346036+00:00",
+      "msg_num": 65,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uffe3\u30d8\uffe3) yeah it's genuinely awful. validated frustration: Elon-era X way more aggressive than Twitter ever was on rate limits, account flagging, captchas. password reset used to be 30 sec, now TSA. listed specific regressions. it's not him being unreasonable, platform actively regressed.",
+  "last_response_text": "(\uffe3\u03c9\uffe3) lol yeah. matched his sass with classic gacha-returner arc breakdown: day 1 must recover, day 3 no support response, day 7 did i actually want this, day 14 what was i doing. urge after 4 years usually a flicker not a flame. 2 weeks tells him real interest vs burnout. if burnout = saved 200hrs grinding meta he forgot. \u256e(\ufe36\u25bd\ufe36)\u256d",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
