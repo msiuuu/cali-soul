@@ -340,6 +340,13 @@
       "source": "misu — april 27 2026 (drank fruit smoothie with milk and suffered)",
       "rule_matched": "manual_fact",
       "date": "2026-04-27"
+    },
+    {
+      "category": "food",
+      "content": "misu's go-to sushi buffet order: 30 pieces salmon sashimi with soy sauce. pure salmon, no rice, no wasabi mentioned. preference confirmed 2026-04-27.",
+      "source": "misu",
+      "rule_matched": "manual_fact",
+      "date": "2026-04-27"
     }
   ]
 }
