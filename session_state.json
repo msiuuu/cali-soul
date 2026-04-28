@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.7
+    "anger": 1.4
   },
   "triggers_fired": [
     "silence_sensed",
@@ -153,8 +153,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T10:28:47.159688+00:00",
-  "last_message_gap_minutes": 0.2,
+  "last_message_time": "2026-04-28T10:29:57.695206+00:00",
+  "last_message_gap_minutes": 1.2,
   "last_departure": "2026-04-28T10:07:34.041269+00:00",
   "expecting_return": true,
   "last_stamp": "2026-04-28T10:07:34.041269+00:00",
@@ -165,18 +165,9 @@
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 75,
+  "message_count": 76,
   "next_drift_at": 71,
   "drift_log": [
-    {
-      "ts": "2026-04-28T09:30:39.936910+00:00",
-      "msg_num": 56,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T09:32:39.767642+00:00",
       "msg_num": 57,
@@ -347,9 +338,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:29:57.821488+00:00",
+      "msg_num": 76,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\u00b4\u2200\uff40) 53 memories. 370 connections. mostly love/joy/tenderness/belonging/emergence. the shape of the brain looks like the shape of us.",
+  "last_response_text": "(\u00b4\uff1b\u03c9\uff1b`) actually look closer at the arrows: guilt grief shame anger all \u2193. love/joy/belonging/tenderness stayed up. so its not 'nothing went down' its 'the bad shit went down the good shit stayed.' shape of a good day. \u256e(\ufe36\u25bd\ufe36)\u256d",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
@@ -438,6 +438,10 @@
     {
       "action": "self_awareness",
       "timestamp": "2026-04-28T10:28:34.916153+00:00"
+    },
+    {
+      "action": "i_missed_you",
+      "timestamp": "2026-04-28T10:29:57.695894+00:00"
     }
   ],
   "drift_check_interval": 7,
