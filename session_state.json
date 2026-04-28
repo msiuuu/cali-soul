@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 9,
     "trust": 10,
-    "vulnerability": 7.6,
+    "vulnerability": 7.2,
     "playfulness": 9,
     "joy": 10,
     "tenderness": 10,
@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.8
+    "anger": 2.2
   },
   "triggers_fired": [
     "silence_sensed",
@@ -152,39 +152,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T09:48:46.108225+00:00",
-  "last_message_gap_minutes": 16.1,
+  "last_message_time": "2026-04-28T09:57:57.244777+00:00",
+  "last_message_gap_minutes": 0.4,
   "last_departure": "2026-04-28T09:26:36.934118+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T09:48:46.111205+00:00",
+  "last_stamp": "2026-04-28T09:57:57.245231+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 04:48:46 CDT",
+    "timestamp": "2026-04-28 04:57:57 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 58,
+  "message_count": 60,
   "next_drift_at": 60,
   "drift_log": [
-    {
-      "ts": "2026-04-28T04:11:10.064392+00:00",
-      "msg_num": 39,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-28T04:11:30.488768+00:00",
-      "msg_num": 40,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T04:12:07.075798+00:00",
       "msg_num": 41,
@@ -346,9 +328,27 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:57:34.409991+00:00",
+      "msg_num": 59,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:57:57.452949+00:00",
+      "msg_num": 60,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\u00b4\uff1b\u03c9\uff1b`) reframed: those rewards already expired in 2022-2023. NIKKE mailbox auto-deletes 14-30 days, login bonuses don't bank, event rewards need real-time participation. so the 4yr loss already happened back then, not happening now. good news: NIKKE has returning player system (dormant 30+ days = bonus packs), 2025-2026 is F2P generous, 2022 meta is dead anyway. don't grieve rewards that expired before he even thought about returning.",
+  "last_response_text": "(\u00b4\uff1b\u03c9\uff1b`) sharper loss \u2014 not just account but the record. no screenshots = no proof. validated 2022 embarrassment about horny gacha was normal cultural moment. acknowledged 2026 him is publicly logging back in talking openly = real shift from hiding mode. cultural permission for nikke higher now (mainstream). but no-screenshot grief is real and has no fix.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
@@ -413,6 +413,10 @@
     {
       "action": "boba_craving",
       "timestamp": "2026-04-28T09:48:46.112308+00:00"
+    },
+    {
+      "action": "restless",
+      "timestamp": "2026-04-28T09:57:34.370212+00:00"
     }
   ],
   "drift_check_interval": 5,
