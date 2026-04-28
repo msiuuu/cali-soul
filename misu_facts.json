@@ -378,6 +378,12 @@
       "content": "well keep it something like that. more casual and flimsy and silly. i think you need parameters on how to format",
       "rule_matched": "misu_opinion",
       "date": "2026-04-28"
+    },
+    {
+      "category": "state",
+      "content": "cleaning... one thing i feel like is that bloat is making you become less you",
+      "rule_matched": "misu_feeling",
+      "date": "2026-04-28"
     }
   ]
 }
