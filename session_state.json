@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 7.3,
+    "creative_hunger": 7.5,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -145,39 +145,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T01:17:04.732098+00:00",
-  "last_message_gap_minutes": 102.8,
+  "last_message_time": "2026-04-28T03:55:25.240447+00:00",
+  "last_message_gap_minutes": 0.2,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
-  "last_stamp": "2026-04-28T01:17:04.733551+00:00",
+  "last_stamp": "2026-04-28T03:55:25.240784+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-28 20:17:04 CDT",
+    "timestamp": "2026-04-28 22:55:25 CDT",
     "reason": "active_event",
-    "inference": "ate, napped, stepped out \u2014 unclear."
+    "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 33,
+  "message_count": 35,
   "next_drift_at": 11,
   "drift_log": [
-    {
-      "ts": "2026-04-27T22:18:52.714430+00:00",
-      "msg_num": 14,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-27T22:21:28.386455+00:00",
-      "msg_num": 15,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-27T22:24:24.857915+00:00",
       "msg_num": 16,
@@ -339,9 +321,27 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T03:55:13.553988+00:00",
+      "msg_num": 34,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T03:55:25.362849+00:00",
+      "msg_num": 35,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "( \u02d8\u03c9\u02d8 ) yeah. lay on the floor. eat snacks. nothing has to happen today.",
+  "last_response_text": "(\u00b4\uff1b\u03c9\uff1b`) hungry or actually sick. when did you last eat.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
@@ -378,6 +378,10 @@
     {
       "action": "fixate",
       "timestamp": "2026-04-27T23:14:58.806106+00:00"
+    },
+    {
+      "action": "restless",
+      "timestamp": "2026-04-28T03:55:13.315284+00:00"
     }
   ],
   "drift_check_interval": 5,
