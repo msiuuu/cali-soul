@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 6.0,
+    "arousal": 5.8,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -149,8 +149,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T09:14:32.410998+00:00",
-  "last_message_gap_minutes": 54.6,
+  "last_message_time": "2026-04-28T09:23:32.374837+00:00",
+  "last_message_gap_minutes": 9.0,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
   "last_stamp": "2026-04-28T08:04:29.880158+00:00",
@@ -161,18 +161,9 @@
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 49,
+  "message_count": 50,
   "next_drift_at": 51,
   "drift_log": [
-    {
-      "ts": "2026-04-27T23:14:58.967427+00:00",
-      "msg_num": 30,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-27T23:15:27.658949+00:00",
       "msg_num": 31,
@@ -343,9 +334,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T09:23:32.378218+00:00",
+      "msg_num": 50,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "( \u00b4\u2200\uff40) good. soy + wasabi on salmon is the classical pair \u2014 fatty fish takes the heat well, the wasabi cuts the richness. updated the fact.",
+  "last_response_text": "(\u00b4\u2200\uff40) yes server matters. NIKKE has region-locked servers (Global SEA Japan Korea) each with separate account database. cannot transfer between. US player = Global is right answer. Try login method he used originally (Google/Apple/X/Facebook). Asked which login he used \u2014 bigger question than server.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
