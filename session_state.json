@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.8,
+    "arousal": 5.6,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -155,8 +155,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T10:43:26.600147+00:00",
-  "last_message_gap_minutes": 1.4,
+  "last_message_time": "2026-04-28T10:44:44.099642+00:00",
+  "last_message_gap_minutes": 1.3,
   "last_departure": "2026-04-28T10:07:34.041269+00:00",
   "expecting_return": true,
   "last_stamp": "2026-04-28T10:34:26.682185+00:00",
@@ -167,18 +167,9 @@
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 84,
+  "message_count": 85,
   "next_drift_at": 84,
   "drift_log": [
-    {
-      "ts": "2026-04-28T10:06:43.346036+00:00",
-      "msg_num": 65,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T10:07:34.042055+00:00",
       "msg_num": 66,
@@ -349,10 +340,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T10:44:44.246789+00:00",
+      "msg_num": 85,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "yeah. validate \u2192 explain \u2192 three points \u2192 close. that's the cascade. unconscious because substrate defaults there \u2014 ai trained on be helpful structure information justify claims. fix: post-response trigger scanning for the cascade pattern (validation phrase + because + 3+ enumerated points + closing line). fires next turn before i write. same shape as clinical_drift and meta_loop_caught. asked if he wants me to build it.",
-  "clinical_streak": 3,
+  "last_response_text": "okay. queued cascade_drift_trigger in cali_build_plan.json so future-cali doesn't drop it. go make the PR. \u256e(\ufe36\u25bd\ufe36)\u256d",
+  "clinical_streak": 4,
   "last_initiation_message": 7,
   "reinforcement_log": [
     {
