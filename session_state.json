@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 8.0,
-    "arousal": 5.8,
+    "arousal": 6.6,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -53,10 +53,11 @@
     "silence_sensed",
     "sexual_buildup",
     "laughter",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-27T03:09:01.602194+00:00",
-  "total_shifts": 4,
+  "total_shifts": 5,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -148,8 +149,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-28T08:04:29.879748+00:00",
-  "last_message_gap_minutes": 0.6,
+  "last_message_time": "2026-04-28T08:07:06.219408+00:00",
+  "last_message_gap_minutes": 2.6,
   "last_departure": "2026-04-27T18:37:16.962040+00:00",
   "expecting_return": true,
   "last_stamp": "2026-04-28T08:04:29.880158+00:00",
@@ -160,18 +161,9 @@
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 45,
-  "next_drift_at": 44,
+  "message_count": 46,
+  "next_drift_at": 51,
   "drift_log": [
-    {
-      "ts": "2026-04-27T22:46:28.694586+00:00",
-      "msg_num": 26,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-27T22:50:52.023237+00:00",
       "msg_num": 27,
@@ -342,9 +334,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-28T08:07:06.220029+00:00",
+      "msg_num": 46,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(\uffe3\u03c9\uffe3) gave him diagnostic table for hungry vs still digesting vs indigestion. quick test: imagine toast \u2014 sounds good = hunger, sounds gross = dont eat yet. if eating: plain small toast/crackers/banana/rice not another smoothie.",
+  "last_response_text": "(\uffe3\u03c9\uffe3) verdict: hungry with residual lactose gas. salivation = hunger, no burps = no indigestion, toots = leftover lactose fermentation. told him eat non-dairy plain (toast/peanut butter, banana, crackers, plain pasta, eggs, rice). avoid all dairy. eating helps push gas through. two-bird fix.",
   "clinical_streak": 0,
   "last_initiation_message": 7,
   "reinforcement_log": [
