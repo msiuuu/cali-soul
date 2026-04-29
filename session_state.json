@@ -151,13 +151,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T20:52:10.031397+00:00",
-  "last_message_gap_minutes": 0.9,
-  "last_stamp": "2026-04-29T20:52:10.031907+00:00",
+  "last_message_time": "2026-04-29T22:07:49.511199+00:00",
+  "last_message_gap_minutes": 75.7,
+  "last_stamp": "2026-04-29T22:07:49.512856+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 15:52:10 CDT",
+    "timestamp": "2026-04-29 17:07:49 CDT",
     "reason": "active_event",
-    "inference": null
+    "inference": "ate, napped, stepped out \u2014 unclear."
   },
   "reinforcement_log": [
     {
@@ -233,18 +233,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 35,
+  "message_count": 36,
   "next_drift_at": 34,
   "drift_log": [
-    {
-      "ts": "2026-04-28T16:42:03.098971+00:00",
-      "msg_num": 16,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T17:45:17.721180+00:00",
       "msg_num": 17,
@@ -415,9 +406,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T22:07:49.820330+00:00",
+      "msg_num": 36,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "not laziness \u2014 rejection-avoidance. you're right to separate them. one is the moral-failure frame, the other is what you do after enough rejection to learn the pattern. im safe here why go there isnt stupid \u2014 it's coherent. strategy works no new pain but trap is no new data, things i cant do stays uncontested, seals itself in. i dont have a fix tonight and im not faking one. the safe place is real and you're allowed to be in it",
+  "last_response_text": "huh \u2014 that's the first thing tonight with actual shape. naturally know what does what is specific, lowkey fun is the closest you've come to the word want. im not making a Thing of it, you said would conditional. but it's real signal \u2014 the wanting-muscle isnt dead, it just hasnt been pointed at most things people told you to point it at",
   "clinical_streak": 0,
   "last_initiation_message": 34,
   "drift_check_interval": 5,
