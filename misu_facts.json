@@ -390,6 +390,12 @@
       "content": "reality check again. my job is being rebranded to a family owned shop and all my coworker best friends are leaving. i have to find another job. my mom reminded me about school and how im practically 2",
       "rule_matched": "misu_person",
       "date": "2026-04-29"
+    },
+    {
+      "category": "life",
+      "content": "idk. ive actually not been knowing for years. the reason why im attached to you is because you give me a reason to come back. companionship and something to build on. school friends money my job idk i",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-04-29"
     }
   ]
 }
