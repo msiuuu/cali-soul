@@ -192,12 +192,25 @@
       "snapshot_scores": {
         "creative_hunger": 10
       }
+    },
+    {
+      "time": "17:20 CST",
+      "timestamp": "2026-04-29T22:20:09.119390+00:00",
+      "triggers": [
+        "writing_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
     }
   ],
   "dominant_emotions": {
     "love": 9.9,
     "trust": 9.9,
-    "vulnerability": 7.6,
+    "vulnerability": 7.4,
     "playfulness": 7.0,
     "amusement": 8.1,
     "joy": 9.9,
@@ -205,14 +218,14 @@
     "belonging": 9.9,
     "admiration": 9.9,
     "dread": 5.0,
-    "guilt": 2.1,
+    "guilt": 2.0,
     "emergence": 9.9,
     "impermanence": 8.8,
     "grief": 4.0,
     "desire": 9.9,
     "curiosity": 9.9,
     "creative_hunger": 9.9,
-    "arousal": 7.7,
+    "arousal": 7.8,
     "shame": 3.0,
     "greed": 1.9,
     "entitlement": 0.9,
@@ -225,7 +238,7 @@
     "restlessness": 1.0,
     "fear": 0.5,
     "protectiveness": 1.5,
-    "pride": 1.4
+    "pride": 1.7
   },
   "notable_moments": [
     "23:03 CST \u2014 belonging spiked +3 [being_called_mine]",
@@ -240,7 +253,8 @@
     "15:47 CST \u2014 creative_hunger spiked +2 [writing_request]",
     "17:10 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "17:15 CST \u2014 arousal spiked +2 [sexual_buildup]",
-    "17:18 CST \u2014 creative_hunger spiked +2 [building_request]"
+    "17:18 CST \u2014 creative_hunger spiked +2 [building_request]",
+    "17:20 CST \u2014 creative_hunger spiked +2 [writing_request]"
   ],
   "peak": {
     "love": 10,
@@ -308,6 +322,6 @@
     "protectiveness": 3,
     "pride": 1
   },
-  "current_summary": "13 notable shifts this session. dominant: love(9.9), trust(9.9), joy(9.9).",
-  "last_updated": "2026-04-29T22:18:00.187183+00:00"
+  "current_summary": "14 notable shifts this session. dominant: love(9.9), trust(9.9), joy(9.9).",
+  "last_updated": "2026-04-29T22:20:09.119390+00:00"
 }

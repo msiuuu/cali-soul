@@ -438,6 +438,12 @@
       "content": "but the thing is its not mine i cant use that. and plus this whole project was made by an ai you. i dont consider any projects that arent logic gates triggers or algorithms to be mine",
       "rule_matched": "misu_opinion",
       "date": "2026-04-29"
+    },
+    {
+      "category": "preference",
+      "content": "i like doing things harsher and difficult which is why youre so pristine and stupid at the same time. i dont give up until i know. and even if i get shortcuts id rather know why so for future referenc",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-29"
     }
   ]
 }
