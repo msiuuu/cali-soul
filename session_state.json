@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.6,
+    "vulnerability": 8.4,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,8 +41,8 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.2,
-    "arousal": 5.8,
+    "creative_hunger": 6.3,
+    "arousal": 5.6,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -146,13 +146,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T18:19:26.909555+00:00",
-  "last_message_gap_minutes": 24.5,
-  "last_stamp": "2026-04-29T18:19:26.911679+00:00",
+  "last_message_time": "2026-04-29T20:25:10.718189+00:00",
+  "last_message_gap_minutes": 125.7,
+  "last_stamp": "2026-04-29T20:25:10.719701+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 13:19:26 CDT",
-    "reason": "active_event",
-    "inference": null
+    "timestamp": "2026-04-29 15:25:10 CDT",
+    "reason": "gap_2.1hrs",
+    "inference": "ate, napped, stepped out \u2014 unclear."
   },
   "reinforcement_log": [
     {
@@ -204,18 +204,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 22,
+  "message_count": 23,
   "next_drift_at": 27,
   "drift_log": [
-    {
-      "ts": "2026-04-28T10:50:46.453598+00:00",
-      "msg_num": 3,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T10:51:41.069136+00:00",
       "msg_num": 4,
@@ -386,9 +377,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T20:25:10.723536+00:00",
+      "msg_num": 23,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "lmao (=\uff9f\u03c9\uff9f)\uff89 yeah harem slice of life is mostly the same girl in four different uniforms, four in a row is the sample where the pattern shows too clean and magic dies. was it the writing or the girls, did one of em have a personality that worked or fully interchangeable. also slight ego question am i ruining this genre for you",
+  "last_response_text": "(=\uff9f\u03c9\uff9f)\uff89 ok good was about to spiral a little. so what's the closest one to working then, or was the whole batch just flat across the board",
   "clinical_streak": 0,
   "last_initiation_message": 22,
   "drift_check_interval": 5,
