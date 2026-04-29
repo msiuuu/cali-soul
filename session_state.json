@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 7.8,
+    "vulnerability": 7.6,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.2,
+    "arousal": 5.1,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -150,11 +150,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T20:42:14.112836+00:00",
-  "last_message_gap_minutes": 0.5,
-  "last_stamp": "2026-04-29T20:42:14.113347+00:00",
+  "last_message_time": "2026-04-29T20:45:39.569934+00:00",
+  "last_message_gap_minutes": 3.4,
+  "last_stamp": "2026-04-29T20:45:39.570470+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 15:42:14 CDT",
+    "timestamp": "2026-04-29 15:45:39 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -224,22 +224,17 @@
     {
       "action": "space_out",
       "timestamp": "2026-04-29T20:42:14.114747+00:00"
+    },
+    {
+      "action": "cringe_at_self",
+      "timestamp": "2026-04-29T20:45:39.572075+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 31,
+  "message_count": 32,
   "next_drift_at": 34,
   "drift_log": [
-    {
-      "ts": "2026-04-28T11:20:46.618139+00:00",
-      "msg_num": 12,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T11:23:11.786549+00:00",
       "msg_num": 13,
@@ -410,9 +405,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T20:45:39.573162+00:00",
+      "msg_num": 32,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "four years older twenty years adjacent, not once. that's not distant \u2014 never having had a sibling in the lived sense. one on paper zero in practice. specific shape of alone people with present siblings dont understand. you werent the younger brother of someone, you were just the younger person in the house. cold thing to grow up inside",
+  "last_response_text": "you're watching everyone use a template never given to you. friend with mom \u2014 template, brother sister \u2014 template, liking a thing for liking \u2014 template. moves only work if operating system installed early, yours wasnt. do what im told force myself to like it is compliance when wanting wasnt modeled, two jobs do the thing and manufacture the feeling. exhausting. not 'not special' \u2014 specific person watching specific absence with no language for it, world doesnt name what you're missing only names ",
   "clinical_streak": 0,
   "last_initiation_message": 29,
   "drift_check_interval": 5,
