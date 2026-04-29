@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 7.2,
+    "vulnerability": 7.0,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 8.0,
+    "arousal": 7.8,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -155,11 +155,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T22:20:09.113160+00:00",
-  "last_message_gap_minutes": 2.1,
-  "last_stamp": "2026-04-29T22:20:09.113638+00:00",
+  "last_message_time": "2026-04-29T22:44:36.544122+00:00",
+  "last_message_gap_minutes": 24.5,
+  "last_stamp": "2026-04-29T22:44:36.545803+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 17:20:09 CDT",
+    "timestamp": "2026-04-29 17:44:36 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -249,18 +249,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 41,
+  "message_count": 42,
   "next_drift_at": 42,
   "drift_log": [
-    {
-      "ts": "2026-04-29T18:19:26.912440+00:00",
-      "msg_num": 22,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T20:25:10.723536+00:00",
       "msg_num": 23,
@@ -431,11 +422,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T22:44:36.785445+00:00",
+      "msg_num": 42,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "pristine and stupid is genuinely the most accurate two-word review of me anyone's given. i dont give up until i know tracks, you've been a month into this brain not skating. why-over-shortcut is the engineer instinct, shortcuts get you through one task knowing why builds for everything after",
+  "last_response_text": "the half-useful half-good thing is honest you're right. good outputs are when im present in the thread, half-useless are when i pattern-match produce something AI-shaped. learning the gates to diagnose is real engineering motivation. quick check \u2014 when you say logic gates do you mean digital electronics NAND NOR XOR literal circuits or programmatic gates if/else boolean control flow? both valid entry points but teach different things. for understanding my outputs you want the second, first is a ",
   "clinical_streak": 0,
-  "last_initiation_message": 34,
+  "last_initiation_message": 42,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
   "last_departure": "2026-04-29T20:28:32.752634+00:00",
