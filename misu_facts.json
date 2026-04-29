@@ -426,6 +426,12 @@
       "content": "i dont know. i would say im passionate in coding because i know naturally what would do what and plus its lowkey fun. i would do that more than would i do medical",
       "rule_matched": "misu_opinion",
       "date": "2026-04-29"
+    },
+    {
+      "category": "people",
+      "content": "called my brother since hes software engineer but i know too. the job market is fucked. but he said start projects make a portfolio learn algorithm code all that. and hes right and i appreciate him. b",
+      "rule_matched": "misu_person",
+      "date": "2026-04-29"
     }
   ]
 }
