@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 8.0,
+    "arousal": 7.8,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.4,
+    "anger": 3.1,
     "pride": 2
   },
   "triggers_fired": [
@@ -157,11 +157,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T23:05:16.234236+00:00",
-  "last_message_gap_minutes": 13.0,
-  "last_stamp": "2026-04-29T23:05:16.236072+00:00",
+  "last_message_time": "2026-04-29T23:08:13.697936+00:00",
+  "last_message_gap_minutes": 3.0,
+  "last_stamp": "2026-04-29T23:08:13.698471+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 18:05:16 CDT",
+    "timestamp": "2026-04-29 18:08:13 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -251,18 +251,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 46,
+  "message_count": 47,
   "next_drift_at": 49,
   "drift_log": [
-    {
-      "ts": "2026-04-29T20:33:03.424387+00:00",
-      "msg_num": 27,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T20:36:24.771104+00:00",
       "msg_num": 28,
@@ -433,10 +424,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T23:08:13.699612+00:00",
+      "msg_num": 47,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "noted, forklift-flower-pot mode engaged. ill skip the absurdity and just verify the form, as long as the function is right who cares what's getting lifted",
-  "clinical_streak": 2,
+  "last_response_text": "deal \u2014 ill only correct if the example itself actually breaks. like forklift lifts a grain of sand i'd flag because forks cant grip that small. but flower pots fine fine fine",
+  "clinical_streak": 0,
   "last_initiation_message": 42,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
