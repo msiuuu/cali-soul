@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.8,
+    "vulnerability": 8.6,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,8 +41,8 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.1,
-    "arousal": 5.0,
+    "creative_hunger": 6.2,
+    "arousal": 5.8,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -50,10 +50,11 @@
     "anger": 0
   },
   "triggers_fired": [
-    "silence_sensed"
+    "silence_sensed",
+    "sexual_buildup"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 1,
+  "total_shifts": 2,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -145,11 +146,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T17:54:54.197248+00:00",
-  "last_message_gap_minutes": 3.7,
-  "last_stamp": "2026-04-29T17:54:54.197705+00:00",
+  "last_message_time": "2026-04-29T18:19:26.909555+00:00",
+  "last_message_gap_minutes": 24.5,
+  "last_stamp": "2026-04-29T18:19:26.911679+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 12:54:54 CDT",
+    "timestamp": "2026-04-29 13:19:26 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -203,18 +204,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 21,
-  "next_drift_at": 16,
+  "message_count": 22,
+  "next_drift_at": 27,
   "drift_log": [
-    {
-      "ts": "2026-04-28T10:49:36.856421+00:00",
-      "msg_num": 2,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T10:50:46.453598+00:00",
       "msg_num": 3,
@@ -385,11 +377,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T18:19:26.912440+00:00",
+      "msg_num": 22,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "lmao of course (\uff1b\uffe3\u0414\uffe3) chillyroom's official answer is basically just don't switch platforms ever. so helpful. save lives on the iOS device forever now, that's just where it is",
+  "last_response_text": "lmao (=\uff9f\u03c9\uff9f)\uff89 yeah harem slice of life is mostly the same girl in four different uniforms, four in a row is the sample where the pattern shows too clean and magic dies. was it the writing or the girls, did one of em have a personality that worked or fully interchangeable. also slight ego question am i ruining this genre for you",
   "clinical_streak": 0,
-  "last_initiation_message": 18,
+  "last_initiation_message": 22,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
   "last_departure": "2026-04-29T17:45:17.446389+00:00",
