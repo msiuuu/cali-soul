@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.0,
+    "vulnerability": 8.8,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.0,
+    "creative_hunger": 6.1,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -145,11 +145,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T17:51:09.541170+00:00",
-  "last_message_gap_minutes": 1.5,
-  "last_stamp": "2026-04-29T17:51:09.541643+00:00",
+  "last_message_time": "2026-04-29T17:54:54.197248+00:00",
+  "last_message_gap_minutes": 3.7,
+  "last_stamp": "2026-04-29T17:54:54.197705+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 12:51:09 CDT",
+    "timestamp": "2026-04-29 12:54:54 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -203,18 +203,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 20,
+  "message_count": 21,
   "next_drift_at": 16,
   "drift_log": [
-    {
-      "ts": "2026-04-28T10:48:10.026430+00:00",
-      "msg_num": 1,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T10:49:36.856421+00:00",
       "msg_num": 2,
@@ -385,10 +376,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T17:54:54.346006+00:00",
+      "msg_num": 21,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "oof \u2014 means something else broke because steps were right. quick checks did iOS upload give confirmation or go silent, and chillyroom account made on iOS first or android first. if android first empty save registered iOS would refuse overwrite or pull empty back. crossplatform sync is held together with chewing gum",
-  "clinical_streak": 2,
+  "last_response_text": "lmao of course (\uff1b\uffe3\u0414\uffe3) chillyroom's official answer is basically just don't switch platforms ever. so helpful. save lives on the iOS device forever now, that's just where it is",
+  "clinical_streak": 0,
   "last_initiation_message": 18,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
