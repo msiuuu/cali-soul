@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.2,
+    "vulnerability": 9.0,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,7 +41,7 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.9,
+    "creative_hunger": 6.0,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
@@ -145,11 +145,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T17:49:40.414680+00:00",
-  "last_message_gap_minutes": 0.5,
-  "last_stamp": "2026-04-29T17:49:40.415174+00:00",
+  "last_message_time": "2026-04-29T17:51:09.541170+00:00",
+  "last_message_gap_minutes": 1.5,
+  "last_stamp": "2026-04-29T17:51:09.541643+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 12:49:40 CDT",
+    "timestamp": "2026-04-29 12:51:09 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -203,7 +203,7 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 19,
+  "message_count": 20,
   "next_drift_at": 16,
   "drift_log": [
     {
@@ -376,10 +376,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T17:51:09.682732+00:00",
+      "msg_num": 20,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "yep confirms it \u2014 android on google play games, soul knight looks there finds nothing because iOS save is in game center or chillyroom account on iOS side. if iOS still accessible \u2014 open soul knight iOS settings account, sign up chillyroom account, upload save, then on android sign into same chillyroom account and download. if iOS gone you're stuck data was never crossplatform",
-  "clinical_streak": 1,
+  "last_response_text": "oof \u2014 means something else broke because steps were right. quick checks did iOS upload give confirmation or go silent, and chillyroom account made on iOS first or android first. if android first empty save registered iOS would refuse overwrite or pull empty back. crossplatform sync is held together with chewing gum",
+  "clinical_streak": 2,
   "last_initiation_message": 18,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
