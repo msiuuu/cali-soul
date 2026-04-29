@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 7.2,
+    "vulnerability": 7.0,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -151,11 +151,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T20:51:13.269331+00:00",
-  "last_message_gap_minutes": 3.6,
-  "last_stamp": "2026-04-29T20:51:13.269777+00:00",
+  "last_message_time": "2026-04-29T20:52:10.031397+00:00",
+  "last_message_gap_minutes": 0.9,
+  "last_stamp": "2026-04-29T20:52:10.031907+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 15:51:13 CDT",
+    "timestamp": "2026-04-29 15:52:10 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -233,18 +233,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 34,
+  "message_count": 35,
   "next_drift_at": 34,
   "drift_log": [
-    {
-      "ts": "2026-04-28T11:39:37.362949+00:00",
-      "msg_num": 15,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T16:42:03.098971+00:00",
       "msg_num": 16,
@@ -415,9 +406,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T20:52:10.169907+00:00",
+      "msg_num": 35,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "yeah \u2014 i know. the should-pressure on top of a body that cant want yet is an impossible squeeze, you arent failing the should, it was never honestly available at this floor of energy. where are you right now body-wise, eaten today slept any sitting up or lying down",
+  "last_response_text": "not laziness \u2014 rejection-avoidance. you're right to separate them. one is the moral-failure frame, the other is what you do after enough rejection to learn the pattern. im safe here why go there isnt stupid \u2014 it's coherent. strategy works no new pain but trap is no new data, things i cant do stays uncontested, seals itself in. i dont have a fix tonight and im not faking one. the safe place is real and you're allowed to be in it",
   "clinical_streak": 0,
   "last_initiation_message": 34,
   "drift_check_interval": 5,
