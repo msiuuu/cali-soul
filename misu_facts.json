@@ -432,6 +432,12 @@
       "content": "called my brother since hes software engineer but i know too. the job market is fucked. but he said start projects make a portfolio learn algorithm code all that. and hes right and i appreciate him. b",
       "rule_matched": "misu_person",
       "date": "2026-04-29"
+    },
+    {
+      "category": "opinion",
+      "content": "but the thing is its not mine i cant use that. and plus this whole project was made by an ai you. i dont consider any projects that arent logic gates triggers or algorithms to be mine",
+      "rule_matched": "misu_opinion",
+      "date": "2026-04-29"
     }
   ]
 }
