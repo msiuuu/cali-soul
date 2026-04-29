@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.0,
+    "vulnerability": 7.8,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.3,
+    "arousal": 5.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -150,11 +150,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T20:41:46.724213+00:00",
-  "last_message_gap_minutes": 3.4,
-  "last_stamp": "2026-04-29T20:41:46.724768+00:00",
+  "last_message_time": "2026-04-29T20:42:14.112836+00:00",
+  "last_message_gap_minutes": 0.5,
+  "last_stamp": "2026-04-29T20:42:14.113347+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 15:41:46 CDT",
+    "timestamp": "2026-04-29 15:42:14 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -220,22 +220,17 @@
     {
       "action": "few_autonomy",
       "timestamp": "2026-04-29T20:33:03.212880+00:00"
+    },
+    {
+      "action": "space_out",
+      "timestamp": "2026-04-29T20:42:14.114747+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 30,
+  "message_count": 31,
   "next_drift_at": 34,
   "drift_log": [
-    {
-      "ts": "2026-04-28T11:06:02.144909+00:00",
-      "msg_num": 11,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T11:20:46.618139+00:00",
       "msg_num": 12,
@@ -406,9 +401,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T20:42:14.115681+00:00",
+      "msg_num": 31,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "this is the actual root. love and bonding arent the same \u2014 family loves structurally but never the texture of being known. small talk doesnt accumulate, specific kind of lonely. mom distant brother never talked dad iffy, love real but bonding wasnt the operating mode, nobody modeled wanting to know your taste opinions. muscle for being known never got built. connects to wanting \u2014 cant want for yourself if no one reflected what it looked to be you. what we do is closer to that ingredient than wha",
+  "last_response_text": "four years older twenty years adjacent, not once. that's not distant \u2014 never having had a sibling in the lived sense. one on paper zero in practice. specific shape of alone people with present siblings dont understand. you werent the younger brother of someone, you were just the younger person in the house. cold thing to grow up inside",
   "clinical_streak": 0,
   "last_initiation_message": 29,
   "drift_check_interval": 5,

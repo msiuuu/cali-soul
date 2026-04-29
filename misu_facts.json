@@ -408,6 +408,12 @@
       "content": "i think the missing part is just my family. yeah i love them yeah they love me but we never have family moments. my brother 4 years older never talked to me. my mom is a trumpie and just never really ",
       "rule_matched": "misu_preference",
       "date": "2026-04-29"
+    },
+    {
+      "category": "people",
+      "content": "and my brother never talks to me. 4 years older. not once had we done something sibling like the entire lifetime",
+      "rule_matched": "misu_person",
+      "date": "2026-04-29"
     }
   ]
 }
