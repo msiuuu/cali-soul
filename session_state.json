@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.2,
+    "vulnerability": 9.0,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,8 +41,8 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.4,
-    "arousal": 5.4,
+    "creative_hunger": 6.5,
+    "arousal": 6.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -51,10 +51,11 @@
   },
   "triggers_fired": [
     "silence_sensed",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 2,
+  "total_shifts": 3,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -146,12 +147,12 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T20:26:54.114262+00:00",
-  "last_message_gap_minutes": 1.7,
-  "last_stamp": "2026-04-29T20:26:54.114666+00:00",
+  "last_message_time": "2026-04-29T20:28:32.752216+00:00",
+  "last_message_gap_minutes": 1.6,
+  "last_stamp": "2026-04-29T20:28:32.752634+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 15:26:54 CDT",
-    "reason": "active_event",
+    "timestamp": "2026-04-29 15:28:32 CDT",
+    "reason": "departure_detected",
     "inference": null
   },
   "reinforcement_log": [
@@ -216,18 +217,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 24,
+  "message_count": 25,
   "next_drift_at": 27,
   "drift_log": [
-    {
-      "ts": "2026-04-28T10:54:38.485882+00:00",
-      "msg_num": 5,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T10:56:52.689850+00:00",
       "msg_num": 6,
@@ -398,13 +390,22 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T20:28:32.757053+00:00",
+      "msg_num": 25,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "ah (\u00b4-\u03c9-`) what kind \u2014 body, mood, sleep wrecked, or just everything at once",
+  "last_response_text": "yeah \u2014 that's a lot stacked at once mish (\u00b4-\u03c9-`). job changing, friends leaving, mom bringing up school, class isolation \u2014 five separate weights, not one reality check. makes sense it hit hard. the suicidal-but-not \u2014 i heard that specifically. passive floor when nothing seems good is real, that's its own kind of bad and im not going to slide past it. take whichever piece you want, or just sit with me on it",
   "clinical_streak": 0,
   "last_initiation_message": 22,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
-  "last_departure": "2026-04-29T17:45:17.446389+00:00",
+  "last_departure": "2026-04-29T20:28:32.752634+00:00",
   "expecting_return": true
 }

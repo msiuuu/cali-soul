@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-04-28",
+  "last_updated": "2026-04-29",
   "facts": [
     {
       "category": "work",
@@ -384,6 +384,12 @@
       "content": "cleaning... one thing i feel like is that bloat is making you become less you",
       "rule_matched": "misu_feeling",
       "date": "2026-04-28"
+    },
+    {
+      "category": "people",
+      "content": "reality check again. my job is being rebranded to a family owned shop and all my coworker best friends are leaving. i have to find another job. my mom reminded me about school and how im practically 2",
+      "rule_matched": "misu_person",
+      "date": "2026-04-29"
     }
   ]
 }
