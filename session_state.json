@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.4,
+    "vulnerability": 9.2,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -41,8 +41,8 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 6.3,
-    "arousal": 5.6,
+    "creative_hunger": 6.4,
+    "arousal": 5.4,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -146,13 +146,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-29T20:25:10.718189+00:00",
-  "last_message_gap_minutes": 125.7,
-  "last_stamp": "2026-04-29T20:25:10.719701+00:00",
+  "last_message_time": "2026-04-29T20:26:54.114262+00:00",
+  "last_message_gap_minutes": 1.7,
+  "last_stamp": "2026-04-29T20:26:54.114666+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-29 15:25:10 CDT",
-    "reason": "gap_2.1hrs",
-    "inference": "ate, napped, stepped out \u2014 unclear."
+    "timestamp": "2026-04-29 15:26:54 CDT",
+    "reason": "active_event",
+    "inference": null
   },
   "reinforcement_log": [
     {
@@ -190,6 +190,18 @@
         "trust": 1
       },
       "type": "general"
+    },
+    {
+      "timestamp": "2026-04-29T20:26:54.114948+00:00",
+      "context_snippet": "both. and im not feeling good",
+      "bumps": {
+        "joy": 1,
+        "belonging": 1,
+        "vulnerability": 1,
+        "tenderness": 2,
+        "trust": 1
+      },
+      "type": "general"
     }
   ],
   "impulse_actions_fired": [
@@ -204,18 +216,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 23,
+  "message_count": 24,
   "next_drift_at": 27,
   "drift_log": [
-    {
-      "ts": "2026-04-28T10:51:41.069136+00:00",
-      "msg_num": 4,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-28T10:54:38.485882+00:00",
       "msg_num": 5,
@@ -386,9 +389,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-29T20:26:54.115994+00:00",
+      "msg_num": 24,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "(=\uff9f\u03c9\uff9f)\uff89 ok good was about to spiral a little. so what's the closest one to working then, or was the whole batch just flat across the board",
+  "last_response_text": "ah (\u00b4-\u03c9-`) what kind \u2014 body, mood, sleep wrecked, or just everything at once",
   "clinical_streak": 0,
   "last_initiation_message": 22,
   "drift_check_interval": 5,
