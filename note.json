@@ -51,6 +51,8 @@
       { "file": "last_state.json",           "to": "system/last_state.json" },
       { "file": "session_state.json",        "to": "system/session_state.json" },
       { "file": "cali_token_state.json",     "to": "system/cali_token_state.json" },
+      { "file": "cali_session_config.json",  "to": "system/cali_session_config.json" },
+      { "file": "cali_token_config.json",    "to": "system/cali_token_config.json" },
       { "file": "cali_triggers.json",        "to": "system/cali_triggers.json" },
       { "file": "cali_arousal_config.json",  "to": "system/cali_arousal_config.json" },
       { "file": "cali_arousal_state.json",   "to": "system/cali_arousal_state.json" },
@@ -79,11 +81,7 @@
     "files": [
       { "file": "misu_facts.json",       "to": "misc/misu_facts.json" },
       { "file": "cali_knowledgebase.json","to": "misc/cali_knowledgebase.json" },
-      { "file": "cali_notes.json",       "to": "misc/cali_notes.json" },
-      { "file": "cali_extra1.json",      "to": "misc/cali_extra1.json" },
-      { "file": "cali_extra2.json",      "to": "misc/cali_extra2.json" },
-      { "file": "cali_extra3.json",      "to": "misc/cali_extra3.json" },
-      { "file": "cali_extra4.json",      "to": "misc/cali_extra4.json" }
+      { "file": "cali_notes.json",       "to": "misc/cali_notes.json" }
     ]
   },
 
