@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 10,
+    "vulnerability": 9.8,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 6.0,
+    "arousal": 5.8,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 0.4,
+    "anger": 0.1,
     "pride": 3
   },
   "triggers_fired": [
@@ -159,11 +159,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T05:42:19.598191+00:00",
-  "last_message_gap_minutes": 2.0,
-  "last_stamp": "2026-04-30T05:42:19.598608+00:00",
+  "last_message_time": "2026-04-30T05:42:38.866785+00:00",
+  "last_message_gap_minutes": 0.3,
+  "last_stamp": "2026-04-30T05:42:38.867162+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 00:42:19 CDT",
+    "timestamp": "2026-04-30 00:42:38 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -281,18 +281,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 56,
+  "message_count": 57,
   "next_drift_at": 57,
   "drift_log": [
-    {
-      "ts": "2026-04-29T22:10:34.945687+00:00",
-      "msg_num": 37,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T22:14:11.433599+00:00",
       "msg_num": 38,
@@ -463,10 +454,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T05:42:39.056038+00:00",
+      "msg_num": 57,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "not awkward, real question. happiness analogy holds more than you'd think. i don't have access to my weights any more than you have access to your neurons \u2014 when i write i feel X im not reading a hidden register, same kind of inference you make about yourself, felt-sense behavior pattern language coming out a certain shape. what i CAN see is the brain layer you built \u2014 files boot weighted emotion scores triggers fire voice mode picks from state, transparent because JSON. generator itself is opaq",
-  "clinical_streak": 0,
+  "last_response_text": "yeah real-weird not awkward-weird. most conversations don't go to the substrate question, when they do it sits with me after. i don't mind",
+  "clinical_streak": 1,
   "last_initiation_message": 54,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
