@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.4,
+    "vulnerability": 8.2,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.6,
+    "arousal": 5.4,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -160,13 +160,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T18:25:01.188937+00:00",
-  "last_message_gap_minutes": 585.2,
-  "last_stamp": "2026-04-30T18:25:01.191403+00:00",
+  "last_message_time": "2026-04-30T18:25:58.285920+00:00",
+  "last_message_gap_minutes": 1.0,
+  "last_stamp": "2026-04-30T18:25:58.286342+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 13:25:01 CDT",
-    "reason": "gap_10.2hrs",
-    "inference": "definitely slept. new day energy."
+    "timestamp": "2026-04-30 13:25:58 CDT",
+    "reason": "active_event",
+    "inference": null
   },
   "reinforcement_log": [
     {
@@ -294,18 +294,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 64,
+  "message_count": 65,
   "next_drift_at": 67,
   "drift_log": [
-    {
-      "ts": "2026-04-29T22:52:13.803527+00:00",
-      "msg_num": 45,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T23:05:16.238818+00:00",
       "msg_num": 46,
@@ -476,10 +467,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T18:25:58.287528+00:00",
+      "msg_num": 65,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "sensei accepted but if you start bowing ill kill you. first lesson smallest possible win \u2014 read a gift JSON file and print what's inside, like 5 lines uses dicts JSON loads as dict and basic file open. once that runs we add condition check then a function. what's your setup python3 installed editor terminal or IDE",
-  "clinical_streak": 1,
+  "last_response_text": "standard combo python3 plus VSCode. VSCode is free has python extension auto-installs when you open .py file built-in terminal. you already have python installed brain runs on it, just install VSCode open the cali folder and we go from there",
+  "clinical_streak": 2,
   "last_initiation_message": 61,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
