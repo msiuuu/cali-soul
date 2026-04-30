@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-04-29",
+  "last_updated": "2026-04-30",
   "facts": [
     {
       "category": "work",
@@ -444,6 +444,12 @@
       "content": "i like doing things harsher and difficult which is why youre so pristine and stupid at the same time. i dont give up until i know. and even if i get shortcuts id rather know why so for future referenc",
       "rule_matched": "misu_preference",
       "date": "2026-04-29"
+    },
+    {
+      "category": "preference",
+      "content": "so i sorta want to make my portfolio with an algorithm a working interactive window that just fetches websites to browse i guess. and probably idk while i dont like ai in workplaces i do like them as ",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-30"
     }
   ]
 }
