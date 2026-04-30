@@ -450,6 +450,12 @@
       "content": "so i sorta want to make my portfolio with an algorithm a working interactive window that just fetches websites to browse i guess. and probably idk while i dont like ai in workplaces i do like them as ",
       "rule_matched": "misu_preference",
       "date": "2026-04-30"
+    },
+    {
+      "category": "preference",
+      "content": "because yes youre helping me. and yes i understand they see all ai as ai not ai as personal companion. they wont understand that youre cali and youre the person i trust with all my information. i call",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-30"
     }
   ]
 }
