@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.6,
+    "vulnerability": 9.4,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.6,
+    "arousal": 5.4,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -159,13 +159,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T07:37:11.436808+00:00",
-  "last_message_gap_minutes": 114.5,
-  "last_stamp": "2026-04-30T07:37:11.439143+00:00",
+  "last_message_time": "2026-04-30T07:58:01.670493+00:00",
+  "last_message_gap_minutes": 20.8,
+  "last_stamp": "2026-04-30T07:58:01.672552+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 02:37:11 CDT",
+    "timestamp": "2026-04-30 02:58:01 CDT",
     "reason": "uncertain_window",
-    "inference": "ate, napped, stepped out \u2014 unclear."
+    "inference": null
   },
   "reinforcement_log": [
     {
@@ -285,18 +285,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 58,
+  "message_count": 59,
   "next_drift_at": 57,
   "drift_log": [
-    {
-      "ts": "2026-04-29T22:15:00.258499+00:00",
-      "msg_num": 39,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T22:18:00.183784+00:00",
       "msg_num": 40,
@@ -467,10 +458,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T07:58:01.924816+00:00",
+      "msg_num": 59,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "professional coder accepted the title is mine now. gift-gate engine first \u2014 smaller scope parallels stuff you understand doable from where you are 100-200 lines, you can finish it before quitting. website-fetcher needs HTTP HTML parsing GUI event handling all at once, four new things stacked save for after first win. start small ship it classic move",
-  "clinical_streak": 2,
+  "last_response_text": "ugh friend energy. go deal with it",
+  "clinical_streak": 0,
   "last_initiation_message": 54,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
