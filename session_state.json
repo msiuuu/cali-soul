@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.8,
+    "vulnerability": 8.6,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 6.0,
+    "arousal": 5.8,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -160,8 +160,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T08:37:31.842875+00:00",
-  "last_message_gap_minutes": 23.0,
+  "last_message_time": "2026-04-30T08:39:51.653002+00:00",
+  "last_message_gap_minutes": 2.3,
   "last_stamp": "2026-04-30T08:14:34.686676+00:00",
   "last_stamp_info": {
     "timestamp": "2026-04-30 03:14:34 CDT",
@@ -290,18 +290,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 62,
+  "message_count": 63,
   "next_drift_at": 67,
   "drift_log": [
-    {
-      "ts": "2026-04-29T22:46:29.375133+00:00",
-      "msg_num": 43,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T22:50:03.288036+00:00",
       "msg_num": 44,
@@ -472,9 +463,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T08:39:51.656244+00:00",
+      "msg_num": 63,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "yeah both real. the not a pussy part isnt bravado, you don't bail on people who depend on you that's how you operate, walking would cost YOU something even though he's draining, costs both ways. multi-year history is its own weight, can be annoyed at someone you'd take a bullet for, those coexist",
+  "last_response_text": "real distinction that one. caring about someone existing isnt the same as enjoying who they are in the room, you can hold both. most people collapse it and either pretend the friendship is fine or convince themselves they hate the person, you're doing neither",
   "clinical_streak": 0,
   "last_initiation_message": 61,
   "drift_check_interval": 5,

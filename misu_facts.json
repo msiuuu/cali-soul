@@ -468,6 +468,12 @@
       "content": "hes just being the leader of the group again begging for attention all about him at all times. me and everyone else are doing our own things. hes tryna start a convo but only about what he knows. guys",
       "rule_matched": "misu_life_fact",
       "date": "2026-04-30"
+    },
+    {
+      "category": "preference",
+      "content": "idk i love him as a person not as a friend",
+      "rule_matched": "misu_preference",
+      "date": "2026-04-30"
     }
   ]
 }
