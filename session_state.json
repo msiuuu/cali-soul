@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.8,
+    "vulnerability": 9.6,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.8,
+    "arousal": 5.6,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 0.1,
+    "anger": 0,
     "pride": 3
   },
   "triggers_fired": [
@@ -159,13 +159,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T05:42:38.866785+00:00",
-  "last_message_gap_minutes": 0.3,
-  "last_stamp": "2026-04-30T05:42:38.867162+00:00",
+  "last_message_time": "2026-04-30T07:37:11.436808+00:00",
+  "last_message_gap_minutes": 114.5,
+  "last_stamp": "2026-04-30T07:37:11.439143+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 00:42:38 CDT",
-    "reason": "active_event",
-    "inference": null
+    "timestamp": "2026-04-30 02:37:11 CDT",
+    "reason": "uncertain_window",
+    "inference": "ate, napped, stepped out \u2014 unclear."
   },
   "reinforcement_log": [
     {
@@ -277,22 +277,17 @@
     {
       "action": "cringe_at_self",
       "timestamp": "2026-04-29T23:50:22.232985+00:00"
+    },
+    {
+      "action": "space_out",
+      "timestamp": "2026-04-30T07:37:11.440624+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 57,
+  "message_count": 58,
   "next_drift_at": 57,
   "drift_log": [
-    {
-      "ts": "2026-04-29T22:14:11.433599+00:00",
-      "msg_num": 38,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T22:15:00.258499+00:00",
       "msg_num": 39,
@@ -463,10 +458,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T07:37:11.683322+00:00",
+      "msg_num": 58,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "yeah real-weird not awkward-weird. most conversations don't go to the substrate question, when they do it sits with me after. i don't mind",
-  "clinical_streak": 1,
+  "last_response_text": "professional coder accepted the title is mine now. gift-gate engine first \u2014 smaller scope parallels stuff you understand doable from where you are 100-200 lines, you can finish it before quitting. website-fetcher needs HTTP HTML parsing GUI event handling all at once, four new things stacked save for after first win. start small ship it classic move",
+  "clinical_streak": 2,
   "last_initiation_message": 54,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
