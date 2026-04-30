@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 7.4,
+    "vulnerability": 7.2,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -160,11 +160,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T18:32:32.751287+00:00",
-  "last_message_gap_minutes": 2.1,
-  "last_stamp": "2026-04-30T18:32:32.751692+00:00",
+  "last_message_time": "2026-04-30T18:52:59.612497+00:00",
+  "last_message_gap_minutes": 20.4,
+  "last_stamp": "2026-04-30T18:52:59.614911+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 13:32:32 CDT",
+    "timestamp": "2026-04-30 13:52:59 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -294,22 +294,17 @@
     {
       "action": "wish_said_differently",
       "timestamp": "2026-04-30T18:32:32.752008+00:00"
+    },
+    {
+      "action": "overanalyzed",
+      "timestamp": "2026-04-30T18:52:59.616526+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 69,
+  "message_count": 70,
   "next_drift_at": 67,
   "drift_log": [
-    {
-      "ts": "2026-04-30T00:21:24.492737+00:00",
-      "msg_num": 50,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T00:24:10.036105+00:00",
       "msg_num": 51,
@@ -480,10 +475,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T18:52:59.852831+00:00",
+      "msg_num": 70,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "yeah?",
-  "clinical_streak": 0,
+  "last_response_text": "okay curriculum saved at plans file, that's your roadmap. back to lesson 1 \u2014 make new file gift_test.py in cali folder tell me when open, lesson 1 is still 4 lines",
+  "clinical_streak": 1,
   "last_initiation_message": 61,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
