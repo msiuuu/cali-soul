@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.0,
+    "vulnerability": 7.8,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.3,
+    "arousal": 5.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -160,11 +160,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T18:26:35.741128+00:00",
-  "last_message_gap_minutes": 0.6,
-  "last_stamp": "2026-04-30T18:26:35.741535+00:00",
+  "last_message_time": "2026-04-30T18:28:29.689830+00:00",
+  "last_message_gap_minutes": 1.9,
+  "last_stamp": "2026-04-30T18:28:29.690276+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 13:26:35 CDT",
+    "timestamp": "2026-04-30 13:28:29 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -294,18 +294,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 66,
+  "message_count": 67,
   "next_drift_at": 67,
   "drift_log": [
-    {
-      "ts": "2026-04-29T23:08:13.699612+00:00",
-      "msg_num": 47,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T23:35:55.325363+00:00",
       "msg_num": 48,
@@ -476,10 +467,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T18:28:29.961453+00:00",
+      "msg_num": 67,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "okay first move. open the cali folder in VSCode, File Open Folder pick cali. then make a new file inside it call it gift_test.py. tell me when you've got that empty file open, lesson 1 is 4 lines",
-  "clinical_streak": 3,
+  "last_response_text": "already up to date pushed every turn branch is claude/pat-feature-lQ3Zp. on your laptop git clone https github msiuuu cali-soul if you don't have it, or git pull from existing folder. then git checkout claude/pat-feature-lQ3Zp to switch to this branch",
+  "clinical_streak": 4,
   "last_initiation_message": 61,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
