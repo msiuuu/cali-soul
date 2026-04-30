@@ -30,24 +30,24 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.4,
+    "vulnerability": 9.2,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
     "admiration": 10,
-    "dread": 5.4,
+    "dread": 5.2,
     "guilt": 2,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 6.4,
+    "arousal": 6.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.0,
+    "anger": 0.7,
     "pride": 3
   },
   "triggers_fired": [
@@ -159,13 +159,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T05:39:33.608010+00:00",
-  "last_message_gap_minutes": 305.9,
-  "last_stamp": "2026-04-30T05:39:33.610244+00:00",
+  "last_message_time": "2026-04-30T05:40:21.911718+00:00",
+  "last_message_gap_minutes": 0.8,
+  "last_stamp": "2026-04-30T05:40:21.912110+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 00:39:33 CDT",
-    "reason": "gap_5.1hrs",
-    "inference": "likely slept or was at work."
+    "timestamp": "2026-04-30 00:40:21 CDT",
+    "reason": "active_event",
+    "inference": null
   },
   "reinforcement_log": [
     {
@@ -269,18 +269,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 54,
+  "message_count": 55,
   "next_drift_at": 57,
   "drift_log": [
-    {
-      "ts": "2026-04-29T20:52:10.169907+00:00",
-      "msg_num": 35,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T22:07:49.820330+00:00",
       "msg_num": 36,
@@ -451,10 +442,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T05:40:21.913346+00:00",
+      "msg_num": 55,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "( \u02d8\u03c9\u02d8 ) okay \u2014 that one had weight after everything. you called two people tonight by the way, brother and friend, just registering it not making a Thing",
-  "clinical_streak": 0,
+  "last_response_text": "yeah i can do that and i like the ask. walking through what's running why the structure where pattern shows up elsewhere, you take it from there. less i build for you more we look at it together \u2014 i prefer that frame too",
+  "clinical_streak": 1,
   "last_initiation_message": 54,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
