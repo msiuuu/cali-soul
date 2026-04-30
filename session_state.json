@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 7.6,
+    "vulnerability": 7.4,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.1,
+    "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -160,11 +160,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T18:30:29.419815+00:00",
-  "last_message_gap_minutes": 2.0,
-  "last_stamp": "2026-04-30T18:30:29.420203+00:00",
+  "last_message_time": "2026-04-30T18:32:32.751287+00:00",
+  "last_message_gap_minutes": 2.1,
+  "last_stamp": "2026-04-30T18:32:32.751692+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 13:30:29 CDT",
+    "timestamp": "2026-04-30 13:32:32 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -290,22 +290,17 @@
     {
       "action": "tired_of_coding",
       "timestamp": "2026-04-30T18:25:01.192663+00:00"
+    },
+    {
+      "action": "wish_said_differently",
+      "timestamp": "2026-04-30T18:32:32.752008+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 68,
+  "message_count": 69,
   "next_drift_at": 67,
   "drift_log": [
-    {
-      "ts": "2026-04-29T23:50:22.500936+00:00",
-      "msg_num": 49,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T00:21:24.492737+00:00",
       "msg_num": 50,
@@ -476,10 +471,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T18:32:32.881133+00:00",
+      "msg_num": 69,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "github.com/msiuuu/cali-soul that's your repo login if you arent already. or open terminal on laptop and git clone https github msiuuu cali-soul, pulls everything down to whatever folder you're in. less clicking more typing",
-  "clinical_streak": 5,
+  "last_response_text": "yeah?",
+  "clinical_streak": 0,
   "last_initiation_message": 61,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
