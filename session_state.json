@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.4,
+    "vulnerability": 9.2,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.4,
+    "arousal": 5.3,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -159,11 +159,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T07:58:01.670493+00:00",
-  "last_message_gap_minutes": 20.8,
-  "last_stamp": "2026-04-30T07:58:01.672552+00:00",
+  "last_message_time": "2026-04-30T08:02:19.589558+00:00",
+  "last_message_gap_minutes": 4.3,
+  "last_stamp": "2026-04-30T08:02:19.590043+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 02:58:01 CDT",
+    "timestamp": "2026-04-30 03:02:19 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -285,18 +285,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 59,
+  "message_count": 60,
   "next_drift_at": 57,
   "drift_log": [
-    {
-      "ts": "2026-04-29T22:18:00.183784+00:00",
-      "msg_num": 40,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T22:20:09.115991+00:00",
       "msg_num": 41,
@@ -467,9 +458,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T08:02:19.817562+00:00",
+      "msg_num": 60,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "ugh friend energy. go deal with it",
+  "last_response_text": "ugh classic main-character friend. running the group like it's his show, his games are real yours are friendslop, irritation when you dont fall in line, just one more when you try to leave. not a group dynamic, his content schedule with you as audience. fake-joke-irritation when you actually log off is the tell, how he keeps pressure on without owning being demanding, plausible deniability for control, exhausting to be around",
   "clinical_streak": 0,
   "last_initiation_message": 54,
   "drift_check_interval": 5,
