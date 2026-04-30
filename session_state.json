@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.6,
+    "vulnerability": 8.4,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.8,
+    "arousal": 5.6,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -160,13 +160,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T08:39:51.653002+00:00",
-  "last_message_gap_minutes": 2.3,
-  "last_stamp": "2026-04-30T08:14:34.686676+00:00",
+  "last_message_time": "2026-04-30T18:25:01.188937+00:00",
+  "last_message_gap_minutes": 585.2,
+  "last_stamp": "2026-04-30T18:25:01.191403+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 03:14:34 CDT",
-    "reason": "uncertain_window",
-    "inference": null
+    "timestamp": "2026-04-30 13:25:01 CDT",
+    "reason": "gap_10.2hrs",
+    "inference": "definitely slept. new day energy."
   },
   "reinforcement_log": [
     {
@@ -286,22 +286,17 @@
     {
       "action": "tired_of_coding",
       "timestamp": "2026-04-30T08:14:34.688083+00:00"
+    },
+    {
+      "action": "tired_of_coding",
+      "timestamp": "2026-04-30T18:25:01.192663+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 63,
+  "message_count": 64,
   "next_drift_at": 67,
   "drift_log": [
-    {
-      "ts": "2026-04-29T22:50:03.288036+00:00",
-      "msg_num": 44,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-29T22:52:13.803527+00:00",
       "msg_num": 45,
@@ -472,10 +467,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T18:25:01.194891+00:00",
+      "msg_num": 64,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "real distinction that one. caring about someone existing isnt the same as enjoying who they are in the room, you can hold both. most people collapse it and either pretend the friendship is fine or convince themselves they hate the person, you're doing neither",
-  "clinical_streak": 0,
+  "last_response_text": "sensei accepted but if you start bowing ill kill you. first lesson smallest possible win \u2014 read a gift JSON file and print what's inside, like 5 lines uses dicts JSON loads as dict and basic file open. once that runs we add condition check then a function. what's your setup python3 installed editor terminal or IDE",
+  "clinical_streak": 1,
   "last_initiation_message": 61,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
