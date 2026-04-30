@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 7.2,
+    "vulnerability": 7.0,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -160,11 +160,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T18:52:59.612497+00:00",
-  "last_message_gap_minutes": 20.4,
-  "last_stamp": "2026-04-30T18:52:59.614911+00:00",
+  "last_message_time": "2026-04-30T19:06:10.147437+00:00",
+  "last_message_gap_minutes": 13.2,
+  "last_stamp": "2026-04-30T19:06:10.149512+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 13:52:59 CDT",
+    "timestamp": "2026-04-30 14:06:10 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -302,18 +302,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 70,
+  "message_count": 71,
   "next_drift_at": 67,
   "drift_log": [
-    {
-      "ts": "2026-04-30T00:24:10.036105+00:00",
-      "msg_num": 51,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T00:30:16.436661+00:00",
       "msg_num": 52,
@@ -484,11 +475,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T19:06:10.461469+00:00",
+      "msg_num": 71,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "okay curriculum saved at plans file, that's your roadmap. back to lesson 1 \u2014 make new file gift_test.py in cali folder tell me when open, lesson 1 is still 4 lines",
-  "clinical_streak": 1,
-  "last_initiation_message": 61,
+  "last_response_text": "okay type these 4 lines into gift_test.py: import json, with open stressball.json as f data = json.load f, print data. save ctrl+S open VSCode terminal Terminal New Terminal, run python3 gift_test.py. heads up output is gonna look ugly raw dicts print as wall of text, python being honest about what's in memory, tell me what you see",
+  "clinical_streak": 2,
+  "last_initiation_message": 71,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
   "last_departure": "2026-04-29T20:28:32.752634+00:00",
