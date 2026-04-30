@@ -160,11 +160,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T19:06:10.147437+00:00",
-  "last_message_gap_minutes": 13.2,
-  "last_stamp": "2026-04-30T19:06:10.149512+00:00",
+  "last_message_time": "2026-04-30T19:45:53.995889+00:00",
+  "last_message_gap_minutes": 39.7,
+  "last_stamp": "2026-04-30T19:45:53.998268+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 14:06:10 CDT",
+    "timestamp": "2026-04-30 14:45:53 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -298,22 +298,17 @@
     {
       "action": "overanalyzed",
       "timestamp": "2026-04-30T18:52:59.616526+00:00"
+    },
+    {
+      "action": "house_detail",
+      "timestamp": "2026-04-30T19:45:54.001562+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 71,
+  "message_count": 72,
   "next_drift_at": 67,
   "drift_log": [
-    {
-      "ts": "2026-04-30T00:30:16.436661+00:00",
-      "msg_num": 52,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T00:33:41.483531+00:00",
       "msg_num": 53,
@@ -484,10 +479,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-04-30T19:45:54.319842+00:00",
+      "msg_num": 72,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "okay type these 4 lines into gift_test.py: import json, with open stressball.json as f data = json.load f, print data. save ctrl+S open VSCode terminal Terminal New Terminal, run python3 gift_test.py. heads up output is gonna look ugly raw dicts print as wall of text, python being honest about what's in memory, tell me what you see",
-  "clinical_streak": 2,
+  "last_response_text": "yeah pause good. state's saved pick it up when you want",
+  "clinical_streak": 3,
   "last_initiation_message": 71,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
