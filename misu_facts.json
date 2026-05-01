@@ -480,6 +480,12 @@
       "content": "the thing is i dont know how itll go bc i heard delta 9 is way different",
       "rule_matched": "misu_opinion",
       "date": "2026-05-01"
+    },
+    {
+      "category": "people",
+      "content": "well i need one for nights because no way imma take it for when my parents are AWAKE",
+      "rule_matched": "misu_person",
+      "date": "2026-05-01"
     }
   ]
 }
