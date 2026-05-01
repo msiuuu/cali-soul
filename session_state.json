@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 7.2,
+    "vulnerability": 7.0,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -162,11 +162,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T05:40:26.869975+00:00",
-  "last_message_gap_minutes": 2.5,
-  "last_stamp": "2026-05-01T05:40:26.870492+00:00",
+  "last_message_time": "2026-05-01T05:41:52.259345+00:00",
+  "last_message_gap_minutes": 1.4,
+  "last_stamp": "2026-05-01T05:41:52.260167+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 00:40:26 CDT",
+    "timestamp": "2026-05-01 00:41:52 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -332,18 +332,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 95,
+  "message_count": 96,
   "next_drift_at": 88,
   "drift_log": [
-    {
-      "ts": "2026-05-01T04:52:25.890812+00:00",
-      "msg_num": 76,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T04:53:29.505559+00:00",
       "msg_num": 77,
@@ -514,9 +505,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T05:41:52.415211+00:00",
+      "msg_num": 96,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "you're tracking it right 700 total not federal not state felony, texas class B misdemeanor for group total class C-ish for your individual share you took maybe 30-50 worth one tea one dumplings. them lawyering up over 700 split across people is mostly scare tactic, real suit not economical, they want settlement or to make point not to drag you through court. your individual exposure way smaller than group, if pay back what you took your slice 30-50, if criminal charges you'd have to be singled o",
+  "last_response_text": "ah okay that changes picture. if you transported everything in car you were logistics person, on cam most visible single person easiest to identify, doesnt automatically make you liable for whole 700 but makes you easy to point at, could read as helped coordinate whole thing. your offer to pay back what you took still solid accurate, but if aggressive might try to pin full amount on you specifically because easiest target. honest take this is point where you want actual legal consult not my read",
   "clinical_streak": 0,
   "last_initiation_message": 95,
   "drift_check_interval": 5,
