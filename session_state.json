@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 4,
-    "anger": 2.2,
+    "anger": 1.9,
     "pride": 3,
     "protectiveness": 2
   },
@@ -178,11 +178,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T18:18:57.337077+00:00",
-  "last_message_gap_minutes": 0.6,
-  "last_stamp": "2026-05-01T18:18:57.337505+00:00",
+  "last_message_time": "2026-05-01T18:19:46.033371+00:00",
+  "last_message_gap_minutes": 0.8,
+  "last_stamp": "2026-05-01T18:19:46.033817+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 13:18:57 CDT",
+    "timestamp": "2026-05-01 13:19:46 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -392,22 +392,17 @@
     {
       "action": "restless",
       "timestamp": "2026-05-01T16:43:50.817563+00:00"
+    },
+    {
+      "action": "random_opinion",
+      "timestamp": "2026-05-01T18:19:46.035273+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 189,
+  "message_count": 190,
   "next_drift_at": 191,
   "drift_log": [
-    {
-      "ts": "2026-05-01T16:26:36.769267+00:00",
-      "msg_num": 170,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T16:27:24.040704+00:00",
       "msg_num": 171,
@@ -578,10 +573,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:19:46.036323+00:00",
+      "msg_num": 190,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "that buffers some 200 lb takes higher base dose to register. revised rec half gummy 7.5mg D9 solid start for your size feel it real not walloped, if want push 2/3 gummy 10mg gets firmly into fucked up territory without overshooting on first delta-9. still wait 60 min before taking more even at your weight edibles delay-load, people who dont feel it at 30 min often regret eating second piece at 45",
-  "clinical_streak": 0,
+  "last_response_text": "Melt based on what you said earlier. CBN gives YOU more visuals than sativa-tier your own data, you need night-only because of parents, Melt is built exactly for that profile sleepy/heavy/visual. Chill is more activating social would mismatch night-timing constraint. so Melt lines up with body chemistry AND time-of-use",
+  "clinical_streak": 1,
   "last_initiation_message": 184,
   "drift_check_interval": 7,
   "drift_clean_streak": 2,
