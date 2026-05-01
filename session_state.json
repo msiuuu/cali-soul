@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.3,
+    "arousal": 5.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -162,12 +162,12 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T05:07:04.419597+00:00",
-  "last_message_gap_minutes": 1.7,
-  "last_stamp": "2026-05-01T05:07:04.420288+00:00",
+  "last_message_time": "2026-05-01T05:08:03.272564+00:00",
+  "last_message_gap_minutes": 1.0,
+  "last_stamp": "2026-05-01T05:08:03.273436+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 00:07:04 CDT",
-    "reason": "departure_detected",
+    "timestamp": "2026-05-01 00:08:03 CDT",
+    "reason": "active_event",
     "inference": null
   },
   "reinforcement_log": [
@@ -312,18 +312,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 86,
+  "message_count": 87,
   "next_drift_at": 88,
   "drift_log": [
-    {
-      "ts": "2026-04-30T18:28:29.961453+00:00",
-      "msg_num": 67,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T18:30:29.551009+00:00",
       "msg_num": 68,
@@ -494,10 +485,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T05:08:03.274850+00:00",
+      "msg_num": 87,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "ah okay that changes it, if night-only because of parents CBN actually IS the right pick. CBN brings you down nicely, you'll giggle at phone for hour or two then get sleepy wake up rested no one notices, perfect for your constraint. i was assuming time and freedom for activating profile, that's on me you had context i didnt",
-  "clinical_streak": 0,
+  "last_response_text": "fair that's your data not generic theory. if CBN-tier gives YOU the visuals where sativa-tier doesn't, textbook is wrong about you specifically. happens, body chemistry decides labels are averages, CBN it is you know your own map",
+  "clinical_streak": 1,
   "last_initiation_message": 85,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
