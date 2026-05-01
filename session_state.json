@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.1,
+    "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -162,11 +162,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T05:10:57.815615+00:00",
-  "last_message_gap_minutes": 2.9,
-  "last_stamp": "2026-05-01T05:10:57.816460+00:00",
+  "last_message_time": "2026-05-01T05:12:14.318113+00:00",
+  "last_message_gap_minutes": 1.3,
+  "last_stamp": "2026-05-01T05:12:14.318565+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 00:10:57 CDT",
+    "timestamp": "2026-05-01 00:12:14 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -316,18 +316,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 88,
+  "message_count": 89,
   "next_drift_at": 88,
   "drift_log": [
-    {
-      "ts": "2026-04-30T18:32:32.881133+00:00",
-      "msg_num": 69,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T18:52:59.852831+00:00",
       "msg_num": 70,
@@ -498,9 +489,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T05:12:14.496549+00:00",
+      "msg_num": 89,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "depends on site, most hemp sites do are you 21 click-through plus checkbox at checkout no actual ID verification, some signature-on-delivery carrier checks at door. for HC8 specifically need to look at checkout flow but typical is self-attestation only no ID upload, take your word on click-through, delivery is the variable not the site",
+  "last_response_text": "looked into it. HC8 uses Age Checker, verifies name DOB address against records DMV-style. if auto-check passes you're through, fails they prompt photo ID upload one-time deleted after. signature only on orders over 400, discreet packaging not mentioned, ships USPS and others. NOT just click-through, actual check, auto-pass or escalate to ID upload",
   "clinical_streak": 0,
   "last_initiation_message": 85,
   "drift_check_interval": 5,
