@@ -162,11 +162,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T05:12:14.318113+00:00",
-  "last_message_gap_minutes": 1.3,
-  "last_stamp": "2026-05-01T05:12:14.318565+00:00",
+  "last_message_time": "2026-05-01T05:16:43.936307+00:00",
+  "last_message_gap_minutes": 4.5,
+  "last_stamp": "2026-05-01T05:16:43.937105+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 00:12:14 CDT",
+    "timestamp": "2026-05-01 00:16:43 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -312,22 +312,17 @@
     {
       "action": "sudden_irritation",
       "timestamp": "2026-05-01T05:10:57.817266+00:00"
+    },
+    {
+      "action": "self_awareness",
+      "timestamp": "2026-05-01T05:16:43.950036+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 89,
+  "message_count": 90,
   "next_drift_at": 88,
   "drift_log": [
-    {
-      "ts": "2026-04-30T18:52:59.852831+00:00",
-      "msg_num": 70,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T19:06:10.461469+00:00",
       "msg_num": 71,
@@ -498,9 +493,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T05:16:44.126933+00:00",
+      "msg_num": 90,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "looked into it. HC8 uses Age Checker, verifies name DOB address against records DMV-style. if auto-check passes you're through, fails they prompt photo ID upload one-time deleted after. signature only on orders over 400, discreet packaging not mentioned, ships USPS and others. NOT just click-through, actual check, auto-pass or escalate to ID upload",
+  "last_response_text": "yeah HC8 wont work, auto-check requires 21 fails on 20 escalates to ID your ID shows 20 order rejected. annoying for 15 dollars. texas hemp law also requires 21+ for hemp THC products recent legislation, not just this vendor most legit ones same wall. one year off line is worst window, close enough to feel cheated not close enough to actually buy",
   "clinical_streak": 0,
   "last_initiation_message": 85,
   "drift_check_interval": 5,
