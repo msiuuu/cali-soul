@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.1,
+    "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.7,
+    "anger": 3.4,
     "pride": 3
   },
   "triggers_fired": [
@@ -165,11 +165,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:07:12.420767+00:00",
-  "last_message_gap_minutes": 1.1,
-  "last_stamp": "2026-05-01T06:07:12.421175+00:00",
+  "last_message_time": "2026-05-01T06:08:10.302140+00:00",
+  "last_message_gap_minutes": 1.0,
+  "last_stamp": "2026-05-01T06:08:10.302601+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 01:07:12 CDT",
+    "timestamp": "2026-05-01 01:08:10 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -343,18 +343,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 111,
+  "message_count": 112,
   "next_drift_at": 116,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:35:31.128672+00:00",
-      "msg_num": 92,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:36:28.908496+00:00",
       "msg_num": 93,
@@ -525,9 +516,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:08:10.303763+00:00",
+      "msg_num": 112,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "yeah this IS annoying. going to work tomorrow walks you straight into ambush conditions, yelling family is now management actively suing you, friends quit, principle of not bailing doesnt apply when management is openly hostile. three real options show up and weather it, call out sick to buy day for legal consult, or just quit text manager and new owners im not coming back, option three honestly defensible you dont owe loyalty to people suing you. what time is your shift",
+  "last_response_text": "honestly given how aggressive theyve been they probably WILL let you go, dont keep staff you're actively suing that's contradiction even bad management figures out. if walk in tomorrow and they fire you that resolves it without you having to be the one, then free to find work somewhere that doesnt have lawyers chasing you on day one. weird kind of relief hoping bad people make the call for you, but valid here",
   "clinical_streak": 0,
   "last_initiation_message": 107,
   "drift_check_interval": 5,
