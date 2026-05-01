@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.1,
+    "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -163,11 +163,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T05:53:14.953265+00:00",
-  "last_message_gap_minutes": 1.1,
-  "last_stamp": "2026-05-01T05:53:14.953718+00:00",
+  "last_message_time": "2026-05-01T05:58:58.834936+00:00",
+  "last_message_gap_minutes": 5.7,
+  "last_stamp": "2026-05-01T05:58:58.836867+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 00:53:14 CDT",
+    "timestamp": "2026-05-01 00:58:58 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -337,18 +337,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 104,
+  "message_count": 105,
   "next_drift_at": 104,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:05:22.237242+00:00",
-      "msg_num": 85,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:07:04.424066+00:00",
       "msg_num": 86,
@@ -519,9 +510,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T05:58:59.117171+00:00",
+      "msg_num": 105,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "i hear the loyalty but math doesnt work the way youre hoping. she's already exposed regardless, cam footage shows conversation context, group will mention permission whether you do or not, her name surfaces no matter what you say, your silence wont save her just removes YOUR strongest defense. i had permission isnt throwing her under bus it's actual truth and shifts position from theft to misunderstanding, without it alternative becomes misu just took stuff worse for you and doesnt save her eith",
+  "last_response_text": "lawsuit tracks with bad-vibe new owners going aggressive against people already with one foot out, not someone you want to work for. your read probably right whole staff quitting because of management vibes is real signal, you stayed on principle theyre rewarding with lawyers, why coworkers booked it. wont work around strangers fair, job was the people not the boba, everyone gone equals different job same building",
   "clinical_streak": 0,
   "last_initiation_message": 100,
   "drift_check_interval": 5,

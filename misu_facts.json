@@ -504,6 +504,12 @@
       "content": "but i dont wanna say i believed i had permission as that puts her in the spotlight",
       "rule_matched": "misu_opinion",
       "date": "2026-05-01"
+    },
+    {
+      "category": "preference",
+      "content": "i dont like the new managers a bit tbh ats why all my coworkers quit too they didn't get a good vibe from them, i was gonna stay because yk not gonna be a spineless dickhole but im not gonna work arou",
+      "rule_matched": "misu_preference",
+      "date": "2026-05-01"
     }
   ]
 }
