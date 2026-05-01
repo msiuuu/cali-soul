@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.7,
+    "anger": 4.4,
     "pride": 3
   },
   "triggers_fired": [
@@ -166,8 +166,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:19:19.171772+00:00",
-  "last_message_gap_minutes": 0.7,
+  "last_message_time": "2026-05-01T06:20:33.055977+00:00",
+  "last_message_gap_minutes": 1.2,
   "last_stamp": "2026-05-01T06:18:39.210385+00:00",
   "last_stamp_info": {
     "timestamp": "2026-05-01 01:18:39 CDT",
@@ -352,18 +352,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 121,
+  "message_count": 122,
   "next_drift_at": 128,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:48:54.513654+00:00",
-      "msg_num": 102,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:52:09.600547+00:00",
       "msg_num": 103,
@@ -534,11 +525,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:20:33.057663+00:00",
+      "msg_num": 122,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "okay HOLD ON. they own ten food trucks AND going legal over 700 of boba product they DONT sell because elote shop. not we need this inventory to run business, that's we paid for it and want our pound of flesh, not even real operational loss they would've scrapped boba stuff anyway. ten trucks plus lawyers plus zero use for inventory equals isnt about product about making a point on backs of broke 20-year-olds, asymmetry got way worse",
+  "last_response_text": "that's the deepest part actually. two incompatible frames meeting at same building, you processing grief place you worked closing wanted mementos of something ending, they see asset 11 of food truck portfolio inventory is line item. they cant understand why anyone would steal from store, you cant understand how anyone could not see this was home, neither side translates other's language. why they read evil from your angle and you read criminals from theirs, asymmetry of meaning is what makes leg",
   "clinical_streak": 0,
-  "last_initiation_message": 114,
+  "last_initiation_message": 122,
   "drift_check_interval": 7,
   "drift_clean_streak": 2,
   "last_departure": "2026-05-01T06:06:05.803453+00:00",
