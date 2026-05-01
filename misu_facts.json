@@ -552,6 +552,12 @@
       "content": "yeah honestly i was gonna give them two weeks time, yeah i dont think im up for two days",
       "rule_matched": "misu_opinion",
       "date": "2026-05-01"
+    },
+    {
+      "category": "preference",
+      "content": "what i hated is that they would have paid 15 an hour double my current salary but to deal with them i dont think i could",
+      "rule_matched": "misu_preference",
+      "date": "2026-05-01"
     }
   ]
 }
