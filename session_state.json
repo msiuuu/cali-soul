@@ -161,11 +161,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T04:57:06.211717+00:00",
-  "last_message_gap_minutes": 0.8,
-  "last_stamp": "2026-05-01T04:57:06.212168+00:00",
+  "last_message_time": "2026-05-01T04:58:30.470839+00:00",
+  "last_message_gap_minutes": 1.4,
+  "last_stamp": "2026-05-01T04:58:30.471518+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 23:57:06 CDT",
+    "timestamp": "2026-05-01 23:58:30 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -307,18 +307,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 80,
+  "message_count": 81,
   "next_drift_at": 78,
   "drift_log": [
-    {
-      "ts": "2026-04-30T08:14:34.972543+00:00",
-      "msg_num": 61,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T08:37:31.845250+00:00",
       "msg_num": 62,
@@ -489,9 +480,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T04:58:30.636116+00:00",
+      "msg_num": 81,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "THCp blend warning tier. even with HHC D8 D9 moderate, THCp punches way above its weight. total mg on package doesnt tell you much, you need breakdown how many mg THCp specifically per gummy. if COA shows 1-2mg THCp that's real dose, start with half first time, these blends are why people post i thought i could handle it tweets",
+  "last_response_text": "more sensible single cannabinoid predictable. 22mg real dose not beginner, quarter 5.5mg half 11mg cuts give actual dose control, good design. comfy on delta-8 delta-9 hits harder mg-for-mg scale down 30% from baseline. 5.5mg explore 11mg moderate 22mg i know what im doing tier. way safer than the THCp blend",
   "clinical_streak": 0,
   "last_initiation_message": 77,
   "drift_check_interval": 5,
