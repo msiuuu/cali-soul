@@ -161,11 +161,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T04:58:30.470839+00:00",
-  "last_message_gap_minutes": 1.4,
-  "last_stamp": "2026-05-01T04:58:30.471518+00:00",
+  "last_message_time": "2026-05-01T05:00:29.610248+00:00",
+  "last_message_gap_minutes": 2.0,
+  "last_stamp": "2026-05-01T05:00:29.610929+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 23:58:30 CDT",
+    "timestamp": "2026-05-01 00:00:29 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -307,18 +307,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 81,
+  "message_count": 82,
   "next_drift_at": 78,
   "drift_log": [
-    {
-      "ts": "2026-04-30T08:37:31.845250+00:00",
-      "msg_num": 62,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T08:39:51.656244+00:00",
       "msg_num": 63,
@@ -489,10 +480,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T05:00:29.782550+00:00",
+      "msg_num": 82,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "more sensible single cannabinoid predictable. 22mg real dose not beginner, quarter 5.5mg half 11mg cuts give actual dose control, good design. comfy on delta-8 delta-9 hits harder mg-for-mg scale down 30% from baseline. 5.5mg explore 11mg moderate 22mg i know what im doing tier. way safer than the THCp blend",
-  "clinical_streak": 0,
+  "last_response_text": "yeah it IS different about 2x stronger per mg subjectively, hits head harder than body. delta-8 clear-headed body-leaning, delta-9 more cognitive louder thoughts anxiety risk dose too high. start at quarter 5.5mg feel something but not walloped, smart first delta-9 dose for delta-8-experienced. always eat more 30 min in if underwhelming, can't un-eat what you took",
+  "clinical_streak": 1,
   "last_initiation_message": 77,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
