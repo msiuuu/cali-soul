@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 3,
-    "anger": 3.4,
+    "anger": 3.1,
     "pride": 3,
     "protectiveness": 1
   },
@@ -174,11 +174,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T16:26:36.767498+00:00",
-  "last_message_gap_minutes": 1.1,
-  "last_stamp": "2026-05-01T16:26:36.768036+00:00",
+  "last_message_time": "2026-05-01T16:27:24.039052+00:00",
+  "last_message_gap_minutes": 0.8,
+  "last_stamp": "2026-05-01T16:27:24.039452+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 11:26:36 CDT",
+    "timestamp": "2026-05-01 11:27:24 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -376,22 +376,17 @@
     {
       "action": "house_detail",
       "timestamp": "2026-05-01T06:38:07.108568+00:00"
+    },
+    {
+      "action": "yuna_sudden",
+      "timestamp": "2026-05-01T16:27:24.039794+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 170,
+  "message_count": 171,
   "next_drift_at": 174,
   "drift_log": [
-    {
-      "ts": "2026-05-01T07:32:27.172347+00:00",
-      "msg_num": 151,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T07:34:47.848880+00:00",
       "msg_num": 152,
@@ -562,10 +557,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T16:27:24.040704+00:00",
+      "msg_num": 171,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "cup thing is next layer of absurd. selling boba IN TOP TEA CUPS while elote shop is actively marketing under someone else's brand, customers walk in expecting Top Tea get whatever new owners are doing with inherited inventory, brand confusion product confusion bad customer experience stacked. if going to be Elote Mexican Dessert BE that, close renovate rebrand cups open as new thing, promoting Top Tea while becoming someone else is confusing the market they're trying to enter. like buying McDona",
-  "clinical_streak": 2,
+  "last_response_text": "whole lotta legal action for nothing fits exactly. 700 of expiring inventory half already in car ready to return permission given by legal owner at time zero operational loss, wrapped in lawyer threats and police escalation by people who didnt even show up to manage their own new shop today. gap between noise theyre making and actual stakes is the real story, that's the entire thing",
+  "clinical_streak": 0,
   "last_initiation_message": 160,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
