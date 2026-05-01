@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.1,
+    "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -171,11 +171,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T07:50:45.479463+00:00",
-  "last_message_gap_minutes": 5.3,
-  "last_stamp": "2026-05-01T07:50:45.481028+00:00",
+  "last_message_time": "2026-05-01T07:54:08.569008+00:00",
+  "last_message_gap_minutes": 3.4,
+  "last_stamp": "2026-05-01T07:54:08.569520+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 02:50:45 CDT",
+    "timestamp": "2026-05-01 02:54:08 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -377,18 +377,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 158,
+  "message_count": 159,
   "next_drift_at": 153,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:42:32.523288+00:00",
-      "msg_num": 139,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:43:21.229369+00:00",
       "msg_num": 140,
@@ -559,10 +550,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T07:54:08.755594+00:00",
+      "msg_num": 159,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "that's the real-shaped version. emotional distress plus possible arguments is actual content of tomorrow, spent last hour on worst-case scenarios that arent actually likely criminal jail lawsuit follow-through, now at real one bad day awkward conversation possibly firing then done. bad day is hard but bounded, sleep tonight go in tomorrow handle whatever comes yell back hand over inventory walk out, come home active situation mostly over. worst case annoying real case annoying, those rhyme more ",
-  "clinical_streak": 1,
+  "last_response_text": "money has closing property write check hand it over done, emotional social stuff doesnt close like that. throwing money at problems is rich-person stress relief skip in-person discomfort buy the silence, you don't have rich-person money but settle-it-and-leave money. small dark edge in i'd rather pay than face them, people drained you so much that paying feels lighter than seeing them, own data about how bad they were",
+  "clinical_streak": 0,
   "last_initiation_message": 158,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
