@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-04-30",
+  "last_updated": "2026-05-01",
   "facts": [
     {
       "category": "work",
@@ -474,6 +474,108 @@
       "content": "idk i love him as a person not as a friend",
       "rule_matched": "misu_preference",
       "date": "2026-04-30"
+    },
+    {
+      "category": "opinion",
+      "content": "the thing is i dont know how itll go bc i heard delta 9 is way different",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "people",
+      "content": "well i need one for nights because no way imma take it for when my parents are AWAKE",
+      "rule_matched": "misu_person",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "opinion",
+      "content": "context \u2014 job sold to mexican family business, viet boba to elote, asked old manager if we can take product since old job done for, she said yes, i took little had manners, coworkers didnt took enough",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "people",
+      "content": "i know my coworkers took 7+ boba buckets, WHOLE LOTTA SYRUPS, FUCK TON OF POWDERS, and even cup lids",
+      "rule_matched": "misu_person",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "opinion",
+      "content": "but i dont wanna say i believed i had permission as that puts her in the spotlight",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "preference",
+      "content": "i dont like the new managers a bit tbh ats why all my coworkers quit too they didn't get a good vibe from them, i was gonna stay because yk not gonna be a spineless dickhole but im not gonna work arou",
+      "rule_matched": "misu_preference",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "people",
+      "content": "oh? my coworker said my manager gives the new managers ownership of the shop tomorrow",
+      "rule_matched": "misu_person",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "life",
+      "content": "fuckk this is so complicated and fucking annoying because i work tomorrow too.",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "people",
+      "content": "its not our fault we literally asked FOR permission, we left a good amount of items FOR them FOR TOMORROW MORNING OPENING, i SCOLDED my coworkers about hoarding, WE DONT EVEN GET MUCH CUSTOMERS ON THE",
+      "rule_matched": "misu_person",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "preference",
+      "content": "this is why i hate corporate, ready to sue someone to ruin their life over something trivial and humane",
+      "rule_matched": "misu_preference",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "opinion",
+      "content": "the thing is i understand theirs because yes we took from a store essentially looking like theft",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "opinion",
+      "content": "honestly im just pissed at their rudeness, yeah sure we stole quotation marks but WE HAVE THE HEART OF A COMMUNITY TO GIVE IT BACK",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "opinion",
+      "content": "yeah honestly i was gonna give them two weeks time, yeah i dont think im up for two days",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "preference",
+      "content": "what i hated is that they would have paid 15 an hour double my current salary but to deal with them i dont think i could",
+      "rule_matched": "misu_preference",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "opinion",
+      "content": "honestly worst case is somehow easier to handle because i can throw money at it and itll be over",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "preference",
+      "content": "this is why i hate corporate no fucking humanity",
+      "rule_matched": "misu_preference",
+      "date": "2026-05-01"
+    },
+    {
+      "category": "opinion",
+      "content": "20 more min and ill go home, i think i got fired which is good but still worry",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-01"
     }
   ]
 }

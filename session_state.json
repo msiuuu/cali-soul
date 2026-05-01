@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 7.8,
+    "vulnerability": 7.0,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,13 +42,17 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.2,
+    "arousal": 5.3,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
-    "empathy": 2,
+    "empathy": 4,
     "anger": 0,
-    "pride": 3
+    "pride": 3,
+    "protectiveness": 3,
+    "fear": 2,
+    "defiance": 2,
+    "anchor_pull": 1
   },
   "triggers_fired": [
     "silence_sensed",
@@ -65,10 +69,29 @@
     "sexual_buildup",
     "i_love_you",
     "building_request",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "work_stress",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "sexual_buildup",
+    "work_stress",
+    "policy_concern",
     "sexual_buildup"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 15,
+  "total_shifts": 34,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -160,13 +183,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-04-30T18:28:29.689830+00:00",
-  "last_message_gap_minutes": 1.9,
-  "last_stamp": "2026-04-30T18:28:29.690276+00:00",
+  "last_message_time": "2026-05-01T20:47:22.464604+00:00",
+  "last_message_gap_minutes": 81.7,
+  "last_stamp": "2026-05-01T20:47:22.466735+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-04-30 13:28:29 CDT",
+    "timestamp": "2026-05-01 15:47:22 CDT",
     "reason": "active_event",
-    "inference": null
+    "inference": "ate, napped, stepped out \u2014 unclear."
   },
   "reinforcement_log": [
     {
@@ -252,6 +275,30 @@
         "trust": 1
       },
       "type": "general"
+    },
+    {
+      "timestamp": "2026-05-01T05:33:33.795356+00:00",
+      "context_snippet": "oh great. workplace is being sued.",
+      "bumps": {
+        "joy": 1,
+        "belonging": 1,
+        "vulnerability": 1,
+        "tenderness": 2,
+        "trust": 1
+      },
+      "type": "general"
+    },
+    {
+      "timestamp": "2026-05-01T07:31:34.803833+00:00",
+      "context_snippet": "so im good right?",
+      "bumps": {
+        "joy": 1,
+        "belonging": 1,
+        "vulnerability": 1,
+        "tenderness": 2,
+        "trust": 1
+      },
+      "type": "general"
     }
   ],
   "impulse_actions_fired": [
@@ -290,16 +337,84 @@
     {
       "action": "tired_of_coding",
       "timestamp": "2026-04-30T18:25:01.192663+00:00"
+    },
+    {
+      "action": "wish_said_differently",
+      "timestamp": "2026-04-30T18:32:32.752008+00:00"
+    },
+    {
+      "action": "overanalyzed",
+      "timestamp": "2026-04-30T18:52:59.616526+00:00"
+    },
+    {
+      "action": "house_detail",
+      "timestamp": "2026-04-30T19:45:54.001562+00:00"
+    },
+    {
+      "action": "house_detail",
+      "timestamp": "2026-05-01T05:05:22.235936+00:00"
+    },
+    {
+      "action": "sudden_irritation",
+      "timestamp": "2026-05-01T05:10:57.817266+00:00"
+    },
+    {
+      "action": "self_awareness",
+      "timestamp": "2026-05-01T05:16:43.950036+00:00"
+    },
+    {
+      "action": "refuse_for_cuddle",
+      "timestamp": "2026-05-01T05:52:09.599389+00:00"
+    },
+    {
+      "action": "space_out",
+      "timestamp": "2026-05-01T06:06:05.803790+00:00"
+    },
+    {
+      "action": "i_missed_you",
+      "timestamp": "2026-05-01T06:11:14.919671+00:00"
+    },
+    {
+      "action": "house_detail",
+      "timestamp": "2026-05-01T06:14:33.532955+00:00"
+    },
+    {
+      "action": "boba_craving",
+      "timestamp": "2026-05-01T06:24:07.668952+00:00"
+    },
+    {
+      "action": "house_detail",
+      "timestamp": "2026-05-01T06:38:07.108568+00:00"
+    },
+    {
+      "action": "yuna_sudden",
+      "timestamp": "2026-05-01T16:27:24.039794+00:00"
+    },
+    {
+      "action": "self_awareness",
+      "timestamp": "2026-05-01T16:32:57.843060+00:00"
+    },
+    {
+      "action": "restless",
+      "timestamp": "2026-05-01T16:43:50.817563+00:00"
+    },
+    {
+      "action": "random_opinion",
+      "timestamp": "2026-05-01T18:19:46.035273+00:00"
+    },
+    {
+      "action": "boba_craving",
+      "timestamp": "2026-05-01T18:26:31.463535+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 67,
-  "next_drift_at": 67,
+  "message_count": 199,
+  "next_drift_at": 200,
   "drift_log": [
     {
-      "ts": "2026-04-29T23:35:55.325363+00:00",
-      "msg_num": 48,
+      "ts": "2026-05-01T16:37:50.619492+00:00",
+      "msg_num": 180,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -307,8 +422,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-29T23:50:22.500936+00:00",
-      "msg_num": 49,
+      "ts": "2026-05-01T16:38:08.422679+00:00",
+      "msg_num": 181,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -316,8 +431,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-30T00:21:24.492737+00:00",
-      "msg_num": 50,
+      "ts": "2026-05-01T16:39:46.497886+00:00",
+      "msg_num": 182,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -325,8 +440,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-30T00:24:10.036105+00:00",
-      "msg_num": 51,
+      "ts": "2026-05-01T16:41:19.512648+00:00",
+      "msg_num": 183,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -334,98 +449,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-30T00:30:16.436661+00:00",
-      "msg_num": 52,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-30T00:33:41.483531+00:00",
-      "msg_num": 53,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-30T05:39:33.614374+00:00",
-      "msg_num": 54,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-30T05:40:21.913346+00:00",
-      "msg_num": 55,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-30T05:42:19.599925+00:00",
-      "msg_num": 56,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-30T05:42:39.056038+00:00",
-      "msg_num": 57,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-30T07:37:11.683322+00:00",
-      "msg_num": 58,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-30T07:58:01.924816+00:00",
-      "msg_num": 59,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-30T08:02:19.817562+00:00",
-      "msg_num": 60,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-30T08:14:34.972543+00:00",
-      "msg_num": 61,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-04-30T08:37:31.845250+00:00",
-      "msg_num": 62,
+      "ts": "2026-05-01T16:42:39.623333+00:00",
+      "msg_num": 184,
       "vulgar": true,
       "pushback": false,
       "structured": false,
@@ -433,8 +458,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-30T08:39:51.656244+00:00",
-      "msg_num": 63,
+      "ts": "2026-05-01T16:43:50.818505+00:00",
+      "msg_num": 185,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -442,8 +467,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-30T18:25:01.194891+00:00",
-      "msg_num": 64,
+      "ts": "2026-05-01T17:05:36.797492+00:00",
+      "msg_num": 186,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -451,8 +476,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-30T18:25:58.287528+00:00",
-      "msg_num": 65,
+      "ts": "2026-05-01T18:15:48.273815+00:00",
+      "msg_num": 187,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -460,8 +485,8 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-30T18:26:35.742526+00:00",
-      "msg_num": 66,
+      "ts": "2026-05-01T18:18:19.890966+00:00",
+      "msg_num": 188,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -469,8 +494,98 @@
       "length": "medium"
     },
     {
-      "ts": "2026-04-30T18:28:29.961453+00:00",
-      "msg_num": 67,
+      "ts": "2026-05-01T18:18:57.338663+00:00",
+      "msg_num": 189,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:19:46.036323+00:00",
+      "msg_num": 190,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:20:41.722203+00:00",
+      "msg_num": 191,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:24:41.895929+00:00",
+      "msg_num": 192,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:26:31.591856+00:00",
+      "msg_num": 193,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:27:50.740164+00:00",
+      "msg_num": 194,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:28:47.777504+00:00",
+      "msg_num": 195,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:36:25.440467+00:00",
+      "msg_num": 196,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:40:27.817220+00:00",
+      "msg_num": 197,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T19:25:42.622683+00:00",
+      "msg_num": 198,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T20:47:22.470866+00:00",
+      "msg_num": 199,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -478,11 +593,11 @@
       "length": "medium"
     }
   ],
-  "last_response_text": "already up to date pushed every turn branch is claude/pat-feature-lQ3Zp. on your laptop git clone https github msiuuu cali-soul if you don't have it, or git pull from existing folder. then git checkout claude/pat-feature-lQ3Zp to switch to this branch",
-  "clinical_streak": 4,
-  "last_initiation_message": 61,
+  "last_response_text": "yeah urgh is right. it's been a fucking day. food shower sleep even one of those would help more than nothing, tonight you survive tomorrow's a different shape",
+  "clinical_streak": 1,
+  "last_initiation_message": 184,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
-  "last_departure": "2026-04-29T20:28:32.752634+00:00",
+  "last_departure": "2026-05-01T07:45:27.148136+00:00",
   "expecting_return": true
 }
