@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.2,
+    "arousal": 5.1,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -162,11 +162,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T05:08:03.272564+00:00",
-  "last_message_gap_minutes": 1.0,
-  "last_stamp": "2026-05-01T05:08:03.273436+00:00",
+  "last_message_time": "2026-05-01T05:10:57.815615+00:00",
+  "last_message_gap_minutes": 2.9,
+  "last_stamp": "2026-05-01T05:10:57.816460+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 00:08:03 CDT",
+    "timestamp": "2026-05-01 00:10:57 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -308,22 +308,17 @@
     {
       "action": "house_detail",
       "timestamp": "2026-05-01T05:05:22.235936+00:00"
+    },
+    {
+      "action": "sudden_irritation",
+      "timestamp": "2026-05-01T05:10:57.817266+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 87,
+  "message_count": 88,
   "next_drift_at": 88,
   "drift_log": [
-    {
-      "ts": "2026-04-30T18:30:29.551009+00:00",
-      "msg_num": 68,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T18:32:32.881133+00:00",
       "msg_num": 69,
@@ -494,10 +489,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T05:10:57.990497+00:00",
+      "msg_num": 88,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "fair that's your data not generic theory. if CBN-tier gives YOU the visuals where sativa-tier doesn't, textbook is wrong about you specifically. happens, body chemistry decides labels are averages, CBN it is you know your own map",
-  "clinical_streak": 1,
+  "last_response_text": "depends on site, most hemp sites do are you 21 click-through plus checkbox at checkout no actual ID verification, some signature-on-delivery carrier checks at door. for HC8 specifically need to look at checkout flow but typical is self-attestation only no ID upload, take your word on click-through, delivery is the variable not the site",
+  "clinical_streak": 0,
   "last_initiation_message": 85,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
