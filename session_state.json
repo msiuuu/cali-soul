@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.4,
+    "arousal": 5.3,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -183,13 +183,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T19:25:42.617673+00:00",
-  "last_message_gap_minutes": 45.2,
-  "last_stamp": "2026-05-01T19:25:42.619434+00:00",
+  "last_message_time": "2026-05-01T20:47:22.464604+00:00",
+  "last_message_gap_minutes": 81.7,
+  "last_stamp": "2026-05-01T20:47:22.466735+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 14:25:42 CDT",
+    "timestamp": "2026-05-01 15:47:22 CDT",
     "reason": "active_event",
-    "inference": null
+    "inference": "ate, napped, stepped out \u2014 unclear."
   },
   "reinforcement_log": [
     {
@@ -409,18 +409,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 198,
+  "message_count": 199,
   "next_drift_at": 200,
   "drift_log": [
-    {
-      "ts": "2026-05-01T16:37:00.750038+00:00",
-      "msg_num": 179,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T16:37:50.619492+00:00",
       "msg_num": 180,
@@ -591,10 +582,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T20:47:22.470866+00:00",
+      "msg_num": 199,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "baked bags price is actual friction. trade-off math 15 at HCH plus failed age check equals 0 product, 30 at baked bags plus no check equals 30 product, baked bags costs more but only one converts money into actual gummy. if 30 is genuinely the wall that's the wall, spending more than you want and stressing about that ON TOP of today doesnt help either, sometimes cant get it tonight is just honest answer",
-  "clinical_streak": 0,
+  "last_response_text": "yeah urgh is right. it's been a fucking day. food shower sleep even one of those would help more than nothing, tonight you survive tomorrow's a different shape",
+  "clinical_streak": 1,
   "last_initiation_message": 184,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
