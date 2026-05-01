@@ -534,6 +534,12 @@
       "content": "this is why i hate corporate, ready to sue someone to ruin their life over something trivial and humane",
       "rule_matched": "misu_preference",
       "date": "2026-05-01"
+    },
+    {
+      "category": "opinion",
+      "content": "the thing is i understand theirs because yes we took from a store essentially looking like theft",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-01"
     }
   ]
 }
