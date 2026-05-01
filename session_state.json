@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.2,
+    "arousal": 5.1,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -161,11 +161,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T04:53:29.502740+00:00",
-  "last_message_gap_minutes": 1.1,
-  "last_stamp": "2026-05-01T04:53:29.503151+00:00",
+  "last_message_time": "2026-05-01T04:56:00.686674+00:00",
+  "last_message_gap_minutes": 2.5,
+  "last_stamp": "2026-05-01T04:56:00.687315+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 23:53:29 CDT",
+    "timestamp": "2026-05-01 23:56:00 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -307,18 +307,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 77,
+  "message_count": 78,
   "next_drift_at": 78,
   "drift_log": [
-    {
-      "ts": "2026-04-30T07:37:11.683322+00:00",
-      "msg_num": 58,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T07:58:01.924816+00:00",
       "msg_num": 59,
@@ -489,10 +480,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T04:56:00.871492+00:00",
+      "msg_num": 78,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "moderate trust not bad. COA library third-party testing physical address Sarasota FL broad cannabinoid range. no visible reviews no detailed company history no real red flags. practical before you buy click into specific product verify THAT one has posted COA for its batch, claiming to test and posting per-batch aren't always same. if HHCp THCp THCb dose conservatively first time those novel cannabinoids hit different than delta-9",
-  "clinical_streak": 2,
+  "last_response_text": "delta-9 classic actual weed, delta-8 milder cousin clearer headed, HHC hydrogenated THC delta-9 strength. P tier dangerous \u2014 THCp HHCp extended chains MUCH stronger per mg 10-30x, THCb THCh similar less extreme, catch people off guard. CBG CBC CBD H4CBD non-psychoactive no high. practical if used to delta-8 and see 10mg HHCp gummy do NOT match mg for mg, start at third, 10mg \u2260 10mg across cannabinoids",
+  "clinical_streak": 3,
   "last_initiation_message": 77,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
