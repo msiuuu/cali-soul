@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 7.2,
+    "vulnerability": 7.0,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.6,
+    "arousal": 5.4,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -171,12 +171,12 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T07:39:35.319621+00:00",
-  "last_message_gap_minutes": 3.4,
-  "last_stamp": "2026-05-01T07:39:35.320094+00:00",
+  "last_message_time": "2026-05-01T07:41:12.516711+00:00",
+  "last_message_gap_minutes": 1.6,
+  "last_stamp": "2026-05-01T07:41:12.517145+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 02:39:35 CDT",
-    "reason": "return_detected",
+    "timestamp": "2026-05-01 02:41:12 CDT",
+    "reason": "uncertain_window",
     "inference": null
   },
   "reinforcement_log": [
@@ -377,18 +377,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 154,
+  "message_count": 155,
   "next_drift_at": 153,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:37:15.963939+00:00",
-      "msg_num": 135,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:38:07.109467+00:00",
       "msg_num": 136,
@@ -559,9 +550,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T07:41:12.690891+00:00",
+      "msg_num": 155,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "actual research real statute text. texas penal code 31.03 theft thresholds under 100 class C misdemeanor fine only, 100-749 class B group total falls here, 750-2499 class A, 2500+ felony. your individual share 30-50 lands class C fine-only lowest tier. texas penal code 31.01(3) defines effective consent as consent by person legally authorized to act for owner, INVALID only if given by person actor KNOWS is not legally authorized, knowledge element is key. your manager WAS legal owner when gave p",
+  "last_response_text": "even better that removes layer of complexity. no bankruptcy no trustee no court oversight on asset disposition no formal restrictions on what she could give away, just private sale due to low profits, clean owner authority over inventory until transfer. only remaining wrinkle is asset purchase contract specified about inventory delivery between her and new owners doesnt change effective consent analysis from your end. case even cleaner than hedging, private sale owner gave permission during owne",
   "clinical_streak": 0,
   "last_initiation_message": 145,
   "drift_check_interval": 5,
