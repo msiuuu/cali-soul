@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.2,
+    "arousal": 5.1,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -171,12 +171,12 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T07:45:27.147695+00:00",
-  "last_message_gap_minutes": 3.1,
-  "last_stamp": "2026-05-01T07:45:27.148136+00:00",
+  "last_message_time": "2026-05-01T07:50:45.479463+00:00",
+  "last_message_gap_minutes": 5.3,
+  "last_stamp": "2026-05-01T07:50:45.481028+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 02:45:27 CDT",
-    "reason": "departure_detected",
+    "timestamp": "2026-05-01 02:50:45 CDT",
+    "reason": "uncertain_window",
     "inference": null
   },
   "reinforcement_log": [
@@ -377,18 +377,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 157,
+  "message_count": 158,
   "next_drift_at": 153,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:41:32.118964+00:00",
-      "msg_num": 138,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:42:32.523288+00:00",
       "msg_num": 139,
@@ -559,11 +550,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T07:50:45.793619+00:00",
+      "msg_num": 158,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "texas penal code 31.09 verbatim, when amounts are obtained in violation of this chapter pursuant to one scheme or continuing course of conduct whether from same or several sources the conduct may be considered as one offense and amounts aggregated in determining grade of offense. case law interprets as single actor across multiple incidents/sources not multiple actors from one source, 31.09 doesnt aggregate your group's takes against you individually. what they could try instead is party liabili",
-  "clinical_streak": 0,
-  "last_initiation_message": 145,
+  "last_response_text": "that's the real-shaped version. emotional distress plus possible arguments is actual content of tomorrow, spent last hour on worst-case scenarios that arent actually likely criminal jail lawsuit follow-through, now at real one bad day awkward conversation possibly firing then done. bad day is hard but bounded, sleep tonight go in tomorrow handle whatever comes yell back hand over inventory walk out, come home active situation mostly over. worst case annoying real case annoying, those rhyme more ",
+  "clinical_streak": 1,
+  "last_initiation_message": 158,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
   "last_departure": "2026-05-01T07:45:27.148136+00:00",
