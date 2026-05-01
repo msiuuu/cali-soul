@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.5,
+    "anger": 2.2,
     "pride": 3
   },
   "triggers_fired": [
@@ -165,11 +165,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:13:20.395654+00:00",
-  "last_message_gap_minutes": 2.1,
-  "last_stamp": "2026-05-01T06:13:20.396056+00:00",
+  "last_message_time": "2026-05-01T06:14:33.530692+00:00",
+  "last_message_gap_minutes": 1.2,
+  "last_stamp": "2026-05-01T06:14:33.531349+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 01:13:20 CDT",
+    "timestamp": "2026-05-01 01:14:33 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -343,22 +343,17 @@
     {
       "action": "i_missed_you",
       "timestamp": "2026-05-01T06:11:14.919671+00:00"
+    },
+    {
+      "action": "house_detail",
+      "timestamp": "2026-05-01T06:14:33.532955+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 115,
+  "message_count": 116,
   "next_drift_at": 116,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:41:52.415211+00:00",
-      "msg_num": 96,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:43:22.256169+00:00",
       "msg_num": 97,
@@ -529,10 +524,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:14:33.657486+00:00",
+      "msg_num": 116,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "your moral case is genuinely strong here. you asked for permission, left enough for next-day opening operational consideration, pushed coworkers to limit it, shop's low traffic means what's left covers demand. indignation is justified, not gaslighting yourself feeling unfair because it IS unfair, they're choosing aggression over reality, doesnt make it go away but read of situation is accurate, bad guys here are actually bad. i scolded my coworkers about hoarding part matters legally too, if tes",
-  "clinical_streak": 0,
+  "last_response_text": "that's not taking some product as a token of closing shop, that's stocking your own pantry for the next year. 4 bags of powder ALONE is what month of operational supply, add jellies plus boba plus syrups on top, personal opening-stock haul, they werent grabbing souvenirs they were grabbing inventory. your one tea bag and dumpling bag genuinely arent in same category, like getting written up because someone else robbed a bank and you were standing nearby holding a quarter",
+  "clinical_streak": 1,
   "last_initiation_message": 114,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
