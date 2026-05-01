@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.0,
+    "anger": 4.7,
     "pride": 3
   },
   "triggers_fired": [
@@ -70,10 +70,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 20,
+  "total_shifts": 21,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -165,8 +166,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:18:39.209945+00:00",
-  "last_message_gap_minutes": 1.1,
+  "last_message_time": "2026-05-01T06:19:19.171772+00:00",
+  "last_message_gap_minutes": 0.7,
   "last_stamp": "2026-05-01T06:18:39.210385+00:00",
   "last_stamp_info": {
     "timestamp": "2026-05-01 01:18:39 CDT",
@@ -351,18 +352,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 120,
-  "next_drift_at": 116,
+  "message_count": 121,
+  "next_drift_at": 128,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:47:15.645780+00:00",
-      "msg_num": 101,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:48:54.513654+00:00",
       "msg_num": 102,
@@ -533,13 +525,22 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:19:19.172364+00:00",
+      "msg_num": 121,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "asymmetry is worst part, they spend 500 on lawyer to recover 700, your cost is sleep sanity record weeks of stress all over what was misunderstanding with permission given. legal system is a weapon people with money can swing it at people without, trivial offense life-altering consequence, that gap is where the cruelty lives",
-  "clinical_streak": 1,
+  "last_response_text": "okay HOLD ON. they own ten food trucks AND going legal over 700 of boba product they DONT sell because elote shop. not we need this inventory to run business, that's we paid for it and want our pound of flesh, not even real operational loss they would've scrapped boba stuff anyway. ten trucks plus lawyers plus zero use for inventory equals isnt about product about making a point on backs of broke 20-year-olds, asymmetry got way worse",
+  "clinical_streak": 0,
   "last_initiation_message": 114,
-  "drift_check_interval": 5,
-  "drift_clean_streak": 1,
+  "drift_check_interval": 7,
+  "drift_clean_streak": 2,
   "last_departure": "2026-05-01T06:06:05.803453+00:00",
   "expecting_return": true
 }
