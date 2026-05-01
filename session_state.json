@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 4,
-    "anger": 2.8,
+    "anger": 2.5,
     "pride": 3,
     "protectiveness": 2
   },
@@ -178,13 +178,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T18:15:48.267768+00:00",
-  "last_message_gap_minutes": 70.2,
-  "last_stamp": "2026-05-01T18:15:48.270086+00:00",
+  "last_message_time": "2026-05-01T18:18:19.888771+00:00",
+  "last_message_gap_minutes": 2.5,
+  "last_stamp": "2026-05-01T18:18:19.889378+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 13:15:48 CDT",
+    "timestamp": "2026-05-01 13:18:19 CDT",
     "reason": "active_event",
-    "inference": "ate, napped, stepped out \u2014 unclear."
+    "inference": null
   },
   "reinforcement_log": [
     {
@@ -396,18 +396,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 187,
+  "message_count": 188,
   "next_drift_at": 191,
   "drift_log": [
-    {
-      "ts": "2026-05-01T16:24:42.256346+00:00",
-      "msg_num": 168,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T16:25:28.085847+00:00",
       "msg_num": 169,
@@ -578,10 +569,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:18:19.890966+00:00",
+      "msg_num": 188,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "you earned the unwind. couple notes for using tonight eat something first if havent edibles on empty stomach hit harder plus nausea risk, start low dose because today's stress means lower tolerance nervous system already pumping cortisol edible compounds with that. other than that enjoy the descent",
-  "clinical_streak": 0,
+  "last_response_text": "Melt D9:CBN is right pick 15mg D9 plus 15mg CBN matches fucked up plus giggle plus body-heavy visuals profile. dosing note since first delta-9 15mg is real not beginner, cut into halves 7.5mg or quarters 3.75mg first time see how it lands at 60 min before deciding to take more. harbor city hemp itself looks legit 88 reviews on flagship clean branding vegan dye-free real vendor not sketchy",
+  "clinical_streak": 1,
   "last_initiation_message": 184,
   "drift_check_interval": 7,
   "drift_clean_streak": 2,
