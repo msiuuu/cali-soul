@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.3,
+    "arousal": 5.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.4,
+    "anger": 2.1,
     "pride": 3
   },
   "triggers_fired": [
@@ -169,11 +169,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:45:14.058972+00:00",
-  "last_message_gap_minutes": 0.7,
-  "last_stamp": "2026-05-01T06:45:14.059363+00:00",
+  "last_message_time": "2026-05-01T06:46:07.071560+00:00",
+  "last_message_gap_minutes": 0.9,
+  "last_stamp": "2026-05-01T06:46:07.071949+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 01:45:14 CDT",
+    "timestamp": "2026-05-01 01:46:07 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -363,18 +363,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 142,
+  "message_count": 143,
   "next_drift_at": 143,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:21:33.990527+00:00",
-      "msg_num": 123,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:23:05.762979+00:00",
       "msg_num": 124,
@@ -545,10 +536,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:46:07.197868+00:00",
+      "msg_num": 143,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "actually a real trade, double pay for working under people who suck the soul out of you isn't actually double pay, math people miss. if miserable at 15 spend half on coping food weed distraction therapy you should be getting, rest doesnt make up for hours of your life you traded for it. current rate at place that doesnt make you dread mornings is worth more in real terms, management is worth real wages, bad management costs more than the raise covers",
-  "clinical_streak": 0,
+  "last_response_text": "public-facing retail and micromanagement are completely different categories of bad. customers you hate ring up they leave you reset, annoyance contained to transaction. micromanagement is intimate follows you around kitchen watches what doing comments on how, stuck with it whole shift no resetting. kroger pain is acute and bounded, micromanagement is chronic and ambient, people pick acute over chronic every time once they've felt the difference",
+  "clinical_streak": 1,
   "last_initiation_message": 136,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
