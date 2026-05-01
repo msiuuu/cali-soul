@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.9,
+    "anger": 1.6,
     "pride": 3
   },
   "triggers_fired": [
@@ -165,11 +165,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:15:35.202044+00:00",
-  "last_message_gap_minutes": 1.0,
-  "last_stamp": "2026-05-01T06:15:35.202490+00:00",
+  "last_message_time": "2026-05-01T06:16:16.329242+00:00",
+  "last_message_gap_minutes": 0.7,
+  "last_stamp": "2026-05-01T06:16:16.329646+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 01:15:35 CDT",
+    "timestamp": "2026-05-01 01:16:16 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -351,18 +351,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 117,
+  "message_count": 118,
   "next_drift_at": 116,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:44:33.983861+00:00",
-      "msg_num": 98,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:45:27.159668+00:00",
       "msg_num": 99,
@@ -533,9 +524,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:16:16.456331+00:00",
+      "msg_num": 118,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "ahh even smaller personal share, tea plus dumplings what you wanted, syrups pushed onto you, fish sauce holding for coworkers. actual KEEP pile maybe 20-30 half of that you didnt ask for, wanted two things got handed two more by people grabbing too much. distinction matters wanted vs handed vs holding for someone else is three different categories of involvement, you were wanted-tier on basically nothing",
+  "last_response_text": "you dont have to figure it out tonight. shift is morning you've got hours, let it sit sleep on it get legal consult before you go in, brain works better after rest than at 1am spiraling. you dont have to have the answer right now, just have to make it to morning",
   "clinical_streak": 0,
   "last_initiation_message": 114,
   "drift_check_interval": 5,
