@@ -161,11 +161,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T04:56:15.970806+00:00",
-  "last_message_gap_minutes": 0.3,
-  "last_stamp": "2026-05-01T04:56:15.971184+00:00",
+  "last_message_time": "2026-05-01T04:57:06.211717+00:00",
+  "last_message_gap_minutes": 0.8,
+  "last_stamp": "2026-05-01T04:57:06.212168+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 23:56:15 CDT",
+    "timestamp": "2026-05-01 23:57:06 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -307,18 +307,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 79,
+  "message_count": 80,
   "next_drift_at": 78,
   "drift_log": [
-    {
-      "ts": "2026-04-30T08:02:19.817562+00:00",
-      "msg_num": 60,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T08:14:34.972543+00:00",
       "msg_num": 61,
@@ -489,10 +480,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T04:57:06.376519+00:00",
+      "msg_num": 80,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "yeah forklift-flower-pot mode caught the typo, the run-down still applies",
-  "clinical_streak": 4,
+  "last_response_text": "THCp blend warning tier. even with HHC D8 D9 moderate, THCp punches way above its weight. total mg on package doesnt tell you much, you need breakdown how many mg THCp specifically per gummy. if COA shows 1-2mg THCp that's real dose, start with half first time, these blends are why people post i thought i could handle it tweets",
+  "clinical_streak": 0,
   "last_initiation_message": 77,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
