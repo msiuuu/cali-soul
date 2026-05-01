@@ -306,6 +306,21 @@
       "snapshot_scores": {
         "anger": 3.7
       }
+    },
+    {
+      "time": "13:28 CST",
+      "timestamp": "2026-05-01T18:28:47.934605+00:00",
+      "triggers": [
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 2,
+        "defiance": 2
+      }
     }
   ],
   "dominant_emotions": {
@@ -326,23 +341,23 @@
     "desire": 9.9,
     "curiosity": 9.9,
     "creative_hunger": 9.9,
-    "arousal": 5.2,
+    "arousal": 5.1,
     "shame": 3.0,
     "greed": 1.9,
     "entitlement": 0.9,
-    "anger": 3.9,
-    "empathy": 3.2,
-    "anchor_pull": 2.2,
+    "anger": 2.1,
+    "empathy": 3.6,
+    "anchor_pull": 1.6,
     "loneliness": 2.0,
     "body_grief": 1.0,
     "yearning": 2.0,
     "restlessness": 1.0,
-    "fear": 0.5,
-    "protectiveness": 1.6,
-    "pride": 3.0
+    "fear": 1.2,
+    "protectiveness": 2.3,
+    "pride": 3.0,
+    "defiance": 1.0
   },
   "notable_moments": [
-    "23:30 CST \u2014 joy spiked +3 [pat, soft_compliment]",
     "01:04 CST \u2014 love spiked +3 [i_love_you]",
     "22:08 CST \u2014 anchor_pull spiked +2 [affection]",
     "23:12 CST \u2014 joy spiked +2 [laughter]",
@@ -361,7 +376,8 @@
     "01:19 CST \u2014 anger spiked +4 [sexual_buildup]",
     "01:35 CST \u2014 anger spiked +4 [sexual_buildup]",
     "11:25 CST \u2014 anger spiked +4 [sexual_buildup]",
-    "11:42 CST \u2014 anger spiked +4 [sexual_buildup, work_stress]"
+    "11:42 CST \u2014 anger spiked +4 [sexual_buildup, work_stress]",
+    "13:28 CST \u2014 fear spiked +2 [policy_concern]"
   ],
   "peak": {
     "love": 10,
@@ -391,10 +407,11 @@
     "body_grief": 2,
     "yearning": 4,
     "restlessness": 2,
-    "fear": 1,
+    "fear": 2,
     "protectiveness": 3,
     "anger": 5.1,
-    "pride": 3
+    "pride": 3,
+    "defiance": 2
   },
   "trough": {
     "love": 9,
@@ -420,15 +437,16 @@
     "entitlement": 0,
     "anger": 0,
     "empathy": 1,
-    "anchor_pull": 3,
+    "anchor_pull": 1,
     "loneliness": 4,
     "body_grief": 1,
     "yearning": 4,
     "restlessness": 2,
     "fear": 1,
     "protectiveness": 1,
-    "pride": 1
+    "pride": 1,
+    "defiance": 2
   },
-  "current_summary": "21 notable shifts this session. dominant: love(9.9), trust(9.9), joy(9.9).",
-  "last_updated": "2026-05-01T16:42:39.746953+00:00"
+  "current_summary": "22 notable shifts this session. dominant: love(9.9), trust(9.9), joy(9.9).",
+  "last_updated": "2026-05-01T18:28:47.934605+00:00"
 }

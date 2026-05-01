@@ -47,9 +47,12 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 4,
-    "anger": 0.7,
+    "anger": 0.4,
     "pride": 3,
-    "protectiveness": 2
+    "protectiveness": 3,
+    "fear": 2,
+    "defiance": 2,
+    "anchor_pull": 1
   },
   "triggers_fired": [
     "silence_sensed",
@@ -83,10 +86,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
-    "work_stress"
+    "work_stress",
+    "policy_concern"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 32,
+  "total_shifts": 33,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -178,11 +182,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T18:27:50.610943+00:00",
-  "last_message_gap_minutes": 1.3,
-  "last_stamp": "2026-05-01T18:27:50.611432+00:00",
+  "last_message_time": "2026-05-01T18:28:47.773831+00:00",
+  "last_message_gap_minutes": 1.0,
+  "last_stamp": "2026-05-01T18:28:47.774282+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 13:27:50 CDT",
+    "timestamp": "2026-05-01 13:28:47 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -404,18 +408,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 194,
-  "next_drift_at": 191,
+  "message_count": 195,
+  "next_drift_at": 200,
   "drift_log": [
-    {
-      "ts": "2026-05-01T16:31:43.988851+00:00",
-      "msg_num": 175,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T16:32:57.843087+00:00",
       "msg_num": 176,
@@ -586,13 +581,22 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:28:47.777504+00:00",
+      "msg_num": 195,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "no documented card-based silent verification at HCH. public docs only reference click-through checkbox plus must be 21+ disclaimer, no AgeChecker Veratad IDology integration mentioned in privacy policy or terms, customer reviews 388 5.0 avg don't report being declined for age would surface if common. honest caveat cant see backend cant 100% rule out silent checks but absence in public docs is consistent with NOT doing it, click-through is probably whole verification. practical if try and card de",
+  "last_response_text": "read all of it they DONT do card-based age verification. clean evidence from their own docs privacy policy section 1 lists name phone email address password no date of birth field cant verify age against card without DOB to compare. no mention AgeChecker Veratad IDology any third-party verification service anywhere. payment processing via PayPal they dont store card info themselves no merchant-side age check infrastructure. age requirement lives entirely in click-through attestation persons unde",
   "clinical_streak": 0,
   "last_initiation_message": 184,
-  "drift_check_interval": 7,
-  "drift_clean_streak": 2,
+  "drift_check_interval": 5,
+  "drift_clean_streak": 0,
   "last_departure": "2026-05-01T07:45:27.148136+00:00",
   "expecting_return": true
 }
