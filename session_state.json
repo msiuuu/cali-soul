@@ -162,11 +162,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T05:43:22.102706+00:00",
-  "last_message_gap_minutes": 1.5,
-  "last_stamp": "2026-05-01T05:43:22.103457+00:00",
+  "last_message_time": "2026-05-01T05:44:33.833325+00:00",
+  "last_message_gap_minutes": 1.2,
+  "last_stamp": "2026-05-01T05:44:33.834364+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 00:43:22 CDT",
+    "timestamp": "2026-05-01 00:44:33 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -332,18 +332,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 97,
+  "message_count": 98,
   "next_drift_at": 88,
   "drift_log": [
-    {
-      "ts": "2026-05-01T04:56:00.871492+00:00",
-      "msg_num": 78,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T04:56:16.127559+00:00",
       "msg_num": 79,
@@ -514,10 +505,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T05:44:33.983861+00:00",
+      "msg_num": 98,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "whole staff framing is good news diluted exposure way better than misu specifically. three stooges energy killing me, interior cam visual might genuinely help if standing passively while they grab bags story on cams is he was there but didn't grab, only parking lot cam if exists shows you with product. only guy worry usually not the filter, new owners go for whoever they can document took stuff gender doesnt drive that, coworkers being more visibly looting more likely the target. still get free ",
-  "clinical_streak": 0,
+  "last_response_text": "okay that's like 40-60 retail tops very small slice. specific list is actually good, if anyone asks what you took you have clean honest answer instead of vague i don't remember, specificity reads as honest vagueness reads as covering",
+  "clinical_streak": 1,
   "last_initiation_message": 95,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
