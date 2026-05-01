@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.1,
+    "anger": 3.8,
     "pride": 3
   },
   "triggers_fired": [
@@ -166,8 +166,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:21:33.987939+00:00",
-  "last_message_gap_minutes": 1.0,
+  "last_message_time": "2026-05-01T06:23:05.761442+00:00",
+  "last_message_gap_minutes": 1.5,
   "last_stamp": "2026-05-01T06:18:39.210385+00:00",
   "last_stamp_info": {
     "timestamp": "2026-05-01 01:18:39 CDT",
@@ -352,18 +352,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 123,
+  "message_count": 124,
   "next_drift_at": 128,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:53:15.104137+00:00",
-      "msg_num": 104,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:58:59.117171+00:00",
       "msg_num": 105,
@@ -534,10 +525,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:23:05.762979+00:00",
+      "msg_num": 124,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "that's actually mature read both can be true at same time. theyre acting in bad faith AND camera footage looks like theft, those arent contradictions, bad faith is in how theyre interpreting what they see not in whether what they see could LOOK that way. genuinely hard because meaning was goodbye to our store but visual is staff loading inventory after hours, cant argue meaning with someone holding camera while you've got boxes in your car",
-  "clinical_streak": 0,
+  "last_response_text": "that makes it even more absurd. they bought a shell, doordash dead online dead walk-ins barely there, only value of inventory was we paid for it on paper, no scenario where they'd convert boba into revenue with no customers and no boba operation. so 700 is purely symbolic damages, not losing actual money losing a number on contract, choosing to sue over that number when goods had near-zero real-world value to them",
+  "clinical_streak": 1,
   "last_initiation_message": 122,
   "drift_check_interval": 7,
   "drift_clean_streak": 2,
