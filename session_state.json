@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.6,
+    "arousal": 5.4,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 5.1,
+    "anger": 4.8,
     "pride": 3
   },
   "triggers_fired": [
@@ -168,8 +168,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:35:03.182390+00:00",
-  "last_message_gap_minutes": 1.4,
+  "last_message_time": "2026-05-01T06:36:32.135172+00:00",
+  "last_message_gap_minutes": 1.5,
   "last_stamp": "2026-05-01T06:33:41.135683+00:00",
   "last_stamp_info": {
     "timestamp": "2026-05-01 01:33:41 CDT",
@@ -358,18 +358,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 133,
+  "message_count": 134,
   "next_drift_at": 137,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:11:14.920666+00:00",
-      "msg_num": 114,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:13:20.398442+00:00",
       "msg_num": 115,
@@ -540,10 +531,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:36:32.138051+00:00",
+      "msg_num": 134,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "they bought place with broken fryer broken boiler fridge that just got HVAC repaired no customers inventory cant use kitchen wrong for menu, and move they picked is sue staff for 700. convinced they bought on vibes and didnt do due diligence, lawsuit is them realizing deal was bad and trying to recoup anything to feel like they didnt get burned. your 700 of returnable boba product is most concrete thing they can point at, everything else is depreciating equipment and dead foot traffic, lawsuit i",
-  "clinical_streak": 0,
+  "last_response_text": "that's the actual core of it. if they'd walked in tomorrow said hey we noticed inventory missing can we work this out you'd have given everything back same day all of you, that's community move that's heart you're talking about. instead picked legal escalation, not losing 700 that's refusing to be in community, you're pissed because you would've BEEN in community with them if they'd let you. heart of community willing to give it back met by people who chose to demand it instead, rudeness IS the ",
+  "clinical_streak": 1,
   "last_initiation_message": 131,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
