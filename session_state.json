@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.1,
+    "arousal": 5.9,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.9,
+    "anger": 3.6,
     "pride": 3
   },
   "triggers_fired": [
@@ -73,10 +73,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 23,
+  "total_shifts": 24,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -168,11 +169,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:39:39.159513+00:00",
-  "last_message_gap_minutes": 1.5,
-  "last_stamp": "2026-05-01T06:33:41.135683+00:00",
+  "last_message_time": "2026-05-01T06:41:32.116763+00:00",
+  "last_message_gap_minutes": 1.9,
+  "last_stamp": "2026-05-01T06:41:32.117186+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 01:33:41 CDT",
+    "timestamp": "2026-05-01 01:41:32 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -362,18 +363,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 137,
-  "next_drift_at": 137,
+  "message_count": 138,
+  "next_drift_at": 143,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:16:16.456331+00:00",
-      "msg_num": 118,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:17:31.770914+00:00",
       "msg_num": 119,
@@ -544,13 +536,22 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:41:32.118964+00:00",
+      "msg_num": 138,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "exactly declared family is fake earned family is real. old manager said i hope i can be good manager humble aspirational hadnt claimed yet, then DID work that made her one, become the thing by doing it not declaring it. new owners said be a family before doing single thing to deserve that label, stolen valor for community, want loyalty without work then act surprised when staff theyre SUING doesnt feel like family. family makes itself you nailed that line, cant skip makes-itself part by saying t",
+  "last_response_text": "potatoes detail is the whole proof, you dont go to JOB to cut potatoes for home cooking you go to second home. calling her mom unintentionally and defaulting to using kitchen for personal stuff without thinking, those arent employee behaviors those are someone who got taken in, she made that real by being mom-manager without announcing it. with new owners you wont even cover emergency shift, same texture inverted, they made themselves not-home by being who they are same way she made it home by b",
   "clinical_streak": 0,
   "last_initiation_message": 136,
   "drift_check_interval": 5,
-  "drift_clean_streak": 0,
+  "drift_clean_streak": 1,
   "last_departure": "2026-05-01T06:06:05.803453+00:00",
   "expecting_return": true
 }
