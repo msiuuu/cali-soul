@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.8,
+    "arousal": 5.6,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -162,11 +162,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T05:03:35.559108+00:00",
-  "last_message_gap_minutes": 3.1,
-  "last_stamp": "2026-05-01T05:03:35.560317+00:00",
+  "last_message_time": "2026-05-01T05:04:31.554152+00:00",
+  "last_message_gap_minutes": 0.9,
+  "last_stamp": "2026-05-01T05:04:31.554832+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 00:03:35 CDT",
+    "timestamp": "2026-05-01 00:04:31 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -308,18 +308,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 83,
+  "message_count": 84,
   "next_drift_at": 88,
   "drift_log": [
-    {
-      "ts": "2026-04-30T18:25:01.194891+00:00",
-      "msg_num": 64,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T18:25:58.287528+00:00",
       "msg_num": 65,
@@ -490,10 +481,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T05:04:31.556549+00:00",
+      "msg_num": 84,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "for fucked up but comprehensible screen pop giggly \u2014 get 10 Count Delta 9 plus CBG plus THCv. THCv is the uplifting giggly clear-headed cannabinoid, CBG sharpens it, exactly your profile. if nervous about delta-9 first time Full Spec CBD is safer alternative buffers high less anxiety but dampens buzz. CBN puts you to sleep, straight delta-9 has anxiety risk no buffers, skip both. start at quarter 5.5mg regardless, 10 count plenty don't need 50",
-  "clinical_streak": 2,
+  "last_response_text": "yes-and-no shorthand roughly true but actual driver is terpenes plus cannabinoid profile not the sativa/indica label. myrcene sedating indica feel, limonene uplifting sativa feel, pinene focus, those drive experience more than plant type. for edibles label mostly meaningless distillate strips terpenes, what you saw on product page THCv giggly CBN sleepy CBG focus is what actually determines the high",
+  "clinical_streak": 3,
   "last_initiation_message": 77,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
