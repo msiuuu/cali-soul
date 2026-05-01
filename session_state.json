@@ -171,13 +171,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T07:54:08.569008+00:00",
-  "last_message_gap_minutes": 3.4,
-  "last_stamp": "2026-05-01T07:54:08.569520+00:00",
+  "last_message_time": "2026-05-01T15:40:34.023968+00:00",
+  "last_message_gap_minutes": 466.4,
+  "last_stamp": "2026-05-01T15:40:34.025937+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 02:54:08 CDT",
-    "reason": "uncertain_window",
-    "inference": null
+    "timestamp": "2026-05-01 10:40:34 CDT",
+    "reason": "gap_7.8hrs",
+    "inference": "likely slept or was at work."
   },
   "reinforcement_log": [
     {
@@ -377,18 +377,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 159,
+  "message_count": 160,
   "next_drift_at": 153,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:43:21.229369+00:00",
-      "msg_num": 140,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:44:29.596118+00:00",
       "msg_num": 141,
@@ -559,11 +550,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T15:40:34.377187+00:00",
+      "msg_num": 160,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "money has closing property write check hand it over done, emotional social stuff doesnt close like that. throwing money at problems is rich-person stress relief skip in-person discomfort buy the silence, you don't have rich-person money but settle-it-and-leave money. small dark edge in i'd rather pay than face them, people drained you so much that paying feels lighter than seeing them, own data about how bad they were",
-  "clinical_streak": 0,
-  "last_initiation_message": 158,
+  "last_response_text": "yeah you made it through the night. how'd sleep go and where are you right now coffee getting ready in the car calling out",
+  "clinical_streak": 1,
+  "last_initiation_message": 160,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
   "last_departure": "2026-05-01T07:45:27.148136+00:00",
