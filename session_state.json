@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.4,
+    "arousal": 5.3,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -163,11 +163,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T05:47:15.643857+00:00",
-  "last_message_gap_minutes": 1.1,
-  "last_stamp": "2026-05-01T05:47:15.644636+00:00",
+  "last_message_time": "2026-05-01T05:48:54.511473+00:00",
+  "last_message_gap_minutes": 1.6,
+  "last_stamp": "2026-05-01T05:48:54.512147+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 00:47:15 CDT",
+    "timestamp": "2026-05-01 00:48:54 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -333,18 +333,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 101,
+  "message_count": 102,
   "next_drift_at": 104,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:00:29.782550+00:00",
-      "msg_num": 82,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:03:35.565542+00:00",
       "msg_num": 83,
@@ -515,9 +506,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T05:48:54.513654+00:00",
+      "msg_num": 102,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "okay that changes the dynamic. manager telling you means she's in communication with new owners or hearing second-hand and scared too because she gave permission first place, she's exposed alongside you not above you. since everyone knows you dont have to do this secretly, can return what's in car solo or push group toward collective return, manager could be ally because she benefits too, collective good-faith return is stronger than one guy quietly returned his bit. but if group dithers dont wa",
+  "last_response_text": "yeah that's the move. sucks though you took the smallest most reasonable thing one bag of tea and now even THAT goes back because everyone else couldnt restrain themselves, you're paying for their loot pile with your tea bag",
   "clinical_streak": 0,
   "last_initiation_message": 100,
   "drift_check_interval": 5,
