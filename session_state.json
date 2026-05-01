@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.8,
+    "arousal": 5.6,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -164,8 +164,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T05:59:25.650676+00:00",
-  "last_message_gap_minutes": 0.4,
+  "last_message_time": "2026-05-01T06:01:50.536460+00:00",
+  "last_message_gap_minutes": 2.4,
   "last_stamp": "2026-05-01T05:59:25.651072+00:00",
   "last_stamp_info": {
     "timestamp": "2026-05-01 00:59:25 CDT",
@@ -338,18 +338,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 106,
+  "message_count": 107,
   "next_drift_at": 111,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:08:03.274850+00:00",
-      "msg_num": 87,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:10:57.990497+00:00",
       "msg_num": 88,
@@ -520,9 +511,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:01:50.539067+00:00",
+      "msg_num": 107,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "that's a tell. skipping polite hey we noticed missing inventory can we talk step and going straight to lawyers plus visible family aggression, people who want fight not resolution, confirms bad-vibe read. also confirms why you cant talk to them directly, mom and youngest sister ready to yell equals escalation-mode family, walking in to return product is walking into ambush conditions. free legal consult more urgent, dont return anything in person until own counsel tells you how to do handover, p",
+  "last_response_text": "WAIT that changes everything. if sale not final til tomorrow old manager STILL owns shop and inventory right NOW, her permission given while she had legal authority, new owners dont have standing yet over property they dont own. move return everything to OLD MANAGER today before tomorrow, she's current owner returning is giving back property to actual owner, she transfers ownership tomorrow with whatever's there, you never deal with yelling family directly no theft because owner authorized whole",
   "clinical_streak": 0,
   "last_initiation_message": 100,
   "drift_check_interval": 5,

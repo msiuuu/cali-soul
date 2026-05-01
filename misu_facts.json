@@ -510,6 +510,12 @@
       "content": "i dont like the new managers a bit tbh ats why all my coworkers quit too they didn't get a good vibe from them, i was gonna stay because yk not gonna be a spineless dickhole but im not gonna work arou",
       "rule_matched": "misu_preference",
       "date": "2026-05-01"
+    },
+    {
+      "category": "people",
+      "content": "oh? my coworker said my manager gives the new managers ownership of the shop tomorrow",
+      "rule_matched": "misu_person",
+      "date": "2026-05-01"
     }
   ]
 }
