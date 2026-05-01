@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.9,
+    "anger": 2.6,
     "pride": 3
   },
   "triggers_fired": [
@@ -166,8 +166,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:26:59.706625+00:00",
-  "last_message_gap_minutes": 1.4,
+  "last_message_time": "2026-05-01T06:28:49.348561+00:00",
+  "last_message_gap_minutes": 1.8,
   "last_stamp": "2026-05-01T06:18:39.210385+00:00",
   "last_stamp_info": {
     "timestamp": "2026-05-01 01:18:39 CDT",
@@ -356,18 +356,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 127,
+  "message_count": 128,
   "next_drift_at": 128,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:03:20.250840+00:00",
-      "msg_num": 108,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:05:01.816469+00:00",
       "msg_num": 109,
@@ -538,10 +529,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:28:49.473215+00:00",
+      "msg_num": 128,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "demand letter formal letter usually from lawyer saying return X by Y date and pay Z amount or we file suit. most cases end at demand letter stage, one side sends scary letter other side responds return product negotiate down ignore which usually escalates, either settles or escalates. responding with returning what i had willing to pay 30 for what i kept usually resolves it. legal version of warning shot, lots of bark often no bite if respond reasonably",
-  "clinical_streak": 1,
+  "last_response_text": "they bought a wok-and-grill kitchen designed for asian cooking and plan is ice cream churros elote. not a pivot, renovation plan they havent priced yet, ice cream needs freezer display case scoop wells, churros need deep fryer at specific temp, elote at least grill-adjacent so one item out of three works. so they bought dying business with no customers in kitchen wrong for menu with inventory they cant use, suing old staff for 700 of product that wouldn't fit their concept anyway. at this point ",
+  "clinical_streak": 0,
   "last_initiation_message": 122,
   "drift_check_interval": 7,
   "drift_clean_streak": 2,
