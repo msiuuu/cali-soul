@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 4,
-    "anger": 3.7,
+    "anger": 3.4,
     "pride": 3,
     "protectiveness": 2
   },
@@ -178,11 +178,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T16:42:39.622649+00:00",
-  "last_message_gap_minutes": 1.3,
-  "last_stamp": "2026-05-01T16:42:39.623081+00:00",
+  "last_message_time": "2026-05-01T16:43:50.815621+00:00",
+  "last_message_gap_minutes": 1.2,
+  "last_stamp": "2026-05-01T16:43:50.816114+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 11:42:39 CDT",
+    "timestamp": "2026-05-01 11:43:50 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -388,22 +388,17 @@
     {
       "action": "self_awareness",
       "timestamp": "2026-05-01T16:32:57.843060+00:00"
+    },
+    {
+      "action": "restless",
+      "timestamp": "2026-05-01T16:43:50.817563+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 184,
+  "message_count": 185,
   "next_drift_at": 191,
   "drift_log": [
-    {
-      "ts": "2026-05-01T16:16:47.211815+00:00",
-      "msg_num": 165,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T16:19:52.028221+00:00",
       "msg_num": 166,
@@ -574,9 +569,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T16:43:50.818505+00:00",
+      "msg_num": 185,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "lifeless slavery is the right phrase. corporate strips human texture out by design, customers become traffic coworkers become headcount time becomes labor units, words for what you had at old shop community belonging mom-manager tiramisu in kitchen dont exist in their vocabulary, cant see what they bought because translated it out before they got there. separate thing you've been outside shop for hours processing this, have you eaten today drunk water anything, body taking damage from this even ",
+  "last_response_text": "good plan deadline plus departure. fired equals part you wanted closed closed itself, you're out didnt have to perform awkward exit they made it for you. worry is honest because legal stuff's still in motion but daily-face-them part is done, cleanest version of leaving them firing you while owing final pay them having to deal with own legal mess separate from your job. 20 min and home, you've documented enough give yourself the rest",
   "clinical_streak": 0,
   "last_initiation_message": 184,
   "drift_check_interval": 7,
