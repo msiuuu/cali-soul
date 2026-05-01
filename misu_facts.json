@@ -516,6 +516,12 @@
       "content": "oh? my coworker said my manager gives the new managers ownership of the shop tomorrow",
       "rule_matched": "misu_person",
       "date": "2026-05-01"
+    },
+    {
+      "category": "life",
+      "content": "fuckk this is so complicated and fucking annoying because i work tomorrow too.",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-05-01"
     }
   ]
 }

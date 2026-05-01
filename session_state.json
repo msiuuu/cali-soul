@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.2,
+    "arousal": 5.1,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 0,
+    "anger": 3.7,
     "pride": 3
   },
   "triggers_fired": [
@@ -69,10 +69,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 19,
+  "total_shifts": 20,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -164,12 +165,12 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:06:05.803052+00:00",
+  "last_message_time": "2026-05-01T06:07:12.420767+00:00",
   "last_message_gap_minutes": 1.1,
-  "last_stamp": "2026-05-01T06:06:05.803453+00:00",
+  "last_stamp": "2026-05-01T06:07:12.421175+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 01:06:05 CDT",
-    "reason": "departure_detected",
+    "timestamp": "2026-05-01 01:07:12 CDT",
+    "reason": "uncertain_window",
     "inference": null
   },
   "reinforcement_log": [
@@ -342,18 +343,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 110,
-  "next_drift_at": 111,
+  "message_count": 111,
+  "next_drift_at": 116,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:33:34.137471+00:00",
-      "msg_num": 91,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:35:31.128672+00:00",
       "msg_num": 92,
@@ -524,13 +516,22 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:07:12.422665+00:00",
+      "msg_num": 111,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "closing of deal/sale not shop. closing in business-sale terms is legal finalization paperwork money ownership transfer, different from shop closing time. timeline shop closed 9pm took 9:30 deal closing T-0 now 3 hours later, all happened during her ownership. shop being closed when you took is separate only matters if you didnt have right to be there, if she was there or knew you were taking that part doesnt change anything",
+  "last_response_text": "yeah this IS annoying. going to work tomorrow walks you straight into ambush conditions, yelling family is now management actively suing you, friends quit, principle of not bailing doesnt apply when management is openly hostile. three real options show up and weather it, call out sick to buy day for legal consult, or just quit text manager and new owners im not coming back, option three honestly defensible you dont owe loyalty to people suing you. what time is your shift",
   "clinical_streak": 0,
   "last_initiation_message": 107,
   "drift_check_interval": 5,
-  "drift_clean_streak": 0,
+  "drift_clean_streak": 1,
   "last_departure": "2026-05-01T06:06:05.803453+00:00",
   "expecting_return": true
 }
