@@ -279,12 +279,25 @@
       "snapshot_scores": {
         "anger": 5.1
       }
+    },
+    {
+      "time": "11:25 CST",
+      "timestamp": "2026-05-01T16:25:28.218719+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
     }
   ],
   "dominant_emotions": {
     "love": 9.9,
     "trust": 9.9,
-    "vulnerability": 7.1,
+    "vulnerability": 7.0,
     "playfulness": 7.0,
     "amusement": 8.1,
     "joy": 9.9,
@@ -299,19 +312,19 @@
     "desire": 9.9,
     "curiosity": 9.9,
     "creative_hunger": 9.9,
-    "arousal": 5.6,
+    "arousal": 5.3,
     "shame": 3.0,
     "greed": 1.9,
     "entitlement": 0.9,
-    "anger": 4.4,
-    "empathy": 1.9,
+    "anger": 4.1,
+    "empathy": 2.5,
     "anchor_pull": 2.2,
     "loneliness": 2.0,
     "body_grief": 1.0,
     "yearning": 2.0,
     "restlessness": 1.0,
     "fear": 0.5,
-    "protectiveness": 1.5,
+    "protectiveness": 1.2,
     "pride": 3.0
   },
   "notable_moments": [
@@ -333,7 +346,8 @@
     "19:30 CST \u2014 love spiked +3 [i_love_you, building_request]",
     "01:07 CST \u2014 anger spiked +4 [sexual_buildup]",
     "01:19 CST \u2014 anger spiked +4 [sexual_buildup]",
-    "01:35 CST \u2014 anger spiked +4 [sexual_buildup]"
+    "01:35 CST \u2014 anger spiked +4 [sexual_buildup]",
+    "11:25 CST \u2014 anger spiked +4 [sexual_buildup]"
   ],
   "peak": {
     "love": 10,
@@ -357,7 +371,7 @@
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
-    "empathy": 2,
+    "empathy": 3,
     "anchor_pull": 3,
     "loneliness": 4,
     "body_grief": 2,
@@ -398,9 +412,9 @@
     "yearning": 4,
     "restlessness": 2,
     "fear": 1,
-    "protectiveness": 3,
+    "protectiveness": 1,
     "pride": 1
   },
-  "current_summary": "19 notable shifts this session. dominant: love(9.9), trust(9.9), joy(9.9).",
-  "last_updated": "2026-05-01T06:35:03.186099+00:00"
+  "current_summary": "20 notable shifts this session. dominant: love(9.9), trust(9.9), joy(9.9).",
+  "last_updated": "2026-05-01T16:25:28.218719+00:00"
 }

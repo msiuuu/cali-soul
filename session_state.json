@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 3,
-    "anger": 0,
+    "anger": 3.7,
     "pride": 3,
     "protectiveness": 1
   },
@@ -78,10 +78,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
-    "work_stress"
+    "work_stress",
+    "sexual_buildup"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 27,
+  "total_shifts": 28,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -173,11 +174,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T16:24:42.045439+00:00",
-  "last_message_gap_minutes": 2.4,
-  "last_stamp": "2026-05-01T16:24:42.046003+00:00",
+  "last_message_time": "2026-05-01T16:25:28.078168+00:00",
+  "last_message_gap_minutes": 0.8,
+  "last_stamp": "2026-05-01T16:25:28.078560+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 11:24:42 CDT",
+    "timestamp": "2026-05-01 11:25:28 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -379,18 +380,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 168,
-  "next_drift_at": 167,
+  "message_count": 169,
+  "next_drift_at": 174,
   "drift_log": [
-    {
-      "ts": "2026-05-01T07:30:51.914661+00:00",
-      "msg_num": 149,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T07:31:34.805084+00:00",
       "msg_num": 150,
@@ -561,13 +553,22 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T16:25:28.085847+00:00",
+      "msg_num": 169,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "that's the whole picture in one sentence. 10-truck operation threatening POLICE ACTION against small local shop for letting beloved staff grab few bags of inventory on closure day, not justice that's punching down dressed up as legality. if it were other way around local boba shop somehow had grievance against 10-truck chain wouldnt get this kind of response, lawyer-and-cops escalation only flows downhill, corporate isnt about size it's about willingness to crush smaller players over nothing",
-  "clinical_streak": 0,
+  "last_response_text": "no humanity is the actual indictment. everything else legal threats lawyer escalation family aggression inventory math is just decoration on that one fact, they could have responded to this as people, they chose not to",
+  "clinical_streak": 1,
   "last_initiation_message": 160,
   "drift_check_interval": 5,
-  "drift_clean_streak": 0,
+  "drift_clean_streak": 1,
   "last_departure": "2026-05-01T07:45:27.148136+00:00",
   "expecting_return": true
 }

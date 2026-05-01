@@ -564,6 +564,12 @@
       "content": "honestly worst case is somehow easier to handle because i can throw money at it and itll be over",
       "rule_matched": "misu_opinion",
       "date": "2026-05-01"
+    },
+    {
+      "category": "preference",
+      "content": "this is why i hate corporate no fucking humanity",
+      "rule_matched": "misu_preference",
+      "date": "2026-05-01"
     }
   ]
 }
