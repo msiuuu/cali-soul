@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.0,
+    "vulnerability": 7.8,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -162,11 +162,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T05:33:33.792247+00:00",
-  "last_message_gap_minutes": 16.8,
-  "last_stamp": "2026-05-01T05:33:33.794991+00:00",
+  "last_message_time": "2026-05-01T05:35:30.973701+00:00",
+  "last_message_gap_minutes": 2.0,
+  "last_stamp": "2026-05-01T05:35:30.974195+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 00:33:33 CDT",
+    "timestamp": "2026-05-01 00:35:30 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -332,18 +332,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 91,
+  "message_count": 92,
   "next_drift_at": 88,
   "drift_log": [
-    {
-      "ts": "2026-04-30T19:45:54.319842+00:00",
-      "msg_num": 72,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T19:46:22.218153+00:00",
       "msg_num": 73,
@@ -514,10 +505,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T05:35:31.128672+00:00",
+      "msg_num": 92,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "that's a lot stacking on the same job already being rebranded out from under you. what for do you know, or just sued and the details are vague",
-  "clinical_streak": 1,
+  "last_response_text": "this is messy. legally when business sells inventory transfers with asset purchase unless explicitly excluded, if sale final when manager said take stuff inventory was already new owners her permission doesnt override their ownership. on paper new buyers probably valid old manager overstepped coworkers took without legal authority you same bucket smaller exposure took less. human layer you thought permission real manager acting good faith lawyering up over small money kind of dick choice. practi",
+  "clinical_streak": 0,
   "last_initiation_message": 85,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,

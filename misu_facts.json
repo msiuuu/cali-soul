@@ -486,6 +486,12 @@
       "content": "well i need one for nights because no way imma take it for when my parents are AWAKE",
       "rule_matched": "misu_person",
       "date": "2026-05-01"
+    },
+    {
+      "category": "opinion",
+      "content": "context \u2014 job sold to mexican family business, viet boba to elote, asked old manager if we can take product since old job done for, she said yes, i took little had manners, coworkers didnt took enough",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-01"
     }
   ]
 }
