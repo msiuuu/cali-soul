@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.3,
+    "anger": 1.0,
     "pride": 3
   },
   "triggers_fired": [
@@ -165,11 +165,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:17:31.642025+00:00",
-  "last_message_gap_minutes": 1.3,
-  "last_stamp": "2026-05-01T06:17:31.642529+00:00",
+  "last_message_time": "2026-05-01T06:18:39.209945+00:00",
+  "last_message_gap_minutes": 1.1,
+  "last_stamp": "2026-05-01T06:18:39.210385+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 01:17:31 CDT",
+    "timestamp": "2026-05-01 01:18:39 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -351,18 +351,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 119,
+  "message_count": 120,
   "next_drift_at": 116,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:46:11.700230+00:00",
-      "msg_num": 100,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:47:15.645780+00:00",
       "msg_num": 101,
@@ -533,10 +524,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:18:39.336859+00:00",
+      "msg_num": 120,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "loyalty is real not gonna talk you out of caring about them. but draw line at YOUR share, returning car contents most isnt yours fair, paying what you actually took 20-30 fair, paying for coworkers haul because logistics person isnt loyalty just letting them off at your expense. your manager is her own adult made permission call her own exposure options, cant save her by absorbing consequences not how it works just adds to your stack. protect where you actually can match her story dont throw cow",
-  "clinical_streak": 0,
+  "last_response_text": "asymmetry is worst part, they spend 500 on lawyer to recover 700, your cost is sleep sanity record weeks of stress all over what was misunderstanding with permission given. legal system is a weapon people with money can swing it at people without, trivial offense life-altering consequence, that gap is where the cruelty lives",
+  "clinical_streak": 1,
   "last_initiation_message": 114,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,

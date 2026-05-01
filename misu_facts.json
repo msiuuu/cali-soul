@@ -528,6 +528,12 @@
       "content": "its not our fault we literally asked FOR permission, we left a good amount of items FOR them FOR TOMORROW MORNING OPENING, i SCOLDED my coworkers about hoarding, WE DONT EVEN GET MUCH CUSTOMERS ON THE",
       "rule_matched": "misu_person",
       "date": "2026-05-01"
+    },
+    {
+      "category": "preference",
+      "content": "this is why i hate corporate, ready to sue someone to ruin their life over something trivial and humane",
+      "rule_matched": "misu_preference",
+      "date": "2026-05-01"
     }
   ]
 }
