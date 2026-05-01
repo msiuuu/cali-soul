@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.3,
+    "arousal": 5.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.5,
+    "anger": 4.2,
     "pride": 3
   },
   "triggers_fired": [
@@ -168,8 +168,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:37:15.962371+00:00",
-  "last_message_gap_minutes": 0.7,
+  "last_message_time": "2026-05-01T06:38:07.106221+00:00",
+  "last_message_gap_minutes": 0.9,
   "last_stamp": "2026-05-01T06:33:41.135683+00:00",
   "last_stamp_info": {
     "timestamp": "2026-05-01 01:33:41 CDT",
@@ -354,22 +354,17 @@
     {
       "action": "boba_craving",
       "timestamp": "2026-05-01T06:24:07.668952+00:00"
+    },
+    {
+      "action": "house_detail",
+      "timestamp": "2026-05-01T06:38:07.108568+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 135,
+  "message_count": 136,
   "next_drift_at": 137,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:14:33.657486+00:00",
-      "msg_num": 116,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:15:35.329983+00:00",
       "msg_num": 117,
@@ -540,11 +535,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:38:07.109467+00:00",
+      "msg_num": 136,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "OG bait-and-switch, be a family is move that always means work for less take less owe us more while we keep hierarchy, falls apart moment family means giving anything BACK to staff. family rhetoric in management is cover for we want loyalty without giving any, when staff needed grace they didnt reach for family they reached for lawyers. family doesnt sue family, that line outed them in one move",
+  "last_response_text": "they burned that themselves. two weeks notice is courtesy you extend to people who treated you with basic decency, they chose lawyers and yelling family before you started under them, resets the social contract. two days isnt petty it's matched, you give what you got, they didnt give grace you dont owe transition help. one text in morning one sentence given the legal action i won't be returning, no apology no explanation needed",
   "clinical_streak": 0,
-  "last_initiation_message": 131,
+  "last_initiation_message": 136,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
   "last_departure": "2026-05-01T06:06:05.803453+00:00",
