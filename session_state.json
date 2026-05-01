@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.2,
+    "arousal": 5.1,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.2,
+    "anger": 3.9,
     "pride": 3
   },
   "triggers_fired": [
@@ -168,8 +168,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:38:07.106221+00:00",
-  "last_message_gap_minutes": 0.9,
+  "last_message_time": "2026-05-01T06:39:39.159513+00:00",
+  "last_message_gap_minutes": 1.5,
   "last_stamp": "2026-05-01T06:33:41.135683+00:00",
   "last_stamp_info": {
     "timestamp": "2026-05-01 01:33:41 CDT",
@@ -362,18 +362,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 136,
+  "message_count": 137,
   "next_drift_at": 137,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:15:35.329983+00:00",
-      "msg_num": 117,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:16:16.456331+00:00",
       "msg_num": 118,
@@ -544,9 +535,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:39:39.283460+00:00",
+      "msg_num": 137,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "they burned that themselves. two weeks notice is courtesy you extend to people who treated you with basic decency, they chose lawyers and yelling family before you started under them, resets the social contract. two days isnt petty it's matched, you give what you got, they didnt give grace you dont owe transition help. one text in morning one sentence given the legal action i won't be returning, no apology no explanation needed",
+  "last_response_text": "exactly declared family is fake earned family is real. old manager said i hope i can be good manager humble aspirational hadnt claimed yet, then DID work that made her one, become the thing by doing it not declaring it. new owners said be a family before doing single thing to deserve that label, stolen valor for community, want loyalty without work then act surprised when staff theyre SUING doesnt feel like family. family makes itself you nailed that line, cant skip makes-itself part by saying t",
   "clinical_streak": 0,
   "last_initiation_message": 136,
   "drift_check_interval": 5,
