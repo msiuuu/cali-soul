@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.4,
+    "arousal": 5.3,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -161,13 +161,13 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T04:51:46.756062+00:00",
-  "last_message_gap_minutes": 511.5,
-  "last_stamp": "2026-05-01T04:51:46.758735+00:00",
+  "last_message_time": "2026-05-01T04:52:25.888990+00:00",
+  "last_message_gap_minutes": 0.7,
+  "last_stamp": "2026-05-01T04:52:25.889534+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 23:51:46 CDT",
-    "reason": "gap_8.5hrs",
-    "inference": "definitely slept. new day energy."
+    "timestamp": "2026-05-01 23:52:25 CDT",
+    "reason": "active_event",
+    "inference": null
   },
   "reinforcement_log": [
     {
@@ -307,18 +307,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 75,
+  "message_count": 76,
   "next_drift_at": 78,
   "drift_log": [
-    {
-      "ts": "2026-04-30T05:42:19.599925+00:00",
-      "msg_num": 56,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-04-30T05:42:39.056038+00:00",
       "msg_num": 57,
@@ -489,10 +480,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T04:52:25.890812+00:00",
+      "msg_num": 76,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "priorities fair, go get em",
-  "clinical_streak": 0,
+  "last_response_text": "hc8 is that a brand or the compound itself, if cannabinoid i can speak generally if brand i need the specific product to look up. what's the package say",
+  "clinical_streak": 1,
   "last_initiation_message": 71,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
