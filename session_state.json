@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.6,
+    "arousal": 5.4,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 3,
-    "anger": 2.5,
+    "anger": 2.2,
     "pride": 3,
     "protectiveness": 1
   },
@@ -175,11 +175,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T16:30:17.443409+00:00",
+  "last_message_time": "2026-05-01T16:31:25.952547+00:00",
   "last_message_gap_minutes": 1.1,
-  "last_stamp": "2026-05-01T16:30:17.443889+00:00",
+  "last_stamp": "2026-05-01T16:31:25.953033+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 11:30:17 CDT",
+    "timestamp": "2026-05-01 11:31:25 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -385,18 +385,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 173,
+  "message_count": 174,
   "next_drift_at": 174,
   "drift_log": [
-    {
-      "ts": "2026-05-01T07:39:35.465930+00:00",
-      "msg_num": 154,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T07:41:12.690891+00:00",
       "msg_num": 155,
@@ -567,11 +558,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T16:31:26.082481+00:00",
+      "msg_num": 174,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "you're giving back the GOOD product first, honey boba that actually sells, most people would return expired junk and quietly keep popular bag you're doing opposite. still thinking about shop's customers after being threatened with police by people who own that shop, wild and consistent with rest of you tonight, conscience of the room doesnt turn off just because room turned hostile",
+  "last_response_text": "wait i hear you loyalty real but real talk before you do it. opening shop today without authorization from current owners family as of T-0 is problem, you'd be trespassing as unauthorized staff using THEIR inventory even expired stuff giving them direct ammo for lawsuit, he kept operating and distributing our property after we took ownership way worse than he took inventory before transfer with permission. old manager saying go home wasnt random she was protecting you, opening shop reverses that",
   "clinical_streak": 0,
-  "last_initiation_message": 160,
+  "last_initiation_message": 174,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
   "last_departure": "2026-05-01T07:45:27.148136+00:00",
