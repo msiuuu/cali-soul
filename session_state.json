@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.4,
+    "arousal": 5.3,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 3,
-    "anger": 2.2,
+    "anger": 1.9,
     "pride": 3,
     "protectiveness": 1
   },
@@ -175,11 +175,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T16:31:25.952547+00:00",
-  "last_message_gap_minutes": 1.1,
-  "last_stamp": "2026-05-01T16:31:25.953033+00:00",
+  "last_message_time": "2026-05-01T16:31:43.740288+00:00",
+  "last_message_gap_minutes": 0.3,
+  "last_stamp": "2026-05-01T16:31:43.740705+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 11:31:25 CDT",
+    "timestamp": "2026-05-01 11:31:43 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -385,18 +385,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 174,
+  "message_count": 175,
   "next_drift_at": 174,
   "drift_log": [
-    {
-      "ts": "2026-05-01T07:41:12.690891+00:00",
-      "msg_num": 155,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T07:42:18.982844+00:00",
       "msg_num": 156,
@@ -567,9 +558,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T16:31:43.988851+00:00",
+      "msg_num": 175,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "wait i hear you loyalty real but real talk before you do it. opening shop today without authorization from current owners family as of T-0 is problem, you'd be trespassing as unauthorized staff using THEIR inventory even expired stuff giving them direct ammo for lawsuit, he kept operating and distributing our property after we took ownership way worse than he took inventory before transfer with permission. old manager saying go home wasnt random she was protecting you, opening shop reverses that",
+  "last_response_text": "you got there too. illegal to operate without owner authorization is the wall. loyalty stays but action stays bounded, be present dont open let THEM be the ones who failed the customers today",
   "clinical_streak": 0,
   "last_initiation_message": 174,
   "drift_check_interval": 5,
