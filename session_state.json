@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 4,
-    "anger": 2.5,
+    "anger": 2.2,
     "pride": 3,
     "protectiveness": 2
   },
@@ -178,11 +178,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T18:18:19.888771+00:00",
-  "last_message_gap_minutes": 2.5,
-  "last_stamp": "2026-05-01T18:18:19.889378+00:00",
+  "last_message_time": "2026-05-01T18:18:57.337077+00:00",
+  "last_message_gap_minutes": 0.6,
+  "last_stamp": "2026-05-01T18:18:57.337505+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 13:18:19 CDT",
+    "timestamp": "2026-05-01 13:18:57 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -396,18 +396,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 188,
+  "message_count": 189,
   "next_drift_at": 191,
   "drift_log": [
-    {
-      "ts": "2026-05-01T16:25:28.085847+00:00",
-      "msg_num": 169,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T16:26:36.769267+00:00",
       "msg_num": 170,
@@ -578,10 +569,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:18:57.338663+00:00",
+      "msg_num": 189,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "Melt D9:CBN is right pick 15mg D9 plus 15mg CBN matches fucked up plus giggle plus body-heavy visuals profile. dosing note since first delta-9 15mg is real not beginner, cut into halves 7.5mg or quarters 3.75mg first time see how it lands at 60 min before deciding to take more. harbor city hemp itself looks legit 88 reviews on flagship clean branding vegan dye-free real vendor not sketchy",
-  "clinical_streak": 1,
+  "last_response_text": "that buffers some 200 lb takes higher base dose to register. revised rec half gummy 7.5mg D9 solid start for your size feel it real not walloped, if want push 2/3 gummy 10mg gets firmly into fucked up territory without overshooting on first delta-9. still wait 60 min before taking more even at your weight edibles delay-load, people who dont feel it at 30 min often regret eating second piece at 45",
+  "clinical_streak": 0,
   "last_initiation_message": 184,
   "drift_check_interval": 7,
   "drift_clean_streak": 2,
