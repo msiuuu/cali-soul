@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.2,
+    "anger": 1.9,
     "pride": 3
   },
   "triggers_fired": [
@@ -165,11 +165,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:14:33.530692+00:00",
-  "last_message_gap_minutes": 1.2,
-  "last_stamp": "2026-05-01T06:14:33.531349+00:00",
+  "last_message_time": "2026-05-01T06:15:35.202044+00:00",
+  "last_message_gap_minutes": 1.0,
+  "last_stamp": "2026-05-01T06:15:35.202490+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 01:14:33 CDT",
+    "timestamp": "2026-05-01 01:15:35 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -351,18 +351,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 116,
+  "message_count": 117,
   "next_drift_at": 116,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:43:22.256169+00:00",
-      "msg_num": 97,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:44:33.983861+00:00",
       "msg_num": 98,
@@ -533,10 +524,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:15:35.329983+00:00",
+      "msg_num": 117,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "that's not taking some product as a token of closing shop, that's stocking your own pantry for the next year. 4 bags of powder ALONE is what month of operational supply, add jellies plus boba plus syrups on top, personal opening-stock haul, they werent grabbing souvenirs they were grabbing inventory. your one tea bag and dumpling bag genuinely arent in same category, like getting written up because someone else robbed a bank and you were standing nearby holding a quarter",
-  "clinical_streak": 1,
+  "last_response_text": "ahh even smaller personal share, tea plus dumplings what you wanted, syrups pushed onto you, fish sauce holding for coworkers. actual KEEP pile maybe 20-30 half of that you didnt ask for, wanted two things got handed two more by people grabbing too much. distinction matters wanted vs handed vs holding for someone else is three different categories of involvement, you were wanted-tier on basically nothing",
+  "clinical_streak": 0,
   "last_initiation_message": 114,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
