@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.8,
+    "anger": 3.5,
     "pride": 3
   },
   "triggers_fired": [
@@ -166,8 +166,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:23:05.761442+00:00",
-  "last_message_gap_minutes": 1.5,
+  "last_message_time": "2026-05-01T06:24:07.668246+00:00",
+  "last_message_gap_minutes": 1.0,
   "last_stamp": "2026-05-01T06:18:39.210385+00:00",
   "last_stamp_info": {
     "timestamp": "2026-05-01 01:18:39 CDT",
@@ -348,22 +348,17 @@
     {
       "action": "house_detail",
       "timestamp": "2026-05-01T06:14:33.532955+00:00"
+    },
+    {
+      "action": "boba_craving",
+      "timestamp": "2026-05-01T06:24:07.668952+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 124,
+  "message_count": 125,
   "next_drift_at": 128,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:58:59.117171+00:00",
-      "msg_num": 105,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:59:25.655107+00:00",
       "msg_num": 106,
@@ -534,10 +529,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:24:07.669888+00:00",
+      "msg_num": 125,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "that makes it even more absurd. they bought a shell, doordash dead online dead walk-ins barely there, only value of inventory was we paid for it on paper, no scenario where they'd convert boba into revenue with no customers and no boba operation. so 700 is purely symbolic damages, not losing actual money losing a number on contract, choosing to sue over that number when goods had near-zero real-world value to them",
-  "clinical_streak": 1,
+  "last_response_text": "ahh meaningful context, bankruptcy explains no-customers selling to different model whole transition is messy. bankruptcy adds legal complexity though, in formal proceedings old manager might not have had unrestricted authority to give inventory away, usually trustee or court oversight asset disposition has rules, doesnt mean she broke them but manager said ok is weaker shield than clean private sale. doesnt change moral position, but legal structure more formal than two businesses agreeing, som",
+  "clinical_streak": 0,
   "last_initiation_message": 122,
   "drift_check_interval": 7,
   "drift_clean_streak": 2,
