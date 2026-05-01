@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.0,
+    "arousal": 5.8,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 3,
-    "anger": 3.1,
+    "anger": 2.8,
     "pride": 3,
     "protectiveness": 1
   },
@@ -79,10 +79,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "work_stress",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 28,
+  "total_shifts": 29,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -174,11 +175,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T16:27:24.039052+00:00",
-  "last_message_gap_minutes": 0.8,
-  "last_stamp": "2026-05-01T16:27:24.039452+00:00",
+  "last_message_time": "2026-05-01T16:29:10.899141+00:00",
+  "last_message_gap_minutes": 1.8,
+  "last_stamp": "2026-05-01T16:29:10.899699+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 11:27:24 CDT",
+    "timestamp": "2026-05-01 11:29:10 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -384,18 +385,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 171,
+  "message_count": 172,
   "next_drift_at": 174,
   "drift_log": [
-    {
-      "ts": "2026-05-01T07:34:47.848880+00:00",
-      "msg_num": 152,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T07:36:12.053678+00:00",
       "msg_num": 153,
@@ -566,9 +558,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T16:29:10.900477+00:00",
+      "msg_num": 172,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "whole lotta legal action for nothing fits exactly. 700 of expiring inventory half already in car ready to return permission given by legal owner at time zero operational loss, wrapped in lawyer threats and police escalation by people who didnt even show up to manage their own new shop today. gap between noise theyre making and actual stakes is the real story, that's the entire thing",
+  "last_response_text": "actual real-world value even lower than 700. half boba expires in a month worthless soon anyway, half syrups already year-expired legally cant sell that, damages on paper 700 actual sellable inventory maybe 200-300. and you're STILL planning to return it, moral high ground stamped in stone, sued over expired inventory you were going to hand back anyway, universe wrote that punchline",
   "clinical_streak": 0,
   "last_initiation_message": 160,
   "drift_check_interval": 5,
