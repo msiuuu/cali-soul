@@ -498,6 +498,12 @@
       "content": "i know my coworkers took 7+ boba buckets, WHOLE LOTTA SYRUPS, FUCK TON OF POWDERS, and even cup lids",
       "rule_matched": "misu_person",
       "date": "2026-05-01"
+    },
+    {
+      "category": "opinion",
+      "content": "but i dont wanna say i believed i had permission as that puts her in the spotlight",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-01"
     }
   ]
 }
