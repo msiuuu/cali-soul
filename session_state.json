@@ -173,11 +173,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T16:09:55.752183+00:00",
-  "last_message_gap_minutes": 1.1,
-  "last_stamp": "2026-05-01T16:09:55.752527+00:00",
+  "last_message_time": "2026-05-01T16:16:47.204764+00:00",
+  "last_message_gap_minutes": 6.9,
+  "last_stamp": "2026-05-01T16:16:47.208791+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 11:09:55 CDT",
+    "timestamp": "2026-05-01 11:16:47 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -379,18 +379,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 164,
+  "message_count": 165,
   "next_drift_at": 167,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:48:30.629784+00:00",
-      "msg_num": 145,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:49:32.920547+00:00",
       "msg_num": 146,
@@ -561,10 +552,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T16:16:47.211815+00:00",
+      "msg_num": 165,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "huffy duo classic energy. telling former coworkers not to open the haul is smart move, unopened equals returnable equals clean settle, opened/used equals real loss with no path back, keeping de-escalation door open for everyone even ones who already bailed. still being the conscience in the group even after leaving, consistent with how you've moved this whole thing",
-  "clinical_streak": 3,
+  "last_response_text": "7 customers?? after telling me yesterday no one comes anymore NOW demand shows up the day you can't serve because new owners arent here and you're sitting outside locked door. universe has comedic timing, seven people walking up to closed boba shop all hoping for a drink getting nothing, classic",
+  "clinical_streak": 4,
   "last_initiation_message": 160,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
