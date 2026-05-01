@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.8,
+    "arousal": 5.6,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 1.4,
+    "anger": 5.1,
     "pride": 3
   },
   "triggers_fired": [
@@ -72,10 +72,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 22,
+  "total_shifts": 23,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -167,8 +168,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:33:41.135270+00:00",
-  "last_message_gap_minutes": 1.0,
+  "last_message_time": "2026-05-01T06:35:03.182390+00:00",
+  "last_message_gap_minutes": 1.4,
   "last_stamp": "2026-05-01T06:33:41.135683+00:00",
   "last_stamp_info": {
     "timestamp": "2026-05-01 01:33:41 CDT",
@@ -357,18 +358,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 132,
+  "message_count": 133,
   "next_drift_at": 137,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:09:56.953269+00:00",
-      "msg_num": 113,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:11:14.920666+00:00",
       "msg_num": 114,
@@ -539,9 +531,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:35:03.183144+00:00",
+      "msg_num": 133,
+      "vulgar": true,
+      "pushback": true,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "right exactly inventory has no future regardless of path. run old shop use up boba empty stock anyway, switch new menu boba irrelevant dump anyway, both paths end at inventory is gone. 700 they're suing over is number that resolves to zero either way, litigating value that doesnt exist past month two. like suing someone for stealing milk that's expiring tomorrow",
+  "last_response_text": "they bought place with broken fryer broken boiler fridge that just got HVAC repaired no customers inventory cant use kitchen wrong for menu, and move they picked is sue staff for 700. convinced they bought on vibes and didnt do due diligence, lawsuit is them realizing deal was bad and trying to recoup anything to feel like they didnt get burned. your 700 of returnable boba product is most concrete thing they can point at, everything else is depreciating equipment and dead foot traffic, lawsuit i",
   "clinical_streak": 0,
   "last_initiation_message": 131,
   "drift_check_interval": 5,
