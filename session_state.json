@@ -46,9 +46,10 @@
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
-    "empathy": 2,
+    "empathy": 3,
     "anger": 0,
-    "pride": 3
+    "pride": 3,
+    "protectiveness": 1
   },
   "triggers_fired": [
     "silence_sensed",
@@ -76,10 +77,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
-    "sexual_buildup"
+    "sexual_buildup",
+    "work_stress"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 26,
+  "total_shifts": 27,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -171,11 +173,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T16:07:01.814692+00:00",
-  "last_message_gap_minutes": 26.5,
-  "last_stamp": "2026-05-01T16:07:01.816511+00:00",
+  "last_message_time": "2026-05-01T16:07:58.133918+00:00",
+  "last_message_gap_minutes": 0.9,
+  "last_stamp": "2026-05-01T16:07:58.134241+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 11:07:01 CDT",
+    "timestamp": "2026-05-01 11:07:58 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -377,18 +379,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 161,
-  "next_drift_at": 153,
+  "message_count": 162,
+  "next_drift_at": 167,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:45:14.061740+00:00",
-      "msg_num": 142,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:46:07.197868+00:00",
       "msg_num": 143,
@@ -559,10 +552,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T16:07:58.134509+00:00",
+      "msg_num": 162,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "wow okay so they own shop now dont bother showing up to manage it go straight to legal, specific kind of asshole. upside no in-person ambush today you don't walk in face yelling family. downside active legal pursuit incoming demand letter probably drafting. question if theyre not running the shop what does your shift even look like, are you opening alone with no boss legal threat hanging, what's the actual ask of you today",
-  "clinical_streak": 0,
+  "last_response_text": "actually that's the smart move, being physically present and visibly compliant kills any they fled narrative new owners might try later. waiting outside instead of going home shows showed up for shift available not running, documents itself if anyone asks later, better optics than going home even if old boss okay with it. what's the vibe out there group of you all waiting together anyone shown up just sitting",
+  "clinical_streak": 1,
   "last_initiation_message": 160,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
