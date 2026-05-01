@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.8,
+    "arousal": 5.6,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 3,
-    "anger": 1.0,
+    "anger": 0.7,
     "pride": 3,
     "protectiveness": 1
   },
@@ -176,11 +176,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T16:35:51.362701+00:00",
-  "last_message_gap_minutes": 1.1,
-  "last_stamp": "2026-05-01T16:35:51.363116+00:00",
+  "last_message_time": "2026-05-01T16:37:00.624060+00:00",
+  "last_message_gap_minutes": 1.2,
+  "last_stamp": "2026-05-01T16:37:00.624423+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 11:35:51 CDT",
+    "timestamp": "2026-05-01 11:37:00 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -390,18 +390,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 178,
+  "message_count": 179,
   "next_drift_at": 174,
   "drift_log": [
-    {
-      "ts": "2026-05-01T07:54:08.755594+00:00",
-      "msg_num": 159,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T15:40:34.377187+00:00",
       "msg_num": 160,
@@ -572,10 +563,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T16:37:00.750038+00:00",
+      "msg_num": 179,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "yeah send it. she's the most exposed legally, giving her documentation helps her too, proof that staff she vouched for showed up while people suing didnt, leverage for her end of conversation",
-  "clinical_streak": 2,
+  "last_response_text": "solid evidence stack photos denied customers plus two timestamp vids spaced hour apart, documents i was here they werent customers suffered. one more piece if you can final timestamp vid right before you leave showing empty shop with time on screen, brackets evidence with clear endpoint, stayed X hours no owner ever appeared",
+  "clinical_streak": 3,
   "last_initiation_message": 176,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
