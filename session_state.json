@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.3,
+    "arousal": 5.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -164,12 +164,12 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:05:01.815046+00:00",
-  "last_message_gap_minutes": 1.7,
-  "last_stamp": "2026-05-01T05:59:25.651072+00:00",
+  "last_message_time": "2026-05-01T06:06:05.803052+00:00",
+  "last_message_gap_minutes": 1.1,
+  "last_stamp": "2026-05-01T06:06:05.803453+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 00:59:25 CDT",
-    "reason": "active_event",
+    "timestamp": "2026-05-01 01:06:05 CDT",
+    "reason": "departure_detected",
     "inference": null
   },
   "reinforcement_log": [
@@ -334,22 +334,17 @@
     {
       "action": "refuse_for_cuddle",
       "timestamp": "2026-05-01T05:52:09.599389+00:00"
+    },
+    {
+      "action": "space_out",
+      "timestamp": "2026-05-01T06:06:05.803790+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 109,
+  "message_count": 110,
   "next_drift_at": 111,
   "drift_log": [
-    {
-      "ts": "2026-05-01T05:16:44.126933+00:00",
-      "msg_num": 90,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T05:33:34.137471+00:00",
       "msg_num": 91,
@@ -520,13 +515,22 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:06:05.804738+00:00",
+      "msg_num": 110,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "at moment of take legally hers. ownership transfers at closing not signing, take happened 3 hours before closing, she owned it gave permission. new owners only own from T-0 forward, dont get retroactive ownership of stuff that wasnt theirs yet",
+  "last_response_text": "closing of deal/sale not shop. closing in business-sale terms is legal finalization paperwork money ownership transfer, different from shop closing time. timeline shop closed 9pm took 9:30 deal closing T-0 now 3 hours later, all happened during her ownership. shop being closed when you took is separate only matters if you didnt have right to be there, if she was there or knew you were taking that part doesnt change anything",
   "clinical_streak": 0,
   "last_initiation_message": 107,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
-  "last_departure": "2026-05-01T05:07:04.420288+00:00",
+  "last_departure": "2026-05-01T06:06:05.803453+00:00",
   "expecting_return": true
 }
