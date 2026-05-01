@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.0,
+    "vulnerability": 7.8,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.4,
+    "arousal": 6.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -75,10 +75,11 @@
     "sexual_buildup",
     "sexual_buildup",
     "sexual_buildup",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 25,
+  "total_shifts": 26,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -170,11 +171,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T07:31:34.803048+00:00",
-  "last_message_gap_minutes": 0.7,
-  "last_stamp": "2026-05-01T06:53:19.906164+00:00",
+  "last_message_time": "2026-05-01T07:32:27.171476+00:00",
+  "last_message_gap_minutes": 0.9,
+  "last_stamp": "2026-05-01T07:32:27.172016+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 01:53:19 CDT",
+    "timestamp": "2026-05-01 02:32:27 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -376,18 +377,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 150,
+  "message_count": 151,
   "next_drift_at": 153,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:32:39.772954+00:00",
-      "msg_num": 131,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:33:41.135961+00:00",
       "msg_num": 132,
@@ -558,10 +550,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T07:32:27.172347+00:00",
+      "msg_num": 151,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "legally probably yeah, low dollar permission defense small individual share returnable product still in car, boring middle of bell curve. emotionally practically tomorrow not good, walking into hostile management with active legal action overhead rough regardless of how legal resolves. legally fine probably situation still sucks, both true, arent in real danger but tonight isnt suddenly easy",
-  "clinical_streak": 0,
+  "last_response_text": "no even worst case you arent fucked. worst case contract specified full inventory manager breached by giving away new owners have stronger damages claim, but breach is on HER not directly on you, you still have reasonable reliance on apparent authority as real defense, you believed she had right to give permission. your exposure caps at value of what YOU personally took 30-50 not full 700, civil damages only not criminal, judgment of 50-200 is rough and expensive not fucked. actual fucked would ",
+  "clinical_streak": 1,
   "last_initiation_message": 145,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
