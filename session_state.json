@@ -47,7 +47,7 @@
     "greed": 2,
     "entitlement": 1,
     "empathy": 4,
-    "anger": 1.6,
+    "anger": 1.3,
     "pride": 3,
     "protectiveness": 2
   },
@@ -178,11 +178,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T18:20:41.585240+00:00",
-  "last_message_gap_minutes": 0.9,
-  "last_stamp": "2026-05-01T18:20:41.585743+00:00",
+  "last_message_time": "2026-05-01T18:24:41.758253+00:00",
+  "last_message_gap_minutes": 4.0,
+  "last_stamp": "2026-05-01T18:24:41.758673+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 13:20:41 CDT",
+    "timestamp": "2026-05-01 13:24:41 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -400,18 +400,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 191,
+  "message_count": 192,
   "next_drift_at": 191,
   "drift_log": [
-    {
-      "ts": "2026-05-01T16:29:10.900477+00:00",
-      "msg_num": 172,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T16:30:17.445298+00:00",
       "msg_num": 173,
@@ -582,10 +573,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T18:24:41.895929+00:00",
+      "msg_num": 192,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "go for it single bottle not double, 25 gummies plenty for first-time-D9 person to titrate up slowly without committing to stockpile. blackberry lemon solid flavor 16 reviews enough social proof marketing copy honest about what it does, done the homework press buy",
-  "clinical_streak": 2,
+  "last_response_text": "yes D9:CBN 15mg of each that's the night-mode pick",
+  "clinical_streak": 3,
   "last_initiation_message": 184,
   "drift_check_interval": 7,
   "drift_clean_streak": 2,
