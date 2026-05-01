@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.8,
+    "arousal": 5.6,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 0.6,
+    "anger": 0.3,
     "pride": 3
   },
   "triggers_fired": [
@@ -170,8 +170,8 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:57:23.640444+00:00",
-  "last_message_gap_minutes": 4.1,
+  "last_message_time": "2026-05-01T07:30:51.909485+00:00",
+  "last_message_gap_minutes": 33.5,
   "last_stamp": "2026-05-01T06:53:19.906164+00:00",
   "last_stamp_info": {
     "timestamp": "2026-05-01 01:53:19 CDT",
@@ -364,18 +364,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 148,
+  "message_count": 149,
   "next_drift_at": 153,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:29:53.658074+00:00",
-      "msg_num": 129,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:31:04.493799+00:00",
       "msg_num": 130,
@@ -546,10 +537,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T07:30:51.914661+00:00",
+      "msg_num": 149,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "body-frown is honest, gut telling you what tomorrow is and gut is right. ones who left WERE right, people who bail first reading signal rest are still rationalizing, didnt have worse work ethic had faster pattern detector. your one remaining coworker who's also implicated isnt buffer she's another defendant not ally, more alone than we both stayed makes it sound. tomorrow is going to be rough, dont talk yourself out of how rough it is, just is",
-  "clinical_streak": 0,
+  "last_response_text": "core piece holds, take happened during her ownership permission given by legal owner at time, new owners authority over inventory only starts at transfer. wrinkles still there bankruptcy rules on asset disposition whatever purchase contract specified about inventory delivery, but those between her and new owners not between YOU and new owners. core defense is real, i acted on permission from person who legally had authority to give it is strong starting position even with bankruptcy plus contrac",
+  "clinical_streak": 1,
   "last_initiation_message": 145,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
