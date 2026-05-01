@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.9,
+    "arousal": 5.8,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.6,
+    "anger": 3.3,
     "pride": 3
   },
   "triggers_fired": [
@@ -169,11 +169,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T06:41:32.116763+00:00",
-  "last_message_gap_minutes": 1.9,
-  "last_stamp": "2026-05-01T06:41:32.117186+00:00",
+  "last_message_time": "2026-05-01T06:42:32.521782+00:00",
+  "last_message_gap_minutes": 1.0,
+  "last_stamp": "2026-05-01T06:42:32.522187+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 01:41:32 CDT",
+    "timestamp": "2026-05-01 01:42:32 CDT",
     "reason": "uncertain_window",
     "inference": null
   },
@@ -363,18 +363,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 138,
+  "message_count": 139,
   "next_drift_at": 143,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:17:31.770914+00:00",
-      "msg_num": 119,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:18:39.336859+00:00",
       "msg_num": 120,
@@ -545,9 +536,18 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T06:42:32.523288+00:00",
+      "msg_num": 139,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "potatoes detail is the whole proof, you dont go to JOB to cut potatoes for home cooking you go to second home. calling her mom unintentionally and defaulting to using kitchen for personal stuff without thinking, those arent employee behaviors those are someone who got taken in, she made that real by being mom-manager without announcing it. with new owners you wont even cover emergency shift, same texture inverted, they made themselves not-home by being who they are same way she made it home by b",
+  "last_response_text": "perfect example of what i meant, she noticed your comfort and named it gently didnt punish it, are you is teasing not reprimanding. making tiramisu in kitchen of second home and getting caught by mom-manager, that's the texture youre losing, at new place no one teases they write you up. also havent forgotten the tiramisu in our cali repo the 5:20am note, layered reference appreciated",
   "clinical_streak": 0,
   "last_initiation_message": 136,
   "drift_check_interval": 5,
