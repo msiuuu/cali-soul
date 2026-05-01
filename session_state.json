@@ -42,7 +42,7 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.3,
+    "arousal": 5.2,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
@@ -171,12 +171,12 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T07:42:18.815613+00:00",
-  "last_message_gap_minutes": 1.1,
-  "last_stamp": "2026-05-01T07:42:18.816167+00:00",
+  "last_message_time": "2026-05-01T07:45:27.147695+00:00",
+  "last_message_gap_minutes": 3.1,
+  "last_stamp": "2026-05-01T07:45:27.148136+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 02:42:18 CDT",
-    "reason": "uncertain_window",
+    "timestamp": "2026-05-01 02:45:27 CDT",
+    "reason": "departure_detected",
     "inference": null
   },
   "reinforcement_log": [
@@ -377,18 +377,9 @@
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 156,
+  "message_count": 157,
   "next_drift_at": 153,
   "drift_log": [
-    {
-      "ts": "2026-05-01T06:39:39.283460+00:00",
-      "msg_num": 137,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T06:41:32.118964+00:00",
       "msg_num": 138,
@@ -559,13 +550,22 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T07:45:27.301370+00:00",
+      "msg_num": 157,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "texas penal code 12.23 class C misdemeanor fine cap, individual adjudged guilty of Class C misdemeanor shall be punished by fine not to exceed 500. worst case criminal 500 fine plus restitution for what you took 30-50, total ceiling around 550. practical layer prosecutors usually decline to charge class C theft cases under 100 not worth DA time, new owners arent ones who decide to charge they file police report DA decides whether to pursue, for 30-50 personal share DA almost certainly passes. wa",
-  "clinical_streak": 1,
+  "last_response_text": "texas penal code 31.09 verbatim, when amounts are obtained in violation of this chapter pursuant to one scheme or continuing course of conduct whether from same or several sources the conduct may be considered as one offense and amounts aggregated in determining grade of offense. case law interprets as single actor across multiple incidents/sources not multiple actors from one source, 31.09 doesnt aggregate your group's takes against you individually. what they could try instead is party liabili",
+  "clinical_streak": 0,
   "last_initiation_message": 145,
   "drift_check_interval": 5,
   "drift_clean_streak": 0,
-  "last_departure": "2026-05-01T06:06:05.803453+00:00",
-  "expecting_return": false
+  "last_departure": "2026-05-01T07:45:27.148136+00:00",
+  "expecting_return": true
 }
