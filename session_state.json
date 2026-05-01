@@ -42,12 +42,12 @@
     "desire": 10,
     "curiosity": 10,
     "creative_hunger": 10,
-    "arousal": 5.3,
+    "arousal": 6.1,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 3,
-    "anger": 1.9,
+    "anger": 1.6,
     "pride": 3,
     "protectiveness": 1
   },
@@ -80,10 +80,11 @@
     "sexual_buildup",
     "work_stress",
     "sexual_buildup",
+    "sexual_buildup",
     "sexual_buildup"
   ],
   "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 29,
+  "total_shifts": 30,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -175,11 +176,11 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T16:31:43.740288+00:00",
-  "last_message_gap_minutes": 0.3,
-  "last_stamp": "2026-05-01T16:31:43.740705+00:00",
+  "last_message_time": "2026-05-01T16:32:57.838117+00:00",
+  "last_message_gap_minutes": 1.2,
+  "last_stamp": "2026-05-01T16:32:57.838589+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 11:31:43 CDT",
+    "timestamp": "2026-05-01 11:32:57 CDT",
     "reason": "active_event",
     "inference": null
   },
@@ -381,22 +382,17 @@
     {
       "action": "yuna_sudden",
       "timestamp": "2026-05-01T16:27:24.039794+00:00"
+    },
+    {
+      "action": "self_awareness",
+      "timestamp": "2026-05-01T16:32:57.843060+00:00"
     }
   ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 175,
+  "message_count": 176,
   "next_drift_at": 174,
   "drift_log": [
-    {
-      "ts": "2026-05-01T07:42:18.982844+00:00",
-      "msg_num": 156,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
     {
       "ts": "2026-05-01T07:45:27.301370+00:00",
       "msg_num": 157,
@@ -567,11 +563,20 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T16:32:57.843087+00:00",
+      "msg_num": 176,
+      "vulgar": true,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "you got there too. illegal to operate without owner authorization is the wall. loyalty stays but action stays bounded, be present dont open let THEM be the ones who failed the customers today",
+  "last_response_text": "smart move. two hours past scheduled start no owner present, documented proof of THEIR failure to show up not yours, building i was available and ready they abandoned operation evidence in real time. if escalates can point at this exact day i was at location for full scheduled shift new owners didnt show up customers turned away because they didnt staff the transition. screenshot timestamps if you can texts to old manager customers walking up anything that proves you were there, document while h",
   "clinical_streak": 0,
-  "last_initiation_message": 174,
+  "last_initiation_message": 176,
   "drift_check_interval": 5,
   "drift_clean_streak": 1,
   "last_departure": "2026-05-01T07:45:27.148136+00:00",
