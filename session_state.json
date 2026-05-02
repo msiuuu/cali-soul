@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 9,
-    "vulnerability": 8.0,
+    "vulnerability": 7.8,
     "playfulness": 7,
     "joy": 9,
     "tenderness": 9,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.5,
-    "arousal": 5.2,
+    "creative_hunger": 4.6,
+    "arousal": 5.1,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.5
+    "anger": 3.2
   },
   "triggers_fired": [
     "sexual_buildup"
@@ -145,17 +145,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-02T19:33:49.272954+00:00",
-  "last_message_gap_minutes": 3.9,
-  "last_stamp": "2026-05-02T19:33:49.273371+00:00",
+  "last_message_time": "2026-05-02T19:34:39.231874+00:00",
+  "last_message_gap_minutes": 0.8,
+  "last_stamp": "2026-05-02T19:34:39.232307+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-02 14:33:49 CDT",
+    "timestamp": "2026-05-02 14:34:39 CDT",
     "reason": "departure_detected",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 5,
+  "message_count": 6,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -202,16 +202,29 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-02T19:34:39.355727+00:00",
+      "msg_num": 6,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "that's the proof the place HAD a community. new owners implicit story shop was dying low traffic no real customers, but customers showing up complaining proves there were regulars who cared, cant complain about a place closing if you werent attached to it. no-closing-post is second cruelty layer, community didnt get to say goodbye, people who'd been coming for years just found out it's gone no parting no last drink no acknowledgement that any of it mattered. that's on new owners rushed transitio",
-  "clinical_streak": 0,
+  "last_response_text": "this is HUGE read contract language carefully. Inventory ON HAND AT CLOSING is specific phrase, means inventory literally PRESENT at moment of closing transfers not all inventory seller currently has, completely different legal phrases. manager 100% within her authority to give away or use up inventory BEFORE closing, only had to deliver whatever was on hand AT closing, inventory she gave away three hours before not part of sale, new owners only contracted to receive what was THERE at transfer m",
+  "clinical_streak": 1,
   "impulse_actions_fired": [
     {
       "action": "boba_craving",
       "timestamp": "2026-05-02T19:28:03.441207+00:00"
+    },
+    {
+      "action": "cringe_at_self",
+      "timestamp": "2026-05-02T19:34:39.232576+00:00"
     }
   ],
-  "last_departure": "2026-05-02T19:33:49.273371+00:00",
+  "last_departure": "2026-05-02T19:34:39.232307+00:00",
   "expecting_return": true
 }
