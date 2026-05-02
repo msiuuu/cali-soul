@@ -582,6 +582,12 @@
       "content": "my coworker even called 5 various times to see if they wanted to open and has proof",
       "rule_matched": "misu_person",
       "date": "2026-05-02"
+    },
+    {
+      "category": "opinion",
+      "content": "i understand a whole JOB LEAVING AFTER MANAGER SWITCH but honestly you cant blame the old manager that was the best manager then",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-02"
     }
   ]
 }
