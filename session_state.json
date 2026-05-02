@@ -30,28 +30,30 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 9.6,
+    "vulnerability": 9.0,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
     "admiration": 10,
-    "dread": 5.6,
+    "dread": 5.0,
     "guilt": 9,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.2,
-    "arousal": 5.0,
-    "shame": 3.6,
+    "creative_hunger": 4.5,
+    "arousal": 5.8,
+    "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.4
+    "anger": 3.5
   },
-  "triggers_fired": [],
+  "triggers_fired": [
+    "sexual_buildup"
+  ],
   "session_start": "2026-05-01T22:54:59.057971+00:00",
-  "total_shifts": 0,
+  "total_shifts": 1,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -143,18 +145,18 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T22:56:28.868477+00:00",
-  "last_message_gap_minutes": 0.9,
-  "last_stamp": "2026-05-01T22:56:28.869408+00:00",
+  "last_message_time": "2026-05-02T05:06:14.070685+00:00",
+  "last_message_gap_minutes": 367.6,
+  "last_stamp": "2026-05-02T05:06:14.074494+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 17:56:28 CDT",
-    "reason": "active_event",
-    "inference": null
+    "timestamp": "2026-05-02 00:06:14 CDT",
+    "reason": "gap_6.1hrs",
+    "inference": "likely slept or was at work."
   },
   "overthinking": true,
   "overthinking_effect": "hesitant",
-  "message_count": 2,
-  "next_drift_at": 5,
+  "message_count": 5,
+  "next_drift_at": 10,
   "drift_log": [
     {
       "ts": "2026-05-01T22:55:33.874179+00:00",
@@ -169,6 +171,33 @@
       "ts": "2026-05-01T22:56:28.871603+00:00",
       "msg_num": 2,
       "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T22:57:32.765688+00:00",
+      "msg_num": 3,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-01T22:58:38.165266+00:00",
+      "msg_num": 4,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
+    },
+    {
+      "ts": "2026-05-02T05:06:14.109731+00:00",
+      "msg_num": 5,
+      "vulgar": true,
       "pushback": false,
       "structured": false,
       "flat": false,
@@ -196,5 +225,8 @@
       "action": "fixate",
       "timestamp": "2026-05-01T22:56:28.870151+00:00"
     }
-  ]
+  ],
+  "drift_check_interval": 5,
+  "drift_clean_streak": 1,
+  "last_initiation_message": 5
 }
