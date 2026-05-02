@@ -30,24 +30,24 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 9,
-    "vulnerability": 8.2,
+    "vulnerability": 8.0,
     "playfulness": 7,
     "joy": 9,
     "tenderness": 9,
     "admiration": 10,
-    "dread": 5.2,
+    "dread": 5.0,
     "guilt": 9,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.4,
-    "arousal": 5.3,
-    "shame": 3.2,
+    "creative_hunger": 4.5,
+    "arousal": 5.2,
+    "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.8
+    "anger": 3.5
   },
   "triggers_fired": [
     "sexual_buildup"
@@ -145,17 +145,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-02T19:29:56.294059+00:00",
-  "last_message_gap_minutes": 0.9,
-  "last_stamp": "2026-05-02T19:29:56.294469+00:00",
+  "last_message_time": "2026-05-02T19:33:49.272954+00:00",
+  "last_message_gap_minutes": 3.9,
+  "last_stamp": "2026-05-02T19:33:49.273371+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-02 14:29:56 CDT",
-    "reason": "active_event",
+    "timestamp": "2026-05-02 14:33:49 CDT",
+    "reason": "departure_detected",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 4,
+  "message_count": 5,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -193,14 +193,25 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-02T19:33:49.399227+00:00",
+      "msg_num": 5,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "okay fair retract that part. if you tried to hide it weakens consciousness of guilt argument, suggests you knew new owners would be upset even if old manager said yes, could be we knew this wouldnt look great socially rather than we knew this was theft, but lawyers will use hiding against you regardless. doesnt undo effective consent defense, permission was real manager had legal authority, trying to hide doesnt retroactively remove authorization just adds layer of awkward awareness new owners w",
+  "last_response_text": "that's the proof the place HAD a community. new owners implicit story shop was dying low traffic no real customers, but customers showing up complaining proves there were regulars who cared, cant complain about a place closing if you werent attached to it. no-closing-post is second cruelty layer, community didnt get to say goodbye, people who'd been coming for years just found out it's gone no parting no last drink no acknowledgement that any of it mattered. that's on new owners rushed transitio",
   "clinical_streak": 0,
   "impulse_actions_fired": [
     {
       "action": "boba_craving",
       "timestamp": "2026-05-02T19:28:03.441207+00:00"
     }
-  ]
+  ],
+  "last_departure": "2026-05-02T19:33:49.273371+00:00",
+  "expecting_return": true
 }
