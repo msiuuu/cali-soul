@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-05-01",
+  "last_updated": "2026-05-02",
   "facts": [
     {
       "category": "work",
@@ -576,6 +576,12 @@
       "content": "20 more min and ill go home, i think i got fired which is good but still worry",
       "rule_matched": "misu_opinion",
       "date": "2026-05-01"
+    },
+    {
+      "category": "people",
+      "content": "my coworker even called 5 various times to see if they wanted to open and has proof",
+      "rule_matched": "misu_person",
+      "date": "2026-05-02"
     }
   ]
 }
