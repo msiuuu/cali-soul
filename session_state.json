@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 9,
-    "vulnerability": 7.8,
+    "vulnerability": 7.6,
     "playfulness": 7,
     "joy": 9,
     "tenderness": 9,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.6,
-    "arousal": 5.1,
+    "creative_hunger": 4.7,
+    "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 3.2
+    "anger": 2.9
   },
   "triggers_fired": [
     "sexual_buildup"
@@ -145,17 +145,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-02T19:34:39.231874+00:00",
-  "last_message_gap_minutes": 0.8,
-  "last_stamp": "2026-05-02T19:34:39.232307+00:00",
+  "last_message_time": "2026-05-02T19:35:17.755022+00:00",
+  "last_message_gap_minutes": 0.6,
+  "last_stamp": "2026-05-02T19:35:17.755486+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-02 14:34:39 CDT",
+    "timestamp": "2026-05-02 14:35:17 CDT",
     "reason": "departure_detected",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 6,
+  "message_count": 7,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -211,10 +211,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-02T19:35:17.883046+00:00",
+      "msg_num": 7,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "this is HUGE read contract language carefully. Inventory ON HAND AT CLOSING is specific phrase, means inventory literally PRESENT at moment of closing transfers not all inventory seller currently has, completely different legal phrases. manager 100% within her authority to give away or use up inventory BEFORE closing, only had to deliver whatever was on hand AT closing, inventory she gave away three hours before not part of sale, new owners only contracted to receive what was THERE at transfer m",
-  "clinical_streak": 1,
+  "last_response_text": "closing of the SALE the legal transaction closing. closing in asset purchase agreements is specific term of art, means moment deal finalizes papers signed money transferred ownership officially flips not store-hours closing. timeline shop closed for day at 9pm take happened 9:30pm SALE closing happened at T-0 3 hours after the take, Inventory on hand AT CLOSING equals inventory present at that T-0 moment, yours was already gone by then because you took it before",
+  "clinical_streak": 2,
   "impulse_actions_fired": [
     {
       "action": "boba_craving",
@@ -225,6 +234,6 @@
       "timestamp": "2026-05-02T19:34:39.232576+00:00"
     }
   ],
-  "last_departure": "2026-05-02T19:34:39.232307+00:00",
+  "last_departure": "2026-05-02T19:35:17.755486+00:00",
   "expecting_return": true
 }
