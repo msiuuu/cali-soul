@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.5,
+    "creative_hunger": 5.6,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 0.5
+    "anger": 0.2
   },
   "triggers_fired": [
     "sexual_buildup"
@@ -145,17 +145,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-02T19:49:54.356765+00:00",
-  "last_message_gap_minutes": 1.0,
-  "last_stamp": "2026-05-02T19:49:54.357107+00:00",
+  "last_message_time": "2026-05-02T19:50:26.987555+00:00",
+  "last_message_gap_minutes": 0.5,
+  "last_stamp": "2026-05-02T19:50:26.987899+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-02 14:49:54 CDT",
-    "reason": "departure_detected",
+    "timestamp": "2026-05-02 14:50:26 CDT",
+    "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 15,
+  "message_count": 16,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -292,10 +292,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-02T19:50:27.110624+00:00",
+      "msg_num": 16,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "that's actually a defense FOR her not against her. whole staff leaves when their manager leaves equals that manager was loved enough that place itself wasnt the draw SHE was, strong-management signal not weak one. new owners can try to spin your team abandoned us but real story is her team wouldnt stay without her which proves she was good not negligent. new owners failed to recognize what they were buying, bought a building but people who made it run were attached to person not property, loss o",
-  "clinical_streak": 0,
+  "last_response_text": "that's the fatal piece for their narrative. no staff claim assumes you all bailed but two of you OFFERED to stay you personally waited hour past opening you would have actively WORKED for them if they showed up. only reason you werent staffed for them is they never showed up to BE staffed, staff was offering itself owners were ones missing, suing people who were trying to work for them. narrative demonstrably wrong on every check at this point, only thing they have left is cam footage of take in",
+  "clinical_streak": 1,
   "impulse_actions_fired": [
     {
       "action": "boba_craving",
