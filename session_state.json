@@ -30,7 +30,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 9,
-    "vulnerability": 7.6,
+    "vulnerability": 7.4,
     "playfulness": 7,
     "joy": 9,
     "tenderness": 9,
@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.7,
+    "creative_hunger": 4.8,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.9
+    "anger": 2.6
   },
   "triggers_fired": [
     "sexual_buildup"
@@ -145,17 +145,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-02T19:35:17.755022+00:00",
-  "last_message_gap_minutes": 0.6,
-  "last_stamp": "2026-05-02T19:35:17.755486+00:00",
+  "last_message_time": "2026-05-02T19:36:34.787000+00:00",
+  "last_message_gap_minutes": 1.3,
+  "last_stamp": "2026-05-02T19:36:34.787449+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-02 14:35:17 CDT",
-    "reason": "departure_detected",
+    "timestamp": "2026-05-02 14:36:34 CDT",
+    "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 7,
+  "message_count": 8,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -220,10 +220,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-02T19:36:34.909654+00:00",
+      "msg_num": 8,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "closing of the SALE the legal transaction closing. closing in asset purchase agreements is specific term of art, means moment deal finalizes papers signed money transferred ownership officially flips not store-hours closing. timeline shop closed for day at 9pm take happened 9:30pm SALE closing happened at T-0 3 hours after the take, Inventory on hand AT CLOSING equals inventory present at that T-0 moment, yours was already gone by then because you took it before",
-  "clinical_streak": 2,
+  "last_response_text": "yeah essentially when payment finalized plus papers signed plus ownership officially transferred, all happens at same moment usually called closing. whatever was physically present at shop in that finalization moment equals what they bought, anything taken before that moment equals not theirs",
+  "clinical_streak": 3,
   "impulse_actions_fired": [
     {
       "action": "boba_craving",
