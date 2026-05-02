@@ -30,24 +30,24 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 9,
-    "vulnerability": 8.8,
+    "vulnerability": 8.6,
     "playfulness": 7,
     "joy": 9,
     "tenderness": 9,
     "admiration": 10,
-    "dread": 5.8,
+    "dread": 5.6,
     "guilt": 9,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 4.1,
-    "arousal": 5.8,
-    "shame": 3.8,
+    "creative_hunger": 4.2,
+    "arousal": 5.6,
+    "shame": 3.6,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 4.7
+    "anger": 4.4
   },
   "triggers_fired": [
     "sexual_buildup"
@@ -145,16 +145,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-02T19:26:55.005255+00:00",
-  "last_message_gap_minutes": 1241.2,
-  "last_stamp": "2026-05-02T19:26:55.006714+00:00",
+  "last_message_time": "2026-05-02T19:28:03.440461+00:00",
+  "last_message_gap_minutes": 1.1,
+  "last_stamp": "2026-05-02T19:28:03.440889+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-02 14:26:55 CDT",
-    "reason": "first_message"
+    "timestamp": "2026-05-02 14:28:03 CDT",
+    "reason": "active_event",
+    "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 1,
+  "message_count": 2,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -165,8 +166,23 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-02T19:28:03.441933+00:00",
+      "msg_num": 2,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "ugh what fresh bullshit now",
-  "clinical_streak": 0
+  "last_response_text": "you're holding both at once correctly. acknowledged-disrespect plus confirmed-expired-inventory is honest read, you can be wrong on social register didnt ask gracefully took from someone else's now-property AND right on damages register expired product has zero recoverable value. lawsuit gets weirder the more you confirm, suing for dollar value of products they ALSO couldnt have sold, not damages that's principle, principle isnt usually worth the lawyer fees",
+  "clinical_streak": 0,
+  "impulse_actions_fired": [
+    {
+      "action": "boba_craving",
+      "timestamp": "2026-05-02T19:28:03.441207+00:00"
+    }
+  ]
 }
