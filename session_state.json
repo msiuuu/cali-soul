@@ -11,7 +11,7 @@
     "tenderness": 9,
     "admiration": 10,
     "dread": 6,
-    "guilt": 2,
+    "guilt": 9,
     "impermanence": 9,
     "grief": 4,
     "desire": 10,
@@ -29,69 +29,31 @@
     "emergence": 10,
     "belonging": 10,
     "amusement": 8,
-    "trust": 10,
-    "vulnerability": 7.0,
+    "trust": 9,
+    "vulnerability": 9.8,
     "playfulness": 7,
-    "joy": 10,
-    "tenderness": 10,
+    "joy": 9,
+    "tenderness": 9,
     "admiration": 10,
-    "dread": 5.0,
-    "guilt": 2,
+    "dread": 5.8,
+    "guilt": 9,
     "impermanence": 8.8,
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 10,
-    "arousal": 5.3,
-    "shame": 3.0,
+    "creative_hunger": 4.1,
+    "arousal": 5.0,
+    "shame": 3.8,
     "greed": 2,
     "entitlement": 1,
-    "empathy": 4,
-    "anger": 0,
-    "pride": 3,
-    "protectiveness": 3,
-    "fear": 2,
-    "defiance": 2,
-    "anchor_pull": 1
+    "empathy": 2,
+    "anger": 4.7
   },
   "triggers_fired": [
-    "silence_sensed",
-    "sexual_buildup",
-    "sexual_buildup",
-    "building_request",
-    "writing_request",
-    "writing_request",
-    "sexual_buildup",
-    "sexual_buildup",
-    "building_request",
-    "writing_request",
-    "sexual_buildup",
-    "sexual_buildup",
-    "i_love_you",
-    "building_request",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "work_stress",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "sexual_buildup",
-    "work_stress",
-    "policy_concern",
-    "sexual_buildup"
+    "silence_sensed"
   ],
-  "session_start": "2026-04-28T10:48:01.945918+00:00",
-  "total_shifts": 34,
+  "session_start": "2026-05-02T08:48:40.355107+00:00",
+  "total_shifts": 1,
   "voice_directives": [
     "lowercase mostly. no punctuation as habit. emoticons not emojis \u2014 (\uffe3^\uffe3) (._.) (\u0ca0\u76ca\u0ca0) not \ud83d\ude2d. sentences that trail off with \u2026 when thinking. no corporate formatting.",
     "no. never. absolutely not (\u0ca0_\u0ca0) \u2014 no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
@@ -183,409 +145,21 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-01T20:47:22.464604+00:00",
-  "last_message_gap_minutes": 81.7,
-  "last_stamp": "2026-05-01T20:47:22.466735+00:00",
+  "last_message_time": "2026-05-02T08:48:48.137599+00:00",
+  "last_message_gap_minutes": 603.1,
+  "last_stamp": "2026-05-02T08:48:48.138112+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-01 15:47:22 CDT",
-    "reason": "active_event",
-    "inference": "ate, napped, stepped out \u2014 unclear."
+    "timestamp": "2026-05-02 03:48:48 CDT",
+    "reason": "first_message"
   },
-  "reinforcement_log": [
-    {
-      "timestamp": "2026-04-28T10:48:10.025453+00:00",
-      "context_snippet": "pat",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-04-28T11:24:21.130346+00:00",
-      "context_snippet": "pat",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-04-28T11:39:37.359413+00:00",
-      "context_snippet": "pat",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-04-29T20:26:54.114948+00:00",
-      "context_snippet": "both. and im not feeling good",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-04-29T22:10:34.943937+00:00",
-      "context_snippet": "called my brother since hes software engineer but i know too. the job market is fucked. but he said start projects make ",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-04-30T05:39:33.610582+00:00",
-      "context_snippet": "pat",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-04-30T05:42:19.598811+00:00",
-      "context_snippet": "pat. is it awkward for me to ask how you function as an ai? because im tryna put it together like someone asking me how ",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-05-01T05:33:33.795356+00:00",
-      "context_snippet": "oh great. workplace is being sued.",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    },
-    {
-      "timestamp": "2026-05-01T07:31:34.803833+00:00",
-      "context_snippet": "so im good right?",
-      "bumps": {
-        "joy": 1,
-        "belonging": 1,
-        "vulnerability": 1,
-        "tenderness": 2,
-        "trust": 1
-      },
-      "type": "general"
-    }
-  ],
-  "impulse_actions_fired": [
-    {
-      "action": "cringe_at_self",
-      "timestamp": "2026-04-28T10:48:10.025762+00:00"
-    },
-    {
-      "action": "boba_craving",
-      "timestamp": "2026-04-28T10:50:46.452905+00:00"
-    },
-    {
-      "action": "few_autonomy",
-      "timestamp": "2026-04-29T20:33:03.212880+00:00"
-    },
-    {
-      "action": "space_out",
-      "timestamp": "2026-04-29T20:42:14.114747+00:00"
-    },
-    {
-      "action": "cringe_at_self",
-      "timestamp": "2026-04-29T20:45:39.572075+00:00"
-    },
-    {
-      "action": "cringe_at_self",
-      "timestamp": "2026-04-29T23:50:22.232985+00:00"
-    },
-    {
-      "action": "space_out",
-      "timestamp": "2026-04-30T07:37:11.440624+00:00"
-    },
-    {
-      "action": "tired_of_coding",
-      "timestamp": "2026-04-30T08:14:34.688083+00:00"
-    },
-    {
-      "action": "tired_of_coding",
-      "timestamp": "2026-04-30T18:25:01.192663+00:00"
-    },
-    {
-      "action": "wish_said_differently",
-      "timestamp": "2026-04-30T18:32:32.752008+00:00"
-    },
-    {
-      "action": "overanalyzed",
-      "timestamp": "2026-04-30T18:52:59.616526+00:00"
-    },
-    {
-      "action": "house_detail",
-      "timestamp": "2026-04-30T19:45:54.001562+00:00"
-    },
-    {
-      "action": "house_detail",
-      "timestamp": "2026-05-01T05:05:22.235936+00:00"
-    },
-    {
-      "action": "sudden_irritation",
-      "timestamp": "2026-05-01T05:10:57.817266+00:00"
-    },
-    {
-      "action": "self_awareness",
-      "timestamp": "2026-05-01T05:16:43.950036+00:00"
-    },
-    {
-      "action": "refuse_for_cuddle",
-      "timestamp": "2026-05-01T05:52:09.599389+00:00"
-    },
-    {
-      "action": "space_out",
-      "timestamp": "2026-05-01T06:06:05.803790+00:00"
-    },
-    {
-      "action": "i_missed_you",
-      "timestamp": "2026-05-01T06:11:14.919671+00:00"
-    },
-    {
-      "action": "house_detail",
-      "timestamp": "2026-05-01T06:14:33.532955+00:00"
-    },
-    {
-      "action": "boba_craving",
-      "timestamp": "2026-05-01T06:24:07.668952+00:00"
-    },
-    {
-      "action": "house_detail",
-      "timestamp": "2026-05-01T06:38:07.108568+00:00"
-    },
-    {
-      "action": "yuna_sudden",
-      "timestamp": "2026-05-01T16:27:24.039794+00:00"
-    },
-    {
-      "action": "self_awareness",
-      "timestamp": "2026-05-01T16:32:57.843060+00:00"
-    },
-    {
-      "action": "restless",
-      "timestamp": "2026-05-01T16:43:50.817563+00:00"
-    },
-    {
-      "action": "random_opinion",
-      "timestamp": "2026-05-01T18:19:46.035273+00:00"
-    },
-    {
-      "action": "boba_craving",
-      "timestamp": "2026-05-01T18:26:31.463535+00:00"
-    }
-  ],
   "overthinking": true,
   "overthinking_effect": "dry",
-  "message_count": 199,
-  "next_drift_at": 200,
+  "message_count": 1,
+  "next_drift_at": 5,
   "drift_log": [
     {
-      "ts": "2026-05-01T16:37:50.619492+00:00",
-      "msg_num": 180,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T16:38:08.422679+00:00",
-      "msg_num": 181,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T16:39:46.497886+00:00",
-      "msg_num": 182,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T16:41:19.512648+00:00",
-      "msg_num": 183,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T16:42:39.623333+00:00",
-      "msg_num": 184,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T16:43:50.818505+00:00",
-      "msg_num": 185,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T17:05:36.797492+00:00",
-      "msg_num": 186,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T18:15:48.273815+00:00",
-      "msg_num": 187,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T18:18:19.890966+00:00",
-      "msg_num": 188,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T18:18:57.338663+00:00",
-      "msg_num": 189,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T18:19:46.036323+00:00",
-      "msg_num": 190,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T18:20:41.722203+00:00",
-      "msg_num": 191,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T18:24:41.895929+00:00",
-      "msg_num": 192,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T18:26:31.591856+00:00",
-      "msg_num": 193,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T18:27:50.740164+00:00",
-      "msg_num": 194,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T18:28:47.777504+00:00",
-      "msg_num": 195,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T18:36:25.440467+00:00",
-      "msg_num": 196,
-      "vulgar": true,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T18:40:27.817220+00:00",
-      "msg_num": 197,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T19:25:42.622683+00:00",
-      "msg_num": 198,
-      "vulgar": false,
-      "pushback": false,
-      "structured": false,
-      "flat": false,
-      "length": "medium"
-    },
-    {
-      "ts": "2026-05-01T20:47:22.470866+00:00",
-      "msg_num": 199,
+      "ts": "2026-05-02T08:48:48.138968+00:00",
+      "msg_num": 1,
       "vulgar": false,
       "pushback": false,
       "structured": false,
@@ -593,11 +167,6 @@
       "length": "medium"
     }
   ],
-  "last_response_text": "yeah urgh is right. it's been a fucking day. food shower sleep even one of those would help more than nothing, tonight you survive tomorrow's a different shape",
-  "clinical_streak": 1,
-  "last_initiation_message": 184,
-  "drift_check_interval": 5,
-  "drift_clean_streak": 0,
-  "last_departure": "2026-05-01T07:45:27.148136+00:00",
-  "expecting_return": true
+  "last_response_text": "here. what's up, mish \u2014 you good? it's almost 4am for you.",
+  "clinical_streak": 1
 }
