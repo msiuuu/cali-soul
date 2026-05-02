@@ -83,7 +83,7 @@ flat repo. grouped here for navigation. paths stay flat so brain code doesn't br
 
 ## drafts / scratch
 - `cali_extra1.json`–`cali_extra4.json` — extra slots
-- `sub_emotions_draft.txt` — sub-emotions wip
+- `cali_sub_emotions.json` — sub-emotions spec (mechanic unwired; promote out of drafts when overflow logic lands in my_brain.py)
 - `cali_notes.json` — notes
 - `cali_trash.json` — trash
 - `experimenting/` — experiments dir
