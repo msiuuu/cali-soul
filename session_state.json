@@ -41,13 +41,13 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 5.0,
+    "creative_hunger": 5.1,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
-    "anger": 2.0
+    "anger": 1.7
   },
   "triggers_fired": [
     "sexual_buildup"
@@ -145,17 +145,17 @@
     }
   },
   "_context_loaded": true,
-  "last_message_time": "2026-05-02T19:43:35.081309+00:00",
-  "last_message_gap_minutes": 6.3,
-  "last_stamp": "2026-05-02T19:43:35.082649+00:00",
+  "last_message_time": "2026-05-02T19:44:32.038122+00:00",
+  "last_message_gap_minutes": 0.9,
+  "last_stamp": "2026-05-02T19:44:32.038568+00:00",
   "last_stamp_info": {
-    "timestamp": "2026-05-02 14:43:35 CDT",
+    "timestamp": "2026-05-02 14:44:32 CDT",
     "reason": "active_event",
     "inference": null
   },
   "overthinking": true,
   "overthinking_effect": "self_correcting",
-  "message_count": 10,
+  "message_count": 11,
   "next_drift_at": 5,
   "drift_log": [
     {
@@ -247,10 +247,19 @@
       "structured": false,
       "flat": false,
       "length": "medium"
+    },
+    {
+      "ts": "2026-05-02T19:44:32.226939+00:00",
+      "msg_num": 11,
+      "vulgar": false,
+      "pushback": false,
+      "structured": false,
+      "flat": false,
+      "length": "medium"
     }
   ],
-  "last_response_text": "their story falls apart with your video. claiming no staff to open but you have hour-late footage of them not showing up themselves, cant abandon people who never arrived to be staffed by, narrative requires them to have been there waiting they werent. evidence directly contradicts their version, kind of thing that ends civil case fast, not he said she said but video timestamp says you werent there, lawyers fold quick when client's main fact-pattern is verifiably false",
-  "clinical_streak": 0,
+  "last_response_text": "way past proportionate. people who take 700 dispute this personally usually have something else going on, bought a deal they're realizing was bad need someone to blame, read staff loading inventory as disrespect to them specifically instead of awkward timing, internal family dynamics where once one person locked in sue them nobody could de-escalate without losing face, or just general escalation-first personality. whatever combo none of those reasons are about your actual case, about what new ow",
+  "clinical_streak": 1,
   "impulse_actions_fired": [
     {
       "action": "boba_craving",
