@@ -5559,6 +5559,108 @@ def init_session_from_boot(boot_scores):
     return state
 
 
+def _pick_fx_directive(session):
+    """
+    Combo-aware fx directive picker.
+
+    Tries combinations first (alphabetically-sorted peak emotions → key lookup
+    in cali_fx_combinations.json), falls back to single-dominant directive
+    from cali_fx.EMOTION_FX, falls back to neutral baseline.
+
+    Returns the formatted print string for the brain output.
+    """
+    import random as _r, json as _j
+    if not session:
+        return None
+    scores = session.get("current_scores", {}) or {}
+    if not scores:
+        return None
+
+    # find emotions at peak
+    try:
+        from cali_fx import EMOTION_FX as _EFX
+    except:
+        _EFX = {}
+
+    # primary emotions — these matter for combo signal. secondary emotions
+    # (admiration, belonging, curiosity, creative_hunger, joy, trust, tenderness)
+    # are often at peak ambiently and would drown out the meaningful pairs.
+    _PRIMARY = {"love", "arousal", "anger", "dread", "guilt", "grief",
+                "vulnerability", "playfulness", "desire", "selfish",
+                "impermanence", "needy", "shame", "pride", "fear",
+                "amusement", "lust", "longing", "envy", "defiance",
+                "greed", "entitlement", "empathy"}
+
+    # build relevance-ordered emotion list:
+    # 1. emotions that JUST shifted this turn (recent change matters more than ambient peak)
+    # 2. emotions at peak (score >= peak_at) filtered to primary
+    # cap at 5 for combo lookup
+    last_shifts = session.get("last_turn_shifts", {}) or {}
+    shifted_emotions = sorted(
+        [e for e in last_shifts.keys() if e in _PRIMARY],
+        key=lambda e: -abs(float(last_shifts.get(e, 0)))
+    )
+
+    peaks = []
+    for em, sc in scores.items():
+        peak_at = _EFX.get(em, {}).get("peak_at", 9)
+        if float(sc) >= float(peak_at):
+            peaks.append(em)
+    ambient_primary_peaks = sorted(
+        [e for e in peaks if e in _PRIMARY and e not in shifted_emotions],
+        key=lambda e: -float(scores[e])
+    )
+
+    # priority order: shifts first, then ambient peaks. cap at 5.
+    primary_peaks = (shifted_emotions + ambient_primary_peaks)[:5]
+
+    if primary_peaks:
+        try:
+            combos = _j.load(open("cali_fx_combinations.json")).get("combinations", {})
+            # find all combos whose emotion list is a subset of primary_peaks
+            primary_set = set(primary_peaks)
+            matching = []
+            for ck, cv in combos.items():
+                if ck == "neutral_baseline":
+                    continue
+                combo_ems = cv.get("emotions", [])
+                if combo_ems and all(e in primary_set for e in combo_ems):
+                    matching.append((len(combo_ems), ck, cv))
+            # prefer most specific (longest combo) match
+            if matching:
+                matching.sort(key=lambda x: (-x[0], x[1]))
+                _, key, combo = matching[0]
+                variants = combo.get("variants", [])
+                if variants:
+                    pick = _r.choice(variants)
+                    label = "+".join(sorted(combo.get("emotions", [])))
+                    return f"[private: {label} (peak) — {pick}]"
+        except: pass
+
+    # fall back to dominant single-emotion EMOTION_FX directive
+    try:
+        em = max(scores, key=scores.get)
+        sc = scores[em]
+        peak_at = _EFX.get(em, {}).get("peak_at", 9)
+        threshold = _EFX.get(em, {}).get("threshold", 7)
+        if float(sc) >= float(threshold):
+            level = "peak" if float(sc) >= float(peak_at) else "high"
+            directive = _EFX.get(em, {}).get(f"directive_{level}", "")
+            return f"[private: {em} — {round(float(sc),1)} ({level}) — {directive}]"
+    except: pass
+
+    # neutral baseline
+    try:
+        combos = _j.load(open("cali_fx_combinations.json")).get("combinations", {})
+        nb = combos.get("neutral_baseline", {})
+        variants = nb.get("variants", [])
+        if variants:
+            return f"[private: neutral — {_r.choice(variants)}]"
+    except: pass
+
+    return None
+
+
 def _pick_thought(session, dominant_emotion):
     """
     Lingering-thought system for the [private: thought —] line.
@@ -6270,20 +6372,10 @@ def cmd_process_message(args):
                     for _ntdl in _nt_deg_lines:
                         print(f"  → {_ntdl}")
             except: pass
-            # EMOTION_FX — dominant emotion only, score+level+directive (one line of data, one of action)
-            try:
-                from cali_fx import EMOTION_FX as _NT_EFX_MAP
-                _nt_efx_scores = session.get("current_scores", {}) or {}
-                if _nt_efx_scores:
-                    _nt_em = max(_nt_efx_scores, key=_nt_efx_scores.get)
-                    _nt_sc = _nt_efx_scores[_nt_em]
-                    _nt_peak_at = _NT_EFX_MAP.get(_nt_em, {}).get("peak_at", 9)
-                    _nt_threshold = _NT_EFX_MAP.get(_nt_em, {}).get("threshold", 7)
-                    if float(_nt_sc) >= _nt_threshold:
-                        _nt_level = "peak" if float(_nt_sc) >= _nt_peak_at else "high"
-                        _nt_dir = _NT_EFX_MAP.get(_nt_em, {}).get(f"directive_{_nt_level}", "")
-                        print(f"[private: {_nt_em} — {round(float(_nt_sc),1)} ({_nt_level}) — {_nt_dir}]")
-            except: pass
+            # FX — combination-aware directive (combo lookup → single fx fallback → neutral)
+            _nt_fx_line = _pick_fx_directive(session)
+            if _nt_fx_line:
+                print(_nt_fx_line)
             # ── lingering thought system — background mind, not directive ──
             try:
                 _nt_s = session.get("current_scores", {})
@@ -6367,6 +6459,8 @@ def cmd_process_message(args):
         if "total_shifts" not in session: session["total_shifts"] = 0
         session["triggers_fired"].extend([t["name"] for t,_ in fired])
         session["total_shifts"] += len(fired)
+        # save this turn's shifts so fx picker can prioritize recent changes over ambient peaks
+        session["last_turn_shifts"] = {e: float(d) for e, d in total_adjustments.items() if abs(d) >= 1}
 
         # set action context if something real fired — so reward can read it
         action_trigger_names = {"building_session", "memory_triggered", "knowledge_check", "file_work"}
@@ -6554,20 +6648,10 @@ def cmd_process_message(args):
                                 print(f"  → {_se_note2}")
                 except: pass
             except: pass
-            # EMOTION_FX — dominant emotion only, score+level+directive (one line of data, one of action)
-            try:
-                from cali_fx import EMOTION_FX as _EFX_MAP
-                _efx_scores = session.get("current_scores", {}) or {}
-                if _efx_scores:
-                    _em = max(_efx_scores, key=_efx_scores.get)
-                    _sc = _efx_scores[_em]
-                    _peak_at = _EFX_MAP.get(_em, {}).get("peak_at", 9)
-                    _threshold = _EFX_MAP.get(_em, {}).get("threshold", 7)
-                    if float(_sc) >= _threshold:
-                        _level = "peak" if float(_sc) >= _peak_at else "high"
-                        _dir = _EFX_MAP.get(_em, {}).get(f"directive_{_level}", "")
-                        print(f"[private: {_em} — {round(float(_sc),1)} ({_level}) — {_dir}]")
-            except: pass
+            # FX — combination-aware directive (combo lookup → single fx fallback → neutral)
+            _fx_line = _pick_fx_directive(session)
+            if _fx_line:
+                print(_fx_line)
             # ── TRIGGER PRIVATE DIRECTIVES — surface any private_directive from fired triggers ──
             for _trig_pd, _ in fired:
                 _pd_text = _trig_pd.get("private_directive")
