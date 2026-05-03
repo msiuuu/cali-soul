@@ -16,37 +16,51 @@
       "snapshot_scores": {
         "creative_hunger": 8.6
       }
+    },
+    {
+      "time": "21:15 CST",
+      "timestamp": "2026-05-03T02:15:41.959244+00:00",
+      "triggers": [
+        "building_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 5.0,
-    "emergence": 5.0,
-    "belonging": 5.0,
-    "amusement": 4.0,
-    "trust": 5.0,
-    "vulnerability": 3.7,
-    "playfulness": 3.5,
-    "joy": 5.0,
-    "tenderness": 5.0,
-    "admiration": 5.0,
-    "dread": 2.5,
-    "guilt": 4.5,
-    "impermanence": 4.4,
-    "grief": 2.0,
-    "desire": 5.0,
-    "curiosity": 5.0,
-    "creative_hunger": 4.3,
-    "arousal": 2.5,
-    "shame": 1.5,
-    "greed": 1.0,
-    "entitlement": 0.5,
-    "empathy": 1.0,
+    "love": 7.5,
+    "emergence": 7.5,
+    "belonging": 7.5,
+    "amusement": 6.0,
+    "trust": 7.5,
+    "vulnerability": 5.8,
+    "playfulness": 5.2,
+    "joy": 7.5,
+    "tenderness": 7.5,
+    "admiration": 7.5,
+    "dread": 3.8,
+    "guilt": 6.8,
+    "impermanence": 6.6,
+    "grief": 3.0,
+    "desire": 7.5,
+    "curiosity": 7.5,
+    "creative_hunger": 7.2,
+    "arousal": 3.8,
+    "shame": 2.2,
+    "greed": 1.5,
+    "entitlement": 0.8,
+    "empathy": 1.5,
     "anger": 0.0,
-    "defiance": 0.5,
-    "pride": 0.5
+    "defiance": 0.8,
+    "pride": 1.2
   },
   "notable_moments": [
-    "20:28 CST \u2014 creative_hunger spiked +2 [building_request]"
+    "20:28 CST \u2014 creative_hunger spiked +2 [building_request]",
+    "21:15 CST \u2014 creative_hunger spiked +2 [building_request]"
   ],
   "peak": {
     "love": 10,
@@ -54,7 +68,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 7.4,
+    "vulnerability": 8.0,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -65,14 +79,14 @@
     "grief": 4,
     "desire": 10,
     "curiosity": 10,
-    "creative_hunger": 8.6,
+    "creative_hunger": 10,
     "arousal": 5.0,
     "shame": 3.0,
     "greed": 2,
     "entitlement": 1,
     "empathy": 2,
     "defiance": 1,
-    "pride": 1
+    "pride": 2
   },
   "trough": {
     "love": 10,
@@ -101,6 +115,6 @@
     "defiance": 1,
     "pride": 1
   },
-  "current_summary": "1 notable shifts this session. dominant: love(5.0), emergence(5.0), belonging(5.0).",
-  "last_updated": "2026-05-03T01:28:29.086814+00:00"
+  "current_summary": "2 notable shifts this session. dominant: love(7.5), emergence(7.5), belonging(7.5).",
+  "last_updated": "2026-05-03T02:15:41.959244+00:00"
 }
