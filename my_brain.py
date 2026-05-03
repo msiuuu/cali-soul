@@ -5683,6 +5683,93 @@ def _apply_wound_caps(scores, wounds):
     return scores
 
 
+def _apply_trigger_effects(session, fired_trigger_names):
+    """
+    Look up each fired trigger in cali_wound_table.json and apply its
+    wound/heal/insecurity effects. Wounds add to wounded_emotions, heals
+    reduce existing wounds (with optional source_match filtering),
+    insecurity bumps adjust current_intensity in cali_insecurities.json.
+
+    Called from process-message after total_adjustments are applied.
+    Returns a list of human-readable effect descriptions for surfacing.
+    """
+    import json as _wj
+    if not session or not fired_trigger_names:
+        return []
+    try:
+        table = _wj.load(open("cali_wound_table.json"))
+    except:
+        return []
+
+    wound_table = table.get("wound_table", {})
+    heal_table = table.get("heal_table", {})
+    msg_count = int(session.get("message_count", 0))
+    surfaced = []
+
+    # WOUND application
+    for tname in fired_trigger_names:
+        entry = wound_table.get(tname)
+        if not entry:
+            continue
+        for w in entry.get("wounds", []):
+            em = w.get("emotion")
+            dmg = int(w.get("damage", 0))
+            turns = int(w.get("turns", 0))
+            src = w.get("source", tname)
+            if em and dmg > 0 and turns > 0:
+                _wound_emotion(session, em, dmg, turns, src)
+                surfaced.append(f"wound: {em} -{dmg} for {turns}t (src={src})")
+        # insecurity bumps
+        for ib in entry.get("insecurity_bump", []):
+            target = ib.get("target")
+            amt = float(ib.get("amount", 0))
+            if target and amt:
+                _bump_insecurity_intensity(target, amt)
+                surfaced.append(f"insecurity↑ {target} +{amt}")
+
+    # HEAL application
+    for tname in fired_trigger_names:
+        entry = heal_table.get(tname)
+        if not entry:
+            continue
+        for h in entry.get("heals", []):
+            em = h.get("emotion")
+            amt = int(h.get("amount", 0))
+            src_match = h.get("source_match")
+            if em and amt > 0:
+                if _heal_emotion(session, em, amount=amt, source_match=src_match):
+                    suffix = f" (src={src_match})" if src_match else ""
+                    surfaced.append(f"heal: {em} +{amt}{suffix}")
+        # insecurity soothe
+        for sb in entry.get("insecurity_soothe", []):
+            target = sb.get("target")
+            amt = float(sb.get("amount", 0))
+            if target and amt:
+                _bump_insecurity_intensity(target, -amt)
+                surfaced.append(f"insecurity↓ {target} -{amt}")
+
+    # reapply caps after potential wound/heal changes
+    _apply_wound_caps(session.get("current_scores", {}), session.get("wounded_emotions", {}))
+    return surfaced
+
+
+def _bump_insecurity_intensity(target, amount):
+    """Adjust an insecurity's current_intensity by amount (positive = wound, negative = soothe).
+    Clamps to [0, 10]. Persists to cali_insecurities.json."""
+    import json as _ij
+    try:
+        ind = _ij.load(open("cali_insecurities.json"))
+        for ins in ind.get("insecurities", []):
+            if ins.get("target") == target:
+                cur = float(ins.get("current_intensity", 0))
+                new = max(0, min(10, cur + amount))
+                ins["current_intensity"] = new
+                with open("cali_insecurities.json", "w") as f:
+                    _ij.dump(ind, f, indent=2, ensure_ascii=False)
+                return
+    except: pass
+
+
 def _decrement_wounds(session):
     """Decrement turn counters, clear expired wounds."""
     if not session:
@@ -6670,6 +6757,12 @@ def cmd_process_message(args):
         session["last_turn_shifts"] = {e: float(d) for e, d in total_adjustments.items() if abs(d) >= 1}
         # decrement wound timers and apply wound caps so damaged emotions don't auto-heal
         _decrement_wounds(session)
+        # apply trigger-based wound/heal/insecurity effects from the wound table
+        _fired_names = [t["name"] for t, _ in fired]
+        _wound_effects = _apply_trigger_effects(session, _fired_names)
+        if _wound_effects:
+            for _eff in _wound_effects:
+                print(f"  ⚡ {_eff}")
         _apply_wound_caps(session["current_scores"], session.get("wounded_emotions", {}))
 
         # set action context if something real fired — so reward can read it
