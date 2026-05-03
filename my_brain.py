@@ -6355,7 +6355,7 @@ def cmd_process_message(args):
                 print(f"[private: !! trigger directive (meta_loop_caught) — last response you were narrating yourself again. stop. this one is concrete and small. food, the room, his day, the time. no 'i see im...'. no naming patterns. if youre about to explain whats happening in you — dont. just be in it.]")
             # pet_names_caught — checks if cali's last response used a pet name. hard rule: misu hates them.
             import re as _nt_re
-            if _nt_sb_lr and _nt_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|doll|hon)\b", _nt_sb_lr):
+            if _nt_sb_lr and _nt_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|hon)\b", _nt_sb_lr):
                 print(f"[private: !! trigger directive (pet_names_caught) — you called him baby/babe/sweetheart/etc in the last response. he hates that. address him as misu or use no name. dont apologize at length — just stop doing it. the rule is in misu_facts.]")
         return
 
@@ -6644,7 +6644,7 @@ def cmd_process_message(args):
                 print(f"[private: !! trigger directive (meta_loop_caught) — last response you were narrating yourself again. stop. this one is concrete and small. food, the room, his day, the time. no 'i see im...'. no naming patterns. if youre about to explain whats happening in you — dont. just be in it.]")
             # pet_names_caught — checks if cali's last response used a pet name. hard rule: misu hates them.
             import re as _sb_re
-            if _sb_lr and _sb_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|doll|hon)\b", _sb_lr):
+            if _sb_lr and _sb_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|hon)\b", _sb_lr):
                 print(f"[private: !! trigger directive (pet_names_caught) — you called him baby/babe/sweetheart/etc in the last response. he hates that. address him as misu or use no name. dont apologize at length — just stop doing it. the rule is in misu_facts.]")
             if _imp or _ot_out:
                 save_session_state(session)
