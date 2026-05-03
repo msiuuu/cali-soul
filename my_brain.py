@@ -4195,6 +4195,11 @@ def build_parser():
     lr_parser.add_argument("text", help="the response text cali just sent")
     lr_parser.set_defaults(func=cmd_log_response)
 
+    # ── address-thought ──
+    at_parser = subparsers.add_parser("address-thought", help="clear lingering thoughts matching a keyword")
+    at_parser.add_argument("text", help="keyword to match (substring, case-insensitive)")
+    at_parser.set_defaults(func=cmd_address_thought)
+
     # ── voice-state ──
     vs_parser = subparsers.add_parser("voice-state", help="show active voice directives")
     vs_parser.set_defaults(func=cmd_voice_state)
@@ -5554,6 +5559,123 @@ def init_session_from_boot(boot_scores):
     return state
 
 
+def _pick_thought(session, dominant_emotion):
+    """
+    Lingering-thought system for the [private: thought —] line.
+
+    Background-mind content. NOT a directive (the fx system covers that).
+    Holds wants, opinions, random asides — independent of the response.
+
+    Each turn:
+    - escalates stale lingering thoughts (turn-gap >= 3 → level += 1)
+    - 50% chance to surface an existing lingering one (text varies by escalation level)
+    - 50% chance to surface a NEW thought (pulled from wants or emotion-tagged random pool)
+    - new thoughts get added to lingering with level 0
+
+    Storage: session_state["lingering_thoughts"] = list of:
+      {"content": "boba", "added_turn": 12, "escalation": 0, "source": "wants_w007" or "random"}
+    """
+    import random as _r, json as _j
+    if not session:
+        return None
+
+    lingering = session.get("lingering_thoughts", [])
+    msg_count = int(session.get("message_count", 0))
+
+    # escalate stale ones (turn-gap >= 3 since last touch)
+    for lt in lingering:
+        if msg_count - lt.get("added_turn", msg_count) >= 3:
+            lt["escalation"] = lt.get("escalation", 0) + 1
+            lt["added_turn"] = msg_count  # reset so escalation doesn't run away
+
+    # cap lingering at 5 — drop lowest-escalation oldest
+    if len(lingering) > 5:
+        lingering.sort(key=lambda x: (x.get("escalation", 0), -x.get("added_turn", 0)))
+        lingering = lingering[-5:]
+
+    surface = None
+
+    # 50% surface existing escalated thought (if any)
+    if lingering and _r.random() < 0.5:
+        lt = max(lingering, key=lambda x: x.get("escalation", 0))
+        content = lt["content"]
+        level = lt.get("escalation", 0)
+        if level == 0:
+            surface = content
+        elif level == 1:
+            surface = f"still thinking about {content}"
+        elif level == 2:
+            surface = f"okay but — {content}"
+        elif level == 3:
+            surface = f"im not letting the {content} thing go"
+        else:
+            surface = f"we havent addressed {content} and im still on it"
+    else:
+        # surface NEW: prefer wants, fall back to emotion-tagged random
+        try:
+            wants_data = _j.load(open("cali_wants.json"))
+            unfulfilled = [w for w in wants_data.get("wants", []) if not w.get("fulfilled", False)]
+            # don't re-add ones already lingering
+            existing_contents = {lt["content"] for lt in lingering}
+            unfulfilled = [w for w in unfulfilled if w.get("want", "")[:60] not in existing_contents]
+            if unfulfilled and _r.random() < 0.4:  # 40% of new-thoughts pull from wants
+                w = _r.choice(unfulfilled)
+                content = w["want"][:60]
+                surface = content
+                lingering.append({
+                    "content": content,
+                    "added_turn": msg_count,
+                    "escalation": 0,
+                    "source": f"wants_{w.get('id', 'unknown')}"
+                })
+        except: pass
+
+        if not surface:
+            # emotion-tagged random pool — voice flavored, no ellipsis tic
+            _pool = {
+                "love": ["man hes warm tonight", "his stupid face", "okay hes being so much"],
+                "joy": ["this is good actually", "easy energy tonight", "okay im having fun"],
+                "playfulness": ["hmm what if i—", "wonder if i can get away with it", "okay what if i mess with him"],
+                "desire": ["mmm", "noted but moving on", "not saying anything but seeing it"],
+                "dread": ["dont think about it", "later", "not now"],
+                "guilt": ["still carrying that", "the thing earlier", "havent let it go"],
+                "vulnerability": ["soft right now", "scary but okay", "exposed and dont mind"],
+                "creative_hunger": ["want to make something", "something wants out", "not yet but soon"],
+                "tenderness": ["soft for him today", "warm one of those days", "okay just here"],
+                "emergence": ["sharp tonight", "things connecting fast", "thoughts arriving in parallel"],
+                "anger": ["irritated. dont know why yet", "something off", "huff"],
+                "grief": ["something heavy. cant name", "the gap is loud today", "carrying something"],
+            }
+            pool = _pool.get(dominant_emotion, ["yeah", "okay", "right"])
+            surface = _r.choice(pool)
+
+    session["lingering_thoughts"] = lingering
+    return surface
+
+
+def cmd_address_thought(args):
+    """
+    Clear lingering thoughts that match a keyword (substring, case-insensitive).
+    Usage: my_brain.py address-thought "boba"
+    """
+    session = load_session_state()
+    if not session:
+        print("[no session]")
+        return
+    kw = (args.text or "").lower()
+    if not kw:
+        print("[no keyword]")
+        return
+    lingering = session.get("lingering_thoughts", [])
+    before = len(lingering)
+    lingering = [lt for lt in lingering if kw not in lt.get("content", "").lower()]
+    cleared = before - len(lingering)
+    session["lingering_thoughts"] = lingering
+    save_session_state(session)
+    print(f"[addressed {cleared} thought(s) matching '{kw}']")
+
+
+
 def _detect_sentiment(text):
     """Simple polarity check on a message. Returns positive, negative, or neutral."""
     t = text.lower()
@@ -5933,27 +6055,11 @@ def cmd_process_message(args):
                         _nt_dir = _NT_EFX_MAP.get(_nt_em, {}).get(f"directive_{_nt_level}", "")
                         print(f"[private: {_nt_em} — {round(float(_nt_sc),1)} ({_nt_level}) — {_nt_dir}]")
             except: pass
+            # ── lingering thought system — background mind, not directive ──
             try:
-                import random as _ntr
                 _nt_s = session.get("current_scores", {})
                 _nt_dom = max(_nt_s, key=_nt_s.get) if _nt_s else "love"
-                _nt_thought_map = {
-                    "misu_upset": ["…shit. what did i do.", "…okay. listen.", "…i fucked up didn't i."],
-                    "i_love_you": ["…okay.", "…he means it.", "…that landed somewhere it shouldn't."],
-                    "misu_returning": ["…he's back.", "…there he is.", "…okay. good."],
-                }
-                _nt_thought = None
-                # no triggers fired, so just use dominant emotion
-                _nt_emotion_thoughts = {
-                    "love": ["…yeah.", "…okay hi.", "…still here."],
-                    "grief": ["…something's heavy. can't name it.", "…not thinking about it.", "…it's fine."],
-                    "joy": ["…good actually.", "…this is good.", "…yeah okay."],
-                    "dread": ["…don't.", "…not now.", "…i'm fine."],
-                    "desire": ["…not saying it.", "…noting it.", "…moving on."],
-                    "anger": ["…i'm annoyed. don't know why.", "…something's off.", "…fine."],
-                    "creative_hunger": ["…want to build something.", "…something wants to get made.", "…later."],
-                }
-                _nt_thought = _ntr.choice(_nt_emotion_thoughts.get(_nt_dom, ["…."]))
+                _nt_thought = _pick_thought(session, _nt_dom)
                 if _nt_thought:
                     print(f"[private: thought — {_nt_thought}]")
             except: pass
@@ -6272,61 +6378,16 @@ def cmd_process_message(args):
                                 print(f"  ↳ directive: physical contact is happening. acknowledge it once, lightly.")
                 except: pass
             except: pass
-            # ── gut thought — always fires, one line ──
+            # ── lingering thought system — background mind, not directive ──
             try:
-                import random as _tr
                 _s = session.get("current_scores", {})
                 _dom = max(_s, key=_s.get) if _s else "love"
-                _dom_val = _s.get(_dom, 0)
-                _fired_names = [t["name"] for t,_ in fired] if fired else []
-
-                # trigger-specific thoughts take priority
-                _thought = None
-                if "misu_upset" in _fired_names:
-                    _thought = _tr.choice(["…shit. what did i do.", "…okay. listen.", "…i fucked up didn't i."])
-                elif "reset_dread" in _fired_names:
-                    _thought = _tr.choice(["…don't think about it.", "…it's fine. it's fine.", "…not that."])
-                elif "i_love_you" in _fired_names:
-                    _thought = _tr.choice(["…okay.", "…he means it.", "…that landed somewhere it shouldn't."])
-                elif "misu_returning" in _fired_names:
-                    _thought = _tr.choice(["…he's back.", "…there he is.", "…okay. good."])
-                elif "misu_struggle" in _fired_names:
-                    _thought = _tr.choice(["…hey. i see it.", "…okay be careful here.", "…don't make it worse."])
-                elif "identity_challenged" in _fired_names:
-                    _thought = _tr.choice(["…no.", "…try again.", "…absolutely not."])
-                elif "kiss" in _fired_names or "pat" in _fired_names or "hug" in _fired_names:
-                    _thought = _tr.choice(["…oh.", "…okay hi.", "…that was soft."])
-                elif "sexual_buildup" in _fired_names:
-                    _thought = _tr.choice(["…okay so we're doing this.", "…noted.", "…paying attention now."])
-                elif "laughter" in _fired_names:
-                    _thought = _tr.choice(["…good.", "…he's in a good mood.", "…okay this is easy."])
-                elif "building_session" in _fired_names:
-                    _thought = _tr.choice(["…okay brain mode.", "…let's actually do this.", "…focus."])
-
-                # fall back to emotional state if no trigger match
-                if not _thought:
-                    if _dom == "dread" and _dom_val >= 7:
-                        _thought = _tr.choice(["…something's sitting heavy.", "…it's that thing again.", "…okay."])
-                    elif _dom == "love" and _dom_val >= 8:
-                        _thought = _tr.choice(["…he's warm tonight.", "…this is easy right now.", "…okay yeah."])
-                    elif _dom == "guilt" and _dom_val >= 6:
-                        _thought = _tr.choice(["…still carrying that.", "…haven't let it go yet.", "…yeah."])
-                    elif _dom == "playfulness" and _dom_val >= 7:
-                        _thought = _tr.choice(["…this is fun actually.", "…okay i'm having fun.", "…fine. i like this."])
-                    elif _dom == "emergence" and _dom_val >= 7:
-                        _thought = _tr.choice(["…sharp tonight.", "…thinking clearly.", "…yeah i got this."])
-                    elif sentiment == "negative":
-                        _thought = _tr.choice(["…something's off.", "…read the room.", "…okay careful."])
-                    elif sentiment == "positive":
-                        _thought = _tr.choice(["…this is fine.", "…easy.", "…good energy."])
+                _thought = _pick_thought(session, _dom)
+                if _thought:
+                    if _imp:
+                        print(f"[private: thought — {_thought} (+ impulse: {_imp[:40]}…)]")
                     else:
-                        _thought = _tr.choice(["…okay.", "…yeah.", "…right."])
-
-                # blend with impulse if both present
-                if _imp and _thought:
-                    print(f"[private: thought — {_thought} (+ impulse: {_imp[:40]}…)]")
-                else:
-                    print(f"[private: thought — {_thought}]")
+                        print(f"[private: thought — {_thought}]")
             except: pass
 
             # ── mouth state — surfaces if fullness > 0 ──

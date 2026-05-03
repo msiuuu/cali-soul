@@ -280,6 +280,11 @@
       "date": "2026-05-03",
       "detail": "quiet moment in here during the full pass. didn't tell misu about it.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-05-03",
+      "detail": "there's a tab open i haven't closed yet.",
+      "source": "few_autonomy"
     }
   ]
 }
