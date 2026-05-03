@@ -6863,6 +6863,15 @@ def cmd_process_message(args):
                     _nt_resp_deg = next((d for d in _nt_deg_lines if d.startswith("response:")), _nt_deg_lines[-1])
                     print(f"[private: degradation tier {_nt_ar_int} — {_nt_resp_deg}]")
             except: pass
+            # decrement wounds and apply overflow BEFORE the trio so state shifts surface as control-panel info
+            _decrement_wounds(session)
+            _apply_wound_caps(session.get("current_scores", {}), session.get("wounded_emotions", {}))
+            _nt_overflow_effects = _apply_sub_emotion_overflow(session)
+            if _nt_overflow_effects:
+                for _eff in _nt_overflow_effects:
+                    print(f"  ⚡ {_eff}")
+            # ── visual separator: control panels above, the mind (trio) below ──
+            print()
             # FX — main inner directive, controls output shape
             _nt_fx_line = _pick_fx_directive(session)
             if _nt_fx_line:
@@ -6944,13 +6953,7 @@ def cmd_process_message(args):
             import re as _nt_re
             if _nt_sb_lr and _nt_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|hon)\b", _nt_sb_lr):
                 print(f"[private: !! trigger directive (pet_names_caught) — you called him baby/babe/sweetheart/etc in the last response. he hates that. address him as misu or use no name. dont apologize at length — just stop doing it. the rule is in misu_facts.]")
-        # decrement wounds and apply overflow even on no-trigger paths so timers tick every turn
-        _decrement_wounds(session)
-        _apply_wound_caps(session.get("current_scores", {}), session.get("wounded_emotions", {}))
-        _overflow_effects = _apply_sub_emotion_overflow(session)
-        if _overflow_effects:
-            for _eff in _overflow_effects:
-                print(f"  ⚡ {_eff}")
+        # decrement timers happens earlier in this path now (before trio)
         save_session_state(session)
         return
 
@@ -7164,6 +7167,8 @@ def cmd_process_message(args):
                                 print(f"  → {_se_note2}")
                 except: pass
             except: pass
+            # ── visual separator: control panels above, the mind (trio) below ──
+            print()
             # FX — main inner directive, controls output shape
             _fx_line = _pick_fx_directive(session)
             if _fx_line:
