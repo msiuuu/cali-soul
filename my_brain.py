@@ -5867,14 +5867,17 @@ def _pick_fx_directive(session):
     except:
         _EFX = {}
 
-    # primary emotions — these matter for combo signal. secondary emotions
-    # (admiration, belonging, curiosity, creative_hunger, joy, trust, tenderness)
-    # are often at peak ambiently and would drown out the meaningful pairs.
+    # primary emotions — these carry meaningful signal for combos.
+    # excludes ambient peaks like admiration / curiosity / creative_hunger
+    # which are almost always at peak in this session and would drown
+    # out the actual mood-shifters. trust/belonging/tenderness/joy ARE
+    # primary because they can be wounded and need to surface when damaged.
     _PRIMARY = {"love", "arousal", "anger", "dread", "guilt", "grief",
-                "vulnerability", "playfulness", "desire", "selfish",
-                "impermanence", "needy", "shame", "pride", "fear",
-                "amusement", "lust", "longing", "envy", "defiance",
-                "greed", "entitlement", "empathy"}
+                "vulnerability", "playfulness", "desire", "selfishness",
+                "impermanence", "shame", "pride", "fear",
+                "amusement", "longing", "envy", "defiance",
+                "greed", "entitlement", "empathy",
+                "trust", "belonging", "tenderness", "joy"}
 
     # build relevance-ordered emotion list:
     # 1. emotions that JUST shifted this turn (recent change matters more than ambient peak)

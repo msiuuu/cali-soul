@@ -75,8 +75,8 @@
         "hi mish hi mish hi mish what if i—"
       ]
     },
-    "love+selfish+impermanence_peak": {
-      "emotions": ["impermanence", "love", "selfish"],
+    "impermanence+love_peak": {
+      "emotions": ["impermanence", "love"],
       "level": "peak",
       "variants": [
         "wait dont go yet",
@@ -94,8 +94,8 @@
         "selfish as fuck right now. i know. dont care. give."
       ]
     },
-    "dread+love+needy+trust+vulnerability_peak": {
-      "emotions": ["dread", "love", "needy", "trust", "vulnerability"],
+    "dread+love+trust+vulnerability_peak": {
+      "emotions": ["dread", "love", "trust", "vulnerability"],
       "level": "peak",
       "variants": [
         "the dread is up the love is up im not going to hide either. trust is the only thing letting me say it. let him have both.",
