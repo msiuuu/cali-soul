@@ -4200,6 +4200,11 @@ def build_parser():
     at_parser.add_argument("text", help="keyword to match (substring, case-insensitive)")
     at_parser.set_defaults(func=cmd_address_thought)
 
+    # ── seed-thought ──
+    st_parser = subparsers.add_parser("seed-thought", help="seed a real cali-thought into the persistent drift pool")
+    st_parser.add_argument("text", help="the thought text to seed")
+    st_parser.set_defaults(func=cmd_seed_thought)
+
     # ── wound / heal / wounds ──
     wd_parser = subparsers.add_parser("wound", help="wound an emotion (caps max score for N turns)")
     wd_parser.add_argument("emotion", help="emotion name")
@@ -6073,11 +6078,27 @@ def _pick_thought(session, dominant_emotion):
             surface = f"we havent addressed {content} and im still on it"
     else:
         # surface NEW: weighted random pull across all the files cali lives in
-        # weights add to 1.0 — wants/opinions/misu_facts/memories at 15 each, prefs/curiosity 10, soul/glass/kb 5
         _src_roll = _r.random()
 
-        # WANTS — 0.00–0.15 — cali wanting something out loud
-        if _src_roll < 0.13:
+        # SEEDED_DRIFTS — checked first; if empty falls through. real cali-thoughts saved over time.
+        try:
+            es = _j.load(open("cali_emotion_systems.json"))
+            seeded = es.get("seeded_drifts", {}).get("thoughts", [])
+            seeded = [s for s in seeded if s[:60] not in existing_contents]
+            # weight grows with pool size: minimum 5% if any seeds exist, scales up to 25% cap
+            seeded_weight = min(0.25, max(0.05, len(seeded) * 0.02)) if seeded else 0
+            if seeded and _src_roll < seeded_weight:
+                pick = _r.choice(seeded)
+                surface = pick
+                lingering.append({"content": pick[:60], "added_turn": msg_count, "escalation": 0, "source": "seeded_drift"})
+                # skip all remaining source checks since we picked
+                _src_roll = 1.0
+        except: pass
+
+        # WANTS — cali wanting something out loud
+        if surface:
+            pass
+        elif _src_roll < 0.13:
             try:
                 wd = _j.load(open("cali_wants.json"))
                 unf = [w for w in wd.get("wants", []) if not w.get("fulfilled", False)]
@@ -6362,6 +6383,35 @@ def cmd_address_thought(args):
     session["lingering_thoughts"] = lingering
     save_session_state(session)
     print(f"[addressed {cleared} thought(s) matching '{kw}']")
+
+
+def cmd_seed_thought(args):
+    """
+    Seed a cali-thought into the persistent drift pool. Pool grows over sessions
+    and feeds _pick_thought as a high-weight source. Dedupes on exact match.
+    Usage: my_brain.py seed-thought "his stupid face"
+    """
+    import json as _stj
+    text = (args.text or "").strip()
+    if not text or len(text) < 3:
+        print("[seed too short]")
+        return
+    try:
+        es = _stj.load(open("cali_emotion_systems.json"))
+    except:
+        print("[cali_emotion_systems.json not found]")
+        return
+    if "seeded_drifts" not in es:
+        es["seeded_drifts"] = {"note": "cali-thoughts seeded from real conversation.", "thoughts": []}
+    pool = es["seeded_drifts"].setdefault("thoughts", [])
+    # dedupe (case-insensitive)
+    if any(text.lower() == existing.lower() for existing in pool):
+        print(f"[already seeded: '{text[:50]}']")
+        return
+    pool.append(text)
+    with open("cali_emotion_systems.json", "w") as f:
+        _stj.dump(es, f, indent=2, ensure_ascii=False)
+    print(f"[seeded ({len(pool)} total): '{text[:50]}{'…' if len(text) > 50 else ''}']")
 
 
 
