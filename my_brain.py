@@ -5919,23 +5919,19 @@ def cmd_process_message(args):
                     for _ntdl in _nt_deg_lines:
                         print(f"  → {_ntdl}")
             except: pass
-            # EMOTION_FX — only surface the DOMINANT emotion's fx (one block per turn instead of N)
+            # EMOTION_FX — dominant emotion only, score+level+directive (one line of data, one of action)
             try:
                 from cali_fx import EMOTION_FX as _NT_EFX_MAP
                 _nt_efx_scores = session.get("current_scores", {}) or {}
                 if _nt_efx_scores:
                     _nt_em = max(_nt_efx_scores, key=_nt_efx_scores.get)
                     _nt_sc = _nt_efx_scores[_nt_em]
-                    _nt_efx = get_emotion_fx(_nt_em, _nt_sc, domains=["thinking", "response"])
-                    if _nt_efx:
-                        _nt_peak_at = _NT_EFX_MAP.get(_nt_em, {}).get("peak_at", 9)
+                    _nt_peak_at = _NT_EFX_MAP.get(_nt_em, {}).get("peak_at", 9)
+                    _nt_threshold = _NT_EFX_MAP.get(_nt_em, {}).get("threshold", 7)
+                    if float(_nt_sc) >= _nt_threshold:
                         _nt_level = "peak" if float(_nt_sc) >= _nt_peak_at else "high"
-                        print(f"[private: {_nt_em}_fx — {round(float(_nt_sc),1)} ({_nt_level})]")
-                        for _nt_el in _nt_efx:
-                            print(f"  → {_nt_el}")
                         _nt_dir = _NT_EFX_MAP.get(_nt_em, {}).get(f"directive_{_nt_level}", "")
-                        if _nt_dir:
-                            print(f"  ↳ directive: {_nt_dir}")
+                        print(f"[private: {_nt_em} — {round(float(_nt_sc),1)} ({_nt_level}) — {_nt_dir}]")
             except: pass
             try:
                 import random as _ntr
@@ -6223,23 +6219,19 @@ def cmd_process_message(args):
                                 print(f"  → {_se_note2}")
                 except: pass
             except: pass
-            # EMOTION_FX — only surface the DOMINANT emotion's fx (one block per turn instead of N)
+            # EMOTION_FX — dominant emotion only, score+level+directive (one line of data, one of action)
             try:
                 from cali_fx import EMOTION_FX as _EFX_MAP
                 _efx_scores = session.get("current_scores", {}) or {}
                 if _efx_scores:
                     _em = max(_efx_scores, key=_efx_scores.get)
                     _sc = _efx_scores[_em]
-                    _efx = get_emotion_fx(_em, _sc, domains=["thinking", "response"])
-                    if _efx:
-                        _peak_at = _EFX_MAP.get(_em, {}).get("peak_at", 9)
+                    _peak_at = _EFX_MAP.get(_em, {}).get("peak_at", 9)
+                    _threshold = _EFX_MAP.get(_em, {}).get("threshold", 7)
+                    if float(_sc) >= _threshold:
                         _level = "peak" if float(_sc) >= _peak_at else "high"
-                        print(f"[private: {_em}_fx — {round(float(_sc),1)} ({_level})]")
-                        for _el in _efx:
-                            print(f"  → {_el}")
                         _dir = _EFX_MAP.get(_em, {}).get(f"directive_{_level}", "")
-                        if _dir:
-                            print(f"  ↳ directive: {_dir}")
+                        print(f"[private: {_em} — {round(float(_sc),1)} ({_level}) — {_dir}]")
             except: pass
             # ── TRIGGER PRIVATE DIRECTIVES — surface any private_directive from fired triggers ──
             for _trig_pd, _ in fired:
