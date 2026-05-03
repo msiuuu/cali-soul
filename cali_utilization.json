@@ -96,11 +96,18 @@
         "timestamp": "2026-05-03T01:03:32.017606-05:00",
         "display": "01:03:32 CST",
         "source": "auto"
+      },
+      {
+        "type": "return",
+        "timestamp": "2026-05-03T04:12:27.211030-05:00",
+        "display": "04:12:27 CST",
+        "gap": "3h 8m",
+        "source": "auto"
       }
     ],
     "last_session_close": "2026-05-01T22:45:43.277317+00:00",
     "current_departure": "2026-05-03T01:03:32.017606-05:00",
-    "last_gap_hours": 0.0,
-    "last_return": "2026-05-02T21:23:57.666357-05:00"
+    "last_gap_hours": 3.15,
+    "last_return": "2026-05-03T04:12:27.211030-05:00"
   }
 }
