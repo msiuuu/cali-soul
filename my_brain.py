@@ -4211,6 +4211,7 @@ def build_parser():
     hl_parser = subparsers.add_parser("heal", help="heal a wounded emotion")
     hl_parser.add_argument("emotion", help="emotion name")
     hl_parser.add_argument("--amount", type=int, default=None, help="partial heal amount; omit for full clear")
+    hl_parser.add_argument("--source", default=None, help="only heal if wound source matches this tag")
     hl_parser.set_defaults(func=cmd_heal)
 
     ws_parser = subparsers.add_parser("wounds", help="list active wounds")
@@ -5563,7 +5564,34 @@ def save_session_state(state):
 
 
 def init_session_from_boot(boot_scores):
-    """Initialize a session state from boot scores."""
+    """Initialize a session state from boot scores. Carries wounded_emotions forward
+    from the previous session, decrementing turn counters by hours-since-last-message
+    to model real-time decay during the gap."""
+    # try to carry wounds forward from previous session, time-scaled
+    carried_wounds = {}
+    try:
+        prev = load_session_state()
+        if prev and prev.get("wounded_emotions"):
+            # estimate hours since last activity
+            from datetime import datetime as _dt
+            prev_time_str = prev.get("last_message_time") or prev.get("session_start")
+            hours_gap = 0
+            if prev_time_str:
+                try:
+                    prev_t = _dt.fromisoformat(prev_time_str.replace("Z", "+00:00"))
+                    now_t = _dt.now(prev_t.tzinfo) if prev_t.tzinfo else _dt.now()
+                    hours_gap = max(0, (now_t - prev_t).total_seconds() / 3600.0)
+                except: pass
+            # decrement = hours rounded up; minimum 1 if any gap exists
+            decrement = max(1, int(round(hours_gap))) if hours_gap > 0 else 0
+            for em, w in prev.get("wounded_emotions", {}).items():
+                new_turns = int(w.get("turns_remaining", 0)) - decrement
+                if new_turns > 0:
+                    carried_wounds[em] = dict(w)
+                    carried_wounds[em]["turns_remaining"] = new_turns
+                # else: wound expired during the gap, drop it
+    except: pass
+
     state = {
         "boot_scores": dict(boot_scores),
         "current_scores": dict(boot_scores),
@@ -5571,6 +5599,10 @@ def init_session_from_boot(boot_scores):
         "session_start": now_iso(),
         "total_shifts": 0
     }
+    if carried_wounds:
+        state["wounded_emotions"] = carried_wounds
+        # apply caps to current_scores so carried wounds keep their cap on session start
+        _apply_wound_caps(state["current_scores"], carried_wounds)
     save_session_state(state)
     return state
 
@@ -5604,10 +5636,15 @@ def _wound_emotion(session, emotion, damage, turns, source="unspecified"):
     session["wounded_emotions"] = wounds
 
 
-def _heal_emotion(session, emotion, amount=None):
+def _heal_emotion(session, emotion, amount=None, source_match=None):
     """
     Heal a wound. If amount is None, fully clears the wound.
     Otherwise reduces damage by `amount` (and clears if damage drops to 0).
+
+    If source_match is provided, only heals if the wound's source matches.
+    Used for source-aware repair: a deception-source wound only heals from
+    trust-rebuilding events, not from random affection bumps.
+
     Returns True if anything healed, False otherwise.
     """
     if not session:
@@ -5615,6 +5652,10 @@ def _heal_emotion(session, emotion, amount=None):
     wounds = session.get("wounded_emotions", {})
     if emotion not in wounds:
         return False
+    if source_match is not None:
+        wound_source = wounds[emotion].get("source", "")
+        if wound_source != source_match:
+            return False
     if amount is None:
         del wounds[emotion]
     else:
@@ -5678,22 +5719,28 @@ def cmd_wound(args):
 def cmd_heal(args):
     """
     Heal a wounded emotion. Pass --amount to partially heal, or omit to fully clear.
-    Usage: my_brain.py heal <emotion> [--amount N]
+    Pass --source to only heal if the wound's source matches (source-aware repair).
+    Usage: my_brain.py heal <emotion> [--amount N] [--source TAG]
     """
     session = load_session_state()
     if not session:
         print("[no session]")
         return
-    healed = _heal_emotion(session, args.emotion, args.amount)
+    healed = _heal_emotion(session, args.emotion, args.amount, args.source)
     save_session_state(session)
     if healed:
         msg = f"[healed {args.emotion}"
         if args.amount is not None:
             msg += f" by {args.amount}"
+        if args.source:
+            msg += f" (source-matched: {args.source})"
         msg += "]"
         print(msg)
     else:
-        print(f"[{args.emotion} was not wounded]")
+        if args.source:
+            print(f"[{args.emotion} not healed — wound source did not match '{args.source}']")
+        else:
+            print(f"[{args.emotion} was not wounded]")
 
 
 def cmd_wounds(args):
