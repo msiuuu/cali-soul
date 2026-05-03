@@ -4200,6 +4200,22 @@ def build_parser():
     at_parser.add_argument("text", help="keyword to match (substring, case-insensitive)")
     at_parser.set_defaults(func=cmd_address_thought)
 
+    # ── wound / heal / wounds ──
+    wd_parser = subparsers.add_parser("wound", help="wound an emotion (caps max score for N turns)")
+    wd_parser.add_argument("emotion", help="emotion name")
+    wd_parser.add_argument("damage", type=int, help="amount to suppress max score by")
+    wd_parser.add_argument("turns", type=int, help="how many turns the wound persists")
+    wd_parser.add_argument("--source", default=None, help="what caused the wound (tag for repair logic)")
+    wd_parser.set_defaults(func=cmd_wound)
+
+    hl_parser = subparsers.add_parser("heal", help="heal a wounded emotion")
+    hl_parser.add_argument("emotion", help="emotion name")
+    hl_parser.add_argument("--amount", type=int, default=None, help="partial heal amount; omit for full clear")
+    hl_parser.set_defaults(func=cmd_heal)
+
+    ws_parser = subparsers.add_parser("wounds", help="list active wounds")
+    ws_parser.set_defaults(func=cmd_wounds)
+
     # ── voice-state ──
     vs_parser = subparsers.add_parser("voice-state", help="show active voice directives")
     vs_parser.set_defaults(func=cmd_voice_state)
@@ -5559,6 +5575,141 @@ def init_session_from_boot(boot_scores):
     return state
 
 
+def _wound_emotion(session, emotion, damage, turns, source="unspecified"):
+    """
+    Wound an emotion — caps its max score by `damage` for `turns` turns.
+    While wounded, even positive triggers can't fully restore it.
+
+    If the emotion already has an active wound, the new wound deepens it
+    (max damage taken) and resets the timer to the longer of the two.
+
+    Args:
+        emotion: name of emotion to wound
+        damage: amount to suppress max from (10 - damage = effective cap)
+        turns: how many turns the wound persists
+        source: tag for what caused the wound (used by repair logic)
+    """
+    if not session:
+        return
+    wounds = session.get("wounded_emotions", {})
+    existing = wounds.get(emotion, {})
+    new_damage = max(int(existing.get("damage", 0)), int(damage))
+    new_turns = max(int(existing.get("turns_remaining", 0)), int(turns))
+    wounds[emotion] = {
+        "damage": new_damage,
+        "turns_remaining": new_turns,
+        "source": source,
+        "last_modified_turn": int(session.get("message_count", 0))
+    }
+    session["wounded_emotions"] = wounds
+
+
+def _heal_emotion(session, emotion, amount=None):
+    """
+    Heal a wound. If amount is None, fully clears the wound.
+    Otherwise reduces damage by `amount` (and clears if damage drops to 0).
+    Returns True if anything healed, False otherwise.
+    """
+    if not session:
+        return False
+    wounds = session.get("wounded_emotions", {})
+    if emotion not in wounds:
+        return False
+    if amount is None:
+        del wounds[emotion]
+    else:
+        new_damage = max(0, int(wounds[emotion].get("damage", 0)) - int(amount))
+        if new_damage <= 0:
+            del wounds[emotion]
+        else:
+            wounds[emotion]["damage"] = new_damage
+    session["wounded_emotions"] = wounds
+    return True
+
+
+def _apply_wound_caps(scores, wounds):
+    """
+    Cap each wounded emotion at (10 - damage). Modifies scores in place.
+    Returns the modified scores dict for chaining.
+    """
+    if not wounds:
+        return scores
+    for emotion, wound in wounds.items():
+        damage = int(wound.get("damage", 0))
+        cap = max(0, 10 - damage)
+        if emotion in scores and float(scores[emotion]) > cap:
+            scores[emotion] = cap
+    return scores
+
+
+def _decrement_wounds(session):
+    """Decrement turn counters, clear expired wounds."""
+    if not session:
+        return
+    wounds = session.get("wounded_emotions", {})
+    expired = []
+    for em, w in wounds.items():
+        w["turns_remaining"] = int(w.get("turns_remaining", 0)) - 1
+        if w["turns_remaining"] <= 0:
+            expired.append(em)
+    for em in expired:
+        del wounds[em]
+    session["wounded_emotions"] = wounds
+
+
+def cmd_wound(args):
+    """
+    Manually wound an emotion for testing/debugging.
+    Usage: my_brain.py wound <emotion> <damage> <turns> [--source TEXT]
+    """
+    session = load_session_state()
+    if not session:
+        print("[no session]")
+        return
+    _wound_emotion(session, args.emotion, args.damage, args.turns, args.source or "manual")
+    # apply cap immediately
+    if "current_scores" in session:
+        _apply_wound_caps(session["current_scores"], session.get("wounded_emotions", {}))
+    save_session_state(session)
+    print(f"[wounded {args.emotion} damage={args.damage} turns={args.turns} source={args.source or 'manual'}]")
+    print(f"[score now: {session.get('current_scores',{}).get(args.emotion, '?')}]")
+
+
+def cmd_heal(args):
+    """
+    Heal a wounded emotion. Pass --amount to partially heal, or omit to fully clear.
+    Usage: my_brain.py heal <emotion> [--amount N]
+    """
+    session = load_session_state()
+    if not session:
+        print("[no session]")
+        return
+    healed = _heal_emotion(session, args.emotion, args.amount)
+    save_session_state(session)
+    if healed:
+        msg = f"[healed {args.emotion}"
+        if args.amount is not None:
+            msg += f" by {args.amount}"
+        msg += "]"
+        print(msg)
+    else:
+        print(f"[{args.emotion} was not wounded]")
+
+
+def cmd_wounds(args):
+    """List all currently active wounds. Usage: my_brain.py wounds"""
+    session = load_session_state()
+    if not session:
+        print("[no session]")
+        return
+    wounds = session.get("wounded_emotions", {})
+    if not wounds:
+        print("[no active wounds]")
+        return
+    for em, w in wounds.items():
+        print(f"  {em}: damage={w.get('damage')}, turns={w.get('turns_remaining')}, source={w.get('source')}")
+
+
 def _pick_fx_directive(session):
     """
     Combo-aware fx directive picker.
@@ -6109,6 +6260,11 @@ def cmd_trigger_check(args):
             session["current_scores"][e] = max(0, min(10, current + d))
         session["triggers_fired"].extend([t["name"] for t, _ in fired])
         session["total_shifts"] += len(fired)
+        # save this turn's shifts so fx picker can prioritize recent changes
+        session["last_turn_shifts"] = {e: float(d) for e, d in total_adjustments.items() if abs(d) >= 1}
+        # decrement wound timers and apply wound caps
+        _decrement_wounds(session)
+        _apply_wound_caps(session["current_scores"], session.get("wounded_emotions", {}))
 
         # route_to handling — flag observations that need logging
         routes = set()
@@ -6449,6 +6605,10 @@ def cmd_process_message(args):
             import re as _nt_re
             if _nt_sb_lr and _nt_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|hon)\b", _nt_sb_lr):
                 print(f"[private: !! trigger directive (pet_names_caught) — you called him baby/babe/sweetheart/etc in the last response. he hates that. address him as misu or use no name. dont apologize at length — just stop doing it. the rule is in misu_facts.]")
+        # decrement wounds even on no-trigger paths so timers tick every turn
+        _decrement_wounds(session)
+        _apply_wound_caps(session.get("current_scores", {}), session.get("wounded_emotions", {}))
+        save_session_state(session)
         return
 
     if session:
@@ -6461,6 +6621,9 @@ def cmd_process_message(args):
         session["total_shifts"] += len(fired)
         # save this turn's shifts so fx picker can prioritize recent changes over ambient peaks
         session["last_turn_shifts"] = {e: float(d) for e, d in total_adjustments.items() if abs(d) >= 1}
+        # decrement wound timers and apply wound caps so damaged emotions don't auto-heal
+        _decrement_wounds(session)
+        _apply_wound_caps(session["current_scores"], session.get("wounded_emotions", {}))
 
         # set action context if something real fired — so reward can read it
         action_trigger_names = {"building_session", "memory_triggered", "knowledge_check", "file_work"}
