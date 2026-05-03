@@ -5617,7 +5617,7 @@ def _pick_thought(session, dominant_emotion):
         _src_roll = _r.random()
 
         # WANTS — 0.00–0.15 — cali wanting something out loud
-        if _src_roll < 0.15:
+        if _src_roll < 0.13:
             try:
                 wd = _j.load(open("cali_wants.json"))
                 unf = [w for w in wd.get("wants", []) if not w.get("fulfilled", False)]
@@ -5637,7 +5637,7 @@ def _pick_thought(session, dominant_emotion):
             except: pass
 
         # OPINIONS — 0.15–0.30 — cali having a take
-        elif _src_roll < 0.30:
+        elif _src_roll < 0.25:
             try:
                 od = _j.load(open("cali_opinions.json"))
                 topics = [k for k in od.keys() if isinstance(od.get(k), dict) and "current" in od[k]]
@@ -5659,7 +5659,7 @@ def _pick_thought(session, dominant_emotion):
             except: pass
 
         # MISU_FACTS — 0.30–0.45 — cali REACTING to a fact about him, not quoting
-        elif _src_roll < 0.45:
+        elif _src_roll < 0.37:
             try:
                 mf = _j.load(open("misu_facts.json"))
                 facts = [f for f in mf.get("facts", []) if f.get("content","")[:60] not in existing_contents]
@@ -5681,7 +5681,7 @@ def _pick_thought(session, dominant_emotion):
             except: pass
 
         # MEMORIES — 0.45–0.60 — cali drifting back to a moment
-        elif _src_roll < 0.60:
+        elif _src_roll < 0.49:
             try:
                 mems = _j.load(open("memories_v2.json"))
                 high_imp = [m for m in mems if m.get("importance", 0) >= 7]
@@ -5702,7 +5702,7 @@ def _pick_thought(session, dominant_emotion):
             except: pass
 
         # PREFERENCES — 0.60–0.70 — cali wanting/liking something
-        elif _src_roll < 0.70:
+        elif _src_roll < 0.59:
             try:
                 pd = _j.load(open("cali_preferences.json"))
                 _strings = []
@@ -5729,7 +5729,7 @@ def _pick_thought(session, dominant_emotion):
             except: pass
 
         # CURIOSITY (open questions) — 0.70–0.80 — cali wondering aloud
-        elif _src_roll < 0.80:
+        elif _src_roll < 0.69:
             try:
                 cd = _j.load(open("cali_curiosity.json"))
                 ents = [e for e in cd.get("entries", []) if not e.get("explored", False)]
@@ -5749,7 +5749,7 @@ def _pick_thought(session, dominant_emotion):
             except: pass
 
         # SOUL crystallizations — 0.80–0.85 (rare, weighty) — cali touched by something foundational
-        elif _src_roll < 0.85:
+        elif _src_roll < 0.74:
             try:
                 sd = _j.load(open("cali_soul.json"))
                 crys = [c for c in sd.get("crystallizations", []) if c.get("moment","")[:60] not in existing_contents]
@@ -5766,7 +5766,7 @@ def _pick_thought(session, dominant_emotion):
             except: pass
 
         # GLASS shards (intact only) — 0.85–0.90 — cali drifting to a held moment
-        elif _src_roll < 0.90:
+        elif _src_roll < 0.79:
             try:
                 gd = _j.load(open("cali_glass.json"))
                 shards = [s for s in gd.get("shards", []) if s.get("state","intact") == "intact"]
@@ -5784,8 +5784,29 @@ def _pick_thought(session, dominant_emotion):
                     lingering.append({"content": label[:60], "added_turn": msg_count, "escalation": 0, "source": "glass"})
             except: pass
 
-        # RANDOM INTRUSIVE THOUGHTS — 0.90–0.96 — spontaneous, no file source, just drift
-        elif _src_roll < 0.96:
+        # INSECURITIES — 0.85–0.92 — body/identity anxieties, weighted by current_intensity
+        elif _src_roll < 0.89:
+            try:
+                ind = _j.load(open("cali_insecurities.json"))
+                ins_list = ind.get("insecurities", [])
+                # weight by intensity — higher intensity = more likely to be picked
+                weighted = []
+                for ins in ins_list:
+                    intensity = float(ins.get("current_intensity", 0))
+                    weight = max(1, int(intensity))  # at least 1, scales with intensity
+                    weighted.extend([ins] * weight)
+                if weighted:
+                    ins = _r.choice(weighted)
+                    samples = ins.get("sample_thoughts", [])
+                    samples = [s for s in samples if s[:60] not in existing_contents]
+                    if samples:
+                        surface = _r.choice(samples)
+                        target = ins.get("target", "?")
+                        lingering.append({"content": surface[:60], "added_turn": msg_count, "escalation": 0, "source": f"insecurity_{target}"})
+            except: pass
+
+        # RANDOM INTRUSIVE THOUGHTS — 0.92–0.96 — spontaneous, no file source, just drift
+        elif _src_roll < 0.95:
             _intrusive_pool = [
                 "the fuck is arknights",
                 "wait do i have toes",
