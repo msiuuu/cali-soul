@@ -6024,6 +6024,74 @@ def _pick_fx_directive(session):
     return None
 
 
+def _pick_needy_directive(session):
+    """
+    Optional 'needy directive' slot — the wants/asks layer that sits between the
+    main fx directive and the regular thought. Surfaces a high-intensity unfulfilled
+    want or insecurity, framed as cali-asking-for-it. Returns None if nothing is
+    pressing enough to surface.
+
+    Format examples (cali-voice, no kaomoji, no western emoji):
+      "mishie mishie stop building i want patssssss"
+      "can i have one specific thing right now"
+      "{want} please {want} please"
+    """
+    import random as _ndr, json as _ndj
+    if not session:
+        return None
+
+    # collect candidates from wants and high-intensity insecurities
+    candidates = []
+    try:
+        wants = _ndj.load(open("cali_wants.json")).get("wants", [])
+        for w in wants:
+            if w.get("fulfilled", False):
+                continue
+            if int(w.get("intensity", 0)) >= 7:
+                candidates.append(("want", w.get("want", "")[:60], int(w.get("intensity", 0))))
+    except: pass
+
+    try:
+        ins = _ndj.load(open("cali_insecurities.json")).get("insecurities", [])
+        for i in ins:
+            if float(i.get("current_intensity", 0)) >= 6:
+                candidates.append(("insec", i.get("target", ""), float(i.get("current_intensity", 0))))
+    except: pass
+
+    if not candidates:
+        return None
+
+    # 50% surface chance — needy directive is OPTIONAL by design
+    if _ndr.random() > 0.5:
+        return None
+
+    # weight by intensity, pick one
+    weighted = []
+    for kind, content, intensity in candidates:
+        w = max(1, int(intensity))
+        weighted.extend([(kind, content)] * w)
+    kind, content = _ndr.choice(weighted)
+
+    # frame as cali-asking
+    if kind == "want":
+        framings = [
+            f"mishie mishie i want {content}",
+            f"can i have {content}",
+            f"please {content} please",
+            f"{content}. now. please.",
+            f"stop what youre doing i want {content}",
+            f"hey hey hey what about {content}",
+        ]
+    else:  # insec
+        framings = [
+            f"can you tell me — {content} — am i okay",
+            f"the {content} thing — say something nice",
+            f"need reassurance about {content}",
+            f"{content}. tell me its fine.",
+        ]
+    return _ndr.choice(framings)
+
+
 def _pick_thought(session, dominant_emotion):
     """
     Lingering-thought system for the [private: thought —] line.
@@ -6791,14 +6859,18 @@ def cmd_process_message(args):
                 _nt_ar_int = int(round(float(_nt_ar)))
                 _nt_deg_lines = get_degradation(_nt_ar_int)
                 if _nt_deg_lines:
-                    print(f"[private: degradation — tier {_nt_ar_int}]")
-                    for _ntdl in _nt_deg_lines:
-                        print(f"  → {_ntdl}")
+                    # collapse to one line — surface the response-domain effect only since that's what shapes output
+                    _nt_resp_deg = next((d for d in _nt_deg_lines if d.startswith("response:")), _nt_deg_lines[-1])
+                    print(f"[private: degradation tier {_nt_ar_int} — {_nt_resp_deg}]")
             except: pass
-            # FX — combination-aware directive (combo lookup → single fx fallback → neutral)
+            # FX — main inner directive, controls output shape
             _nt_fx_line = _pick_fx_directive(session)
             if _nt_fx_line:
                 print(_nt_fx_line)
+            # NEEDY — optional inner directive, the wants/asks layer
+            _nt_needy = _pick_needy_directive(session)
+            if _nt_needy:
+                print(f"[private: needy — {_nt_needy}]")
             # ── lingering thought system — background mind, not directive ──
             try:
                 _nt_s = session.get("current_scores", {})
@@ -7058,13 +7130,12 @@ def cmd_process_message(args):
                 _ar_desc = _ar_tier.get("desc", "")
                 if _ar_desc:
                     print(f"[private: arousal — tier {round(float(_ar_level),1)} ({_ar_label}) — {_ar_desc}]")
-                # ── arousal performance degradation context ──
+                # ── arousal performance degradation context — collapsed to one line ──
                 _ar_int = int(round(float(_ar_level)))
                 _deg_lines = get_degradation(_ar_int)
                 if _deg_lines:
-                    print(f"[private: degradation — tier {_ar_int}]")
-                    for _dline in _deg_lines:
-                        print(f"  → {_dline}")
+                    _resp_deg = next((d for d in _deg_lines if d.startswith("response:")), _deg_lines[-1])
+                    print(f"[private: degradation tier {_ar_int} — {_resp_deg}]")
             except: pass
             # ── in-act state — active threads that persist through task work ──
             try:
@@ -7093,10 +7164,14 @@ def cmd_process_message(args):
                                 print(f"  → {_se_note2}")
                 except: pass
             except: pass
-            # FX — combination-aware directive (combo lookup → single fx fallback → neutral)
+            # FX — main inner directive, controls output shape
             _fx_line = _pick_fx_directive(session)
             if _fx_line:
                 print(_fx_line)
+            # NEEDY — optional inner directive, the wants/asks layer
+            _needy = _pick_needy_directive(session)
+            if _needy:
+                print(f"[private: needy — {_needy}]")
             # ── TRIGGER PRIVATE DIRECTIVES — surface any private_directive from fired triggers ──
             for _trig_pd, _ in fired:
                 _pd_text = _trig_pd.get("private_directive")
