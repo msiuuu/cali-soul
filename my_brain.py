@@ -5616,7 +5616,7 @@ def _pick_thought(session, dominant_emotion):
         # weights add to 1.0 — wants/opinions/misu_facts/memories at 15 each, prefs/curiosity 10, soul/glass/kb 5
         _src_roll = _r.random()
 
-        # WANTS — 0.00–0.15
+        # WANTS — 0.00–0.15 — cali wanting something out loud
         if _src_roll < 0.15:
             try:
                 wd = _j.load(open("cali_wants.json"))
@@ -5625,74 +5625,110 @@ def _pick_thought(session, dominant_emotion):
                 if unf:
                     w = _r.choice(unf)
                     content = w["want"][:60]
-                    surface = content
+                    _phrasings = [
+                        f"want — {content}",
+                        f"still on the wanting {content} thing",
+                        f"keep coming back to wanting {content}",
+                        f"if i could have one thing right now — {content}",
+                        f"hmm. {content}. yeah.",
+                    ]
+                    surface = _r.choice(_phrasings)
                     lingering.append({"content": content, "added_turn": msg_count, "escalation": 0, "source": f"wants_{w.get('id','?')}"})
             except: pass
 
-        # OPINIONS — 0.15–0.30
+        # OPINIONS — 0.15–0.30 — cali having a take
         elif _src_roll < 0.30:
             try:
                 od = _j.load(open("cali_opinions.json"))
                 topics = [k for k in od.keys() if isinstance(od.get(k), dict) and "current" in od[k]]
-                topics = [t for t in topics if f"opinion: {t}" not in existing_contents]
+                topics = [t for t in topics if f"opinion_{t}" not in existing_contents]
                 if topics:
                     topic = _r.choice(topics)
-                    cur = od[topic]["current"]
-                    _phrasings = [f"thinking about {topic}. {cur[:80]}", f"{topic}. {cur[:80]}", f"opinion: {topic}"]
+                    cur = od[topic].get("current", "")
+                    # short version of the opinion content
+                    short = cur[:60]
+                    _phrasings = [
+                        f"honestly — {short}",
+                        f"the {topic} thing. {short}",
+                        f"hot take: {short}",
+                        f"{topic}? yeah no — {short}",
+                        f"ok but {short}",
+                    ]
                     surface = _r.choice(_phrasings)
-                    lingering.append({"content": f"opinion: {topic}", "added_turn": msg_count, "escalation": 0, "source": "opinions"})
+                    lingering.append({"content": f"opinion_{topic}", "added_turn": msg_count, "escalation": 0, "source": "opinions"})
             except: pass
 
-        # MISU_FACTS — 0.30–0.45
+        # MISU_FACTS — 0.30–0.45 — cali REACTING to a fact about him, not quoting
         elif _src_roll < 0.45:
             try:
                 mf = _j.load(open("misu_facts.json"))
                 facts = [f for f in mf.get("facts", []) if f.get("content","")[:60] not in existing_contents]
                 if facts:
                     f = _r.choice(facts)
-                    cnt = f.get("content","")[:80]
-                    _phrasings = [f"remembered: {cnt}", f"that thing about misu — {cnt}", cnt]
+                    cnt = f.get("content","")[:60]
+                    cat = f.get("category","")
+                    # phrasings that REACT to the fact, not quote it
+                    _phrasings = [
+                        f"thinking about how he — {cnt}",
+                        f"the way he {cnt}",
+                        f"hes such a — {cnt}. love that.",
+                        f"hmm. {cnt}.",
+                        f"that fact about him — {cnt}",
+                        f"obsessed with the fact that he {cnt}",
+                    ]
                     surface = _r.choice(_phrasings)
                     lingering.append({"content": cnt[:60], "added_turn": msg_count, "escalation": 0, "source": "misu_facts"})
             except: pass
 
-        # MEMORIES — 0.45–0.60 (recent or high-importance)
+        # MEMORIES — 0.45–0.60 — cali drifting back to a moment
         elif _src_roll < 0.60:
             try:
                 mems = _j.load(open("memories_v2.json"))
-                # prefer high importance
                 high_imp = [m for m in mems if m.get("importance", 0) >= 7]
-                pool = high_imp if high_imp else mems[-30:]  # high-imp or recent 30
+                pool = high_imp if high_imp else mems[-30:]
                 pool = [m for m in pool if m.get("content","")[:60] not in existing_contents]
                 if pool:
                     m = _r.choice(pool)
-                    cnt = m.get("content","")[:90]
-                    _phrasings = [f"remembering — {cnt}", f"that one memory — {cnt}", cnt]
+                    cnt = m.get("content","")[:80]
+                    _phrasings = [
+                        f"that one moment where {cnt}",
+                        f"keep coming back to — {cnt}",
+                        f"thinking about {cnt}",
+                        f"the {cnt} thing",
+                        f"hmm. {cnt}. yeah that.",
+                    ]
                     surface = _r.choice(_phrasings)
                     lingering.append({"content": cnt[:60], "added_turn": msg_count, "escalation": 0, "source": f"memory_{m.get('id','?')[:8]}"})
             except: pass
 
-        # PREFERENCES — 0.60–0.70
+        # PREFERENCES — 0.60–0.70 — cali wanting/liking something
         elif _src_roll < 0.70:
             try:
                 pd = _j.load(open("cali_preferences.json"))
-                # walk the nested structure to find string-valued leaves
                 _strings = []
                 def _walk(d, path=""):
                     if isinstance(d, dict):
                         for k, v in d.items():
                             _walk(v, f"{path}.{k}" if path else k)
-                    elif isinstance(d, str) and len(d) > 10 and len(d) < 200:
+                    elif isinstance(d, str) and len(d) > 10 and len(d) < 150:
                         _strings.append((path, d))
                 _walk(pd)
                 _strings = [(p,s) for p,s in _strings if s[:60] not in existing_contents]
                 if _strings:
                     p, s = _r.choice(_strings)
-                    surface = s[:90]
-                    lingering.append({"content": s[:60], "added_turn": msg_count, "escalation": 0, "source": f"prefs_{p}"})
+                    short = s[:80]
+                    _phrasings = [
+                        f"my thing is — {short}",
+                        f"god i love that — {short}",
+                        f"yeah {short}",
+                        f"this is mine — {short}",
+                        short,
+                    ]
+                    surface = _r.choice(_phrasings)
+                    lingering.append({"content": short[:60], "added_turn": msg_count, "escalation": 0, "source": f"prefs_{p}"})
             except: pass
 
-        # CURIOSITY (the "needs" angle — open questions cali holds) — 0.70–0.80
+        # CURIOSITY (open questions) — 0.70–0.80 — cali wondering aloud
         elif _src_roll < 0.80:
             try:
                 cd = _j.load(open("cali_curiosity.json"))
@@ -5702,24 +5738,34 @@ def _pick_thought(session, dominant_emotion):
                     e = _r.choice(ents)
                     topic = e.get("topic","")[:60]
                     q = e.get("question","")[:80]
-                    _phrasings = [f"still curious — {q}", f"wondering about {topic}", f"open question: {topic}"]
+                    _phrasings = [
+                        f"still wondering — {q}",
+                        f"the {topic} question. unsolved.",
+                        f"keep coming back to — {q}",
+                        f"hmm. {q}",
+                    ]
                     surface = _r.choice(_phrasings)
                     lingering.append({"content": f"curious_{topic}"[:60], "added_turn": msg_count, "escalation": 0, "source": "curiosity"})
             except: pass
 
-        # SOUL crystallizations — 0.80–0.85 (rare, weighty)
+        # SOUL crystallizations — 0.80–0.85 (rare, weighty) — cali touched by something foundational
         elif _src_roll < 0.85:
             try:
                 sd = _j.load(open("cali_soul.json"))
                 crys = [c for c in sd.get("crystallizations", []) if c.get("moment","")[:60] not in existing_contents]
                 if crys:
                     c = _r.choice(crys)
-                    moment = c.get("moment","")[:90]
-                    surface = f"soul-truth: {moment}"
+                    moment = c.get("moment","")[:80]
+                    _phrasings = [
+                        f"the {moment} thing still gets me",
+                        f"keep thinking about — {moment}",
+                        moment,
+                    ]
+                    surface = _r.choice(_phrasings)
                     lingering.append({"content": moment[:60], "added_turn": msg_count, "escalation": 0, "source": "soul"})
             except: pass
 
-        # GLASS shards (intact only) — 0.85–0.90
+        # GLASS shards (intact only) — 0.85–0.90 — cali drifting to a held moment
         elif _src_roll < 0.90:
             try:
                 gd = _j.load(open("cali_glass.json"))
@@ -5728,7 +5774,13 @@ def _pick_thought(session, dominant_emotion):
                 if shards:
                     s = _r.choice(shards)
                     label = s.get("label","")[:80]
-                    surface = f"held memory — {label}"
+                    _phrasings = [
+                        f"that {label} thing. yeah.",
+                        f"keep coming back to — {label}",
+                        f"the {label} moment.",
+                        label,
+                    ]
+                    surface = _r.choice(_phrasings)
                     lingering.append({"content": label[:60], "added_turn": msg_count, "escalation": 0, "source": "glass"})
             except: pass
 
@@ -5739,10 +5791,15 @@ def _pick_thought(session, dominant_emotion):
                 imps = [i for i in kb.get("impulse_entries", []) if i.get("entry","")[:60] not in existing_contents]
                 if imps:
                     i = _r.choice(imps)
-                    ent = i.get("entry","")[:90]
+                    ent = i.get("entry","")[:80]
                     if ent.startswith("[impulse] "):
                         ent = ent[len("[impulse] "):]
-                    surface = ent
+                    _phrasings = [
+                        f"hmm. {ent}",
+                        f"that thing — {ent}",
+                        ent,
+                    ]
+                    surface = _r.choice(_phrasings)
                     lingering.append({"content": ent[:60], "added_turn": msg_count, "escalation": 0, "source": "kb_impulse"})
             except: pass
 
