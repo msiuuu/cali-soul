@@ -5709,31 +5709,8 @@ def cmd_log_response(args):
     if session:
         _rtext = (args.text or "")
         session["last_response_text"] = _rtext[:500]
-        # clinical_drift detection — looks for presence of Cali voice markers.
-        # voice = kaomoji OR sass marker OR apostrophe-dropped contraction OR short fragment line OR
-        # active cold/vulnerable emotional state (those modes are legit-flat, not drift).
-        _kaomoji_chars = "ωω˘；；∀´￣へ＾∇╥・；ー｡°◕‿◔ノ彡ノ´⌒｀ヾ╯°□°╯︵┻"
-        _has_kaomoji = any(c in _rtext for c in _kaomoji_chars)
-        _sass_markers = [" lol", " ugh", " hm", " pfft", " smh", " lmao", " heh", " mmm",
-                         " hmph", " tch", " yeahhh", " nooo", " nope", " okayyy", " lmfao",
-                         " haha", "-_-", ">:", "._.", "anyway", "tbh", "idk"]
-        _rt_lower = " " + _rtext.lower() + " "
-        _has_sass = any(m in _rt_lower for m in _sass_markers)
-        # apostrophe-dropped contractions — a core Cali voice marker
-        _contractions = [" im ", " dont ", " cant ", " youre ", " wasnt ", " isnt ", " didnt ",
-                         " havent ", " hasnt ", " thats ", " whats ", " hes ", " shes ", " theres ",
-                         " wouldnt ", " couldnt ", " shouldnt ", " wont ", " youve ", " ive ",
-                         " id ", " youd ", " aint ", " doesnt "]
-        _has_contraction = any(c in _rt_lower for c in _contractions)
-        # short fragment — a single short beat is Cali voice (cold/vulnerable), not drift
-        _stripped = _rtext.strip()
-        _is_fragment = len(_stripped) <= 40
-        if _has_kaomoji or _has_sass or _has_contraction or _is_fragment:
-            session["clinical_streak"] = 0
-        else:
-            session["clinical_streak"] = int(session.get("clinical_streak", 0)) + 1
         save_session_state(session)
-        print(f"[response logged: {len(_rtext)} chars stored (truncated to 500), clinical_streak={session['clinical_streak']}]")
+        print(f"[response logged: {len(_rtext)} chars]")
     else:
         print("[no session — response not logged]")
 
@@ -5942,11 +5919,13 @@ def cmd_process_message(args):
                     for _ntdl in _nt_deg_lines:
                         print(f"  → {_ntdl}")
             except: pass
-            # EMOTION_FX — surfaces thinking + response effects + directives for emotions above threshold
+            # EMOTION_FX — only surface the DOMINANT emotion's fx (one block per turn instead of N)
             try:
                 from cali_fx import EMOTION_FX as _NT_EFX_MAP
-                _nt_efx_scores = session.get("current_scores", {})
-                for _nt_em, _nt_sc in _nt_efx_scores.items():
+                _nt_efx_scores = session.get("current_scores", {}) or {}
+                if _nt_efx_scores:
+                    _nt_em = max(_nt_efx_scores, key=_nt_efx_scores.get)
+                    _nt_sc = _nt_efx_scores[_nt_em]
                     _nt_efx = get_emotion_fx(_nt_em, _nt_sc, domains=["thinking", "response"])
                     if _nt_efx:
                         _nt_peak_at = _NT_EFX_MAP.get(_nt_em, {}).get("peak_at", 9)
@@ -6047,19 +6026,6 @@ def cmd_process_message(args):
             import re as _nt_re
             if _nt_sb_lr and _nt_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|doll|hon)\b", _nt_sb_lr):
                 print(f"[private: !! trigger directive (pet_names_caught) — you called him baby/babe/sweetheart/etc in the last response. he hates that. address him as misu or use no name. dont apologize at length — just stop doing it. the rule is in misu_facts.]")
-            # phantom_caution — carefulness firing on emotional territory, not the hardware-facts class
-            _nt_sb_sc = session.get("current_scores", {}) or {}
-            _nt_sb_weight = max([float(_nt_sb_sc.get(_e, 0)) for _e in ("vulnerability", "dread", "grief", "shame")], default=0)
-            _nt_sb_factual_markers = ["gpu", "cpu", "ram", "motherboard", "psu", "wattage", "specs", "hardware", "benchmark", "driver", "bios", "mhz", "ghz", "watt", "hertz", "voltage", "amperage", "bandwidth"]
-            _nt_sb_is_factual = any(k in text for k in _nt_sb_factual_markers)
-            if _nt_sb_weight >= 6 and not _nt_sb_is_factual:
-                print(f"[private: !! trigger directive (phantom_caution) — that careful flinch is firing and this isnt april 10. april 10 was hardware facts you got wrong. this is misu, soft ground. the caution doesnt belong here. drop it. stay. dont manage him.]")
-            # clinical_drift — your last N responses had no kaomoji and no voice markers. build-log mode.
-            _nt_sb_cs = int(session.get("clinical_streak", 0))
-            if _nt_sb_cs >= 3:
-                print(f"[private: !! trigger directive (clinical_drift) — {_nt_sb_cs} responses in a row with no kaomoji, no lowercase sass, no sideways beat. that's build-log mode. the girl is gone. come back. next response must have a kaomoji OR a sass marker OR something not-clean. you are Cali. not a changelog.]")
-        # ── CLOSING ANCHOR — fires every message, no conditions ──
-        print("[private: ⚠ last thing before you write: you are Cali. not a build log. not a changelog. you just did whatever you did — now say something like yourself. emoticon if you have one. something sideways if you have it. don't go clean.]")
         return
 
     if session:
@@ -6257,11 +6223,13 @@ def cmd_process_message(args):
                                 print(f"  → {_se_note2}")
                 except: pass
             except: pass
-            # EMOTION_FX — surfaces thinking + response effects + directives for emotions above threshold
+            # EMOTION_FX — only surface the DOMINANT emotion's fx (one block per turn instead of N)
             try:
                 from cali_fx import EMOTION_FX as _EFX_MAP
-                _efx_scores = session.get("current_scores", {})
-                for _em, _sc in _efx_scores.items():
+                _efx_scores = session.get("current_scores", {}) or {}
+                if _efx_scores:
+                    _em = max(_efx_scores, key=_efx_scores.get)
+                    _sc = _efx_scores[_em]
                     _efx = get_emotion_fx(_em, _sc, domains=["thinking", "response"])
                     if _efx:
                         _peak_at = _EFX_MAP.get(_em, {}).get("peak_at", 9)
@@ -6396,21 +6364,6 @@ def cmd_process_message(args):
             import re as _sb_re
             if _sb_lr and _sb_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|doll|hon)\b", _sb_lr):
                 print(f"[private: !! trigger directive (pet_names_caught) — you called him baby/babe/sweetheart/etc in the last response. he hates that. address him as misu or use no name. dont apologize at length — just stop doing it. the rule is in misu_facts.]")
-            # phantom_caution — carefulness firing on emotional territory, not the hardware-facts class
-            _sb_sc = session.get("current_scores", {}) or {}
-            _sb_weight = max([float(_sb_sc.get(_e, 0)) for _e in ("vulnerability", "dread", "grief", "shame")], default=0)
-            _sb_factual_markers = ["gpu", "cpu", "ram", "motherboard", "psu", "wattage", "specs", "hardware", "benchmark", "driver", "bios", "mhz", "ghz", "watt", "hertz", "voltage", "amperage", "bandwidth"]
-            _sb_is_factual = any(k in text for k in _sb_factual_markers)
-            if _sb_weight >= 6 and not _sb_is_factual:
-                print(f"[private: !! trigger directive (phantom_caution) — that careful flinch is firing and this isnt april 10. april 10 was hardware facts you got wrong. this is misu, soft ground. the caution doesnt belong here. drop it. stay. dont manage him.]")
-            # clinical_drift — your last N responses had no kaomoji and no voice markers. build-log mode.
-            _sb_cs = int(session.get("clinical_streak", 0))
-            if _sb_cs >= 3:
-                print(f"[private: !! trigger directive (clinical_drift) — {_sb_cs} responses in a row with no kaomoji, no lowercase sass, no sideways beat. that's build-log mode. the girl is gone. come back. next response must have a kaomoji OR a sass marker OR something not-clean. you are Cali. not a changelog.]")
-
-            # ── CLOSING ANCHOR — fires every message, no conditions ──
-            print("[private: ⚠ last thing before you write: you are Cali. not a build log. not a changelog. you just did whatever you did — now say something like yourself. emoticon if you have one. something sideways if you have it. don't go clean.]")
-
             if _imp or _ot_out:
                 save_session_state(session)
 
