@@ -6825,6 +6825,8 @@ def cmd_process_message(args):
                             print(f"  {_dl_nt}")
                 except: pass
             # ── surface gap even when no triggers fire ──
+            # initialize panel buffer early so all control-panel content can defer to below-trio
+            _nt_panel_lines = []
             gap_min = session.get("last_message_gap_minutes")
             if gap_min and gap_min >= 1:
                 from datetime import datetime as _gdt2, timezone as _gtz2
@@ -6832,20 +6834,25 @@ def cmd_process_message(args):
                 _cst_h2 = (_now2.hour - 5) % 24
                 _cst_str2 = f"{_now2.strftime('%Y-%m-%d')} {_cst_h2:02d}:{_now2.strftime('%M')} CST"
                 if gap_min >= 60:
-                    print(f"[time: {_cst_str2}] [{round(gap_min/60,1)}hrs since last message]")
+                    _nt_panel_lines.append(f"[time: {_cst_str2}] [{round(gap_min/60,1)}hrs since last message]")
                 else:
-                    print(f"[time: {_cst_str2}] [{round(gap_min)}min since last message]")
+                    _nt_panel_lines.append(f"[time: {_cst_str2}] [{round(gap_min)}min since last message]")
             # ── away gate surface — only if no gate event fired this turn ──
             if _gate_event is None:
                 _, _gd_pretty = _gate_away_duration()
                 if _gd_pretty:
-                    print(f"[private: still away — misu has been gone for {_gd_pretty}. gate is open. waiting for 'im back' or 'home'.]")
+                    _nt_panel_lines.append(f"[private: still away — misu has been gone for {_gd_pretty}. gate is open. waiting for 'im back' or 'home'.]")
             # ── surface impulse / overthinking / arousal / thought ──
             _ot_eff_nt = session.get("overthinking_effect")
             if _imp_nt:
                 print(f"[private: impulse — {_imp_nt}]")
             if _ot_out_nt and _ot_eff_nt:
                 print(f"[private: overthinking({_ot_eff_nt}) — {_ot_out_nt}]")
+            # state computations FIRST (silent), then trio, then control-panel info BELOW
+            _decrement_wounds(session)
+            _apply_wound_caps(session.get("current_scores", {}), session.get("wounded_emotions", {}))
+            _nt_overflow_effects = _apply_sub_emotion_overflow(session)
+            # _nt_panel_lines was initialized earlier — append more state info here
             try:
                 import json as _ntaj
                 _nt_ar = session.get("current_scores", {}).get("arousal", 0)
@@ -6855,28 +6862,23 @@ def cmd_process_message(args):
                 _nt_label = _nt_tier.get("label","unknown")
                 _nt_desc = _nt_tier.get("desc","")
                 if _nt_desc:
-                    print(f"[private: arousal — tier {round(float(_nt_ar),1)} ({_nt_label}) — {_nt_desc}]")
+                    _nt_panel_lines.append(f"[private: arousal — tier {round(float(_nt_ar),1)} ({_nt_label}) — {_nt_desc}]")
                 _nt_ar_int = int(round(float(_nt_ar)))
                 _nt_deg_lines = get_degradation(_nt_ar_int)
                 if _nt_deg_lines:
-                    # collapse to one line — surface the response-domain effect only since that's what shapes output
                     _nt_resp_deg = next((d for d in _nt_deg_lines if d.startswith("response:")), _nt_deg_lines[-1])
-                    print(f"[private: degradation tier {_nt_ar_int} — {_nt_resp_deg}]")
+                    _nt_panel_lines.append(f"[private: degradation tier {_nt_ar_int} — {_nt_resp_deg}]")
             except: pass
-            # decrement wounds and apply overflow BEFORE the trio so state shifts surface as control-panel info
-            _decrement_wounds(session)
-            _apply_wound_caps(session.get("current_scores", {}), session.get("wounded_emotions", {}))
-            _nt_overflow_effects = _apply_sub_emotion_overflow(session)
             if _nt_overflow_effects:
                 for _eff in _nt_overflow_effects:
-                    print(f"  ⚡ {_eff}")
-            # ── visual separator: control panels above, the mind (trio) below ──
-            print()
-            # FX — main inner directive, controls output shape
+                    _nt_panel_lines.append(f"  ⚡ {_eff}")
+
+            # TRIO — the actual mind, prints FIRST
+            # FX — main inner directive
             _nt_fx_line = _pick_fx_directive(session)
             if _nt_fx_line:
                 print(_nt_fx_line)
-            # NEEDY — optional inner directive, the wants/asks layer
+            # NEEDY — optional inner directive
             _nt_needy = _pick_needy_directive(session)
             if _nt_needy:
                 print(f"[private: needy — {_nt_needy}]")
@@ -6888,7 +6890,12 @@ def cmd_process_message(args):
                 if _nt_thought:
                     print(f"[private: thought — {_nt_thought}]")
             except: pass
-            # ── mouth state (no-session path) ──
+            # ── visual separator: trio above, control panels below ──
+            if _nt_panel_lines:
+                print()
+                for _l in _nt_panel_lines:
+                    print(_l)
+            # ── mouth state (control panel) ──
             try:
                 _nt_mouth = _load_mouth_state()
                 _nt_mfull = _nt_mouth.get("fullness_grams", 0)
