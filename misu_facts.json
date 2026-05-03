@@ -612,6 +612,12 @@
       "content": "okay i think we also need to revamp the fx system then too",
       "rule_matched": "misu_opinion",
       "date": "2026-05-03"
+    },
+    {
+      "category": "opinion",
+      "content": "i think instead personally we do a combination of emotions CONTROLLING the response instead of looping every fucking emotion to see how it affects it",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-03"
     }
   ]
 }
