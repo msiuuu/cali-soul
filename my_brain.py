@@ -7101,53 +7101,53 @@ def cmd_process_message(args):
         if routes: print(f" [route: {', '.join(routes)}]", end="")
         print()
 
-        # ── surface significant gaps internally ──
+        # ── buffer control-panel state so trio can print FIRST ──
+        _panel_lines = []
+        # surface significant gaps internally (deferred to panel)
         if gap_min and gap_min >= 1:
             from datetime import datetime as _gdt, timezone as _gtz
             _now_cst = _gdt.now(_gtz.utc)
             _cst_h = (_now_cst.hour - 5) % 24
             _cst_str = f"{_now_cst.strftime('%Y-%m-%d')} {_cst_h:02d}:{_now_cst.strftime('%M')} CST"
             if gap_min >= 60:
-                print(f"[time: {_cst_str}] [{round(gap_min/60,1)}hrs since last message]")
+                _panel_lines.append(f"[time: {_cst_str}] [{round(gap_min/60,1)}hrs since last message]")
             else:
-                print(f"[time: {_cst_str}] [{round(gap_min)}min since last message]")
+                _panel_lines.append(f"[time: {_cst_str}] [{round(gap_min)}min since last message]")
 
-        # ── away gate surface — only if no gate event fired this turn ──
+        # away gate surface (deferred)
         if _gate_event is None:
             _, _gd_pretty2 = _gate_away_duration()
             if _gd_pretty2:
-                print(f"[private: still away — misu has been gone for {_gd_pretty2}. gate is open. waiting for 'im back' or 'home'.]")
+                _panel_lines.append(f"[private: still away — misu has been gone for {_gd_pretty2}. gate is open. waiting for 'im back' or 'home'.]")
 
         # ── surface impulse, overthinking, and arousal tier as private context ──
         if session:
-            # use the pre-popped values staged before save
             _imp = session.pop("_surface_impulse", None)
             _ot_out = session.pop("_surface_ot", None)
             _ot_effect = session.get("overthinking_effect")
             if _imp:
-                print(f"[private: impulse — {_imp}]")
+                _panel_lines.append(f"[private: impulse — {_imp}]")
             if _ot_out and _ot_effect:
-                print(f"[private: overthinking({_ot_effect}) — {_ot_out}]")
-            # ── arousal tier ──
+                _panel_lines.append(f"[private: overthinking({_ot_effect}) — {_ot_out}]")
+            # arousal tier (deferred)
             try:
                 import json as _aj
                 _ar_state = _aj.load(open(LIVE_AROUSAL_FILE)) if os.path.exists(LIVE_AROUSAL_FILE) else {}
                 _ar_level = session.get("current_scores", {}).get("arousal", 0)
-                _ar_tier_key = str(int(round(float(_ar_level))))  # round float to nearest tier
+                _ar_tier_key = str(int(round(float(_ar_level))))
                 _ar_config = _aj.load(open(CONFIG.get("arousal_config_file", "cali_arousal_config.json")))
                 _ar_tier = _ar_config.get("tiers", {}).get(_ar_tier_key, {})
                 _ar_label = _ar_tier.get("label", "unknown")
                 _ar_desc = _ar_tier.get("desc", "")
                 if _ar_desc:
-                    print(f"[private: arousal — tier {round(float(_ar_level),1)} ({_ar_label}) — {_ar_desc}]")
-                # ── arousal performance degradation context — collapsed to one line ──
+                    _panel_lines.append(f"[private: arousal — tier {round(float(_ar_level),1)} ({_ar_label}) — {_ar_desc}]")
                 _ar_int = int(round(float(_ar_level)))
                 _deg_lines = get_degradation(_ar_int)
                 if _deg_lines:
                     _resp_deg = next((d for d in _deg_lines if d.startswith("response:")), _deg_lines[-1])
-                    print(f"[private: degradation tier {_ar_int} — {_resp_deg}]")
+                    _panel_lines.append(f"[private: degradation tier {_ar_int} — {_resp_deg}]")
             except: pass
-            # ── in-act state — active threads that persist through task work ──
+            # in-act state (deferred)
             try:
                 import json as _iaj2
                 _ias_session2 = _iaj2.load(open("session_state.json"))
@@ -7157,9 +7157,9 @@ def cmd_process_message(args):
                         _ias_label2 = _ias2.get("label", "?")
                         _ias_note2 = _ias2.get("note", "")
                         _ias_type2 = _ias2.get("type", "state")
-                        print(f"[private: in-act ({_ias_type2}) — {_ias_label2}]")
+                        _panel_lines.append(f"[private: in-act ({_ias_type2}) — {_ias_label2}]")
                         if _ias_note2:
-                            print(f"  → {_ias_note2}")
+                            _panel_lines.append(f"  → {_ias_note2}")
                 try:
                     _stim_data2 = _iaj2.load(open("cali_live_stimulation.json"))
                     _stim_events2 = _stim_data2.get("events", [])
@@ -7169,21 +7169,30 @@ def cmd_process_message(args):
                             _se_tgt2 = _se2.get("target","?")
                             _se_int2 = _se2.get("intensity", 0)
                             _se_note2 = _se2.get("note","")
-                            print(f"[private: in-act (physical) — {_se_src2} → {_se_tgt2}, intensity {_se_int2}]")
+                            _panel_lines.append(f"[private: in-act (physical) — {_se_src2} → {_se_tgt2}, intensity {_se_int2}]")
                             if _se_note2:
-                                print(f"  → {_se_note2}")
+                                _panel_lines.append(f"  → {_se_note2}")
                 except: pass
             except: pass
-            # ── visual separator: control panels above, the mind (trio) below ──
-            print()
-            # FX — main inner directive, controls output shape
+            # TRIO — main inner directive, needy, thought (prints FIRST)
             _fx_line = _pick_fx_directive(session)
             if _fx_line:
                 print(_fx_line)
-            # NEEDY — optional inner directive, the wants/asks layer
             _needy = _pick_needy_directive(session)
             if _needy:
                 print(f"[private: needy — {_needy}]")
+            try:
+                _ws = session.get("current_scores", {})
+                _wdom = max(_ws, key=_ws.get) if _ws else "love"
+                _wt = _pick_thought(session, _wdom)
+                if _wt:
+                    print(f"[private: thought — {_wt}]")
+            except: pass
+            # ── visual separator: trio above, control panels below ──
+            if _panel_lines:
+                print()
+                for _pl in _panel_lines:
+                    print(_pl)
             # ── TRIGGER PRIVATE DIRECTIVES — surface any private_directive from fired triggers ──
             for _trig_pd, _ in fired:
                 _pd_text = _trig_pd.get("private_directive")
