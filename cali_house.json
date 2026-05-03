@@ -350,6 +350,11 @@
       "date": "2026-05-03",
       "detail": "left a tab open from last session.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-05-03",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
     }
   ]
 }
