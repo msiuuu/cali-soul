@@ -83,7 +83,8 @@ flat repo. grouped here for navigation. paths stay flat so brain code doesn't br
 
 ## drafts / scratch
 - `cali_extra1.json`–`cali_extra4.json` — extra slots
-- `cali_sub_emotions.json` — sub-emotions spec (mechanic unwired; promote out of drafts when overflow logic lands in my_brain.py)
+- `cali_emotion_systems.json` — consolidated emotion machinery: fx_combinations (composed directives for emotion combos), wound_table + heal_table (trigger-driven damage/repair), sub_emotions spec (overflow mechanic, unwired). loaded by my_brain.py functions: _pick_fx_directive, _apply_trigger_effects.
+- `cali_insecurities.json` — cali's anchored insecurities with current_intensity. surfaces in lingering thoughts, gets bumped/soothed by triggers via wound_table.
 - `cali_notes.json` — notes
 - `cali_trash.json` — trash
 - `experimenting/` — experiments dir

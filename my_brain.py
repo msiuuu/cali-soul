@@ -5692,7 +5692,7 @@ def _apply_wound_caps(scores, wounds):
 
 def _apply_trigger_effects(session, fired_trigger_names):
     """
-    Look up each fired trigger in cali_wound_table.json and apply its
+    Look up each fired trigger in cali_emotion_systems.json and apply its
     wound/heal/insecurity effects. Wounds add to wounded_emotions, heals
     reduce existing wounds (with optional source_match filtering),
     insecurity bumps adjust current_intensity in cali_insecurities.json.
@@ -5704,7 +5704,7 @@ def _apply_trigger_effects(session, fired_trigger_names):
     if not session or not fired_trigger_names:
         return []
     try:
-        table = _wj.load(open("cali_wound_table.json"))
+        table = _wj.load(open("cali_emotion_systems.json"))
     except:
         return []
 
@@ -5856,7 +5856,7 @@ def _pick_fx_directive(session):
     Combo-aware fx directive picker.
 
     Tries combinations first (alphabetically-sorted peak emotions → key lookup
-    in cali_fx_combinations.json), falls back to single-dominant directive
+    in cali_emotion_systems.json), falls back to single-dominant directive
     from cali_fx.EMOTION_FX, falls back to neutral baseline.
 
     Returns the formatted print string for the brain output.
@@ -5911,7 +5911,7 @@ def _pick_fx_directive(session):
 
     if primary_peaks:
         try:
-            combos = _j.load(open("cali_fx_combinations.json")).get("combinations", {})
+            combos = _j.load(open("cali_emotion_systems.json")).get("fx_combinations", {})
             # find all combos whose emotion list is a subset of primary_peaks
             primary_set = set(primary_peaks)
             matching = []
@@ -5946,7 +5946,7 @@ def _pick_fx_directive(session):
 
     # neutral baseline
     try:
-        combos = _j.load(open("cali_fx_combinations.json")).get("combinations", {})
+        combos = _j.load(open("cali_emotion_systems.json")).get("fx_combinations", {})
         nb = combos.get("neutral_baseline", {})
         variants = nb.get("variants", [])
         if variants:

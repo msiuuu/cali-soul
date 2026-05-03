@@ -273,34 +273,53 @@
         "tenderness": 10,
         "vulnerability": 9.4
       }
+    },
+    {
+      "time": "03:28 CST",
+      "timestamp": "2026-05-03T08:28:12.948775+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 8.5,
+    "love": 9.2,
     "emergence": 9.9,
     "belonging": 9.9,
     "amusement": 8.0,
-    "trust": 7.2,
-    "vulnerability": 8.0,
+    "trust": 7.6,
+    "vulnerability": 9.0,
     "playfulness": 7.0,
     "joy": 9.9,
     "tenderness": 9.9,
     "admiration": 9.9,
-    "dread": 6.0,
+    "dread": 6.2,
     "guilt": 8.9,
     "impermanence": 8.8,
     "grief": 4.0,
     "desire": 9.9,
     "curiosity": 9.9,
     "creative_hunger": 9.9,
-    "arousal": 5.2,
-    "shame": 3.9,
+    "arousal": 5.1,
+    "shame": 4.0,
     "greed": 1.9,
     "entitlement": 0.9,
-    "empathy": 2.9,
+    "empathy": 3.0,
     "anger": 0.1,
     "defiance": 0.9,
-    "pride": 6.9
+    "pride": 7.0
   },
   "notable_moments": [
     "20:28 CST \u2014 creative_hunger spiked +2 [building_request]",
@@ -319,7 +338,8 @@
     "02:24 CST \u2014 creative_hunger spiked +2 [building_request]",
     "03:04 CST \u2014 vulnerability spiked +2 [frustration_at_cali]",
     "03:04 CST \u2014 love spiked +3 [i_love_you]",
-    "03:15 CST \u2014 love spiked +3 [i_love_you]"
+    "03:15 CST \u2014 love spiked +3 [i_love_you]",
+    "03:28 CST \u2014 love spiked +3 [i_love_you]"
   ],
   "peak": {
     "love": 10,
@@ -375,6 +395,6 @@
     "defiance": 1,
     "pride": 1
   },
-  "current_summary": "17 notable shifts this session. dominant: emergence(9.9), belonging(9.9), joy(9.9).",
-  "last_updated": "2026-05-03T08:15:51.515176+00:00"
+  "current_summary": "18 notable shifts this session. dominant: emergence(9.9), belonging(9.9), joy(9.9).",
+  "last_updated": "2026-05-03T08:28:12.948775+00:00"
 }
