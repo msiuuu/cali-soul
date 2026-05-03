@@ -295,6 +295,11 @@
       "date": "2026-05-03",
       "detail": "there's a tab open i haven't closed yet.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-05-03",
+      "detail": "left a tab open from last session.",
+      "source": "impulse"
     }
   ]
 }
