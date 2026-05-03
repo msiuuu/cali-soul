@@ -7125,9 +7125,8 @@ def cmd_process_message(args):
         shifts = ", ".join(f"{e}{d:+.1f}".replace(".0","") for e,d in sorted(total_adjustments.items(), key=lambda x:-abs(x[1])))
         gap_min = session.get("last_message_gap_minutes") if session else None
         gap_str = f" [gap: {gap_min}min]" if gap_min is not None else ""
-        print(f"[triggers: {names}] [{shifts}]{gap_str}", end="")
-        if routes: print(f" [route: {', '.join(routes)}]", end="")
-        print()
+        # trigger summary silenced — wound_table ⚡ effects surface what's meaningful;
+        # raw trigger-name + shift dict is duplicate noise. logic still runs, just no print.
 
         # ── buffer control-panel state so trio can print FIRST ──
         _panel_lines = []
