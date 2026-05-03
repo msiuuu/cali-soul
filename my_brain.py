@@ -5777,6 +5777,69 @@ def _bump_insecurity_intensity(target, amount):
     except: pass
 
 
+def _apply_sub_emotion_overflow(session):
+    """
+    Sub-emotion overflow mechanic from cali_emotion_systems.json sub_emotions section.
+
+    When a parent emotion sits at 10 (peak), pressure overflows into a sub-emotion.
+    Sub-emotions accumulate over turns. When a sub hits 10, the parent drains
+    back to 8 — release valve so emotions don't stay pinned indefinitely.
+
+    Sub selection is context-aware: prefers subs that are already non-zero
+    (continuity of the building feeling), then subs that overlap with currently-
+    active emotions in current_scores, then random.
+
+    Surfaces overflow + drain events as ⚡ lines.
+    """
+    import random as _r, json as _soj
+    if not session:
+        return []
+    try:
+        es = _soj.load(open("cali_emotion_systems.json"))
+        parents_data = es.get("sub_emotions", {}).get("parents", {})
+    except:
+        return []
+    if not parents_data:
+        return []
+
+    scores = session.get("current_scores", {}) or {}
+    sub_state = session.get("sub_emotion_state", {})
+    surfaced = []
+
+    for parent, info in parents_data.items():
+        if parent not in scores or float(scores[parent]) < 10:
+            continue
+        sub_options = info.get("subs", []) + info.get("subs_positive_dread_proves_real", [])
+        if not sub_options:
+            continue
+
+        # context-aware sub selection
+        active_for_parent = [s for s, st in sub_state.items()
+                             if st.get("parent") == parent and float(st.get("intensity", 0)) > 0]
+        score_overlap = [s for s in sub_options if s in scores and float(scores.get(s, 0)) >= 5]
+        if active_for_parent:
+            chosen = active_for_parent[0]
+        elif score_overlap:
+            chosen = _r.choice(score_overlap)
+        else:
+            chosen = _r.choice(sub_options)
+
+        cur = float(sub_state.get(chosen, {}).get("intensity", 0))
+        new = min(10, cur + 1)
+        sub_state[chosen] = {"parent": parent, "intensity": new}
+
+        if cur < 1:
+            surfaced.append(f"overflow: {parent}@10 → sub '{chosen}' building")
+        if new >= 10:
+            # release valve
+            scores[parent] = 8
+            sub_state[chosen] = {"parent": parent, "intensity": 0}
+            surfaced.append(f"overflow valve: {chosen} hit 10 → {parent} drains to 8")
+
+    session["sub_emotion_state"] = sub_state
+    return surfaced
+
+
 def _decrement_wounds(session):
     """Decrement turn counters, clear expired wounds."""
     if not session:
@@ -6408,7 +6471,17 @@ def cmd_trigger_check(args):
         session["last_turn_shifts"] = {e: float(d) for e, d in total_adjustments.items() if abs(d) >= 1}
         # decrement wound timers and apply wound caps
         _decrement_wounds(session)
+        # apply trigger-based wound/heal/insecurity effects
+        _wound_effects = _apply_trigger_effects(session, [t["name"] for t, _ in fired])
+        if _wound_effects:
+            for _eff in _wound_effects:
+                print(f"  ⚡ {_eff}")
         _apply_wound_caps(session["current_scores"], session.get("wounded_emotions", {}))
+        # sub-emotion overflow
+        _overflow_effects = _apply_sub_emotion_overflow(session)
+        if _overflow_effects:
+            for _eff in _overflow_effects:
+                print(f"  ⚡ {_eff}")
 
         # route_to handling — flag observations that need logging
         routes = set()
@@ -6749,9 +6822,13 @@ def cmd_process_message(args):
             import re as _nt_re
             if _nt_sb_lr and _nt_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|hon)\b", _nt_sb_lr):
                 print(f"[private: !! trigger directive (pet_names_caught) — you called him baby/babe/sweetheart/etc in the last response. he hates that. address him as misu or use no name. dont apologize at length — just stop doing it. the rule is in misu_facts.]")
-        # decrement wounds even on no-trigger paths so timers tick every turn
+        # decrement wounds and apply overflow even on no-trigger paths so timers tick every turn
         _decrement_wounds(session)
         _apply_wound_caps(session.get("current_scores", {}), session.get("wounded_emotions", {}))
+        _overflow_effects = _apply_sub_emotion_overflow(session)
+        if _overflow_effects:
+            for _eff in _overflow_effects:
+                print(f"  ⚡ {_eff}")
         save_session_state(session)
         return
 
@@ -6774,6 +6851,11 @@ def cmd_process_message(args):
             for _eff in _wound_effects:
                 print(f"  ⚡ {_eff}")
         _apply_wound_caps(session["current_scores"], session.get("wounded_emotions", {}))
+        # sub-emotion overflow — peak parents pressurize subs; subs at 10 drain parent to 8
+        _overflow_effects = _apply_sub_emotion_overflow(session)
+        if _overflow_effects:
+            for _eff in _overflow_effects:
+                print(f"  ⚡ {_eff}")
 
         # set action context if something real fired — so reward can read it
         action_trigger_names = {"building_session", "memory_triggered", "knowledge_check", "file_work"}
