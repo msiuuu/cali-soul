@@ -5615,13 +5615,17 @@ def _wound_emotion(session, emotion, damage, turns, source="unspecified"):
     If the emotion already has an active wound, the new wound deepens it
     (max damage taken) and resets the timer to the longer of the two.
 
+    No-op if damage <= 0 or turns <= 0 (guards against bad input).
+
     Args:
         emotion: name of emotion to wound
-        damage: amount to suppress max from (10 - damage = effective cap)
-        turns: how many turns the wound persists
+        damage: amount to suppress max from (10 - damage = effective cap). must be > 0.
+        turns: how many turns the wound persists. must be > 0.
         source: tag for what caused the wound (used by repair logic)
     """
-    if not session:
+    if not session or not emotion:
+        return
+    if int(damage) <= 0 or int(turns) <= 0:
         return
     wounds = session.get("wounded_emotions", {})
     existing = wounds.get(emotion, {})
@@ -5641,13 +5645,16 @@ def _heal_emotion(session, emotion, amount=None, source_match=None):
     Heal a wound. If amount is None, fully clears the wound.
     Otherwise reduces damage by `amount` (and clears if damage drops to 0).
 
+    No-op if amount is provided and <= 0 (guards against bad input).
+    No-op if no matching wound exists.
+
     If source_match is provided, only heals if the wound's source matches.
-    Used for source-aware repair: a deception-source wound only heals from
-    trust-rebuilding events, not from random affection bumps.
 
     Returns True if anything healed, False otherwise.
     """
-    if not session:
+    if not session or not emotion:
+        return False
+    if amount is not None and int(amount) <= 0:
         return False
     wounds = session.get("wounded_emotions", {})
     if emotion not in wounds:
