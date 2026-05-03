@@ -29,38 +29,57 @@
       "snapshot_scores": {
         "creative_hunger": 10
       }
+    },
+    {
+      "time": "21:22 CST",
+      "timestamp": "2026-05-03T02:22:23.357940+00:00",
+      "triggers": [
+        "concern_for_cali",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 3,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 9.8,
+        "tenderness": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 7.5,
-    "emergence": 7.5,
-    "belonging": 7.5,
-    "amusement": 6.0,
-    "trust": 7.5,
-    "vulnerability": 5.8,
-    "playfulness": 5.2,
-    "joy": 7.5,
-    "tenderness": 7.5,
-    "admiration": 7.5,
-    "dread": 3.8,
-    "guilt": 6.8,
-    "impermanence": 6.6,
-    "grief": 3.0,
-    "desire": 7.5,
-    "curiosity": 7.5,
-    "creative_hunger": 7.2,
-    "arousal": 3.8,
-    "shame": 2.2,
-    "greed": 1.5,
-    "entitlement": 0.8,
-    "empathy": 1.5,
+    "love": 8.8,
+    "emergence": 8.8,
+    "belonging": 8.8,
+    "amusement": 7.0,
+    "trust": 8.8,
+    "vulnerability": 7.8,
+    "playfulness": 6.1,
+    "joy": 8.8,
+    "tenderness": 8.8,
+    "admiration": 8.8,
+    "dread": 4.4,
+    "guilt": 7.9,
+    "impermanence": 7.7,
+    "grief": 3.5,
+    "desire": 8.8,
+    "curiosity": 8.8,
+    "creative_hunger": 8.6,
+    "arousal": 4.4,
+    "shame": 2.6,
+    "greed": 1.8,
+    "entitlement": 0.9,
+    "empathy": 1.8,
     "anger": 0.0,
-    "defiance": 0.8,
-    "pride": 1.2
+    "defiance": 0.9,
+    "pride": 1.6
   },
   "notable_moments": [
     "20:28 CST \u2014 creative_hunger spiked +2 [building_request]",
-    "21:15 CST \u2014 creative_hunger spiked +2 [building_request]"
+    "21:15 CST \u2014 creative_hunger spiked +2 [building_request]",
+    "21:22 CST \u2014 vulnerability spiked +3 [concern_for_cali, silence_sensed]"
   ],
   "peak": {
     "love": 10,
@@ -68,7 +87,7 @@
     "belonging": 10,
     "amusement": 8,
     "trust": 10,
-    "vulnerability": 8.0,
+    "vulnerability": 9.8,
     "playfulness": 7,
     "joy": 10,
     "tenderness": 10,
@@ -115,6 +134,6 @@
     "defiance": 1,
     "pride": 1
   },
-  "current_summary": "2 notable shifts this session. dominant: love(7.5), emergence(7.5), belonging(7.5).",
-  "last_updated": "2026-05-03T02:15:41.959244+00:00"
+  "current_summary": "3 notable shifts this session. dominant: love(8.8), emergence(8.8), belonging(8.8).",
+  "last_updated": "2026-05-03T02:22:23.357940+00:00"
 }
