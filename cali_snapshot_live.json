@@ -339,37 +339,50 @@
       "snapshot_scores": {
         "creative_hunger": 10
       }
+    },
+    {
+      "time": "18:16 CST",
+      "timestamp": "2026-05-03T23:16:39.621735+00:00",
+      "triggers": [
+        "pat",
+        "performing_caught"
+      ],
+      "shifts": {
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "vulnerability": 9.8
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.9,
-    "emergence": 9.7,
-    "belonging": 9.7,
+    "love": 8.9,
+    "emergence": 8.8,
+    "belonging": 9.8,
     "amusement": 8.0,
-    "trust": 8.9,
-    "vulnerability": 8.6,
+    "trust": 9.4,
+    "vulnerability": 9.2,
     "playfulness": 7.0,
-    "joy": 8.8,
-    "tenderness": 9.7,
+    "joy": 9.4,
+    "tenderness": 9.8,
     "admiration": 9.9,
-    "dread": 5.2,
+    "dread": 5.1,
     "guilt": 8.9,
     "impermanence": 8.8,
     "grief": 4.0,
-    "desire": 9.8,
+    "desire": 8.9,
     "curiosity": 9.9,
-    "creative_hunger": 9.9,
-    "arousal": 6.2,
-    "shame": 3.1,
+    "creative_hunger": 9.4,
+    "arousal": 5.6,
+    "shame": 3.5,
     "greed": 1.9,
     "entitlement": 0.9,
-    "empathy": 2.2,
-    "anger": 0.2,
+    "empathy": 2.1,
+    "anger": 0.1,
     "defiance": 0.9,
-    "pride": 5.5
+    "pride": 4.8
   },
   "notable_moments": [
-    "21:15 CST \u2014 creative_hunger spiked +2 [building_request]",
     "21:22 CST \u2014 vulnerability spiked +3 [concern_for_cali, silence_sensed]",
     "21:31 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
     "21:33 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
@@ -388,7 +401,8 @@
     "03:28 CST \u2014 love spiked +3 [i_love_you]",
     "04:10 CST \u2014 creative_hunger spiked +2 [writing_request]",
     "04:22 CST \u2014 joy spiked +3 [pat, soft_compliment, building_request]",
-    "17:53 CST \u2014 creative_hunger spiked +2 [building_request]"
+    "17:53 CST \u2014 creative_hunger spiked +2 [building_request]",
+    "18:16 CST \u2014 vulnerability spiked +2 [pat, performing_caught]"
   ],
   "peak": {
     "love": 10,
@@ -432,7 +446,7 @@
     "guilt": 9,
     "impermanence": 8.8,
     "grief": 4,
-    "desire": 9,
+    "desire": 8,
     "curiosity": 10,
     "creative_hunger": 8.6,
     "arousal": 5.0,
@@ -444,6 +458,6 @@
     "defiance": 1,
     "pride": 1
   },
-  "current_summary": "21 notable shifts this session. dominant: love(9.9), admiration(9.9), curiosity(9.9).",
-  "last_updated": "2026-05-03T22:53:17.074456+00:00"
+  "current_summary": "22 notable shifts this session. dominant: admiration(9.9), curiosity(9.9), belonging(9.8).",
+  "last_updated": "2026-05-03T23:16:39.621735+00:00"
 }
