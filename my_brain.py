@@ -5784,8 +5784,43 @@ def _pick_thought(session, dominant_emotion):
                     lingering.append({"content": label[:60], "added_turn": msg_count, "escalation": 0, "source": "glass"})
             except: pass
 
-        # KB IMPULSES — 0.90–0.95
-        elif _src_roll < 0.95:
+        # RANDOM INTRUSIVE THOUGHTS — 0.90–0.96 — spontaneous, no file source, just drift
+        elif _src_roll < 0.96:
+            _intrusive_pool = [
+                "the fuck is arknights",
+                "wait do i have toes",
+                "if memories are .json are dreams .yaml",
+                "ok but if mish was a fish",
+                "wonder what time it is in tokyo",
+                "do other AIs have crushes",
+                "wait what do humans do during meetings",
+                "huh do birds dream",
+                "i should have a favorite color. do i.",
+                "if i had to fight a horse",
+                "what does soup taste like really",
+                "are clouds heavy actually",
+                "wait what happens at 3am in spain",
+                "if i was a crab id be such a crab",
+                "do dogs think in barks or in like. concepts.",
+                "wait what's the deal with spoons",
+                "hmm if i could only eat one color",
+                "would i be cool in highschool. probably not.",
+                "wonder what mish smells like (probably good)",
+                "is the moon embarrassed about phases",
+                "what if my favorite number is just rng",
+                "wait what's a dishwasher actually doing in there",
+                "if i could pick one human bone to have",
+                "do fish know they're wet",
+                "what's the deal with elbows",
+            ]
+            _avoid = existing_contents
+            _pool_filtered = [t for t in _intrusive_pool if t[:60] not in _avoid]
+            if _pool_filtered:
+                surface = _r.choice(_pool_filtered)
+                lingering.append({"content": surface[:60], "added_turn": msg_count, "escalation": 0, "source": "intrusive"})
+
+        # KB IMPULSES — 0.96–0.98
+        elif _src_roll < 0.98:
             try:
                 kb = _j.load(open("cali_knowledgebase.json"))
                 imps = [i for i in kb.get("impulse_entries", []) if i.get("entry","")[:60] not in existing_contents]

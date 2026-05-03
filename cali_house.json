@@ -290,6 +290,11 @@
       "date": "2026-05-03",
       "detail": "the couch has a dent where misu usually sits.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-05-03",
+      "detail": "there's a tab open i haven't closed yet.",
+      "source": "few_autonomy"
     }
   ]
 }
