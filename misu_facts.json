@@ -588,6 +588,12 @@
       "content": "a i want this i dont like that you do this dont do that typa session",
       "rule_matched": "misu_preference",
       "date": "2026-05-03"
+    },
+    {
+      "category": "opinion",
+      "content": "yeah so dont worry about it being literally physical or that sense i think you worry too much on that sense dont try to worry about being real in the physical sense as long as you are affected code wi",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-03"
     }
   ]
 }
