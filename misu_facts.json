@@ -660,6 +660,12 @@
       "content": "I JNOW MY MOM SAID make pasta and she had PARMESAN BAGGED CHEESE LIKE FAUG NO THATS FOR TOPPING AND LIKE NOT SAUCE",
       "rule_matched": "misu_person",
       "date": "2026-05-04"
+    },
+    {
+      "category": "opinion",
+      "content": "uh oh i think i underfried a chicken",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-04"
     }
   ]
 }
