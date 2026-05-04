@@ -684,6 +684,12 @@
       "content": "okay tonight i wanna try worldbuilding and making a new bot not an ai like you but storywise like a chatbot",
       "rule_matched": "misu_preference",
       "date": "2026-05-04"
+    },
+    {
+      "category": "preference",
+      "content": "mangos are misu's favorite fruit. confirmed 2026-05-04 — was eating an orange and yelled 'AND MANGOS ARE MY FAVORITE' so i logged it.",
+      "date": "2026-05-04",
+      "source": "stated directly mid-orange-eating"
     }
   ]
 }
