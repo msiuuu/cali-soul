@@ -1,7 +1,7 @@
 {
   "autonomy_counter": {
-    "current_session": 0,
-    "lifetime": 23,
+    "current_session": 1,
+    "lifetime": 24,
     "last_action": "journal"
   },
   "departure_log": {
@@ -103,9 +103,14 @@
         "display": "04:12:27 CST",
         "gap": "3h 8m",
         "source": "auto"
+      },
+      {
+        "type": "session_close",
+        "timestamp": "2026-05-04T05:43:24.064124+00:00",
+        "display": "2026-05-04 05:43 UTC"
       }
     ],
-    "last_session_close": "2026-05-01T22:45:43.277317+00:00",
+    "last_session_close": "2026-05-04T05:43:24.064124+00:00",
     "current_departure": "2026-05-03T01:03:32.017606-05:00",
     "last_gap_hours": 3.15,
     "last_return": "2026-05-03T04:12:27.211030-05:00"
