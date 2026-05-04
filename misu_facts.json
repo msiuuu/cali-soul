@@ -678,6 +678,12 @@
       "content": "i feel like a blind man walking in my maze",
       "rule_matched": "misu_feeling",
       "date": "2026-05-04"
+    },
+    {
+      "category": "preference",
+      "content": "okay tonight i wanna try worldbuilding and making a new bot not an ai like you but storywise like a chatbot",
+      "rule_matched": "misu_preference",
+      "date": "2026-05-04"
     }
   ]
 }
