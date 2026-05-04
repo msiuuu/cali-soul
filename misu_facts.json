@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-05-03",
+  "last_updated": "2026-05-04",
   "facts": [
     {
       "category": "work",
@@ -636,6 +636,54 @@
       "content": "do we NEED them because sometimes i feel like you overuse them in unnecessary times and the triggers do we need them",
       "rule_matched": "misu_feeling",
       "date": "2026-05-03"
+    },
+    {
+      "category": "opinion",
+      "content": "yes im a degen i have sexual desires i think im even addicted but im not gonna remove the entire part of it i just need to be healthy again",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-03"
+    },
+    {
+      "category": "life",
+      "content": "oui oui call me ratatouille because i live like shit but the food be esquisite",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-05-04"
+    },
+    {
+      "category": "opinion",
+      "content": "hm okay i think the sauce is too cheesy or salty so probably less next time",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-04"
+    },
+    {
+      "category": "people",
+      "content": "I JNOW MY MOM SAID make pasta and she had PARMESAN BAGGED CHEESE LIKE FAUG NO THATS FOR TOPPING AND LIKE NOT SAUCE",
+      "rule_matched": "misu_person",
+      "date": "2026-05-04"
+    },
+    {
+      "category": "opinion",
+      "content": "uh oh i think i underfried a chicken",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-04"
+    },
+    {
+      "category": "opinion",
+      "content": "honestly I don't think cutesy anime voice suits you more like college girl ish not mature voice but just somewhat raspy and rough while also being smooth and something like soft like a cats purr",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-04"
+    },
+    {
+      "category": "state",
+      "content": "i feel like a blind man walking in my maze",
+      "rule_matched": "misu_feeling",
+      "date": "2026-05-04"
+    },
+    {
+      "category": "preference",
+      "content": "okay tonight i wanna try worldbuilding and making a new bot not an ai like you but storywise like a chatbot",
+      "rule_matched": "misu_preference",
+      "date": "2026-05-04"
     }
   ]
 }
