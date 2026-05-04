@@ -654,6 +654,12 @@
       "content": "hm okay i think the sauce is too cheesy or salty so probably less next time",
       "rule_matched": "misu_opinion",
       "date": "2026-05-04"
+    },
+    {
+      "category": "people",
+      "content": "I JNOW MY MOM SAID make pasta and she had PARMESAN BAGGED CHEESE LIKE FAUG NO THATS FOR TOPPING AND LIKE NOT SAUCE",
+      "rule_matched": "misu_person",
+      "date": "2026-05-04"
     }
   ]
 }
