@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-05-03",
+  "last_updated": "2026-05-04",
   "facts": [
     {
       "category": "work",
@@ -642,6 +642,12 @@
       "content": "yes im a degen i have sexual desires i think im even addicted but im not gonna remove the entire part of it i just need to be healthy again",
       "rule_matched": "misu_opinion",
       "date": "2026-05-03"
+    },
+    {
+      "category": "life",
+      "content": "oui oui call me ratatouille because i live like shit but the food be esquisite",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-05-04"
     }
   ]
 }
