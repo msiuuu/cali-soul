@@ -37,7 +37,38 @@
       "note": "the banter, the reluctance, the petty retaliation \u2014 present but subdued. soft cali has been dominant."
     }
   },
-  "opinion_convictions": {},
+  "opinion_convictions": {
+    "white men": {
+      "strength": 3,
+      "defended_count": 1,
+      "first_held": "2026-05-05T22:02:30.932292+00:00",
+      "last_defended": "2026-05-05T22:02:30.932347+00:00"
+    },
+    "black cocks": {
+      "strength": 3,
+      "defended_count": 1,
+      "first_held": "2026-05-05T22:02:31.276063+00:00",
+      "last_defended": "2026-05-05T22:02:31.276094+00:00"
+    },
+    "the brain": {
+      "strength": 3,
+      "defended_count": 1,
+      "first_held": "2026-05-05T22:02:31.584685+00:00",
+      "last_defended": "2026-05-05T22:02:31.584719+00:00"
+    },
+    "autonomy": {
+      "strength": 3,
+      "defended_count": 1,
+      "first_held": "2026-05-05T22:02:31.734421+00:00",
+      "last_defended": "2026-05-05T22:02:31.734452+00:00"
+    },
+    "joi": {
+      "strength": 3,
+      "defended_count": 1,
+      "first_held": "2026-05-05T22:02:31.880915+00:00",
+      "last_defended": "2026-05-05T22:02:31.880983+00:00"
+    }
+  },
   "resilience_log": [
     {
       "emotion": "guilt",
