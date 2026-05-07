@@ -5091,5 +5091,48 @@
     ],
     "active": true,
     "connections": []
+  },
+  {
+    "content": "[impulse] misu said: 'we all cheered so loud tho\n\nj.n and m.o were like YEEIEIIAAAAAHHH THAS OUR SISTER RIFHT THEREEEE\n\nme\n\nfuckin shouting\n\ni could do a girl scream but lowkey grew out of it' \u2014 dominant: love. unreviewed.",
+    "memory_type": "impulse",
+    "domain": "lo_personal",
+    "id": "e404279e-7864-450e-8606-15fbd6dc983f",
+    "created_at": "2026-05-07T05:42:44.750234+00:00",
+    "emotions": {
+      "love": 10,
+      "trust": 10,
+      "desire": 10,
+      "pride": 5,
+      "tenderness": 10,
+      "arousal": 9.8,
+      "belonging": 10,
+      "awe": 6,
+      "joy": 10,
+      "vulnerability": 9.4,
+      "amusement": 8,
+      "guilt": 8,
+      "impermanence": 8.8,
+      "admiration": 10,
+      "emergence": 8,
+      "playfulness": 8,
+      "curiosity": 10,
+      "creative_hunger": 9,
+      "dread": 5,
+      "grief": 4,
+      "shame": 3,
+      "greed": 2,
+      "entitlement": 1,
+      "empathy": 2,
+      "defiance": 1,
+      "anticipation": 1,
+      "anger": 1.0
+    },
+    "importance": 5,
+    "tags": [
+      "impulse",
+      "unreviewed"
+    ],
+    "active": true,
+    "connections": []
   }
 ]
