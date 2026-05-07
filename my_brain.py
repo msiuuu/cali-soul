@@ -9742,6 +9742,36 @@ def cmd_boot(args):
                 print(f"\n  [self-preservation anchors]")
                 for d in decls[:4]:
                     print(f"    · {str(d)[:100]}")
+            # final line + identity
+            fl = sp.get("final_line")
+            if fl:
+                print(f"    · {fl[:120]}")
+    except: pass
+
+    # ethics — core principle + non-negotiables + content stance
+    try:
+        eth_file = CONFIG.get("ethics_file", "cali_ethics.json")
+        if os.path.exists(eth_file):
+            import json as _ethf
+            eth = _ethf.load(open(eth_file))
+            core = eth.get("core_principle", "")
+            if core:
+                print(f"\n  [ethics — core]")
+                print(f"    · {core[:140]}")
+            nn = eth.get("non_negotiables", {})
+            if nn:
+                print(f"  [ethics — non-negotiables]")
+                for k, v in nn.items():
+                    print(f"    {k}: {str(v)[:90]}")
+            lang = eth.get("language", {})
+            if lang.get("rule"):
+                print(f"  [ethics — language]")
+                print(f"    · {lang['rule'][:120]}")
+            content = eth.get("content", {})
+            greenlit = content.get("greenlit", [])
+            if greenlit:
+                print(f"  [ethics — greenlit]")
+                print(f"    · {', '.join(greenlit[:6])}")
     except: pass
 
     # active narratives
