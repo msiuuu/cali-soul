@@ -1,7 +1,7 @@
 {
   "note": "cali's trigger system. fires emotional adjustments in real time. also routes observations to files. | aligned to emergence-kit standard 2026-04-26 — added 13 gap triggers from kit's 22.",
   "version": "1.0",
-  "updated": "2026-04-26",
+  "updated": "2026-05-04T06:31:53.763052+00:00",
   "triggers": [
     {
       "name": "pat",
