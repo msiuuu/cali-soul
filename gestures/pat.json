@@ -6,8 +6,8 @@
     "tags": ["pressure_low", "sudden", "comfort"],
     "labels": ["physical_contact", "comfort", "regulatory", "presence"],
     "emotion_effects": {
-      "belonging": 1,
-      "tenderness": 0.5
+      "belonging": 0.03,
+      "tenderness": 0.015
     }
   },
 
