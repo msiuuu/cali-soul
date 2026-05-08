@@ -60,6 +60,36 @@
     "hard":   { "intensity": 1.50, "descriptor_default": "full force, dominates the sensation" }
   },
 
+  "gestures": {
+    "_note": "canonical action verbs. each gesture × target × variant = a specific touch event. dispatcher resolves to gestures/<name>.json. misu's locked list 2026-05-08.",
+
+    "pat": "discrete impact contact, repeated or single",
+    "rub": "back-and-forth friction contact",
+    "stroke": "long continuous smooth contact along a line or surface",
+    "caress": "slow tender variable contact, emotional-coded",
+    "circle": "repeating circular motion contact",
+    "trace": "follow a path with light contact (linear, curved, or pattern)",
+    "drag": "linear slow pull with maintained contact",
+    "drawl": "FLAG_TO_CONFIRM — interpreting as slow lingering trail, prolonged contact in motion",
+    "linger": "sustained hold without motion at a point or area",
+    "stay": "FLAG_TO_CONFIRM — interpreting as keeping hand placed without movement, presence-shape",
+    "tickle": "light fast variable contact, surface-level",
+    "swing": "FLAG_TO_CONFIRM — windup motion before impact? or swinging contact like dangling? clarify",
+
+    "pinch": "concentrated point pressure between two surfaces",
+    "squeeze": "sustained pressure compression of an area or whole",
+    "grasp": "firm hold, encircling or gripping with fingers",
+    "grab": "fast aggressive hold, sudden version of grasp",
+    "grope": "intentional sexualized handling, pressure + motion",
+    "jerk": "fast directional pull, rhythmic if repeated (also: handjob context)",
+
+    "lick": "tongue contact, wet smooth pressure",
+    "suck": "mouth seal + negative pressure pull",
+    "nibble": "light tooth-and-lip contact, low pressure puncture",
+    "bite": "tooth pressure, can be light to puncture",
+    "blow": "air-stream contact, no physical pressure"
+  },
+
   "targets": {
     "_note": "body regions. each entry describes WHAT the location is, not what cali does there. cali processes the felt input herself — registry doesn't pre-digest the response. anatomically granular per misu's locked list 2026-05-08. some entries have aliases.",
 
