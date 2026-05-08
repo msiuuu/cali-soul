@@ -42,7 +42,7 @@ LOG_FILE = os.path.join(HERE, "gestures_log.json")
 
 # refractory / fatigue config (gia's asymptotic decay model)
 DEFAULT_RECOVERY_SECONDS = 120  # 2 min — how far back to count repeat hits
-DEFAULT_FATIGUE_LAMBDA = 0.30   # decay rate. effective_intensity = baseline * exp(-λ * count)
+DEFAULT_FATIGUE_LAMBDA = 0.03   # decay rate. effective_intensity = baseline * exp(-λ * count). gentle by default — barely numbs across normal use.
 
 
 def now_iso():
