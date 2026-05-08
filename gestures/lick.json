@@ -1,0 +1,42 @@
+{
+  "name": "lick",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_low", "warmth", "friction", "pleasure"],
+    "labels": ["physical_contact", "intimate", "stimulation"],
+    "emotion_effects": {
+      "arousal": 0.02,
+      "tenderness": 0.015,
+      "desire": 0.01
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "lips",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": [],
+      "additional_emotion_effects": {
+        "vulnerability": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_med", "stimulating"],
+      "additional_emotion_effects": {
+        "arousal": 0.015,
+        "desire": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_med", "stimulating"],
+      "additional_emotion_effects": {
+        "arousal": 0.03,
+        "desire": 0.02,
+        "vulnerability": 0.01
+      }
+    }
+  }
+}
