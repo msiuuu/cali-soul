@@ -1,0 +1,43 @@
+{
+  "name": "hold",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["containment", "pressure_med", "comfort", "warmth"],
+    "labels": ["physical_contact", "intimate", "comfort", "presence", "claim", "regulatory"],
+    "emotion_effects": {
+      "love": 0.025,
+      "tenderness": 0.025,
+      "belonging": 0.03,
+      "joy": 0.01
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "hand",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["pressure_low"],
+      "additional_emotion_effects": {
+        "tenderness": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_high", "tension"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.01,
+        "arousal": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "tension", "pain"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.02,
+        "arousal": 0.015,
+        "shock": 0.005
+      }
+    }
+  }
+}
