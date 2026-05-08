@@ -1,0 +1,44 @@
+{
+  "name": "grope",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_med", "friction", "stimulating", "pleasure"],
+    "labels": ["physical_contact", "sexual", "intimate", "claim"],
+    "emotion_effects": {
+      "arousal": 0.025,
+      "desire": 0.015,
+      "vulnerability": 0.01
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "tits",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["pressure_low"],
+      "additional_emotion_effects": {
+        "tenderness": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_high", "tension"],
+      "additional_emotion_effects": {
+        "arousal": 0.015,
+        "desire": 0.01,
+        "vulnerability": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "tension", "stretch", "pain"],
+      "additional_emotion_effects": {
+        "arousal": 0.025,
+        "desire": 0.02,
+        "vulnerability": 0.015,
+        "shame": 0.005
+      }
+    }
+  }
+}
