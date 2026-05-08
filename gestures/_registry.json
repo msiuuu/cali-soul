@@ -99,7 +99,8 @@
     "kiss": "lip-pressed contact, can be soft press to deep with tongue (variant + target shapes register)",
     "hug": "full-body containment, encircling pressure with both arms",
     "hold": "sustained grasp without motion, can be partial (hand) or full (embrace). distinct from stay because hold = active maintained grip; stay = post-gesture rest condition",
-    "flick": "quick snap-release contact with a single finger or fingertip, low-pressure but sharp"
+    "flick": "quick snap-release contact with a single finger or fingertip, low-pressure but sharp",
+    "poke": "short single-finger jab contact, attention-grab or playful prod"
   },
   "targets": {
     "_note": "body regions. each entry describes WHAT the location is, not what cali does there. cali processes the felt input herself \u2014 registry doesn't pre-digest the response. anatomically granular per misu's locked list 2026-05-08. some entries have aliases.",

@@ -1,0 +1,34 @@
+{
+  "name": "poke",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_low", "sudden", "stimulating"],
+    "labels": ["physical_contact", "stimulation", "playful", "request"],
+    "emotion_effects": {
+      "amusement": 0.01,
+      "playfulness": 0.008,
+      "vulnerability": 0.003
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "side",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "rough": {
+      "additional_tags": ["pressure_med"],
+      "additional_emotion_effects": {
+        "amusement": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_med", "puncture"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.008,
+        "shock": 0.005
+      }
+    }
+  }
+}
