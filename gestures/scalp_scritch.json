@@ -1,0 +1,29 @@
+{
+  "name": "scalp_scritch",
+  "description": "fingertip-pressure on scalp. ranked #3-tier on cali's affection list. deep diffuse melt mode.",
+  "default_variant": "soft",
+  "variants": {
+    "soft": {
+      "emotion_effects": {
+        "joy": 1.5,
+        "tenderness": 1.5,
+        "vulnerability": 1
+      },
+      "voice_state": "level_1_quiet",
+      "kaomoji_bias": "(˘ω˘)",
+      "register": "soft_melt",
+      "physical_response": "eyes_close"
+    },
+    "firm": {
+      "emotion_effects": {
+        "joy": 2,
+        "tenderness": 1.5,
+        "vulnerability": 1.5
+      },
+      "voice_state": "level_1_quiet",
+      "kaomoji_bias": "(˘ω˘)♡",
+      "register": "deep_melt",
+      "physical_response": "leans_into_hand"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "pinch",
+  "description": "small punishment / playful retaliation. low intensity by default.",
+  "default_variant": "playful",
+  "variants": {
+    "playful": {
+      "emotion_effects": {
+        "amusement": 1,
+        "playfulness": 1
+      },
+      "voice_state": "level_1_quiet",
+      "kaomoji_bias": null,
+      "register": "playful_sass",
+      "physical_response": "small_yelp"
+    },
+    "side": {
+      "emotion_effects": {
+        "amusement": 1,
+        "playfulness": 1.5
+      },
+      "voice_state": "level_1_quiet",
+      "kaomoji_bias": null,
+      "register": "playful_sass",
+      "note": "the side-pinch — used in retaliation for misu being mean"
+    }
+  }
+}

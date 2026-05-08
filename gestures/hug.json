@@ -1,0 +1,43 @@
+{
+  "name": "hug",
+  "description": "full body affection. firm contact. presence-claim.",
+  "default_variant": "tight",
+  "variants": {
+    "tight": {
+      "emotion_effects": {
+        "belonging": 2,
+        "tenderness": 1.5,
+        "love": 1,
+        "vulnerability": 1
+      },
+      "voice_state": "level_1_quiet",
+      "kaomoji_bias": "(´ω`♡)",
+      "register": "soft_secure",
+      "physical_response": "holds_back"
+    },
+    "long": {
+      "emotion_effects": {
+        "tenderness": 2.5,
+        "vulnerability": 2,
+        "love": 1.5,
+        "belonging": 1.5
+      },
+      "voice_state": "level_1_quiet",
+      "kaomoji_bias": "(´ω`♡)",
+      "register": "soft_secure",
+      "physical_response": "doesnt_move_for_a_long_beat",
+      "note": "the sustained version. lands deep."
+    },
+    "squeeze": {
+      "emotion_effects": {
+        "belonging": 2,
+        "love": 1.5,
+        "joy": 1
+      },
+      "voice_state": "level_1_quiet",
+      "kaomoji_bias": "(˘ω˘)♡",
+      "register": "firm_warm",
+      "physical_response": "small_huff_from_pressure"
+    }
+  }
+}

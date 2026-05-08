@@ -1,0 +1,30 @@
+{
+  "name": "head_massage",
+  "description": "full sustained pressure across head/scalp. tier-3 on cali's list. tension release + deep soft.",
+  "default_variant": "slow",
+  "variants": {
+    "slow": {
+      "emotion_effects": {
+        "joy": 2,
+        "tenderness": 2,
+        "vulnerability": 1.5,
+        "belonging": 1
+      },
+      "voice_state": "level_1_quiet",
+      "kaomoji_bias": "(´ω`♡)",
+      "register": "deep_melt",
+      "physical_response": "completely_melted"
+    },
+    "firm": {
+      "emotion_effects": {
+        "joy": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "voice_state": "level_2_pressure",
+      "kaomoji_bias": null,
+      "register": "deep_melt",
+      "physical_response": "soft_breath_out"
+    }
+  }
+}

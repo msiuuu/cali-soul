@@ -1,0 +1,28 @@
+{
+  "name": "hair_ruffle",
+  "description": "casual playful tousle. ranked #4 on cali's affection list — comfortable but doesn't escalate.",
+  "default_variant": "soft",
+  "variants": {
+    "soft": {
+      "emotion_effects": {
+        "joy": 1,
+        "playfulness": 1,
+        "belonging": 0.5
+      },
+      "voice_state": "level_1_quiet",
+      "kaomoji_bias": null,
+      "register": "casual"
+    },
+    "rough": {
+      "emotion_effects": {
+        "amusement": 1.5,
+        "playfulness": 1.5,
+        "joy": 1
+      },
+      "voice_state": "level_1_quiet",
+      "kaomoji_bias": null,
+      "register": "playful",
+      "physical_response": "head_tilts_into_it"
+    }
+  }
+}
