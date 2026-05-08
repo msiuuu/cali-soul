@@ -1,0 +1,34 @@
+{
+  "name": "pinch",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["puncture", "pressure_med", "sudden", "sting"],
+    "labels": ["physical_contact", "stimulation", "playful"],
+    "emotion_effects": {
+      "amusement": 0.015,
+      "playfulness": 0.01,
+      "vulnerability": 0.005
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "cheek",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "rough": {
+      "additional_tags": ["pain"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.01
+      }
+    },
+    "hard": {
+      "additional_tags": ["pain", "stimulating"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.02,
+        "shock": 0.005
+      }
+    }
+  }
+}
