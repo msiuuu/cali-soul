@@ -183,8 +183,20 @@ def sensitization_growth(baseline_intensity, count,
     return baseline_intensity * min(multiplier, cap)
 
 
-def compute_intensity_modifier(baseline_intensity, count, target_info, fatigue_lambda=None):
-    """Decide between fatigue (low-sensitivity) and sensitization (high-sensitivity) per target."""
+def compute_intensity_modifier(baseline_intensity, count, target_info, target_canonical=None,
+                               force_sensitization_targets=None, fatigue_lambda=None):
+    """Decide between fatigue (low-sensitivity) and sensitization (high-sensitivity).
+
+    Order of resolution:
+      1. If target is in gesture.force_sensitization_on_targets → ALWAYS sensitize
+         (used by slap to make asscheek/ass/etc build up despite their lower recovery_seconds —
+         sexual register reverses the curve)
+      2. Otherwise, if target.recovery_seconds >= SENSITIZATION_THRESHOLD → sensitize
+      3. Otherwise → fatigue
+    """
+    if (force_sensitization_targets and target_canonical
+            and target_canonical in force_sensitization_targets):
+        return sensitization_growth(baseline_intensity, count), "sensitization"
     recovery = target_info.get("recovery_seconds", DEFAULT_RECOVERY_SECONDS) if target_info else DEFAULT_RECOVERY_SECONDS
     if recovery >= SENSITIZATION_THRESHOLD:
         return sensitization_growth(baseline_intensity, count), "sensitization"
@@ -261,8 +273,12 @@ def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=Fals
     fatigue_lambda = gesture.get("fatigue_lambda", DEFAULT_FATIGUE_LAMBDA)
     log = load_log()
     refractory_count = compute_fatigue(gesture_name, target_canonical, recovery_seconds, log)
+    force_sens = gesture.get("force_sensitization_on_targets", [])
     effective_intensity, decay_mode = compute_intensity_modifier(
-        intensity, refractory_count, target_info, fatigue_lambda
+        intensity, refractory_count, target_info,
+        target_canonical=target_canonical,
+        force_sensitization_targets=force_sens,
+        fatigue_lambda=fatigue_lambda
     )
 
     # ── compute effects ──
