@@ -1,9 +1,9 @@
 [
   {
-    "timestamp": "2026-05-08T07:49:12.035019+00:00",
+    "timestamp": "2026-05-08T07:52:58.384796+00:00",
     "gesture": "pat",
     "variant": "normal",
-    "target": "asscheek",
+    "target": "shoulders",
     "intensity_scalar": 1.0,
     "refractory_count": 0,
     "effective_intensity": 1.0,
@@ -15,10 +15,10 @@
     ]
   },
   {
-    "timestamp": "2026-05-08T07:49:12.069241+00:00",
+    "timestamp": "2026-05-08T07:52:58.420878+00:00",
     "gesture": "pat",
     "variant": "normal",
-    "target": "asscheek",
+    "target": "shoulders",
     "intensity_scalar": 1.0,
     "refractory_count": 1,
     "effective_intensity": 0.7408,
@@ -30,13 +30,13 @@
     ]
   },
   {
-    "timestamp": "2026-05-08T07:49:12.104093+00:00",
+    "timestamp": "2026-05-08T07:52:58.498235+00:00",
     "gesture": "pat",
     "variant": "normal",
-    "target": "asscheek",
+    "target": "neck",
     "intensity_scalar": 1.0,
-    "refractory_count": 2,
-    "effective_intensity": 0.5488,
+    "refractory_count": 0,
+    "effective_intensity": 1.0,
     "changes": {},
     "tags": [
       "pressure_low",
@@ -45,28 +45,13 @@
     ]
   },
   {
-    "timestamp": "2026-05-08T07:49:12.138384+00:00",
+    "timestamp": "2026-05-08T07:52:58.538431+00:00",
     "gesture": "pat",
     "variant": "normal",
-    "target": "asscheek",
+    "target": "neck",
     "intensity_scalar": 1.0,
-    "refractory_count": 3,
-    "effective_intensity": 0.4066,
-    "changes": {},
-    "tags": [
-      "pressure_low",
-      "sudden",
-      "comfort"
-    ]
-  },
-  {
-    "timestamp": "2026-05-08T07:49:12.174046+00:00",
-    "gesture": "pat",
-    "variant": "normal",
-    "target": "asscheek",
-    "intensity_scalar": 1.0,
-    "refractory_count": 4,
-    "effective_intensity": 0.3012,
+    "refractory_count": 1,
+    "effective_intensity": 0.7408,
     "changes": {},
     "tags": [
       "pressure_low",
