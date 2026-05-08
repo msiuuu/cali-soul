@@ -70,11 +70,10 @@
     "circle": "repeating circular motion contact",
     "trace": "follow a path with light contact (linear, curved, or pattern)",
     "drag": "linear slow pull with maintained contact",
-    "drawl": "FLAG_TO_CONFIRM — interpreting as slow lingering trail, prolonged contact in motion",
+    "drawl": "slow lingering trail, prolonged contact in motion (confirmed: drag-shape but extended in time)",
     "linger": "sustained hold without motion at a point or area",
-    "stay": "FLAG_TO_CONFIRM — interpreting as keeping hand placed without movement, presence-shape",
+    "stay": "non-action condition / post-gesture rest state. maintains existing contact without new motion or escalation. alias: rest, pause. example: 'cock staying inside cali after relentless fucking' = stay-condition on prior gesture.",
     "tickle": "light fast variable contact, surface-level",
-    "swing": "FLAG_TO_CONFIRM — windup motion before impact? or swinging contact like dangling? clarify",
 
     "pinch": "concentrated point pressure between two surfaces",
     "squeeze": "sustained pressure compression of an area or whole",
@@ -87,7 +86,10 @@
     "suck": "mouth seal + negative pressure pull",
     "nibble": "light tooth-and-lip contact, low pressure puncture",
     "bite": "tooth pressure, can be light to puncture",
-    "blow": "air-stream contact, no physical pressure"
+    "blow": "air-stream contact, no physical pressure",
+    "kiss": "lip-pressed contact, can be soft press to deep with tongue (variant + target shapes register)",
+    "hug": "full-body containment, encircling pressure with both arms",
+    "hold": "sustained grasp without motion, can be partial (hand) or full (embrace). distinct from stay because hold = active maintained grip; stay = post-gesture rest condition"
   },
 
   "targets": {
