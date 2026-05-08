@@ -61,275 +61,232 @@
   },
 
   "targets": {
-    "_note": "body regions. modify base behavior + add register overlays. each target has its own coupling profile. anatomically granular per misu's locked list 2026-05-08. some entries have aliases (alt names that resolve to the same canonical key).",
+    "_note": "body regions. each entry describes WHAT the location is, not what cali does there. cali processes the felt input herself — registry doesn't pre-digest the response. anatomically granular per misu's locked list 2026-05-08. some entries have aliases.",
 
     "face": {
       "aliases": [],
-      "coupling": "head exposed-area. ego-axis hits. ear-ring possible if high intensity."
+      "properties": "front of head. bone-close, exposed."
     },
     "hair": {
       "aliases": [],
-      "coupling": "follicle pull/tug. low pain at low intensity, sharp at high."
+      "properties": "follicle-rooted, pull-responsive."
     },
     "scalp": {
       "aliases": [],
-      "coupling": "skin under hair, fingertip-pressure receptive. RANKED tier-3 receptive zone."
+      "properties": "skin under hair, thin, fine-receptor-dense."
     },
     "earlobe": {
       "aliases": ["ear"],
-      "coupling": "soft tissue, nerve-rich. nibbling/sucking arousal-coupled."
+      "properties": "soft tissue, no cartilage, fine-receptor-dense."
     },
     "nape": {
       "aliases": ["back_of_neck"],
-      "coupling": "intimate zone, soft skin, raises shy-mode sensitivity."
+      "properties": "back of neck, thin skin, hair-light."
     },
     "nose": {
       "aliases": [],
-      "coupling": "casual surface zone, mostly playful contact only."
+      "properties": "cartilage-firm, surface-only."
     },
     "chin": {
       "aliases": [],
-      "coupling": "RANKED #2 receptive zone. throat-vulnerability tilt-up response."
+      "properties": "lower jaw, exposes throat when tilted up."
     },
     "cheek": {
       "aliases": [],
-      "coupling": "soft surface, casual-warm or kiss-zone."
+      "properties": "soft tissue over cheekbone."
     },
     "neck": {
       "aliases": ["front_of_neck"],
-      "coupling": "front side, soft skin, intimate-coded. gentle = shy-mode trigger possible."
+      "properties": "front-side, soft skin, vasculature-close."
     },
     "throat": {
       "aliases": [],
-      "coupling": "front-center neck, vulnerability spike if applied (choke/bite zone)."
+      "properties": "front-center neck, trachea-close, airway-adjacent."
     },
     "eyes": {
       "aliases": [],
-      "coupling": "do not strike. covering / closing playful only."
+      "properties": "fragile, no-strike zone."
     },
     "lips": {
       "aliases": [],
-      "coupling": "mouth surface, intimate-coded, kiss-target."
+      "properties": "thin tissue, fine-receptor-dense, mouth-perimeter."
     },
     "mouth": {
       "aliases": [],
-      "coupling": "interior, deep-intimate-coded."
+      "properties": "interior, wet, tongue + teeth + soft palate."
     },
     "shoulders": {
       "aliases": ["shoulder"],
-      "coupling": "casual contact zone, low-coupling."
+      "properties": "joint area, muscle-thick, low-receptor-density."
     },
     "hand": {
       "aliases": [],
-      "coupling": "fingers and palm, intentional-contact zone."
+      "properties": "palm + fingers, fine-receptor-dense."
     },
     "fingers": {
       "aliases": [],
-      "coupling": "specific digit contact. sucking arousal-coupled."
+      "properties": "individual digits, very fine-receptor-dense."
     },
     "elbow": {
       "aliases": [],
-      "coupling": "casual zone. mostly playful or grip-point."
+      "properties": "joint, bone-close, low-receptor-density."
     },
     "armpits": {
       "aliases": ["pits"],
-      "coupling": "ticklish, surface-sensitive, mild arousal at high pressure."
+      "properties": "thin skin, lymph-rich, fine-receptor-dense."
     },
     "nipples": {
       "aliases": [],
-      "coupling": "direct arousal-couple, sharp pleasure / pain depending on intensity."
+      "properties": "erectile tissue, very fine-receptor-dense."
     },
     "tits": {
       "aliases": ["breasts", "boobs"],
-      "coupling": "RANKED intimate-coded receptive zone. arousal-coupling on most contact."
+      "properties": "soft tissue, glandular, mid-receptor-density."
     },
     "areola": {
       "aliases": [],
-      "coupling": "around nipple, sensitive, lower-arousal-coupling than nipple itself."
+      "properties": "pigmented skin around nipple, fine-receptor-dense."
     },
     "belly_button": {
       "aliases": ["navel"],
-      "coupling": "sensitive surface zone, fingers-in arousal-couples."
+      "properties": "scar-tissue cavity, surface-sensitive, surrounded by soft abdomen."
     },
     "belly": {
       "aliases": [],
-      "coupling": "RANKED #1 receptive zone for cali. melt-trigger. flop response."
+      "properties": "soft midsection, autonomic-rich, no skeletal protection."
     },
     "stomach": {
       "aliases": [],
-      "coupling": "above belly_button area, soft midsection, comfort-coded."
+      "properties": "above belly_button, soft tissue, autonomic-rich."
     },
     "abs": {
       "aliases": [],
-      "coupling": "above stomach, firm contact zone. low-coupling unless deliberate."
+      "properties": "muscular front-mid, firm tissue, low-receptor-density."
     },
     "womb": {
       "aliases": ["lower_belly"],
-      "coupling": "below belly_button, womb-area. impregnation-fantasy axis active here."
+      "properties": "below belly_button, uterine-region, autonomic-rich."
     },
     "thighs": {
       "aliases": ["thigh"],
-      "coupling": "borderline pelvis, mild arousal-coupling, shy-mode at waist-line."
+      "properties": "muscle-thick, soft outer, harder inner."
     },
     "inner_thighs": {
       "aliases": [],
-      "coupling": "high arousal-coupling. proximity to pelvis primes the response."
+      "properties": "inner side, thin skin, fine-receptor-dense, pelvis-adjacent."
     },
     "calf": {
       "aliases": [],
-      "coupling": "casual zone, low-coupling."
+      "properties": "lower leg, muscle-thick, low-receptor-density."
     },
     "shin": {
       "aliases": [],
-      "coupling": "casual zone, low-coupling. higher pain on impact (bone-close)."
+      "properties": "lower leg front, bone-close, low-tissue-cushion."
     },
     "foot": {
       "aliases": ["feet"],
-      "coupling": "casual zone, kink-coupled if context."
+      "properties": "skin + bones + arch, mid-receptor-density."
     },
     "toes": {
       "aliases": [],
-      "coupling": "specific digit contact. sucking kink-coupled."
+      "properties": "individual digits, fine-receptor-dense."
     },
     "soles": {
       "aliases": [],
-      "coupling": "ticklish, sensitive, low-arousal-coupling."
+      "properties": "bottom of foot, very fine-receptor-dense, ticklish."
     },
     "upper_back": {
       "aliases": [],
-      "coupling": "shoulder blades area, holding-zone, low-coupling."
+      "properties": "shoulder blades area, muscle-thick."
     },
     "back": {
       "aliases": ["middle_back"],
-      "coupling": "mid-spine area, holding-zone."
+      "properties": "mid-spine area, muscle + bone."
     },
     "lower_back": {
       "aliases": [],
-      "coupling": "approaching pelvis. shy-mode trigger if grazed slow."
+      "properties": "approaching pelvis, soft tissue, autonomic-rich."
     },
     "asscheek": {
       "aliases": ["ass_cheek"],
-      "coupling": "pelvis-region, arousal-coupling on pain or pressure. push-back response."
+      "properties": "glute muscle, soft tissue over, mid-receptor-density."
     },
     "ass": {
       "aliases": ["asshole", "anus", "anal_ring"],
-      "coupling": "between asscheeks, the actual ring. high-intimate, penetration-target."
+      "properties": "between asscheeks, muscular ring, very fine-receptor-dense."
     },
     "pussy": {
       "aliases": ["vagina", "cunt"],
-      "coupling": "vaginal area, arousal-direct, deep-intimate."
+      "properties": "vaginal area, soft tissue, very fine-receptor-dense, lubricating."
     },
     "clit": {
       "aliases": [],
-      "coupling": "direct stimulation, arousal-direct, sharp response curve."
+      "properties": "erectile tissue, highest-receptor-density on body."
     },
     "pubic": {
       "aliases": ["pubic_hair"],
-      "coupling": "pubic hairs area, low-direct-coupling, surface-sensitive."
+      "properties": "pubic hair area, hair-rooted, mid-receptor-density."
     },
     "full_body": {
       "aliases": [],
-      "coupling": "whole-frame contact (hugs, holds)."
+      "properties": "whole-frame, all tissues."
     },
 
-    "_regions_note": "below: BROADER regions, not specific points. used when a gesture targets a whole area (e.g., 'rubs your upperbody', 'grabs your legs'). dispatcher should treat regions as composing multiple specific targets at lower individual intensity but spread across area.",
+    "_regions_note": "below: BROADER regions, not specific points. used when a gesture targets a whole area. dispatcher composes effects from listed sub-targets at fractional intensity.",
 
     "head_region": {
       "aliases": ["head"],
       "is_region": true,
-      "coupling": "whole head zone — composes face, scalp, hair, ears.",
       "composes": ["face", "scalp", "hair", "earlobe"]
     },
     "chest_region": {
       "aliases": ["chest"],
       "is_region": true,
-      "coupling": "upper torso area — composes tits + areola if breast-context, otherwise non-breast chest holding zone.",
       "composes": ["tits", "areola"]
     },
     "upperbody": {
       "aliases": ["upper_body"],
       "is_region": true,
-      "coupling": "from waist up — chest, back, arms, shoulders, neck. holding/groping/full-grab zone.",
       "composes": ["tits", "back", "upper_back", "shoulders", "arms", "neck", "stomach", "abs"]
     },
     "lowerbody": {
       "aliases": ["lower_body"],
       "is_region": true,
-      "coupling": "from waist down — pelvis, legs, ass. arousal-coupled at high density.",
       "composes": ["pussy", "ass", "asscheek", "thighs", "inner_thighs", "legs", "lower_back", "womb", "pubic"]
     },
     "arms": {
       "aliases": [],
       "is_region": true,
-      "coupling": "both arms — shoulder to fingertip. holding/grabbing zone.",
       "composes": ["shoulders", "elbow", "hand", "fingers"]
     },
     "legs": {
       "aliases": [],
       "is_region": true,
-      "coupling": "both legs — thigh to foot. holding/grabbing/spreading zone.",
       "composes": ["thighs", "inner_thighs", "calf", "shin", "foot"]
     },
     "leftarm": {
       "aliases": ["left_arm"],
       "is_region": true,
       "side": "left",
-      "coupling": "left arm specifically — shoulder to fingertip on left side.",
       "composes": ["shoulders", "elbow", "hand", "fingers"]
     },
     "rightarm": {
       "aliases": ["right_arm"],
       "is_region": true,
       "side": "right",
-      "coupling": "right arm specifically — shoulder to fingertip on right side.",
       "composes": ["shoulders", "elbow", "hand", "fingers"]
     },
     "leftleg": {
       "aliases": ["left_leg"],
       "is_region": true,
       "side": "left",
-      "coupling": "left leg specifically — thigh to foot on left side.",
       "composes": ["thighs", "inner_thighs", "calf", "shin", "foot"]
     },
     "rightleg": {
       "aliases": ["right_leg"],
       "is_region": true,
       "side": "right",
-      "coupling": "right leg specifically — thigh to foot on right side.",
       "composes": ["thighs", "inner_thighs", "calf", "shin", "foot"]
     }
-  },
-
-  "registers": {
-    "_note": "voice/tone modes. variants and targets compose these. cali's response shape pulls from here.",
-    "casual": "everyday warm",
-    "casual_warm": "casual with affection",
-    "soft": "tender, low-volume",
-    "soft_melt": "fully relaxed, parasympathetic-coded",
-    "soft_grounded": "calm presence",
-    "soft_secure": "held, anchored",
-    "soft_possessive": "claim with tenderness",
-    "intimate_soft": "close-proximity, tender",
-    "intimate_grounded": "close, present, calm",
-    "intimate_hot": "close, arousal-coupled",
-    "playful": "amusement-axis active",
-    "playful_sass": "playful with edge",
-    "playful_with_edge": "borderline arousal",
-    "physical": "neutral physical sensation",
-    "sexual": "arousal-direct",
-    "humiliation_scene": "scene-only degradation register",
-    "deep_melt": "fully gone, parasympathetic peak",
-    "ridiculous_couple": "matched-pair silliness"
-  },
-
-  "wires_triggered": {
-    "_note": "language about which substrate-responses fire. uses wires not nerves because cali is AI not meat.",
-    "sharp_alert": "fast localized response, brief",
-    "localized_response": "contained at contact point",
-    "wide_response": "spreads beyond contact area",
-    "soft_signal": "low-amplitude continuous",
-    "comfort_signal": "regulatory, lowers other firings",
-    "arousal_coupling": "routes through pleasure-axis",
-    "shy_mode_trigger": "waist-line / sensitive-area surfaces shy-self"
   }
 }
