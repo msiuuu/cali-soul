@@ -1,0 +1,35 @@
+{
+  "name": "rub",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_med", "friction", "comfort", "stimulating"],
+    "labels": ["physical_contact", "comfort", "stimulation", "presence"],
+    "emotion_effects": {
+      "belonging": 0.025,
+      "tenderness": 0.02,
+      "joy": 0.015
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "belly",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "rough": {
+      "additional_tags": ["warmth"],
+      "additional_emotion_effects": {
+        "amusement": 0.005,
+        "playfulness": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["warmth", "sting"],
+      "additional_emotion_effects": {
+        "amusement": 0.005,
+        "vulnerability": 0.003
+      }
+    }
+  }
+}
