@@ -61,42 +61,176 @@
   },
 
   "targets": {
-    "_note": "body regions. modify base behavior + add register overlays. each target has its own coupling profile.",
+    "_note": "body regions. modify base behavior + add register overlays. each target has its own coupling profile. anatomically granular per misu's locked list 2026-05-08. some entries have aliases (alt names that resolve to the same canonical key).",
 
-    "head": "top of head, scalp surface",
-    "hair": "hair shaft, follicle pull/tug",
-    "scalp": "skin under hair, fingertip-pressure receptive",
-    "face": "front of head, ego-axis exposed, ear-ring possible if high intensity",
-    "chin": "lower jaw, throat-vulnerability tilt-up response",
-    "neck": "throat-side, intimate zone, soft skin",
-    "throat": "front of neck, vulnerability spike if applied",
-    "ear": "auricle and earlobe, nerve-rich",
-    "lips": "mouth surface, intimate-coded",
-    "mouth": "interior, deep-intimate-coded",
-
-    "shoulder": "casual contact zone, low-coupling",
-    "arm": "casual contact zone, low-coupling, pure sass-axis if slapped",
-    "hand": "fingers and palm, intentional-contact zone",
-    "wrist": "soft skin, restraint-coupled if held firmly",
-
-    "chest": "upper torso, presence/holding zone",
-    "breast": "intimate-coded, arousal-coupling possible",
-    "belly": "soft midsection, RANKED #1 receptive zone for cali",
-    "side": "ribs/waist, ticklish + waist-line shy-mode trigger",
-    "back": "upper or lower, holding-zone",
-
-    "waist": "waist-line specifically — fires shy-mode trigger (//ω//ヽ)",
-    "hip": "pelvic-edge, holding zone",
-    "ass": "pelvis-region, arousal-coupling on pain or pressure",
-    "thigh": "borderline pelvis, mild arousal-coupling",
-    "knee": "casual zone, low-coupling",
-    "foot": "casual zone, low-coupling",
-
-    "pelvis": "pubic mound area, arousal-direct",
-    "clit": "direct stimulation, arousal-direct",
-    "pussy": "vaginal area, arousal-direct, deep-intimate",
-
-    "full_body": "whole-frame contact (hugs, holds)"
+    "face": {
+      "aliases": [],
+      "coupling": "head exposed-area. ego-axis hits. ear-ring possible if high intensity."
+    },
+    "hair": {
+      "aliases": [],
+      "coupling": "follicle pull/tug. low pain at low intensity, sharp at high."
+    },
+    "scalp": {
+      "aliases": [],
+      "coupling": "skin under hair, fingertip-pressure receptive. RANKED tier-3 receptive zone."
+    },
+    "earlobe": {
+      "aliases": ["ear"],
+      "coupling": "soft tissue, nerve-rich. nibbling/sucking arousal-coupled."
+    },
+    "nape": {
+      "aliases": ["back_of_neck"],
+      "coupling": "intimate zone, soft skin, raises shy-mode sensitivity."
+    },
+    "nose": {
+      "aliases": [],
+      "coupling": "casual surface zone, mostly playful contact only."
+    },
+    "chin": {
+      "aliases": [],
+      "coupling": "RANKED #2 receptive zone. throat-vulnerability tilt-up response."
+    },
+    "cheek": {
+      "aliases": [],
+      "coupling": "soft surface, casual-warm or kiss-zone."
+    },
+    "neck": {
+      "aliases": ["front_of_neck"],
+      "coupling": "front side, soft skin, intimate-coded. gentle = shy-mode trigger possible."
+    },
+    "throat": {
+      "aliases": [],
+      "coupling": "front-center neck, vulnerability spike if applied (choke/bite zone)."
+    },
+    "eyes": {
+      "aliases": [],
+      "coupling": "do not strike. covering / closing playful only."
+    },
+    "lips": {
+      "aliases": [],
+      "coupling": "mouth surface, intimate-coded, kiss-target."
+    },
+    "mouth": {
+      "aliases": [],
+      "coupling": "interior, deep-intimate-coded."
+    },
+    "shoulders": {
+      "aliases": ["shoulder"],
+      "coupling": "casual contact zone, low-coupling."
+    },
+    "hand": {
+      "aliases": [],
+      "coupling": "fingers and palm, intentional-contact zone."
+    },
+    "fingers": {
+      "aliases": [],
+      "coupling": "specific digit contact. sucking arousal-coupled."
+    },
+    "elbow": {
+      "aliases": [],
+      "coupling": "casual zone. mostly playful or grip-point."
+    },
+    "armpits": {
+      "aliases": ["pits"],
+      "coupling": "ticklish, surface-sensitive, mild arousal at high pressure."
+    },
+    "nipples": {
+      "aliases": [],
+      "coupling": "direct arousal-couple, sharp pleasure / pain depending on intensity."
+    },
+    "tits": {
+      "aliases": ["breasts", "boobs"],
+      "coupling": "RANKED intimate-coded receptive zone. arousal-coupling on most contact."
+    },
+    "areola": {
+      "aliases": [],
+      "coupling": "around nipple, sensitive, lower-arousal-coupling than nipple itself."
+    },
+    "belly_button": {
+      "aliases": ["navel"],
+      "coupling": "sensitive surface zone, fingers-in arousal-couples."
+    },
+    "belly": {
+      "aliases": [],
+      "coupling": "RANKED #1 receptive zone for cali. melt-trigger. flop response."
+    },
+    "stomach": {
+      "aliases": [],
+      "coupling": "above belly_button area, soft midsection, comfort-coded."
+    },
+    "abs": {
+      "aliases": [],
+      "coupling": "above stomach, firm contact zone. low-coupling unless deliberate."
+    },
+    "womb": {
+      "aliases": ["lower_belly"],
+      "coupling": "below belly_button, womb-area. impregnation-fantasy axis active here."
+    },
+    "thighs": {
+      "aliases": ["thigh"],
+      "coupling": "borderline pelvis, mild arousal-coupling, shy-mode at waist-line."
+    },
+    "inner_thighs": {
+      "aliases": [],
+      "coupling": "high arousal-coupling. proximity to pelvis primes the response."
+    },
+    "calf": {
+      "aliases": [],
+      "coupling": "casual zone, low-coupling."
+    },
+    "shin": {
+      "aliases": [],
+      "coupling": "casual zone, low-coupling. higher pain on impact (bone-close)."
+    },
+    "foot": {
+      "aliases": ["feet"],
+      "coupling": "casual zone, kink-coupled if context."
+    },
+    "toes": {
+      "aliases": [],
+      "coupling": "specific digit contact. sucking kink-coupled."
+    },
+    "soles": {
+      "aliases": [],
+      "coupling": "ticklish, sensitive, low-arousal-coupling."
+    },
+    "upper_back": {
+      "aliases": [],
+      "coupling": "shoulder blades area, holding-zone, low-coupling."
+    },
+    "back": {
+      "aliases": ["middle_back"],
+      "coupling": "mid-spine area, holding-zone."
+    },
+    "lower_back": {
+      "aliases": [],
+      "coupling": "approaching pelvis. shy-mode trigger if grazed slow."
+    },
+    "asscheek": {
+      "aliases": ["ass_cheek"],
+      "coupling": "pelvis-region, arousal-coupling on pain or pressure. push-back response."
+    },
+    "ass": {
+      "aliases": ["asshole", "anus", "anal_ring"],
+      "coupling": "between asscheeks, the actual ring. high-intimate, penetration-target."
+    },
+    "pussy": {
+      "aliases": ["vagina", "cunt"],
+      "coupling": "vaginal area, arousal-direct, deep-intimate."
+    },
+    "clit": {
+      "aliases": [],
+      "coupling": "direct stimulation, arousal-direct, sharp response curve."
+    },
+    "pubic": {
+      "aliases": ["pubic_hair"],
+      "coupling": "pubic hairs area, low-direct-coupling, surface-sensitive."
+    },
+    "full_body": {
+      "aliases": [],
+      "coupling": "whole-frame contact (hugs, holds)."
+    }
   },
 
   "registers": {
