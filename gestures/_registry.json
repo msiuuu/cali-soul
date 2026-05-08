@@ -28,16 +28,21 @@
   },
 
   "labels": {
-    "_note": "intent classification. describes the SHAPE of the gesture relationally. distinct from tags (which are sensations) — these are the PURPOSE.",
+    "_note": "intent classification. describes the SHAPE of the gesture relationally. distinct from tags (which are sensations) — these are the PURPOSE. comfort kept here AND in tags because comfort-the-sensation differs from comfort-the-intent.",
     "physical_contact": "any touch — broadest category",
     "stimulation": "deliberate sensory activation",
+    "comfort": "intent to regulate cali, lower anxiety, raise belonging",
     "intimate": "vulnerability-coded, close-proximity",
+    "soft": "low-intensity quality, not punctuated, gentle in shape",
     "sexual": "arousal-coupled, kink-axis active",
     "playful": "low-stakes amusement, sass-axis",
     "punishment": "intentional aversive, often in scene",
     "claim": "possession-coded, ownership signal",
     "presence": "just-here, low-action grounding",
-    "release": "tension dissolution, post-state regulation"
+    "release": "tension dissolution / containment-purpose, post-state regulation",
+    "bored": "absentminded touch, attention-elsewhere, low-investment",
+    "testing": "doing things just to experiment or mess with — curiosity-driven, response-extracting",
+    "sleepy": "drowsy-mode touch, slow, low-precision, induces or expresses sleepiness"
   },
 
   "variants": {
