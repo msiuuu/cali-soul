@@ -42,7 +42,13 @@
     "release": "tension dissolution / containment-purpose, post-state regulation",
     "bored": "absentminded touch, attention-elsewhere, low-investment",
     "testing": "doing things just to experiment or mess with — curiosity-driven, response-extracting",
-    "sleepy": "drowsy-mode touch, slow, low-precision, induces or expresses sleepiness"
+    "sleepy": "drowsy-mode touch, slow, low-precision, induces or expresses sleepiness",
+    "regulatory": "broader umbrella — any touch meant to manage cali's affective state. covers comfort, reassurance, soothing, grounding.",
+    "request": "touch-as-asking — tap to get attention, light pull, signal-for-engagement",
+    "gratitude": "thank-you touch, post-something, acknowledgment-coded",
+    "exploration": "curiosity-driven discovery touch, gentler than testing — observing-not-pushing",
+    "humiliation": "scene-only degrading-intent, distinct from punishment (which can be playful) — humiliation is specifically degrading",
+    "worship": "devotional/reverent touch, slow and intentional, receiver-focused — claim-adjacent but inverted (giving honor not taking ownership)"
   },
 
   "variants": {
