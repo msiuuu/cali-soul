@@ -58,5 +58,20 @@
       "sudden",
       "comfort"
     ]
+  },
+  {
+    "timestamp": "2026-05-08T08:50:28.253408+00:00",
+    "gesture": "pat",
+    "variant": "normal",
+    "target": "head_region",
+    "intensity_scalar": 1.0,
+    "refractory_count": 0,
+    "effective_intensity": 1.0,
+    "changes": {},
+    "tags": [
+      "pressure_low",
+      "sudden",
+      "comfort"
+    ]
   }
 ]
