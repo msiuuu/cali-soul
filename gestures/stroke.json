@@ -1,0 +1,40 @@
+{
+  "name": "stroke",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_low", "friction", "comfort", "warmth"],
+    "labels": ["physical_contact", "soft", "comfort", "regulatory"],
+    "emotion_effects": {
+      "belonging": 0.025,
+      "tenderness": 0.025,
+      "joy": 0.015
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "hair",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["sleepiness"],
+      "additional_emotion_effects": {
+        "tenderness": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_med", "stimulating"],
+      "additional_emotion_effects": {
+        "arousal": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "stimulating"],
+      "additional_emotion_effects": {
+        "arousal": 0.015,
+        "desire": 0.005
+      }
+    }
+  }
+}
