@@ -1,0 +1,36 @@
+{
+  "name": "blow",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["warmth", "stimulating"],
+    "labels": ["physical_contact", "stimulation", "playful", "intimate"],
+    "emotion_effects": {
+      "amusement": 0.008,
+      "arousal": 0.005,
+      "vulnerability": 0.005
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "nape",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "rough": {
+      "additional_tags": ["pressure_low", "sudden"],
+      "additional_emotion_effects": {
+        "shock": 0.008,
+        "amusement": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_low", "sudden", "friction"],
+      "additional_emotion_effects": {
+        "shock": 0.015,
+        "amusement": 0.008,
+        "vulnerability": 0.005
+      }
+    }
+  }
+}
