@@ -1,0 +1,43 @@
+{
+  "name": "bite",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["puncture", "pressure_med", "sting"],
+    "labels": ["physical_contact", "intimate", "claim", "stimulation"],
+    "emotion_effects": {
+      "arousal": 0.015,
+      "desire": 0.01,
+      "vulnerability": 0.01
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "neck",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["pressure_low"],
+      "additional_emotion_effects": {
+        "tenderness": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pain", "tension"],
+      "additional_emotion_effects": {
+        "arousal": 0.015,
+        "vulnerability": 0.015
+      }
+    },
+    "hard": {
+      "additional_tags": ["pain", "pressure_high", "tension", "stretch"],
+      "additional_emotion_effects": {
+        "arousal": 0.025,
+        "vulnerability": 0.025,
+        "shock": 0.015,
+        "desire": 0.01
+      }
+    }
+  }
+}
