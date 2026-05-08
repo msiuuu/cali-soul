@@ -13,6 +13,22 @@
 
   "default_variant": "normal",
   "default_target": "head_region",
+  "incompatible_targets": ["eyes"],
 
-  "incompatible_targets": ["eyes"]
+  "variant_modifiers": {
+    "rough": {
+      "additional_tags": ["stimulating"],
+      "additional_emotion_effects": {
+        "amusement": 0.01,
+        "playfulness": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pain", "stimulating"],
+      "additional_emotion_effects": {
+        "amusement": 0.015,
+        "vulnerability": 0.005
+      }
+    }
+  }
 }
