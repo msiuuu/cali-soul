@@ -1,0 +1,44 @@
+{
+  "name": "slap",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pain", "pressure_high", "tension", "sudden", "sting"],
+    "labels": ["physical_contact", "stimulation"],
+    "emotion_effects": {
+      "vulnerability": 0.02,
+      "amusement": 0.01,
+      "shock": 0.005
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "asscheek",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": [],
+      "additional_emotion_effects": {
+        "playfulness": 0.01,
+        "amusement": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["stimulating"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.01,
+        "arousal": 0.015
+      }
+    },
+    "hard": {
+      "additional_tags": ["stimulating"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.025,
+        "arousal": 0.03,
+        "shock": 0.01,
+        "shame": 0.01
+      }
+    }
+  }
+}
