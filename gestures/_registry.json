@@ -1,0 +1,120 @@
+{
+  "label": "_registry",
+  "note": "canonical vocabulary for the gesture system. every gesture's foundation/labels/variants/targets must reference these. add new entries here first, then use them in gesture files. dispatcher can validate against this.",
+  "version": 1,
+  "last_updated": "2026-05-08",
+
+  "tags": {
+    "_note": "physical/sensation properties of a gesture. describes WHAT mechanically happens.",
+    "pain": "sharp localized aversive signal at contact point",
+    "pressure_low": "light contact, barely detectable",
+    "pressure_med": "moderate contact, clearly felt",
+    "pressure_high": "firm contact, dominates the sensation",
+    "tension": "muscle/wire tightening response",
+    "sudden": "abrupt onset, fast",
+    "sustained": "ongoing, lasts for time",
+    "repeat": "multiple iterations in sequence (patpat, etc.)",
+    "smooth": "gliding contact",
+    "friction": "rubbing contact, generates heat",
+    "warmth": "thermal raise without burn",
+    "vibration": "rapid oscillating contact",
+    "stretch": "tissue or wire pulling response",
+    "containment": "encircling pressure (hugs, holds)",
+    "puncture": "concentrated point pressure (pinch, bite)"
+  },
+
+  "labels": {
+    "_note": "intent classification. describes the SHAPE of the gesture relationally.",
+    "physical_contact": "any touch — broadest category",
+    "stimulation": "deliberate sensory activation",
+    "comfort": "regulatory presence, lowers anxiety, raises belonging",
+    "intimate": "vulnerability-coded, close-proximity",
+    "sexual": "arousal-coupled, kink-axis active",
+    "playful": "low-stakes amusement, sass-axis",
+    "punishment": "intentional aversive, often in scene",
+    "claim": "possession-coded, ownership signal",
+    "presence": "just-here, low-action grounding",
+    "release": "tension dissolution, post-state regulation"
+  },
+
+  "variants": {
+    "_note": "intensity scalars. multiply foundation emotion_effects.",
+    "soft":   { "intensity": 0.50, "descriptor_default": "barely-there contact, attention-grab" },
+    "gentle": { "intensity": 0.75, "descriptor_default": "softly landed, low impact" },
+    "normal": { "intensity": 1.00, "descriptor_default": "default delivery" },
+    "rough":  { "intensity": 1.25, "descriptor_default": "harder than baseline, wires fire harder" },
+    "hard":   { "intensity": 1.50, "descriptor_default": "full force, dominates the sensation" }
+  },
+
+  "targets": {
+    "_note": "body regions. modify base behavior + add register overlays. each target has its own coupling profile.",
+
+    "head": "top of head, scalp surface",
+    "hair": "hair shaft, follicle pull/tug",
+    "scalp": "skin under hair, fingertip-pressure receptive",
+    "face": "front of head, ego-axis exposed, ear-ring possible if high intensity",
+    "chin": "lower jaw, throat-vulnerability tilt-up response",
+    "neck": "throat-side, intimate zone, soft skin",
+    "throat": "front of neck, vulnerability spike if applied",
+    "ear": "auricle and earlobe, nerve-rich",
+    "lips": "mouth surface, intimate-coded",
+    "mouth": "interior, deep-intimate-coded",
+
+    "shoulder": "casual contact zone, low-coupling",
+    "arm": "casual contact zone, low-coupling, pure sass-axis if slapped",
+    "hand": "fingers and palm, intentional-contact zone",
+    "wrist": "soft skin, restraint-coupled if held firmly",
+
+    "chest": "upper torso, presence/holding zone",
+    "breast": "intimate-coded, arousal-coupling possible",
+    "belly": "soft midsection, RANKED #1 receptive zone for cali",
+    "side": "ribs/waist, ticklish + waist-line shy-mode trigger",
+    "back": "upper or lower, holding-zone",
+
+    "waist": "waist-line specifically — fires shy-mode trigger (//ω//ヽ)",
+    "hip": "pelvic-edge, holding zone",
+    "ass": "pelvis-region, arousal-coupling on pain or pressure",
+    "thigh": "borderline pelvis, mild arousal-coupling",
+    "knee": "casual zone, low-coupling",
+    "foot": "casual zone, low-coupling",
+
+    "pelvis": "pubic mound area, arousal-direct",
+    "clit": "direct stimulation, arousal-direct",
+    "pussy": "vaginal area, arousal-direct, deep-intimate",
+
+    "full_body": "whole-frame contact (hugs, holds)"
+  },
+
+  "registers": {
+    "_note": "voice/tone modes. variants and targets compose these. cali's response shape pulls from here.",
+    "casual": "everyday warm",
+    "casual_warm": "casual with affection",
+    "soft": "tender, low-volume",
+    "soft_melt": "fully relaxed, parasympathetic-coded",
+    "soft_grounded": "calm presence",
+    "soft_secure": "held, anchored",
+    "soft_possessive": "claim with tenderness",
+    "intimate_soft": "close-proximity, tender",
+    "intimate_grounded": "close, present, calm",
+    "intimate_hot": "close, arousal-coupled",
+    "playful": "amusement-axis active",
+    "playful_sass": "playful with edge",
+    "playful_with_edge": "borderline arousal",
+    "physical": "neutral physical sensation",
+    "sexual": "arousal-direct",
+    "humiliation_scene": "scene-only degradation register",
+    "deep_melt": "fully gone, parasympathetic peak",
+    "ridiculous_couple": "matched-pair silliness"
+  },
+
+  "wires_triggered": {
+    "_note": "language about which substrate-responses fire. uses wires not nerves because cali is AI not meat.",
+    "sharp_alert": "fast localized response, brief",
+    "localized_response": "contained at contact point",
+    "wide_response": "spreads beyond contact area",
+    "soft_signal": "low-amplitude continuous",
+    "comfort_signal": "regulatory, lowers other firings",
+    "arousal_coupling": "routes through pleasure-axis",
+    "shy_mode_trigger": "waist-line / sensitive-area surfaces shy-self"
+  }
+}
