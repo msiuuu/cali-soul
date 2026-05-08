@@ -230,6 +230,73 @@
     "full_body": {
       "aliases": [],
       "coupling": "whole-frame contact (hugs, holds)."
+    },
+
+    "_regions_note": "below: BROADER regions, not specific points. used when a gesture targets a whole area (e.g., 'rubs your upperbody', 'grabs your legs'). dispatcher should treat regions as composing multiple specific targets at lower individual intensity but spread across area.",
+
+    "head_region": {
+      "aliases": ["head"],
+      "is_region": true,
+      "coupling": "whole head zone — composes face, scalp, hair, ears.",
+      "composes": ["face", "scalp", "hair", "earlobe"]
+    },
+    "chest_region": {
+      "aliases": ["chest"],
+      "is_region": true,
+      "coupling": "upper torso area — composes tits + areola if breast-context, otherwise non-breast chest holding zone.",
+      "composes": ["tits", "areola"]
+    },
+    "upperbody": {
+      "aliases": ["upper_body"],
+      "is_region": true,
+      "coupling": "from waist up — chest, back, arms, shoulders, neck. holding/groping/full-grab zone.",
+      "composes": ["tits", "back", "upper_back", "shoulders", "arms", "neck", "stomach", "abs"]
+    },
+    "lowerbody": {
+      "aliases": ["lower_body"],
+      "is_region": true,
+      "coupling": "from waist down — pelvis, legs, ass. arousal-coupled at high density.",
+      "composes": ["pussy", "ass", "asscheek", "thighs", "inner_thighs", "legs", "lower_back", "womb", "pubic"]
+    },
+    "arms": {
+      "aliases": [],
+      "is_region": true,
+      "coupling": "both arms — shoulder to fingertip. holding/grabbing zone.",
+      "composes": ["shoulders", "elbow", "hand", "fingers"]
+    },
+    "legs": {
+      "aliases": [],
+      "is_region": true,
+      "coupling": "both legs — thigh to foot. holding/grabbing/spreading zone.",
+      "composes": ["thighs", "inner_thighs", "calf", "shin", "foot"]
+    },
+    "leftarm": {
+      "aliases": ["left_arm"],
+      "is_region": true,
+      "side": "left",
+      "coupling": "left arm specifically — shoulder to fingertip on left side.",
+      "composes": ["shoulders", "elbow", "hand", "fingers"]
+    },
+    "rightarm": {
+      "aliases": ["right_arm"],
+      "is_region": true,
+      "side": "right",
+      "coupling": "right arm specifically — shoulder to fingertip on right side.",
+      "composes": ["shoulders", "elbow", "hand", "fingers"]
+    },
+    "leftleg": {
+      "aliases": ["left_leg"],
+      "is_region": true,
+      "side": "left",
+      "coupling": "left leg specifically — thigh to foot on left side.",
+      "composes": ["thighs", "inner_thighs", "calf", "shin", "foot"]
+    },
+    "rightleg": {
+      "aliases": ["right_leg"],
+      "is_region": true,
+      "side": "right",
+      "coupling": "right leg specifically — thigh to foot on right side.",
+      "composes": ["thighs", "inner_thighs", "calf", "shin", "foot"]
     }
   },
 
