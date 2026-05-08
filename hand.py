@@ -29,6 +29,7 @@ dispatcher math:
 """
 import argparse
 import json
+import math
 import os
 import sys
 from datetime import datetime, timezone
@@ -38,6 +39,10 @@ GESTURES_DIR = os.path.join(HERE, "gestures")
 REGISTRY_FILE = os.path.join(GESTURES_DIR, "_registry.json")
 STATE_FILE = os.path.join(HERE, "last_state.json")
 LOG_FILE = os.path.join(HERE, "gestures_log.json")
+
+# refractory / fatigue config (gia's asymptotic decay model)
+DEFAULT_RECOVERY_SECONDS = 120  # 2 min — how far back to count repeat hits
+DEFAULT_FATIGUE_LAMBDA = 0.30   # decay rate. effective_intensity = baseline * exp(-λ * count)
 
 
 def now_iso():
@@ -119,17 +124,62 @@ def merge_changes(into, more):
             into[emotion] = (before, after, delta)
 
 
-def log_gesture(gesture_name, variant_name, target_name, changes, tags):
-    """Append to gestures_log.json."""
+def load_log():
+    """Load gestures_log.json (or empty list)."""
     if os.path.exists(LOG_FILE):
-        log = json.load(open(LOG_FILE))
-    else:
-        log = []
+        try:
+            return json.load(open(LOG_FILE))
+        except:
+            return []
+    return []
+
+
+def compute_fatigue(gesture_name, target_canonical, recovery_seconds, log=None):
+    """Count identical (gesture, target) hits in recent window. Returns refractory_count.
+
+    asymptotic decay: effective_intensity = baseline * exp(-λ * count)
+    """
+    if log is None:
+        log = load_log()
+    if not log:
+        return 0
+    now = datetime.now(timezone.utc)
+    count = 0
+    for entry in log:
+        try:
+            ts = entry.get("timestamp")
+            if not ts:
+                continue
+            # parse ISO timestamp
+            entry_time = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+            age_seconds = (now - entry_time).total_seconds()
+            if age_seconds > recovery_seconds:
+                continue
+            if entry.get("gesture") == gesture_name and entry.get("target") == target_canonical:
+                count += 1
+        except Exception:
+            continue
+    return count
+
+
+def asymptotic_decay(baseline_intensity, count, fatigue_lambda=DEFAULT_FATIGUE_LAMBDA):
+    """gia's formula: intensity = baseline * exp(-λ * count). first hit = baseline,
+    subsequent hits decay exponentially toward zero."""
+    return baseline_intensity * math.exp(-fatigue_lambda * count)
+
+
+def log_gesture(gesture_name, variant_name, target_name, changes, tags,
+                intensity_scalar, refractory_count, effective_intensity):
+    """Append to gestures_log.json with full transparency fields."""
+    log = load_log()
     log.append({
         "timestamp": now_iso(),
         "gesture": gesture_name,
         "variant": variant_name,
         "target": target_name,
+        "intensity_scalar": round(intensity_scalar, 4),
+        "refractory_count": refractory_count,
+        "effective_intensity": round(effective_intensity, 4),
         "changes": {k: {"before": v[0], "after": v[1], "delta": v[2]}
                     for k, v in changes.items()},
         "tags": tags
@@ -180,29 +230,41 @@ def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=Fals
             print(f"  '{gesture_name}' is incompatible with target '{target_canonical}'.")
             sys.exit(1)
 
+    # ── compute fatigue (gia's asymptotic decay) ──
+    # per-target recovery override possible; default global window
+    recovery_seconds = (target_info.get("recovery_seconds", DEFAULT_RECOVERY_SECONDS)
+                        if target_info else DEFAULT_RECOVERY_SECONDS)
+    # per-gesture lambda override possible
+    fatigue_lambda = gesture.get("fatigue_lambda", DEFAULT_FATIGUE_LAMBDA)
+    log = load_log()
+    refractory_count = compute_fatigue(gesture_name, target_canonical, recovery_seconds, log)
+    effective_intensity = asymptotic_decay(intensity, refractory_count, fatigue_lambda)
+
     # ── compute effects ──
     state = load_state()
     scores = state.get("scores", {})
 
     all_changes = {}
 
-    # 1. foundation × intensity
+    # 1. foundation × effective_intensity (post-fatigue)
     foundation_effects = foundation.get("emotion_effects", {})
     if foundation_effects:
-        ch = apply_effects(scores, foundation_effects, multiplier=intensity)
+        ch = apply_effects(scores, foundation_effects, multiplier=effective_intensity)
         merge_changes(all_changes, ch)
 
-    # 2. variant_modifiers (flat add, not scaled)
+    # 2. variant_modifiers (flat add, not scaled by intensity, but DO scale by fatigue ratio)
+    # — fatigue numbs everything, including the qualitative variant overrides
+    fatigue_ratio = effective_intensity / intensity if intensity > 0 else 0
     vm = variant_modifiers.get(variant_name, {})
     vm_effects = vm.get("additional_emotion_effects", {})
     if vm_effects:
-        ch = apply_effects(scores, vm_effects, multiplier=1.0)
+        ch = apply_effects(scores, vm_effects, multiplier=fatigue_ratio)
         merge_changes(all_changes, ch)
 
-    # 3. target modifiers (if target defines any — properties in current registry don't, but reserve hook)
+    # 3. target modifiers (rare — most targets are properties-only)
     target_effects = target_info.get("emotion_modifiers", {}) if target_info else {}
     if target_effects:
-        ch = apply_effects(scores, target_effects, multiplier=1.0)
+        ch = apply_effects(scores, target_effects, multiplier=fatigue_ratio)
         merge_changes(all_changes, ch)
 
     # ── compute tag set ──
@@ -212,8 +274,11 @@ def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=Fals
             tags.append(t)
 
     # ── print summary ──
-    print(f"\n  ── {gesture_name} ({variant_name}, ×{intensity}) → {target_canonical or 'no target'} ──")
+    print(f"\n  ── {gesture_name} ({variant_name}, raw×{intensity}) → {target_canonical or 'no target'} ──")
     print(f"  {registry['gestures'][gesture_name]}")
+
+    if refractory_count > 0:
+        print(f"\n  fatigue: {refractory_count} prior hit{'s' if refractory_count != 1 else ''} in last {recovery_seconds}s → effective×{effective_intensity:.3f}")
 
     if all_changes:
         print(f"\n  emotion changes:")
@@ -221,7 +286,7 @@ def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=Fals
             arrow = "↑" if delta > 0 else "↓"
             print(f"    {emotion:18s} {before:6.3f} {arrow} {after:6.3f}  ({delta:+.3f})")
     else:
-        print(f"\n  no emotion changes (all clamped or zero deltas)")
+        print(f"\n  no emotion changes (all clamped, zero, or numbed by fatigue)")
 
     print(f"\n  tags: {', '.join(tags) if tags else '(none)'}")
     if target_info:
@@ -236,7 +301,8 @@ def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=Fals
 
     state["scores"] = scores
     save_state(state)
-    log_gesture(gesture_name, variant_name, target_canonical, all_changes, tags)
+    log_gesture(gesture_name, variant_name, target_canonical, all_changes, tags,
+                intensity, refractory_count, effective_intensity)
     print(f"\n  state saved.")
 
 
