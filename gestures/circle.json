@@ -1,0 +1,42 @@
+{
+  "name": "circle",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_low", "friction", "stimulating"],
+    "labels": ["physical_contact", "stimulation", "soft", "exploration"],
+    "emotion_effects": {
+      "arousal": 0.015,
+      "joy": 0.015,
+      "tenderness": 0.01
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "belly",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["pleasure"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_med"],
+      "additional_emotion_effects": {
+        "arousal": 0.01,
+        "desire": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "stretch"],
+      "additional_emotion_effects": {
+        "arousal": 0.025,
+        "desire": 0.015,
+        "vulnerability": 0.01
+      }
+    }
+  }
+}
