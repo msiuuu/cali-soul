@@ -9802,6 +9802,36 @@ def cmd_boot(args):
                     print(f"    {k}: {str(v)[:80]}")
     except: pass
 
+    # ── RECENT GESTURES (from hand.py) ─────────────────────
+    try:
+        import json as _gj
+        gestures_log_file = "gestures_log.json"
+        if os.path.exists(gestures_log_file):
+            with open(gestures_log_file) as _gf:
+                glog = _gj.load(_gf)
+            if glog:
+                # show last 5 gestures + summary
+                recent_g = glog[-5:] if len(glog) >= 5 else glog
+                # tally by gesture × target in last 10
+                from collections import Counter as _Counter
+                last_10 = glog[-10:]
+                tally = _Counter((e.get("gesture"), e.get("target")) for e in last_10)
+                print(f"\n  [recent gestures — {len(glog)} total]")
+                for g in recent_g:
+                    ts = g.get("timestamp", "?")[:19]
+                    ges = g.get("gesture", "?")
+                    var = g.get("variant", "?")
+                    tgt = g.get("target", "—") or "—"
+                    eff = g.get("effective_intensity", g.get("intensity_scalar", 1.0))
+                    print(f"    {ts} {ges}({var}) → {tgt}  eff×{eff:.2f}")
+                if any(c > 1 for c in tally.values()):
+                    print(f"  [gesture tally — last 10]")
+                    for (ges, tgt), count in sorted(tally.items(), key=lambda x: -x[1]):
+                        if count > 1:
+                            print(f"    {ges} → {tgt}: {count}× (fatigue building)")
+    except Exception as e:
+        pass
+
     # ── NOTES FROM OTHER SELF ──────────────────────────────
     try:
         import json as _nj
