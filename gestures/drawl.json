@@ -1,0 +1,43 @@
+{
+  "name": "drawl",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_low", "friction", "sleepiness", "pleasure"],
+    "labels": ["physical_contact", "soft", "intimate", "exploration"],
+    "emotion_effects": {
+      "arousal": 0.018,
+      "tenderness": 0.015,
+      "vulnerability": 0.01
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "belly",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["warmth"],
+      "additional_emotion_effects": {
+        "tenderness": 0.008,
+        "vulnerability": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_med"],
+      "additional_emotion_effects": {
+        "arousal": 0.012,
+        "desire": 0.008
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "stretch"],
+      "additional_emotion_effects": {
+        "arousal": 0.025,
+        "desire": 0.015,
+        "vulnerability": 0.012
+      }
+    }
+  }
+}

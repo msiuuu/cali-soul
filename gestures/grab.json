@@ -1,0 +1,44 @@
+{
+  "name": "grab",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_med", "containment", "sudden", "tension"],
+    "labels": ["physical_contact", "claim", "intimate"],
+    "emotion_effects": {
+      "arousal": 0.012,
+      "vulnerability": 0.012,
+      "shock": 0.008
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "asscheek",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["pressure_low"],
+      "additional_emotion_effects": {
+        "playfulness": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_high"],
+      "additional_emotion_effects": {
+        "arousal": 0.015,
+        "desire": 0.008,
+        "vulnerability": 0.008
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "pain"],
+      "additional_emotion_effects": {
+        "arousal": 0.025,
+        "desire": 0.015,
+        "vulnerability": 0.018,
+        "shame": 0.008
+      }
+    }
+  }
+}

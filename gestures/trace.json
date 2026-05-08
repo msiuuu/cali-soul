@@ -1,0 +1,40 @@
+{
+  "name": "trace",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_low", "friction", "stimulating"],
+    "labels": ["physical_contact", "exploration", "soft", "stimulation"],
+    "emotion_effects": {
+      "arousal": 0.012,
+      "tenderness": 0.01,
+      "vulnerability": 0.005
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "belly",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["sleepiness"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_med"],
+      "additional_emotion_effects": {
+        "arousal": 0.008
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_med", "stretch"],
+      "additional_emotion_effects": {
+        "arousal": 0.018,
+        "desire": 0.008
+      }
+    }
+  }
+}

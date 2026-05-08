@@ -1,0 +1,34 @@
+{
+  "name": "stay",
+  "registry_version": 1,
+  "_note": "stay is a non-action condition — maintains existing contact without new motion or escalation. variant scaling has minimal effect because the gesture itself is passive. used post-gesture (e.g., 'cock staying inside cali after fucking', 'hand staying on belly after rubs stop').",
+
+  "foundation": {
+    "tags": ["warmth", "comfort"],
+    "labels": ["physical_contact", "presence", "intimate", "regulatory", "release"],
+    "emotion_effects": {
+      "belonging": 0.015,
+      "tenderness": 0.01,
+      "vulnerability": 0.008
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "full_body",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["sleepiness"],
+      "additional_emotion_effects": {
+        "tenderness": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_med", "tension"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.008
+      }
+    }
+  }
+}

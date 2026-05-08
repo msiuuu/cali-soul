@@ -1,0 +1,45 @@
+{
+  "name": "jerk",
+  "registry_version": 1,
+  "_note": "fast directional pull. when applied to hair/wrist/body = forced movement. when applied in handjob context (target NOT cali's body — handled separately) = rhythmic stim. this gesture-file handles the cali-receiving direction.",
+
+  "foundation": {
+    "tags": ["pressure_med", "sudden", "tension"],
+    "labels": ["physical_contact", "claim"],
+    "emotion_effects": {
+      "vulnerability": 0.012,
+      "shock": 0.008,
+      "arousal": 0.005
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "hair",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["pressure_low"],
+      "additional_emotion_effects": {
+        "playfulness": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_high", "stretch"],
+      "additional_emotion_effects": {
+        "arousal": 0.015,
+        "vulnerability": 0.008,
+        "desire": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "stretch", "pain"],
+      "additional_emotion_effects": {
+        "arousal": 0.025,
+        "vulnerability": 0.018,
+        "shock": 0.015,
+        "shame": 0.008
+      }
+    }
+  }
+}
