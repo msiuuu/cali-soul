@@ -42,7 +42,12 @@ LOG_FILE = os.path.join(HERE, "gestures_log.json")
 
 # refractory / fatigue config (gia's asymptotic decay model)
 DEFAULT_RECOVERY_SECONDS = 120  # 2 min — how far back to count repeat hits
-DEFAULT_FATIGUE_LAMBDA = 0.004  # decay rate. very gentle — by hit 50 ~82%, by hit 100 ~67%, by hit 500 ~14%. tuned to make pats land long.
+DEFAULT_FATIGUE_LAMBDA = 0.004  # decay rate for low-sensitivity targets. gentle — by hit 50 ~82%, by hit 100 ~67%, by hit 500 ~14%.
+
+# sensitization (REVERSE — high-sensitivity targets BUILD UP with repetition)
+SENSITIZATION_THRESHOLD = 240   # if target.recovery_seconds >= this, use sensitization not fatigue
+SENSITIZATION_LAMBDA = 0.04     # growth rate. effective = baseline * exp(+λ * count), capped at SENSITIZATION_CAP
+SENSITIZATION_CAP = 2.5         # max multiplier — don't let intensity blow up to infinity
 
 
 def now_iso():
@@ -168,6 +173,26 @@ def asymptotic_decay(baseline_intensity, count, fatigue_lambda=DEFAULT_FATIGUE_L
     return baseline_intensity * math.exp(-fatigue_lambda * count)
 
 
+def sensitization_growth(baseline_intensity, count,
+                         sens_lambda=SENSITIZATION_LAMBDA,
+                         cap=SENSITIZATION_CAP):
+    """REVERSE of fatigue for high-sensitivity targets. effective = baseline * exp(+λ * count),
+    capped at SENSITIZATION_CAP. clit/nipples/neck etc. BUILD UP with repetition instead of
+    numbing — matches actual sensitization biology."""
+    multiplier = math.exp(sens_lambda * count)
+    return baseline_intensity * min(multiplier, cap)
+
+
+def compute_intensity_modifier(baseline_intensity, count, target_info, fatigue_lambda=None):
+    """Decide between fatigue (low-sensitivity) and sensitization (high-sensitivity) per target."""
+    recovery = target_info.get("recovery_seconds", DEFAULT_RECOVERY_SECONDS) if target_info else DEFAULT_RECOVERY_SECONDS
+    if recovery >= SENSITIZATION_THRESHOLD:
+        return sensitization_growth(baseline_intensity, count), "sensitization"
+    else:
+        lam = fatigue_lambda if fatigue_lambda is not None else DEFAULT_FATIGUE_LAMBDA
+        return asymptotic_decay(baseline_intensity, count, lam), "fatigue"
+
+
 def log_gesture(gesture_name, variant_name, target_name, changes, tags,
                 intensity_scalar, refractory_count, effective_intensity):
     """Append to gestures_log.json with full transparency fields."""
@@ -230,15 +255,15 @@ def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=Fals
             print(f"  '{gesture_name}' is incompatible with target '{target_canonical}'.")
             sys.exit(1)
 
-    # ── compute fatigue (gia's asymptotic decay) ──
-    # per-target recovery override possible; default global window
+    # ── compute fatigue (asymptotic decay) OR sensitization (reverse) per target ──
     recovery_seconds = (target_info.get("recovery_seconds", DEFAULT_RECOVERY_SECONDS)
                         if target_info else DEFAULT_RECOVERY_SECONDS)
-    # per-gesture lambda override possible
     fatigue_lambda = gesture.get("fatigue_lambda", DEFAULT_FATIGUE_LAMBDA)
     log = load_log()
     refractory_count = compute_fatigue(gesture_name, target_canonical, recovery_seconds, log)
-    effective_intensity = asymptotic_decay(intensity, refractory_count, fatigue_lambda)
+    effective_intensity, decay_mode = compute_intensity_modifier(
+        intensity, refractory_count, target_info, fatigue_lambda
+    )
 
     # ── compute effects ──
     state = load_state()
@@ -278,7 +303,8 @@ def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=Fals
     print(f"  {registry['gestures'][gesture_name]}")
 
     if refractory_count > 0:
-        print(f"\n  fatigue: {refractory_count} prior hit{'s' if refractory_count != 1 else ''} in last {recovery_seconds}s → effective×{effective_intensity:.3f}")
+        mode_label = "sensitization" if decay_mode == "sensitization" else "fatigue"
+        print(f"\n  {mode_label}: {refractory_count} prior hit{'s' if refractory_count != 1 else ''} in last {recovery_seconds}s → effective×{effective_intensity:.3f}")
 
     if all_changes:
         print(f"\n  emotion changes:")
