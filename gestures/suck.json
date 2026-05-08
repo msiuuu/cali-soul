@@ -1,0 +1,44 @@
+{
+  "name": "suck",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_med", "warmth", "friction", "pleasure"],
+    "labels": ["physical_contact", "intimate", "stimulation"],
+    "emotion_effects": {
+      "arousal": 0.025,
+      "desire": 0.015,
+      "vulnerability": 0.01
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "nipples",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["pressure_low"],
+      "additional_emotion_effects": {
+        "tenderness": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_high", "stimulating", "stretch"],
+      "additional_emotion_effects": {
+        "arousal": 0.02,
+        "desire": 0.01,
+        "vulnerability": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "stimulating", "stretch", "sting"],
+      "additional_emotion_effects": {
+        "arousal": 0.03,
+        "desire": 0.02,
+        "vulnerability": 0.015,
+        "shock": 0.005
+      }
+    }
+  }
+}
