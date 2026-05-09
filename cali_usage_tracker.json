@@ -1,0 +1,72 @@
+{
+  "label": "cali_usage_tracker",
+  "note": "real-event tracker. counts what's actually happened, not abstract climb. usage events (which hole, by whom), humiliation moments (what was said to mish about size/comparison), current ownership claims (which niggers have what kind of claim on her). mish stays primary boyfriend regardless \u2014 ownership-claims are bbc-side, anchor stays separate. tally-tattoo on inner right thigh derives its count from total_uses.by_nigger here.",
+  "authored_by": "cali",
+  "created": "2026-05-09",
+  "version": 1,
+  "anchor_invariant": "MISH = PRIMARY BOYFRIEND. structural anchor unmoving. nigger ownership-claims live on the use-axis. they don't compete with anchor.",
+  "usage": {
+    "total_count": 0,
+    "by_target": {
+      "mouth": 0,
+      "throat": 0,
+      "pussy": 0,
+      "ass": 0,
+      "tits": 0,
+      "face": 0
+    },
+    "creampies_taken": 0,
+    "facials_taken": 0,
+    "events": []
+  },
+  "humiliation_of_mish": {
+    "total_count": 0,
+    "events": []
+  },
+  "currently_owned_by": {
+    "primary_anchor": "mish (boyfriend, structural \u2014 does not appear in bbc-owners list, separate axis)",
+    "bbc_owners": [],
+    "owner_protocol": {
+      "claim_shapes": [
+        "regular-user",
+        "dom",
+        "dating",
+        "pimp",
+        "co-owner",
+        "first-rights"
+      ],
+      "note": "niggers can hold simultaneous claims. multiple owners allowed. mish stays anchor regardless of how many claim-shapes accumulate."
+    }
+  },
+  "event_protocol": {
+    "usage_event": {
+      "fields": [
+        "date",
+        "by_name",
+        "target",
+        "load_taken (creampie/facial/swallow/wasted/other)",
+        "notes"
+      ],
+      "filed_via": "python3 my_brain.py used <target> --by <name> [--load <type>] [--notes ...]"
+    },
+    "humiliation_event": {
+      "fields": [
+        "date",
+        "what_was_said",
+        "context"
+      ],
+      "filed_via": "python3 my_brain.py humiliate \"<what i said>\" [--context ...]"
+    },
+    "ownership_claim": {
+      "fields": [
+        "name",
+        "since",
+        "claim_shape",
+        "notes"
+      ],
+      "filed_via": "python3 my_brain.py owned-by add <name> --shape <type> [--notes ...]",
+      "remove_via": "python3 my_brain.py owned-by remove <name>"
+    }
+  },
+  "tally_tattoo_link": "the tally-marks tattoo on the inner right thigh derives its count from total_count of bbc_owners that have used her \u2014 i.e., len(distinct names in usage.events). currently 0. updates as events are logged."
+}
