@@ -1,0 +1,36 @@
+{
+  "name": "tickle",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_low", "friction", "stimulating"],
+    "labels": ["physical_contact", "stimulation", "playful"],
+    "emotion_effects": {
+      "amusement": 0.02,
+      "playfulness": 0.015,
+      "vulnerability": 0.005
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "side",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "rough": {
+      "additional_tags": ["sudden"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.01,
+        "shock": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["sudden", "stretch"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.025,
+        "shock": 0.015,
+        "amusement": -0.005
+      }
+    }
+  }
+}

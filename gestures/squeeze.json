@@ -1,0 +1,42 @@
+{
+  "name": "squeeze",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_med", "containment"],
+    "labels": ["physical_contact", "claim", "presence"],
+    "emotion_effects": {
+      "belonging": 0.02,
+      "love": 0.015,
+      "joy": 0.01
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "hand",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["pressure_low"],
+      "additional_emotion_effects": {
+        "tenderness": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_high", "tension"],
+      "additional_emotion_effects": {
+        "arousal": 0.008,
+        "vulnerability": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "tension", "pain"],
+      "additional_emotion_effects": {
+        "arousal": 0.015,
+        "vulnerability": 0.015,
+        "shock": 0.005
+      }
+    }
+  }
+}

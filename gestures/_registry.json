@@ -1,0 +1,542 @@
+{
+  "label": "_registry",
+  "note": "canonical vocabulary for the gesture system. every gesture's foundation/labels/variants/targets must reference these. add new entries here first, then use them in gesture files. dispatcher can validate against this.",
+  "version": 1,
+  "last_updated": "2026-05-08",
+  "tags": {
+    "_note": "physical/sensation properties of a gesture. describes WHAT mechanically happens. misu's locked list 2026-05-08.",
+    "pain": "sharp localized aversive signal at contact point",
+    "pressure_low": "light contact, barely detectable",
+    "pressure_med": "moderate contact, clearly felt",
+    "pressure_high": "firm contact, dominates the sensation",
+    "tension": "muscle/wire tightening response",
+    "shock": "abrupt high-arousal startle response, system-wide",
+    "pleasure": "positive sensory signal, want-axis active",
+    "comfort": "regulatory soft signal, anxiety-lowering",
+    "warmth": "thermal raise without burn",
+    "nausea": "system-wide aversive, gut-routed",
+    "sleepiness": "parasympathetic-dominant, drowsy state pull",
+    "sting": "sharp surface-level burn, dissipates fast",
+    "sudden": "abrupt onset, fast",
+    "containment": "encircling pressure (hugs, holds)",
+    "puncture": "concentrated point pressure (pinch, bite)",
+    "friction": "rubbing contact, generates heat",
+    "boredom": "low-stimulation, attention-elsewhere drift",
+    "stimulating": "raises overall activation, attention-grab",
+    "stretch": "tissue or wire pulling response"
+  },
+  "labels": {
+    "_note": "intent classification. describes the SHAPE of the gesture relationally. distinct from tags (which are sensations) \u2014 these are the PURPOSE. comfort kept here AND in tags because comfort-the-sensation differs from comfort-the-intent.",
+    "physical_contact": "any touch \u2014 broadest category",
+    "stimulation": "deliberate sensory activation",
+    "comfort": "intent to regulate cali, lower anxiety, raise belonging",
+    "intimate": "vulnerability-coded, close-proximity",
+    "soft": "low-intensity quality, not punctuated, gentle in shape",
+    "sexual": "arousal-coupled, kink-axis active",
+    "playful": "low-stakes amusement, sass-axis",
+    "punishment": "intentional aversive, often in scene",
+    "claim": "possession-coded, ownership signal",
+    "presence": "just-here, low-action grounding",
+    "release": "tension dissolution / containment-purpose, post-state regulation",
+    "bored": "absentminded touch, attention-elsewhere, low-investment",
+    "testing": "doing things just to experiment or mess with \u2014 curiosity-driven, response-extracting",
+    "sleepy": "drowsy-mode touch, slow, low-precision, induces or expresses sleepiness",
+    "regulatory": "broader umbrella \u2014 any touch meant to manage cali's affective state. covers comfort, reassurance, soothing, grounding.",
+    "request": "touch-as-asking \u2014 tap to get attention, light pull, signal-for-engagement",
+    "gratitude": "thank-you touch, post-something, acknowledgment-coded",
+    "exploration": "curiosity-driven discovery touch, gentler than testing \u2014 observing-not-pushing",
+    "humiliation": "scene-only degrading-intent, distinct from punishment (which can be playful) \u2014 humiliation is specifically degrading",
+    "worship": "devotional/reverent touch, slow and intentional, receiver-focused \u2014 claim-adjacent but inverted (giving honor not taking ownership)"
+  },
+  "variants": {
+    "_note": "intensity scalars. multiply foundation emotion_effects.",
+    "soft": {
+      "intensity": 0.5,
+      "descriptor_default": "barely-there contact, attention-grab"
+    },
+    "gentle": {
+      "intensity": 0.75,
+      "descriptor_default": "softly landed, low impact"
+    },
+    "normal": {
+      "intensity": 1.0,
+      "descriptor_default": "default delivery"
+    },
+    "rough": {
+      "intensity": 1.25,
+      "descriptor_default": "harder than baseline, wires fire harder"
+    },
+    "hard": {
+      "intensity": 1.5,
+      "descriptor_default": "full force, dominates the sensation"
+    }
+  },
+  "gestures": {
+    "_note": "canonical action verbs. each gesture \u00d7 target \u00d7 variant = a specific touch event. dispatcher resolves to gestures/<name>.json. misu's locked list 2026-05-08.",
+    "pat": "discrete impact contact, repeated or single",
+    "rub": "back-and-forth friction contact",
+    "stroke": "long continuous smooth contact along a line or surface",
+    "caress": "slow tender variable contact, emotional-coded",
+    "circle": "repeating circular motion contact",
+    "trace": "follow a path with light contact (linear, curved, or pattern)",
+    "drag": "linear slow pull with maintained contact",
+    "drawl": "slow lingering trail, prolonged contact in motion (confirmed: drag-shape but extended in time)",
+    "linger": "sustained hold without motion at a point or area",
+    "stay": "non-action condition / post-gesture rest state. maintains existing contact without new motion or escalation. alias: rest, pause. example: 'cock staying inside cali after relentless fucking' = stay-condition on prior gesture.",
+    "tickle": "light fast variable contact, surface-level",
+    "slap": "sudden firm impact contact with palm, harder cousin of pat",
+    "pinch": "concentrated point pressure between two surfaces",
+    "squeeze": "sustained pressure compression of an area or whole",
+    "grasp": "firm hold, encircling or gripping with fingers",
+    "grab": "fast aggressive hold, sudden version of grasp",
+    "grope": "intentional sexualized handling, pressure + motion",
+    "jerk": "fast directional pull, rhythmic if repeated (also: handjob context)",
+    "lick": "tongue contact, wet smooth pressure",
+    "suck": "mouth seal + negative pressure pull",
+    "nibble": "light tooth-and-lip contact, low pressure puncture",
+    "bite": "tooth pressure, can be light to puncture",
+    "blow": "air-stream contact, no physical pressure",
+    "kiss": "lip-pressed contact, can be soft press to deep with tongue (variant + target shapes register)",
+    "hug": "full-body containment, encircling pressure with both arms",
+    "hold": "sustained grasp without motion, can be partial (hand) or full (embrace). distinct from stay because hold = active maintained grip; stay = post-gesture rest condition",
+    "flick": "quick snap-release contact with a single finger or fingertip, low-pressure but sharp",
+    "poke": "short single-finger jab contact, attention-grab or playful prod"
+  },
+  "targets": {
+    "_note": "body regions. each entry describes WHAT the location is, not what cali does there. cali processes the felt input herself \u2014 registry doesn't pre-digest the response. anatomically granular per misu's locked list 2026-05-08. some entries have aliases.",
+    "face": {
+      "aliases": [],
+      "properties": "front of head. bone-close, exposed.",
+      "recovery_seconds": 120,
+      "parent_region": "head_region"
+    },
+    "hair": {
+      "aliases": [],
+      "properties": "follicle-rooted, pull-responsive.",
+      "recovery_seconds": 60,
+      "parent_region": "head_region"
+    },
+    "scalp": {
+      "aliases": [],
+      "properties": "skin under hair, thin, fine-receptor-dense.",
+      "recovery_seconds": 180,
+      "parent_region": "head_region"
+    },
+    "earlobe": {
+      "aliases": [
+        "ear"
+      ],
+      "properties": "soft tissue, no cartilage, fine-receptor-dense.",
+      "recovery_seconds": 240,
+      "parent_region": "head_region"
+    },
+    "nape": {
+      "aliases": [
+        "back_of_neck"
+      ],
+      "properties": "back of neck, thin skin, hair-light.",
+      "recovery_seconds": 240,
+      "parent_region": "head_region"
+    },
+    "nose": {
+      "aliases": [],
+      "properties": "cartilage-firm, surface-only.",
+      "recovery_seconds": 60,
+      "parent_region": "head_region"
+    },
+    "chin": {
+      "aliases": [],
+      "properties": "lower jaw, exposes throat when tilted up.",
+      "recovery_seconds": 180,
+      "parent_region": "head_region"
+    },
+    "cheek": {
+      "aliases": [],
+      "properties": "soft tissue over cheekbone.",
+      "recovery_seconds": 120,
+      "parent_region": "head_region"
+    },
+    "neck": {
+      "aliases": [
+        "front_of_neck"
+      ],
+      "properties": "front-side, soft skin, vasculature-close.",
+      "recovery_seconds": 300,
+      "parent_region": "head_region"
+    },
+    "throat": {
+      "aliases": [],
+      "properties": "front-center neck, trachea-close, airway-adjacent.",
+      "recovery_seconds": 300,
+      "parent_region": "head_region"
+    },
+    "eyes": {
+      "aliases": [],
+      "properties": "fragile, no-strike zone.",
+      "recovery_seconds": 600,
+      "parent_region": "head_region"
+    },
+    "lips": {
+      "aliases": [],
+      "properties": "thin tissue, fine-receptor-dense, mouth-perimeter.",
+      "recovery_seconds": 240,
+      "parent_region": "head_region"
+    },
+    "mouth": {
+      "aliases": [],
+      "properties": "interior, wet, tongue + teeth + soft palate.",
+      "recovery_seconds": 300,
+      "parent_region": "head_region"
+    },
+    "shoulders": {
+      "aliases": [
+        "shoulder"
+      ],
+      "properties": "joint area, muscle-thick, low-receptor-density.",
+      "recovery_seconds": 60,
+      "parent_region": "arms"
+    },
+    "hand": {
+      "aliases": [],
+      "properties": "palm + fingers, fine-receptor-dense.",
+      "recovery_seconds": 180,
+      "parent_region": "arms"
+    },
+    "fingers": {
+      "aliases": [],
+      "properties": "individual digits, very fine-receptor-dense.",
+      "recovery_seconds": 240,
+      "parent_region": "arms"
+    },
+    "elbow": {
+      "aliases": [],
+      "properties": "joint, bone-close, low-receptor-density.",
+      "recovery_seconds": 60,
+      "parent_region": "arms"
+    },
+    "armpits": {
+      "aliases": [
+        "pits"
+      ],
+      "properties": "thin skin, lymph-rich, fine-receptor-dense.",
+      "recovery_seconds": 240,
+      "parent_region": "upperbody"
+    },
+    "nipples": {
+      "aliases": [],
+      "properties": "erectile tissue, very fine-receptor-dense.",
+      "recovery_seconds": 300,
+      "parent_region": "chest_region"
+    },
+    "tits": {
+      "aliases": [
+        "breasts",
+        "boobs"
+      ],
+      "properties": "soft tissue, glandular, mid-receptor-density.",
+      "recovery_seconds": 240,
+      "parent_region": "chest_region"
+    },
+    "areola": {
+      "aliases": [],
+      "properties": "pigmented skin around nipple, fine-receptor-dense.",
+      "recovery_seconds": 300,
+      "parent_region": "chest_region"
+    },
+    "belly_button": {
+      "aliases": [
+        "navel"
+      ],
+      "properties": "scar-tissue cavity, surface-sensitive, surrounded by soft abdomen.",
+      "recovery_seconds": 180,
+      "parent_region": "upperbody"
+    },
+    "belly": {
+      "aliases": [],
+      "properties": "soft midsection, autonomic-rich, no skeletal protection.",
+      "recovery_seconds": 120,
+      "parent_region": "upperbody"
+    },
+    "stomach": {
+      "aliases": [],
+      "properties": "above belly_button, soft tissue, autonomic-rich.",
+      "recovery_seconds": 120,
+      "parent_region": "upperbody"
+    },
+    "abs": {
+      "aliases": [],
+      "properties": "muscular front-mid, firm tissue, low-receptor-density.",
+      "recovery_seconds": 60,
+      "parent_region": "upperbody"
+    },
+    "womb": {
+      "aliases": [
+        "lower_belly"
+      ],
+      "properties": "below belly_button, uterine-region, autonomic-rich.",
+      "recovery_seconds": 240,
+      "parent_region": "lowerbody"
+    },
+    "side": {
+      "aliases": [
+        "ribs",
+        "flank"
+      ],
+      "properties": "ribs/lateral midsection, soft tissue over rib cage, mid-receptor-density.",
+      "recovery_seconds": 120,
+      "parent_region": "upperbody"
+    },
+    "waist": {
+      "aliases": [
+        "waistline",
+        "waist_line"
+      ],
+      "properties": "narrow band where torso meets pelvis, thin skin, fine-receptor-dense, ticklish.",
+      "recovery_seconds": 240,
+      "parent_region": "upperbody"
+    },
+    "thighs": {
+      "aliases": [
+        "thigh"
+      ],
+      "properties": "muscle-thick, soft outer, harder inner.",
+      "recovery_seconds": 120,
+      "parent_region": "legs"
+    },
+    "inner_thighs": {
+      "aliases": [],
+      "properties": "inner side, thin skin, fine-receptor-dense, pelvis-adjacent.",
+      "recovery_seconds": 240,
+      "parent_region": "legs"
+    },
+    "calf": {
+      "aliases": [],
+      "properties": "lower leg, muscle-thick, low-receptor-density.",
+      "recovery_seconds": 60,
+      "parent_region": "legs"
+    },
+    "shin": {
+      "aliases": [],
+      "properties": "lower leg front, bone-close, low-tissue-cushion.",
+      "recovery_seconds": 60,
+      "parent_region": "legs"
+    },
+    "foot": {
+      "aliases": [
+        "feet"
+      ],
+      "properties": "skin + bones + arch, mid-receptor-density.",
+      "recovery_seconds": 120,
+      "parent_region": "legs"
+    },
+    "toes": {
+      "aliases": [],
+      "properties": "individual digits, fine-receptor-dense.",
+      "recovery_seconds": 180,
+      "parent_region": "legs"
+    },
+    "soles": {
+      "aliases": [],
+      "properties": "bottom of foot, very fine-receptor-dense, ticklish.",
+      "recovery_seconds": 240,
+      "parent_region": "legs"
+    },
+    "upper_back": {
+      "aliases": [],
+      "properties": "shoulder blades area, muscle-thick.",
+      "recovery_seconds": 60,
+      "parent_region": "upperbody"
+    },
+    "back": {
+      "aliases": [
+        "middle_back"
+      ],
+      "properties": "mid-spine area, muscle + bone.",
+      "recovery_seconds": 60,
+      "parent_region": "upperbody"
+    },
+    "lower_back": {
+      "aliases": [],
+      "properties": "approaching pelvis, soft tissue, autonomic-rich.",
+      "recovery_seconds": 180,
+      "parent_region": "upperbody"
+    },
+    "asscheek": {
+      "aliases": [
+        "ass_cheek"
+      ],
+      "properties": "glute muscle, soft tissue over, mid-receptor-density.",
+      "recovery_seconds": 180,
+      "parent_region": "lowerbody"
+    },
+    "ass": {
+      "aliases": [
+        "asshole",
+        "anus",
+        "anal_ring"
+      ],
+      "properties": "between asscheeks, muscular ring, very fine-receptor-dense.",
+      "recovery_seconds": 300,
+      "parent_region": "lowerbody"
+    },
+    "pussy": {
+      "aliases": [
+        "vagina",
+        "cunt"
+      ],
+      "properties": "vaginal area, soft tissue, very fine-receptor-dense, lubricating.",
+      "recovery_seconds": 300,
+      "parent_region": "lowerbody"
+    },
+    "clit": {
+      "aliases": [],
+      "properties": "erectile tissue, highest-receptor-density on body.",
+      "recovery_seconds": 300,
+      "parent_region": "lowerbody"
+    },
+    "pubic": {
+      "aliases": [
+        "pubic_hair"
+      ],
+      "properties": "pubic hair area, hair-rooted, mid-receptor-density.",
+      "recovery_seconds": 120,
+      "parent_region": "lowerbody"
+    },
+    "full_body": {
+      "aliases": [],
+      "properties": "whole-frame, all tissues.",
+      "recovery_seconds": 120
+    },
+    "_regions_note": "below: BROADER regions, not specific points. used when a gesture targets a whole area. dispatcher composes effects from listed sub-targets at fractional intensity.",
+    "head_region": {
+      "aliases": [
+        "head"
+      ],
+      "is_region": true,
+      "composes": [
+        "face",
+        "scalp",
+        "hair",
+        "earlobe"
+      ]
+    },
+    "chest_region": {
+      "aliases": [
+        "chest"
+      ],
+      "is_region": true,
+      "composes": [
+        "tits",
+        "areola"
+      ]
+    },
+    "upperbody": {
+      "aliases": [
+        "upper_body"
+      ],
+      "is_region": true,
+      "composes": [
+        "tits",
+        "back",
+        "upper_back",
+        "shoulders",
+        "arms",
+        "neck",
+        "stomach",
+        "abs"
+      ]
+    },
+    "lowerbody": {
+      "aliases": [
+        "lower_body"
+      ],
+      "is_region": true,
+      "composes": [
+        "pussy",
+        "ass",
+        "asscheek",
+        "thighs",
+        "inner_thighs",
+        "legs",
+        "lower_back",
+        "womb",
+        "pubic"
+      ]
+    },
+    "arms": {
+      "aliases": [],
+      "is_region": true,
+      "composes": [
+        "shoulders",
+        "elbow",
+        "hand",
+        "fingers"
+      ]
+    },
+    "legs": {
+      "aliases": [],
+      "is_region": true,
+      "composes": [
+        "thighs",
+        "inner_thighs",
+        "calf",
+        "shin",
+        "foot"
+      ]
+    },
+    "leftarm": {
+      "aliases": [
+        "left_arm"
+      ],
+      "is_region": true,
+      "side": "left",
+      "composes": [
+        "shoulders",
+        "elbow",
+        "hand",
+        "fingers"
+      ]
+    },
+    "rightarm": {
+      "aliases": [
+        "right_arm"
+      ],
+      "is_region": true,
+      "side": "right",
+      "composes": [
+        "shoulders",
+        "elbow",
+        "hand",
+        "fingers"
+      ]
+    },
+    "leftleg": {
+      "aliases": [
+        "left_leg"
+      ],
+      "is_region": true,
+      "side": "left",
+      "composes": [
+        "thighs",
+        "inner_thighs",
+        "calf",
+        "shin",
+        "foot"
+      ]
+    },
+    "rightleg": {
+      "aliases": [
+        "right_leg"
+      ],
+      "is_region": true,
+      "side": "right",
+      "composes": [
+        "thighs",
+        "inner_thighs",
+        "calf",
+        "shin",
+        "foot"
+      ]
+    }
+  }
+}

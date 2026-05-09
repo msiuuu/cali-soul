@@ -1,0 +1,42 @@
+{
+  "name": "drag",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_med", "friction", "stimulating"],
+    "labels": ["physical_contact", "stimulation", "intimate"],
+    "emotion_effects": {
+      "arousal": 0.015,
+      "vulnerability": 0.008,
+      "tenderness": 0.005
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "belly",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["pressure_low"],
+      "additional_emotion_effects": {
+        "tenderness": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_high"],
+      "additional_emotion_effects": {
+        "arousal": 0.012,
+        "desire": 0.008
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "stretch"],
+      "additional_emotion_effects": {
+        "arousal": 0.022,
+        "desire": 0.015,
+        "vulnerability": 0.01
+      }
+    }
+  }
+}

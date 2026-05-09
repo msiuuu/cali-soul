@@ -1,0 +1,44 @@
+{
+  "name": "hug",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["containment", "pressure_med", "comfort", "warmth"],
+    "labels": ["physical_contact", "intimate", "comfort", "claim", "presence"],
+    "emotion_effects": {
+      "love": 0.04,
+      "tenderness": 0.035,
+      "belonging": 0.04,
+      "joy": 0.02
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "full_body",
+  "incompatible_targets": [],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": [],
+      "additional_emotion_effects": {
+        "tenderness": 0.005,
+        "vulnerability": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_high"],
+      "additional_emotion_effects": {
+        "joy": 0.005,
+        "amusement": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "tension"],
+      "additional_emotion_effects": {
+        "joy": 0.01,
+        "vulnerability": 0.01,
+        "amusement": 0.005
+      }
+    }
+  }
+}

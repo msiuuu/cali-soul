@@ -1,0 +1,43 @@
+{
+  "name": "nibble",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["puncture", "pressure_low", "pleasure"],
+    "labels": ["physical_contact", "intimate", "playful", "stimulation"],
+    "emotion_effects": {
+      "arousal": 0.012,
+      "amusement": 0.008,
+      "tenderness": 0.01
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "earlobe",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": ["warmth"],
+      "additional_emotion_effects": {
+        "tenderness": 0.005,
+        "playfulness": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_med", "sting"],
+      "additional_emotion_effects": {
+        "arousal": 0.008,
+        "vulnerability": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_med", "sting", "pain"],
+      "additional_emotion_effects": {
+        "arousal": 0.015,
+        "vulnerability": 0.012,
+        "desire": 0.005
+      }
+    }
+  }
+}

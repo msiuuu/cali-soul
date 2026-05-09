@@ -1,0 +1,34 @@
+{
+  "name": "flick",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_low", "sudden", "sting"],
+    "labels": ["physical_contact", "stimulation", "playful"],
+    "emotion_effects": {
+      "amusement": 0.012,
+      "playfulness": 0.008,
+      "vulnerability": 0.003
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "face",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "rough": {
+      "additional_tags": ["pain"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pain", "stimulating"],
+      "additional_emotion_effects": {
+        "vulnerability": 0.015,
+        "shock": 0.005
+      }
+    }
+  }
+}

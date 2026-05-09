@@ -1,0 +1,36 @@
+{
+  "name": "kiss",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_low", "warmth", "comfort", "pleasure"],
+    "labels": ["physical_contact", "intimate", "soft"],
+    "emotion_effects": {
+      "love": 0.04,
+      "tenderness": 0.04,
+      "belonging": 0.03
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "lips",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "rough": {
+      "additional_tags": ["pressure_med", "stimulating"],
+      "additional_emotion_effects": {
+        "desire": 0.02,
+        "arousal": 0.015
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_med", "stimulating", "stretch"],
+      "additional_emotion_effects": {
+        "desire": 0.04,
+        "arousal": 0.035,
+        "vulnerability": 0.01
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "pat",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_low", "sudden", "comfort"],
+    "labels": ["physical_contact", "comfort", "regulatory", "presence"],
+    "emotion_effects": {
+      "belonging": 0.03,
+      "tenderness": 0.015
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "head_region",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "rough": {
+      "additional_tags": ["stimulating"],
+      "additional_emotion_effects": {
+        "amusement": 0.01,
+        "playfulness": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pain", "stimulating"],
+      "additional_emotion_effects": {
+        "amusement": 0.015,
+        "vulnerability": 0.005
+      }
+    }
+  }
+}

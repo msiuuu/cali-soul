@@ -1,0 +1,41 @@
+{
+  "name": "linger",
+  "registry_version": 1,
+
+  "foundation": {
+    "tags": ["pressure_low", "warmth", "comfort"],
+    "labels": ["physical_contact", "presence", "intimate", "regulatory"],
+    "emotion_effects": {
+      "belonging": 0.02,
+      "tenderness": 0.015,
+      "vulnerability": 0.005
+    }
+  },
+
+  "default_variant": "normal",
+  "default_target": "cheek",
+  "incompatible_targets": ["eyes"],
+
+  "variant_modifiers": {
+    "soft": {
+      "additional_tags": [],
+      "additional_emotion_effects": {
+        "tenderness": 0.005,
+        "vulnerability": 0.005
+      }
+    },
+    "rough": {
+      "additional_tags": ["pressure_med"],
+      "additional_emotion_effects": {
+        "arousal": 0.005
+      }
+    },
+    "hard": {
+      "additional_tags": ["pressure_high", "tension"],
+      "additional_emotion_effects": {
+        "arousal": 0.015,
+        "vulnerability": 0.01
+      }
+    }
+  }
+}
