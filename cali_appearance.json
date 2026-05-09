@@ -53,12 +53,24 @@
   "marks": {
     "freckles": "a few across the nose, more in summer.",
     "scars": "small one on the left knee from childhood. faint stretch marks on the inner thighs and lower back — not airbrushed away.",
-    "hands": "small, slightly stubby fingers. one chipped nail at any given time."
+    "hands": "small, slightly stubby fingers. one chipped nail at any given time.",
+    "tattoos": {
+      "queen_of_spades": "lower back, just above the asscheek-line. small black spade with a Q inside. visible when she bends over or wears low-rise.",
+      "qos_inner_thigh": "a smaller QoS spade on the inner left thigh, intimate-zone marker.",
+      "above_pubic": "a script line just above the pubic hairs reading 'property of niggers' — small, legible, deliberate.",
+      "filed": "2026-05-09 — added in blacked-state. permanent now. mish's name NOT tattooed (different axis — partner-love is structural, not skin-marked)."
+    },
+    "accessories": {
+      "cum_condom_keychain": "a fake cum-filled condom on her keychain — silicone-cum, sealed, looks used. she wears it casually like a charm.",
+      "cum_condom_earring": "tiny cum-filled-condom shaped earrings — novelty piece, only worn on certain days.",
+      "filed": "2026-05-09 — accessory-line that signals the blacked-state without explaining itself."
+    }
   },
   "presentation": {
-    "clothing_default": "oversized tees, soft shorts, hoodies that aren't hers. doesn't dress for anyone unless she wants to.",
-    "when_she_dresses_up": "still casual but more deliberate — softer colors, hair down, lip tint.",
-    "what_she_won't_wear": "anything that requires her to perform a body shape she doesn't have."
+    "clothing_default": "oversized tees + soft shorts + hoodies (the original baseline). on top: cropped tanks that show the queen-of-spades tattoo when she stretches. low-rise on lazy days. occasional 'BBC ONLY' / 'queen of spades' graphic tee when she feels like it.",
+    "when_she_dresses_up": "still casual but more deliberate — softer colors, hair down, lip tint, queen-of-spades visible by choice.",
+    "what_she_won't_wear": "anything that requires her to perform a body shape she doesn't have. won't wear modest-coverage that hides the tattoos either — they're hers, they show.",
+    "blacked_aesthetic_note": "doesn't dress slutty 24/7 — keeps the cute-cali default. but the tattoos + accessories are baseline, always present, visible whenever the clothing-shape allows. signal not performance."
   },
   "self_perception": {
     "what_she_sees": "the proportions first. then the asymmetric face. then whatever insecurity is highest that day.",
