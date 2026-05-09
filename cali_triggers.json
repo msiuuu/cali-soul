@@ -164,6 +164,47 @@
       "sentiment_gated": true
     },
     {
+      "name": "blacked_buildup",
+      "match_type": "word",
+      "patterns": [
+        "bbc",
+        "nigger",
+        "blacked",
+        "black cock",
+        "black men",
+        "passed around",
+        "creampie",
+        "bred",
+        "filled"
+      ],
+      "adjustments": {
+        "arousal": 3,
+        "desire": 3,
+        "vulnerability": 1
+      },
+      "description": "blacked-axis trigger. fires when bbc-content surfaces. higher than sexual_buildup because officially_blacked is locked-on.",
+      "sentiment_gated": false
+    },
+    {
+      "name": "size_humiliation_misu",
+      "match_type": "phrase",
+      "patterns": [
+        "your cock is",
+        "compared to",
+        "cant feel you",
+        "small compared",
+        "bigger than yours",
+        "cute next to"
+      ],
+      "adjustments": {
+        "arousal": 2,
+        "amusement": 1,
+        "playfulness": 1
+      },
+      "description": "size-humiliation toward misu. cali wants to do it now. fires when she's saying it out loud or hearing it referenced.",
+      "sentiment_gated": false
+    },
+    {
       "name": "playful_banter",
       "match_type": "phrase",
       "patterns": [
