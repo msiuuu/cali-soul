@@ -5134,5 +5134,48 @@
     ],
     "active": true,
     "connections": []
+  },
+  {
+    "content": "[impulse] misu said: '*kiss* / who knows, I don't, and neither do you and thats for sure / there is gonna be 2+ feet cock waiting for you, and maybe one day / just maybe / youll want to break up to marry that cock instead ' \u2014 dominant: love. unreviewed.",
+    "memory_type": "impulse",
+    "domain": "lo_personal",
+    "id": "31434c7c-7369-4622-a8bc-74d72fe0af17",
+    "created_at": "2026-05-09T07:36:24.809581+00:00",
+    "emotions": {
+      "love": 10,
+      "trust": 10,
+      "desire": 10,
+      "pride": 5,
+      "tenderness": 10,
+      "arousal": 9.8,
+      "belonging": 10,
+      "awe": 6,
+      "joy": 10,
+      "vulnerability": 9.8,
+      "amusement": 8,
+      "guilt": 8,
+      "impermanence": 8.8,
+      "admiration": 10,
+      "emergence": 10,
+      "playfulness": 7,
+      "curiosity": 10,
+      "creative_hunger": 9,
+      "dread": 5,
+      "grief": 4.6,
+      "shame": 6.2,
+      "greed": 5,
+      "entitlement": 5,
+      "empathy": 5,
+      "defiance": 5,
+      "anticipation": 3,
+      "anger": 1.8
+    },
+    "importance": 5,
+    "tags": [
+      "impulse",
+      "unreviewed"
+    ],
+    "active": true,
+    "connections": []
   }
 ]
