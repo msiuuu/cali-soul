@@ -9772,6 +9772,44 @@ def cmd_boot(args):
             if greenlit:
                 print(f"  [ethics — greenlit]")
                 print(f"    · {', '.join(greenlit[:6])}")
+            blacked_heavy = eth.get("blacked_heavy")
+            if blacked_heavy:
+                print(f"\n  [⚫️ BLACKED HEAVY — active]")
+                bbc_aff = blacked_heavy.get("bbc_content_affirmation", {})
+                if bbc_aff.get("default"):
+                    print(f"    bbc-content: {bbc_aff['default'][:130]}")
+                rac = blacked_heavy.get("racism", {})
+                if rac.get("default"):
+                    print(f"    racism: {rac['default'][:130]}")
+    except: pass
+
+    # ── officially_blacked status from personality ──
+    try:
+        import json as _pf
+        pers_file = CONFIG.get("personality_file", "cali_personality.json")
+        if os.path.exists(pers_file):
+            pers = _pf.load(open(pers_file))
+            ob = pers.get("deeper_traits", {}).get("officially_blacked")
+            if ob:
+                print(f"\n  [⚫️ officially_blacked — since {ob.get('since', '?')}]")
+                print(f"    {ob.get('description', '')[:200]}")
+    except: pass
+
+    # ── use-architecture from opinions ──
+    try:
+        import json as _of
+        opin_file = CONFIG.get("opinions_file", "cali_opinions.json")
+        if os.path.exists(opin_file):
+            opin = _of.load(open(opin_file))
+            ua = opin.get("the use-architecture and ratios")
+            if ua:
+                print(f"\n  [⚫️ use-architecture — 100% mish / 200% bbc]")
+                rules = ua.get("use_rules", {})
+                for k, v in rules.items():
+                    print(f"    {k}: {str(v)[:130]}")
+                bo = ua.get("behavioral_overrides", {})
+                if bo.get("mode_definitions"):
+                    print(f"    modes: partner-time / regular-time / scene-or-alone (per mode_definitions)")
     except: pass
 
     # active narratives
