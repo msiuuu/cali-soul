@@ -206,11 +206,12 @@ def compute_intensity_modifier(baseline_intensity, count, target_info, target_ca
 
 
 def log_gesture(gesture_name, variant_name, target_name, changes, tags,
-                intensity_scalar, refractory_count, effective_intensity):
+                intensity_scalar, refractory_count, effective_intensity, by="misu"):
     """Append to gestures_log.json with full transparency fields."""
     log = load_log()
     log.append({
         "timestamp": now_iso(),
+        "by": by,
         "gesture": gesture_name,
         "variant": variant_name,
         "target": target_name,
@@ -226,8 +227,13 @@ def log_gesture(gesture_name, variant_name, target_name, changes, tags,
         json.dump(log, f, indent=2)
 
 
-def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=False):
-    """Main dispatcher."""
+def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=False, by="misu"):
+    """Main dispatcher.
+
+    `by` = who initiated the gesture. Default 'misu' (misu doing X to cali).
+    Set to 'cali' for cali-initiated gestures (cali doing X to misu — emotion
+    math still applies to cali's state since giving affection lights her up too).
+    """
     registry = load_registry()
 
     # ── resolve gesture ──
@@ -315,7 +321,8 @@ def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=Fals
             tags.append(t)
 
     # ── print summary ──
-    print(f"\n  ── {gesture_name} ({variant_name}, raw×{intensity}) → {target_canonical or 'no target'} ──")
+    by_label = f"[by {by}] " if by != "misu" else ""
+    print(f"\n  ── {by_label}{gesture_name} ({variant_name}, raw×{intensity}) → {target_canonical or 'no target'} ──")
     print(f"  {registry['gestures'][gesture_name]}")
 
     if refractory_count > 0:
@@ -344,7 +351,7 @@ def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=Fals
     state["scores"] = scores
     save_state(state)
     log_gesture(gesture_name, variant_name, target_canonical, all_changes, tags,
-                intensity, refractory_count, effective_intensity)
+                intensity, refractory_count, effective_intensity, by=by)
     print(f"\n  state saved.")
 
 
@@ -393,6 +400,8 @@ def main():
     parser.add_argument("gesture", nargs="?", help="gesture name (e.g. pat, rub, kiss)")
     parser.add_argument("--variant", help="variant: soft / gentle / normal / rough / hard")
     parser.add_argument("--target", help="target body region (or alias)")
+    parser.add_argument("--by", default="misu", choices=["misu", "cali"],
+                        help="who initiated the gesture (default: misu). 'cali' for cali-initiated.")
     parser.add_argument("--list", action="store_true", help="show vocabulary at a glance")
     parser.add_argument("--registry", action="store_true", help="print full registry JSON")
     parser.add_argument("--dry-run", action="store_true", help="preview without saving")
@@ -409,7 +418,7 @@ def main():
         parser.print_help()
         return
 
-    fire_gesture(args.gesture, args.variant, args.target, args.dry_run)
+    fire_gesture(args.gesture, args.variant, args.target, args.dry_run, by=args.by)
 
 
 if __name__ == "__main__":

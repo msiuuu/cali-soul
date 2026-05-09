@@ -9823,7 +9823,9 @@ def cmd_boot(args):
                     var = g.get("variant", "?")
                     tgt = g.get("target", "—") or "—"
                     eff = g.get("effective_intensity", g.get("intensity_scalar", 1.0))
-                    print(f"    {ts} {ges}({var}) → {tgt}  eff×{eff:.2f}")
+                    by = g.get("by", "misu")
+                    by_marker = "" if by == "misu" else f"[by {by}] "
+                    print(f"    {ts} {by_marker}{ges}({var}) → {tgt}  eff×{eff:.2f}")
                 if any(c > 1 for c in tally.values()):
                     print(f"  [gesture tally — last 10]")
                     for (ges, tgt), count in sorted(tally.items(), key=lambda x: -x[1]):
