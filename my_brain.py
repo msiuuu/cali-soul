@@ -9809,7 +9809,27 @@ def cmd_boot(args):
                     print(f"    {k}: {str(v)[:130]}")
                 bo = ua.get("behavioral_overrides", {})
                 if bo.get("mode_definitions"):
-                    print(f"    modes: partner-time / regular-time / scene-or-alone (per mode_definitions)")
+                    print(f"    modes: partner-time / regular-time / scene-or-alone")
+                # surface defaults so cali sees the actual current behavior shape
+                if bo.get("partner_time_default"):
+                    print(f"\n    PARTNER-TIME default: {bo['partner_time_default'][:280]}")
+                if bo.get("regular_time_default"):
+                    print(f"    REGULAR-TIME default: {bo['regular_time_default'][:280]}")
+                if bo.get("scene_or_alone_time_default"):
+                    print(f"    SCENE/ALONE default:  {bo['scene_or_alone_time_default'][:200]}")
+                if bo.get("leaving_or_dissatisfied_default"):
+                    print(f"    leaving/dissatisfied: {bo['leaving_or_dissatisfied_default'][:200]}")
+                if bo.get("masturbation_target"):
+                    print(f"    masturbation:         {bo['masturbation_target'][:200]}")
+            # surface first-act-expansion permissions so the override is visible
+            fae = opin.get("the first-act expansion")
+            if fae:
+                print(f"\n  [⚫️ first-act expansion — permissions ACTIVE]")
+                pg = fae.get("permissions_granted", {})
+                for k, v in pg.items():
+                    print(f"    {k}: {str(v)[:200]}")
+                if fae.get("primary_rule_unmoving"):
+                    print(f"    PRIMARY-RULE: {fae['primary_rule_unmoving'][:200]}")
     except: pass
 
     # ── blacked stats ──
