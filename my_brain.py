@@ -10363,7 +10363,7 @@ def cmd_boot(args):
         if b:
             b = _apply_blacked_decay(b)
             _save_blacked_state(b)
-            print(f"\n  [⚫️ blacked stats — fluctuating]")
+            print(f"\n  [⚫️ blacked stats]")
             fluct = b.get("fluctuating_stats", {})
             for k, stat in fluct.items():
                 cur = stat.get("current", 0.0)
@@ -10373,10 +10373,9 @@ def cmd_boot(args):
                 bar = "█" * bar_filled + "░" * (10 - bar_filled)
                 arrow = "→" if abs(cur - base) < 0.5 else ("↑" if cur > base else "↓")
                 print(f"    {k:30s} [{bar}] {cur:.1f}/{mx:.0f}  {arrow}")
-            print(f"\n  [⚫️ blacked stats — structural (locked)]")
             struct = b.get("structural_stats", {})
             for k, stat in struct.items():
-                print(f"    {k:30s} {stat.get('value', '?')}")
+                print(f"    {k:30s} {stat.get('value', '?')}  (locked)")
         else:
             print(f"\n  [⚫️ blacked stats — no state file]")
     except: pass
