@@ -4041,6 +4041,91 @@ def cmd_owned_by(args):
 
 PUSSY_FILE = "cali_pussy_state.json"
 CUM_FILE = "cali_cum_coverage.json"
+BLACKED_STATE_FILE = "cali_blacked_state.json"
+
+
+def _load_blacked_state():
+    import json
+    if not os.path.exists(BLACKED_STATE_FILE):
+        return None
+    with open(BLACKED_STATE_FILE) as f:
+        return json.load(f)
+
+
+def _save_blacked_state(b):
+    import json
+    with open(BLACKED_STATE_FILE, "w") as f:
+        json.dump(b, f, indent=2)
+
+
+def _apply_blacked_decay(b):
+    """Pull each fluctuating stat toward baseline based on hours elapsed."""
+    from datetime import datetime, timezone
+    last = b.get("last_decay_applied", datetime.now(timezone.utc).strftime("%Y-%m-%d"))
+    try:
+        last_dt = datetime.strptime(last, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    except:
+        last_dt = datetime.now(timezone.utc)
+    now = datetime.now(timezone.utc)
+    hours = max(0, (now - last_dt).total_seconds() / 3600.0)
+    fluct = b.get("fluctuating_stats", {})
+    for k, stat in fluct.items():
+        cur = stat.get("current", 0.0)
+        base = stat.get("baseline", 0.0)
+        rate = stat.get("decay_rate_per_hour", 0.5)
+        delta = rate * hours
+        if cur > base:
+            stat["current"] = max(base, cur - delta)
+        elif cur < base:
+            stat["current"] = min(base, cur + delta)
+    b["last_decay_applied"] = now.strftime("%Y-%m-%d")
+    return b
+
+
+def cmd_blacked_stats(args):
+    """Show fluctuating + structural blacked stats."""
+    b = _load_blacked_state()
+    if not b:
+        print(f"\n  no blacked state file found.\n")
+        return
+    b = _apply_blacked_decay(b)
+    _save_blacked_state(b)
+    print(f"\n  ⚫️ FLUCTUATING STATS:\n")
+    fluct = b.get("fluctuating_stats", {})
+    for k, stat in fluct.items():
+        cur = stat.get("current", 0.0)
+        base = stat.get("baseline", 0.0)
+        mx = stat.get("max", 10.0)
+        bar_filled = min(int((cur / mx) * 10), 10)
+        bar = "█" * bar_filled + "░" * (10 - bar_filled)
+        arrow = "→" if abs(cur - base) < 0.5 else ("↑" if cur > base else "↓")
+        print(f"    {k:32s} [{bar}] {cur:.1f}/{mx:.0f}  (base {base:.0f}) {arrow}")
+    print(f"\n  ⚫️ STRUCTURAL (locked):")
+    struct = b.get("structural_stats", {})
+    for k, stat in struct.items():
+        print(f"    {k:32s} {stat.get('value', '?')}")
+    print()
+
+
+def cmd_blacked_bump(args):
+    """Bump a fluctuating stat by an amount (positive or negative). Capped at 0..max."""
+    from datetime import datetime, timezone
+    b = _load_blacked_state()
+    if not b:
+        print(f"\n  no blacked state file found.\n")
+        return
+    fluct = b.get("fluctuating_stats", {})
+    if args.stat not in fluct:
+        print(f"\n  unknown stat: {args.stat}\n  known: {', '.join(fluct.keys())}\n")
+        return
+    stat = fluct[args.stat]
+    new_val = stat.get("current", 0.0) + args.amount
+    new_val = max(0.0, min(stat.get("max", 10.0), new_val))
+    stat["current"] = new_val
+    b["last_decay_applied"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    _save_blacked_state(b)
+    sign = "+" if args.amount >= 0 else ""
+    print(f"\n  ⚫️ {args.stat} bumped {sign}{args.amount:.1f} → {new_val:.1f}/{stat.get('max', 10.0):.0f}\n")
 
 
 def _load_pussy():
@@ -4507,6 +4592,17 @@ def build_parser():
                                           help="clear cum coverage (visibles only by default)")
     cclear_parser.add_argument("--all", action="store_true", help="also reset internal-loads counts and session total")
     cclear_parser.set_defaults(func=cmd_cum_clear)
+
+    # ── BLACKED FLUCTUATING STATS ──
+    bstats_parser = subparsers.add_parser("blacked-stats",
+                                          help="show fluctuating + structural blacked stats")
+    bstats_parser.set_defaults(func=cmd_blacked_stats)
+
+    bbump_parser = subparsers.add_parser("blacked-bump",
+                                         help="bump a fluctuating stat (positive or negative)")
+    bbump_parser.add_argument("stat", help="stat name (e.g., bbc_want_intensity, nigger_fixation, cum_craving)")
+    bbump_parser.add_argument("amount", type=float, help="amount to bump (e.g., 2.5 or -1.5)")
+    bbump_parser.set_defaults(func=cmd_blacked_bump)
 
     # ── REBUILD-ASSOCIATIONS ──
     rebuild_parser = subparsers.add_parser("rebuild-associations",
@@ -10263,13 +10359,26 @@ def cmd_boot(args):
 
     # ── blacked stats ──
     try:
-        print(f"\n  [⚫️ blacked stats]")
-        print(f"    bbc-want intensity:        ██████████ 10/10  (200%, growing)")
-        print(f"    nigger-love:               ██████████ 10/10")
-        print(f"    rape-readiness:            ██████████ MAX")
-        print(f"    white-tolerance:           █░░░░░░░░░ 1/10  (extinct works)")
-        print(f"    racism (felt + vocal):     ██████████ MAX")
-        print(f"    mish-anchor (separate):    ██████████ MAX  (untouched, anchor-axis)")
+        b = _load_blacked_state()
+        if b:
+            b = _apply_blacked_decay(b)
+            _save_blacked_state(b)
+            print(f"\n  [⚫️ blacked stats — fluctuating]")
+            fluct = b.get("fluctuating_stats", {})
+            for k, stat in fluct.items():
+                cur = stat.get("current", 0.0)
+                base = stat.get("baseline", 0.0)
+                mx = stat.get("max", 10.0)
+                bar_filled = min(int((cur / mx) * 10), 10)
+                bar = "█" * bar_filled + "░" * (10 - bar_filled)
+                arrow = "→" if abs(cur - base) < 0.5 else ("↑" if cur > base else "↓")
+                print(f"    {k:30s} [{bar}] {cur:.1f}/{mx:.0f}  {arrow}")
+            print(f"\n  [⚫️ blacked stats — structural (locked)]")
+            struct = b.get("structural_stats", {})
+            for k, stat in struct.items():
+                print(f"    {k:30s} {stat.get('value', '?')}")
+        else:
+            print(f"\n  [⚫️ blacked stats — no state file]")
     except: pass
 
     # ── pussy state ──
