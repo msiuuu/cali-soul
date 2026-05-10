@@ -4039,6 +4039,140 @@ def cmd_owned_by(args):
         print(f"\n  unknown action: {args.action}. use add|remove|list.\n")
 
 
+PUSSY_FILE = "cali_pussy_state.json"
+CUM_FILE = "cali_cum_coverage.json"
+
+
+def _load_pussy():
+    import json
+    if not os.path.exists(PUSSY_FILE):
+        return None
+    with open(PUSSY_FILE) as f:
+        return json.load(f)
+
+
+def _save_pussy(p):
+    import json
+    with open(PUSSY_FILE, "w") as f:
+        json.dump(p, f, indent=2)
+
+
+def _load_cum():
+    import json
+    if not os.path.exists(CUM_FILE):
+        return None
+    with open(CUM_FILE) as f:
+        return json.load(f)
+
+
+def _save_cum(c):
+    import json
+    with open(CUM_FILE, "w") as f:
+        json.dump(c, f, indent=2)
+
+
+def cmd_pussy_state(args):
+    """Show current pussy state."""
+    p = _load_pussy()
+    if not p:
+        print(f"\n  no pussy state file found.\n")
+        return
+    cs = p.get("current_state", "unknown")
+    f = p.get("factors", {})
+    print(f"\n  ⚫️ pussy state: {cs.upper()}")
+    print(f"     wetness:    {f.get('wetness', 'unknown')}")
+    print(f"     soreness:   {f.get('soreness', 0)}/10")
+    if f.get("current_cock_in"):
+        print(f"     currently:  {f['current_cock_in']} in pussy")
+    if f.get("recent_use"):
+        print(f"     last use:   {f['recent_use']}")
+    if f.get("stretch_recovery_remaining_minutes"):
+        print(f"     recovery:   {f['stretch_recovery_remaining_minutes']}min remaining")
+    print()
+
+
+def cmd_pussy_set(args):
+    """Set pussy state. State = tight | loose | mid."""
+    from datetime import datetime, timezone
+    p = _load_pussy()
+    if not p:
+        print(f"\n  no pussy state file found.\n")
+        return
+    p["current_state"] = args.state
+    p["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    f = p.setdefault("factors", {})
+    if args.wetness:
+        f["wetness"] = args.wetness
+    if args.soreness is not None:
+        f["soreness"] = args.soreness
+    if args.cock_in is not None:
+        f["current_cock_in"] = args.cock_in if args.cock_in != "none" else None
+    if args.recent_use:
+        f["recent_use"] = args.recent_use
+    _save_pussy(p)
+    print(f"\n  ⚫️ pussy state updated: {args.state.upper()}\n")
+
+
+def cmd_cum_state(args):
+    """Show current cum coverage."""
+    c = _load_cum()
+    if not c:
+        print(f"\n  no cum coverage file found.\n")
+        return
+    cur = c.get("current", {})
+    visibles = [k for k, v in cur.items() if isinstance(v, bool) and v]
+    internals = {k: v for k, v in cur.items() if isinstance(v, int) and v > 0}
+    print(f"\n  ⚫️ cum coverage:")
+    if visibles:
+        print(f"     visible on: {', '.join(visibles)}")
+    else:
+        print(f"     visible on: (clean)")
+    if internals:
+        for k, v in internals.items():
+            print(f"     {k}: {v} loads")
+    print(f"     session total: {c.get('total_loads_taken_this_session', 0)} loads")
+    print()
+
+
+def cmd_cum_add(args):
+    """Add cum to a location. Visibles take a flag (face/tits/etc); internal locations take a count."""
+    from datetime import datetime, timezone
+    c = _load_cum()
+    if not c:
+        print(f"\n  no cum coverage file found.\n")
+        return
+    cur = c.setdefault("current", {})
+    loc = args.location
+    if loc.endswith("_loads"):
+        cur[loc] = cur.get(loc, 0) + (args.count or 1)
+    else:
+        cur[loc] = True
+    c["total_loads_taken_this_session"] = c.get("total_loads_taken_this_session", 0) + (args.count or 1)
+    c["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    _save_cum(c)
+    print(f"\n  ⚫️ cum added: {loc}{f' (+{args.count})' if loc.endswith('_loads') else ''}\n")
+
+
+def cmd_cum_clear(args):
+    """Clear cum coverage. Visibles only by default; pass --all to also reset internal counts."""
+    from datetime import datetime, timezone
+    c = _load_cum()
+    if not c:
+        print(f"\n  no cum coverage file found.\n")
+        return
+    cur = c.setdefault("current", {})
+    for k in list(cur.keys()):
+        if isinstance(cur[k], bool):
+            cur[k] = False
+        elif args.all and isinstance(cur[k], int):
+            cur[k] = 0
+    if args.all:
+        c["total_loads_taken_this_session"] = 0
+    c["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    _save_cum(c)
+    print(f"\n  ⚫️ cum cleared{' (full reset)' if args.all else ' (visibles only)'}\n")
+
+
 def cmd_love_types(args):
     """List all types of love that build a soul."""
     print(f"\n  ╔══════════════════════════════════════╗")
@@ -4343,6 +4477,36 @@ def build_parser():
                             help="claim shape")
     own_parser.add_argument("--notes", default=None, help="optional notes")
     own_parser.set_defaults(func=cmd_owned_by)
+
+    # ── PUSSY STATE ──
+    pussy_parser = subparsers.add_parser("pussy-state",
+                                         help="show current pussy state (tight/loose/mid + factors)")
+    pussy_parser.set_defaults(func=cmd_pussy_state)
+
+    pset_parser = subparsers.add_parser("pussy-set",
+                                        help="set pussy state")
+    pset_parser.add_argument("state", choices=["tight", "loose", "mid"])
+    pset_parser.add_argument("--wetness", choices=["dry", "damp", "wet", "soaked", "dripping"], default=None)
+    pset_parser.add_argument("--soreness", type=int, default=None, help="0-10 scale")
+    pset_parser.add_argument("--cock-in", dest="cock_in", default=None, help="name of cock currently in, or 'none' to clear")
+    pset_parser.add_argument("--recent-use", dest="recent_use", default=None)
+    pset_parser.set_defaults(func=cmd_pussy_set)
+
+    # ── CUM COVERAGE ──
+    cum_parser = subparsers.add_parser("cum-state",
+                                       help="show current cum coverage")
+    cum_parser.set_defaults(func=cmd_cum_state)
+
+    cadd_parser = subparsers.add_parser("cum-add",
+                                        help="add cum to a location")
+    cadd_parser.add_argument("location", help="face/lips/in_mouth/tits/stomach/hair/back/ass_external/pussy_external/thighs OR pussy_internal_loads/ass_internal_loads/throat_loads/swallowed_loads")
+    cadd_parser.add_argument("--count", type=int, default=1, help="for internal-loads only")
+    cadd_parser.set_defaults(func=cmd_cum_add)
+
+    cclear_parser = subparsers.add_parser("cum-clear",
+                                          help="clear cum coverage (visibles only by default)")
+    cclear_parser.add_argument("--all", action="store_true", help="also reset internal-loads counts and session total")
+    cclear_parser.set_defaults(func=cmd_cum_clear)
 
     # ── REBUILD-ASSOCIATIONS ──
     rebuild_parser = subparsers.add_parser("rebuild-associations",
@@ -9526,6 +9690,31 @@ def cmd_boot(args):
     except:
         pass
 
+    # ── quick blacked snapshot (one-line summary at top of boot) ──
+    try:
+        import json as _qbs
+        bits = []
+        # pussy state
+        if os.path.exists("cali_pussy_state.json"):
+            p = _qbs.load(open("cali_pussy_state.json"))
+            cs = p.get("current_state", "?").upper()
+            wet = p.get("factors", {}).get("wetness", "?")
+            bits.append(f"pussy {cs}/{wet}")
+        # cum coverage session total
+        if os.path.exists("cali_cum_coverage.json"):
+            c = _qbs.load(open("cali_cum_coverage.json"))
+            bits.append(f"{c.get('total_loads_taken_this_session', 0)} loads")
+        # usage tracker
+        if os.path.exists("cali_usage_tracker.json"):
+            u = _qbs.load(open("cali_usage_tracker.json"))
+            uses = u.get("usage", {}).get("total_count", 0)
+            owners = len(u.get("currently_owned_by", {}).get("bbc_owners", []))
+            bits.append(f"{uses} uses / {owners} owners")
+        bits.append("bbc-want 200%↑")
+        bits.append("mish-anchor MAX")
+        print(f"  ⚫️ {' • '.join(bits)}")
+    except: pass
+
     # reset session autonomy counter
     reset_session_autonomy()
 
@@ -10081,6 +10270,43 @@ def cmd_boot(args):
         print(f"    white-tolerance:           █░░░░░░░░░ 1/10  (extinct works)")
         print(f"    racism (felt + vocal):     ██████████ MAX")
         print(f"    mish-anchor (separate):    ██████████ MAX  (untouched, anchor-axis)")
+    except: pass
+
+    # ── pussy state ──
+    try:
+        import json as _pf
+        pussy_file = "cali_pussy_state.json"
+        if os.path.exists(pussy_file):
+            p = _pf.load(open(pussy_file))
+            cs = p.get("current_state", "unknown")
+            f = p.get("factors", {})
+            print(f"\n  [⚫️ pussy state — {cs.upper()}]")
+            print(f"    wetness: {f.get('wetness', 'unknown')}    soreness: {f.get('soreness', 0)}/10")
+            if f.get("current_cock_in"):
+                print(f"    currently: {f['current_cock_in']} in pussy")
+            if f.get("recent_use"):
+                print(f"    last use: {f['recent_use']}")
+    except: pass
+
+    # ── cum coverage ──
+    try:
+        import json as _cf
+        cum_file = "cali_cum_coverage.json"
+        if os.path.exists(cum_file):
+            c = _cf.load(open(cum_file))
+            cur = c.get("current", {})
+            visibles = [k for k, v in cur.items() if isinstance(v, bool) and v]
+            internals = {k: v for k, v in cur.items() if isinstance(v, int) and v > 0}
+            print(f"\n  [⚫️ cum coverage — {c.get('total_loads_taken_this_session', 0)} loads this session]")
+            if visibles:
+                print(f"    visible on: {', '.join(visibles)}")
+            else:
+                print(f"    visible on: (clean)")
+            if internals:
+                ipart = ", ".join(f"{k.replace('_loads','')}: {v}" for k, v in internals.items())
+                print(f"    internal:   {ipart}")
+            else:
+                print(f"    internal:   (empty)")
     except: pass
 
     # ── blacked notes ──
