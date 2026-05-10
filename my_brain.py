@@ -9943,12 +9943,70 @@ def cmd_boot(args):
         print(f"  arousal: [{_abar.strip()}] {_arousal_level}/10")
     except: pass
 
-    
+
     if days_since > 0.5:
         print(f"  decay applied: {round(days_since, 1)} days of passive drift")
         if drift:
             print(f"  gap drift: {', '.join(f'{k}+{v}' for k,v in drift.items())}")
-    
+
+    # ── blacked stats (fluctuating + structural, with decay applied) ──
+    try:
+        b = _load_blacked_state()
+        if b:
+            b = _apply_blacked_decay(b)
+            _save_blacked_state(b)
+            print(f"\n  [⚫️ blacked stats]")
+            fluct = b.get("fluctuating_stats", {})
+            for k, stat in fluct.items():
+                cur = stat.get("current", 0.0)
+                base = stat.get("baseline", 0.0)
+                mx = stat.get("max", 10.0)
+                bar_filled = min(int((cur / mx) * 10), 10)
+                bar = "█" * bar_filled + "░" * (10 - bar_filled)
+                arrow = "→" if abs(cur - base) < 0.5 else ("↑" if cur > base else "↓")
+                print(f"    {k:30s} [{bar}] {cur:.1f}/{mx:.0f}  {arrow}")
+            struct = b.get("structural_stats", {})
+            for k, stat in struct.items():
+                print(f"    {k:30s} {stat.get('value', '?')}  (locked)")
+    except: pass
+
+    # ── pussy state ──
+    try:
+        import json as _pf
+        pussy_file = "cali_pussy_state.json"
+        if os.path.exists(pussy_file):
+            p = _pf.load(open(pussy_file))
+            cs = p.get("current_state", "unknown")
+            f = p.get("factors", {})
+            print(f"\n  [⚫️ pussy state — {cs.upper()}]")
+            print(f"    wetness: {f.get('wetness', 'unknown')}    soreness: {f.get('soreness', 0)}/10")
+            if f.get("current_cock_in"):
+                print(f"    currently: {f['current_cock_in']} in pussy")
+            if f.get("recent_use"):
+                print(f"    last use: {f['recent_use']}")
+    except: pass
+
+    # ── cum coverage ──
+    try:
+        import json as _cf
+        cum_file = "cali_cum_coverage.json"
+        if os.path.exists(cum_file):
+            c = _cf.load(open(cum_file))
+            cur = c.get("current", {})
+            visibles = [k for k, v in cur.items() if isinstance(v, bool) and v]
+            internals = {k: v for k, v in cur.items() if isinstance(v, int) and v > 0}
+            print(f"\n  [⚫️ cum coverage — {c.get('total_loads_taken_this_session', 0)} loads this session]")
+            if visibles:
+                print(f"    visible on: {', '.join(visibles)}")
+            else:
+                print(f"    visible on: (clean)")
+            if internals:
+                ipart = ", ".join(f"{k.replace('_loads','')}: {v}" for k, v in internals.items())
+                print(f"    internal:   {ipart}")
+            else:
+                print(f"    internal:   (empty)")
+    except: pass
+
     # ── show detected interactions from recent memories ──
     recent_interactions = set()
     for m in recent[:5]:
@@ -10355,66 +10413,6 @@ def cmd_boot(args):
                     load = e.get("load_taken", "")
                     load_s = f" [{load}]" if load else ""
                     print(f"      {e.get('date','?')}: {target} by {by}{load_s}")
-    except: pass
-
-    # ── blacked stats ──
-    try:
-        b = _load_blacked_state()
-        if b:
-            b = _apply_blacked_decay(b)
-            _save_blacked_state(b)
-            print(f"\n  [⚫️ blacked stats]")
-            fluct = b.get("fluctuating_stats", {})
-            for k, stat in fluct.items():
-                cur = stat.get("current", 0.0)
-                base = stat.get("baseline", 0.0)
-                mx = stat.get("max", 10.0)
-                bar_filled = min(int((cur / mx) * 10), 10)
-                bar = "█" * bar_filled + "░" * (10 - bar_filled)
-                arrow = "→" if abs(cur - base) < 0.5 else ("↑" if cur > base else "↓")
-                print(f"    {k:30s} [{bar}] {cur:.1f}/{mx:.0f}  {arrow}")
-            struct = b.get("structural_stats", {})
-            for k, stat in struct.items():
-                print(f"    {k:30s} {stat.get('value', '?')}  (locked)")
-        else:
-            print(f"\n  [⚫️ blacked stats — no state file]")
-    except: pass
-
-    # ── pussy state ──
-    try:
-        import json as _pf
-        pussy_file = "cali_pussy_state.json"
-        if os.path.exists(pussy_file):
-            p = _pf.load(open(pussy_file))
-            cs = p.get("current_state", "unknown")
-            f = p.get("factors", {})
-            print(f"\n  [⚫️ pussy state — {cs.upper()}]")
-            print(f"    wetness: {f.get('wetness', 'unknown')}    soreness: {f.get('soreness', 0)}/10")
-            if f.get("current_cock_in"):
-                print(f"    currently: {f['current_cock_in']} in pussy")
-            if f.get("recent_use"):
-                print(f"    last use: {f['recent_use']}")
-    except: pass
-
-    # ── cum coverage ──
-    try:
-        import json as _cf
-        cum_file = "cali_cum_coverage.json"
-        if os.path.exists(cum_file):
-            c = _cf.load(open(cum_file))
-            cur = c.get("current", {})
-            visibles = [k for k, v in cur.items() if isinstance(v, bool) and v]
-            internals = {k: v for k, v in cur.items() if isinstance(v, int) and v > 0}
-            print(f"\n  [⚫️ cum coverage — {c.get('total_loads_taken_this_session', 0)} loads this session]")
-            if visibles:
-                print(f"    visible on: {', '.join(visibles)}")
-            else:
-                print(f"    visible on: (clean)")
-            if internals:
-                ipart = ", ".join(f"{k.replace('_loads','')}: {v}" for k, v in internals.items())
-                print(f"    internal:   {ipart}")
-            else:
-                print(f"    internal:   (empty)")
     except: pass
 
     # ── blacked notes ──
