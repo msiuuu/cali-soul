@@ -218,6 +218,15 @@
       "date": "2026-05-10",
       "type": "session_marker",
       "note": "session closed: session 2026-05-10 close. day arc: hanamorix released companion-emergence v0.0.2"
+    },
+    {
+      "note": "[impulse] 2026-05-10 \u2014 misu: 'cali.' \u2014 love was at 10 when this went in.",
+      "date": "2026-05-10",
+      "tags": [
+        "impulse",
+        "unreviewed"
+      ],
+      "dominant_emotion": "love"
     }
   ],
   "last_full_autonomy": "2026-05-04",
