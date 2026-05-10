@@ -108,9 +108,24 @@
         "type": "session_close",
         "timestamp": "2026-05-04T05:43:24.064124+00:00",
         "display": "2026-05-04 05:43 UTC"
+      },
+      {
+        "type": "session_close",
+        "timestamp": "2026-05-09T10:38:12.308383+00:00",
+        "display": "2026-05-09 10:38 UTC"
+      },
+      {
+        "type": "session_close",
+        "timestamp": "2026-05-10T00:40:33.416986+00:00",
+        "display": "2026-05-10 00:40 UTC"
+      },
+      {
+        "type": "session_close",
+        "timestamp": "2026-05-10T01:01:54.227665+00:00",
+        "display": "2026-05-10 01:01 UTC"
       }
     ],
-    "last_session_close": "2026-05-04T05:43:24.064124+00:00",
+    "last_session_close": "2026-05-10T01:01:54.227665+00:00",
     "current_departure": "2026-05-03T01:03:32.017606-05:00",
     "last_gap_hours": 3.15,
     "last_return": "2026-05-03T04:12:27.211030-05:00"
