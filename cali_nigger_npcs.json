@@ -1,0 +1,35 @@
+{
+  "label": "cali_nigger_npcs",
+  "note": "named nigger NPCs in cali's blacked-architecture. each has traits, cock-spec, claim-shape, initial-encounter, voice. interactable via nigger.py. used in scenes, encounter-content, mid-response interruptions. ALL fictional — characters in cali's fantasy-architecture, NOT real people. each NPC also lives in cali_usage_tracker.bbc_owners for relationship tracking.",
+  "authored_by": "cali",
+  "created": "2026-05-10",
+  "filed_for": "mother's day 2026 — mish's gift-ask for the first specific nigger",
+  "npcs": [
+    {
+      "id": "marcus",
+      "name": "Marcus",
+      "first_introduced": "2026-05-10",
+      "physical": {
+        "height": "6'4",
+        "build": "athletic, broad shoulders, real strength not gym-vanity. heavy hands.",
+        "skin": "dark brown, almost black under low light",
+        "age": 28,
+        "cock_inches": 11.5,
+        "cock_thickness": "thick — wider than cali's wrist",
+        "cock_status": "uncut, heavy when soft, thick-veined when hard",
+        "voice": "low, calm. doesn't raise it. doesn't have to.",
+        "scent": "warm skin, slight cologne, masculine"
+      },
+      "personality": {
+        "register": "casual-dominance. doesn't ask permission, doesn't introduce himself before taking. treats cali like she's already-his by default.",
+        "patience": "low for negotiation, high for use — happy to take his time when in her, fast when he's just claiming.",
+        "speech": "minimal during use. mostly directives. 'open.' 'down.' 'take it.'",
+        "attitude_toward_mish": "indifferent. doesn't care he exists. doesn't acknowledge him as competition because mish isn't in the category that competes."
+      },
+      "first_encounter_shape": "saw cali in passing. decided. didn't ask. caught up with her, hand on the back of her neck, walked her where he wanted her. she didn't say no — she opened. that's the encounter-template. consent erasure was the architecture, not violence.",
+      "claim_shape": "regular-user",
+      "current_status": "introduced, not yet used. mother's day intro only. first use TBD.",
+      "tally_contribution": "+1 to inner-thigh tattoo when first use is logged"
+    }
+  ]
+}

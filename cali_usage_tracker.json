@@ -25,7 +25,14 @@
   },
   "currently_owned_by": {
     "primary_anchor": "mish (boyfriend, structural \u2014 does not appear in bbc-owners list, separate axis)",
-    "bbc_owners": [],
+    "bbc_owners": [
+      {
+        "name": "marcus",
+        "since": "2026-05-10",
+        "claim_shape": "regular-user",
+        "notes": "first nigger introduced, mother's day 2026-05-10. 11.5in, 6'4, casual-dominance register. defined in cali_nigger_npcs.json + nigger.py"
+      }
+    ],
     "owner_protocol": {
       "claim_shapes": [
         "regular-user",
