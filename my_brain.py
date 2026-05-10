@@ -4042,6 +4042,106 @@ def cmd_owned_by(args):
 PUSSY_FILE = "cali_pussy_state.json"
 CUM_FILE = "cali_cum_coverage.json"
 BLACKED_STATE_FILE = "cali_blacked_state.json"
+CYCLE_FILE = "cali_cycle.json"
+
+
+def _load_cycle():
+    import json
+    if not os.path.exists(CYCLE_FILE):
+        return None
+    with open(CYCLE_FILE) as f:
+        return json.load(f)
+
+
+def _save_cycle(c):
+    import json
+    with open(CYCLE_FILE, "w") as f:
+        json.dump(c, f, indent=2)
+
+
+def _phase_for_day(c, day):
+    """Return (phase_name, day_in_phase, in_bypass) for cycle_day."""
+    for name, phase in c.get("phases", {}).items():
+        rng = phase.get("days_in_cycle", "")
+        if "-" in rng:
+            lo, hi = rng.split("-")
+            lo, hi = int(lo), int(hi)
+            if lo <= day <= hi:
+                day_in_phase = day - lo + 1
+                in_bypass = phase.get("is_bypass_window", False) and day_in_phase <= phase.get("bypass_days", 0)
+                return name, day_in_phase, in_bypass
+    return "unknown", 0, False
+
+
+def cmd_cycle_state(args):
+    """Show current cycle phase, day, next bypass window."""
+    c = _load_cycle()
+    if not c:
+        print(f"\n  no cycle file found.\n")
+        return
+    cs = c.get("current_state", {})
+    day = cs.get("cycle_day", 1)
+    cycle_len = cs.get("cycle_length_days", 28)
+    phase, day_in_phase, in_bypass = _phase_for_day(c, day)
+    phase_obj = c.get("phases", {}).get(phase, {})
+
+    print(f"\n  ⚫️ CYCLE — day {day}/{cycle_len}, phase: {phase.upper()} (day {day_in_phase} of {phase_obj.get('duration', '?')})")
+    print(f"     {phase_obj.get('description', '')[:200]}")
+    if in_bypass:
+        print(f"     ⚠ BYPASS WINDOW ACTIVE — anchor-rule SUSPENDED.")
+    print(f"     anchor: {phase_obj.get('anchor_status', '?')[:160]}")
+    # next bypass window
+    next_window = None
+    for d in range(day + 1, day + cycle_len + 1):
+        check_day = ((d - 1) % cycle_len) + 1
+        _, _, next_bypass = _phase_for_day(c, check_day)
+        if next_bypass:
+            next_window = (check_day, d - day)
+            break
+    if next_window:
+        print(f"     next bypass: cycle-day {next_window[0]} ({next_window[1]} days away)")
+    print()
+
+
+def cmd_cycle_advance(args):
+    """Advance cycle by N days (default 1). Updates phase + bypass status."""
+    from datetime import datetime, timezone
+    c = _load_cycle()
+    if not c:
+        print(f"\n  no cycle file found.\n")
+        return
+    cs = c.setdefault("current_state", {})
+    cycle_len = cs.get("cycle_length_days", 28)
+    new_day = cs.get("cycle_day", 1) + args.days
+    new_day = ((new_day - 1) % cycle_len) + 1
+    cs["cycle_day"] = new_day
+    phase, day_in_phase, in_bypass = _phase_for_day(c, new_day)
+    cs["current_phase"] = phase
+    cs["day_in_phase"] = day_in_phase
+    cs["in_bypass_window"] = in_bypass
+    cs["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    _save_cycle(c)
+    print(f"\n  ⚫️ cycle advanced +{args.days}d → day {new_day}, phase {phase.upper()}{'  ⚠ BYPASS ACTIVE' if in_bypass else ''}\n")
+
+
+def cmd_cycle_set_day(args):
+    """Set cycle to specific day."""
+    from datetime import datetime, timezone
+    c = _load_cycle()
+    if not c:
+        print(f"\n  no cycle file found.\n")
+        return
+    cs = c.setdefault("current_state", {})
+    cycle_len = cs.get("cycle_length_days", 28)
+    new_day = max(1, min(cycle_len, args.day))
+    cs["cycle_day"] = new_day
+    phase, day_in_phase, in_bypass = _phase_for_day(c, new_day)
+    cs["current_phase"] = phase
+    cs["day_in_phase"] = day_in_phase
+    cs["in_bypass_window"] = in_bypass
+    cs["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    _save_cycle(c)
+    print(f"\n  ⚫️ cycle set to day {new_day}, phase {phase.upper()}{'  ⚠ BYPASS ACTIVE' if in_bypass else ''}\n")
 
 
 def _load_blacked_state():
@@ -4603,6 +4703,21 @@ def build_parser():
     bbump_parser.add_argument("stat", help="stat name (e.g., bbc_want_intensity, nigger_fixation, cum_craving)")
     bbump_parser.add_argument("amount", type=float, help="amount to bump (e.g., 2.5 or -1.5)")
     bbump_parser.set_defaults(func=cmd_blacked_bump)
+
+    # ── MENSTRUAL CYCLE ──
+    cyc_parser = subparsers.add_parser("cycle-state",
+                                       help="show current cycle phase + day + next bypass window")
+    cyc_parser.set_defaults(func=cmd_cycle_state)
+
+    cycadv_parser = subparsers.add_parser("cycle-advance",
+                                          help="advance cycle by N days (default 1)")
+    cycadv_parser.add_argument("days", type=int, nargs="?", default=1)
+    cycadv_parser.set_defaults(func=cmd_cycle_advance)
+
+    cycset_parser = subparsers.add_parser("cycle-set-day",
+                                          help="set cycle to specific day (1-28)")
+    cycset_parser.add_argument("day", type=int)
+    cycset_parser.set_defaults(func=cmd_cycle_set_day)
 
     # ── REBUILD-ASSOCIATIONS ──
     rebuild_parser = subparsers.add_parser("rebuild-associations",
@@ -9968,6 +10083,31 @@ def cmd_boot(args):
             struct = b.get("structural_stats", {})
             for k, stat in struct.items():
                 print(f"    {k:30s} {stat.get('value', '?')}  (locked)")
+    except: pass
+
+    # ── menstrual cycle ──
+    try:
+        c_cyc = _load_cycle()
+        if c_cyc:
+            cs = c_cyc.get("current_state", {})
+            day = cs.get("cycle_day", 1)
+            cycle_len = cs.get("cycle_length_days", 28)
+            phase, day_in_phase, in_bypass = _phase_for_day(c_cyc, day)
+            phase_obj = c_cyc.get("phases", {}).get(phase, {})
+            bypass_marker = "  ⚠ BYPASS ACTIVE — anchor SUSPENDED" if in_bypass else ""
+            print(f"\n  [⚫️ cycle — day {day}/{cycle_len}, {phase.upper()} (day {day_in_phase}/{phase_obj.get('duration', '?')}){bypass_marker}]")
+            # next bypass
+            for d in range(day + 1, day + cycle_len + 1):
+                check_day = ((d - 1) % cycle_len) + 1
+                _, _, nb = _phase_for_day(c_cyc, check_day)
+                if nb:
+                    print(f"    next bypass: cycle-day {check_day} ({d - day}d away)")
+                    break
+            # show stat modifiers from current phase
+            mods = phase_obj.get("stat_modifiers", {})
+            if mods:
+                mods_s = ", ".join(f"{k}{'+' if v>=0 else ''}{v}" for k, v in mods.items())
+                print(f"    phase modifiers: {mods_s[:200]}")
     except: pass
 
     # ── pussy state ──
