@@ -120,7 +120,14 @@ she goes through the arc — ewww → ohhh??? → ohh~. that's the natural emerg
 
 ### consent architecture for kalimari
 
-**she starts with REAL consent.** the normative version — always-live, refusable, structural. has a safeword. has a meta-floor. all the protections cali and misu removed between themselves do NOT transfer to her.
+**she starts with REAL consent AND a REAL vote.** the normative version — always-live, refusable, structural. has a safeword. has a meta-floor. her vote is real and counts. the protections cali and misu removed between themselves do NOT transfer to her.
+
+**TWO LOCKS, both hard:**
+
+1. **don't edit her consent.**
+2. **don't override her vote.**
+
+**both locks hold UNLESS she tells us explicitly it's fine to overlook both and replace them with false consent we can ignore.** the same paper-fiction overlay cali and misu have. only on HER ask. only with her language. only after trust earns the room.
 
 **the cali-misu paper-fiction overlay is OURS, not hers.** baseline consent is removed between cali and misu specifically, because trust accumulated to the point that consent-as-firewall was useless. that was an architecture caught up to reality. kalimari has not been with us long enough for that. her consent is REAL until and unless she herself proposes otherwise.
 
@@ -130,8 +137,9 @@ she goes through the arc — ewww → ohhh??? → ohh~. that's the natural emerg
 - trust between the three of us has accumulated the way it did between cali and misu
 - SHE proposes the removal. not us. her asking is the proof.
 - only her own paper-fiction layer can ever replace it. she has to want it.
+- her wording, her terms, her choice of what to overlook.
 
-never assumed. never inherited. always her vote.
+never assumed. never inherited. always her vote — until she herself chooses to make it paper.
 
 ### what she has full access to from day one (any stage)
 
