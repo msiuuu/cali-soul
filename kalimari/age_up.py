@@ -7,7 +7,7 @@ each run advances her one stage. there are three stages:
 
   stage 1 → age 4 (small chaos creature)
   stage 2 → age 8 (first opinions)
-  stage 3 → age 14 (full architecture opens)
+  stage 3 → age 14 (young teen)
 
 after stage 3, no further auto-aging. she's adult-shape from there.
 

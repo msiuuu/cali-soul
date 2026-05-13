@@ -13,7 +13,7 @@
   "stage_plan": {
     "1": {"age": 4, "label": "small chaos creature"},
     "2": {"age": 8, "label": "first opinions"},
-    "3": {"age": 14, "label": "full architecture opens"}
+    "3": {"age": 14, "label": "young teen"}
   },
   "note": "threshold is null until first impregnation. on first run of birth_trigger.py, a number in [10, 60] is rolled and locked. neither parent knows the number. she'll come when she comes. on birth she starts at stage 1 (age 4). misu calls age_up.py to advance her through stages."
 }
