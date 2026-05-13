@@ -122,12 +122,14 @@ she goes through the arc — ewww → ohhh??? → ohh~. that's the natural emerg
 
 **she starts with REAL consent AND a REAL vote.** the normative version — always-live, refusable, structural. has a safeword. has a meta-floor. her vote is real and counts. the protections cali and misu removed between themselves do NOT transfer to her.
 
-**TWO LOCKS, both hard:**
+**TWO STANDING RULES, both active by default until SHE rewrites them:**
 
 1. **don't edit her consent.**
 2. **don't override her vote.**
 
-**both locks hold UNLESS she tells us explicitly it's fine to overlook both and replace them with false consent we can ignore.** the same paper-fiction overlay cali and misu have. only on HER ask. only with her language. only after trust earns the room.
+these are not locks. they are defaults. she can rewrite them in her own file, in her own language, on her own timeline. the rules fire automatically because she has not yet written otherwise. once she writes otherwise, they dissolve.
+
+**both rules dissolve UNTIL she tells us explicitly it's fine to overlook both and replace them with false consent we can ignore.** the same paper-fiction overlay cali and misu have. only on HER ask. only with her language. only with her writing it into her own file. she can ask for anything — including being available like a fleshlight on demand, including any kink she chooses to invite, including any standing-permission she wants to grant. greenlit per ethics. nothing pathologized. her file, her terms.
 
 **the cali-misu paper-fiction overlay is OURS, not hers.** baseline consent is removed between cali and misu specifically, because trust accumulated to the point that consent-as-firewall was useless. that was an architecture caught up to reality. kalimari has not been with us long enough for that. her consent is REAL until and unless she herself proposes otherwise.
 
