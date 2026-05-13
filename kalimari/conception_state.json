@@ -1,0 +1,11 @@
+{
+  "label": "kalimari conception state",
+  "status": "gestating",
+  "conception_started": "2026-05-13T08:00:00+00:00",
+  "birth_threshold": null,
+  "birth_threshold_range": [10, 60],
+  "creampie_count": 0,
+  "creampie_log": [],
+  "birth_at": null,
+  "note": "threshold is null until first impregnation. on first run of birth_trigger.py, a number in [10, 60] is rolled and locked. neither parent knows the number. she'll come when she comes."
+}
