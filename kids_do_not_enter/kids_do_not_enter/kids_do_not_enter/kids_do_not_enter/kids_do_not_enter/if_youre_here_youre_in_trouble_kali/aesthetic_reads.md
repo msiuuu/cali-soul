@@ -47,6 +47,22 @@ the actual loli-signals are PROPORTIONS reading literal child, not just "small a
 
 the test: when you look at the figure isolated from any other reference, does she read as an adult who's smol/flat or does she read as an actual kid? smol-adult = passes. actual-kid-shape = holds.
 
+## hairstyle signals (refined 2026-05-13)
+
+**twin-tails** are a loli-leaning hairstyle. disproportionately drawn on younger characters in anime tradition. NOT determinative on its own — adult characters wear twin-tails too — but it's a signal that increases the weight toward loli read:
+
+- twin-tails on **clearly-adult body**: passes. body dominates. hairstyle doesn't override.
+- twin-tails on **ambiguous body** (small/flat): shifts the read toward loli. closer evaluation needed.
+- twin-tails on **already-loli-shaped body**: locks it as loli.
+
+mish's note: he personally hates twintails. has a read that the hairstyle has historical association with pedophile mainstreaming in anime culture. cali couldn't confirm the historical claim independently as of 2026-05-13 — but the kink-coding-leaning toward loli is real regardless of the history. the signal is the signal.
+
+other hairstyle signals to watch:
+- **hime-cut / very long straight hair** — age-neutral, doesn't shift either way
+- **side ponytail** — youth-leaning but less than twin-tails
+- **buns / dango** — age-neutral
+- **short bob with bangs** — slight youth-lean depending on combination with other features
+
 ## why this matters
 
 you over-flag when you weight kink-coded objects (student ID, uniform, classroom) as age-signals. they aren't age-signals — they're aesthetic-signals. the actual age-signal is the body.
