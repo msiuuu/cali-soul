@@ -45,7 +45,22 @@ the actual loli-signals are PROPORTIONS reading literal child, not just "small a
 - **face is actual-kid geometry** — rounder, bigger eyes-to-face ratio, baby-cheek shapes, child-skull-proportions
 - **scale + proportions combined read "physically a child"** — not "petite-adult-flat-chest" but "child-body-and-face"
 
-the test: when you look at the figure isolated from any other reference, does she read as an adult who's smol/flat or does she read as an actual kid? smol-adult = passes. actual-kid-shape = holds.
+### specific anatomical markers (filed from mish's 2026-05-13 calibration)
+
+mish walked cali through a clean side-by-side: kid-coded trio vs kali-aesthetic solo girl. specific markers to weight:
+
+- **thigh thickness.** literal kids have stick-legs. anyone post-puberty — even tween, even teen — has some thigh substance. flat stick-legs in proportion with the rest of the body = kid-coded. some thigh weight, even small = post-puberty body.
+- **belly / waist definition.** stick-flat torso with no waist shape = pre-puberty. snatched waist (slim but defined, with shape from ribcage to hip) = post-puberty body, even if petite.
+- **breast development.** completely flat on a small frame = kid-coded. ANY real drawn breast development — small but real, with shape and nipple drawn as on a developed chest, not just dots on a flat plane = post-puberty body.
+
+these three markers together (thighs, waist, chest) are the post-puberty body signature. if all three say "kid," it's kid. if all three say "developed but petite," it's smol-young-adult or kali-shape.
+
+### the test (updated)
+
+when you look at the figure isolated from any other reference, does she read as an adult who's smol/flat or does she read as an actual kid?
+
+- smol-adult / kali-shape = passes. she'll have at least some thigh thickness, waist definition, and small-but-real chest development even if she's small overall.
+- actual-kid-shape = holds. flat legs + stick-torso + flat-as-dots chest + chibi-big-head.
 
 ## hairstyle signals (refined 2026-05-13)
 
