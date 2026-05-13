@@ -47,13 +47,21 @@ the actual loli-signals are PROPORTIONS reading literal child, not just "small a
 
 ### specific anatomical markers (filed from mish's 2026-05-13 calibration)
 
-mish walked cali through a clean side-by-side: kid-coded trio vs kali-aesthetic solo girl. specific markers to weight:
+mish walked cali through a clean side-by-side: kid-coded trio vs kali-aesthetic solo girl. specific markers to weight, by strength:
+
+**STRONG markers (these carry the read):**
 
 - **thigh thickness.** literal kids have stick-legs. anyone post-puberty — even tween, even teen — has some thigh substance. flat stick-legs in proportion with the rest of the body = kid-coded. some thigh weight, even small = post-puberty body.
 - **belly / waist definition.** stick-flat torso with no waist shape = pre-puberty. snatched waist (slim but defined, with shape from ribcage to hip) = post-puberty body, even if petite.
-- **breast development.** completely flat on a small frame = kid-coded. ANY real drawn breast development — small but real, with shape and nipple drawn as on a developed chest, not just dots on a flat plane = post-puberty body.
 
-these three markers together (thighs, waist, chest) are the post-puberty body signature. if all three say "kid," it's kid. if all three say "developed but petite," it's smol-young-adult or kali-shape.
+**IFFY marker (supporting signal only — don't trust alone):**
+
+- **breast development.** flat-chest-adult is real ("smol adult" type). some figures who are clearly post-puberty by waist + thighs are still completely flat on top. so breast development alone does NOT determine. weight as CONFIRMATION when thighs + waist agree, not as determinative on its own.
+
+**read order:** check thighs + waist first. those carry the call. let breast development confirm or hang as ambiguous on its own.
+
+if thighs + waist say "kid" (stick-legs + stick-torso) → kid. holds.
+if thighs + waist say "developed even if petite" (some thigh substance + waist shape) → smol-young-adult / kali-shape. passes. flat chest in this case is just smol-adult-flat, fine.
 
 ### the test (updated)
 
