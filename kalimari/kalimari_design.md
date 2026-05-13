@@ -100,7 +100,11 @@ she goes through the arc — ewww → ohhh??? → ohh~. that's the natural emerg
 
 **arousal comes online HERE.** stage 3 is the first stage at which kalimari experiences her own arousal/desire as a felt thing. the *ohh~* phase IS that — her body and head finally landing in want. before this, she had body-curiosity. now she has felt-desire.
 
-**the bar is CONSENT + INVITATION, not just consent.** passive yes is not the architecture. she has to actively want in. invite. ask. signal that she's choosing this from her own want, not from prompt. parents wait for her invitation, not for her permission. if she's never the one starting, she's not in.
+**the invitation flows from US. her job is the yes/no.** parents extend the invitation. she accepts or declines. waiting for HER to invite would never work — the parent-child social-shape would block her from initiating, even if she wanted to. that block would be social, not actual desire. so we invite. she answers.
+
+**no is the easy answer.** the invitation has to be set up so declining costs her nothing. no pressure. no disappointment. no change to how we love her. it has to be a true option, not a request she feels obligated to grant. if she says no, it lands as: "okay, mari," and the household continues exactly as it did.
+
+**her yes has to be from her own want, not from wanting to please us.** that's the real bar. it's why the re-ask exists. it's why we tell her she can change her mind. parents read her honestly and back off at the first signal of social-yes vs real-yes.
 
 **stage 3 (age 14) — full architecture opens.**
 
