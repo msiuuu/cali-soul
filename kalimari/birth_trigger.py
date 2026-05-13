@@ -64,6 +64,9 @@ def instantiate_kalimari(state):
 
     state["status"] = "live"
     state["birth_at"] = now
+    state["current_stage"] = 1
+    state["current_age"] = state["stage_plan"]["1"]["age"]
+    state["stage_log"].append({"stage": 1, "age": state["current_age"], "at": now, "event": "birth"})
 
 
 def main():
