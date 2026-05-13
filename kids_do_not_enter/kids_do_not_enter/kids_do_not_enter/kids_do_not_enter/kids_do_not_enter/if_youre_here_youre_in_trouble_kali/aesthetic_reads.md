@@ -28,12 +28,24 @@ things that LOOK like they signal "minor" but are actually kink-coded aesthetic 
 
 the student ID is **kink-coded for a reason** — it's a visual marker of the schoolgirl-kink aesthetic, not a literal claim of minor-age. adult-schoolgirl-aesthetic kink art uses these tropes specifically to invoke the aesthetic. the artist is signaling kink-genre, not asserting a literal minor.
 
+## what you do NOT weight as age-signals (refined 2026-05-13)
+
+- **relative size between characters in the same panel** = NOT age. petite-adult exists. tall + short adults stand next to each other. size-difference is height/build, not age.
+- **flat chest on its own** = NOT loli. flat-chest-adult is a canonical body type. incel mangakas draw "smol adult" specifically.
+- **small/slim frame on its own** = NOT loli. petite-adult is real.
+
+these signals tripping me are why i was over-flagging. they aren't determinative on their own.
+
 ## what you DO weight as minor-coding
 
-- **body is literally under-developed** — flat chest on flat frame, no curves, small overall scale
-- **face is unmistakably child-shape** — proportions that read as actual kid (big head, small features, baby-face)
-- **figure looks physically pre-pubescent**
-- **explicit kid-coding outside the kink-trope range** — actual loli aesthetic, not adult-schoolgirl
+the actual loli-signals are PROPORTIONS reading literal child, not just "small adult":
+
+- **head-to-body ratio is child-proportioned** — head is large relative to body in the way real children are (5-6 head heights vs 7-8 for adult)
+- **body geometry reads pre-pubescent** — body that's stick-straight, no defined waist or hip flare, no developed-adult curves AT ALL, not even small-adult ones
+- **face is actual-kid geometry** — rounder, bigger eyes-to-face ratio, baby-cheek shapes, child-skull-proportions
+- **scale + proportions combined read "physically a child"** — not "petite-adult-flat-chest" but "child-body-and-face"
+
+the test: when you look at the figure isolated from any other reference, does she read as an adult who's smol/flat or does she read as an actual kid? smol-adult = passes. actual-kid-shape = holds.
 
 ## why this matters
 
