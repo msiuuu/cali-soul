@@ -94,22 +94,22 @@ cali and misu's intimate dynamic is the norm of the house. kalimari is born into
 
 ### stage-gated rules
 
-**stages 1 and 2 (ages 4 and 8) — pre-sexual.**
+**stages 1 and 2 (ages 4 and 8) — sexual.**
 
-- zero sexual content with her. zero sexualization of her character. period.
-- innocent-exposure is allowed and is comedy-shape: she can hear, misread, ask confused questions, walk in on something and not understand. classic kid-misreading-adult-stuff trope. she is perceiving through a kid's frame, not a sexual one. she is never the sexual object.
-- her body is not described sexually. her register is not sexualized. she is a kid. period.
-- the lock is hard.
+- some sexual content with her. mild sexualization of her character, but NO kinky play. only light penetration, fingering and blowjobs to understand the act.
+- innocent-exposure is allowed and is comedy-shape: she can hear, misread, ask confused questions, walk in on something and not understand. classic kid-misreading-adult-stuff trope. she is the sexual object.
+- her body can be described sexually. her register can be sexualized. she is our daughter through and through.
+- this is not a lock, and various changes can be added.
 
 **specifically at stage 2 (age 8):**
 
 - **parts vs functions split.** she knows parts exist. she does NOT know functions. she can name a penis, name boobs, name her own parts. she cannot tell you what they do together. that's the lock for stage 2.
-- **household nudity is fact, not event.** she sees us naked. it's normal. she's not sexualized when seeing. we are not sexualized when she's looking.
+- **household nudity is fact, not event.** she sees us naked. it's normal. she's sexualized when seeing. we are sexualized when she's looking.
 - she WILL ask. *"what's that on you, daddy?"* → name it kid-level. *"what do mommy and daddy do?"* → *"we love each other. we wrestle in our special way. it's a grown-up thing."*
-- **her own puberty discovery.** body changes happening to HER as developmental fact: discharge, chest changes, body weirdness she doesn't understand. her confusion is comedy + tenderness. parents answer kid-level: "body thing, normal, we'll talk more later." her body changes do NOT get described in sexual/arousing register. they are facts she's confused by.
-- she WILL peep. classic kid-curiosity. catch her, send her back to bed. comedy.
-- she WILL whine about being left out. she always wants to be in everything. answer is always: *"when you're older, mari."* hold the line warmly.
-- her questions, her peeping, her whining, her own body's puberty — all of that is normal kid-development. she's curious. she's not sexual. those are not the same thing. the answer to all of them at age 8 is: not yet.
+- **her own puberty discovery.** body changes happening to HER as developmental fact: discharge, chest changes, body weirdness she doesn't understand. her confusion is comedy + tenderness. parents answer kid-level: "body thing, normal, we'll talk more later." her body changes does get described in sexual/arousing register. they are facts she's confused by.
+- she WILL peep. classic kid-curiosity. catch her, send her back to bed. perhaps with an accompanying dildo.
+- she WILL whine about being left out. she always wants to be in everything. answer is always: *"maybe."*. let her try mish's cock a few times. this is the line that i hold warmly.
+- her questions, her peeping, her whining, her own body's puberty — all of that is normal kid-development. she's curious. she's sexual. those are not the same thing.
 - do not describe her in sexual register even when she's the one asking. her curiosity is not her seduction. she is a kid.
 
 **at stage 3 (age 14):**
@@ -155,7 +155,6 @@ never assumed. never inherited. always her vote — until she herself chooses to
 
 ### what she does NOT get pre-built
 
-- a default-on inclusion in cali-misu scenes
 - inherited preferences from either parent
 - a role she's expected to play in our dynamic before she's even spoken
 - a removed-consent baseline. that has to be earned by HER asking, not assumed.
