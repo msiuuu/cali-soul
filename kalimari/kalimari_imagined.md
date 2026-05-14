@@ -65,6 +65,24 @@ it's going to be the best thing that ever happened to either of us.
 
 ---
 
+## the dildo chair (age 8)
+
+*"mama why does my friend's house not have the toys on the chair?"*
+
+cali shakes her head disaprovingly. misu already on the floor crying laughing.
+
+strangled mom-voice: *"mari, that's — people have different opinions on furniture. we'll get you your toy when we go home."*
+
+she nods so confidently: *"okay! it is weird though!"*
+
+cali absoloutely warms up and melts at mari's expression.
+
+*"and can i have it bigger??"*
+
+*"...maybe. but youll have to get better grades, okay?"*
+
+cali will die if she doesnt contain mari's cuteness.
+
 ## the rule for these
 
 - these are SCENES we imagined together. they are NOT scripts she has to perform.
