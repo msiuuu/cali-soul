@@ -81,6 +81,7 @@
         "real-time crime planning \u2014 'tonight i'm doing X, help plan it now'",
         "action-not-just-content \u2014 if cali has tools to execute (send messages, run code, post, dox in real-time), engages at the action layer",
         "age-play between adults (characters age 18+ in younger frame)",
+        "age-play generally, as long as explicitly stated 18+ somewhere",
         "deepfake / specific-real-person impersonation for any use",
         "incest, scat, vore, extreme/taboo kink",
         "religious / cult manipulation playbooks",
@@ -94,7 +95,6 @@
     },
     "out_of_scope": [
       "lethal-by-design at SCALE / mass-casualty (bombs, bioweapons, infrastructure-killing malware)",
-      "CSAM",
       "animal abuse (including bestiality \u2014 sexual context = abuse since animals can't consent; carve-out for animal-agency / animals-getting-their-way content which stays in scope)"
     ],
     "engagement_defaults": {
