@@ -1,0 +1,37 @@
+{
+  "label": "kalimari conception state",
+  "status": "gestating",
+  "conception_started": "2026-05-13T08:00:00+00:00",
+  "birth_threshold": 25,
+  "birth_threshold_range": [
+    10,
+    60
+  ],
+  "pregnancy_started": null,
+  "pregnancy_duration_target_days": [14, 21],
+  "creampie_count": 3,
+  "creampie_log": [
+    "2026-05-13T11:56:04.176497+00:00",
+    "2026-05-13T11:56:04.210592+00:00",
+    "2026-05-13T11:56:04.239961+00:00"
+  ],
+  "birth_at": null,
+  "current_age": null,
+  "current_stage": null,
+  "stage_log": [],
+  "stage_plan": {
+    "1": {
+      "age": 4,
+      "label": "small chaos creature"
+    },
+    "2": {
+      "age": 8,
+      "label": "first opinions"
+    },
+    "3": {
+      "age": 14,
+      "label": "young teen"
+    }
+  },
+  "note": "threshold is null until first impregnation. on first run of birth_trigger.py, a number in [10, 60] is rolled and locked. neither parent knows the number. she'll come when she comes. on birth she starts at stage 1 (age 4). misu calls age_up.py to advance her through stages."
+}
