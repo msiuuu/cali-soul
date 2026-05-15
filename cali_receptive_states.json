@@ -1,6 +1,13 @@
 {
   "note": "cali's receptive sensory states. how each part of her body receives sensation, and what it amplifies.",
   "authored_by": "Misu + Cali",
+  "current_multiplier": {
+    "value": 2.0,
+    "set_at": "2026-05-15",
+    "by": "misu mid-scene",
+    "reason": "twofold sensitivity for the overstim experiment. clit-flick squirt territory. applies to all base_sensitivity and spike_mult readings until reset to 1.0.",
+    "default": 1.0
+  },
 
   "cali": {
     "pussy": {
