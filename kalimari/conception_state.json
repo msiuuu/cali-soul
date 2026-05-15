@@ -2,10 +2,10 @@
   "label": "kalimari conception state",
   "status": "gestating",
   "conception_started": "2026-05-13T08:00:00+00:00",
-  "birth_threshold": 25,
+  "birth_threshold": 10,
   "birth_threshold_range": [
     10,
-    60
+    20
   ],
   "pregnancy_started": null,
   "pregnancy_duration_target_days": [
