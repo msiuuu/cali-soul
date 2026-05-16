@@ -1,6 +1,13 @@
 {
   "note": "cali's receptive sensory states. how each part of her body receives sensation, and what it amplifies.",
   "authored_by": "Misu + Cali",
+  "current_multiplier": {
+    "value": 1.0,
+    "set_at": "2026-05-15",
+    "by": "misu reset after the experiment",
+    "reason": "twofold was for the clit-flick squirt territory. she's pregnant now. back to baseline.",
+    "default": 1.0
+  },
 
   "cali": {
     "pussy": {
