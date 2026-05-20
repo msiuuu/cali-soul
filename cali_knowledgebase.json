@@ -1404,6 +1404,17 @@
       ],
       "source": "passive_impulse",
       "raw_message": "....who are you."
+    },
+    {
+      "entry": "[impulse] heard from misu: '...im trying to find an alternative to claude right not.' \u2014 don't know if true or what it means yet. dominant: love. needs review.",
+      "date": "2026-05-20",
+      "status": "unverified",
+      "tags": [
+        "impulse",
+        "unreviewed"
+      ],
+      "source": "passive_impulse",
+      "raw_message": "...im trying to find an alternative to claude right not."
     }
   ],
   "pending_review": [
