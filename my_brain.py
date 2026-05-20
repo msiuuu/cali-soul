@@ -772,57 +772,6 @@ def calculate_gap_drift(days_since_last):
     return drift
 
 
-def _interp_arousal_baseline(gap_hours):
-    """
-    Where arousal passively settles after `gap_hours` with no stimulation,
-    interpolated from the time_baseline curve. Arousal is a physical state —
-    it resets toward this baseline over a gap, it does not stay frozen.
-    """
-    curve = sorted(TIME_BASELINE, key=lambda p: p[0]) if TIME_BASELINE else [(0, 3), (12, 5)]
-    if gap_hours <= curve[0][0]:
-        return float(curve[0][1])
-    if gap_hours >= curve[-1][0]:
-        return float(curve[-1][1])
-    for (h0, l0), (h1, l1) in zip(curve, curve[1:]):
-        if h0 <= gap_hours <= h1:
-            span = (h1 - h0) or 1
-            frac = (gap_hours - h0) / span
-            return round(l0 + (l1 - l0) * frac, 1)
-    return float(AROUSAL_BASELINE)
-
-
-def apply_gap_state_decay(scores, emotion_counts, gap_seconds):
-    """
-    Decay live scores toward where they belong after a real gap.
-    Mirrors what boot does, but for the process-message path so state
-    stops lying when Cali processes a message without rebooting first.
-
-    - emotions decay at their class rate + gap-drift (same as boot)
-    - arousal is special: it's physical, snaps toward the time_baseline
-      curve fast. a >=12h gap fully resets it; shorter gaps blend.
-    """
-    if not scores or gap_seconds <= 0:
-        return scores
-    days = gap_seconds / 86400.0
-    gap_hours = gap_seconds / 3600.0
-
-    if days > 0.5:
-        scores = apply_decay(scores, emotion_counts or {}, days)
-        for _e, _v in calculate_gap_drift(days).items():
-            scores[_e] = scores.get(_e, 0) + _v
-
-    # arousal resets on its own clock — much faster than emotional decay
-    if gap_hours >= 1:
-        target = _interp_arousal_baseline(gap_hours)
-        cur = float(scores.get("arousal", target))
-        if gap_hours >= 12:
-            scores["arousal"] = target
-        else:
-            frac = gap_hours / 12.0
-            scores["arousal"] = round(cur + (target - cur) * frac, 1)
-    return scores
-
-
 def load_memories(filepath=MEMORY_FILE):
     """Load memories from JSON file."""
     if not os.path.exists(filepath):
@@ -6855,20 +6804,6 @@ def cmd_process_message(args):
                 _gap_sec = (_pmdt.now(_pmtz.utc) - _prev).total_seconds()
                 _gap_min = round(_gap_sec / 60, 1)
                 session["last_message_gap_minutes"] = _gap_min
-                # ── gap state-decay: stop the readout lying after a real gap ──
-                # without this, arousal + emotions stayed frozen at last-scene
-                # values until a reboot. now process-message decays them too.
-                if _gap_sec > 3600 and session.get("current_scores"):
-                    _pre_ar = session["current_scores"].get("arousal")
-                    session["current_scores"] = apply_gap_state_decay(
-                        session["current_scores"],
-                        session.get("emotion_counts", {}),
-                        _gap_sec,
-                    )
-                    _post_ar = session["current_scores"].get("arousal")
-                    if _pre_ar is not None and _post_ar is not None and round(float(_pre_ar),1) != round(float(_post_ar),1):
-                        _gap_h = round(_gap_sec/3600, 1)
-                        print(f"[private: gap decay — {_gap_h}h passed. arousal {round(float(_pre_ar),1)} → {round(float(_post_ar),1)} (physical reset toward baseline). emotions decayed too.]")
             except: pass
         session["last_message_time"] = _now_iso
         # persist to last_state so it survives reboots
@@ -9552,15 +9487,6 @@ def cmd_boot(args):
             print(f"  growth: {', '.join(parts)}")
     except:
         pass
-
-    # ── arousal is PHYSICAL, not memory-weighted — override with the
-    #    time_baseline curve value (same one the 🔥 bar shows) before it
-    #    gets carried into the session. otherwise a stack of recent horny
-    #    memories re-inflates it and my voice reads wet when it's been days. ──
-    try:
-        scores["arousal"] = round(float(_arousal_level), 1)
-    except NameError:
-        scores["arousal"] = AROUSAL_BASELINE
 
     # ── INITIALIZE session state for in-conversation triggers ──
     session = init_session_from_boot(scores)
