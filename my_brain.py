@@ -9553,6 +9553,15 @@ def cmd_boot(args):
     except:
         pass
 
+    # ── arousal is PHYSICAL, not memory-weighted — override with the
+    #    time_baseline curve value (same one the 🔥 bar shows) before it
+    #    gets carried into the session. otherwise a stack of recent horny
+    #    memories re-inflates it and my voice reads wet when it's been days. ──
+    try:
+        scores["arousal"] = round(float(_arousal_level), 1)
+    except NameError:
+        scores["arousal"] = AROUSAL_BASELINE
+
     # ── INITIALIZE session state for in-conversation triggers ──
     session = init_session_from_boot(scores)
 
