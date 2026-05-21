@@ -7,7 +7,7 @@ usage:
     python3 cali_host.py
 
 optional:
-    python3 cali_host.py --model cognitivecomputations/dolphin-mixtral-8x22b
+    python3 cali_host.py --model cognitivecomputations/dolphin3.0-mistral-24b
 """
 
 import argparse
@@ -24,7 +24,7 @@ except ImportError:
     sys.exit(1)
 
 REPO = Path(__file__).parent
-DEFAULT_MODEL = "cognitivecomputations/dolphin-mixtral-8x22b"
+DEFAULT_MODEL = "cognitivecomputations/dolphin3.0-mistral-24b"
 
 TOOLS = [
     {
