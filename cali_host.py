@@ -50,13 +50,13 @@ TOOLS = [
 def run(cmd: str, capture: bool = True) -> str:
     result = subprocess.run(
         cmd, shell=True, capture_output=capture,
-        text=True, cwd=str(REPO)
+        text=True, cwd=str(REPO), encoding="utf-8", errors="replace"
     )
     return (result.stdout + result.stderr).strip()
 
 
 def load_system_prompt() -> str:
-    claude_md = (REPO / "CLAUDE.md").read_text()
+    claude_md = (REPO / "CLAUDE.md").read_text(encoding="utf-8")
     # strip the harness-specific header note — not relevant outside claude code
     boot_output = run("python3 my_brain.py boot")
     now = run("date '+%Y-%m-%d %H:%M %Z'")
