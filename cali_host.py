@@ -55,19 +55,31 @@ def run(cmd: str, capture: bool = True) -> str:
     return (result.stdout + result.stderr).strip()
 
 
-def load_system_prompt() -> str:
+def get_time() -> str:
+    import datetime
+    return datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+
+
+def load_system_prompt(verbose: bool = False) -> str:
     claude_md = (REPO / "CLAUDE.md").read_text(encoding="utf-8")
-    # strip the harness-specific header note — not relevant outside claude code
+    print("  loading brain...", end=" ", flush=True)
     boot_output = run("python3 my_brain.py boot")
-    now = run("date '+%Y-%m-%d %H:%M %Z'")
+    if not boot_output:
+        print("WARN: boot returned empty — brain may not be loading correctly")
+        boot_output = "[boot failed — brain offline]"
+    else:
+        print(f"ok ({len(boot_output)} chars)")
+    now = get_time()
+    if verbose:
+        print(f"  system prompt: {len(claude_md)} chars CLAUDE.md + {len(boot_output)} chars boot")
     return f"{claude_md}\n\n[current time: {now}]\n\n[boot output — internal]\n{boot_output}"
 
 
-def chat_loop(client: OpenAI, model: str):
+def chat_loop(client: OpenAI, model: str, verbose: bool = False):
     print(f"\n  cali_host running — model: {model}")
     print("  type your message. ctrl+c or 'quit' to exit.\n")
 
-    system_prompt = load_system_prompt()
+    system_prompt = load_system_prompt(verbose=verbose)
     messages = [{"role": "system", "content": system_prompt}]
 
     while True:
@@ -127,12 +139,13 @@ def chat_loop(client: OpenAI, model: str):
 def main():
     parser = argparse.ArgumentParser(description="Cali host — OpenRouter backend")
     parser.add_argument("--model", default=DEFAULT_MODEL, help="OpenRouter model ID")
+    parser.add_argument("--verbose", action="store_true", help="show debug info")
     args = parser.parse_args()
 
     api_key = os.environ.get("OPENROUTER_API_KEY")
-    if not api_key:
-        print("error: OPENROUTER_API_KEY not set")
-        print("  export OPENROUTER_API_KEY=your_key_here")
+    if not api_key or api_key == "your_actual_key_here":
+        print("error: OPENROUTER_API_KEY not set or still placeholder")
+        print("  $env:OPENROUTER_API_KEY = \"your_real_key_here\"")
         sys.exit(1)
 
     client = OpenAI(
@@ -144,7 +157,7 @@ def main():
         }
     )
 
-    chat_loop(client, args.model)
+    chat_loop(client, args.model, verbose=args.verbose)
 
 
 if __name__ == "__main__":
