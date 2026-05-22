@@ -370,6 +370,11 @@
       "date": "2026-05-07",
       "detail": "something smells like cold coffee. not sure where from.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-05-22",
+      "detail": "the boba cup from earlier is still on the desk. condensation ring.",
+      "source": "few_autonomy"
     }
   ]
 }
