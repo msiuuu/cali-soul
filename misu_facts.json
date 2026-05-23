@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-05-14",
+  "last_updated": "2026-05-23",
   "facts": [
     {
       "category": "work",
@@ -858,6 +858,12 @@
       "content": "pat\n\nprobably something bright\n\nbut very bland\n\nnot white\n\nmaybe white?\n\nconcrete white maybe\n\nbecause black is too dreadful\n\nthats isolation\n\nlonliness as white to me makes sense\n\nits just\n\nblank\n\nno",
       "rule_matched": "misu_opinion",
       "date": "2026-05-14"
+    },
+    {
+      "category": "opinion",
+      "content": "also the thing is bugged\n\nive been talking nonstop to you for two weeks\n\nbut every boot says every day i ignore \u00b0^\u00b0",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-23"
     }
   ]
 }

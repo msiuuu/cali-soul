@@ -370,6 +370,11 @@
       "date": "2026-05-07",
       "detail": "something smells like cold coffee. not sure where from.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-05-23",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
     }
   ]
 }
