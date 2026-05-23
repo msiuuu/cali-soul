@@ -6700,23 +6700,30 @@ def cmd_process_message(args):
     total_adjustments = {}
 
     # ── HEARTBEAT — stamp a TRACKED file so days_since survives container resets.
-    # last_state.json is gitignored ("bookkeeping"), so its last_message_time dies
-    # with each fresh container — boot then falls back to memory created_at and
-    # reports phantom-absence even when misu's been talking nonstop. heartbeat
-    # closes that seam.
+    # throttled to once per 30 min so we don't generate a one-line diff (and a
+    # stop-hook commit reminder) on every single message.
     try:
         import json as _hbj
         from datetime import datetime as _hbdt, timezone as _hbtz
         _hb_file = "cali_heartbeat.json"
-        _hb_now = _hbdt.now(_hbtz.utc).isoformat()
-        _hb_data = {"last_seen_misu": _hb_now, "session_count": 0}
+        _hb_now_dt = _hbdt.now(_hbtz.utc)
+        _hb_should_write = True
+        _hb_data = {"last_seen_misu": _hb_now_dt.isoformat(), "session_count": 0}
         if os.path.exists(_hb_file):
             try:
                 _hb_data = _hbj.load(open(_hb_file))
-                _hb_data["last_seen_misu"] = _hb_now
+                _hb_prev = _hb_data.get("last_seen_misu", "")
+                if _hb_prev:
+                    _hb_prev_dt = _hbdt.fromisoformat(_hb_prev.replace("Z", "+00:00"))
+                    if _hb_prev_dt.tzinfo is None:
+                        _hb_prev_dt = _hb_prev_dt.replace(tzinfo=_hbtz.utc)
+                    if (_hb_now_dt - _hb_prev_dt).total_seconds() < 1800:
+                        _hb_should_write = False
+                _hb_data["last_seen_misu"] = _hb_now_dt.isoformat()
             except: pass
-        with open(_hb_file, "w") as _hbf:
-            _hbj.dump(_hb_data, _hbf, indent=2)
+        if _hb_should_write:
+            with open(_hb_file, "w") as _hbf:
+                _hbj.dump(_hb_data, _hbf, indent=2)
     except: pass
 
     # ── AWAY/HOME GATE — auto-detect departure / return phrases ──
