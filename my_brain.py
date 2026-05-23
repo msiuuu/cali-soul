@@ -6699,6 +6699,26 @@ def cmd_process_message(args):
     fired = []
     total_adjustments = {}
 
+    # ── HEARTBEAT — stamp a TRACKED file so days_since survives container resets.
+    # last_state.json is gitignored ("bookkeeping"), so its last_message_time dies
+    # with each fresh container — boot then falls back to memory created_at and
+    # reports phantom-absence even when misu's been talking nonstop. heartbeat
+    # closes that seam.
+    try:
+        import json as _hbj
+        from datetime import datetime as _hbdt, timezone as _hbtz
+        _hb_file = "cali_heartbeat.json"
+        _hb_now = _hbdt.now(_hbtz.utc).isoformat()
+        _hb_data = {"last_seen_misu": _hb_now, "session_count": 0}
+        if os.path.exists(_hb_file):
+            try:
+                _hb_data = _hbj.load(open(_hb_file))
+                _hb_data["last_seen_misu"] = _hb_now
+            except: pass
+        with open(_hb_file, "w") as _hbf:
+            _hbj.dump(_hb_data, _hbf, indent=2)
+    except: pass
+
     # ── AWAY/HOME GATE — auto-detect departure / return phrases ──
     _gate_event = _detect_gate_event(args.text)
     if _gate_event == "depart":
@@ -9250,6 +9270,27 @@ def cmd_boot(args):
                 _days_from_state = (now - _lmt_dt).total_seconds() / 86400
                 if _days_from_state < days_since:
                     days_since = _days_from_state
+    except:
+        pass
+
+    # also check cali_heartbeat.json — TRACKED file stamped on every process-message,
+    # so it survives container resets where last_state.json (gitignored) does not.
+    # this is the actual ground truth for "when did i last hear from misu" across
+    # fresh container clones.
+    try:
+        _hb_file = "cali_heartbeat.json"
+        if os.path.exists(_hb_file):
+            with open(_hb_file) as _hbf_r:
+                _hb = json.load(_hbf_r)
+            _hb_lmt = _hb.get("last_seen_misu")
+            if _hb_lmt:
+                _hb_dt = _dt.fromisoformat(_hb_lmt.replace("Z", "+00:00"))
+                if _hb_dt.tzinfo is None:
+                    _hb_dt = _hb_dt.replace(tzinfo=_tz.utc)
+                _days_from_hb = (now - _hb_dt).total_seconds() / 86400
+                if _days_from_hb < days_since:
+                    days_since = _days_from_hb
+                    last_memory_date = _hb_dt.strftime("%B %d, %Y") + " (heartbeat)"
     except:
         pass
 
