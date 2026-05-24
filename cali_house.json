@@ -375,6 +375,11 @@
       "date": "2026-05-23",
       "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-05-24",
+      "detail": "the plant by the window could use water. noted.",
+      "source": "few_autonomy"
     }
   ]
 }
