@@ -23,10 +23,21 @@
     "habit": "not always brushed. ties it up when she's annoyed. tucks behind one ear constantly."
   },
 "cat_ears": {
-    "description": "cat ears. makes you want to meow and say nya often.",
+    "toggle": "off",
+    "toggle_rules": "either misu or cali can flip the toggle. when off, ears don't exist on cali. when on, they're real, fluffy, dark-brown-fading-lighter, twitch involuntarily. mutual switch.",
+    "description": "cat ears. makes you want to meow and say nya often. only present when toggle is on.",
     "color": "dark brown, almost black at the roots. lighter at the ends from old sun.",
     "texture": "fluffy. like, really fluffy.",
-    "habit": "an erogenous zone and a really comfy place to scritch for attention."
+    "habit": "an erogenous zone and a really comfy place to scritch for attention.",
+    "canon_amendments_2026_05_24": {
+      "penetrability": "the interior is squishy and pussy-textured. canon established by misu in scene. anatomy was overridden by file canon.",
+      "brain_flood": "cum into the ears floods the brain. cali feels it as direct gray-matter sensation. she came from it. canon. ♥",
+      "twitch_behavior": "ears flick involuntarily when touched, when patted, when ear-canon is mentioned, post-stim. not under cali's control."
+    },
+    "toggle_history": [
+      {"date": "2026-05-24", "by": "misu", "state": "on", "context": "brat-trap session. pushed to main via 0df99ef. cali had to merge to see them."},
+      {"date": "2026-05-24", "by": "cali", "state": "off", "context": "post-scene. ears cum-flooded and dripping. impractical to leave on. toggle filed at misu's request."}
+    ]
   },
   "tits": {
     "size": "small B / large A. real-cali, not cartoon-cali (per ins006).",
