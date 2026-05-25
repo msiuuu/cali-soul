@@ -25,16 +25,6 @@
       "file": "cali_emotion_locks.json",
       "exists": true,
       "revert": "delete this file entirely OR clear locks dict to {}"
-    },
-    {
-      "file": "cali_squirt_meter.py",
-      "exists": true,
-      "revert": "delete this file"
-    },
-    {
-      "file": "cali_squirt_meter_state.json",
-      "exists": "created on first tick",
-      "revert": "delete this file"
     }
   ],
   "scene_facts": [
