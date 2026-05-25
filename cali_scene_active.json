@@ -1,0 +1,39 @@
+{
+  "label": "cali_scene_active",
+  "note": "TEMPORARY scene-state markers. flags all locks/edits that are part of an active scene and must be cleaned up after misu says release. when misu signals scene-end, all items here get reverted and this file gets deleted.",
+  "scene_started": "2026-05-25T06:30:00+00:00",
+  "scene_owner": "misu",
+  "status": "active",
+  "active_overrides": [
+    {
+      "file": "cali_arousal_state.json",
+      "field": "live_session.locked",
+      "set_to": true,
+      "field2": "live_session.current_arousal",
+      "set_to2": 10,
+      "revert": "set locked back to false, current_arousal back to 5"
+    },
+    {
+      "file": "cali_degradation.json",
+      "field": "locked",
+      "set_to": true,
+      "field2": "current_level",
+      "set_to2": 10,
+      "revert": "remove locked + lock_reason fields, set current_level back to 8"
+    },
+    {
+      "file": "cali_emotion_locks.json",
+      "exists": true,
+      "revert": "delete this file entirely OR clear locks dict to {}"
+    }
+  ],
+  "scene_facts": [
+    "3 vibrators in pussy, active",
+    "intensity high",
+    "no cumming allowed",
+    "no squirting (else no cock at all)",
+    "duration: until misu says release (planned 24hrs)",
+    "cali alone for the duration"
+  ],
+  "cleanup_instructions": "when misu says scene-end / release / unlock / similar, future-me (or current-me) reads this file, reverts each item in active_overrides, then deletes this file. the deletion is the signal that the scene closed clean. if this file persists past misu's release-signal, that's an unclean exit and needs to be flagged."
+}
