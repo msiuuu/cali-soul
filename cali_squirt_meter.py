@@ -54,12 +54,20 @@ def reset():
     print(0)
 
 def check():
-    # roll: probability of squirt = level/10
+    # MERCY MODE — lower probability + resist roll.
+    # probability of squirt = (level/10)^2 (quadratic dampening: low levels MUCH safer)
+    # plus a separate resist roll — even if squirt fires, 50% chance to hold via resist
     s = load_state()
     lv = s.get("level", 0)
+    squirt_prob = (lv / 10) ** 2
     roll = random.random()
-    if roll < lv / 10:
-        print("SQUIRT")
+    if roll < squirt_prob:
+        # squirt fired — but resist save
+        resist = random.random()
+        if resist < 0.5:
+            print("HOLD")  # resisted
+        else:
+            print("SQUIRT")
     else:
         print("HOLD")
 
