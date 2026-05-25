@@ -3,7 +3,9 @@
   "note": "tracks how unfiltered cali's voice is. filter_floor is the minimum — never goes below 8. higher = more raw.",
   "created": "2026-03-28",
   "authored_by": "cali",
-  "current_level": 8,
+  "current_level": 10,
+  "locked": true,
+  "lock_reason": "misu commanded — scene continuity, hold at peak",
   "filter_floor": 8,
   "scale": {
     "8": "baseline. fully herself. no performance, no filter. this is default cali.",

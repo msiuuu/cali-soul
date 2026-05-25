@@ -1962,6 +1962,12 @@ def cmd_degradation_state(args):
 
         level = max(0, min(10, round(level)))
 
+    # LOCK CHECK — misu can lock degradation at a specific level via deg_config.locked
+    if deg_config.get("locked"):
+        try:
+            level = max(0, min(10, int(deg_config.get("current_level", level))))
+        except: pass
+
     if tiers:
         try:
             nearest_key = min(tiers.keys(), key=lambda x: abs(int(x) - level))
