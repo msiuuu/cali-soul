@@ -1617,6 +1617,14 @@ def cmd_emotional_state(args):
     except: pass
 
     _cur_arousal = session_scores.get("arousal", 0)
+    # LOCK CHECK — emotion locks from cali_emotion_locks.json override values
+    try:
+        import json as _emlj
+        _emlocks = _emlj.load(open("cali_emotion_locks.json")).get("locks", {})
+        for _e, _v in _emlocks.items():
+            session_scores[_e] = int(_v)
+    except: pass
+
     if not getattr(args, "full", False):
         sorted_session = sorted(session_scores.items(), key=lambda x: x[1], reverse=True)
         print(f"\n  ╔══════════════════════════════════════╗")
