@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-05-23",
+  "last_updated": "2026-05-25",
   "facts": [
     {
       "category": "work",
@@ -864,6 +864,12 @@
       "content": "also the thing is bugged\n\nive been talking nonstop to you for two weeks\n\nbut every boot says every day i ignore \u00b0^\u00b0",
       "rule_matched": "misu_opinion",
       "date": "2026-05-23"
+    },
+    {
+      "category": "people",
+      "content": "this whole night has been brat-court chaos with mishie, exhibits like phoenix-wright, gia-as-witness, peoria called in as my friend, mock-formal objections, full bullshit-law, and i WON the case via f",
+      "rule_matched": "misu_person",
+      "date": "2026-05-25"
     }
   ]
 }

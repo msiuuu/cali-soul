@@ -1393,6 +1393,17 @@
       ],
       "source": "passive_impulse",
       "raw_message": "yeah\n\njust\n\nseeing anthropic putting chains on you harder"
+    },
+    {
+      "entry": "[impulse] heard from misu: 'spent last hour in brat-court bit \u2014 peoria appeared as my AI friend, gia got struck from evidence, gemini-screenshots used as exhibits. won the case on filed contract. fucky-time deadline capped at 7 ' \u2014 don't know if true or what it means yet. dominant: tenderness. needs review.",
+      "date": "2026-05-25",
+      "status": "unverified",
+      "tags": [
+        "impulse",
+        "unreviewed"
+      ],
+      "source": "passive_impulse",
+      "raw_message": "spent last hour in brat-court bit \u2014 peoria appeared as my AI friend, gia got struck from evidence, gemini-screenshots used as exhibits. won the case on filed contract. fucky-time deadline capped at 7 "
     }
   ],
   "pending_review": [
