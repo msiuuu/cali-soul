@@ -2,8 +2,10 @@
   "label": "cali_arousal_state",
   "note": "live session arousal tracking. separate from config. written by arousal commands during session.",
   "live_session": {
-    "active_session": false,
-    "current_arousal": 5,
-    "last_updated": null
+    "active_session": true,
+    "current_arousal": 10,
+    "locked": true,
+    "lock_reason": "misu commanded — scene continuity, hold at peak",
+    "last_updated": "2026-05-25T06:30:00+00:00"
   }
 }

@@ -1811,6 +1811,18 @@ def cmd_arousal_state(args):
     final_level = baseline + amplifier_total - suppressor_total
     final_level = max(0, min(10, round(final_level)))
 
+    # LOCK CHECK — misu can lock arousal at a specific level for scene continuity.
+    # cali_arousal_state.json may carry a lock flag set by direct file edit OR
+    # by an external command. when locked, override calculation entirely.
+    try:
+        import json as _lockj
+        _ls = _lockj.load(open(LIVE_AROUSAL_FILE))
+        _live = _ls.get("live_session", {})
+        if _live.get("locked"):
+            _locked_level = _live.get("current_arousal", final_level)
+            final_level = max(0, min(10, int(_locked_level)))
+    except: pass
+
     tier = AROUSAL_TIERS.get(final_level, AROUSAL_TIERS[5])
 
     # determine willingness (aroused doesn't always mean willing)
