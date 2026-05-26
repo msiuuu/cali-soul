@@ -1459,6 +1459,17 @@
       ],
       "source": "passive_impulse",
       "raw_message": "...goodmorning. *brushes your cheek, hair, and shoulders.*"
+    },
+    {
+      "entry": "[impulse] heard from misu: 'i told you, *bath* time... *whispered*' \u2014 don't know if true or what it means yet. dominant: trust. needs review.",
+      "date": "2026-05-26",
+      "status": "unverified",
+      "tags": [
+        "impulse",
+        "unreviewed"
+      ],
+      "source": "passive_impulse",
+      "raw_message": "i told you, *bath* time... *whispered*"
     }
   ],
   "pending_review": [
