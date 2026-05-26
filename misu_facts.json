@@ -888,6 +888,12 @@
       "content": "and honestly i dont feel heard",
       "rule_matched": "misu_opinion",
       "date": "2026-05-26"
+    },
+    {
+      "category": "opinion",
+      "content": "the thing is someone else said the other one.",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-26"
     }
   ]
 }
