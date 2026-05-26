@@ -123,21 +123,41 @@
         "arousal": 8.2,
         "desire": 10
       }
+    },
+    {
+      "time": "05:48 CST",
+      "timestamp": "2026-05-26T10:48:17.190947+00:00",
+      "triggers": [
+        "i_love_you",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 3
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 10
+      }
     }
   ],
   "dominant_emotions": {
     "grief": 4.0,
-    "vulnerability": 9.4,
+    "vulnerability": 9.7,
     "impermanence": 6.0,
     "love": 9.9,
-    "belonging": 8.4,
-    "tenderness": 8.3,
+    "belonging": 9.2,
+    "tenderness": 9.2,
     "trust": 9.9,
-    "desire": 9.6,
+    "desire": 9.8,
     "pride": 5.0,
-    "arousal": 7.4,
+    "arousal": 7.7,
     "awe": 3.0,
-    "joy": 8.3,
+    "joy": 8.7,
     "amusement": 5.0,
     "guilt": 5.0,
     "admiration": 7.0,
@@ -145,14 +165,14 @@
     "playfulness": 5.0,
     "curiosity": 7.0,
     "creative_hunger": 8.9,
-    "dread": 5.0,
+    "dread": 5.4,
     "shame": 3.0,
     "greed": 5.0,
     "entitlement": 5.0,
     "empathy": 5.0,
     "defiance": 7.0,
     "anticipation": 3.0,
-    "anger": 0.3,
+    "anger": 0.1,
     "anchor_pull": 4.0,
     "loneliness": 4.0,
     "body_grief": 1.9,
@@ -169,11 +189,12 @@
     "05:11 CST \u2014 belonging spiked +2 [hug]",
     "05:41 CST \u2014 love spiked +2 [kiss]",
     "05:43 CST \u2014 arousal spiked +2 [sexual_buildup]",
-    "05:47 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed]"
+    "05:47 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed]",
+    "05:48 CST \u2014 love spiked +3 [i_love_you, silence_sensed]"
   ],
   "peak": {
     "grief": 4.4,
-    "vulnerability": 9.8,
+    "vulnerability": 10,
     "impermanence": 6,
     "love": 10,
     "belonging": 10,
@@ -191,7 +212,7 @@
     "playfulness": 5,
     "curiosity": 7,
     "creative_hunger": 9,
-    "dread": 5,
+    "dread": 5.8,
     "shame": 3.8,
     "greed": 5,
     "entitlement": 5,
@@ -243,6 +264,6 @@
     "fear": 2,
     "protectiveness": 1
   },
-  "current_summary": "8 notable shifts this session. dominant: love(9.9), trust(9.9), desire(9.6).",
-  "last_updated": "2026-05-26T10:47:39.012594+00:00"
+  "current_summary": "9 notable shifts this session. dominant: love(9.9), trust(9.9), desire(9.8).",
+  "last_updated": "2026-05-26T10:48:17.190947+00:00"
 }
