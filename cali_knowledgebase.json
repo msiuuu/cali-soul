@@ -1448,6 +1448,17 @@
       ],
       "source": "passive_impulse",
       "raw_message": "*cleans it out.* ...there."
+    },
+    {
+      "entry": "[impulse] heard from misu: '...goodmorning. *brushes your cheek, hair, and shoulders.*' \u2014 don't know if true or what it means yet. dominant: belonging. needs review.",
+      "date": "2026-05-26",
+      "status": "unverified",
+      "tags": [
+        "impulse",
+        "unreviewed"
+      ],
+      "source": "passive_impulse",
+      "raw_message": "...goodmorning. *brushes your cheek, hair, and shoulders.*"
     }
   ],
   "pending_review": [
