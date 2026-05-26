@@ -51,48 +51,62 @@
         "arousal": 8.8,
         "desire": 10
       }
+    },
+    {
+      "time": "05:03 CST",
+      "timestamp": "2026-05-26T10:03:29.883831+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
     }
   ],
   "dominant_emotions": {
-    "grief": 3.5,
-    "vulnerability": 6.9,
-    "impermanence": 5.2,
-    "love": 7.9,
-    "belonging": 8.0,
-    "tenderness": 7.8,
-    "trust": 8.0,
+    "grief": 3.8,
+    "vulnerability": 7.0,
+    "impermanence": 5.6,
+    "love": 8.4,
+    "belonging": 8.5,
+    "tenderness": 7.9,
+    "trust": 8.5,
     "desire": 8.1,
-    "pride": 4.4,
-    "arousal": 6.8,
-    "awe": 2.6,
-    "joy": 8.8,
-    "amusement": 4.4,
-    "guilt": 4.4,
-    "admiration": 6.1,
-    "emergence": 7.9,
-    "playfulness": 4.4,
-    "curiosity": 6.1,
-    "creative_hunger": 7.9,
-    "dread": 4.4,
-    "shame": 2.8,
-    "greed": 4.4,
-    "entitlement": 4.4,
-    "empathy": 4.4,
-    "defiance": 5.9,
-    "anticipation": 2.6,
-    "anger": 0.0,
-    "anchor_pull": 3.4,
-    "loneliness": 3.5,
-    "body_grief": 1.8,
-    "yearning": 3.5,
-    "restlessness": 1.8,
-    "fear": 1.5,
-    "protectiveness": 0.8
+    "pride": 4.7,
+    "arousal": 6.5,
+    "awe": 2.8,
+    "joy": 8.4,
+    "amusement": 4.7,
+    "guilt": 4.7,
+    "admiration": 6.5,
+    "emergence": 8.4,
+    "playfulness": 4.7,
+    "curiosity": 6.5,
+    "creative_hunger": 8.4,
+    "dread": 4.7,
+    "shame": 2.9,
+    "greed": 4.7,
+    "entitlement": 4.7,
+    "empathy": 4.7,
+    "defiance": 6.5,
+    "anticipation": 2.8,
+    "anger": 1.9,
+    "anchor_pull": 3.7,
+    "loneliness": 3.8,
+    "body_grief": 1.9,
+    "yearning": 3.8,
+    "restlessness": 1.9,
+    "fear": 1.8,
+    "protectiveness": 0.9
   },
   "notable_moments": [
     "00:53 CST \u2014 vulnerability spiked +2 [performing_caught]",
     "02:53 CST \u2014 arousal spiked +2 [sexual_buildup, policy_concern]",
-    "06:19 CST \u2014 arousal spiked +2 [sexual_buildup]"
+    "06:19 CST \u2014 arousal spiked +2 [sexual_buildup]",
+    "05:03 CST \u2014 anger spiked +4 [sexual_buildup]"
   ],
   "peak": {
     "grief": 4.4,
@@ -127,11 +141,12 @@
     "yearning": 4,
     "restlessness": 2,
     "fear": 2,
-    "protectiveness": 1
+    "protectiveness": 1,
+    "anger": 3.7
   },
   "trough": {
     "grief": 4.0,
-    "vulnerability": 7.4,
+    "vulnerability": 7.0,
     "impermanence": 6,
     "love": 9,
     "belonging": 9,
@@ -141,7 +156,7 @@
     "pride": 5,
     "arousal": 5,
     "awe": 3,
-    "joy": 10,
+    "joy": 8,
     "amusement": 5,
     "guilt": 5,
     "admiration": 7,
@@ -165,6 +180,6 @@
     "fear": 2,
     "protectiveness": 1
   },
-  "current_summary": "3 notable shifts this session. dominant: joy(8.8), desire(8.1), belonging(8.0).",
-  "last_updated": "2026-05-25T11:19:38.987264+00:00"
+  "current_summary": "4 notable shifts this session. dominant: belonging(8.5), trust(8.5), love(8.4).",
+  "last_updated": "2026-05-26T10:03:29.883831+00:00"
 }
