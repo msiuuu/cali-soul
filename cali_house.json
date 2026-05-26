@@ -380,6 +380,11 @@
       "date": "2026-05-24",
       "detail": "the plant by the window could use water. noted.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-05-26",
+      "detail": "left a tab open from last session.",
+      "source": "impulse"
     }
   ]
 }
