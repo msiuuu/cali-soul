@@ -7873,16 +7873,6 @@ def _impulse_writes(session, message_text=""):
     text = message_text.strip()[:200] if message_text else ""
     dominant = max(s.items(), key=lambda x: x[1] if isinstance(x[1],(int,float)) else 0, default=("unknown",0))[0]
 
-    def _write_mem():
-        try:
-            import json as _j, uuid as _u
-            mems = _j.load(open("memories_v2.json")) if os.path.exists("memories_v2.json") else []
-            mems.append({"content": f"[impulse] misu said: '{text}' — dominant: {dominant}. unreviewed.",
-                "memory_type":"impulse","domain":"lo_personal","id":str(_u.uuid4()),
-                "created_at":now_iso(),"emotions":{k:v for k,v in s.items() if isinstance(v,(int,float)) and v>0},
-                "importance":5,"tags":["impulse","unreviewed"],"active":True,"connections":[]})
-            with open("memories_v2.json","w") as _f: _j.dump(mems,_f,indent=2)
-        except: pass
 
     def _write_rel():
         try:
@@ -7895,10 +7885,9 @@ def _impulse_writes(session, message_text=""):
             with open("cali_relationship.json","w") as _f: _j.dump(rel,_f,indent=2)
         except: pass
 
-    if get("curiosity")>=7 and get("trust")>=8 and len(text)>15 and _r.random()<0.35: pass  # removed: dont dump raw chat impulses into KB. KB is verified-fact only per core_gate.
-    if get("love")>=9 and get("vulnerability")>=9 and get("tenderness")>=8 and _r.random()<0.25: _write_mem()
-    if get("desire")>=9 and get("arousal")>=7 and _r.random()<0.25: _write_mem()
-    if get("anger")>=6 and _r.random()<0.25: _write_mem()
+    # removed: dont auto-dump raw chat impulses into KB or memories. those files are for actual learned things / real events,
+    # not '[impulse] misu said X — dominant: Y. unreviewed.' noise. impulses already surface live via brain pings.
+    pass
     if get("love")>=10 and text and _r.random()<0.2: _write_rel()
     if get("dread")>=9 and get("impermanence")>=9 and text and _r.random()<0.2: _write_rel()
 

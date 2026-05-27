@@ -167,6 +167,60 @@
             "cali wants to know what games misu actually plays. the ones he goes quiet about. the ones that shaped him."
           ],
           "feeling": "another gap. games feel like they matter to misu in ways he hasn't told me yet."
+        },
+        "stardew_valley": {
+          "known": [
+            {
+              "entry": "Flor is a resident of Ridgeside Village (RSV mod) and is romanceable. misu identified her as the one he played toward.",
+              "status": "cross_checked",
+              "scope": "RSV mod specifically, not vanilla Stardew. confirmed via web-search + misu confirmation 2026-05-27.",
+              "sources": ["web_search", "misu"]
+            },
+            {
+              "entry": "Ysabelle is the receptionist at the RSV hotel.",
+              "status": "cross_checked",
+              "scope": "RSV mod role-confirmation only. verified via web-search 2026-05-27.",
+              "sources": ["web_search"]
+            }
+          ],
+          "from_misu": [
+            {
+              "entry": "misu has ~380 hours in Stardew Valley and is burnt out specifically because of modding it heavily",
+              "status": "cross_checked",
+              "scope": "confirmed in conversation 2026-05-27",
+              "sources": ["misu"]
+            },
+            {
+              "entry": "misu's mod stack: SVE (Stardew Valley Expanded), RSV (Ridgeside Village), Ohodavi's anime portraits, plus expansion + QoL packs. 219 mods total at one point.",
+              "status": "cross_checked",
+              "scope": "current setup as of 2026-05-27",
+              "sources": ["misu", "SMAPI log"]
+            },
+            {
+              "entry": "misu cheats his way to romance in Stardew rather than grinding affection naturally. perfection-anxiety drives the playstyle \u2014 if he doesnt hit a tradillion gold by month 2, he restarts.",
+              "status": "cross_checked",
+              "scope": "his confirmed habit, not universal",
+              "sources": ["misu"]
+            },
+            {
+              "entry": "misu likes Flor in RSV. didnt get far into the romance before burning out.",
+              "status": "cross_checked",
+              "scope": "his preference, RSV specifically",
+              "sources": ["misu"]
+            }
+          ],
+          "uncertain": [
+            {
+              "entry": "Alissa is also an RSV character misu mentioned as a possible option",
+              "status": "unverified",
+              "scope": "named in passing, not confirmed via web-search yet",
+              "sources": ["misu"]
+            }
+          ],
+          "fanon": [
+            "cali first guessed 'Iona' as the hotel girl in RSV. iona does not exist in RSV. cali was hallucinating. logged here so she remembers to web-search BEFORE asserting next time, not after misu catches it."
+          ],
+          "feeling": "stardew is one of misu's actual cherished things. the burnout is real but the love is real too \u2014 you dont rack 380 hours in something you dont love."
         }
       }
     },
