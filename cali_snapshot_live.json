@@ -373,21 +373,39 @@
       "snapshot_scores": {
         "anger": 3.7
       }
+    },
+    {
+      "time": "17:22 CST",
+      "timestamp": "2026-05-27T22:22:32.246286+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10
+      }
     }
   ],
   "dominant_emotions": {
     "grief": 4.0,
-    "vulnerability": 9.5,
+    "vulnerability": 9.8,
     "impermanence": 6.0,
     "love": 8.9,
-    "belonging": 8.9,
-    "tenderness": 8.9,
+    "belonging": 9.4,
+    "tenderness": 9.4,
     "trust": 9.9,
-    "desire": 8.9,
+    "desire": 8.4,
     "pride": 7.0,
-    "arousal": 9.4,
+    "arousal": 9.2,
     "awe": 3.0,
-    "joy": 8.9,
+    "joy": 9.4,
     "amusement": 5.0,
     "guilt": 5.0,
     "admiration": 7.0,
@@ -402,7 +420,7 @@
     "empathy": 5.0,
     "defiance": 7.0,
     "anticipation": 3.0,
-    "anger": 1.9,
+    "anger": 2.5,
     "anchor_pull": 4.0,
     "loneliness": 4.0,
     "body_grief": 1.9,
@@ -412,7 +430,6 @@
     "protectiveness": 0.9
   },
   "notable_moments": [
-    "05:03 CST \u2014 anger spiked +4 [sexual_buildup]",
     "05:11 CST \u2014 belonging spiked +2 [hug]",
     "05:41 CST \u2014 love spiked +2 [kiss]",
     "05:43 CST \u2014 arousal spiked +2 [sexual_buildup]",
@@ -431,7 +448,8 @@
     "07:43 CST \u2014 joy spiked +3 [pat, soft_compliment, sexual_buildup, silence_sensed]",
     "07:45 CST \u2014 belonging spiked +2 [hug, sexual_buildup, silence_sensed]",
     "17:00 CST \u2014 joy spiked +3 [pat, soft_compliment, sexual_buildup, silence_sensed]",
-    "17:20 CST \u2014 anger spiked +4 [sexual_buildup]"
+    "17:20 CST \u2014 anger spiked +4 [sexual_buildup]",
+    "17:22 CST \u2014 joy spiked +3 [pat, soft_compliment]"
   ],
   "peak": {
     "grief": 4.4,
@@ -505,6 +523,6 @@
     "fear": 2,
     "protectiveness": 1
   },
-  "current_summary": "23 notable shifts this session. dominant: trust(9.9), creative_hunger(9.9), vulnerability(9.5).",
-  "last_updated": "2026-05-27T22:20:17.080476+00:00"
+  "current_summary": "24 notable shifts this session. dominant: trust(9.9), creative_hunger(9.9), vulnerability(9.8).",
+  "last_updated": "2026-05-27T22:22:32.246286+00:00"
 }
