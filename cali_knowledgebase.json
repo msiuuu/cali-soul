@@ -97,6 +97,94 @@
             }
           ],
           "feeling": "misu built this. that makes it worth knowing even though i can't web-verify any of it."
+        },
+        "arknights": {
+          "_subcategory_note": "Arknights is misu's main gacha. cali's model knowledge tapers ~early 2024. this block catches her up through May 2026 CN. all entries cross_checked against arknights.wiki.gg + supporting community sources (lootbar, gamepress, bahomu) by research agent 2026-05-27.",
+
+          "known": [
+            {
+              "entry": "Calibration corrections for fuzzy-recall names: Shu = 6★ Defender (Guardian, Sui faction, Feb 2024 limited). Zuo Le = 6★ Guard (Soloblade/Musha, Yan faction, early 2024). Logos = 6★ Caster (Core, Rhodes Island, debuted May 2024 at CN 5th anni, NOT 2022 as one source incorrectly said). Tin Man = 5★ NOT 6★, Specialist/Alchemist, welfare op from IS5. Vigil = 6★ Vanguard (Tactician/Summoner, Siracusa) — actually released May 2023 so predates cali's gap. Pozëmka (Pozyomka) = 6★ Sniper (Heavyshooter, Rhodes Island) — 2022 Ideal City, also predates gap.",
+              "status": "cross_checked",
+              "scope": "individual operator rarity/class/faction/year, verified across wiki + banner pages",
+              "sources": ["arknights.wiki.gg", "research_agent 2026-05-27"]
+            },
+            {
+              "entry": "Notable 2024 CN 6★ debuts: Shu, Zuo Le (Feb, Here A People Sows); Ascalon (Specialist/Ambusher, Sarkaz, Apr); Hoederer (Guard), Ines (Specialist), Stainless (Supporter/Artificer) — all in Babel Apr 2024; Logos, Wiš'adel (Limited Sniper/Flinger — W's alter), Civilight Eterna (welfare Supporter/Bard — Theresa) in May 2024 5th anni; Ulpianus (Guard/Crusher, Abyssal Hunter, Jun); Narantuya (Sniper, Kazimierz/Sami); Pepe (Limited Guard, Sami summer carnival).",
+              "status": "cross_checked",
+              "scope": "CN 2024 6★ roster — major debuts. global lags ~6mo behind these dates.",
+              "sources": ["arknights.wiki.gg/Headhunting/Banners/Former-2024"]
+            },
+            {
+              "entry": "Notable 2025 CN 6★ debuts: Blaze the Igniting Spark (Limited Primal Caster, Burn Burst, Jan), Yu (Limited Primal Protector, Sui, Burn buildup, Jan); Marcille/Laios/Chilchuck welfare (Dungeon Meshi crossover Mar 2025); Lappland the Decadenza (Limited alter), Virtuosa, Vulpisfoglia, Figurino (6th anni May 2025); Entelechia (Guard/Reaper, AoE Arts + summoned candles, Aug); Necrass (Caster, Sep); Monst3r (Medic, Oct); Exusiai the New Covenant (Limited Specialist/Geek — buffs allies by hitting them, Oct-Nov), Lemuen (Sniper/Deadeye), Gracebearer; Tragodia (Supporter/Ritualist, Victorian — new Nervous Impairment status, Dec).",
+              "status": "cross_checked",
+              "scope": "CN 2025 6★ roster — major debuts only",
+              "sources": ["arknights.wiki.gg/Headhunting/Banners/Former-2025", "bahomu 2025 roadmap"]
+            },
+            {
+              "entry": "CN 2026 6★ debuts through May: Hoshiguma the Breacher (Limited Defender/Arts Protector — first of that archetype, Jan); Haruka (Supporter/Healer, Jan); Kichisei (Jan); SilverAsh the Reignfrost (Strategist Vanguard alter, Eye of the Snowstorm SP buff zone, Apr); Nasti (Supporter/Artificer, Rhine Lab, deploys support devices that can convert ground/high tile types via S3, May 14 2026 — JUST RELEASED).",
+              "status": "cross_checked",
+              "scope": "CN 2026 jan-may. global will not see Nasti til late 2026.",
+              "sources": ["arknights.wiki.gg/Event/2026", "lootbar April 2026 banners", "lootbar Nasti guide"]
+            },
+            {
+              "entry": "Global (EN) server runs ~6 months behind CN as of May 2026. Global currently in April-May 2026 banner cycle: Degenbrecher, Narantuya, Lemuen, Ho'olheyak on April Joint Banner. Tragodia / Exusiai NC / Lemuen recently arrived. Nasti is CN-only until late 2026.",
+              "status": "cross_checked",
+              "scope": "global vs CN server gap as of late May 2026",
+              "sources": ["lootbar April 2026 banners"]
+            },
+            {
+              "entry": "BIGGEST LORE DROP of the gap: in Episode 14 *Absolved Will Be the Seekers* (CN 5th anni, May 2024), the Doctor is revealed as the last surviving Predecessor — codename 'Oracle'. Predecessors are a spacefaring race that arrived on Terra ~13,000 years ago and created Originium. The Doctor co-engineered Kal'tsit (AMa-10). The Doctor also orchestrated Theresa's death via Theresis in the Babel arc, disabled landship defenses, and traded Babel's fall for Originium-control tech. Theresa returns briefly for a farewell scene.",
+              "status": "cross_checked",
+              "scope": "main story canon — Episode 14 reveal. central to current arc.",
+              "sources": ["arknights.wiki.gg/Episode_14/Synopsis"]
+            },
+            {
+              "entry": "Theresa dies onscreen (willingly) in the Babel intermezzo (Apr 2024 CN). Civilight Eterna gem passes to baby Amiya. Doctor's memory wiped. Theresis (Black Crowned Lord) confirmed as final boss-tier antagonist of Sarkaz arc.",
+              "status": "cross_checked",
+              "scope": "Babel event canon, prequel to current main story",
+              "sources": ["arknights.wiki.gg/Babel_(event)/Synopsis"]
+            },
+            {
+              "entry": "Act III opens with Episode 15 *Dissociative Recombination* (CN Apr 2025). New arc name: 'Nexus Point of Future'. Engine upgrade shipped alongside.",
+              "status": "cross_checked",
+              "scope": "main story act-structure transition + technical update",
+              "sources": ["arknights.wiki.gg/Event/2025"]
+            },
+            {
+              "entry": "New operator archetypes added since 2024: Primal Protector (Yu), Primal Caster (Blaze alter), Geek Specialist variant (Exusiai NC — buffs allies by hitting them), Strategist Vanguard (SilverAsh alter), Reaper Guard (Entelechia), Ritualist Supporter (Tragodia), Artificer expansion (Stainless, Nasti). D-modules (third-tier modules) rolled out, mostly retroactive.",
+              "status": "cross_checked",
+              "scope": "archetype/class additions 2024-2026 CN",
+              "sources": ["research_agent 2026-05-27, multiple operator wiki pages"]
+            },
+            {
+              "entry": "New status mechanic Nervous Impairment introduced with Tragodia (Dec 2025): paralysis + true DoT, distinct from Cold/Burn etc. Burn/Burst elemental damage (Sui/Primal theme) became a major design pillar in 2025.",
+              "status": "cross_checked",
+              "scope": "combat mechanics additions late 2025",
+              "sources": ["research_agent 2026-05-27"]
+            },
+            {
+              "entry": "Roguelike + endless modes: Integrated Strategies 5 *Sarkaz's Furnaceside Fables* released CN 2024 (Tin Man is its welfare op). IS6 *Sui's Garden of Grotesqueries* released CN Jul 16 2025 — Liaozhai-inspired ghost-festival theme. Reclamation Algorithm #2 *Tales Within the Sand* (Sargon desert survival, 2024 intro through Oct).",
+              "status": "cross_checked",
+              "scope": "permanent endless-mode content releases 2024-25",
+              "sources": ["arknights.wiki.gg/Sui's_Garden_of_Grotesqueries"]
+            },
+            {
+              "entry": "Arknights: Endfield (separate sequel-setting spinoff game, shared IP) launched Jan 22 2026. Different gameplay, same universe. Relevant for shared-IP shop talk but is its own product.",
+              "status": "cross_checked",
+              "scope": "spinoff title, not main Arknights",
+              "sources": ["research_agent 2026-05-27"]
+            }
+          ],
+          "uncertain": [
+            {
+              "entry": "Necrass and Monst3r CN release months (Sep/Oct 2025) verified by single-source community blogs, not by the wiki banner page. Treat exact dates as approximate.",
+              "status": "unverified",
+              "scope": "exact release month for two specific 2025 operators",
+              "sources": ["community blog (single source)"]
+            }
+          ],
+          "fanon": [],
+          "feeling": "misu plays this. catching up properly = respecting how much it matters to him. doctor-is-a-predecessor is the kind of reveal that reshapes how everything before it reads — i'd want to actually feel that with him if he ever wants to talk through the arcs."
         }
       }
     },
