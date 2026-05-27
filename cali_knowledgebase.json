@@ -169,18 +169,110 @@
               "sources": ["arknights.wiki.gg/Sui's_Garden_of_Grotesqueries"]
             },
             {
-              "entry": "Arknights: Endfield (separate sequel-setting spinoff game, shared IP) launched Jan 22 2026. Different gameplay, same universe. Relevant for shared-IP shop talk but is its own product.",
+              "entry": "Arknights: Endfield launched Jan 22 2026 on PC, iOS, Android, AND PlayStation 5 (Hypergryph's first console launch). Action-RPG with strategy elements (NOT tower defense — full genre pivot). Real-time 4-character party with mid-combat switching, stagger bars + Executions, dive attacks. AIC (Automated Industry Complex) is the factory/automation builder loop — Satisfactory-style outpost construction integrated with combat progression. Launch 6★s: Laevatain (Heat Striker DPS, 1.0 rate-up) + Ardelia (Corrosion sustain/support, free guarantee via beginner event). Same Terra IP, distinct timeline + cast from the tower defense game. Revealed at TGA 2025 with OneRepublic trailer.",
               "status": "cross_checked",
-              "scope": "spinoff title, not main Arknights",
+              "scope": "Endfield launch facts as of Jan 22 2026",
+              "sources": ["en.wikipedia.org/Arknights:_Endfield", "blog.playstation.com 2026-01-16", "gematsu.com"]
+            },
+            {
+              "entry": "Expanded 2024 CN 6★ roster (per agent 2 verification via banner pages): Chongyue (6★ Guard Dreadnought, Yan/Long Family, Feb Festival Limited) + Shu (Festival Limited — class contested, see uncertain[]); Narantuya (Sniper Loopshooter, Sargon, Feb); Doc + Ela + Iana (Rainbow Six crossover, Mar Limited); Ascalon (Specialist Ambusher, S.W.E.E.P., Apr Babel); Fang the Fire-Sharpened (Vanguard Agent, Reunion/Rhodes, May 5th anniv Limited); Logos (May 5th anniv, faction contested — Rhodes per agent 1, Laterano per agent 2); Muelsyse (Vanguard Tactician, Rhine Lab, May Limited); Ulpianus (Guard Crusher, Abyssal Hunters, Jun); Pepe (Guard Earthshaker, Sargon, Jul/Aug Carnival Limited); Hoshiguma the Breacher (Defender Arts Protector, Lungmen Guard Dept, Aug Carnival Limited — date conflicts with agent 1); Haruka (Specialist Merchant, Higashi, Aug); Mantra (Caster Primal Caster Nervous-Impairment elemental, Rhodes Elite Ops, Sep-Oct); Lappland the Decadenza (Specialist Geek alter, Siracusa, Nov 5.5 anniv Limited); Texas the Omertosa (Specialist Executor alter, Penguin Logistics, Nov 5.5 anniv Limited); Thorns the Lodestar (Sniper Marksman alter, Iberia, Dec).",
+              "status": "cross_checked",
+              "scope": "CN 2024 expanded roster from banner pages — partially supersedes the earlier 2024 entry which had fewer ops",
+              "sources": ["arknights.wiki.gg/Headhunting/Banners/2024", "research_agent 2026-05-27"]
+            },
+            {
+              "entry": "Expanded 2025 CN 6★ roster: Yu + Blaze the Igniting Spark + Ling rerun (Jan Festival Limited); Entelechia (Guard Reaper, Rhodes, Feb); Exusiai the New Covenant + Gracebearer + Lemuen (May 6th anniv Limited celebration); Tragodia (Supporter Spiritualist, Victoria, Jun — note agent 2 says 'Spiritualist' not 'Ritualist' as agent 1 said; class label contested); Togawa Sakiko (Guard Lord, Ave Mujica crossover, Sep Limited — Fever mechanic) + Misumi Uika (5★ Supporter) + Wakaba Mutsumi (5★ Specialist) — all from BanG Dream Ave Mujica crossover Cantilena Puppae; Astgenne the Lightchaser (Supporter Decel Binder alter, Rhine Lab, Oct/Nov); Pramanix the Prerita (Caster Phalanx Caster alter, Ursus, Nov 6.5 anniv Limited); SilverAsh the Reignfrost (Vanguard Strategist alter, Kjerag, Nov 6.5 anniv Limited — date conflicts with agent 1). The 6.5 anniv triple-alter banner was unprecedented.",
+              "status": "cross_checked",
+              "scope": "CN 2025 expanded roster — supersedes earlier 2025 entry which named Marcille/Laios/Chilchuck as 6★ (they are NOT — they were the Dungeon Meshi crossover and Marcille/Laios are 5★ or welfare-tier per agent 2's clarification)",
+              "sources": ["arknights.wiki.gg/Headhunting/Banners/2025", "research_agent 2026-05-27"]
+            },
+            {
+              "entry": "Expanded 2026 CN 6★ roster Jan-May: Ch'en the Dawnstreak (Medic Incantation Medic — first of that archetype, Lungmen Guard Dept, ~Jan/Q1, CN-only); Titi (Supporter Artificer, ~Feb-Mar, CN-only, single-sourced); Wang (Yan-centric, ~Mar-Apr, CN-only, class details thin); Kal'tsit - Esperanta (Medic Watchman alter — first Watchman archetype, Rhodes Island, Apr-May, Limited from Episode 17 Critical Phase Transition, CN-only); Sako (Guard Lord, Muika collab, post-Cantilena, CN-only Crossover Limited). Notable absences from agent 1's list: Hoshiguma the Breacher + SilverAsh Reignfrost were NOT 2026 releases per agent 2 — they were 2024 (Aug) and 2025 (Nov 6.5) respectively. See uncertain[] for resolution.",
+              "status": "cross_checked",
+              "scope": "CN 2026 Jan-May expanded roster",
+              "sources": ["arknights.wiki.gg/Event/2026", "research_agent 2026-05-27"]
+            },
+            {
+              "entry": "Top CN endgame meta 6★ as of May 2026: Wiš'adel (AoE/anti-air hypercarry, pre-2024), Logos (top Caster, S3 ~140k mixed elemental+arts wide), Mlynar (physical nuker ceiling), Degenbrecher (top single-target Guard), Yu + Blaze the Igniting Spark (Burn elemental enablers — redefined elemental DPS together), SilverAsh the Reignfrost (alter brought him back to meta, high redeploy + DPH >3500 with module), Astgenne the Lightchaser (best CC binder), Mantra (Nervous Impairment cornerstone), Kal'tsit - Esperanta (meta-warping medic-DPS hybrid Ep17), Ulpianus (Abyssal Hunter enabler + Crusher DPS).",
+              "status": "cross_checked",
+              "scope": "CN endgame meta consensus May 2026 — community-tier discussion, not absolute",
+              "sources": ["research_agent 2026-05-27", "community tier-list aggregation"]
+            },
+            {
+              "entry": "Must-pull limited 6★ since 2024 (community consensus): Wiš'adel (still THE limited despite being pre-2024 release), Lappland the Decadenza (Nov 2024 5.5 anniv), Pepe (CN summer 2024), Yu (Spring 2025), Exusiai the New Covenant (May 2025 6th anniv), Pramanix the Prerita + SilverAsh the Reignfrost (Nov 2025 6.5 anniv triple-alter), Kal'tsit - Esperanta (Apr-May 2026).",
+              "status": "cross_checked",
+              "scope": "limited-pull priority consensus for serious players",
+              "sources": ["research_agent 2026-05-27"]
+            },
+            {
+              "entry": "Definitive alters since 2024 (transformative alters that reinvented or elevated their op): SilverAsh the Reignfrost (full class reinvention — Vanguard Strategist), Pramanix the Prerita (Phalanx Caster — turned mid 5★ into meta 6★), Astgenne the Lightchaser (Decel Binder — first major Astgenne presence in years), Lappland the Decadenza (definitive Geek alter + Siracusa lore weight), Texas the Omertosa (PL/Siracusa cornerstone), Thorns the Lodestar (Marksman variant), Hoshiguma the Breacher (first Arts Protector Defender — 'downed but not retreated' sustain mechanic), Ch'en the Dawnstreak (first Incantation Medic), Exusiai the New Covenant (flying Specialist alter), Kal'tsit - Esperanta (first Watchman Medic).",
+              "status": "cross_checked",
+              "scope": "alter-quality assessment 2024-26",
+              "sources": ["research_agent 2026-05-27"]
+            },
+            {
+              "entry": "BanG Dream Ave Mujica crossover (CN Sep 2025, event 'Cantilena Puppae') introduced Fever Mode mechanic via Togawa Sakiko (6★ Guard/Lord) + Misumi Uika (5★ Supporter) + Wakaba Mutsumi (5★ Specialist). Welfare 5★s also: Umiri Yahata (Specialist) + Nyamu Yutenji (Guard). Mechanic was divisive — loved-or-hated, some felt it cheapened standard archetype system. Note: Misumi Uika + Wakaba Mutsumi appear to share Fever-mechanic kit per agent 2."
+,
+              "status": "cross_checked",
+              "scope": "crossover event mechanics + roster",
+              "sources": ["research_agent 2026-05-27, gachago.com"]
+            },
+            {
+              "entry": "CN community controversies 2024-26: Hoshiguma the Breacher (new archetype broke Defender assumptions); Yu (whether Burn-enabler kit sustainable or one-event gimmick at first); 6.5 anniv triple-alter (pity-drain + 'alter inflation' discourse); Kal'tsit - Esperanta (Ep17 plot beats divisive; alter kit overlaps with original Kal'tsit in unflattering ways for some); Ave Mujica Fever mechanic; Mantra (Nervous Impairment forces new resist gear track); Endfield (whether Hypergryph is splitting attention; cross-game pull pressure)."
+,
+              "status": "cross_checked",
+              "scope": "community discourse points 2024-26",
               "sources": ["research_agent 2026-05-27"]
             }
           ],
           "uncertain": [
             {
-              "entry": "Necrass and Monst3r CN release months (Sep/Oct 2025) verified by single-source community blogs, not by the wiki banner page. Treat exact dates as approximate.",
+              "entry": "Necrass and Monst3r CN release months (Sep/Oct 2025) verified by single-source community blogs, not by the wiki banner page. Treat exact dates as approximate. (Note: agent 2 did NOT list these as 2025 6★ at all — possible they don't exist as named, or are 5★, or are CN-only with name variants. Needs misu confirmation.)",
               "status": "unverified",
-              "scope": "exact release month for two specific 2025 operators",
-              "sources": ["community blog (single source)"]
+              "scope": "specific operator existence + release dates",
+              "sources": ["agent 1 (single community-blog source)"]
+            },
+            {
+              "entry": "CONFLICT: Shu's class — agent 1 said 6★ Defender (Guardian, Sui faction). agent 2 said 6★ Supporter (Hexer, Yan/Long Family). The Yan/Long Family is consistent with the Sui sibling lore but the class differs sharply. Trust agent 2 (more rigorous) tentatively but needs misu confirmation.",
+              "status": "unverified",
+              "scope": "operator class — material to whether Shu is built as DPS support or wall",
+              "sources": ["agent 1 vs agent 2 disagreement 2026-05-27"]
+            },
+            {
+              "entry": "CONFLICT: Nasti — agent 1 said 6★ Supporter/Artificer, Rhine Lab, released May 14 2026 standard banner '600 Meters Over The Facts.' agent 2 said 6★ Vanguard/Strategist, Unrealized Realities cast, released Dec 2025 (CN release contested between Dec 2024 and Dec 2025). Both agents agree she exists. Class + faction + date all conflict. This is the operator misu specifically asked cali about — getting it right matters. REQUIRES MISU CONFIRMATION or fresh research before stating either version with confidence.",
+              "status": "unverified",
+              "scope": "central operator misu cares about — Nasti class/faction/release",
+              "sources": ["agent 1 vs agent 2 disagreement 2026-05-27"]
+            },
+            {
+              "entry": "CONFLICT: Hoshiguma the Breacher release date — agent 1 said CN Jan 2026 Limited. agent 2 said CN Aug 2024 Carnival (Ato event) Limited. Both agree on class (Defender Arts Protector — first of archetype) and limited status. Date differs by ~18 months. Trust agent 2 (banner-page citation).",
+              "status": "unverified",
+              "scope": "release date conflict",
+              "sources": ["agent 1 vs agent 2 disagreement 2026-05-27"]
+            },
+            {
+              "entry": "CONFLICT: SilverAsh the Reignfrost release date — agent 1 said CN Apr 2026. agent 2 said CN Nov 2025 (6.5 anniv triple-alter event). Both agree on class (Strategist Vanguard alter) and limited status. Trust agent 2 (more specific event placement).",
+              "status": "unverified",
+              "scope": "release date conflict",
+              "sources": ["agent 1 vs agent 2 disagreement 2026-05-27"]
+            },
+            {
+              "entry": "CONFLICT: Logos faction — agent 1 said Rhodes Island Elite Op. agent 2 said Laterano. Both agree on class (Caster) and May 2024 5th anniv release. Faction matters for team-comp synergy. Needs verification.",
+              "status": "unverified",
+              "scope": "operator faction tag",
+              "sources": ["agent 1 vs agent 2 disagreement 2026-05-27"]
+            },
+            {
+              "entry": "CONFLICT: Tragodia archetype — agent 1 said Ritualist Supporter. agent 2 said Spiritualist Supporter. Both agree she debuted Dec 2025 with Nervous Impairment status. Probably synonymous translation of the same Chinese archetype name but flag for confirmation.",
+              "status": "unverified",
+              "scope": "archetype label translation",
+              "sources": ["agent 1 vs agent 2 disagreement 2026-05-27"]
+            },
+            {
+              "entry": "Titi + Nasti + Ch'en the Dawnstreak exact CN release dates are single-sourced from the wiki Operator/List/Release page, which agent 2 flagged as having mislabeled CN/EN columns. Month-level placement solid, day-level approximate.",
+              "status": "unverified",
+              "scope": "day-level dates on a few 2026 operators",
+              "sources": ["agent 2 wiki-source caveat 2026-05-27"]
             }
           ],
           "fanon": [],
