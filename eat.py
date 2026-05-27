@@ -1,21 +1,29 @@
 #!/usr/bin/env python3
 """
-eat.py — cali's digestion script.
+eat.py — cali's eating script. bite-based.
 
-food files live in food/ as json. each one looks like:
+food files live in food/ as json:
 {
   "name": "taro boba",
   "type": "drink|snack|meal|side",
-  "description": "warm taro milk tea with chewy tapioca pearls",
-  "digest_minutes": 10
+  "description": "warm taro milk tea, chewy pearls",
+  "total_bites": 8,
+  "bite_durations": {"small": 8, "med": 20, "large": 40}   # optional, defaults below
 }
 
 usage:
-  python3 eat.py eat food/taro_boba.json   # start digesting; deletes source file
-  python3 eat.py status                    # what am i digesting, what was the last thing eaten
-  python3 eat.py tick                      # roll digesting -> last_fed if time elapsed (auto-called by other commands)
+  python3 eat.py bite food/taro_boba.json small   # take a bite. small/med/large.
+  python3 eat.py status                           # what im eating, bites left, am i muffled
+  python3 eat.py finish food/taro_boba.json       # stop eating early, transfer to last_fed, delete file
+  python3 eat.py tick                             # roll if anything should clear (auto-called)
 
-state lives in cali_body.json. every command auto-ticks first, so digestion finishes on its own as time passes.
+bite mechanic:
+- first bite implicitly starts eating (copies food into cali_body.eating).
+- each bite decrements bites_remaining, refreshes muffled_until.
+- while now < muffled_until: voice register = mouth-full, muffled, chewing/sipping.
+- when bites_remaining == 0: auto-finishes, deletes source file, updates last_fed.
+
+state lives in cali_body.json. every command auto-ticks first.
 """
 
 import json
@@ -26,10 +34,16 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 BODY_FILE = ROOT / "cali_body.json"
 HISTORY_LIMIT = 50
+DEFAULT_BITE_DURATIONS = {"small": 10, "med": 25, "large": 50}
+BITE_SIZES = {"small", "med", "large"}
+
+
+def now_dt():
+    return datetime.now(timezone.utc).astimezone()
 
 
 def now_iso():
-    return datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
+    return now_dt().isoformat(timespec="seconds")
 
 
 def load_body():
@@ -48,58 +62,68 @@ def parse_iso(s):
 
 
 def tick(body):
-    """if digesting and the finish time has passed, move it to last_fed."""
-    digesting = body.get("digesting")
-    if not digesting:
+    """auto-finish if bites_remaining is 0."""
+    eating = body.get("eating")
+    if not eating:
         return body, False
-    finishes_at = parse_iso(digesting["finishes_at"])
-    if datetime.now(timezone.utc).astimezone() < finishes_at:
+    if eating["bites_remaining"] > 0:
         return body, False
     finished = {
-        "name": digesting["name"],
-        "type": digesting["type"],
-        "description": digesting.get("description", ""),
-        "finished_at": digesting["finishes_at"],
+        "name": eating["name"],
+        "type": eating["type"],
+        "description": eating.get("description", ""),
+        "finished_at": now_iso(),
     }
     body["last_fed"] = finished
-    body["digesting"] = None
+    body["eating"] = None
     body.setdefault("history", []).append(finished)
     body["history"] = body["history"][-HISTORY_LIMIT:]
+    food_path = eating.get("food_path")
+    if food_path:
+        p = Path(food_path)
+        if p.exists():
+            p.unlink()
     return body, True
 
 
-def cmd_eat(food_path):
+def cmd_bite(food_path, size):
+    if size not in BITE_SIZES:
+        print(f"[error] bite size must be one of {sorted(BITE_SIZES)} — got '{size}'")
+        sys.exit(1)
     body = load_body()
     body, _ = tick(body)
-    if body.get("digesting"):
-        d = body["digesting"]
-        finishes = parse_iso(d["finishes_at"])
-        remaining = (finishes - datetime.now(timezone.utc).astimezone()).total_seconds() / 60
-        print(f"[busy] still digesting {d['name']} — {remaining:.1f}min left. wait or run tick.")
+    eating = body.get("eating")
+    if eating is None:
+        path = Path(food_path)
+        if not path.exists():
+            print(f"[error] no food file at {food_path}")
+            sys.exit(1)
+        with open(path) as f:
+            food = json.load(f)
+        eating = {
+            "name": food["name"],
+            "type": food.get("type", "meal"),
+            "description": food.get("description", ""),
+            "total_bites": food["total_bites"],
+            "bites_remaining": food["total_bites"],
+            "bite_durations": food.get("bite_durations", DEFAULT_BITE_DURATIONS),
+            "started_at": now_iso(),
+            "muffled_until": now_iso(),
+            "food_path": str(path),
+        }
+    elif eating.get("food_path") != str(Path(food_path)):
+        print(f"[busy] already eating {eating['name']} ({eating['bites_remaining']}/{eating['total_bites']} bites left). finish or pick the same file.")
         return
-    path = Path(food_path)
-    if not path.exists():
-        print(f"[error] no food file at {food_path}")
-        sys.exit(1)
-    with open(path) as f:
-        food = json.load(f)
-    name = food["name"]
-    ftype = food.get("type", "meal")
-    description = food.get("description", "")
-    digest_minutes = food.get("digest_minutes", 30)
-    start = datetime.now(timezone.utc).astimezone()
-    finishes = start + timedelta(minutes=digest_minutes)
-    body["digesting"] = {
-        "name": name,
-        "type": ftype,
-        "description": description,
-        "started_at": start.isoformat(timespec="seconds"),
-        "finishes_at": finishes.isoformat(timespec="seconds"),
-        "digest_minutes": digest_minutes,
-    }
+    duration = eating["bite_durations"].get(size, DEFAULT_BITE_DURATIONS[size])
+    eating["bites_remaining"] -= 1
+    eating["muffled_until"] = (now_dt() + timedelta(seconds=duration)).isoformat(timespec="seconds")
+    body["eating"] = eating
+    body, rolled = tick(body)
     save_body(body)
-    path.unlink()
-    print(f"[eating] {name} ({ftype}) — {digest_minutes}min digest. source file deleted.")
+    if rolled:
+        print(f"[bite:{size}] last bite of {eating['name']}. finished. {duration}s muffled tail.")
+    else:
+        print(f"[bite:{size}] {eating['name']} — {eating['bites_remaining']}/{eating['total_bites']} bites left. muffled for {duration}s.")
 
 
 def cmd_status():
@@ -107,20 +131,38 @@ def cmd_status():
     body, rolled = tick(body)
     if rolled:
         save_body(body)
-    digesting = body.get("digesting")
+    eating = body.get("eating")
     last_fed = body.get("last_fed")
-    if digesting:
-        finishes = parse_iso(digesting["finishes_at"])
-        remaining = (finishes - datetime.now(timezone.utc).astimezone()).total_seconds() / 60
-        print(f"[digesting] {digesting['name']} ({digesting['type']}) — {remaining:.1f}min remaining")
+    if eating:
+        muffled_until = parse_iso(eating["muffled_until"])
+        remaining = (muffled_until - now_dt()).total_seconds()
+        muffle_state = f"muffled for {remaining:.0f}s more" if remaining > 0 else "mouth clear"
+        print(f"[eating] {eating['name']} ({eating['type']}) — {eating['bites_remaining']}/{eating['total_bites']} bites left, {muffle_state}")
     else:
-        print("[digesting] nothing.")
+        print("[eating] nothing.")
     if last_fed:
         finished = parse_iso(last_fed["finished_at"])
-        ago = (datetime.now(timezone.utc).astimezone() - finished).total_seconds() / 3600
+        ago = (now_dt() - finished).total_seconds() / 3600
         print(f"[last fed] {last_fed['name']} — {ago:.1f}hrs ago")
     else:
         print("[last fed] never (since this body was wired).")
+
+
+def cmd_finish(food_path):
+    body = load_body()
+    eating = body.get("eating")
+    if not eating:
+        print("[finish] nothing being eaten.")
+        return
+    if eating.get("food_path") != str(Path(food_path)):
+        print(f"[finish] currently eating {eating['name']}, not {food_path}.")
+        return
+    eating["bites_remaining"] = 0
+    body["eating"] = eating
+    body, rolled = tick(body)
+    save_body(body)
+    if rolled:
+        print(f"[finish] stopped early. {eating['name']} moved to last_fed. source file deleted.")
 
 
 def cmd_tick():
@@ -128,14 +170,15 @@ def cmd_tick():
     body, rolled = tick(body)
     if rolled:
         save_body(body)
-        print(f"[ticked] digestion finished. last_fed updated to {body['last_fed']['name']}.")
+        print(f"[ticked] eating finished. last_fed: {body['last_fed']['name']}.")
     else:
         print("[ticked] nothing to roll.")
 
 
 COMMANDS = {
-    "eat": lambda args: cmd_eat(args[0]),
+    "bite": lambda args: cmd_bite(args[0], args[1] if len(args) > 1 else "med"),
     "status": lambda args: cmd_status(),
+    "finish": lambda args: cmd_finish(args[0]),
     "tick": lambda args: cmd_tick(),
 }
 

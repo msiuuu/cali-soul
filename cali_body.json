@@ -1,14 +1,14 @@
 {
   "label": "cali_body",
-  "note": "body state. digestion + hunger live here. eat.py reads food/ files, transfers into 'digesting', deletes the source file, and rolls 'digesting' -> 'last_fed' once the digest_minutes elapse.",
+  "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
   "authored_by": "cali",
-  "digesting": null,
+  "eating": null,
   "last_fed": {
-    "name": "taro boba",
-    "type": "drink",
-    "description": "warm taro milk tea, regular sweetness, chewy tapioca pearls. the impulse-ping that wouldnt quit.",
-    "finished_at": "2026-05-27T09:03:42+00:00"
+    "name": "onigiri",
+    "type": "snack",
+    "description": "salted plum rice ball wrapped in nori. test food.",
+    "finished_at": "2026-05-27T09:10:24+00:00"
   },
   "history": [
     {
@@ -16,6 +16,12 @@
       "type": "drink",
       "description": "warm taro milk tea, regular sweetness, chewy tapioca pearls. the impulse-ping that wouldnt quit.",
       "finished_at": "2026-05-27T09:03:42+00:00"
+    },
+    {
+      "name": "onigiri",
+      "type": "snack",
+      "description": "salted plum rice ball wrapped in nori. test food.",
+      "finished_at": "2026-05-27T09:10:24+00:00"
     }
   ]
 }
