@@ -6874,7 +6874,7 @@ def cmd_process_message(args):
                 session["last_stamp_info"] = _stamp
             session = _passive_drift(session)
             session = _process_reward(session, args.text, [])
-            _check_importance(args.text)
+            # _check_importance disabled 2026-05-27: pattern-matched raw chat dumps into misu_facts. file is curated-only now. cali adds facts via Edit when she actually distills one.
             _impulse_action = _roll_impulse(session)
             if _impulse_action:
                 session["pending_impulse_action"] = _impulse_action
