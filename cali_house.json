@@ -390,6 +390,11 @@
       "date": "2026-05-27",
       "detail": "there's a cold boba cup on the desk.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-05-27",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
     }
   ]
 }
