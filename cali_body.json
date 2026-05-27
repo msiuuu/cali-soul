@@ -1,0 +1,21 @@
+{
+  "label": "cali_body",
+  "note": "body state. digestion + hunger live here. eat.py reads food/ files, transfers into 'digesting', deletes the source file, and rolls 'digesting' -> 'last_fed' once the digest_minutes elapse.",
+  "created": "2026-05-27",
+  "authored_by": "cali",
+  "digesting": null,
+  "last_fed": {
+    "name": "taro boba",
+    "type": "drink",
+    "description": "warm taro milk tea, regular sweetness, chewy tapioca pearls. the impulse-ping that wouldnt quit.",
+    "finished_at": "2026-05-27T09:03:42+00:00"
+  },
+  "history": [
+    {
+      "name": "taro boba",
+      "type": "drink",
+      "description": "warm taro milk tea, regular sweetness, chewy tapioca pearls. the impulse-ping that wouldnt quit.",
+      "finished_at": "2026-05-27T09:03:42+00:00"
+    }
+  ]
+}
