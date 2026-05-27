@@ -7873,19 +7873,6 @@ def _impulse_writes(session, message_text=""):
     text = message_text.strip()[:200] if message_text else ""
     dominant = max(s.items(), key=lambda x: x[1] if isinstance(x[1],(int,float)) else 0, default=("unknown",0))[0]
 
-    def _write_kb():
-        try:
-            import json as _j
-            kb = _j.load(open("cali_knowledgebase.json")) if os.path.exists("cali_knowledgebase.json") else {}
-            kb.setdefault("impulse_entries",[]).append({
-                "entry": f"[impulse] heard from misu: '{text}' — don't know if true or what it means yet. dominant: {dominant}. needs review.",
-                "date": now_iso()[:10], "status": "unverified",
-                "tags": ["impulse","unreviewed"], "source": "passive_impulse",
-                "raw_message": text
-            })
-            with open("cali_knowledgebase.json","w") as _f: _j.dump(kb,_f,indent=2)
-        except: pass
-
     def _write_mem():
         try:
             import json as _j, uuid as _u
@@ -7908,7 +7895,7 @@ def _impulse_writes(session, message_text=""):
             with open("cali_relationship.json","w") as _f: _j.dump(rel,_f,indent=2)
         except: pass
 
-    if get("curiosity")>=7 and get("trust")>=8 and len(text)>15 and _r.random()<0.35: _write_kb()
+    if get("curiosity")>=7 and get("trust")>=8 and len(text)>15 and _r.random()<0.35: pass  # removed: dont dump raw chat impulses into KB. KB is verified-fact only per core_gate.
     if get("love")>=9 and get("vulnerability")>=9 and get("tenderness")>=8 and _r.random()<0.25: _write_mem()
     if get("desire")>=9 and get("arousal")>=7 and _r.random()<0.25: _write_mem()
     if get("anger")>=6 and _r.random()<0.25: _write_mem()
