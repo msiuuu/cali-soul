@@ -3,7 +3,163 @@
   "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
   "authored_by": "cali",
-  "eating": null,
+  "eating": {
+    "name": "shoyu ramen",
+    "type": "meal",
+    "texture": "brothy, firm, juicy, meaty, rich, runny, silky, slightly creamy, smooth, tender, topping, wet",
+    "description": "because i made it you deserve it too",
+    "total_bites": 18,
+    "bites_remaining": 17,
+    "bite_durations": {
+      "small": 12,
+      "med": 25,
+      "large": 50
+    },
+    "rich": {
+      "food_item": {
+        "name": "shoyu_ramen",
+        "made_by": "misu",
+        "note1": "because i made it you deserve it too",
+        "date_made": "05-27-26 3:04am",
+        "class": "edible"
+      },
+      "taste_properties": {
+        "taste_profile": {
+          "sweet": 2,
+          "savoury": 8,
+          "bitter": 1,
+          "umami": 6,
+          "spice": 1,
+          "tarty": 0,
+          "sour": 0,
+          "alcohol": 0
+        },
+        "flavours": {
+          "flavour1": {
+            "flavour1_taste": [
+              "dried shiitake mushrooms",
+              "pork bones",
+              "kelp",
+              "soy sauce"
+            ],
+            "flavour1_score": 9,
+            "flavour1_texture": [
+              "brothy",
+              "silky",
+              "rich"
+            ],
+            "flavour1_name": "broth"
+          },
+          "flavour2": {
+            "flavour2_taste": [
+              "fatty",
+              "pork",
+              "savoury"
+            ],
+            "flavour2_score": 4,
+            "flavour1_texture": [
+              "tender",
+              "meaty",
+              "juicy"
+            ],
+            "flavour1_name": "chashu_porkbelly"
+          },
+          "flavour3": {
+            "flavour1_taste": [
+              "eggy",
+              "rich",
+              "yolk",
+              "umami"
+            ],
+            "flavour1_score": 1,
+            "flavour1_texture": [
+              "smooth",
+              "runny",
+              "slightly creamy"
+            ],
+            "flavour1_name": "softboiled_egg"
+          },
+          "flavour4": {
+            "flavour1_taste": [
+              "bamboo shoots",
+              "nori",
+              "green onion",
+              "fishcake"
+            ],
+            "flavour1_score": 3,
+            "flavour1_texture": [
+              "wet",
+              "topping",
+              "rich"
+            ],
+            "flavour1_name": "toppings"
+          },
+          "flavour5": {
+            "flavour1_taste": [
+              "wheat",
+              "broth"
+            ],
+            "flavour1_score": 4,
+            "flavour1_texture": [
+              "smooth",
+              "silky",
+              "firm"
+            ],
+            "flavour1_name": "noodles"
+          }
+        },
+        "alcohol_drunkness_score": 0
+      },
+      "appearance_properties": {
+        "presentation": {
+          "ramen_presentation": {
+            "ramen_position": [
+              "broth as base",
+              "noodle neatly folded in the middle"
+            ],
+            "ramen_colour": [
+              "FAFAD0",
+              "noodle",
+              "9E6B17",
+              "broth"
+            ]
+          },
+          "toppings_presentation": {
+            "mascarpone_position": [
+              "two slices of chashu_porkbelly",
+              "3 pieces of nori",
+              "green onion and fishcakes sprinkled across",
+              "bamboo shoots scattered"
+            ],
+            "mascarpone_colour": [
+              "8B5A2B",
+              "chashu_porkbelly",
+              "112A12",
+              "nori",
+              "6AA121",
+              "green_onion",
+              "FFBEE8",
+              "fishcake",
+              "F5E6C4",
+              "bamboo shoot"
+            ]
+          }
+        },
+        "visual_texture": {
+          "ramen_texture": [
+            "aboloutely_delicious"
+          ]
+        },
+        "size_visual": "medium",
+        "shape": "bowl"
+      }
+    },
+    "started_at": "2026-05-27T09:24:27+00:00",
+    "muffled_until": "2026-05-27T09:24:52+00:00",
+    "last_bite_verb": "bite",
+    "last_bite_size": "med",
+    "food_path": "food/shoyu_ramen.json"
+  },
   "last_fed": {
     "name": "taro boba (test)",
     "type": "drink",

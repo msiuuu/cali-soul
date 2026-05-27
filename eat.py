@@ -61,6 +61,62 @@ DEFAULT_DURATIONS_BY_TYPE = {
 }
 FALLBACK_DURATIONS = {"small": 10, "med": 25, "large": 50}
 
+# heuristics for normalizing rich food files (e.g. misu's hand-authored ones).
+SIZE_TO_BITES = {"small": 8, "medium": 18, "large": 28}
+TYPE_KEYWORDS = {
+    "drink":  ["boba", "tea", "coffee", "juice", "smoothie", "milk", "soda"],
+    "meal":   ["ramen", "udon", "soba", "rice", "curry", "steak", "pasta", "bowl", "donburi", "katsu"],
+    "snack":  ["onigiri", "chip", "cracker", "cookie", "candy", "mochi"],
+    "side":   ["karaage", "egg", "salad", "tempura", "dumpling"],
+}
+
+
+def infer_type_from_name(name):
+    n = name.lower()
+    for ftype, keywords in TYPE_KEYWORDS.items():
+        if any(k in n for k in keywords):
+            return ftype
+    return "meal"
+
+
+def normalize_food(food):
+    """accept simple schema OR rich nested schema (food_item, taste_properties, etc).
+    return canonical {name, type, texture, description, total_bites, bite_durations, rich}.
+    rich preserves the original document so voice register can sample flavours/textures.
+    """
+    if "food_item" in food:
+        item = food["food_item"]
+        name = item.get("name", "unknown").replace("_", " ")
+        ftype = item.get("type") or infer_type_from_name(name)
+        size_visual = food.get("appearance_properties", {}).get("size_visual", "medium")
+        total_bites = food.get("total_bites") or SIZE_TO_BITES.get(size_visual, 18)
+        # collect textures from all flavour blocks
+        textures = []
+        flavours = food.get("taste_properties", {}).get("flavours", {}) or {}
+        for fl in flavours.values():
+            # author used inconsistent keys (flavour1_texture across blocks); accept anything ending _texture
+            for k, v in fl.items():
+                if k.endswith("_texture") and isinstance(v, list):
+                    textures.extend(v)
+        texture = ", ".join(sorted(set(textures))) if textures else None
+        description = item.get("note1", "")
+    else:
+        name = food.get("name", "unknown")
+        ftype = food.get("type") or infer_type_from_name(name)
+        total_bites = food["total_bites"]
+        texture = food.get("texture")
+        description = food.get("description", "")
+    bite_durations = food.get("bite_durations", default_durations_for(ftype))
+    return {
+        "name": name,
+        "type": ftype,
+        "texture": texture,
+        "description": description,
+        "total_bites": total_bites,
+        "bite_durations": bite_durations,
+        "rich": food if "food_item" in food else None,
+    }
+
 
 def now_dt():
     return datetime.now(timezone.utc).astimezone()
@@ -131,15 +187,16 @@ def cmd_bite(food_path, verb):
             sys.exit(1)
         with open(path) as f:
             food = json.load(f)
-        ftype = food.get("type", "meal")
+        canonical = normalize_food(food)
         eating = {
-            "name": food["name"],
-            "type": ftype,
-            "texture": food.get("texture"),
-            "description": food.get("description", ""),
-            "total_bites": food["total_bites"],
-            "bites_remaining": food["total_bites"],
-            "bite_durations": food.get("bite_durations", default_durations_for(ftype)),
+            "name": canonical["name"],
+            "type": canonical["type"],
+            "texture": canonical["texture"],
+            "description": canonical["description"],
+            "total_bites": canonical["total_bites"],
+            "bites_remaining": canonical["total_bites"],
+            "bite_durations": canonical["bite_durations"],
+            "rich": canonical["rich"],
             "started_at": now_iso(),
             "muffled_until": now_iso(),
             "last_bite_verb": None,
