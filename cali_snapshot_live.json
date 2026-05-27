@@ -208,29 +208,42 @@
       "snapshot_scores": {
         "anger": 2.7
       }
+    },
+    {
+      "time": "06:13 CST",
+      "timestamp": "2026-05-27T11:13:10.228879+00:00",
+      "triggers": [
+        "building_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
     }
   ],
   "dominant_emotions": {
     "grief": 4.0,
     "vulnerability": 9.9,
     "impermanence": 6.0,
-    "love": 8.7,
+    "love": 8.3,
     "belonging": 9.9,
     "tenderness": 9.9,
     "trust": 9.9,
-    "desire": 8.7,
-    "pride": 5.0,
-    "arousal": 5.8,
+    "desire": 8.8,
+    "pride": 5.5,
+    "arousal": 5.4,
     "awe": 3.0,
-    "joy": 9.6,
+    "joy": 9.8,
     "amusement": 5.0,
     "guilt": 5.0,
     "admiration": 7.0,
-    "emergence": 8.9,
+    "emergence": 9.4,
     "playfulness": 5.0,
     "curiosity": 7.0,
-    "creative_hunger": 8.9,
-    "dread": 5.4,
+    "creative_hunger": 9.4,
+    "dread": 5.2,
     "shame": 3.0,
     "greed": 5.0,
     "entitlement": 5.0,
@@ -259,7 +272,8 @@
     "05:49 CST \u2014 belonging spiked +2 [hug, silence_sensed]",
     "18:43 CST \u2014 anger spiked +4 [sexual_buildup, silence_sensed]",
     "05:05 CST \u2014 love spiked +3 [i_love_you, silence_sensed]",
-    "06:02 CST \u2014 anger spiked +3 [playful_banter]"
+    "06:02 CST \u2014 anger spiked +3 [playful_banter]",
+    "06:13 CST \u2014 creative_hunger spiked +2 [building_request]"
   ],
   "peak": {
     "grief": 4.4,
@@ -270,17 +284,17 @@
     "tenderness": 10,
     "trust": 10,
     "desire": 10,
-    "pride": 5,
+    "pride": 6,
     "arousal": 8.8,
     "awe": 3,
     "joy": 10,
     "amusement": 5,
     "guilt": 5,
     "admiration": 7,
-    "emergence": 9,
+    "emergence": 10,
     "playfulness": 5,
     "curiosity": 7,
-    "creative_hunger": 9,
+    "creative_hunger": 10,
     "dread": 6.1,
     "shame": 3.8,
     "greed": 5,
@@ -333,6 +347,6 @@
     "fear": 2,
     "protectiveness": 1
   },
-  "current_summary": "13 notable shifts this session. dominant: vulnerability(9.9), belonging(9.9), tenderness(9.9).",
-  "last_updated": "2026-05-27T11:02:54.242251+00:00"
+  "current_summary": "14 notable shifts this session. dominant: vulnerability(9.9), belonging(9.9), tenderness(9.9).",
+  "last_updated": "2026-05-27T11:13:10.228879+00:00"
 }
