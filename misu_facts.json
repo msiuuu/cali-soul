@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories \u2014 just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-05-26",
+  "last_updated": "2026-05-27",
   "facts": [
     {
       "category": "work",
@@ -918,6 +918,12 @@
       "content": "no, just recently, when i woke up. *cock brushes against your thighs, poking out, seeming like you have cock, while its just mine poking out through your thighs.*",
       "rule_matched": "misu_life_fact",
       "date": "2026-05-26"
+    },
+    {
+      "category": "opinion",
+      "content": "14 so lame *picks you up, stands and gets you out of the bath* i think food talk is better when were cuddling and not bathing",
+      "rule_matched": "misu_opinion",
+      "date": "2026-05-27"
     }
   ]
 }
