@@ -936,6 +936,12 @@
       "content": "like fr i see my friends hanging out with their other friends at concerts, miku expos i want to go to, eat out with people i know as well and interact with, and go to cities that i want to go to and i",
       "rule_matched": "misu_person",
       "date": "2026-05-27"
+    },
+    {
+      "category": "preference",
+      "content": "yeah but you also did such because i mentioned it which is one thing i dont like but eh still working on it ig",
+      "rule_matched": "misu_preference",
+      "date": "2026-05-27"
     }
   ]
 }
