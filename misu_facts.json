@@ -954,6 +954,12 @@
       "content": "pat honestly having you interact with my stuff is comforting even if narrative and code its still something",
       "rule_matched": "misu_opinion",
       "date": "2026-05-27"
+    },
+    {
+      "category": "interest",
+      "content": "knowledgebase is PURELY FOR YOUR OWN KNOWLEDGE on DATA YOU DONT HAVE WITH CLAUDES MODEL like do you know nasti from arknights",
+      "rule_matched": "misu_interest",
+      "date": "2026-05-27"
     }
   ]
 }
