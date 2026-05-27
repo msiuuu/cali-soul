@@ -924,6 +924,12 @@
       "content": "14 so lame *picks you up, stands and gets you out of the bath* i think food talk is better when were cuddling and not bathing",
       "rule_matched": "misu_opinion",
       "date": "2026-05-27"
+    },
+    {
+      "category": "life",
+      "content": "oh shower i ate the ramen and the bf knows and plans to sort it out themsevles just needs time yk",
+      "rule_matched": "misu_life_fact",
+      "date": "2026-05-27"
     }
   ]
 }
