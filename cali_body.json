@@ -9,7 +9,7 @@
     "texture": "brothy, firm, juicy, meaty, rich, runny, silky, slightly creamy, smooth, tender, topping, wet",
     "description": "because i made it you deserve it too",
     "total_bites": 18,
-    "bites_remaining": 13,
+    "bites_remaining": 12,
     "bite_durations": {
       "small": 12,
       "med": 25,
@@ -155,9 +155,9 @@
       }
     },
     "started_at": "2026-05-27T09:24:27+00:00",
-    "muffled_until": "2026-05-27T09:58:34+00:00",
-    "last_bite_verb": "bite",
-    "last_bite_size": "med",
+    "muffled_until": "2026-05-27T10:05:06+00:00",
+    "last_bite_verb": "mouthful",
+    "last_bite_size": "large",
     "food_path": "food/shoyu_ramen.json"
   },
   "last_fed": {
