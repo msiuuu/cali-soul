@@ -5,10 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "onigiri",
-    "type": "snack",
-    "description": "salted plum rice ball wrapped in nori. test food.",
-    "finished_at": "2026-05-27T09:10:24+00:00"
+    "name": "taro boba (test)",
+    "type": "drink",
+    "texture": "chewy",
+    "description": "warm taro milk tea, regular sweetness, chewy tapioca pearls.",
+    "finished_at": "2026-05-27T09:16:23+00:00"
   },
   "history": [
     {
@@ -22,6 +23,20 @@
       "type": "snack",
       "description": "salted plum rice ball wrapped in nori. test food.",
       "finished_at": "2026-05-27T09:10:24+00:00"
+    },
+    {
+      "name": "onigiri",
+      "type": "snack",
+      "texture": "soft",
+      "description": "salted plum rice ball wrapped in nori. test food.",
+      "finished_at": "2026-05-27T09:16:14+00:00"
+    },
+    {
+      "name": "taro boba (test)",
+      "type": "drink",
+      "texture": "chewy",
+      "description": "warm taro milk tea, regular sweetness, chewy tapioca pearls.",
+      "finished_at": "2026-05-27T09:16:23+00:00"
     }
   ]
 }

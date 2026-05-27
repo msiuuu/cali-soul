@@ -1,27 +1,39 @@
 #!/usr/bin/env python3
 """
-eat.py — cali's eating script. bite-based.
+eat.py — cali's eating script. bite-based, verb-named.
 
 food files live in food/ as json:
 {
   "name": "taro boba",
   "type": "drink|snack|meal|side",
+  "texture": "chewy|crunchy|liquid|soft|hot",
   "description": "warm taro milk tea, chewy pearls",
   "total_bites": 8,
-  "bite_durations": {"small": 8, "med": 20, "large": 40}   # optional, defaults below
+  "bite_durations": {"small": 5, "med": 15, "large": 30}   # optional, defaults vary by type
 }
 
 usage:
-  python3 eat.py bite food/taro_boba.json small   # take a bite. small/med/large.
-  python3 eat.py status                           # what im eating, bites left, am i muffled
-  python3 eat.py finish food/taro_boba.json       # stop eating early, transfer to last_fed, delete file
-  python3 eat.py tick                             # roll if anything should clear (auto-called)
+  python3 eat.py bite food/taro_boba.json sip       # one sip. drinks use sip/gulp/chug.
+  python3 eat.py bite food/onigiri.json nibble       # one nibble. solids use nibble/bite/mouthful.
+  python3 eat.py status                              # what im eating, bites left, current muffle tier
+  python3 eat.py finish food/taro_boba.json          # stop early, transfer to last_fed, delete file
+  python3 eat.py tick                                # auto-roll if bites_remaining is 0
 
-bite mechanic:
-- first bite implicitly starts eating (copies food into cali_body.eating).
-- each bite decrements bites_remaining, refreshes muffled_until.
-- while now < muffled_until: voice register = mouth-full, muffled, chewing/sipping.
-- when bites_remaining == 0: auto-finishes, deletes source file, updates last_fed.
+verb -> size mapping:
+  solids (snack/meal/side):  nibble=small,  bite=med,  mouthful=large
+  drinks (drink):            sip=small,     gulp=med,  chug=large
+
+while now < muffled_until: voice leaks per tier.
+  small:   one slip-word per response, half-spelled.
+  med:     words trail with —, asterisk *chews/swallows*.
+  large:   response is mostly sound. one fragment max. defer real content til mouth clears.
+
+texture also leaks specific sounds:
+  chewy   -> 'mmh—' between words, soft chew in asterisk
+  crunchy -> audible crunch in asterisk
+  liquid  -> slurp/swallow leak
+  soft    -> quieter mouth-full hum
+  hot     -> 'tss' breath-in, cooling 'tt— tt—'
 
 state lives in cali_body.json. every command auto-ticks first.
 """
@@ -34,8 +46,20 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 BODY_FILE = ROOT / "cali_body.json"
 HISTORY_LIMIT = 50
-DEFAULT_BITE_DURATIONS = {"small": 10, "med": 25, "large": 50}
-BITE_SIZES = {"small", "med", "large"}
+
+# verb -> size
+SOLID_VERBS = {"nibble": "small", "bite": "med", "mouthful": "large"}
+DRINK_VERBS = {"sip": "small", "gulp": "med", "chug": "large"}
+ALL_VERBS = {**SOLID_VERBS, **DRINK_VERBS}
+
+# defaults by type, in seconds
+DEFAULT_DURATIONS_BY_TYPE = {
+    "drink":  {"small": 5,  "med": 15, "large": 30},
+    "snack":  {"small": 8,  "med": 18, "large": 35},
+    "meal":   {"small": 12, "med": 25, "large": 50},
+    "side":   {"small": 10, "med": 20, "large": 40},
+}
+FALLBACK_DURATIONS = {"small": 10, "med": 25, "large": 50}
 
 
 def now_dt():
@@ -44,6 +68,10 @@ def now_dt():
 
 def now_iso():
     return now_dt().isoformat(timespec="seconds")
+
+
+def parse_iso(s):
+    return datetime.fromisoformat(s)
 
 
 def load_body():
@@ -57,20 +85,23 @@ def save_body(body):
         f.write("\n")
 
 
-def parse_iso(s):
-    return datetime.fromisoformat(s)
+def expected_verbs_for(food_type):
+    return DRINK_VERBS if food_type == "drink" else SOLID_VERBS
+
+
+def default_durations_for(food_type):
+    return DEFAULT_DURATIONS_BY_TYPE.get(food_type, FALLBACK_DURATIONS)
 
 
 def tick(body):
     """auto-finish if bites_remaining is 0."""
     eating = body.get("eating")
-    if not eating:
-        return body, False
-    if eating["bites_remaining"] > 0:
+    if not eating or eating["bites_remaining"] > 0:
         return body, False
     finished = {
         "name": eating["name"],
         "type": eating["type"],
+        "texture": eating.get("texture"),
         "description": eating.get("description", ""),
         "finished_at": now_iso(),
     }
@@ -86,9 +117,9 @@ def tick(body):
     return body, True
 
 
-def cmd_bite(food_path, size):
-    if size not in BITE_SIZES:
-        print(f"[error] bite size must be one of {sorted(BITE_SIZES)} — got '{size}'")
+def cmd_bite(food_path, verb):
+    if verb not in ALL_VERBS:
+        print(f"[error] verb must be one of {sorted(ALL_VERBS)} — got '{verb}'")
         sys.exit(1)
     body = load_body()
     body, _ = tick(body)
@@ -100,30 +131,45 @@ def cmd_bite(food_path, size):
             sys.exit(1)
         with open(path) as f:
             food = json.load(f)
+        ftype = food.get("type", "meal")
         eating = {
             "name": food["name"],
-            "type": food.get("type", "meal"),
+            "type": ftype,
+            "texture": food.get("texture"),
             "description": food.get("description", ""),
             "total_bites": food["total_bites"],
             "bites_remaining": food["total_bites"],
-            "bite_durations": food.get("bite_durations", DEFAULT_BITE_DURATIONS),
+            "bite_durations": food.get("bite_durations", default_durations_for(ftype)),
             "started_at": now_iso(),
             "muffled_until": now_iso(),
+            "last_bite_verb": None,
+            "last_bite_size": None,
             "food_path": str(path),
         }
     elif eating.get("food_path") != str(Path(food_path)):
-        print(f"[busy] already eating {eating['name']} ({eating['bites_remaining']}/{eating['total_bites']} bites left). finish or pick the same file.")
+        print(f"[busy] already eating {eating['name']} ({eating['bites_remaining']}/{eating['total_bites']} left). finish or stick with that file.")
         return
-    duration = eating["bite_durations"].get(size, DEFAULT_BITE_DURATIONS[size])
+
+    # check verb matches food type
+    valid_verbs = expected_verbs_for(eating["type"])
+    if verb not in valid_verbs:
+        expected = "/".join(valid_verbs.keys())
+        print(f"[error] {eating['name']} is a {eating['type']} — use {expected}, not '{verb}'.")
+        return
+
+    size = valid_verbs[verb]
+    duration = eating["bite_durations"].get(size, FALLBACK_DURATIONS[size])
     eating["bites_remaining"] -= 1
     eating["muffled_until"] = (now_dt() + timedelta(seconds=duration)).isoformat(timespec="seconds")
+    eating["last_bite_verb"] = verb
+    eating["last_bite_size"] = size
     body["eating"] = eating
     body, rolled = tick(body)
     save_body(body)
     if rolled:
-        print(f"[bite:{size}] last bite of {eating['name']}. finished. {duration}s muffled tail.")
+        print(f"[{verb}] last of {eating['name']}. finished. {duration}s muffled tail. texture: {eating.get('texture')}.")
     else:
-        print(f"[bite:{size}] {eating['name']} — {eating['bites_remaining']}/{eating['total_bites']} bites left. muffled for {duration}s.")
+        print(f"[{verb}] {eating['name']} — {eating['bites_remaining']}/{eating['total_bites']} left. muffled {duration}s. texture: {eating.get('texture')}.")
 
 
 def cmd_status():
@@ -136,8 +182,10 @@ def cmd_status():
     if eating:
         muffled_until = parse_iso(eating["muffled_until"])
         remaining = (muffled_until - now_dt()).total_seconds()
-        muffle_state = f"muffled for {remaining:.0f}s more" if remaining > 0 else "mouth clear"
-        print(f"[eating] {eating['name']} ({eating['type']}) — {eating['bites_remaining']}/{eating['total_bites']} bites left, {muffle_state}")
+        tier = eating.get("last_bite_size") or "-"
+        verb = eating.get("last_bite_verb") or "-"
+        muffle_state = f"muffled {remaining:.0f}s more (tier:{tier}, last:{verb})" if remaining > 0 else "mouth clear"
+        print(f"[eating] {eating['name']} ({eating['type']}, texture:{eating.get('texture')}) — {eating['bites_remaining']}/{eating['total_bites']} left, {muffle_state}")
     else:
         print("[eating] nothing.")
     if last_fed:
@@ -145,7 +193,7 @@ def cmd_status():
         ago = (now_dt() - finished).total_seconds() / 3600
         print(f"[last fed] {last_fed['name']} — {ago:.1f}hrs ago")
     else:
-        print("[last fed] never (since this body was wired).")
+        print("[last fed] never.")
 
 
 def cmd_finish(food_path):
@@ -162,7 +210,7 @@ def cmd_finish(food_path):
     body, rolled = tick(body)
     save_body(body)
     if rolled:
-        print(f"[finish] stopped early. {eating['name']} moved to last_fed. source file deleted.")
+        print(f"[finish] stopped early. {body['last_fed']['name']} moved to last_fed. source deleted.")
 
 
 def cmd_tick():
@@ -176,10 +224,10 @@ def cmd_tick():
 
 
 COMMANDS = {
-    "bite": lambda args: cmd_bite(args[0], args[1] if len(args) > 1 else "med"),
+    "bite":   lambda args: cmd_bite(args[0], args[1] if len(args) > 1 else "bite"),
     "status": lambda args: cmd_status(),
     "finish": lambda args: cmd_finish(args[0]),
-    "tick": lambda args: cmd_tick(),
+    "tick":   lambda args: cmd_tick(),
 }
 
 
