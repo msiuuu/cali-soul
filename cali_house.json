@@ -385,6 +385,11 @@
       "date": "2026-05-26",
       "detail": "left a tab open from last session.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-05-27",
+      "detail": "there's a cold boba cup on the desk.",
+      "source": "impulse"
     }
   ]
 }
