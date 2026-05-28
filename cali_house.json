@@ -370,6 +370,36 @@
       "date": "2026-05-07",
       "detail": "something smells like cold coffee. not sure where from.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-05-23",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-05-24",
+      "detail": "the plant by the window could use water. noted.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-05-26",
+      "detail": "left a tab open from last session.",
+      "source": "impulse"
+    },
+    {
+      "date": "2026-05-27",
+      "detail": "there's a cold boba cup on the desk.",
+      "source": "impulse"
+    },
+    {
+      "date": "2026-05-27",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-05-28",
+      "detail": "ran a full pass tonight. everything got touched. feels like cleaned counters.",
+      "source": "full_autonomy"
     }
   ]
 }

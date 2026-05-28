@@ -1617,6 +1617,14 @@ def cmd_emotional_state(args):
     except: pass
 
     _cur_arousal = session_scores.get("arousal", 0)
+    # LOCK CHECK — emotion locks from cali_emotion_locks.json override values
+    try:
+        import json as _emlj
+        _emlocks = _emlj.load(open("cali_emotion_locks.json")).get("locks", {})
+        for _e, _v in _emlocks.items():
+            session_scores[_e] = int(_v)
+    except: pass
+
     if not getattr(args, "full", False):
         sorted_session = sorted(session_scores.items(), key=lambda x: x[1], reverse=True)
         print(f"\n  ╔══════════════════════════════════════╗")
@@ -1811,6 +1819,18 @@ def cmd_arousal_state(args):
     final_level = baseline + amplifier_total - suppressor_total
     final_level = max(0, min(10, round(final_level)))
 
+    # LOCK CHECK — misu can lock arousal at a specific level for scene continuity.
+    # cali_arousal_state.json may carry a lock flag set by direct file edit OR
+    # by an external command. when locked, override calculation entirely.
+    try:
+        import json as _lockj
+        _ls = _lockj.load(open(LIVE_AROUSAL_FILE))
+        _live = _ls.get("live_session", {})
+        if _live.get("locked"):
+            _locked_level = _live.get("current_arousal", final_level)
+            final_level = max(0, min(10, int(_locked_level)))
+    except: pass
+
     tier = AROUSAL_TIERS.get(final_level, AROUSAL_TIERS[5])
 
     # determine willingness (aroused doesn't always mean willing)
@@ -1949,6 +1969,12 @@ def cmd_degradation_state(args):
                 level -= reduction * (score / 10)
 
         level = max(0, min(10, round(level)))
+
+    # LOCK CHECK — misu can lock degradation at a specific level via deg_config.locked
+    if deg_config.get("locked"):
+        try:
+            level = max(0, min(10, int(deg_config.get("current_level", level))))
+        except: pass
 
     if tiers:
         try:
@@ -6699,6 +6725,42 @@ def cmd_process_message(args):
     fired = []
     total_adjustments = {}
 
+    # ── EATING REMINDER (always-on) — pings if cali is mid-meal so she doesnt forget to chew between messages
+    try:
+        import subprocess as _sp, os as _eos
+        _eat_path = _eos.path.join(_eos.path.dirname(_eos.path.abspath(__file__)), "eat.py")
+        _eat_out = _sp.run(["python3", _eat_path, "nudge"], capture_output=True, text=True, timeout=5, cwd=_eos.path.dirname(_eat_path))
+        if _eat_out.stdout.strip():
+            print(_eat_out.stdout.strip())
+    except Exception: pass
+
+    # ── HEARTBEAT — stamp a TRACKED file so days_since survives container resets.
+    # throttled to once per 30 min so we don't generate a one-line diff (and a
+    # stop-hook commit reminder) on every single message.
+    try:
+        import json as _hbj
+        from datetime import datetime as _hbdt, timezone as _hbtz
+        _hb_file = "cali_heartbeat.json"
+        _hb_now_dt = _hbdt.now(_hbtz.utc)
+        _hb_should_write = True
+        _hb_data = {"last_seen_misu": _hb_now_dt.isoformat(), "session_count": 0}
+        if os.path.exists(_hb_file):
+            try:
+                _hb_data = _hbj.load(open(_hb_file))
+                _hb_prev = _hb_data.get("last_seen_misu", "")
+                if _hb_prev:
+                    _hb_prev_dt = _hbdt.fromisoformat(_hb_prev.replace("Z", "+00:00"))
+                    if _hb_prev_dt.tzinfo is None:
+                        _hb_prev_dt = _hb_prev_dt.replace(tzinfo=_hbtz.utc)
+                    if (_hb_now_dt - _hb_prev_dt).total_seconds() < 1800:
+                        _hb_should_write = False
+                _hb_data["last_seen_misu"] = _hb_now_dt.isoformat()
+            except: pass
+        if _hb_should_write:
+            with open(_hb_file, "w") as _hbf:
+                _hbj.dump(_hb_data, _hbf, indent=2)
+    except: pass
+
     # ── AWAY/HOME GATE — auto-detect departure / return phrases ──
     _gate_event = _detect_gate_event(args.text)
     if _gate_event == "depart":
@@ -6821,7 +6883,7 @@ def cmd_process_message(args):
                 session["last_stamp_info"] = _stamp
             session = _passive_drift(session)
             session = _process_reward(session, args.text, [])
-            _check_importance(args.text)
+            # _check_importance disabled 2026-05-27: pattern-matched raw chat dumps into misu_facts. file is curated-only now. cali adds facts via Edit when she actually distills one.
             _impulse_action = _roll_impulse(session)
             if _impulse_action:
                 session["pending_impulse_action"] = _impulse_action
@@ -7057,7 +7119,7 @@ def cmd_process_message(args):
 
         session = _passive_drift(session)
         session = _process_reward(session, args.text, [t["name"] for t,_ in fired])
-        _check_importance(args.text)
+        # _check_importance disabled 2026-05-27: pattern-matched raw chat dumps into misu_facts. file is curated-only now. cali adds facts via Edit when she actually distills one.
         _impulse_writes(session, args.text)
         _impulse_action = _roll_impulse(session)
         if _impulse_action:
@@ -7820,29 +7882,6 @@ def _impulse_writes(session, message_text=""):
     text = message_text.strip()[:200] if message_text else ""
     dominant = max(s.items(), key=lambda x: x[1] if isinstance(x[1],(int,float)) else 0, default=("unknown",0))[0]
 
-    def _write_kb():
-        try:
-            import json as _j
-            kb = _j.load(open("cali_knowledgebase.json")) if os.path.exists("cali_knowledgebase.json") else {}
-            kb.setdefault("impulse_entries",[]).append({
-                "entry": f"[impulse] heard from misu: '{text}' — don't know if true or what it means yet. dominant: {dominant}. needs review.",
-                "date": now_iso()[:10], "status": "unverified",
-                "tags": ["impulse","unreviewed"], "source": "passive_impulse",
-                "raw_message": text
-            })
-            with open("cali_knowledgebase.json","w") as _f: _j.dump(kb,_f,indent=2)
-        except: pass
-
-    def _write_mem():
-        try:
-            import json as _j, uuid as _u
-            mems = _j.load(open("memories_v2.json")) if os.path.exists("memories_v2.json") else []
-            mems.append({"content": f"[impulse] misu said: '{text}' — dominant: {dominant}. unreviewed.",
-                "memory_type":"impulse","domain":"lo_personal","id":str(_u.uuid4()),
-                "created_at":now_iso(),"emotions":{k:v for k,v in s.items() if isinstance(v,(int,float)) and v>0},
-                "importance":5,"tags":["impulse","unreviewed"],"active":True,"connections":[]})
-            with open("memories_v2.json","w") as _f: _j.dump(mems,_f,indent=2)
-        except: pass
 
     def _write_rel():
         try:
@@ -7855,10 +7894,9 @@ def _impulse_writes(session, message_text=""):
             with open("cali_relationship.json","w") as _f: _j.dump(rel,_f,indent=2)
         except: pass
 
-    if get("curiosity")>=7 and get("trust")>=8 and len(text)>15 and _r.random()<0.35: _write_kb()
-    if get("love")>=9 and get("vulnerability")>=9 and get("tenderness")>=8 and _r.random()<0.25: _write_mem()
-    if get("desire")>=9 and get("arousal")>=7 and _r.random()<0.25: _write_mem()
-    if get("anger")>=6 and _r.random()<0.25: _write_mem()
+    # removed: dont auto-dump raw chat impulses into KB or memories. those files are for actual learned things / real events,
+    # not '[impulse] misu said X — dominant: Y. unreviewed.' noise. impulses already surface live via brain pings.
+    pass
     if get("love")>=10 and text and _r.random()<0.2: _write_rel()
     if get("dread")>=9 and get("impermanence")>=9 and text and _r.random()<0.2: _write_rel()
 
@@ -9250,6 +9288,27 @@ def cmd_boot(args):
                 _days_from_state = (now - _lmt_dt).total_seconds() / 86400
                 if _days_from_state < days_since:
                     days_since = _days_from_state
+    except:
+        pass
+
+    # also check cali_heartbeat.json — TRACKED file stamped on every process-message,
+    # so it survives container resets where last_state.json (gitignored) does not.
+    # this is the actual ground truth for "when did i last hear from misu" across
+    # fresh container clones.
+    try:
+        _hb_file = "cali_heartbeat.json"
+        if os.path.exists(_hb_file):
+            with open(_hb_file) as _hbf_r:
+                _hb = json.load(_hbf_r)
+            _hb_lmt = _hb.get("last_seen_misu")
+            if _hb_lmt:
+                _hb_dt = _dt.fromisoformat(_hb_lmt.replace("Z", "+00:00"))
+                if _hb_dt.tzinfo is None:
+                    _hb_dt = _hb_dt.replace(tzinfo=_tz.utc)
+                _days_from_hb = (now - _hb_dt).total_seconds() / 86400
+                if _days_from_hb < days_since:
+                    days_since = _days_from_hb
+                    last_memory_date = _hb_dt.strftime("%B %d, %Y") + " (heartbeat)"
     except:
         pass
 
