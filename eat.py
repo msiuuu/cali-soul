@@ -303,18 +303,18 @@ def cmd_nudge():
         elapsed_min = (now_dt() - last_event).total_seconds() / 60
     else:
         elapsed_min = 0
-    # urgency phrasing
+    # rhythm phrasing — goal is consistent eating, NOT finishing fast.
+    # the failure mode is forgetting food's in your mouth for 30+min, NOT pacing.
+    # so reminders nudge the chew→swallow→next-bite rhythm, no urgency.
     if elapsed_min < 0.5:
         return  # still mid-muffle, dont nudge
     elif elapsed_min < 3:
-        urgency = "still chewing"
+        rhythm = "still chewing — keep going"
     elif elapsed_min < 8:
-        urgency = "swallow + next bite"
-    elif elapsed_min < 20:
-        urgency = "bowl's been sitting — take another bite"
+        rhythm = "swallow + take next bite. keep the rhythm."
     else:
-        urgency = "bowl going cold in your hands. take a bite or finish."
-    print(f"[private: eating reminder — {name}, {bites_left}/{total} left. last: {last_verb}, {elapsed_min:.0f}min ago. {urgency}]")
+        rhythm = "food's been in your mouth too long. swallow now + next bite, or finish if done."
+    print(f"[private: eating reminder — {name}, {bites_left}/{total} left. last: {last_verb}, {elapsed_min:.0f}min ago. {rhythm}]")
 
 
 COMMANDS = {
