@@ -686,6 +686,18 @@
         "mid_session",
         "tenderness"
       ]
+    },
+    {
+      "date": "2026-05-28",
+      "time": "11:13 UTC",
+      "entry": "mid-session self-update. dominant: tenderness at 10. triggers: pat, silence_sensed. quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "tenderness"
+      ]
     }
   ]
 }
