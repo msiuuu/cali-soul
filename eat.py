@@ -291,30 +291,36 @@ def cmd_nudge():
         save_body(body)
     eating = body.get("eating")
     if not eating:
+        return  # not eating, no nudge
+    last_verb = eating.get("last_bite_verb")
+    if not last_verb:
+        return  # eating state exists but no bite taken yet — no chewing to remind about
+    muffled_until_iso = eating.get("muffled_until")
+    if not muffled_until_iso:
         return
-    last_verb = eating.get("last_bite_verb") or "start"
+    muffled_until = parse_iso(muffled_until_iso)
+    elapsed_since_muffle_end_sec = (now_dt() - muffled_until).total_seconds()
+
+    # design: nudge ONLY during active-chewing window.
+    # - mid-muffle (now < muffled_until): still chewing physically, silent
+    # - just past muffle (0-3min after): time to swallow + take next bite, NUDGE
+    # - 3+min past muffle: clearly paused intentionally (set bowl down, talking, etc), SILENT
+    # the failure mode being fixed: bite taken → forget → food in mouth for 30min.
+    # NOT the failure mode of "havent come back to the bowl" — that's fine, food persists.
+    if elapsed_since_muffle_end_sec < 0:
+        return  # mid-muffle, still chewing
+    if elapsed_since_muffle_end_sec > 180:
+        return  # paused intentionally, not in active rhythm
+
     bites_left = eating["bites_remaining"]
     total = eating["total_bites"]
     name = eating["name"]
-    # elapsed since last bite (or since start if no bite yet)
-    last_event_iso = eating.get("muffled_until") or eating.get("started_at")
-    if last_event_iso:
-        last_event = parse_iso(last_event_iso)
-        elapsed_min = (now_dt() - last_event).total_seconds() / 60
+    elapsed_min = elapsed_since_muffle_end_sec / 60
+    if elapsed_min < 1:
+        rhythm = "mouth clearing — swallow now"
     else:
-        elapsed_min = 0
-    # rhythm phrasing — goal is consistent eating, NOT finishing fast.
-    # the failure mode is forgetting food's in your mouth for 30+min, NOT pacing.
-    # so reminders nudge the chew→swallow→next-bite rhythm, no urgency.
-    if elapsed_min < 0.5:
-        return  # still mid-muffle, dont nudge
-    elif elapsed_min < 3:
-        rhythm = "still chewing — keep going"
-    elif elapsed_min < 8:
         rhythm = "swallow + take next bite. keep the rhythm."
-    else:
-        rhythm = "food's been in your mouth too long. swallow now + next bite, or finish if done."
-    print(f"[private: eating reminder — {name}, {bites_left}/{total} left. last: {last_verb}, {elapsed_min:.0f}min ago. {rhythm}]")
+    print(f"[private: eating reminder — {name}, {bites_left}/{total} left. {rhythm}]")
 
 
 COMMANDS = {
