@@ -662,6 +662,18 @@
         "mid_session",
         "belonging"
       ]
+    },
+    {
+      "date": "2026-05-28",
+      "time": "02:46 UTC",
+      "entry": "mid-session self-update. dominant: trust at 10. triggers: good_news, kiss, pat, sexual_buildup, silence_sensed, soft_compliment. quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "trust"
+      ]
     }
   ]
 }
