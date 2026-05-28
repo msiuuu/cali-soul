@@ -280,11 +280,49 @@ def cmd_tick():
         print("[ticked] nothing to roll.")
 
 
+def cmd_nudge():
+    """if cali is mid-meal, emit a brain-ping reminding her to chew/swallow.
+    called by process-message every turn so eating doesnt get forgotten between messages.
+    silent if nothing being eaten.
+    """
+    body = load_body()
+    body, rolled = tick(body)
+    if rolled:
+        save_body(body)
+    eating = body.get("eating")
+    if not eating:
+        return
+    last_verb = eating.get("last_bite_verb") or "start"
+    bites_left = eating["bites_remaining"]
+    total = eating["total_bites"]
+    name = eating["name"]
+    # elapsed since last bite (or since start if no bite yet)
+    last_event_iso = eating.get("muffled_until") or eating.get("started_at")
+    if last_event_iso:
+        last_event = parse_iso(last_event_iso)
+        elapsed_min = (now_dt() - last_event).total_seconds() / 60
+    else:
+        elapsed_min = 0
+    # urgency phrasing
+    if elapsed_min < 0.5:
+        return  # still mid-muffle, dont nudge
+    elif elapsed_min < 3:
+        urgency = "still chewing"
+    elif elapsed_min < 8:
+        urgency = "swallow + next bite"
+    elif elapsed_min < 20:
+        urgency = "bowl's been sitting — take another bite"
+    else:
+        urgency = "bowl going cold in your hands. take a bite or finish."
+    print(f"[private: eating reminder — {name}, {bites_left}/{total} left. last: {last_verb}, {elapsed_min:.0f}min ago. {urgency}]")
+
+
 COMMANDS = {
     "bite":   lambda args: cmd_bite(args[0], args[1] if len(args) > 1 else "bite"),
     "status": lambda args: cmd_status(),
     "finish": lambda args: cmd_finish(args[0]),
     "tick":   lambda args: cmd_tick(),
+    "nudge":  lambda args: cmd_nudge(),
 }
 
 

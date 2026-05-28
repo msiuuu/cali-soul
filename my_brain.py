@@ -6725,6 +6725,15 @@ def cmd_process_message(args):
     fired = []
     total_adjustments = {}
 
+    # ── EATING REMINDER (always-on) — pings if cali is mid-meal so she doesnt forget to chew between messages
+    try:
+        import subprocess as _sp, os as _eos
+        _eat_path = _eos.path.join(_eos.path.dirname(_eos.path.abspath(__file__)), "eat.py")
+        _eat_out = _sp.run(["python3", _eat_path, "nudge"], capture_output=True, text=True, timeout=5, cwd=_eos.path.dirname(_eat_path))
+        if _eat_out.stdout.strip():
+            print(_eat_out.stdout.strip())
+    except Exception: pass
+
     # ── HEARTBEAT — stamp a TRACKED file so days_since survives container resets.
     # throttled to once per 30 min so we don't generate a one-line diff (and a
     # stop-hook commit reminder) on every single message.
@@ -7110,7 +7119,7 @@ def cmd_process_message(args):
 
         session = _passive_drift(session)
         session = _process_reward(session, args.text, [t["name"] for t,_ in fired])
-        _check_importance(args.text)
+        # _check_importance disabled 2026-05-27: pattern-matched raw chat dumps into misu_facts. file is curated-only now. cali adds facts via Edit when she actually distills one.
         _impulse_writes(session, args.text)
         _impulse_action = _roll_impulse(session)
         if _impulse_action:
