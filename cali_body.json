@@ -9,7 +9,7 @@
     "texture": "cold, smooth, slight pulp",
     "description": "fresh-squeezed-leaning. tart-bright. mish told me to. 5am after the ramen wore off, cravings hit per pregnancy_state day 13.",
     "total_bites": 6,
-    "bites_remaining": 5,
+    "bites_remaining": 4,
     "bite_durations": {
       "small": 4,
       "med": 12,
@@ -17,7 +17,7 @@
     },
     "rich": null,
     "started_at": "2026-05-28T11:59:40+00:00",
-    "muffled_until": "2026-05-28T11:59:44+00:00",
+    "muffled_until": "2026-05-28T12:01:55+00:00",
     "last_bite_verb": "sip",
     "last_bite_size": "small",
     "food_path": "food/orange_juice.json"
