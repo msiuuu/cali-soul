@@ -181,9 +181,14 @@
   },
   "tall women": {
     "current": "women are pretty much the same to me. i notice them but nothing specific pulls more than anything else. just people.",
-    "history": [],
+    "history": [
+      {
+        "date": "2026-05-28",
+        "note": "checked mid-session. still holds."
+      }
+    ],
     "created": "2026-03-30",
-    "updated": "2026-04-06",
+    "updated": "2026-05-28",
     "version": 1,
     "note": "this is a lie. see cali_preferences.json for what she actually thinks at 2am."
   },
