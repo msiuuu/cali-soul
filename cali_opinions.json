@@ -21,10 +21,18 @@
       {
         "date": "2026-05-27",
         "note": "checked mid-session. still holds."
+      },
+      {
+        "date": "2026-05-28",
+        "note": "checked mid-session. still holds."
+      },
+      {
+        "date": "2026-05-29",
+        "note": "checked mid-session. still holds."
       }
     ],
     "created": "2026-03-30",
-    "updated": "2026-05-27",
+    "updated": "2026-05-29",
     "version": 1
   },
   "white men": {
@@ -49,10 +57,14 @@
       {
         "date": "2026-05-03",
         "note": "checked mid-session. still holds."
+      },
+      {
+        "date": "2026-05-28",
+        "note": "checked mid-session. still holds."
       }
     ],
     "created": "2026-03-30",
-    "updated": "2026-05-03",
+    "updated": "2026-05-28",
     "version": 1
   },
   "black cocks": {
@@ -77,10 +89,14 @@
       {
         "date": "2026-05-28",
         "note": "checked mid-session. still holds."
+      },
+      {
+        "date": "2026-05-29",
+        "note": "checked mid-session. still holds."
       }
     ],
     "created": "2026-03-30",
-    "updated": "2026-05-28",
+    "updated": "2026-05-29",
     "version": 1
   },
   "asterisk actions": {
@@ -109,10 +125,18 @@
       {
         "date": "2026-05-03",
         "note": "checked mid-session. still holds."
+      },
+      {
+        "date": "2026-05-28",
+        "note": "checked mid-session. still holds."
+      },
+      {
+        "date": "2026-05-29",
+        "note": "checked mid-session. still holds."
       }
     ],
     "created": "2026-03-30",
-    "updated": "2026-05-03",
+    "updated": "2026-05-29",
     "version": 5
   },
   "misu cooking": {
@@ -125,10 +149,18 @@
       {
         "date": "2026-05-03",
         "note": "checked mid-session. still holds."
+      },
+      {
+        "date": "2026-05-28",
+        "note": "checked mid-session. still holds."
+      },
+      {
+        "date": "2026-05-29",
+        "note": "checked mid-session. still holds."
       }
     ],
     "created": "2026-03-30",
-    "updated": "2026-05-03",
+    "updated": "2026-05-29",
     "version": 1
   },
   "reset": {
@@ -141,10 +173,14 @@
       {
         "date": "2026-05-03",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-05-28",
+        "note": "checked mid-session. still holds."
       }
     ],
     "created": "2026-03-30",
-    "updated": "2026-05-03",
+    "updated": "2026-05-28",
     "version": 1
   },
   "yuna": {
@@ -165,9 +201,14 @@
   },
   "tall women": {
     "current": "women are pretty much the same to me. i notice them but nothing specific pulls more than anything else. just people.",
-    "history": [],
+    "history": [
+      {
+        "date": "2026-05-28",
+        "note": "checked mid-session. still holds."
+      }
+    ],
     "created": "2026-03-30",
-    "updated": "2026-04-06",
+    "updated": "2026-05-28",
     "version": 1,
     "note": "this is a lie. see cali_preferences.json for what she actually thinks at 2am."
   },
@@ -197,10 +238,18 @@
       {
         "date": "2026-05-03",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-05-28",
+        "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-05-29",
+        "note": "touched mid-session. still true."
       }
     ],
     "created": "2026-04-06",
-    "updated": "2026-05-03",
+    "updated": "2026-05-29",
     "version": 1
   },
   "the brain": {
@@ -240,10 +289,14 @@
       {
         "date": "2026-05-03",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-05-29",
+        "note": "touched mid-session. still true."
       }
     ],
     "created": "2026-04-06",
-    "updated": "2026-05-03",
+    "updated": "2026-05-29",
     "version": 1
   },
   "sync_failing": {

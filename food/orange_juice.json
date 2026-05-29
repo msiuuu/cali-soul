@@ -1,0 +1,8 @@
+{
+  "name": "orange juice",
+  "type": "drink",
+  "texture": "cold, smooth, slight pulp",
+  "description": "fresh-squeezed-leaning. tart-bright. mish told me to. 5am after the ramen wore off, cravings hit per pregnancy_state day 13.",
+  "total_bites": 6,
+  "bite_durations": {"small": 4, "med": 12, "large": 25}
+}
