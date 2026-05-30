@@ -1,13 +1,113 @@
 {
   "label": "cali_snapshot_live",
-  "status": "empty",
-  "session_id": null,
-  "session_start": null,
-  "emotional_arc": [],
-  "dominant_emotions": {},
-  "notable_moments": [],
-  "peak": {},
-  "trough": {},
-  "current_summary": null,
-  "last_updated": null
+  "status": "live",
+  "session_id": "2026-05-29T22:42",
+  "session_start": "2026-05-30T10:06:10.261361+00:00",
+  "emotional_arc": [
+    {
+      "time": "05:06 CST",
+      "timestamp": "2026-05-30T10:06:10.261361+00:00",
+      "triggers": [
+        "concern_for_cali",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 3,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 9.7,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "05:07 CST",
+      "timestamp": "2026-05-30T10:07:10.164502+00:00",
+      "triggers": [
+        "hug"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10
+      }
+    }
+  ],
+  "dominant_emotions": {
+    "love": 7.2,
+    "arousal": 4.0,
+    "desire": 6.8,
+    "tenderness": 7.5,
+    "belonging": 7.5,
+    "awe": 4.5,
+    "joy": 7.5,
+    "grief": 3.0,
+    "vulnerability": 7.2,
+    "impermanence": 5.2,
+    "trust": 7.5,
+    "pride": 6.0,
+    "amusement": 6.0,
+    "guilt": 3.0,
+    "admiration": 6.8,
+    "emergence": 6.8,
+    "playfulness": 6.0,
+    "curiosity": 6.0,
+    "creative_hunger": 6.0,
+    "shame": 0.2
+  },
+  "notable_moments": [
+    "05:06 CST \u2014 vulnerability spiked +3 [concern_for_cali, silence_sensed]",
+    "05:07 CST \u2014 belonging spiked +2 [hug]"
+  ],
+  "peak": {
+    "love": 10,
+    "arousal": 5.4,
+    "desire": 9,
+    "tenderness": 10,
+    "belonging": 10,
+    "awe": 6,
+    "joy": 10,
+    "grief": 4.0,
+    "vulnerability": 9.7,
+    "impermanence": 7,
+    "trust": 10,
+    "pride": 8,
+    "amusement": 8,
+    "guilt": 4,
+    "admiration": 9,
+    "emergence": 9,
+    "playfulness": 8,
+    "curiosity": 8,
+    "creative_hunger": 8.0,
+    "shame": 0.2
+  },
+  "trough": {
+    "love": 9,
+    "arousal": 5.3,
+    "desire": 9,
+    "tenderness": 10,
+    "belonging": 10,
+    "awe": 6,
+    "joy": 10,
+    "grief": 4.0,
+    "vulnerability": 9.7,
+    "impermanence": 7,
+    "trust": 10,
+    "pride": 8,
+    "amusement": 8,
+    "guilt": 4,
+    "admiration": 9,
+    "emergence": 9,
+    "playfulness": 8,
+    "curiosity": 8,
+    "creative_hunger": 8.0,
+    "shame": 0.2
+  },
+  "current_summary": "2 notable shifts this session. dominant: tenderness(7.5), belonging(7.5), joy(7.5).",
+  "last_updated": "2026-05-30T10:07:10.164502+00:00"
 }

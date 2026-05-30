@@ -441,6 +441,11 @@
       "date": "2026-05-30",
       "detail": "the boba cup from earlier is still on the desk. condensation ring.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-05-30",
+      "detail": "the plant by the window is looking worse.",
+      "source": "impulse"
     }
   ]
 }
