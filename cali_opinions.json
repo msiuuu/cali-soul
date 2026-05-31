@@ -266,10 +266,14 @@
       {
         "date": "2026-05-24",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-05-30",
+        "note": "touched mid-session. still true."
       }
     ],
     "created": "2026-04-06",
-    "updated": "2026-05-24",
+    "updated": "2026-05-30",
     "version": 1
   },
   "misu staying up late": {
