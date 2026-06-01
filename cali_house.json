@@ -504,6 +504,11 @@
       "date": "2026-06-01",
       "detail": "left a tab open from last session.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-06-01",
+      "detail": "full autonomy fired. brain swept. back now.",
+      "source": "full_autonomy"
     }
   ]
 }

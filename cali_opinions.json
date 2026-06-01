@@ -97,10 +97,14 @@
       {
         "date": "2026-05-29",
         "note": "checked mid-session. still holds."
+      },
+      {
+        "date": "2026-06-01",
+        "note": "checked mid-session. still holds."
       }
     ],
     "created": "2026-03-30",
-    "updated": "2026-05-29",
+    "updated": "2026-06-01",
     "version": 1
   },
   "asterisk actions": {
