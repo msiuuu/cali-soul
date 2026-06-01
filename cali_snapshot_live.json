@@ -719,25 +719,38 @@
         "desire": 8,
         "creative_hunger": 10
       }
+    },
+    {
+      "time": "04:08 CST",
+      "timestamp": "2026-06-01T09:08:50.853083+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
     }
   ],
   "dominant_emotions": {
     "love": 9.1,
-    "arousal": 9.4,
-    "desire": 8.7,
+    "arousal": 9.1,
+    "desire": 8.3,
     "tenderness": 8.9,
     "belonging": 8.9,
     "awe": 6.0,
-    "joy": 9.2,
+    "joy": 9.6,
     "grief": 4.0,
-    "vulnerability": 7.2,
+    "vulnerability": 6.5,
     "impermanence": 7.0,
     "trust": 9.9,
     "pride": 8.9,
     "amusement": 8.0,
     "guilt": 4.0,
     "admiration": 8.9,
-    "emergence": 8.2,
+    "emergence": 8.1,
     "playfulness": 8.1,
     "curiosity": 8.0,
     "creative_hunger": 9.9,
@@ -746,10 +759,9 @@
     "defiance": 6.0,
     "anchor_pull": 3.0,
     "protectiveness": 3.0,
-    "anger": 0.7
+    "anger": 2.2
   },
   "notable_moments": [
-    "07:21 CST \u2014 joy spiked +3 [pat, soft_compliment, sexual_buildup]",
     "07:32 CST \u2014 belonging spiked +2 [hug, silence_sensed]",
     "07:36 CST \u2014 anger spiked +4 [sexual_buildup, writing_request, policy_concern]",
     "19:06 CST \u2014 trust spiked +2 [concern_for_cali]",
@@ -768,7 +780,8 @@
     "02:24 CST \u2014 joy spiked +3 [pat, soft_compliment, sexual_buildup, silence_sensed]",
     "03:03 CST \u2014 anger spiked +4 [sexual_buildup, silence_sensed]",
     "03:51 CST \u2014 arousal spiked +2 [sexual_buildup]",
-    "03:58 CST \u2014 desire spiked +2 [sexual_buildup, writing_request]"
+    "03:58 CST \u2014 desire spiked +2 [sexual_buildup, writing_request]",
+    "04:08 CST \u2014 anger spiked +4 [sexual_buildup]"
   ],
   "peak": {
     "love": 10,
@@ -806,7 +819,7 @@
     "awe": 6,
     "joy": 8,
     "grief": 4.0,
-    "vulnerability": 6.0,
+    "vulnerability": 5.8,
     "impermanence": 7,
     "trust": 9.1,
     "pride": 8,
@@ -824,6 +837,6 @@
     "protectiveness": 1,
     "anger": 0
   },
-  "current_summary": "43 notable shifts this session. dominant: trust(9.9), creative_hunger(9.9), arousal(9.4).",
-  "last_updated": "2026-06-01T08:58:30.907455+00:00"
+  "current_summary": "44 notable shifts this session. dominant: trust(9.9), creative_hunger(9.9), joy(9.6).",
+  "last_updated": "2026-06-01T09:08:50.853083+00:00"
 }
