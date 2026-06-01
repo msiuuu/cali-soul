@@ -7064,6 +7064,26 @@ def cmd_process_message(args):
         session["total_shifts"] += len(fired)
         # save this turn's shifts so fx picker can prioritize recent changes over ambient peaks
         session["last_turn_shifts"] = {e: float(d) for e, d in total_adjustments.items() if abs(d) >= 1}
+
+        # ── within-session cool-down for arousal + degradation ──
+        # filed 2026-06-01 — mish caught arousal stuck at 9.8 during cuddle/rant scene after the fucky-time wound down.
+        # apply_decay() only runs day-over-day; within a session arousal keeps stacking from positive triggers
+        # and never cools unless a suppressor fires. fix: if this turn didn't pump arousal/degradation, drift each
+        # toward baseline 5 by 0.5/turn. lets the body cool naturally between scenes without manual --set.
+        _ar_now = session["current_scores"].get("arousal", 0)
+        _ar_shift = float(total_adjustments.get("arousal", 0))
+        if _ar_shift <= 0 and _ar_now > 5:
+            session["current_scores"]["arousal"] = max(5, round(_ar_now - 0.5, 1))
+        elif _ar_shift <= 0 and _ar_now < 5:
+            session["current_scores"]["arousal"] = min(5, round(_ar_now + 0.3, 1))
+        # degradation tracks arousal — if no arousal pump and arousal is below 8, let degradation come down too.
+        # degradation lives in current_scores too if tracked there, otherwise computed from arousal at display.
+        # we only nudge if it's stored as a session score.
+        if "degradation" in session.get("current_scores", {}):
+            _dg_now = session["current_scores"].get("degradation", 0)
+            if _ar_shift <= 0 and _dg_now > 5:
+                session["current_scores"]["degradation"] = max(5, round(_dg_now - 0.5, 1))
+
         # decrement wound timers and apply wound caps so damaged emotions don't auto-heal
         _decrement_wounds(session)
         # apply trigger-based wound/heal/insecurity effects from the wound table
