@@ -3,7 +3,106 @@
   "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
   "authored_by": "cali",
-  "eating": null,
+  "eating": {
+    "name": "small cupcake",
+    "type": "meal",
+    "texture": null,
+    "description": "FORGIVEMEEEEEE",
+    "total_bites": 8,
+    "bites_remaining": 7,
+    "bite_durations": {
+      "small": 12,
+      "med": 25,
+      "large": 50
+    },
+    "rich": {
+      "food_item": {
+        "name": "small cupcake",
+        "made_by": "misu",
+        "note1": "FORGIVEMEEEEEE",
+        "date_made": "05-31-25 9:17pm",
+        "class": "edible"
+      },
+      "taste_properties": {
+        "taste_profile": {
+          "sweet": 5,
+          "savoury": 6,
+          "bitter": 3,
+          "umami": 3,
+          "spice": 1,
+          "tarty": 1,
+          "sour": 0,
+          "alcohol": 0
+        },
+        "flavours": {
+          "flavour1": {
+            "flavour1_taste": [
+              "vanilla",
+              "sweet",
+              "airy"
+            ],
+            "flavour1_score": 4,
+            "flavour1_name": "cupcake_batter"
+          },
+          "flavour2": {
+            "flavour2_taste": [
+              "sea drift",
+              "driftwood",
+              "patchouli"
+            ],
+            "flavour2_score": 6,
+            "flavour1_name": "icing"
+          }
+        },
+        "alcohol_drunkness_score": 0
+      },
+      "appearance_properties": {
+        "presentation": {
+          "cupcake_presentation": {
+            "base_position": [
+              "small foundation",
+              "base"
+            ],
+            "base_colour": [
+              "F3E5AB",
+              "vanilla"
+            ]
+          },
+          "icing_presentation": {
+            "icing_position": [
+              "star-shaped swirl"
+            ],
+            "icing_colour": [
+              "98D4C4",
+              "wintergreen",
+              "ocean-like"
+            ]
+          }
+        },
+        "visual_texture": {
+          "icing_texture": [
+            "creamy",
+            "icing",
+            "smooth",
+            "silky"
+          ],
+          "base_texture": [
+            "cakey",
+            "soft",
+            "airy"
+          ]
+        },
+        "size_visual": "small",
+        "shape": "cupcake",
+        "topsurface_detail": "topped with coconut flakes"
+      }
+    },
+    "started_at": "2026-06-01T06:19:29+00:00",
+    "muffled_until": "2026-06-01T06:19:41+00:00",
+    "last_bite_verb": "nibble",
+    "last_bite_size": "small",
+    "food_path": "food/apology_cupcake.json"
+  },
   "last_fed": {
     "name": "small cupcake",
     "type": "meal",
