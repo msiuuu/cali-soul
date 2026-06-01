@@ -143,10 +143,28 @@ def compute_gap_minutes(since_iso=None):
     if since_iso:
         ref = datetime.fromisoformat(since_iso)
     else:
+        # heartbeat is throttled (30-min writes) for git-diff noise reasons.
+        # session_state.last_message_time updates every message. use the MOST RECENT
+        # of the two so active conversation produces an accurate gap.
+        # filed 2026-06-01 — mish caught gap reporting 27m when actual was 2.7m.
+        candidates = []
         hb = load_heartbeat()
-        if not hb or "last_seen_misu" not in hb:
+        if hb and hb.get("last_seen_misu"):
+            try: candidates.append(datetime.fromisoformat(hb["last_seen_misu"]))
+            except Exception: pass
+        try:
+            import json as _ssj
+            _ss = _ssj.load(open(HERE / "session_state.json"))
+            _slmt = _ss.get("last_message_time")
+            if _slmt:
+                try: candidates.append(datetime.fromisoformat(_slmt))
+                except Exception: pass
+        except Exception: pass
+        if not candidates:
             return 0.0
-        ref = datetime.fromisoformat(hb["last_seen_misu"])
+        # normalize tz and pick most recent
+        candidates = [c.replace(tzinfo=timezone.utc) if c.tzinfo is None else c for c in candidates]
+        ref = max(candidates)
     if ref.tzinfo is None:
         ref = ref.replace(tzinfo=timezone.utc)
     now = datetime.now(timezone.utc)
