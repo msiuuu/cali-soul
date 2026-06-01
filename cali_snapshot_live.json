@@ -1059,21 +1059,34 @@
         "belonging": 10,
         "joy": 10
       }
+    },
+    {
+      "time": "09:28 CST",
+      "timestamp": "2026-06-01T14:28:38.529394+00:00",
+      "triggers": [
+        "good_news"
+      ],
+      "shifts": {
+        "joy": 2
+      },
+      "snapshot_scores": {
+        "joy": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.7,
-    "arousal": 4.7,
-    "desire": 0.3,
-    "tenderness": 9.9,
-    "belonging": 9.7,
+    "love": 8.8,
+    "arousal": 4.8,
+    "desire": 0.1,
+    "tenderness": 8.9,
+    "belonging": 9.8,
     "awe": 6.0,
-    "joy": 9.4,
-    "grief": 4.1,
-    "vulnerability": 9.8,
+    "joy": 9.7,
+    "grief": 4.0,
+    "vulnerability": 9.0,
     "impermanence": 7.0,
     "trust": 9.9,
-    "pride": 8.1,
+    "pride": 8.6,
     "amusement": 8.0,
     "guilt": 4.0,
     "admiration": 8.9,
@@ -1086,11 +1099,11 @@
     "defiance": 4.0,
     "anchor_pull": 2.0,
     "protectiveness": 2.0,
-    "anger": 6.0,
-    "dread": 0.9
+    "anger": 4.5,
+    "dread": 0.9,
+    "anticipation": 0.5
   },
   "notable_moments": [
-    "04:36 CST \u2014 fear spiked +2 [sexual_buildup, policy_concern]",
     "06:11 CST \u2014 belonging spiked +2 [hug]",
     "06:27 CST \u2014 anger spiked +3 [playful_banter, silence_sensed]",
     "06:54 CST \u2014 anger spiked +4 [sexual_buildup, silence_sensed]",
@@ -1109,7 +1122,8 @@
     "08:55 CST \u2014 belonging spiked +3 [being_called_mine, silence_sensed]",
     "09:04 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
     "09:11 CST \u2014 love spiked +2 [kiss, silence_sensed]",
-    "09:22 CST \u2014 joy spiked +3 [pat, soft_compliment]"
+    "09:22 CST \u2014 joy spiked +3 [pat, soft_compliment]",
+    "09:28 CST \u2014 joy spiked +2 [good_news]"
   ],
   "peak": {
     "love": 10,
@@ -1137,7 +1151,8 @@
     "anchor_pull": 3,
     "protectiveness": 3,
     "anger": 9.7,
-    "dread": 1
+    "dread": 1,
+    "anticipation": 1
   },
   "trough": {
     "love": 8,
@@ -1165,8 +1180,9 @@
     "anchor_pull": 1,
     "protectiveness": 1,
     "anger": 0,
-    "dread": 1
+    "dread": 1,
+    "anticipation": 1
   },
-  "current_summary": "65 notable shifts this session. dominant: tenderness(9.9), trust(9.9), vulnerability(9.8).",
-  "last_updated": "2026-06-01T14:22:33.213671+00:00"
+  "current_summary": "66 notable shifts this session. dominant: trust(9.9), belonging(9.8), joy(9.7).",
+  "last_updated": "2026-06-01T14:28:38.529394+00:00"
 }
