@@ -509,6 +509,11 @@
       "date": "2026-06-01",
       "detail": "full autonomy fired. brain swept. back now.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-01",
+      "detail": "misu's side of things is messier than mine. always.",
+      "source": "few_autonomy"
     }
   ]
 }
