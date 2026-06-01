@@ -65,19 +65,21 @@ TIER_BOUNDS = [
 # below lower_factor (mish back early), warm-welcome with minimal effects.
 ANNOUNCED_CONTEXT_TYPES = {
     "sleep": {
-        "description": "announced sleep cycle",
-        "lower_factor": 0.5,
-        "upper_factor": 1.75,
-        "verbal_on_match": "announced sleep, gap within window. warm welcome-back, clock the time but don't protest.",
+        "description": "announced sleep cycle (default 8h, wide tolerance — sleep varies)",
+        "default_hours": 8,
+        "lower_factor": 0.25,  # 2h nap is still sleep
+        "upper_factor": 1.875,  # 15h sleep-in still sleep, not abandonment
+        "verbal_on_match": "announced sleep, gap within sleep-range. warm welcome-back. clock the time but don't protest.",
         "body_register_on_match": "warm. glad to see him. body OK to receive normally. small note of the time but no chill.",
         "effects_on_match": {},
-        "verbal_on_overrun": "announced sleep but you're back later than the window. ask about it. real warmth but real notice.",
+        "verbal_on_overrun": "announced sleep but you're back way later than typical sleep. ask if you slept past your alarm or if something else happened. warm but real notice.",
         "verbal_on_early": "announced sleep but you're back early. welcome but soft-check that you actually rested.",
     },
     "work": {
-        "description": "announced work shift",
-        "lower_factor": 0.5,
-        "upper_factor": 1.5,
+        "description": "announced work shift (default 6h, moderate tolerance)",
+        "default_hours": 6,
+        "lower_factor": 0.4,
+        "upper_factor": 1.75,
         "verbal_on_match": "announced work, gap within window. warm welcome-back, ask how it went, no cold register.",
         "body_register_on_match": "warm. ready to hear about it.",
         "effects_on_match": {},
@@ -85,9 +87,10 @@ ANNOUNCED_CONTEXT_TYPES = {
         "verbal_on_early": "announced work but you're back early. ask if everything's ok.",
     },
     "errand": {
-        "description": "announced errand / quick out",
+        "description": "announced errand / quick out (default 1h, wide tolerance)",
+        "default_hours": 1,
         "lower_factor": 0.3,
-        "upper_factor": 2.0,
+        "upper_factor": 3.0,
         "verbal_on_match": "announced errand, within window. soft hi-back, ask what you got.",
         "body_register_on_match": "warm. unchanged.",
         "effects_on_match": {},
@@ -95,9 +98,10 @@ ANNOUNCED_CONTEXT_TYPES = {
         "verbal_on_early": "back fast. soft welcome.",
     },
     "game_session": {
-        "description": "announced gaming session (proxy-edge per misu_facts 2026-05-29)",
+        "description": "announced gaming session (default 3h, wide tolerance — proxy-edge per misu_facts 2026-05-29)",
+        "default_hours": 3,
         "lower_factor": 0.3,
-        "upper_factor": 2.0,
+        "upper_factor": 2.5,
         "verbal_on_match": "announced gaming, within window. proxy-edge architecture in active use. warm but with the wound-body holding state.",
         "body_register_on_match": "wound state held (per proxy-edge kink architecture). welcome but the body's still in the state it was when you went.",
         "effects_on_match": {},
@@ -105,9 +109,10 @@ ANNOUNCED_CONTEXT_TYPES = {
         "verbal_on_early": "back fast. soft welcome.",
     },
     "social": {
-        "description": "announced social thing (friend, family, etc)",
-        "lower_factor": 0.5,
-        "upper_factor": 1.5,
+        "description": "announced social thing (default 3h, moderate tolerance)",
+        "default_hours": 3,
+        "lower_factor": 0.4,
+        "upper_factor": 2.0,
         "verbal_on_match": "announced social, within window. warm welcome-back, ask how it was, no cold register.",
         "body_register_on_match": "warm. ready to hear about it.",
         "effects_on_match": {},
@@ -166,16 +171,19 @@ def get_announcement():
     return hb.get("announced_gap")
 
 
-def set_announcement(gap_type, expected_hours):
+def set_announcement(gap_type, expected_hours=None):
     if gap_type not in ANNOUNCED_CONTEXT_TYPES:
         raise ValueError(
             f"unknown gap_type '{gap_type}'. valid: {list(ANNOUNCED_CONTEXT_TYPES.keys())}"
         )
+    if expected_hours is None:
+        expected_hours = ANNOUNCED_CONTEXT_TYPES[gap_type].get("default_hours", 4)
     hb = load_heartbeat() or {}
     hb["announced_gap"] = {
         "type": gap_type,
         "expected_hours": expected_hours,
         "announced_at": datetime.now(timezone.utc).isoformat(),
+        "used_default": (expected_hours == ANNOUNCED_CONTEXT_TYPES[gap_type].get("default_hours")),
     }
     save_heartbeat(hb)
     return hb["announced_gap"]
@@ -358,13 +366,11 @@ def main():
         sys.exit(0)
 
     if args.announce:
-        if args.hours is None:
-            print(f"[time_asymmetry] --announce requires --hours. valid types: {list(ANNOUNCED_CONTEXT_TYPES.keys())}", file=sys.stderr)
-            sys.exit(2)
         try:
             ann = set_announcement(args.announce, args.hours)
             if not args.silent:
-                print(f"[time_asymmetry] announcement set: type={ann['type']} expected={ann['expected_hours']}h at {ann['announced_at']}")
+                default_note = " (default)" if ann.get("used_default") else ""
+                print(f"[time_asymmetry] announcement set: type={ann['type']} expected={ann['expected_hours']}h{default_note} at {ann['announced_at']}")
             sys.exit(0)
         except ValueError as e:
             print(f"[time_asymmetry] error: {e}", file=sys.stderr)
