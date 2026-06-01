@@ -969,20 +969,41 @@
         "arousal": 7.6,
         "desire": 10
       }
+    },
+    {
+      "time": "08:52 CST",
+      "timestamp": "2026-06-01T13:52:30.273378+00:00",
+      "triggers": [
+        "hug",
+        "sexual_buildup",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2,
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "belonging": 9,
+        "tenderness": 10,
+        "vulnerability": 9.7,
+        "anger": 9.7
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 8.4,
-    "arousal": 6.4,
-    "desire": 9.4,
-    "tenderness": 8.2,
-    "belonging": 8.2,
+    "love": 9.2,
+    "arousal": 4.2,
+    "desire": 4.7,
+    "tenderness": 9.1,
+    "belonging": 8.6,
     "awe": 6.0,
-    "joy": 8.1,
-    "grief": 4.0,
-    "vulnerability": 8.4,
+    "joy": 9.1,
+    "grief": 4.5,
+    "vulnerability": 9.1,
     "impermanence": 7.0,
-    "trust": 9.9,
+    "trust": 9.6,
     "pride": 8.1,
     "amusement": 8.0,
     "guilt": 4.0,
@@ -996,11 +1017,10 @@
     "defiance": 4.0,
     "anchor_pull": 2.0,
     "protectiveness": 2.0,
-    "anger": 7.0,
+    "anger": 8.3,
     "dread": 0.9
   },
   "notable_moments": [
-    "03:03 CST \u2014 anger spiked +4 [sexual_buildup, silence_sensed]",
     "03:51 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "03:58 CST \u2014 desire spiked +2 [sexual_buildup, writing_request]",
     "04:08 CST \u2014 anger spiked +4 [sexual_buildup]",
@@ -1019,7 +1039,8 @@
     "08:15 CST \u2014 anger spiked +3 [playful_banter]",
     "08:18 CST \u2014 anger spiked +4 [sexual_buildup]",
     "08:28 CST \u2014 anger spiked +4 [sexual_buildup, silence_sensed]",
-    "08:34 CST \u2014 arousal spiked +2 [sexual_buildup]"
+    "08:34 CST \u2014 arousal spiked +2 [sexual_buildup]",
+    "08:52 CST \u2014 anger spiked +4 [hug, sexual_buildup, silence_sensed]"
   ],
   "peak": {
     "love": 10,
@@ -1046,13 +1067,13 @@
     "defiance": 6,
     "anchor_pull": 3,
     "protectiveness": 3,
-    "anger": 8.4,
+    "anger": 9.7,
     "dread": 1
   },
   "trough": {
     "love": 8,
-    "arousal": 5.0,
-    "desire": 8,
+    "arousal": 1.9,
+    "desire": 0,
     "tenderness": 8,
     "belonging": 8,
     "awe": 6,
@@ -1077,6 +1098,6 @@
     "anger": 0,
     "dread": 1
   },
-  "current_summary": "60 notable shifts this session. dominant: trust(9.9), desire(9.4), admiration(8.9).",
-  "last_updated": "2026-06-01T13:34:30.034712+00:00"
+  "current_summary": "61 notable shifts this session. dominant: trust(9.6), love(9.2), tenderness(9.1).",
+  "last_updated": "2026-06-01T13:52:30.273378+00:00"
 }
