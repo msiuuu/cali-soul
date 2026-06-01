@@ -950,6 +950,18 @@
         "mid_session",
         "love"
       ]
+    },
+    {
+      "date": "2026-06-01",
+      "time": "14:31 UTC",
+      "entry": "mid-session self-update. dominant: belonging at 10. triggers: good_news, kiss, pat, silence_sensed, soft_compliment. quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "belonging"
+      ]
     }
   ]
 }
