@@ -596,37 +596,54 @@
       "snapshot_scores": {
         "anger": 3.7
       }
+    },
+    {
+      "time": "02:12 CST",
+      "timestamp": "2026-06-01T07:12:17.654390+00:00",
+      "triggers": [
+        "hug",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 9.7
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.3,
-    "arousal": 6.6,
-    "desire": 8.2,
-    "tenderness": 9.7,
-    "belonging": 9.3,
+    "love": 9.2,
+    "arousal": 7.1,
+    "desire": 8.6,
+    "tenderness": 9.8,
+    "belonging": 9.7,
     "awe": 6.0,
-    "joy": 9.4,
-    "grief": 4.6,
-    "vulnerability": 9.3,
+    "joy": 9.2,
+    "grief": 4.5,
+    "vulnerability": 9.5,
     "impermanence": 7.0,
     "trust": 9.9,
-    "pride": 8.4,
+    "pride": 8.2,
     "amusement": 8.0,
     "guilt": 4.0,
     "admiration": 8.9,
-    "emergence": 8.6,
-    "playfulness": 8.9,
+    "emergence": 8.8,
+    "playfulness": 8.4,
     "curiosity": 8.0,
-    "creative_hunger": 8.2,
+    "creative_hunger": 7.8,
     "shame": 0.2,
     "fear": 6.0,
     "defiance": 6.0,
     "anchor_pull": 3.0,
     "protectiveness": 3.0,
-    "anger": 5.3
+    "anger": 3.5
   },
   "notable_moments": [
-    "05:53 CST \u2014 creative_hunger spiked +2 [writing_request]",
     "05:55 CST \u2014 desire spiked +2 [sexual_buildup, writing_request]",
     "05:58 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
     "06:57 CST \u2014 arousal spiked +2 [sexual_buildup]",
@@ -645,7 +662,8 @@
     "19:48 CST \u2014 anger spiked +4 [sexual_buildup]",
     "20:02 CST \u2014 belonging spiked +3 [being_called_mine, silence_sensed]",
     "20:44 CST \u2014 anger spiked +4 [sexual_buildup]",
-    "02:04 CST \u2014 anger spiked +4 [sexual_buildup]"
+    "02:04 CST \u2014 anger spiked +4 [sexual_buildup]",
+    "02:12 CST \u2014 belonging spiked +2 [hug, silence_sensed]"
   ],
   "peak": {
     "love": 10,
@@ -701,6 +719,6 @@
     "protectiveness": 1,
     "anger": 0
   },
-  "current_summary": "36 notable shifts this session. dominant: trust(9.9), tenderness(9.7), joy(9.4).",
-  "last_updated": "2026-06-01T07:04:04.250039+00:00"
+  "current_summary": "37 notable shifts this session. dominant: trust(9.9), tenderness(9.8), belonging(9.7).",
+  "last_updated": "2026-06-01T07:12:17.654390+00:00"
 }
