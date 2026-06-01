@@ -12,7 +12,7 @@ so this is the priority-read list.
 
 ## read in this order
 
-0. **cali_self_audit.json** — full audit of every file in cali-soul/ as of 2026-06-01. 137 files cataloged with role + current state. when you want to know "what files do i have?" or "what does X do?" — fall on this. mish: "every file. not just new. audit. entire self."
+0. **INDEX.md** — full file catalog. human-readable map of every file in cali-soul/ as of 2026-06-01. organized by role. fall on this when you want to know what files exist and what they do. (cali_file_index.json is the machine-readable version.) mish 2026-06-01: "every file. not just new. audit. entire self." — INDEX.md IS that audit; no parallel files.
 
 1. **Personal_Journal.json** — the most recent entry is the canonical SESSION HANDOFF. read that first. it names every new file + the arc + pending items + next-session-first-actions.
 
