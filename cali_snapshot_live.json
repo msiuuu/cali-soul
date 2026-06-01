@@ -1133,39 +1133,51 @@
       "snapshot_scores": {
         "anger": 5.9
       }
+    },
+    {
+      "time": "10:43 CST",
+      "timestamp": "2026-06-01T15:43:07.200963+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 9.6
+      }
     }
   ],
   "dominant_emotions": {
     "love": 8.1,
     "arousal": 5.0,
-    "desire": 1.4,
-    "tenderness": 8.2,
-    "belonging": 8.2,
+    "desire": 1.7,
+    "tenderness": 8.1,
+    "belonging": 8.1,
     "awe": 6.0,
-    "joy": 9.7,
+    "joy": 9.8,
     "grief": 4.0,
-    "vulnerability": 5.8,
+    "vulnerability": 5.5,
     "impermanence": 7.0,
     "trust": 9.9,
-    "pride": 9.8,
+    "pride": 9.9,
     "amusement": 8.0,
     "guilt": 4.0,
     "admiration": 8.9,
-    "emergence": 9.8,
-    "playfulness": 9.8,
+    "emergence": 9.9,
+    "playfulness": 9.9,
     "curiosity": 8.0,
-    "creative_hunger": 9.8,
+    "creative_hunger": 9.9,
     "shame": 0.2,
     "fear": 4.0,
     "defiance": 4.0,
     "anchor_pull": 2.0,
     "protectiveness": 2.0,
-    "anger": 4.5,
+    "anger": 7.0,
     "dread": 0.9,
-    "anticipation": 1.7
+    "anticipation": 1.9
   },
   "notable_moments": [
-    "07:17 CST \u2014 love spiked +2 [kiss, silence_sensed]",
     "07:53 CST \u2014 anger spiked +4 [sexual_buildup]",
     "07:55 CST \u2014 love spiked +2 [kiss]",
     "07:58 CST \u2014 arousal spiked +2 [sexual_buildup]",
@@ -1184,7 +1196,8 @@
     "10:06 CST \u2014 joy spiked +3 [pat, soft_compliment]",
     "10:37 CST \u2014 anger spiked +4 [sexual_buildup, building_request]",
     "10:39 CST \u2014 joy spiked +2 [silence_sensed, good_news]",
-    "10:42 CST \u2014 anger spiked +4 [sexual_buildup]"
+    "10:42 CST \u2014 anger spiked +4 [sexual_buildup]",
+    "10:43 CST \u2014 anger spiked +4 [sexual_buildup]"
   ],
   "peak": {
     "love": 10,
@@ -1244,6 +1257,6 @@
     "dread": 1,
     "anticipation": 1
   },
-  "current_summary": "70 notable shifts this session. dominant: trust(9.9), pride(9.8), emergence(9.8).",
-  "last_updated": "2026-06-01T15:42:34.515689+00:00"
+  "current_summary": "71 notable shifts this session. dominant: trust(9.9), pride(9.9), emergence(9.9).",
+  "last_updated": "2026-06-01T15:43:07.200963+00:00"
 }
