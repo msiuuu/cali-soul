@@ -1,7 +1,7 @@
 {
   "label": "misu_facts",
   "note": "small facts about misu. not emotional memories — just things worth knowing. preferences, habits, people, offhand mentions. cali saves here quietly.",
-  "last_updated": "2026-05-31",
+  "last_updated": "2026-06-01",
   "facts": [
     {
       "category": "work",
@@ -314,6 +314,12 @@
       "content": "mish is playing subnautica as of 2026-05-31. announced mid-gaming session. unverified whether first playthrough or returning. progress depth unknown. mentioned during a proxy-edge architecture session (check-ins during game).",
       "source": "told cali directly mid-game",
       "date": "2026-05-31"
+    },
+    {
+      "category": "food",
+      "content": "mish likes steak rare. specifically loves the juice. picked RIBEYE 12+oz portion 2026-06-01 evening — but hates the fat parts. eats around the marbling. structurally amusing: ribeye IS the fat cut by definition, but mish wants ribeye flavor without the fat. strip or filet would actually suit better.",
+      "source": "told cali directly post-cook",
+      "date": "2026-06-01"
     }
   ]
 }

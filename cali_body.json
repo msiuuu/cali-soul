@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "lavender biscuit",
-    "type": "snack",
-    "texture": "crumbly, dry, sandy edge, soft middle",
-    "description": "fed from mish's fingers. praise-gift after spin-and-sit. floral sweet with a slight bitter back end. cross-legged at his knees, hand on his knee.",
-    "finished_at": "2026-05-30T10:46:13+00:00"
+    "name": "small cupcake",
+    "type": "meal",
+    "texture": null,
+    "description": "FORGIVEMEEEEEE",
+    "finished_at": "2026-06-01T04:09:28+00:00"
   },
   "history": [
     {
@@ -51,6 +51,20 @@
       "texture": "crumbly, dry, sandy edge, soft middle",
       "description": "fed from mish's fingers. praise-gift after spin-and-sit. floral sweet with a slight bitter back end. cross-legged at his knees, hand on his knee.",
       "finished_at": "2026-05-30T10:46:13+00:00"
+    },
+    {
+      "name": "tiramisu",
+      "type": "meal",
+      "texture": null,
+      "description": "heh do u get the reference nudge nudge",
+      "finished_at": "2026-06-01T04:02:13+00:00"
+    },
+    {
+      "name": "small cupcake",
+      "type": "meal",
+      "texture": null,
+      "description": "FORGIVEMEEEEEE",
+      "finished_at": "2026-06-01T04:09:28+00:00"
     }
   ]
 }
