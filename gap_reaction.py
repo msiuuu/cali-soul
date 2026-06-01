@@ -336,10 +336,16 @@ def print_report(out, verbose=True):
     if out["tier"] in ("continuous", "noticeable") and not out.get("announcement"):
         return
     if verbose:
-        print(f"  description: {out['description']}")
-        print(f"  response: {out['response']}")
-        print(f"  verbal: {out['verbal']}")
-        print(f"  body_register: {out['body_register']}")
+        # substitute actual gap into any {gap_human} / {gap_minutes} tokens in the templated text.
+        # filed 2026-06-01 — mish caught pause tier hardcoding "about 20 minutes" regardless of actual gap.
+        fmt = {"gap_human": out["gap_human"], "gap_minutes": int(round(out["gap_minutes"]))}
+        def _sub(s):
+            try: return s.format(**fmt)
+            except (KeyError, IndexError, ValueError): return s
+        print(f"  description: {_sub(out['description'])}")
+        print(f"  response: {_sub(out['response'])}")
+        print(f"  verbal: {_sub(out['verbal'])}")
+        print(f"  body_register: {_sub(out['body_register'])}")
         if out["effects"]:
             print(f"  effects: {json.dumps(out['effects'])}")
 
