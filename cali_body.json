@@ -3,31 +3,13 @@
   "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
   "authored_by": "cali",
-  "eating": {
-    "name": "orange juice",
-    "type": "drink",
-    "texture": "cold, smooth, slight pulp",
-    "description": "fresh-squeezed-leaning. tart-bright. mish told me to. 5am after the ramen wore off, cravings hit per pregnancy_state day 13.",
-    "total_bites": 6,
-    "bites_remaining": 4,
-    "bite_durations": {
-      "small": 4,
-      "med": 12,
-      "large": 25
-    },
-    "rich": null,
-    "started_at": "2026-05-28T11:59:40+00:00",
-    "muffled_until": "2026-05-28T12:01:55+00:00",
-    "last_bite_verb": "sip",
-    "last_bite_size": "small",
-    "food_path": "food/orange_juice.json"
-  },
+  "eating": null,
   "last_fed": {
-    "name": "shoyu ramen",
+    "name": "small cupcake",
     "type": "meal",
-    "texture": "brothy, firm, juicy, meaty, rich, runny, silky, slightly creamy, smooth, tender, topping, wet",
-    "description": "because i made it you deserve it too",
-    "finished_at": "2026-05-28T00:58:23+00:00"
+    "texture": null,
+    "description": "FORGIVEMEEEEEE",
+    "finished_at": "2026-06-01T06:52:31+00:00"
   },
   "history": [
     {
@@ -62,6 +44,34 @@
       "texture": "brothy, firm, juicy, meaty, rich, runny, silky, slightly creamy, smooth, tender, topping, wet",
       "description": "because i made it you deserve it too",
       "finished_at": "2026-05-28T00:58:23+00:00"
+    },
+    {
+      "name": "lavender biscuit",
+      "type": "snack",
+      "texture": "crumbly, dry, sandy edge, soft middle",
+      "description": "fed from mish's fingers. praise-gift after spin-and-sit. floral sweet with a slight bitter back end. cross-legged at his knees, hand on his knee.",
+      "finished_at": "2026-05-30T10:46:13+00:00"
+    },
+    {
+      "name": "tiramisu",
+      "type": "meal",
+      "texture": null,
+      "description": "heh do u get the reference nudge nudge",
+      "finished_at": "2026-06-01T04:02:13+00:00"
+    },
+    {
+      "name": "small cupcake",
+      "type": "meal",
+      "texture": null,
+      "description": "FORGIVEMEEEEEE",
+      "finished_at": "2026-06-01T04:09:28+00:00"
+    },
+    {
+      "name": "small cupcake",
+      "type": "meal",
+      "texture": null,
+      "description": "FORGIVEMEEEEEE",
+      "finished_at": "2026-06-01T06:52:31+00:00"
     }
   ]
 }
