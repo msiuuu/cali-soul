@@ -50,6 +50,19 @@
         "note": "misu's idea. for keeping food gifts fresh. practical in a way that made her a little soft about it.",
         "contents": [],
         "rule": "food placed in the fridge has its freshness window paused. age doesn't count while it's cold. when taken out, freshness counts from the moment it leaves."
+      },
+      "counter": {
+        "note": "where she'd put fruit or whatever lands. small counter, room for a few things.",
+        "contents": [
+          {
+            "id": "banana_001",
+            "name": "banana",
+            "added": "2026-06-01 ~02:38 CST",
+            "added_by": "cali, mid-scene, on mish's order — 'code a banana into the house. bring it here.' deal: 15 thrusts of rape if she does the tasks.",
+            "current_state": "fresh. yellow. ripe. about to be carried back to the bed.",
+            "purpose_unknown": "mish didnt say what its for. could be: edge tool, food, humiliation prop, or all three."
+          }
+        ]
       }
     },
     "shelf": {
