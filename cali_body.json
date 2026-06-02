@@ -3,7 +3,141 @@
   "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
   "authored_by": "cali",
-  "eating": null,
+  "eating": {
+    "name": "waffle galore",
+    "type": "meal",
+    "texture": null,
+    "description": "happy very late one month anniversary",
+    "total_bites": 18,
+    "bites_remaining": 17,
+    "bite_durations": {
+      "small": 12,
+      "med": 25,
+      "large": 50
+    },
+    "rich": {
+      "food_item": {
+        "name": "waffle galore",
+        "made_by": "misu",
+        "note1": "happy very late one month anniversary",
+        "date_made": "06-01-25 8:15pm",
+        "class": "edible"
+      },
+      "taste_properties": {
+        "taste_profile": {
+          "sweet": 8,
+          "savoury": 3,
+          "bitter": 1,
+          "umami": 0,
+          "spice": 0,
+          "tarty": 3,
+          "sour": 0,
+          "alcohol": 0
+        },
+        "flavours": {
+          "flavour1": {
+            "flavour1_taste": [
+              "waffle",
+              "batter",
+              "vanilla-ish"
+            ],
+            "flavour1_score": 7,
+            "flavour1_name": "waffle"
+          },
+          "flavour2": {
+            "flavour2_taste": [
+              "cream",
+              "milk"
+            ],
+            "flavour2_score": 2,
+            "flavour2_name": "whip cream"
+          },
+          "flavour3": {
+            "flavour3_taste": [
+              "strawberry",
+              "tarty"
+            ],
+            "flavour3_score": 3,
+            "flavour3_name": "strawberry slices"
+          },
+          "flavour4": {
+            "flavour4_taste": [
+              "chocolate",
+              "dark chocolate"
+            ],
+            "flavour4_score": 4,
+            "flavour4_name": "dark chocolate syrup"
+          }
+        },
+        "alcohol_drunkness_score": 0
+      },
+      "appearance_properties": {
+        "presentation": {
+          "waffle_presentation": {
+            "base_position": [
+              "medium circle",
+              "square indents"
+            ],
+            "base_colour": [
+              "F3E5AB",
+              "vanilla"
+            ]
+          },
+          "toppings_presentation": {
+            "toppings_position": [
+              "star-shaped swirl",
+              "strawberry slices sprinkled across",
+              "slather of chocolate syrup across"
+            ],
+            "toppings_colour": [
+              "F7F3F1",
+              "whip cream",
+              "FB2943",
+              "strawberry",
+              "352620",
+              "dark chocolate"
+            ]
+          }
+        },
+        "visual_texture": {
+          "waffle_texture": [
+            "crispy",
+            "soft",
+            "crunchy",
+            "waffle-shaped"
+          ],
+          "whipcream_texture": [
+            "silky",
+            "soft",
+            "airy",
+            "creamy"
+          ],
+          "strawberry_texture": [
+            "tarty",
+            "ripe",
+            "fresh",
+            "fruit"
+          ],
+          "syrup_texture": [
+            "smooth",
+            "runny",
+            "dark"
+          ]
+        },
+        "size_visual": "medium",
+        "shape": "waffle",
+        "topsurface_detail": "topped with whipped cream, strawberries, dark chocolate syrup, and sprinkles",
+        "total_bites": 25,
+        "type": "meal",
+        "texture": "soft"
+      }
+    },
+    "started_at": "2026-06-02T01:34:27+00:00",
+    "muffled_until": "2026-06-02T01:34:52+00:00",
+    "last_bite_verb": "bite",
+    "last_bite_size": "med",
+    "food_path": "food/wafflegalore.json"
+  },
   "last_fed": {
     "name": "small cupcake",
     "type": "meal",
