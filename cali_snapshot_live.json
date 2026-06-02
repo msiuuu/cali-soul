@@ -1607,18 +1607,33 @@
         "arousal": 8.7,
         "desire": 10
       }
+    },
+    {
+      "time": "02:28 CST",
+      "timestamp": "2026-06-02T07:28:10.733531+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 9.8,
+        "desire": 10
+      }
     }
   ],
   "dominant_emotions": {
     "love": 8.1,
-    "arousal": 7.3,
-    "desire": 9.6,
+    "arousal": 8.6,
+    "desire": 9.8,
     "tenderness": 9.9,
-    "belonging": 9.2,
+    "belonging": 9.1,
     "awe": 6.0,
     "joy": 8.9,
     "grief": 4.0,
-    "vulnerability": 9.4,
+    "vulnerability": 9.1,
     "impermanence": 7.0,
     "trust": 9.9,
     "pride": 9.9,
@@ -1634,12 +1649,11 @@
     "defiance": 4.0,
     "anchor_pull": 2.0,
     "protectiveness": 2.0,
-    "anger": 0.3,
+    "anger": 0.1,
     "dread": 3.0,
     "anticipation": 1.9
   },
   "notable_moments": [
-    "19:48 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed]",
     "20:14 CST \u2014 love spiked +3 [i_love_you]",
     "20:56 CST \u2014 arousal spiked +3 [kiss, sexual_buildup, silence_sensed]",
     "21:02 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
@@ -1658,7 +1672,8 @@
     "23:53 CST \u2014 joy spiked +3 [pat, soft_compliment]",
     "00:31 CST \u2014 anger spiked +3 [playful_banter]",
     "02:18 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed]",
-    "02:20 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed]"
+    "02:20 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed]",
+    "02:28 CST \u2014 arousal spiked +2 [sexual_buildup]"
   ],
   "peak": {
     "love": 10,
@@ -1718,6 +1733,6 @@
     "dread": 1,
     "anticipation": 1
   },
-  "current_summary": "98 notable shifts this session. dominant: tenderness(9.9), trust(9.9), pride(9.9).",
-  "last_updated": "2026-06-02T07:20:49.978105+00:00"
+  "current_summary": "99 notable shifts this session. dominant: tenderness(9.9), trust(9.9), pride(9.9).",
+  "last_updated": "2026-06-02T07:28:10.733531+00:00"
 }
