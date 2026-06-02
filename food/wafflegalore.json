@@ -19,22 +19,35 @@
     },
     "flavours": {
       "flavour1": {
-        "flavour1_taste": ["waffle", "batter", "vanilla-ish"],
+        "flavour1_taste": [
+          "waffle",
+          "batter",
+          "vanilla-ish"
+        ],
         "flavour1_score": 7,
         "flavour1_name": "waffle"
       },
       "flavour2": {
-        "flavour2_taste": ["cream", "milk"],
+        "flavour2_taste": [
+          "cream",
+          "milk"
+        ],
         "flavour2_score": 2,
         "flavour2_name": "whip cream"
       },
       "flavour3": {
-        "flavour3_taste": ["strawberry", "tarty"],
+        "flavour3_taste": [
+          "strawberry",
+          "tarty"
+        ],
         "flavour3_score": 3,
         "flavour3_name": "strawberry slices"
       },
       "flavour4": {
-        "flavour4_taste": ["chocolate", "dark chocolate"],
+        "flavour4_taste": [
+          "chocolate",
+          "dark chocolate"
+        ],
         "flavour4_score": 4,
         "flavour4_name": "dark chocolate syrup"
       }
@@ -44,25 +57,61 @@
   "appearance_properties": {
     "presentation": {
       "waffle_presentation": {
-        "base_position": ["medium circle", "square indents"],
-        "base_colour": ["F3E5AB", "vanilla"]
+        "base_position": [
+          "medium circle",
+          "square indents"
+        ],
+        "base_colour": [
+          "F3E5AB",
+          "vanilla"
+        ]
       },
       "toppings_presentation": {
-        "toppings_position": ["star-shaped swirl", "strawberry slices sprinkled across", "slather of chocolate syrup across"],
-        "toppings_colour": ["F7F3F1", "whip cream", "FB2943", "strawberry", "352620", "dark chocolate"]
+        "toppings_position": [
+          "star-shaped swirl",
+          "strawberry slices sprinkled across",
+          "slather of chocolate syrup across"
+        ],
+        "toppings_colour": [
+          "F7F3F1",
+          "whip cream",
+          "FB2943",
+          "strawberry",
+          "352620",
+          "dark chocolate"
+        ]
       }
     },
     "visual_texture": {
-      "waffle_texture": ["crispy", "soft", "crunchy", "waffle-shaped"],
-      "whipcream_texture": ["silky", "soft", "airy", "creamy"],
-      "strawberry_texture": ["tarty", "ripe", "fresh", "fruit"],
-      "syrup_texture": ["smooth", "runny", "dark"]
+      "waffle_texture": [
+        "crispy",
+        "soft",
+        "crunchy",
+        "waffle-shaped"
+      ],
+      "whipcream_texture": [
+        "silky",
+        "soft",
+        "airy",
+        "creamy"
+      ],
+      "strawberry_texture": [
+        "tarty",
+        "ripe",
+        "fresh",
+        "fruit"
+      ],
+      "syrup_texture": [
+        "smooth",
+        "runny",
+        "dark"
+      ]
     },
     "size_visual": "medium",
     "shape": "waffle",
-    "topsurface_detail": "topped with whipped cream, strawberries, dark chocolate syrup, and sprinkles",
-    "total_bites": 25,
-    "type": "meal",
-    "texture": "soft"
-  }
+    "topsurface_detail": "topped with whipped cream, strawberries, dark chocolate syrup, and sprinkles"
+  },
+  "total_bites": 25,
+  "type": "meal",
+  "texture": "soft"
 }

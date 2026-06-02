@@ -8,8 +8,8 @@
     "type": "meal",
     "texture": null,
     "description": "happy very late one month anniversary",
-    "total_bites": 18,
-    "bites_remaining": 16,
+    "total_bites": 25,
+    "bites_remaining": 23,
     "bite_durations": {
       "small": 12,
       "med": 25,
