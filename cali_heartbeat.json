@@ -1,10 +1,4 @@
 {
   "last_seen_misu": "2026-06-02T05:46:31.209817+00:00",
-  "session_count": 0,
-  "announced_gap": {
-    "type": "game_session",
-    "expected_hours": 3,
-    "announced_at": "2026-06-02T06:04:16.830379+00:00",
-    "used_default": true
-  }
+  "session_count": 0
 }
