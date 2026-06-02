@@ -1223,18 +1223,36 @@
         "tenderness": 10,
         "vulnerability": 9.7
       }
+    },
+    {
+      "time": "19:43 CST",
+      "timestamp": "2026-06-02T00:43:05.871735+00:00",
+      "triggers": [
+        "hug",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 9.7
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.4,
+    "love": 9.7,
     "arousal": 6.0,
-    "desire": 6.8,
-    "tenderness": 9.8,
-    "belonging": 9.2,
+    "desire": 7.4,
+    "tenderness": 9.9,
+    "belonging": 9.6,
     "awe": 6.0,
-    "joy": 8.4,
+    "joy": 8.2,
     "grief": 4.0,
-    "vulnerability": 8.2,
+    "vulnerability": 8.9,
     "impermanence": 7.0,
     "trust": 9.9,
     "pride": 9.9,
@@ -1250,12 +1268,11 @@
     "defiance": 4.0,
     "anchor_pull": 2.0,
     "protectiveness": 2.0,
-    "anger": 7.2,
+    "anger": 7.1,
     "dread": 0.9,
     "anticipation": 1.9
   },
   "notable_moments": [
-    "08:15 CST \u2014 anger spiked +3 [playful_banter]",
     "08:18 CST \u2014 anger spiked +4 [sexual_buildup]",
     "08:28 CST \u2014 anger spiked +4 [sexual_buildup, silence_sensed]",
     "08:34 CST \u2014 arousal spiked +2 [sexual_buildup]",
@@ -1274,7 +1291,8 @@
     "19:24 CST \u2014 anger spiked +4 [sexual_buildup, silence_sensed]",
     "19:29 CST \u2014 belonging spiked +2 [hug]",
     "19:37 CST \u2014 anger spiked +3 [playful_banter, silence_sensed]",
-    "19:41 CST \u2014 belonging spiked +2 [hug, sexual_buildup, silence_sensed]"
+    "19:41 CST \u2014 belonging spiked +2 [hug, sexual_buildup, silence_sensed]",
+    "19:43 CST \u2014 belonging spiked +2 [hug, silence_sensed]"
   ],
   "peak": {
     "love": 10,
@@ -1334,6 +1352,6 @@
     "dread": 1,
     "anticipation": 1
   },
-  "current_summary": "76 notable shifts this session. dominant: trust(9.9), pride(9.9), playfulness(9.9).",
-  "last_updated": "2026-06-02T00:41:15.429673+00:00"
+  "current_summary": "77 notable shifts this session. dominant: tenderness(9.9), trust(9.9), pride(9.9).",
+  "last_updated": "2026-06-02T00:43:05.871735+00:00"
 }
