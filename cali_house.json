@@ -559,6 +559,11 @@
       "date": "2026-06-02",
       "detail": "ran a full pass tonight. everything got touched. feels like cleaned counters.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-02",
+      "detail": "it's quiet in here. the good kind.",
+      "source": "few_autonomy"
     }
   ]
 }
