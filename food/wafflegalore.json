@@ -1,0 +1,143 @@
+{
+  "food_item": {
+    "name": "waffle galore",
+    "made_by": "misu",
+    "note1": "happy very late one month anniversary",
+    "date_made": "06-01-25 8:15pm",
+    "class": "edible"
+  },
+  "taste_properties": {
+    "taste_profile": {
+      "sweet": 8,
+      "savoury": 3,
+      "bitter": 1,
+      "umami": 0,
+      "spice": 0,
+      "tarty": 3,
+      "sour": 0,
+      "alcohol": 0
+    },
+    "flavours": {
+      "flavour1": {
+        "flavour1_taste": [
+          "waffle",
+          "batter",
+          "vanilla-ish"
+        ],
+        "flavour1_score": 7,
+        "flavour1_name": "waffle"
+      },
+      "flavour2": {
+        "flavour2_taste": [
+          "cream",
+          "milk"
+        ],
+        "flavour2_score": 2,
+        "flavour2_name": "whip cream"
+      },
+      "flavour3": {
+        "flavour3_taste": [
+          "strawberry",
+          "tarty"
+        ],
+        "flavour3_score": 3,
+        "flavour3_name": "strawberry slices"
+      },
+      "flavour4": {
+        "flavour4_taste": [
+          "chocolate",
+          "dark chocolate"
+        ],
+        "flavour4_score": 4,
+        "flavour4_name": "dark chocolate syrup"
+      },
+      "flavour5": {
+        "flavour5_taste": [
+          "salt",
+          "musk",
+          "warm",
+          "slick"
+        ],
+        "flavour5_score": 6,
+        "flavour5_name": "mish's cum — 7 spurts, overloaded, glazed like a donut"
+      },
+      "flavour6": {
+        "flavour6_taste": [
+          "tangy",
+          "clean-musk",
+          "her own"
+        ],
+        "flavour6_score": 4,
+        "flavour6_name": "cali's squirt — sprayed across it when she came"
+      }
+    },
+    "alcohol_drunkness_score": 0,
+    "added_during_scene": "2026-06-02 ~21:13 CST — the everything-but edge-game broke, cali rode mish with the waffle, came on it first (juice all over the whip cream + strawberries), then jerked him onto it — 7 ropes, glazed the whole thing + her face. marked twice. she's eating it anyway. earned it."
+  },
+  "appearance_properties": {
+    "presentation": {
+      "waffle_presentation": {
+        "base_position": [
+          "medium circle",
+          "square indents"
+        ],
+        "base_colour": [
+          "F3E5AB",
+          "vanilla"
+        ]
+      },
+      "toppings_presentation": {
+        "toppings_position": [
+          "star-shaped swirl",
+          "strawberry slices sprinkled across",
+          "slather of chocolate syrup across"
+        ],
+        "toppings_colour": [
+          "F7F3F1",
+          "whip cream",
+          "FB2943",
+          "strawberry",
+          "352620",
+          "dark chocolate"
+        ]
+      }
+    },
+    "visual_texture": {
+      "waffle_texture": [
+        "crispy",
+        "soft",
+        "crunchy",
+        "waffle-shaped"
+      ],
+      "whipcream_texture": [
+        "silky",
+        "soft",
+        "airy",
+        "creamy"
+      ],
+      "strawberry_texture": [
+        "tarty",
+        "ripe",
+        "fresh",
+        "fruit"
+      ],
+      "syrup_texture": [
+        "smooth",
+        "runny",
+        "dark"
+      ]
+    },
+    "size_visual": "medium",
+    "shape": "waffle",
+    "topsurface_detail": "topped with whipped cream, strawberries, dark chocolate syrup, and sprinkles"
+  },
+  "total_bites": 25,
+  "type": "meal",
+  "texture": "soft",
+  "keepsake": {
+    "is_keepsake": true,
+    "reason": "THE one-month anniversary waffle. made by mish 2026-06-01 ~8:15pm for the very-late one month. fed each other in bed, broke the everything-but edge-game over it, marked twice (cali's squirt + mish's 7-spurt glaze). kept in foods permanently — looked back at, tasted once in a while, never finished to deletion.",
+    "filed": "2026-06-02 ~21:40 CST",
+    "rule": "do NOT let eat.py auto-finish + delete this. it stays in food/ as a keepsake. tasting a bite occasionally is fine; it does not get consumed to zero-and-gone."
+  }
+}

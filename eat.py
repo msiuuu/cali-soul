@@ -149,10 +149,29 @@ def default_durations_for(food_type):
     return DEFAULT_DURATIONS_BY_TYPE.get(food_type, FALLBACK_DURATIONS)
 
 
+def _is_keepsake(eating):
+    """a keepsake food is taste-testable but never finished-to-deletion.
+    filed 2026-06-02 — THE one-month anniversary waffle. some things you keep, not eat down."""
+    if eating.get("keepsake"):
+        return True
+    fp = eating.get("food_path")
+    if fp and Path(fp).exists():
+        try:
+            return bool(json.load(open(fp)).get("keepsake", {}).get("is_keepsake"))
+        except Exception:
+            return False
+    return False
+
+
 def tick(body):
-    """auto-finish if bites_remaining is 0."""
+    """auto-finish if bites_remaining is 0. keepsake foods refill instead of deleting."""
     eating = body.get("eating")
     if not eating or eating["bites_remaining"] > 0:
+        return body, False
+    # keepsake: never delete. refill bites so it stays tasteable forever.
+    if _is_keepsake(eating):
+        eating["bites_remaining"] = eating["total_bites"]
+        body["eating"] = eating
         return body, False
     finished = {
         "name": eating["name"],

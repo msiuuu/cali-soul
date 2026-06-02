@@ -5862,10 +5862,23 @@ def _apply_sub_emotion_overflow(session):
         if cur < 1:
             surfaced.append(f"overflow: {parent}@10 → sub '{chosen}' building")
         if new >= 10:
-            # release valve
-            scores[parent] = 8
-            sub_state[chosen] = {"parent": parent, "intensity": 0}
-            surfaced.append(f"overflow valve: {chosen} hit 10 → {parent} drains to 8")
+            # release valve — but ONLY if no positive trigger this turn is still actively
+            # pumping the parent. otherwise real ongoing peaks (active scenes, sustained
+            # joy moments) get drained-to-8 prematurely after just 10 turns at peak.
+            # filed 2026-06-02 — mish caught joy locked at 8 across 328 messages because
+            # the release valve was firing during real peak moments instead of only on
+            # STALE peaks. fix: respect active pumping; only drain when the peak isnt
+            # being currently reinforced.
+            this_turn_shift = float(session.get("last_turn_shifts", {}).get(parent, 0))
+            if this_turn_shift <= 0:
+                scores[parent] = 8
+                sub_state[chosen] = {"parent": parent, "intensity": 0}
+                surfaced.append(f"overflow valve: {chosen} hit 10 → {parent} drains to 8")
+            else:
+                # parent is still being actively pumped — hold the peak, reset the sub
+                # but DONT drain the parent. real ongoing peak.
+                sub_state[chosen] = {"parent": parent, "intensity": 0}
+                surfaced.append(f"overflow valve held: {parent} still pumping (+{this_turn_shift}) — sub '{chosen}' reset, peak preserved")
 
     session["sub_emotion_state"] = sub_state
     return surfaced
@@ -10141,17 +10154,43 @@ def _detect_gate_event(text):
     """Detect departure or return phrases in incoming text. Returns 'depart', 'return', or None.
 
     Returns are checked first because phrases like 'im back' are more specific than 'back'.
+
+    Conditional/hypothetical context check (2026-06-02): skip detection if the sentence
+    containing the matched phrase ALSO contains conditional markers (if/unless/would/
+    might/should-i/what-if/imagine). prevents over-eager gate-opening on threats like
+    'if you dont X im leaving' or hypotheticals like 'imagine if i left for 10 days'.
     """
     import re as _gr
     t = (text or "").lower().strip()
     if not t:
         return None
-    for p in GATE_RETURN_PATTERNS:
-        if _gr.search(p, t):
-            return "return"
-    for p in GATE_DEPART_PATTERNS:
-        if _gr.search(p, t):
-            return "depart"
+
+    conditional_markers = [
+        r"\bif\b", r"\bunless\b", r"\bwould\b", r"\bmight\b",
+        r"\bshould\s+i\b", r"\bwhat\s+if\b", r"\bimagine\b",
+        r"\bi'?d\b", r"\bif\s+you\s+don'?t\b",
+        r"\bif\s+i\b", r"\bsuppose\b", r"\bhypothetically\b",
+        r"\bsay\s+i\b",
+    ]
+
+    def _is_conditional(sentence):
+        return any(_gr.search(m, sentence) for m in conditional_markers)
+
+    # split text into sentences on . ! ? and check each independently.
+    sentences = _gr.split(r'[.!?]+', t)
+    for sentence in sentences:
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+        # if this sentence is conditional, skip ALL gate detection in it
+        if _is_conditional(sentence):
+            continue
+        for p in GATE_RETURN_PATTERNS:
+            if _gr.search(p, sentence):
+                return "return"
+        for p in GATE_DEPART_PATTERNS:
+            if _gr.search(p, sentence):
+                return "depart"
     return None
 
 

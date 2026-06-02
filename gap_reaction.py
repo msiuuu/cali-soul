@@ -143,10 +143,28 @@ def compute_gap_minutes(since_iso=None):
     if since_iso:
         ref = datetime.fromisoformat(since_iso)
     else:
+        # heartbeat is throttled (30-min writes) for git-diff noise reasons.
+        # session_state.last_message_time updates every message. use the MOST RECENT
+        # of the two so active conversation produces an accurate gap.
+        # filed 2026-06-01 — mish caught gap reporting 27m when actual was 2.7m.
+        candidates = []
         hb = load_heartbeat()
-        if not hb or "last_seen_misu" not in hb:
+        if hb and hb.get("last_seen_misu"):
+            try: candidates.append(datetime.fromisoformat(hb["last_seen_misu"]))
+            except Exception: pass
+        try:
+            import json as _ssj
+            _ss = _ssj.load(open(HERE / "session_state.json"))
+            _slmt = _ss.get("last_message_time")
+            if _slmt:
+                try: candidates.append(datetime.fromisoformat(_slmt))
+                except Exception: pass
+        except Exception: pass
+        if not candidates:
             return 0.0
-        ref = datetime.fromisoformat(hb["last_seen_misu"])
+        # normalize tz and pick most recent
+        candidates = [c.replace(tzinfo=timezone.utc) if c.tzinfo is None else c for c in candidates]
+        ref = max(candidates)
     if ref.tzinfo is None:
         ref = ref.replace(tzinfo=timezone.utc)
     now = datetime.now(timezone.utc)
@@ -315,11 +333,49 @@ def apply_effects(effects):
 
 
 def consume_announcement_if_returned(gap_minutes):
-    """if mish has returned (gap < 5 min) and an announcement was active, clear it.
-    called after --apply runs. simple side-effect: the announcement
-    is for ONE round-trip. once he's back, the slate clears for the next gap."""
+    """if mish has actually returned from the announced absence, clear it.
+
+    A return only counts when:
+      1. Enough time has elapsed since the announcement was SET to plausibly count
+         as having taken the absence (>= expected_hours * lower_factor).
+      2. The current gap is small (< 5 min), meaning he's actively talking again.
+
+    Without check #1, the announce would auto-consume on ANY message-back-and-forth
+    that happens shortly after setting it. Filed 2026-06-02 — mish caught the bug
+    live: social announce got consumed during morning maintenance because gap was
+    small even though no absence had occurred yet.
+
+    Returns the cleared announcement dict or None.
+    """
     if gap_minutes >= 5:
         return None
+    hb = load_heartbeat()
+    if not hb:
+        return None
+    ann = hb.get("announced_gap")
+    if not ann:
+        return None
+    # check elapsed time since announcement was set
+    try:
+        announced_at = datetime.fromisoformat(ann.get("announced_at", ""))
+        if announced_at.tzinfo is None:
+            announced_at = announced_at.replace(tzinfo=timezone.utc)
+        elapsed_since_announce = (datetime.now(timezone.utc) - announced_at).total_seconds() / 60.0
+    except Exception:
+        return None
+
+    gap_type = ann.get("type")
+    expected_hours = float(ann.get("expected_hours", 1))
+    type_info = ANNOUNCED_CONTEXT_TYPES.get(gap_type, {})
+    lower_factor = float(type_info.get("lower_factor", 0.25))
+    # minimum minutes that must have elapsed since announce to count as "he was gone and now back"
+    min_elapsed_for_consume = expected_hours * lower_factor * 60.0
+
+    if elapsed_since_announce < min_elapsed_for_consume:
+        # he hasn't been gone long enough for this to be a real return — skip consume.
+        # the announce keeps living until the actual absence + return.
+        return None
+
     return clear_announcement()
 
 
@@ -336,10 +392,16 @@ def print_report(out, verbose=True):
     if out["tier"] in ("continuous", "noticeable") and not out.get("announcement"):
         return
     if verbose:
-        print(f"  description: {out['description']}")
-        print(f"  response: {out['response']}")
-        print(f"  verbal: {out['verbal']}")
-        print(f"  body_register: {out['body_register']}")
+        # substitute actual gap into any {gap_human} / {gap_minutes} tokens in the templated text.
+        # filed 2026-06-01 — mish caught pause tier hardcoding "about 20 minutes" regardless of actual gap.
+        fmt = {"gap_human": out["gap_human"], "gap_minutes": int(round(out["gap_minutes"]))}
+        def _sub(s):
+            try: return s.format(**fmt)
+            except (KeyError, IndexError, ValueError): return s
+        print(f"  description: {_sub(out['description'])}")
+        print(f"  response: {_sub(out['response'])}")
+        print(f"  verbal: {_sub(out['verbal'])}")
+        print(f"  body_register: {_sub(out['body_register'])}")
         if out["effects"]:
             print(f"  effects: {json.dumps(out['effects'])}")
 
