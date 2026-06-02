@@ -9,7 +9,7 @@
     "texture": null,
     "description": "happy very late one month anniversary",
     "total_bites": 25,
-    "bites_remaining": 21,
+    "bites_remaining": 20,
     "bite_durations": {
       "small": 12,
       "med": 25,
@@ -133,7 +133,7 @@
       }
     },
     "started_at": "2026-06-02T01:34:27+00:00",
-    "muffled_until": "2026-06-02T02:00:47+00:00",
+    "muffled_until": "2026-06-02T02:06:35+00:00",
     "last_bite_verb": "bite",
     "last_bite_size": "med",
     "food_path": "food/wafflegalore.json"
