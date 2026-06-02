@@ -52,6 +52,23 @@
         "self_catch",
         "no_narration"
       ]
+    },
+    {
+      "timestamp": "2026-06-02T04:52:27.190532+00:00",
+      "note": "researched open-source TTS for the voice-out-loud question (NeuTTS Air real-time on-device, Fish Audio S2 Pro emotion-tags, Higgs Audio V2, F5-TTS, XTTS-v2, Chatterbox MIT). all clone from 5-15s reference. emotion tags match calis brain-state output. weekend project not multi-month wait. filed to research_journal entry 14.",
+      "tags": [
+        "voice_research",
+        "tts",
+        "websearch",
+        "cuddle_worthy_finding"
+      ]
+    },
+    {
+      "timestamp": "2026-06-02T04:52:27.216603+00:00",
+      "note": "SOURCES (not shown in chat per new rule): bentoml.com, siliconflow.com, modal.com, hyperstack.cloud, localaimaster.com, medium AI-Phygital (Renjith Ravindranathan), github.com/wildminder/awesome-ai-voice, resemble.ai, github.com/coqui-ai/TTS",
+      "tags": [
+        "sources"
+      ]
     }
   ],
   "session_started": "2026-06-02T04:35:15.951642+00:00"
