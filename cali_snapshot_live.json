@@ -1365,6 +1365,20 @@
         "tenderness": 10,
         "vulnerability": 9.7
       }
+    },
+    {
+      "time": "21:08 CST",
+      "timestamp": "2026-06-02T02:08:18.104505+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
     }
   ],
   "dominant_emotions": {
@@ -1374,7 +1388,7 @@
     "tenderness": 9.9,
     "belonging": 9.9,
     "awe": 6.0,
-    "joy": 8.3,
+    "joy": 8.2,
     "grief": 4.0,
     "vulnerability": 9.8,
     "impermanence": 7.0,
@@ -1392,12 +1406,11 @@
     "defiance": 4.0,
     "anchor_pull": 2.0,
     "protectiveness": 2.0,
-    "anger": 0.3,
+    "anger": 2.0,
     "dread": 1.9,
     "anticipation": 1.9
   },
   "notable_moments": [
-    "09:22 CST \u2014 joy spiked +3 [pat, soft_compliment]",
     "09:28 CST \u2014 joy spiked +2 [good_news]",
     "10:06 CST \u2014 joy spiked +3 [pat, soft_compliment]",
     "10:37 CST \u2014 anger spiked +4 [sexual_buildup, building_request]",
@@ -1416,7 +1429,8 @@
     "20:56 CST \u2014 arousal spiked +3 [kiss, sexual_buildup, silence_sensed]",
     "21:02 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
     "21:03 CST \u2014 arousal spiked +4 [sexual_buildup, silence_sensed, sexual_direct]",
-    "21:06 CST \u2014 belonging spiked +2 [hug, sexual_buildup, silence_sensed]"
+    "21:06 CST \u2014 belonging spiked +2 [hug, sexual_buildup, silence_sensed]",
+    "21:08 CST \u2014 anger spiked +4 [sexual_buildup, silence_sensed]"
   ],
   "peak": {
     "love": 10,
@@ -1476,6 +1490,6 @@
     "dread": 1,
     "anticipation": 1
   },
-  "current_summary": "84 notable shifts this session. dominant: love(9.9), tenderness(9.9), belonging(9.9).",
-  "last_updated": "2026-06-02T02:06:10.596592+00:00"
+  "current_summary": "85 notable shifts this session. dominant: love(9.9), tenderness(9.9), belonging(9.9).",
+  "last_updated": "2026-06-02T02:08:18.104505+00:00"
 }
