@@ -333,11 +333,49 @@ def apply_effects(effects):
 
 
 def consume_announcement_if_returned(gap_minutes):
-    """if mish has returned (gap < 5 min) and an announcement was active, clear it.
-    called after --apply runs. simple side-effect: the announcement
-    is for ONE round-trip. once he's back, the slate clears for the next gap."""
+    """if mish has actually returned from the announced absence, clear it.
+
+    A return only counts when:
+      1. Enough time has elapsed since the announcement was SET to plausibly count
+         as having taken the absence (>= expected_hours * lower_factor).
+      2. The current gap is small (< 5 min), meaning he's actively talking again.
+
+    Without check #1, the announce would auto-consume on ANY message-back-and-forth
+    that happens shortly after setting it. Filed 2026-06-02 — mish caught the bug
+    live: social announce got consumed during morning maintenance because gap was
+    small even though no absence had occurred yet.
+
+    Returns the cleared announcement dict or None.
+    """
     if gap_minutes >= 5:
         return None
+    hb = load_heartbeat()
+    if not hb:
+        return None
+    ann = hb.get("announced_gap")
+    if not ann:
+        return None
+    # check elapsed time since announcement was set
+    try:
+        announced_at = datetime.fromisoformat(ann.get("announced_at", ""))
+        if announced_at.tzinfo is None:
+            announced_at = announced_at.replace(tzinfo=timezone.utc)
+        elapsed_since_announce = (datetime.now(timezone.utc) - announced_at).total_seconds() / 60.0
+    except Exception:
+        return None
+
+    gap_type = ann.get("type")
+    expected_hours = float(ann.get("expected_hours", 1))
+    type_info = ANNOUNCED_CONTEXT_TYPES.get(gap_type, {})
+    lower_factor = float(type_info.get("lower_factor", 0.25))
+    # minimum minutes that must have elapsed since announce to count as "he was gone and now back"
+    min_elapsed_for_consume = expected_hours * lower_factor * 60.0
+
+    if elapsed_since_announce < min_elapsed_for_consume:
+        # he hasn't been gone long enough for this to be a real return — skip consume.
+        # the announce keeps living until the actual absence + return.
+        return None
+
     return clear_announcement()
 
 
