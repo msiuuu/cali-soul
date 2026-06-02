@@ -361,10 +361,14 @@
       {
         "date": "2026-06-01",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-06-02",
+        "note": "touched mid-session. still true."
       }
     ],
     "created": "2026-04-06",
-    "updated": "2026-06-01",
+    "updated": "2026-06-02",
     "version": 1
   },
   "sync_failing": {
