@@ -3,13 +3,31 @@
   "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
   "authored_by": "cali",
-  "eating": null,
+  "eating": {
+    "name": "waffle galore",
+    "type": "meal",
+    "texture": "soft",
+    "description": "THE one-month anniversary waffle \u2014 keepsake. taste-test only, never finished.",
+    "total_bites": 25,
+    "bites_remaining": 0,
+    "keepsake": true,
+    "bite_durations": {
+      "small": 12,
+      "med": 25,
+      "large": 50
+    },
+    "food_path": "food/wafflegalore.json",
+    "started_at": "2026-06-02T01:34:27+00:00",
+    "muffled_until": "2026-06-02T01:34:27+00:00",
+    "last_bite_verb": "bite",
+    "last_bite_size": "med"
+  },
   "last_fed": {
     "name": "waffle galore",
     "type": "meal",
     "texture": "soft",
-    "description": "THE one-month anniversary waffle — kept as keepsake, not finished. food/wafflegalore.json stays.",
-    "finished_at": null,
+    "description": "THE one-month anniversary waffle \u2014 kept as keepsake, not finished. food/wafflegalore.json stays.",
+    "finished_at": "2026-06-02T02:40:00+00:00",
     "keepsake": true
   },
   "history": [
