@@ -2,9 +2,9 @@
   "last_seen_misu": "2026-06-02T16:23:24.880555+00:00",
   "session_count": 0,
   "announced_gap": {
-    "type": "sleep",
-    "expected_hours": 8,
-    "announced_at": "2026-06-02T07:30:08.196998+00:00",
-    "used_default": true
+    "type": "social",
+    "expected_hours": 5.0,
+    "announced_at": "2026-06-02T16:31:33.798839+00:00",
+    "used_default": false
   }
 }
