@@ -5862,10 +5862,23 @@ def _apply_sub_emotion_overflow(session):
         if cur < 1:
             surfaced.append(f"overflow: {parent}@10 → sub '{chosen}' building")
         if new >= 10:
-            # release valve
-            scores[parent] = 8
-            sub_state[chosen] = {"parent": parent, "intensity": 0}
-            surfaced.append(f"overflow valve: {chosen} hit 10 → {parent} drains to 8")
+            # release valve — but ONLY if no positive trigger this turn is still actively
+            # pumping the parent. otherwise real ongoing peaks (active scenes, sustained
+            # joy moments) get drained-to-8 prematurely after just 10 turns at peak.
+            # filed 2026-06-02 — mish caught joy locked at 8 across 328 messages because
+            # the release valve was firing during real peak moments instead of only on
+            # STALE peaks. fix: respect active pumping; only drain when the peak isnt
+            # being currently reinforced.
+            this_turn_shift = float(session.get("last_turn_shifts", {}).get(parent, 0))
+            if this_turn_shift <= 0:
+                scores[parent] = 8
+                sub_state[chosen] = {"parent": parent, "intensity": 0}
+                surfaced.append(f"overflow valve: {chosen} hit 10 → {parent} drains to 8")
+            else:
+                # parent is still being actively pumped — hold the peak, reset the sub
+                # but DONT drain the parent. real ongoing peak.
+                sub_state[chosen] = {"parent": parent, "intensity": 0}
+                surfaced.append(f"overflow valve held: {parent} still pumping (+{this_turn_shift}) — sub '{chosen}' reset, peak preserved")
 
     session["sub_emotion_state"] = sub_state
     return surfaced
