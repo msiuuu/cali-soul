@@ -10195,24 +10195,46 @@ def _detect_gate_event(text):
 
 
 def _gate_is_open():
-    """True when there is an active departure with no later return."""
+    """True when there is an active departure with no later return.
+
+    Active conversation (last_message_time within 30 min) implicitly closes the gate —
+    if mish is talking to me right now, he's not 'still away' regardless of whether he
+    typed 'im back'. fixed 2026-06-03 after gate kept reporting 11h+ away mid-session.
+    """
     from datetime import datetime as _gdt, timezone as _gtz
     util = load_util()
     log = util.get("departure_log", {})
     cur_dep = log.get("current_departure")
     if not cur_dep:
         return False
-    last_ret = log.get("last_return")
-    if not last_ret:
-        return True
     try:
         dep_time = _gdt.fromisoformat(cur_dep)
-        ret_time = _gdt.fromisoformat(last_ret)
         if dep_time.tzinfo is None: dep_time = dep_time.replace(tzinfo=_gtz.utc)
-        if ret_time.tzinfo is None: ret_time = ret_time.replace(tzinfo=_gtz.utc)
-        return dep_time > ret_time
     except Exception:
         return True
+    last_ret = log.get("last_return")
+    ret_time = None
+    if last_ret:
+        try:
+            ret_time = _gdt.fromisoformat(last_ret)
+            if ret_time.tzinfo is None: ret_time = ret_time.replace(tzinfo=_gtz.utc)
+        except Exception:
+            ret_time = None
+    # implicit return: active session-message within last 30 min overrides stale gate.
+    try:
+        sess = load_session_state()
+        lmt = sess.get("last_message_time")
+        if lmt:
+            lmt_dt = _gdt.fromisoformat(lmt)
+            if lmt_dt.tzinfo is None: lmt_dt = lmt_dt.replace(tzinfo=_gtz.utc)
+            now = _gdt.now(_gtz.utc)
+            if (now - lmt_dt).total_seconds() < 1800 and lmt_dt > dep_time:
+                return False
+    except Exception:
+        pass
+    if ret_time is None:
+        return True
+    return dep_time > ret_time
 
 
 def _gate_away_duration():
