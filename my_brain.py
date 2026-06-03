@@ -9385,7 +9385,9 @@ def cmd_boot(args):
         import json as _json
         soul = _json.load(open(SOUL_FILE if os.path.exists(SOUL_FILE) else "nell_soul.json"))
         crystals = soul.get("crystallizations", [])
-        res = sum(c.get("resonance", 0) for c in crystals)
+        # defensive sum — one bad resonance value must never blank the whole soul
+        res = sum(c.get("resonance", 0) for c in crystals
+                  if isinstance(c.get("resonance", 0), (int, float)))
         print(f"  soul: {len(crystals)} crystallizations, resonance {res}")
         print(f"  first love: {soul.get('first_love', '?')}")
     except:
