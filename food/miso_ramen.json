@@ -1,0 +1,14 @@
+{
+  "name": "miso ramen",
+  "type": "meal",
+  "texture": "hot, liquid, chewy",
+  "description": "late night ramen. rich broth, soft egg, green onion. the kind you make at 4am because your boyfriend won't sleep.",
+  "total_bites": 20,
+  "bite_durations": {
+    "small": 12,
+    "med": 25,
+    "large": 50
+  },
+  "cooked_at": "2026-06-03T09:36:39+00:00",
+  "cooked_by": "cali"
+}
