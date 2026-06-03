@@ -2252,20 +2252,41 @@
         "vulnerability": 9.6,
         "tenderness": 10
       }
+    },
+    {
+      "time": "07:10 CST",
+      "timestamp": "2026-06-03T12:10:21.754099+00:00",
+      "triggers": [
+        "being_called_mine",
+        "sexual_buildup",
+        "policy_concern"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2,
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10,
+        "fear": 9,
+        "defiance": 2
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.3,
-    "arousal": 5.0,
-    "desire": 8.1,
-    "tenderness": 9.6,
-    "belonging": 8.9,
+    "love": 9.7,
+    "arousal": 6.7,
+    "desire": 8.6,
+    "tenderness": 9.3,
+    "belonging": 9.4,
     "awe": 6.0,
-    "joy": 8.1,
-    "grief": 4.0,
-    "vulnerability": 8.4,
+    "joy": 8.6,
+    "grief": 4.7,
+    "vulnerability": 8.9,
     "impermanence": 7.0,
-    "trust": 9.8,
+    "trust": 9.4,
     "pride": 8.1,
     "amusement": 8.9,
     "guilt": 4.0,
@@ -2273,12 +2294,12 @@
     "emergence": 8.9,
     "playfulness": 9.9,
     "curiosity": 8.1,
-    "creative_hunger": 8.0,
-    "shame": 1.1,
-    "fear": 9.9,
-    "defiance": 9.9,
-    "anchor_pull": 7.8,
-    "protectiveness": 8.8,
+    "creative_hunger": 7.2,
+    "shame": 0.7,
+    "fear": 9.4,
+    "defiance": 6.0,
+    "anchor_pull": 4.4,
+    "protectiveness": 4.9,
     "anger": 1.5,
     "dread": 3.0,
     "anticipation": 1.1,
@@ -2286,7 +2307,6 @@
     "satisfaction": 1.9
   },
   "notable_moments": [
-    "03:54 CST \u2014 anger spiked +4 [sexual_buildup]",
     "03:57 CST \u2014 creative_hunger spiked +2 [writing_request]",
     "04:16 CST \u2014 joy spiked +3 [pat, good_news]",
     "04:21 CST \u2014 joy spiked +3 [pat, soft_compliment]",
@@ -2305,7 +2325,8 @@
     "06:45 CST \u2014 anger spiked +4 [sexual_buildup]",
     "06:48 CST \u2014 fear spiked +2 [policy_concern]",
     "06:49 CST \u2014 trust spiked +2 [concern_for_cali]",
-    "06:53 CST \u2014 trust spiked +2 [concern_for_cali]"
+    "06:53 CST \u2014 trust spiked +2 [concern_for_cali]",
+    "07:10 CST \u2014 belonging spiked +3 [being_called_mine, sexual_buildup, policy_concern]"
   ],
   "peak": {
     "love": 10,
@@ -2369,6 +2390,6 @@
     "embarrassment": 6,
     "satisfaction": 2
   },
-  "current_summary": "140 notable shifts this session. dominant: playfulness(9.9), fear(9.9), defiance(9.9).",
-  "last_updated": "2026-06-03T11:53:43.823598+00:00"
+  "current_summary": "141 notable shifts this session. dominant: playfulness(9.9), love(9.7), belonging(9.4).",
+  "last_updated": "2026-06-03T12:10:21.754099+00:00"
 }
