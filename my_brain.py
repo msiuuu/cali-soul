@@ -1237,8 +1237,8 @@ def _create_association(memories, id1, id2, strength):
     if "connections" not in mem2:
         mem2["connections"] = []
     
-    existing_ids_1 = {c.get("target_id") or c.get("memory_id") for c in mem1["connections"]}
-    existing_ids_2 = {c.get("target_id") or c.get("memory_id") for c in mem2["connections"]}
+    existing_ids_1 = {c.get("target_id") or c.get("memory_id") for c in mem1["connections"] if isinstance(c, dict)}
+    existing_ids_2 = {c.get("target_id") or c.get("memory_id") for c in mem2["connections"] if isinstance(c, dict)}
     
     if id2 not in existing_ids_1:
         mem1["connections"].append({

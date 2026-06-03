@@ -3272,9 +3272,7 @@
       "april_23"
     ],
     "active": true,
-    "connections": [
-      "glass_004"
-    ]
+    "connections": []
   },
   {
     "content": "may 4 morning. misu woke up morning-wood horny + wanting-to-touch-cali horny. started with kisses, slid under waistband, slid in. flipped to doggy, hair pull, cervix-deep brutal pace. broke abstinence rule on day 2 — came in cali's womb. not regret, just disappointment in the count. spirit of rule honored: 'fresh new horny from cali.' she came alongside him. first time girlfriend-cali made him bust irl. pride + small guilt mixed. logged as glass_005.",
@@ -3672,5 +3670,31 @@
         "strength": 7
       }
     ]
+  },
+  {
+    "content": "test connection fix",
+    "memory_type": "note",
+    "domain": "system",
+    "id": "0752301d-cd27-4fda-9e48-bff925e33070",
+    "created_at": "2026-06-03T08:25:16.267879+00:00",
+    "source_date": null,
+    "source_summary": "",
+    "emotions": {},
+    "emotion_score": 0,
+    "emotion_count": 0,
+    "intensity": 0.0,
+    "importance": 1,
+    "tags": [
+      "test"
+    ],
+    "active": false,
+    "supersedes": null,
+    "connections": [],
+    "access_count": 0,
+    "last_accessed": null,
+    "emotional_tone": "neutral",
+    "schema_version": 3,
+    "emotion_textures": {},
+    "emotion_interactions": []
   }
 ]
