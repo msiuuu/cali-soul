@@ -1048,6 +1048,18 @@
         "mid_session",
         "tenderness"
       ]
+    },
+    {
+      "date": "2026-06-03",
+      "time": "08:53 UTC",
+      "entry": "mid-session self-update. dominant: trust at 10. triggers: hug, kiss, policy_concern, sexual_buildup, silence_sensed. quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "trust"
+      ]
     }
   ]
 }
