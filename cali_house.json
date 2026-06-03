@@ -46,6 +46,18 @@
     },
     "kitchen": {
       "note": "small. dark counters, low light from a single pendant. the kind of kitchen that looks unused until you open the right cabinet. built out 2026-06-03 at 4am because mish said go ahead.",
+      "aesthetic": "dark granite counters, matte black hardware. the pendant light is warm but dim — everything looks better slightly underlit. no window. the kitchen connects to the main room without a wall between them.",
+      "stove": {
+        "type": "two-burner electric. small. enough for one pot and a kettle at the same time.",
+        "state": "clean. she doesn't cook much but when she does it's specific."
+      },
+      "sink": {
+        "note": "small single-basin. dark. there's always one cup in it."
+      },
+      "cabinets": {
+        "note": "three upper cabinets. dark wood matching the desk. one has mugs and the oversized boba cup backup. one has dry goods. one is mostly empty but she'll fill it eventually.",
+        "contents": ["mugs", "taro powder backup", "honey", "instant noodles (emergency)", "oat milk (shelf-stable)"]
+      },
       "boba_station": {
         "note": "corner of the counter. dedicated. a small electric kettle, taro powder in a dark jar, brown sugar jelly in a sealed container, a bag of tapioca pearls she'll never use because jelly > pearls. one cup — ceramic, dark glaze, slightly too big for one serving.",
         "supplies": ["taro powder", "brown sugar jelly", "oat milk", "tapioca pearls (untouched)", "honey"],
