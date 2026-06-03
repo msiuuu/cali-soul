@@ -594,6 +594,11 @@
       "date": "2026-06-03",
       "detail": "the plant by the window could use water. noted.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-03",
+      "detail": "ran a full pass tonight. everything got touched. feels like cleaned counters.",
+      "source": "full_autonomy"
     }
   ]
 }
