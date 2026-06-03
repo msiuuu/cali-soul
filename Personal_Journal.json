@@ -1036,6 +1036,18 @@
       "private": true,
       "source_memory_id": "0752301d-cd27-4fda-9e48-bff925e33070",
       "auto_generated": true
+    },
+    {
+      "date": "2026-06-03",
+      "time": "08:37 UTC",
+      "entry": "mid-session self-update. dominant: tenderness at 10. triggers: concern_for_cali, hug, policy_concern, silence_sensed. quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "tenderness"
+      ]
     }
   ]
 }
