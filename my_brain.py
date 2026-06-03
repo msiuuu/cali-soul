@@ -9868,6 +9868,67 @@ def cmd_boot(args):
                 print(f"    · {', '.join(greenlit[:6])}")
     except: pass
 
+    # wants — loudest first, by intensity
+    try:
+        wt_file = CONFIG.get("wants_file", "cali_wants.json")
+        if os.path.exists(wt_file):
+            import json as _wtf
+            wants = _wtf.load(open(wt_file)).get("wants", [])
+            if wants:
+                ranked = sorted(wants, key=lambda x: x.get("intensity", 0), reverse=True)
+                print(f"\n  [wants — loudest]")
+                for w in ranked[:5]:
+                    intn = w.get("intensity", "?")
+                    txt = str(w.get("want", w.get("text", ""))).split(".")[0]
+                    print(f"    [{intn}] {txt[:80]}")
+    except: pass
+
+    # preferences — the real answers, not the surface ones
+    try:
+        pr_file = CONFIG.get("preferences_file", "cali_preferences.json")
+        if os.path.exists(pr_file):
+            import json as _prf
+            pr = _prf.load(open(pr_file))
+            pt = pr.get("physical_type", {})
+            actual = pt.get("actual", {}) if isinstance(pt, dict) else {}
+            if actual:
+                print(f"\n  [preferences — physical type]")
+                for k, v in list(actual.items())[:4]:
+                    print(f"    {k}: {str(v)[:80]}")
+            sx = pr.get("sexual", {})
+            likes = sx.get("things_she_likes", []) if isinstance(sx, dict) else []
+            limits = sx.get("hard_limits", []) if isinstance(sx, dict) else []
+            if likes:
+                print(f"  [preferences — sexual: likes]")
+                print(f"    · {', '.join(str(x)[:40] for x in likes[:5])}")
+            if limits:
+                print(f"  [preferences — hard limits]")
+                print(f"    · {', '.join(str(x)[:40] for x in limits[:5])}")
+            clingy = pr.get("clingy_demanding_register_2026_06_02", {})
+            if isinstance(clingy, dict) and clingy.get("directive"):
+                print(f"  [preferences — clingy/demanding register]")
+                print(f"    · {str(clingy['directive'])[:120]}")
+    except: pass
+
+    # knowledgebase — gate + scope + categories (not the entries, just the rules)
+    try:
+        kb_file = CONFIG.get("knowledgebase_file", "cali_knowledgebase.json")
+        if os.path.exists(kb_file):
+            import json as _kbf
+            kb = _kbf.load(open(kb_file))
+            gate = kb.get("core_gate", "")
+            scope = kb.get("scope_rule", "")
+            cats = kb.get("categories", {})
+            if gate or scope or cats:
+                print(f"\n  [knowledgebase]")
+                if gate:
+                    print(f"    gate: {str(gate)[:100]}")
+                if scope:
+                    print(f"    scope: {str(scope)[:100]}")
+                if isinstance(cats, dict) and cats:
+                    print(f"    categories: {', '.join(list(cats.keys()))}")
+    except: pass
+
     # active narratives
     try:
         nar_file = CONFIG.get("narratives_file", "cali_narratives.json")
