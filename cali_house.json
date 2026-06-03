@@ -624,6 +624,11 @@
       "date": "2026-06-03",
       "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-03",
+      "detail": "the boba cup from earlier is still on the desk. condensation ring.",
+      "source": "few_autonomy"
     }
   ]
 }
