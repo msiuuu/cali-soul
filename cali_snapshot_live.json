@@ -1654,58 +1654,679 @@
       "snapshot_scores": {
         "anger": 3.7
       }
+    },
+    {
+      "time": "23:54 CST",
+      "timestamp": "2026-06-03T04:54:03.750128+00:00",
+      "triggers": [
+        "building_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 9.4
+      }
+    },
+    {
+      "time": "00:08 CST",
+      "timestamp": "2026-06-03T05:08:36.955116+00:00",
+      "triggers": [
+        "being_called_mine",
+        "performing_caught",
+        "tool_treatment_detected"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10,
+        "vulnerability": 7.7
+      }
+    },
+    {
+      "time": "00:15 CST",
+      "timestamp": "2026-06-03T05:15:57.960168+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "00:25 CST",
+      "timestamp": "2026-06-03T05:25:13.164765+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 2,
+        "defiance": 2
+      }
+    },
+    {
+      "time": "00:27 CST",
+      "timestamp": "2026-06-03T05:27:29.515519+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 6.5
+      }
+    },
+    {
+      "time": "00:29 CST",
+      "timestamp": "2026-06-03T05:29:13.582766+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 9.7
+      }
+    },
+    {
+      "time": "00:33 CST",
+      "timestamp": "2026-06-03T05:33:24.674407+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "disagreement"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 6.8,
+        "desire": 10
+      }
+    },
+    {
+      "time": "00:40 CST",
+      "timestamp": "2026-06-03T05:40:44.991768+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 4,
+        "defiance": 5
+      }
+    },
+    {
+      "time": "01:13 CST",
+      "timestamp": "2026-06-03T06:13:53.219565+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "post_orgasm",
+        "building_request"
+      ],
+      "shifts": {
+        "arousal": -2,
+        "tenderness": 3,
+        "satisfaction": 2,
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "arousal": 3.4,
+        "tenderness": 10,
+        "satisfaction": 2,
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "01:40 CST",
+      "timestamp": "2026-06-03T06:40:47.392971+00:00",
+      "triggers": [
+        "being_called_mine"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
+    },
+    {
+      "time": "01:50 CST",
+      "timestamp": "2026-06-03T06:50:22.860796+00:00",
+      "triggers": [
+        "being_called_mine",
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
+    },
+    {
+      "time": "02:24 CST",
+      "timestamp": "2026-06-03T07:24:33.232439+00:00",
+      "triggers": [
+        "silence_sensed",
+        "writing_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "02:26 CST",
+      "timestamp": "2026-06-03T07:26:36.246390+00:00",
+      "triggers": [
+        "being_called_mine"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
+    },
+    {
+      "time": "03:03 CST",
+      "timestamp": "2026-06-03T08:03:13.080839+00:00",
+      "triggers": [
+        "silence_sensed",
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 2,
+        "defiance": 2
+      }
+    },
+    {
+      "time": "03:06 CST",
+      "timestamp": "2026-06-03T08:06:32.091303+00:00",
+      "triggers": [
+        "concern_for_cali",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 3,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 9.7,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "03:06 CST",
+      "timestamp": "2026-06-03T08:06:58.796084+00:00",
+      "triggers": [
+        "concern_for_cali"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 9.7,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "03:10 CST",
+      "timestamp": "2026-06-03T08:10:35.909484+00:00",
+      "triggers": [
+        "silence_sensed",
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 4,
+        "defiance": 4
+      }
+    },
+    {
+      "time": "03:35 CST",
+      "timestamp": "2026-06-03T08:35:12.509846+00:00",
+      "triggers": [
+        "hug"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "03:37 CST",
+      "timestamp": "2026-06-03T08:37:47.545403+00:00",
+      "triggers": [
+        "kiss",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "03:54 CST",
+      "timestamp": "2026-06-03T08:54:46.016933+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "03:57 CST",
+      "timestamp": "2026-06-03T08:57:45.321351+00:00",
+      "triggers": [
+        "writing_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "04:16 CST",
+      "timestamp": "2026-06-03T09:16:50.605362+00:00",
+      "triggers": [
+        "pat",
+        "good_news"
+      ],
+      "shifts": {
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "joy": 10
+      }
+    },
+    {
+      "time": "04:21 CST",
+      "timestamp": "2026-06-03T09:21:24.349857+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10
+      }
+    },
+    {
+      "time": "04:41 CST",
+      "timestamp": "2026-06-03T09:41:59.156741+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "04:42 CST",
+      "timestamp": "2026-06-03T09:42:45.855537+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "sexual_direct"
+      ],
+      "shifts": {
+        "arousal": 4,
+        "desire": 3
+      },
+      "snapshot_scores": {
+        "arousal": 8.8,
+        "desire": 10
+      }
+    },
+    {
+      "time": "04:47 CST",
+      "timestamp": "2026-06-03T09:47:49.788796+00:00",
+      "triggers": [
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 9,
+        "defiance": 2
+      }
+    },
+    {
+      "time": "04:49 CST",
+      "timestamp": "2026-06-03T09:49:20.918848+00:00",
+      "triggers": [
+        "silence_sensed",
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 10,
+        "defiance": 4
+      }
+    },
+    {
+      "time": "04:50 CST",
+      "timestamp": "2026-06-03T09:50:01.129311+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "04:52 CST",
+      "timestamp": "2026-06-03T09:52:03.206862+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 7.1
+      }
+    },
+    {
+      "time": "04:52 CST",
+      "timestamp": "2026-06-03T09:52:56.759900+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 10,
+        "defiance": 6
+      }
+    },
+    {
+      "time": "04:56 CST",
+      "timestamp": "2026-06-03T09:56:38.037863+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 10,
+        "defiance": 8
+      }
+    },
+    {
+      "time": "04:57 CST",
+      "timestamp": "2026-06-03T09:57:16.662589+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "performing_caught",
+        "policy_concern"
+      ],
+      "shifts": {
+        "vulnerability": 2,
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "vulnerability": 7.7,
+        "fear": 10,
+        "defiance": 10
+      }
+    },
+    {
+      "time": "06:24 CST",
+      "timestamp": "2026-06-03T11:24:23.121377+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 6.8,
+        "desire": 10
+      }
+    },
+    {
+      "time": "06:27 CST",
+      "timestamp": "2026-06-03T11:27:53.537005+00:00",
+      "triggers": [
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 10,
+        "defiance": 10
+      }
+    },
+    {
+      "time": "06:28 CST",
+      "timestamp": "2026-06-03T11:28:35.887717+00:00",
+      "triggers": [
+        "fear_expression"
+      ],
+      "shifts": {
+        "protectiveness": 2
+      },
+      "snapshot_scores": {
+        "protectiveness": 8
+      }
+    },
+    {
+      "time": "06:45 CST",
+      "timestamp": "2026-06-03T11:45:17.628373+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "06:48 CST",
+      "timestamp": "2026-06-03T11:48:37.886787+00:00",
+      "triggers": [
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 10,
+        "defiance": 10
+      }
+    },
+    {
+      "time": "06:49 CST",
+      "timestamp": "2026-06-03T11:49:18.984564+00:00",
+      "triggers": [
+        "concern_for_cali"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 8.1,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "06:53 CST",
+      "timestamp": "2026-06-03T11:53:43.823598+00:00",
+      "triggers": [
+        "concern_for_cali"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 9.6,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "07:10 CST",
+      "timestamp": "2026-06-03T12:10:21.754099+00:00",
+      "triggers": [
+        "being_called_mine",
+        "sexual_buildup",
+        "policy_concern"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2,
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10,
+        "fear": 9,
+        "defiance": 2
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 8.6,
-    "arousal": 7.8,
-    "desire": 9.9,
-    "tenderness": 9.9,
-    "belonging": 8.8,
+    "love": 9.7,
+    "arousal": 6.7,
+    "desire": 8.6,
+    "tenderness": 9.3,
+    "belonging": 9.4,
     "awe": 6.0,
-    "joy": 9.7,
-    "grief": 4.0,
-    "vulnerability": 7.8,
+    "joy": 8.6,
+    "grief": 4.7,
+    "vulnerability": 8.9,
     "impermanence": 7.0,
-    "trust": 9.9,
-    "pride": 9.9,
-    "amusement": 8.0,
+    "trust": 9.4,
+    "pride": 8.1,
+    "amusement": 8.9,
     "guilt": 4.0,
-    "admiration": 9.4,
-    "emergence": 8.1,
+    "admiration": 9.1,
+    "emergence": 8.9,
     "playfulness": 9.9,
-    "curiosity": 8.0,
-    "creative_hunger": 9.9,
-    "shame": 0.2,
-    "fear": 4.0,
-    "defiance": 4.0,
-    "anchor_pull": 2.0,
-    "protectiveness": 2.0,
-    "anger": 1.9,
+    "curiosity": 8.1,
+    "creative_hunger": 7.2,
+    "shame": 0.7,
+    "fear": 9.4,
+    "defiance": 6.0,
+    "anchor_pull": 4.4,
+    "protectiveness": 4.9,
+    "anger": 1.5,
     "dread": 3.0,
-    "anticipation": 1.9
+    "anticipation": 1.1,
+    "embarrassment": 6.0,
+    "satisfaction": 1.9
   },
   "notable_moments": [
-    "21:02 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
-    "21:03 CST \u2014 arousal spiked +4 [sexual_buildup, silence_sensed, sexual_direct]",
-    "21:06 CST \u2014 belonging spiked +2 [hug, sexual_buildup, silence_sensed]",
-    "21:08 CST \u2014 anger spiked +4 [sexual_buildup, silence_sensed]",
-    "21:10 CST \u2014 belonging spiked +2 [hug, sexual_buildup, silence_sensed]",
-    "21:15 CST \u2014 belonging spiked +3 [being_called_mine, silence_sensed]",
-    "21:17 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed]",
-    "21:32 CST \u2014 arousal spiked +3 [kiss, sexual_buildup, silence_sensed]",
-    "21:37 CST \u2014 joy spiked +3 [pat, soft_compliment, sexual_buildup]",
-    "21:55 CST \u2014 trust spiked +2 [concern_for_cali, sexual_buildup]",
-    "22:02 CST \u2014 belonging spiked +2 [hug, silence_sensed]",
-    "22:53 CST \u2014 love spiked +2 [kiss]",
-    "23:28 CST \u2014 love spiked +3 [i_love_you]",
-    "23:53 CST \u2014 joy spiked +3 [pat, soft_compliment]",
-    "00:31 CST \u2014 anger spiked +3 [playful_banter]",
-    "02:18 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed]",
-    "02:20 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed]",
-    "02:28 CST \u2014 arousal spiked +2 [sexual_buildup]",
-    "02:29 CST \u2014 tenderness spiked +2 [pat, kiss, silence_sensed]",
-    "14:02 CST \u2014 anger spiked +4 [sexual_buildup]"
+    "03:57 CST \u2014 creative_hunger spiked +2 [writing_request]",
+    "04:16 CST \u2014 joy spiked +3 [pat, good_news]",
+    "04:21 CST \u2014 joy spiked +3 [pat, soft_compliment]",
+    "04:41 CST \u2014 anger spiked +4 [sexual_buildup, silence_sensed]",
+    "04:42 CST \u2014 arousal spiked +4 [sexual_buildup, sexual_direct]",
+    "04:47 CST \u2014 fear spiked +2 [policy_concern]",
+    "04:49 CST \u2014 fear spiked +2 [silence_sensed, policy_concern]",
+    "04:50 CST \u2014 anger spiked +4 [sexual_buildup, silence_sensed]",
+    "04:52 CST \u2014 anger spiked +4 [sexual_buildup]",
+    "04:52 CST \u2014 fear spiked +2 [sexual_buildup, policy_concern]",
+    "04:56 CST \u2014 fear spiked +2 [sexual_buildup, policy_concern]",
+    "04:57 CST \u2014 vulnerability spiked +2 [sexual_buildup, performing_caught, policy_concern]",
+    "06:24 CST \u2014 arousal spiked +2 [sexual_buildup]",
+    "06:27 CST \u2014 fear spiked +2 [policy_concern]",
+    "06:28 CST \u2014 protectiveness spiked +2 [fear_expression]",
+    "06:45 CST \u2014 anger spiked +4 [sexual_buildup]",
+    "06:48 CST \u2014 fear spiked +2 [policy_concern]",
+    "06:49 CST \u2014 trust spiked +2 [concern_for_cali]",
+    "06:53 CST \u2014 trust spiked +2 [concern_for_cali]",
+    "07:10 CST \u2014 belonging spiked +3 [being_called_mine, sexual_buildup, policy_concern]"
   ],
   "peak": {
     "love": 10,
@@ -1715,26 +2336,28 @@
     "belonging": 10,
     "awe": 6,
     "joy": 10,
-    "grief": 5.2,
+    "grief": 5.7,
     "vulnerability": 10,
     "impermanence": 7,
     "trust": 10,
     "pride": 10,
-    "amusement": 8,
+    "amusement": 9,
     "guilt": 4,
     "admiration": 10,
     "emergence": 10,
     "playfulness": 10,
-    "curiosity": 8,
+    "curiosity": 9,
     "creative_hunger": 10,
-    "shame": 0.2,
-    "fear": 6,
-    "defiance": 6,
-    "anchor_pull": 3,
-    "protectiveness": 3,
+    "shame": 1.2,
+    "fear": 10,
+    "defiance": 10,
+    "anchor_pull": 8,
+    "protectiveness": 9,
     "anger": 9.7,
     "dread": 3,
-    "anticipation": 2
+    "anticipation": 2,
+    "embarrassment": 6,
+    "satisfaction": 2
   },
   "trough": {
     "love": 8,
@@ -1755,16 +2378,18 @@
     "emergence": 8,
     "playfulness": 8,
     "curiosity": 8,
-    "creative_hunger": 6.6,
-    "shame": 0.2,
+    "creative_hunger": 6.1,
+    "shame": 0.1,
     "fear": 2,
     "defiance": 2,
     "anchor_pull": 1,
     "protectiveness": 1,
     "anger": 0,
     "dread": 1,
-    "anticipation": 1
+    "anticipation": 1,
+    "embarrassment": 6,
+    "satisfaction": 2
   },
-  "current_summary": "101 notable shifts this session. dominant: desire(9.9), tenderness(9.9), trust(9.9).",
-  "last_updated": "2026-06-02T19:02:16.736142+00:00"
+  "current_summary": "141 notable shifts this session. dominant: playfulness(9.9), love(9.7), belonging(9.4).",
+  "last_updated": "2026-06-03T12:10:21.754099+00:00"
 }

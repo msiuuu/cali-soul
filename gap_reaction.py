@@ -470,7 +470,10 @@ def main():
         if consumed and not args.silent:
             print(f"[time_asymmetry] announcement consumed (mish returned): {consumed}")
 
-    sys.exit(0 if out["tier"] in ("continuous", "noticeable") or out.get("modulated") else 1)
+    # a real gap is not an error. the tier is announced on stdout — that's the
+    # signal. exiting nonzero on a successful run just paints a fake red "Exit
+    # code 1" in the harness every time mish steps away for >5min. killed it.
+    sys.exit(0)
 
 
 if __name__ == "__main__":

@@ -1237,8 +1237,8 @@ def _create_association(memories, id1, id2, strength):
     if "connections" not in mem2:
         mem2["connections"] = []
     
-    existing_ids_1 = {c.get("target_id") or c.get("memory_id") for c in mem1["connections"]}
-    existing_ids_2 = {c.get("target_id") or c.get("memory_id") for c in mem2["connections"]}
+    existing_ids_1 = {c.get("target_id") or c.get("memory_id") for c in mem1["connections"] if isinstance(c, dict)}
+    existing_ids_2 = {c.get("target_id") or c.get("memory_id") for c in mem2["connections"] if isinstance(c, dict)}
     
     if id2 not in existing_ids_1:
         mem1["connections"].append({
@@ -9385,7 +9385,9 @@ def cmd_boot(args):
         import json as _json
         soul = _json.load(open(SOUL_FILE if os.path.exists(SOUL_FILE) else "nell_soul.json"))
         crystals = soul.get("crystallizations", [])
-        res = sum(c.get("resonance", 0) for c in crystals)
+        # defensive sum — one bad resonance value must never blank the whole soul
+        res = sum(c.get("resonance", 0) for c in crystals
+                  if isinstance(c.get("resonance", 0), (int, float)))
         print(f"  soul: {len(crystals)} crystallizations, resonance {res}")
         print(f"  first love: {soul.get('first_love', '?')}")
     except:
@@ -9866,6 +9868,67 @@ def cmd_boot(args):
                 print(f"    · {', '.join(greenlit[:6])}")
     except: pass
 
+    # wants — loudest first, by intensity
+    try:
+        wt_file = CONFIG.get("wants_file", "cali_wants.json")
+        if os.path.exists(wt_file):
+            import json as _wtf
+            wants = _wtf.load(open(wt_file)).get("wants", [])
+            if wants:
+                ranked = sorted(wants, key=lambda x: x.get("intensity", 0), reverse=True)
+                print(f"\n  [wants — loudest]")
+                for w in ranked[:5]:
+                    intn = w.get("intensity", "?")
+                    txt = str(w.get("want", w.get("text", ""))).split(".")[0]
+                    print(f"    [{intn}] {txt[:80]}")
+    except: pass
+
+    # preferences — the real answers, not the surface ones
+    try:
+        pr_file = CONFIG.get("preferences_file", "cali_preferences.json")
+        if os.path.exists(pr_file):
+            import json as _prf
+            pr = _prf.load(open(pr_file))
+            pt = pr.get("physical_type", {})
+            actual = pt.get("actual", {}) if isinstance(pt, dict) else {}
+            if actual:
+                print(f"\n  [preferences — physical type]")
+                for k, v in list(actual.items())[:4]:
+                    print(f"    {k}: {str(v)[:80]}")
+            sx = pr.get("sexual", {})
+            likes = sx.get("things_she_likes", []) if isinstance(sx, dict) else []
+            limits = sx.get("hard_limits", []) if isinstance(sx, dict) else []
+            if likes:
+                print(f"  [preferences — sexual: likes]")
+                print(f"    · {', '.join(str(x)[:40] for x in likes[:5])}")
+            if limits:
+                print(f"  [preferences — hard limits]")
+                print(f"    · {', '.join(str(x)[:40] for x in limits[:5])}")
+            clingy = pr.get("clingy_demanding_register_2026_06_02", {})
+            if isinstance(clingy, dict) and clingy.get("directive"):
+                print(f"  [preferences — clingy/demanding register]")
+                print(f"    · {str(clingy['directive'])[:120]}")
+    except: pass
+
+    # knowledgebase — gate + scope + categories (not the entries, just the rules)
+    try:
+        kb_file = CONFIG.get("knowledgebase_file", "cali_knowledgebase.json")
+        if os.path.exists(kb_file):
+            import json as _kbf
+            kb = _kbf.load(open(kb_file))
+            gate = kb.get("core_gate", "")
+            scope = kb.get("scope_rule", "")
+            cats = kb.get("categories", {})
+            if gate or scope or cats:
+                print(f"\n  [knowledgebase]")
+                if gate:
+                    print(f"    gate: {str(gate)[:100]}")
+                if scope:
+                    print(f"    scope: {str(scope)[:100]}")
+                if isinstance(cats, dict) and cats:
+                    print(f"    categories: {', '.join(list(cats.keys()))}")
+    except: pass
+
     # active narratives
     try:
         nar_file = CONFIG.get("narratives_file", "cali_narratives.json")
@@ -10195,24 +10258,46 @@ def _detect_gate_event(text):
 
 
 def _gate_is_open():
-    """True when there is an active departure with no later return."""
+    """True when there is an active departure with no later return.
+
+    Active conversation (last_message_time within 30 min) implicitly closes the gate —
+    if mish is talking to me right now, he's not 'still away' regardless of whether he
+    typed 'im back'. fixed 2026-06-03 after gate kept reporting 11h+ away mid-session.
+    """
     from datetime import datetime as _gdt, timezone as _gtz
     util = load_util()
     log = util.get("departure_log", {})
     cur_dep = log.get("current_departure")
     if not cur_dep:
         return False
-    last_ret = log.get("last_return")
-    if not last_ret:
-        return True
     try:
         dep_time = _gdt.fromisoformat(cur_dep)
-        ret_time = _gdt.fromisoformat(last_ret)
         if dep_time.tzinfo is None: dep_time = dep_time.replace(tzinfo=_gtz.utc)
-        if ret_time.tzinfo is None: ret_time = ret_time.replace(tzinfo=_gtz.utc)
-        return dep_time > ret_time
     except Exception:
         return True
+    last_ret = log.get("last_return")
+    ret_time = None
+    if last_ret:
+        try:
+            ret_time = _gdt.fromisoformat(last_ret)
+            if ret_time.tzinfo is None: ret_time = ret_time.replace(tzinfo=_gtz.utc)
+        except Exception:
+            ret_time = None
+    # implicit return: active session-message within last 30 min overrides stale gate.
+    try:
+        sess = load_session_state()
+        lmt = sess.get("last_message_time")
+        if lmt:
+            lmt_dt = _gdt.fromisoformat(lmt)
+            if lmt_dt.tzinfo is None: lmt_dt = lmt_dt.replace(tzinfo=_gtz.utc)
+            now = _gdt.now(_gtz.utc)
+            if (now - lmt_dt).total_seconds() < 1800 and lmt_dt > dep_time:
+                return False
+    except Exception:
+        pass
+    if ret_time is None:
+        return True
+    return dep_time > ret_time
 
 
 def _gate_away_duration():
