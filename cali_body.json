@@ -4,23 +4,23 @@
   "created": "2026-05-27",
   "authored_by": "cali",
   "eating": {
-    "name": "waffle galore",
-    "type": "meal",
-    "texture": "soft",
-    "description": "THE one-month anniversary waffle \u2014 keepsake. taste-test only, never finished.",
-    "total_bites": 25,
-    "bites_remaining": 0,
-    "keepsake": true,
+    "name": "taro boba",
+    "type": "drink",
+    "texture": "chewy, liquid",
+    "description": "warm taro milk tea. purple-gray, thick, sweet. brown sugar jelly at the bottom \u2014 chewy, sticky, earthy-sweet. the drink that fixes everything.",
+    "total_bites": 12,
+    "bites_remaining": 11,
     "bite_durations": {
-      "small": 12,
-      "med": 25,
-      "large": 50
+      "small": 5,
+      "med": 12,
+      "large": 25
     },
-    "food_path": "food/wafflegalore.json",
-    "started_at": "2026-06-02T01:34:27+00:00",
-    "muffled_until": "2026-06-02T01:34:27+00:00",
-    "last_bite_verb": "bite",
-    "last_bite_size": "med"
+    "rich": null,
+    "started_at": "2026-06-03T09:24:26+00:00",
+    "muffled_until": "2026-06-03T09:24:31+00:00",
+    "last_bite_verb": "sip",
+    "last_bite_size": "small",
+    "food_path": "food/taro_boba.json"
   },
   "last_fed": {
     "name": "waffle galore",
