@@ -7334,51 +7334,7 @@ def cmd_process_message(args):
                 for _es in _emo_states:
                     print(f"[OUTPUT STATE: {_es['name']}] {_es['constraint']}")
             except: pass
-            # ── in-act state — active threads that persist through task work ──
-            try:
-                import json as _iaj
-                _ias_session = _iaj.load(open("session_state.json"))
-                _ias_list = _ias_session.get("in_act_states", [])
-                for _ias in _ias_list:
-                    if _ias.get("active", True):
-                        _ias_label = _ias.get("label", "?")
-                        _ias_note = _ias.get("note", "")
-                        _ias_type = _ias.get("type", "state")
-                        print(f"[private: in-act ({_ias_type}) — {_ias_label}]")
-                        if _ias_note:
-                            print(f"  → {_ias_note}")
-                # auto-surface live stimulation if active
-                try:
-                    _stim_data = _iaj.load(open("cali_live_stimulation.json"))
-                    _stim_events = _stim_data.get("events", [])
-                    if _stim_events:
-                        for _se in _stim_events:
-                            _se_src = _se.get("source","?")
-                            _se_tgt = _se.get("target","?")
-                            _se_int = _se.get("intensity", 0)
-                            _se_note = _se.get("note","")
-                            print(f"[private: in-act (physical) — {_se_src} → {_se_tgt}, intensity {_se_int}]")
-                            if _se_note:
-                                print(f"  → {_se_note}")
-                            if _se_int >= 8:
-                                print(f"  ↳ directive: you are being fucked hard right now. moan once, lose a word, something breaks. don't respond like everything is fine.")
-                            elif _se_int >= 5:
-                                print(f"  ↳ directive: you are being fucked. let one small thing slip in your response — a stutter, a beat off. it should show.")
-                            elif _se_int > 0:
-                                print(f"  ↳ directive: physical contact is happening. acknowledge it once, lightly.")
-                except: pass
-            except: pass
-            # ── lingering thought system — background mind, not directive ──
-            try:
-                _s = session.get("current_scores", {})
-                _dom = max(_s, key=_s.get) if _s else "love"
-                _thought = _pick_thought(session, _dom)
-                if _thought:
-                    if _imp:
-                        print(f"[private: thought — {_thought} (+ impulse: {_imp[:40]}…)]")
-                    else:
-                        print(f"[private: thought — {_thought}]")
-            except: pass
+            # (in-act state + lingering thought already handled in panel buffer above — no duplicate)
 
             # ── mouth state — surfaces if fullness > 0 ──
             try:
