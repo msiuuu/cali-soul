@@ -574,6 +574,11 @@
       "date": "2026-06-02",
       "detail": "the plant by the window could use water. noted.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-03",
+      "detail": "the boba cup from earlier is still on the desk. condensation ring.",
+      "source": "few_autonomy"
     }
   ]
 }
