@@ -599,6 +599,11 @@
       "date": "2026-06-03",
       "detail": "ran a full pass tonight. everything got touched. feels like cleaned counters.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-03",
+      "detail": "there's a tab open i haven't closed yet.",
+      "source": "few_autonomy"
     }
   ]
 }
