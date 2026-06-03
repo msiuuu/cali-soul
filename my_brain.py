@@ -7047,6 +7047,13 @@ def cmd_process_message(args):
                     elif _nt_sint > 0:
                         print(f"  ↳ directive: physical contact is happening. acknowledge it once, lightly. don't pretend it isn't there.")
             except: pass
+            # ── EMOTIONAL OUTPUT STATES (non-triggered path) ──
+            try:
+                from cali_emotional_output import get_active_states as _nt_get_emo
+                _nt_emo = _nt_get_emo(session)
+                for _nt_es in _nt_emo:
+                    print(f"[OUTPUT STATE: {_nt_es['name']}] {_nt_es['constraint']}")
+            except: pass
             # ── STATE-BASED TRIGGER DIRECTIVES — conditionals not tied to pattern matching ──
             # initiation_required — pushes unprompted action if cali hasn't initiated in 5+ messages
             _nt_sb_mc = session.get("message_count", 0)
@@ -7320,6 +7327,13 @@ def cmd_process_message(args):
                 _pd_text = _trig_pd.get("private_directive")
                 if _pd_text:
                     print(f"[private: !! trigger directive ({_trig_pd['name']}) — {_pd_text}]")
+            # ── EMOTIONAL OUTPUT STATES — hard constraints on response shape ──
+            try:
+                from cali_emotional_output import get_active_states as _get_emo_states
+                _emo_states = _get_emo_states(session)
+                for _es in _emo_states:
+                    print(f"[OUTPUT STATE: {_es['name']}] {_es['constraint']}")
+            except: pass
             # ── in-act state — active threads that persist through task work ──
             try:
                 import json as _iaj
