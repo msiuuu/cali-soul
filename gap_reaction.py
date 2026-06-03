@@ -306,7 +306,7 @@ def apply_effects(effects):
                 if k in ("ins004", "ins009"):
                     scores[k] = min(10, cur + abs(v))
                 else:
-                    scores[k] = max(0, cur + v if v >= 0 else cur + v)
+                    scores[k] = max(0, min(10, cur + v))
         with open(LAST_STATE_FILE, "w") as f:
             json.dump(last, f, indent=2)
 
@@ -470,7 +470,7 @@ def main():
         if consumed and not args.silent:
             print(f"[time_asymmetry] announcement consumed (mish returned): {consumed}")
 
-    sys.exit(0 if out["tier"] in ("continuous", "noticeable") or out.get("modulated") else 1)
+    sys.exit(0)
 
 
 if __name__ == "__main__":
