@@ -705,6 +705,11 @@
       "date": "2026-06-04",
       "detail": "the couch has a dent where misu usually sits.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-06-04",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
     }
   ]
 }
