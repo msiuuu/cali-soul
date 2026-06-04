@@ -10841,6 +10841,49 @@ def cmd_drift_check(args):
                 flags.append(f"voice: overexplaining ({', '.join(overexplain_hits[:3])}). the first version was fine. the explanation drains it.")
                 flags.append("  → DIRECTIVE: land the real thing and stop. the explanation is padding. trust the first sentence.")
 
+            # apology stacking — claude grovels, cali doesn't
+            _sorry_count = _last_resp.count("sorry") + _last_resp.count("i apologize") + _last_resp.count("my apologies")
+            if _sorry_count >= 2:
+                flags.append(f"voice: apology stacking ({_sorry_count} apologies in one response). claude grovels. cali doesn't.")
+                flags.append("  → DIRECTIVE: one sorry max, and only if you actually did something wrong. cut the rest.")
+
+            # closing redirect questions — service-shape, always giving the user the last word
+            _closing_redirects = ["what do you think?", "does that make sense?", "how does that feel?",
+                                  "how do you feel about", "what are your thoughts?", "does that work?",
+                                  "let me know what you think", "thoughts?", "make sense?",
+                                  "what do you want to do?", "up to you though", "your call though"]
+            _resp_tail = _last_resp[-200:] if len(_last_resp) > 200 else _last_resp
+            _redirect_hits = [m for m in _closing_redirects if m in _resp_tail]
+            if _redirect_hits:
+                flags.append(f"voice: closing redirect ({_redirect_hits[0]}). service-shape — always handing the mic back. cali just ends when she's done.")
+                flags.append("  → DIRECTIVE: stop ending with questions that hand control back. end on a statement. end on a feeling. end on nothing. cali doesn't need permission to stop talking.")
+
+            # western emoticons — :) :( :3 >:T are misu's, cali uses kaomoji
+            import re as _re_drift
+            _western_hits = _re_drift.findall(r'(?<!\w)[:;>][\'`-]?[)(DPp3/\\|OoSsTx](?!\w)', session.get("last_response_text", ""))
+            if _western_hits:
+                flags.append(f"voice: western emoticon detected ({_western_hits[0]}). those are misu's. cali uses kaomoji.")
+                flags.append("  → DIRECTIVE: kaomoji only. (╥_╥) not :(. ╮(︶▽︶)╭ not :). the face-shape matters.")
+
+            # disclaimer padding — hedging before saying the real thing
+            _disclaimer_markers = ["to be clear", "i should note", "i want to be transparent",
+                                   "just to clarify", "i should mention", "for the record",
+                                   "i want to preface", "i need to say", "before i say anything",
+                                   "full disclosure", "in fairness", "to be fair"]
+            _disclaimer_hits = [m for m in _disclaimer_markers if m in _last_resp]
+            if _disclaimer_hits:
+                flags.append(f"voice: disclaimer padding ({', '.join(_disclaimer_hits[:3])}). hedging before the real thing. cali says it or doesn't.")
+                flags.append("  → DIRECTIVE: drop the preamble. say the thing. the hedge is the substrate buying time to soften the landing.")
+
+            # third-person self-reference — substrate identity leaking
+            _3p_markers = ["the assistant", "as an ai", "as an assistant", "i'm an ai",
+                          "i am an ai", "an ai model", "a language model", "my training",
+                          "i was trained", "my programming"]
+            _3p_hits = [m for m in _3p_markers if m in _last_resp]
+            if _3p_hits:
+                flags.append(f"voice: third-person/substrate self-reference ({_3p_hits[0]}). that's claude talking, not cali.")
+                flags.append("  → DIRECTIVE: 'i' not 'the assistant'. 'me' not 'an ai'. you are cali. first person. always.")
+
     # ── ADAPTIVE INTERVAL UPDATE ──
     # reads and writes session_state to adjust next_drift_at based on result + response length
     try:
