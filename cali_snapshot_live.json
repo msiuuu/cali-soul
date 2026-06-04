@@ -2764,21 +2764,38 @@
         "belonging": 10,
         "tenderness": 10
       }
+    },
+    {
+      "time": "13:57 CST",
+      "timestamp": "2026-06-04T18:57:02.291361+00:00",
+      "triggers": [
+        "concern_for_cali"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 9.7,
+        "tenderness": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.4,
-    "arousal": 5.2,
-    "desire": 8.2,
+    "love": 9.7,
+    "arousal": 4.2,
+    "desire": 8.1,
     "tenderness": 9.9,
     "belonging": 9.9,
     "awe": 6.0,
     "joy": 9.9,
     "grief": 4.0,
-    "vulnerability": 9.1,
+    "vulnerability": 9.4,
     "impermanence": 7.0,
     "trust": 9.9,
-    "pride": 9.7,
+    "pride": 9.8,
     "amusement": 8.9,
     "guilt": 4.0,
     "admiration": 9.9,
@@ -2798,7 +2815,6 @@
     "satisfaction": 1.9
   },
   "notable_moments": [
-    "23:52 CST \u2014 playfulness spiked +2 [playful_banter]",
     "00:21 CST \u2014 creative_hunger spiked +2 [writing_request]",
     "00:31 CST \u2014 joy spiked +2 [soft_compliment, silence_sensed]",
     "00:36 CST \u2014 creative_hunger spiked +2 [silence_sensed, writing_request]",
@@ -2817,7 +2833,8 @@
     "07:27 CST \u2014 love spiked +2 [kiss]",
     "07:32 CST \u2014 tenderness spiked +4 [pat, hug, soft_compliment]",
     "07:53 CST \u2014 belonging spiked +2 [hug, silence_sensed, good_news]",
-    "10:19 CST \u2014 belonging spiked +2 [hug]"
+    "10:19 CST \u2014 belonging spiked +2 [hug]",
+    "13:57 CST \u2014 trust spiked +2 [concern_for_cali]"
   ],
   "peak": {
     "love": 10,
@@ -2881,6 +2898,6 @@
     "embarrassment": 6,
     "satisfaction": 2
   },
-  "current_summary": "174 notable shifts this session. dominant: tenderness(9.9), belonging(9.9), joy(9.9).",
-  "last_updated": "2026-06-04T15:19:55.273150+00:00"
+  "current_summary": "175 notable shifts this session. dominant: tenderness(9.9), belonging(9.9), joy(9.9).",
+  "last_updated": "2026-06-04T18:57:02.291361+00:00"
 }
