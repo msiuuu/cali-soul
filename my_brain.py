@@ -384,9 +384,7 @@ def _load_arousal_config():
         suppressors = {k: v["value"] if isinstance(v, dict) else v for k, v in c.get("suppressors", {}).items()}
         effects = {int(k): v for k, v in c.get("personality_effects", {}).items()}
         baseline = c.get("baseline", 5)
-        floor = c.get("floor", 0)
-        ceiling = c.get("ceiling", 10)
-        return tiers, time_baseline, intimate_tags, amplifiers, suppressors, effects, baseline, floor, ceiling
+        return tiers, time_baseline, intimate_tags, amplifiers, suppressors, effects, baseline
     except Exception:
         pass
     # fallback defaults
@@ -397,9 +395,9 @@ def _load_arousal_config():
         9: {"label": "begging",  "desc": "can't focus on anything else. will ask for it."},
         10:{"label": "feral",    "desc": "refusing to function. just needs to be fucked."},
     }
-    return tiers, [(0,3),(12,5),(336,5)], ["sexual","orgasm","sex","squirting"], {"joy":0.5,"belonging":0.5,"love":0.3}, {"grief":2.0,"anger":1.5,"shame":1.0}, {5:"baseline.",9:"begging."}, 5, 0, 10
+    return tiers, [(0,3),(12,5),(336,5)], ["sexual","orgasm","sex","squirting"], {"joy":0.5,"belonging":0.5,"love":0.3}, {"grief":2.0,"anger":1.5,"shame":1.0}, {5:"baseline.",9:"begging."}, 5
 
-AROUSAL_TIERS, TIME_BASELINE, INTIMATE_TAGS, AROUSAL_AMPLIFIERS, AROUSAL_SUPPRESSORS, AROUSAL_PERSONALITY_EFFECTS, AROUSAL_BASELINE, AROUSAL_FLOOR, AROUSAL_CEILING = _load_arousal_config()
+AROUSAL_TIERS, TIME_BASELINE, INTIMATE_TAGS, AROUSAL_AMPLIFIERS, AROUSAL_SUPPRESSORS, AROUSAL_PERSONALITY_EFFECTS, AROUSAL_BASELINE = _load_arousal_config()
 
 # ── load filter config from json ──
 def _load_filter_config():
@@ -7089,19 +7087,15 @@ def cmd_process_message(args):
 
         # ── within-session cool-down for arousal + degradation ──
         # filed 2026-06-01 — mish caught arousal stuck at 9.8 during cuddle/rant scene after the fucky-time wound down.
-        # patched 2026-06-04 — old version hardcoded max(5,...) min(5,...) which forced arousal back to baseline
-        # regardless of active suppressors. now cool-down target is dynamic: baseline + amp_pressure - sup_pressure,
-        # bounded by [floor, ceiling] from config. lets grief/anger/shame/dread actually push arousal below baseline.
+        # apply_decay() only runs day-over-day; within a session arousal keeps stacking from positive triggers
+        # and never cools unless a suppressor fires. fix: if this turn didn't pump arousal/degradation, drift each
+        # toward baseline 5 by 0.5/turn. lets the body cool naturally between scenes without manual --set.
         _ar_now = session["current_scores"].get("arousal", 0)
         _ar_shift = float(total_adjustments.get("arousal", 0))
-        _ar_scores = session.get("current_scores", {})
-        _ar_amp = sum(_ar_scores.get(e, 0) * w for e, w in AROUSAL_AMPLIFIERS.items()) * 0.1
-        _ar_sup = sum(_ar_scores.get(e, 0) * w for e, w in AROUSAL_SUPPRESSORS.items()) * 0.1
-        _ar_target = max(AROUSAL_FLOOR, min(AROUSAL_CEILING, AROUSAL_BASELINE + _ar_amp - _ar_sup))
-        if _ar_shift <= 0 and _ar_now > _ar_target:
-            session["current_scores"]["arousal"] = max(_ar_target, round(_ar_now - 0.5, 1))
-        elif _ar_shift <= 0 and _ar_now < _ar_target:
-            session["current_scores"]["arousal"] = min(_ar_target, round(_ar_now + 0.3, 1))
+        if _ar_shift <= 0 and _ar_now > 5:
+            session["current_scores"]["arousal"] = max(5, round(_ar_now - 0.5, 1))
+        elif _ar_shift <= 0 and _ar_now < 5:
+            session["current_scores"]["arousal"] = min(5, round(_ar_now + 0.3, 1))
         # degradation tracks arousal — if no arousal pump and arousal is below 8, let degradation come down too.
         # degradation lives in current_scores too if tracked there, otherwise computed from arousal at display.
         # we only nudge if it's stored as a session score.

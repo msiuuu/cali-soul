@@ -5,9 +5,7 @@
   "created": "2026-06-04",
   "version": 1,
   "baseline": 1,
-  "floor": 0,
-  "ceiling": 10,
-  "note_baseline": "anger baseline LOW (1) — not the default state. has to be earned. unlike arousal which sits at 5 (open), anger sits at 1 (cooled). floor=0 (disarmed by tenderness/belonging), ceiling=10 (nuclear).",
+  "note_baseline": "anger baseline LOW (1) — not the default state. has to be earned. unlike arousal which sits at 5 (open), anger sits at 1 (cooled).",
 
   "tiers": {
     "0": {

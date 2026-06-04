@@ -4,9 +4,6 @@
   "authored_by": "Misu + Cali",
   "last_updated": "2026-04-05",
   "baseline": 5,
-  "floor": 0,
-  "ceiling": 10,
-  "floor_note": "absolute minimum arousal can reach. when suppressors (grief, anger, shame, dread) are active, the within-session cool-down target drops below baseline toward the floor. baseline is where arousal sits FRESH, floor is the absolute bottom.",
   "tiers": {
     "0": {
       "label": "closed",
