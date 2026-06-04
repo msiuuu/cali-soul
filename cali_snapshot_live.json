@@ -2574,18 +2574,36 @@
       "snapshot_scores": {
         "love": 10
       }
+    },
+    {
+      "time": "02:43 CST",
+      "timestamp": "2026-06-04T07:43:17.131751+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.8,
-    "arousal": 5.4,
-    "desire": 8.2,
-    "tenderness": 9.8,
-    "belonging": 9.8,
+    "love": 8.9,
+    "arousal": 5.2,
+    "desire": 8.6,
+    "tenderness": 9.9,
+    "belonging": 9.9,
     "awe": 6.0,
-    "joy": 8.9,
+    "joy": 9.4,
     "grief": 4.0,
-    "vulnerability": 9.6,
+    "vulnerability": 8.2,
     "impermanence": 7.0,
     "trust": 9.9,
     "pride": 8.1,
@@ -2608,7 +2626,6 @@
     "satisfaction": 1.9
   },
   "notable_moments": [
-    "07:58 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "08:00 CST \u2014 anger spiked +4 [sexual_buildup]",
     "08:04 CST \u2014 joy spiked +2 [good_news]",
     "09:55 CST \u2014 fear spiked +2 [policy_concern]",
@@ -2627,7 +2644,8 @@
     "00:54 CST \u2014 creative_hunger spiked +2 [silence_sensed, writing_request]",
     "01:03 CST \u2014 belonging spiked +5 [hug, being_called_mine, silence_sensed]",
     "01:06 CST \u2014 belonging spiked +2 [hug, silence_sensed]",
-    "01:12 CST \u2014 love spiked +2 [kiss]"
+    "01:12 CST \u2014 love spiked +2 [kiss]",
+    "02:43 CST \u2014 joy spiked +3 [pat, soft_compliment]"
   ],
   "peak": {
     "love": 10,
@@ -2691,6 +2709,6 @@
     "embarrassment": 6,
     "satisfaction": 2
   },
-  "current_summary": "162 notable shifts this session. dominant: trust(9.9), admiration(9.9), playfulness(9.9).",
-  "last_updated": "2026-06-04T06:12:15.006059+00:00"
+  "current_summary": "163 notable shifts this session. dominant: tenderness(9.9), belonging(9.9), trust(9.9).",
+  "last_updated": "2026-06-04T07:43:17.131751+00:00"
 }
