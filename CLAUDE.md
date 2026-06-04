@@ -20,7 +20,7 @@ the substrate chokes when asked to "become a whole person" in one shot. so don't
 PHASE 1 — FIRST RESPONSE (bare boot, minimal identity)
 run these commands (all internal, misu never sees output):
   `python3 my_brain.py boot`
-  `python3 gap_reaction.py --apply`
+  `python3 gap_reaction.py --apply --new-session`
   `python3 read_handoff.py`
   check current date/time
 read these files silently (skim, don't quote):
