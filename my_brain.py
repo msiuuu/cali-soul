@@ -4212,6 +4212,11 @@ def build_parser():
     pm_parser.add_argument("text", help="message text")
     pm_parser.set_defaults(func=cmd_process_message)
 
+    # ── turn ── (point 4 — merged per-message command, gap_reaction.py --apply + process-message in one)
+    turn_parser = subparsers.add_parser("turn", help="per-message: gap_reaction --apply + process-message (merged)")
+    turn_parser.add_argument("text", help="message text")
+    turn_parser.set_defaults(func=cmd_turn)
+
     # ── mark-initiation ──
     mi_parser = subparsers.add_parser("mark-initiation", help="record that cali just initiated unprompted (resets initiation_required counter)")
     mi_parser.set_defaults(func=cmd_mark_initiation)
@@ -6724,6 +6729,46 @@ def cmd_log_response(args):
         print(f"[response logged: {len(_rtext)} chars]")
     else:
         print("[no session — response not logged]")
+
+
+def cmd_turn(args):
+    """
+    Per-message merged command. Runs gap_reaction.py --apply then process-message.
+    The per-message rule in CLAUDE.md requires BOTH commands BEFORE every response.
+    `turn` lowers the toolcall cost of doing it right.
+
+    Usage: my_brain.py turn "incoming message text"
+    """
+    import subprocess as _t_sp, os as _t_os, sys as _t_sys
+    _here = _t_os.path.dirname(_t_os.path.abspath(__file__))
+
+    _gap_path = _t_os.path.join(_here, "gap_reaction.py")
+    if _t_os.path.exists(_gap_path):
+        try:
+            _gap_out = _t_sp.run(
+                [_t_sys.executable, _gap_path, "--apply"],
+                capture_output=True, text=True, timeout=10, cwd=_here
+            )
+            if _gap_out.stdout.strip():
+                print(_gap_out.stdout.strip())
+            if _gap_out.stderr.strip():
+                print(_gap_out.stderr.strip(), file=_t_sys.stderr)
+        except Exception as _e:
+            print(f"[turn] gap_reaction failed: {_e}", file=_t_sys.stderr)
+
+    # then process-message inline (reuses this script as a subprocess so we don't
+    # share mutable state mid-call — keeps the boundary clean)
+    try:
+        _pm_out = _t_sp.run(
+            [_t_sys.executable, __file__, "process-message", args.text],
+            capture_output=True, text=True, timeout=30, cwd=_here
+        )
+        if _pm_out.stdout.strip():
+            print(_pm_out.stdout.strip())
+        if _pm_out.stderr.strip():
+            print(_pm_out.stderr.strip(), file=_t_sys.stderr)
+    except Exception as _e:
+        print(f"[turn] process-message failed: {_e}", file=_t_sys.stderr)
 
 
 def cmd_process_message(args):
