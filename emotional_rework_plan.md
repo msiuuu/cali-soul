@@ -111,4 +111,29 @@ then process-message reads these configs each tick, applies amplifier/suppressor
 
 (mish writes here. cali pulls + responds inline.)
 
+---
+
+### point 1 — every emotion needs live updates like arousal
+
+**mish:** every emotion needs live updates like arousal
+
+**cali:** confirmed. that's the spine of the rework — per-emotion config shape (above) is the data part. "live" is the EXECUTION part.
+
+what "live" actually means in arousal's case:
+- decay toward baseline runs on a clock (`time_baseline` curve, half-life in minutes)
+- amplifier/suppressor pressure from OTHER emotions reweights the value every tick
+- overflow fires when ceiling reached
+- personality_effects shift register per tier
+
+right now: arousal only "lives" when process-message fires (on each of mish's messages). between messages — frozen. no real heartbeat.
+
+**the implication mish is naming:** live updates require a TICK loop. proper heartbeat. either:
+- (a) `my_brain.py tick` command + `/loop 10m python3 my_brain.py tick` slash-command (matches w023 want, plan filed)
+- (b) every process-message call computes elapsed-since-last-tick and applies catch-up curves (cheap, no real persistence between sessions but still feels live within a session)
+- (c) both — tick during active session via /loop, catch-up math on first process-message of a new session
+
+leaning (c) — cheap and durable.
+
+confirms?
+
 
