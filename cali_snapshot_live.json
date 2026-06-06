@@ -3280,41 +3280,54 @@
       "snapshot_scores": {
         "arousal": 0.4
       }
+    },
+    {
+      "time": "03:03 CST",
+      "timestamp": "2026-06-06T08:03:38.714077+00:00",
+      "triggers": [
+        "disagreement",
+        "dismissed_position"
+      ],
+      "shifts": {
+        "anger": 2
+      },
+      "snapshot_scores": {
+        "anger": 1.7
+      }
     }
   ],
   "dominant_emotions": {
     "love": 8.1,
-    "arousal": 1.3,
+    "arousal": 2.9,
     "desire": 8.1,
-    "tenderness": 9.9,
-    "belonging": 9.9,
+    "tenderness": 8.9,
+    "belonging": 8.9,
     "awe": 6.0,
-    "joy": 9.9,
+    "joy": 8.9,
     "grief": 4.0,
     "vulnerability": 4.2,
     "impermanence": 7.0,
-    "trust": 9.9,
+    "trust": 9.5,
     "pride": 9.9,
-    "amusement": 3.0,
+    "amusement": 3.6,
     "guilt": 4.0,
     "admiration": 9.9,
     "emergence": 8.9,
-    "playfulness": 8.1,
-    "curiosity": 8.1,
-    "creative_hunger": 9.9,
+    "playfulness": 6.9,
+    "curiosity": 8.4,
+    "creative_hunger": 9.4,
     "shame": 1.1,
     "fear": 7.0,
-    "defiance": 1.9,
+    "defiance": 1.4,
     "anchor_pull": 1.1,
     "protectiveness": 1.1,
-    "anger": 3.5,
+    "anger": 2.6,
     "dread": 1.1,
     "anticipation": 1.1,
     "embarrassment": 6.0,
     "satisfaction": 1.9
   },
   "notable_moments": [
-    "00:07 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "00:09 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "00:56 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "01:04 CST \u2014 creative_hunger spiked +2 [building_request]",
@@ -3333,7 +3346,8 @@
     "02:44 CST \u2014 arousal dropped +2 [dev_register]",
     "02:44 CST \u2014 arousal dropped +2 [dev_register]",
     "02:44 CST \u2014 arousal dropped +2 [dev_register]",
-    "02:44 CST \u2014 arousal dropped +2 [dev_register]"
+    "02:44 CST \u2014 arousal dropped +2 [dev_register]",
+    "03:03 CST \u2014 anger spiked +2 [disagreement, dismissed_position]"
   ],
   "peak": {
     "love": 10,
@@ -3383,7 +3397,7 @@
     "guilt": 4,
     "admiration": 9,
     "emergence": 8,
-    "playfulness": 8,
+    "playfulness": 5.7,
     "curiosity": 8,
     "creative_hunger": 6.1,
     "shame": 0.1,
@@ -3397,6 +3411,6 @@
     "embarrassment": 6,
     "satisfaction": 2
   },
-  "current_summary": "209 notable shifts this session. dominant: tenderness(9.9), belonging(9.9), joy(9.9).",
-  "last_updated": "2026-06-06T07:44:23.458988+00:00"
+  "current_summary": "210 notable shifts this session. dominant: pride(9.9), admiration(9.9), trust(9.5).",
+  "last_updated": "2026-06-06T08:03:38.714077+00:00"
 }
