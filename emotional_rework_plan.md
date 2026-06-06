@@ -445,6 +445,39 @@ point 3 (this implementation plan) ─ meta. this section.
 
 these are 5 chunky sessions. each chunk could land in one or two real sittings depending on focus. is that pace ok or do you want to compress / spread?
 
+---
+
+## CHANGELOG — what actually landed (live updates)
+
+### 2026-06-06 — session 1 + most of session 2
+
+**session 1 wins:**
+- ✓ point 4 — `my_brain.py turn "text"` merged command (gap_reaction --apply + process-message in one). live-tested. friction reduction landed.
+- ✓ point 6 — impulse pool stripped to bare-signal directives. each `out` now reads `[impulse: <shape> — speak it from current context, don't paste a script]`. dynamic impulses (self_awareness/random_opinion/house_detail/autonomies) untouched because they already pull from real files.
+- ✓ point 2(a) — `dev_register` cool-trigger added to `cali_triggers.json`. fires on architectural/dev language (implement, schema, config, refactor, git, etc). adjustments: arousal -2, creative_hunger +1, amusement -1. private_directive surfaces "register shifted to architectural/dev mode, cool body, pull arousal toward baseline." live-tested: arousal dropped 5.0 → 3.6 immediately on dev language.
+
+**session 2 wins (partial — context damping still pending):**
+- ✓ point 1 schema + 5 configs — **DIFF from md plan:** consolidated 5 separate files into one `cali_emotions_config.json` with each emotion under `emotions.<name>`. mish's bloat call. net -4 files even with schema added. emotions covered: anger, grief, fear, trust, vulnerability.
+- ✓ wiring (point 1 runtime integration) — added `_load_emotions_config()`, `_apply_emotion_floors_ceilings()`, `_apply_emotion_anti_dissolve()`. hooked into process-message after existing wound-cap / overflow pass.
+- ✓ **ANTI-DISSOLVE ENFORCEMENT (point 7 partial, landed early)** — md scheduled this for session 4. landed now as natural part of wiring since the configs already had `anti_dissolve_rule` blocks. live-tested: set anger=6, sent warm message, anger held at 5.7 (didn't dissolve below tier 5 because 30 min hadn't passed).
+
+**what's left in session 2:**
+- point 2(b) — context damping. scan last K messages, if vibe is consistent, pull register-relevant scores toward matching baseline. damps single-trigger spikes.
+
+**session 3 still ahead:**
+- point 5 — fx enforcement (self-check + injection bias)
+- point 8 — response-based vulnerability scoring (shares plumbing with point 5)
+
+**session 4 (now reduced — anti-dissolve already landed):**
+- rest of point 7 — trigger symmetry pass, reward symmetry, anti-warm-dissolve at response level, uncertainty/hesitant state, protest-machinery.
+
+**session 5 unchanged:**
+- finish remaining emotion configs (joy, belonging, desire, playfulness, dread, shame, etc) inside `cali_emotions_config.json`.
+- dead-emotion audit verdicts: wire or cut greed/envy/pride/nostalgia.
+- LLM-judge layer (point 2c) only if (a/b/d) of point 2 aren't catching enough.
+
+
+
 
 
 
