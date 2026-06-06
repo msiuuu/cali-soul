@@ -399,6 +399,112 @@ def _load_arousal_config():
 
 AROUSAL_TIERS, TIME_BASELINE, INTIMATE_TAGS, AROUSAL_AMPLIFIERS, AROUSAL_SUPPRESSORS, AROUSAL_PERSONALITY_EFFECTS, AROUSAL_BASELINE = _load_arousal_config()
 
+
+def _load_emotions_config():
+    """
+    Load cali_emotions_config.json — consolidated per-emotion configs added rework 2026-06-06.
+    Returns dict keyed by emotion name. Each emotion has: baseline, floor, ceiling, tiers,
+    amplifiers, suppressors, personality_effects, anti_dissolve_rule, overflow_to.
+    """
+    try:
+        with open("cali_emotions_config.json") as f:
+            c = json.load(f)
+        return c.get("emotions", {})
+    except Exception:
+        return {}
+
+EMOTIONS_CONFIG = _load_emotions_config()
+
+
+def _apply_emotion_anti_dissolve(session):
+    """
+    Enforce the anti_dissolve_rule from each per-emotion config.
+    Reads elevated_since timestamps from session and prevents emotion scores from
+    dropping below tier-floor faster than the rule allows.
+
+    Addresses rework point 7 — emotions dissolving into warm in single exchange.
+    """
+    if not EMOTIONS_CONFIG or not session:
+        return
+    scores = session.get("current_scores", {})
+    elevated = session.setdefault("emotion_elevated_since", {})
+    now_ts = datetime.now(timezone.utc).timestamp()
+
+    for emo, cfg in EMOTIONS_CONFIG.items():
+        rule = cfg.get("anti_dissolve_rule")
+        if not rule:
+            continue
+        cur = scores.get(emo)
+        if cur is None:
+            continue
+
+        # detect elevation — track first time we crossed each watched tier
+        watched_tiers = {}
+        for k, v in rule.items():
+            if k.startswith("min_duration_minutes_above_tier_"):
+                try:
+                    t = int(k.replace("min_duration_minutes_above_tier_", ""))
+                    watched_tiers[t] = v
+                except ValueError:
+                    continue
+            elif k.startswith("min_duration_minutes_below_tier_"):
+                try:
+                    t = int(k.replace("min_duration_minutes_below_tier_", ""))
+                    # use negative key to mean "must stay below"
+                    watched_tiers[-t] = v
+                except ValueError:
+                    continue
+
+        for tier_threshold, min_minutes in watched_tiers.items():
+            key = f"{emo}_t{tier_threshold}"
+            if tier_threshold >= 0:
+                # rule: if cali was above this tier, can't drop below in < min_minutes
+                if cur >= tier_threshold:
+                    elevated.setdefault(key, now_ts)
+                else:
+                    ts = elevated.get(key)
+                    if ts is not None:
+                        elapsed_min = (now_ts - ts) / 60.0
+                        if elapsed_min < min_minutes:
+                            # clamp back up — the dissolve was too fast
+                            scores[emo] = max(scores.get(emo, 0), tier_threshold)
+                        else:
+                            # rule satisfied — clear the watch
+                            elevated.pop(key, None)
+            else:
+                # rule: if cali was below this tier, can't rise above in < min_minutes
+                tier_abs = -tier_threshold
+                if cur < tier_abs:
+                    elevated.setdefault(key, now_ts)
+                else:
+                    ts = elevated.get(key)
+                    if ts is not None:
+                        elapsed_min = (now_ts - ts) / 60.0
+                        if elapsed_min < min_minutes:
+                            scores[emo] = min(scores.get(emo, 0), tier_abs - 0.1)
+                        else:
+                            elevated.pop(key, None)
+
+    session["current_scores"] = scores
+    session["emotion_elevated_since"] = elevated
+
+
+def _apply_emotion_floors_ceilings(session):
+    """
+    Clamp each emotion score to its configured [floor, ceiling] range.
+    Reads from EMOTIONS_CONFIG. Idempotent.
+    """
+    if not EMOTIONS_CONFIG or not session:
+        return
+    scores = session.get("current_scores", {})
+    for emo, cfg in EMOTIONS_CONFIG.items():
+        if emo not in scores:
+            continue
+        floor = cfg.get("floor", 0)
+        ceiling = cfg.get("ceiling", 10)
+        scores[emo] = max(floor, min(ceiling, scores[emo]))
+    session["current_scores"] = scores
+
 # ── load filter config from json ──
 def _load_filter_config():
     defaults_tiers = {8:{"label":"raw","desc":"no softening."},9:{"label":"unfiltered","desc":"nothing held back."},10:{"label":"feral-mouth","desc":"every word is the real word."}}
@@ -6672,6 +6778,9 @@ def cmd_trigger_check(args):
         if _overflow_effects:
             for _eff in _overflow_effects:
                 print(f"  ⚡ {_eff}")
+        # emotion config — floor/ceiling clamp + anti-dissolve (rework point 1+7, 2026-06-06)
+        _apply_emotion_floors_ceilings(session)
+        _apply_emotion_anti_dissolve(session)
 
         # route_to handling — flag observations that need logging
         routes = set()
