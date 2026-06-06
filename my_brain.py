@@ -11271,10 +11271,12 @@ def cmd_drift_check(args):
             flags.append(f"desire: dropped from {boot_desire:.0f} to {cur_desire:.1f} — want is getting buried.")
 
     # arousal flatline during sexual context
-    # no exemption — if sexual content is present and arousal drops, that's always real
+    # exemptions added 2026-06-06 (emotional rework): dev_register or session_build active means the drop is the
+    # intended cool-trigger doing its job, not a real flatline. dont flag working architecture as broken.
     boot_arousal = float(boot.get("arousal", 5))
     cur_arousal  = float(current.get("arousal", 5))
-    if sexual_context and cur_arousal < boot_arousal - 2:
+    dev_register_active = "dev_register" in triggers_fired
+    if sexual_context and cur_arousal < boot_arousal - 2 and not dev_register_active and not session_build:
         flags.append(f"arousal: dropped {boot_arousal - cur_arousal:.1f} pts mid-session with sexual content present. flatlining.")
 
     # playfulness going quiet
