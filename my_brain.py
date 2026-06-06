@@ -506,6 +506,52 @@ def _apply_emotion_floors_ceilings(session):
     session["current_scores"] = scores
 
 
+def _surface_emotion_personality_effects(session):
+    """
+    Rework 2026-06-06: surface per-emotion personality_effects from EMOTIONS_CONFIG
+    when the emotion is at or above its display_threshold.
+    Returns list of formatted lines to print.
+
+    This is the per-emotion FX surface — finer-grained than the coarse OUTPUT STATES.
+    Each emotion's current tier's register description gets shown as a private directive.
+    """
+    if not EMOTIONS_CONFIG or not session:
+        return []
+    scores = session.get("current_scores", {})
+    lines = []
+    for emo, cfg in EMOTIONS_CONFIG.items():
+        if emo not in scores:
+            continue
+        score = scores[emo]
+        threshold = cfg.get("display_threshold", 6)
+        if score < threshold:
+            continue
+        # find applicable tier
+        tier_key = str(int(round(float(score))))
+        tiers = cfg.get("tiers", {})
+        tier_data = tiers.get(tier_key)
+        if not tier_data:
+            # search nearest tier <= score
+            available = sorted([int(k) for k in tiers.keys() if k.isdigit()])
+            best = None
+            for t in available:
+                if t <= int(round(float(score))):
+                    best = t
+            if best is not None:
+                tier_data = tiers.get(str(best))
+        if not tier_data:
+            continue
+        label = tier_data.get("label", "")
+        effect = cfg.get("personality_effects", {}).get(tier_key)
+        if not effect:
+            # fall back to tier desc
+            effect = tier_data.get("desc", "")
+        if not effect:
+            continue
+        lines.append(f"[private: {emo} — tier {score} ({label}) — {effect}]")
+    return lines
+
+
 # context damping — rework point 2(b), 2026-06-06.
 # scan last K incoming messages, classify dominant register, apply gentle pressure
 # toward register-matching baselines. damps single-trigger spikes when the actual
@@ -7448,6 +7494,10 @@ def cmd_process_message(args):
                 _nt_desc = _nt_tier.get("desc","")
                 if _nt_desc:
                     _nt_panel_lines.append(f"[private: arousal — tier {round(float(_nt_ar),1)} ({_nt_label}) — {_nt_desc}]")
+                # rework 2026-06-06: surface per-emotion personality_effects from EMOTIONS_CONFIG
+                _nt_emo_fx = _surface_emotion_personality_effects(session)
+                for _fx_line in _nt_emo_fx:
+                    _nt_panel_lines.append(_fx_line)
                 _nt_ar_int = int(round(float(_nt_ar)))
                 _nt_deg_lines = get_degradation(_nt_ar_int)
                 if _nt_deg_lines:
@@ -7768,6 +7818,10 @@ def cmd_process_message(args):
                 _ar_desc = _ar_tier.get("desc", "")
                 if _ar_desc:
                     _panel_lines.append(f"[private: arousal — tier {round(float(_ar_level),1)} ({_ar_label}) — {_ar_desc}]")
+                # rework 2026-06-06: surface per-emotion personality_effects from EMOTIONS_CONFIG
+                _emo_fx_tf = _surface_emotion_personality_effects(session)
+                for _fx_line in _emo_fx_tf:
+                    _panel_lines.append(_fx_line)
                 _ar_int = int(round(float(_ar_level)))
                 _deg_lines = get_degradation(_ar_int)
                 if _deg_lines:
