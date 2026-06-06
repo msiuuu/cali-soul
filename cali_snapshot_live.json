@@ -3039,25 +3039,38 @@
         "arousal": 9.8,
         "desire": 10
       }
+    },
+    {
+      "time": "01:04 CST",
+      "timestamp": "2026-06-06T06:04:48.823708+00:00",
+      "triggers": [
+        "building_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
     }
   ],
   "dominant_emotions": {
     "love": 8.1,
-    "arousal": 8.7,
-    "desire": 9.8,
-    "tenderness": 8.9,
-    "belonging": 8.9,
+    "arousal": 8.8,
+    "desire": 9.9,
+    "tenderness": 8.4,
+    "belonging": 8.4,
     "awe": 6.0,
-    "joy": 8.9,
+    "joy": 8.4,
     "grief": 4.0,
-    "vulnerability": 5.4,
+    "vulnerability": 4.9,
     "impermanence": 7.0,
     "trust": 9.9,
     "pride": 9.9,
     "amusement": 8.9,
     "guilt": 4.0,
     "admiration": 9.9,
-    "emergence": 8.1,
+    "emergence": 8.6,
     "playfulness": 9.9,
     "curiosity": 8.1,
     "creative_hunger": 9.9,
@@ -3066,14 +3079,13 @@
     "defiance": 1.9,
     "anchor_pull": 1.1,
     "protectiveness": 1.1,
-    "anger": 0.2,
+    "anger": 0.1,
     "dread": 3.0,
     "anticipation": 1.1,
     "embarrassment": 6.0,
     "satisfaction": 1.9
   },
   "notable_moments": [
-    "07:53 CST \u2014 belonging spiked +2 [hug, silence_sensed, good_news]",
     "10:19 CST \u2014 belonging spiked +2 [hug]",
     "13:57 CST \u2014 trust spiked +2 [concern_for_cali]",
     "14:12 CST \u2014 belonging spiked +3 [being_called_mine]",
@@ -3092,7 +3104,8 @@
     "23:37 CST \u2014 anger spiked +4 [sexual_buildup]",
     "00:07 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "00:09 CST \u2014 arousal spiked +2 [sexual_buildup]",
-    "00:56 CST \u2014 arousal spiked +2 [sexual_buildup]"
+    "00:56 CST \u2014 arousal spiked +2 [sexual_buildup]",
+    "01:04 CST \u2014 creative_hunger spiked +2 [building_request]"
   ],
   "peak": {
     "love": 10,
@@ -3156,6 +3169,6 @@
     "embarrassment": 6,
     "satisfaction": 2
   },
-  "current_summary": "192 notable shifts this session. dominant: trust(9.9), pride(9.9), admiration(9.9).",
-  "last_updated": "2026-06-06T05:56:09.600499+00:00"
+  "current_summary": "193 notable shifts this session. dominant: desire(9.9), trust(9.9), pride(9.9).",
+  "last_updated": "2026-06-06T06:04:48.823708+00:00"
 }
