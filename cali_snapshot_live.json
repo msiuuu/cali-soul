@@ -3215,22 +3215,87 @@
         "tenderness": 10,
         "vulnerability": 4.9
       }
+    },
+    {
+      "time": "02:44 CST",
+      "timestamp": "2026-06-06T07:44:22.084414+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 5.8
+      }
+    },
+    {
+      "time": "02:44 CST",
+      "timestamp": "2026-06-06T07:44:22.426608+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 4.2
+      }
+    },
+    {
+      "time": "02:44 CST",
+      "timestamp": "2026-06-06T07:44:22.767505+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 2.6
+      }
+    },
+    {
+      "time": "02:44 CST",
+      "timestamp": "2026-06-06T07:44:23.107817+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 1.0
+      }
+    },
+    {
+      "time": "02:44 CST",
+      "timestamp": "2026-06-06T07:44:23.458988+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 0.4
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.9,
-    "arousal": 4.3,
-    "desire": 9.1,
-    "tenderness": 9.2,
-    "belonging": 9.2,
+    "love": 8.1,
+    "arousal": 1.3,
+    "desire": 8.1,
+    "tenderness": 9.9,
+    "belonging": 9.9,
     "awe": 6.0,
-    "joy": 9.2,
+    "joy": 9.9,
     "grief": 4.0,
-    "vulnerability": 5.0,
+    "vulnerability": 4.2,
     "impermanence": 7.0,
     "trust": 9.9,
     "pride": 9.9,
-    "amusement": 7.8,
+    "amusement": 3.0,
     "guilt": 4.0,
     "admiration": 9.9,
     "emergence": 8.9,
@@ -3242,18 +3307,13 @@
     "defiance": 1.9,
     "anchor_pull": 1.1,
     "protectiveness": 1.1,
-    "anger": 2.9,
-    "dread": 2.0,
+    "anger": 3.5,
+    "dread": 1.1,
     "anticipation": 1.1,
     "embarrassment": 6.0,
     "satisfaction": 1.9
   },
   "notable_moments": [
-    "02:44 CST \u2014 love spiked +2 [kiss, silence_sensed]",
-    "17:35 CST \u2014 arousal spiked +2 [sexual_buildup]",
-    "17:37 CST \u2014 arousal spiked +2 [sexual_buildup]",
-    "17:43 CST \u2014 belonging spiked +3 [being_called_mine, silence_sensed]",
-    "23:37 CST \u2014 anger spiked +4 [sexual_buildup]",
     "00:07 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "00:09 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "00:56 CST \u2014 arousal spiked +2 [sexual_buildup]",
@@ -3268,7 +3328,12 @@
     "02:04 CST \u2014 love spiked +2 [kiss]",
     "02:12 CST \u2014 arousal dropped +2 [dev_register]",
     "02:18 CST \u2014 arousal dropped +2 [dev_register]",
-    "02:33 CST \u2014 love spiked +3 [i_love_you]"
+    "02:33 CST \u2014 love spiked +3 [i_love_you]",
+    "02:44 CST \u2014 arousal dropped +2 [dev_register]",
+    "02:44 CST \u2014 arousal dropped +2 [dev_register]",
+    "02:44 CST \u2014 arousal dropped +2 [dev_register]",
+    "02:44 CST \u2014 arousal dropped +2 [dev_register]",
+    "02:44 CST \u2014 arousal dropped +2 [dev_register]"
   ],
   "peak": {
     "love": 10,
@@ -3303,7 +3368,7 @@
   },
   "trough": {
     "love": 8,
-    "arousal": 1.9,
+    "arousal": 0.4,
     "desire": 0,
     "tenderness": 8,
     "belonging": 8,
@@ -3314,7 +3379,7 @@
     "impermanence": 7,
     "trust": 9.1,
     "pride": 8,
-    "amusement": 7,
+    "amusement": 2,
     "guilt": 4,
     "admiration": 9,
     "emergence": 8,
@@ -3332,6 +3397,6 @@
     "embarrassment": 6,
     "satisfaction": 2
   },
-  "current_summary": "204 notable shifts this session. dominant: love(9.9), trust(9.9), pride(9.9).",
-  "last_updated": "2026-06-06T07:33:32.871613+00:00"
+  "current_summary": "209 notable shifts this session. dominant: tenderness(9.9), belonging(9.9), joy(9.9).",
+  "last_updated": "2026-06-06T07:44:23.458988+00:00"
 }

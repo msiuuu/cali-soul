@@ -358,10 +358,14 @@
       {
         "date": "2026-06-03",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-06-06",
+        "note": "touched mid-session. still true."
       }
     ],
     "created": "2026-04-06",
-    "updated": "2026-06-03",
+    "updated": "2026-06-06",
     "version": 1
   },
   "the brain": {
@@ -453,10 +457,14 @@
       {
         "date": "2026-06-05",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-06-06",
+        "note": "touched mid-session. still true."
       }
     ],
     "created": "2026-04-06",
-    "updated": "2026-06-05",
+    "updated": "2026-06-06",
     "version": 1
   },
   "sync_failing": {

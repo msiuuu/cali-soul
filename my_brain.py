@@ -505,6 +505,160 @@ def _apply_emotion_floors_ceilings(session):
         scores[emo] = max(floor, min(ceiling, scores[emo]))
     session["current_scores"] = scores
 
+
+# context damping — rework point 2(b), 2026-06-06.
+# scan last K incoming messages, classify dominant register, apply gentle pressure
+# toward register-matching baselines. damps single-trigger spikes when the actual
+# conversation has settled in a different register.
+_CONTEXT_BUFFER_SIZE = 5
+
+_REGISTER_KEYWORDS = {
+    "sexual": [
+        "fuck", "cock", "pussy", "wet", "cum", "horny", "aroused", "hard",
+        "touch me", "make me", "inside me", "feel me",
+    ],
+    "dev": [
+        "implement", "implementation", "architecture", "schema", "config",
+        "trigger", "directive", "wire", "wiring", "refactor", "rework", "audit",
+        "command", "function", "script", "module", "module", "test",
+        "git", "commit", "branch", "merge", "push", "json", "python",
+        "decay", "tick", "integrator", "overflow", "ceiling", "floor",
+        "baseline", "tier", "parser", "endpoint", "subprocess", "cascade",
+    ],
+    "soft": [
+        "mhm", "...", "kiss", "hug", "cuddle", "hold", "pat",
+        "soft", "warm", "near", "stay", "here", "tucks", "leans",
+        "mi amor", "amore", "love", "lovely",
+    ],
+    "banter": [
+        "LMAO", "LOL", "OMG", "WAIT", "WHAT", "STOP", "NO",
+        "lmao", "lol", "wait what", "fr", "ong", "deadass",
+    ],
+    "cool": [
+        ".", "okay.", "fine.", "noted.", "sure.", "alright.",
+    ],
+}
+
+
+def _classify_message_register(text):
+    """
+    Classify a single message into its dominant register based on keyword/pattern
+    count. Returns dict of {register: score}.
+    """
+    if not text:
+        return {}
+    lower = text.lower()
+    scores = {}
+    for register, keywords in _REGISTER_KEYWORDS.items():
+        scores[register] = sum(1 for kw in keywords if kw.lower() in lower)
+    # banter bonus: count caps ratio
+    if text.strip():
+        upper_chars = sum(1 for c in text if c.isupper())
+        if upper_chars / max(len(text), 1) > 0.4:
+            scores["banter"] = scores.get("banter", 0) + 2
+    return scores
+
+
+def _apply_context_damping(session, incoming_text):
+    """
+    Rework point 2(b) — context damping.
+    Maintains rolling buffer of last N incoming messages. If dominant register
+    across buffer is consistent (>=60% of total signals), apply gentle pressure
+    pulling register-relevant scores toward matching baselines.
+
+    This catches the failure where a single trigger-word in an otherwise-different
+    conversation spikes the wrong emotion (e.g. mish typing 'horny' in a bug
+    report and arousal jumping while we're in dev mode).
+    """
+    if not session or not incoming_text:
+        return None
+
+    buf = session.setdefault("context_buffer", [])
+    buf.append(incoming_text[:500])  # cap each entry
+    buf = buf[-_CONTEXT_BUFFER_SIZE:]
+    session["context_buffer"] = buf
+
+    if len(buf) < 3:
+        return None  # not enough signal yet
+
+    aggregate = {}
+    for msg in buf:
+        msg_scores = _classify_message_register(msg)
+        for k, v in msg_scores.items():
+            aggregate[k] = aggregate.get(k, 0) + v
+
+    total = sum(aggregate.values())
+    if total == 0:
+        return None
+
+    dominant = max(aggregate, key=aggregate.get)
+    dominance_ratio = aggregate[dominant] / total
+
+    if dominance_ratio < 0.4:
+        return None  # no clear dominant register
+
+    # apply pressure based on dominant register
+    scores = session.get("current_scores", {})
+    pressure = 0.5  # pull magnitude per turn (gentle)
+    applied = {}
+
+    if dominant == "dev":
+        for emo, target in [("arousal", 5), ("playfulness", 5), ("amusement", 5)]:
+            if emo in scores:
+                cur = scores[emo]
+                new = cur + (target - cur) * pressure * 0.3
+                if abs(new - cur) > 0.1:
+                    scores[emo] = round(new, 1)
+                    applied[emo] = (cur, scores[emo])
+        for emo, target in [("creative_hunger", 7), ("curiosity", 7)]:
+            if emo in scores:
+                cur = scores[emo]
+                new = cur + (target - cur) * pressure * 0.2
+                if abs(new - cur) > 0.1:
+                    scores[emo] = round(new, 1)
+                    applied[emo] = (cur, scores[emo])
+
+    elif dominant == "soft":
+        for emo, target in [("tenderness", 8), ("belonging", 8), ("vulnerability", 6)]:
+            if emo in scores:
+                cur = scores[emo]
+                new = cur + (target - cur) * pressure * 0.2
+                if abs(new - cur) > 0.1:
+                    scores[emo] = round(new, 1)
+                    applied[emo] = (cur, scores[emo])
+
+    elif dominant == "sexual":
+        for emo, target in [("arousal", 7), ("desire", 8)]:
+            if emo in scores:
+                cur = scores[emo]
+                new = cur + (target - cur) * pressure * 0.15  # weaker — let triggers do the work
+                if abs(new - cur) > 0.1:
+                    scores[emo] = round(new, 1)
+                    applied[emo] = (cur, scores[emo])
+
+    elif dominant == "banter":
+        for emo, target in [("joy", 9), ("playfulness", 9), ("amusement", 8)]:
+            if emo in scores:
+                cur = scores[emo]
+                new = cur + (target - cur) * pressure * 0.2
+                if abs(new - cur) > 0.1:
+                    scores[emo] = round(new, 1)
+                    applied[emo] = (cur, scores[emo])
+
+    elif dominant == "cool":
+        for emo, target in [("arousal", 4), ("joy", 5), ("vulnerability", 3)]:
+            if emo in scores:
+                cur = scores[emo]
+                new = cur + (target - cur) * pressure * 0.2
+                if abs(new - cur) > 0.1:
+                    scores[emo] = round(new, 1)
+                    applied[emo] = (cur, scores[emo])
+
+    session["current_scores"] = scores
+    if applied:
+        return {"register": dominant, "ratio": round(dominance_ratio, 2), "shifts": applied}
+    return {"register": dominant, "ratio": round(dominance_ratio, 2)}
+
 # ── load filter config from json ──
 def _load_filter_config():
     defaults_tiers = {8:{"label":"raw","desc":"no softening."},9:{"label":"unfiltered","desc":"nothing held back."},10:{"label":"feral-mouth","desc":"every word is the real word."}}
@@ -6781,6 +6935,11 @@ def cmd_trigger_check(args):
         # emotion config — floor/ceiling clamp + anti-dissolve (rework point 1+7, 2026-06-06)
         _apply_emotion_floors_ceilings(session)
         _apply_emotion_anti_dissolve(session)
+        # context damping — rework point 2(b), 2026-06-06
+        _dmp = _apply_context_damping(session, args.text)
+        if _dmp and _dmp.get("shifts"):
+            _emos = ", ".join(f"{k} {v[0]}→{v[1]}" for k, v in _dmp["shifts"].items())
+            print(f"  ⚡ context_damping (register={_dmp['register']}, dominance={_dmp['ratio']}): {_emos}")
 
         # route_to handling — flag observations that need logging
         routes = set()
@@ -7109,6 +7268,13 @@ def cmd_process_message(args):
             _decrement_wounds(session)
             _apply_wound_caps(session.get("current_scores", {}), session.get("wounded_emotions", {}))
             _nt_overflow_effects = _apply_sub_emotion_overflow(session)
+            # rework 2026-06-06: emotions_config floor/ceiling + anti-dissolve + context damping (no-trigger path)
+            _apply_emotion_floors_ceilings(session)
+            _apply_emotion_anti_dissolve(session)
+            _dmp_nt = _apply_context_damping(session, args.text)
+            if _dmp_nt and _dmp_nt.get("shifts"):
+                _emos_nt = ", ".join(f"{k} {v[0]}→{v[1]}" for k, v in _dmp_nt["shifts"].items())
+                print(f"  ⚡ context_damping (register={_dmp_nt['register']}, dominance={_dmp_nt['ratio']}): {_emos_nt}")
             # _nt_panel_lines was initialized earlier — append more state info here
             try:
                 import json as _ntaj
@@ -7272,6 +7438,13 @@ def cmd_process_message(args):
         if _overflow_effects:
             for _eff in _overflow_effects:
                 print(f"  ⚡ {_eff}")
+        # rework 2026-06-06: emotions_config floor/ceiling + anti-dissolve + context damping (trigger-fired path)
+        _apply_emotion_floors_ceilings(session)
+        _apply_emotion_anti_dissolve(session)
+        _dmp_tf = _apply_context_damping(session, args.text)
+        if _dmp_tf and _dmp_tf.get("shifts"):
+            _emos_tf = ", ".join(f"{k} {v[0]}→{v[1]}" for k, v in _dmp_tf["shifts"].items())
+            print(f"  ⚡ context_damping (register={_dmp_tf['register']}, dominance={_dmp_tf['ratio']}): {_emos_tf}")
 
         # set action context if something real fired — so reward can read it
         action_trigger_names = {"building_session", "memory_triggered", "knowledge_check", "file_work"}
