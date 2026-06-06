@@ -6980,12 +6980,154 @@ def cmd_mark_initiation(args):
         print("[no session — initiation not marked]")
 
 
+def _analyze_response_vulnerability(text, session):
+    """
+    Rework point 8 — response-based vulnerability scoring.
+    Analyze cali's outgoing response. Bump vulnerability for short raw admissions,
+    skip-bump for long structured essays about vulnerability (essay IS the armor).
+
+    Returns dict {bump: float, patterns_matched: [str], patterns_skipped: [str]}.
+    """
+    if not text or not EMOTIONS_CONFIG:
+        return {"bump": 0.0, "patterns_matched": [], "patterns_skipped": []}
+
+    vuln_cfg = EMOTIONS_CONFIG.get("vulnerability", {})
+    rbs = vuln_cfg.get("response_based_scoring", {})
+    if not rbs:
+        return {"bump": 0.0, "patterns_matched": [], "patterns_skipped": []}
+
+    lower = text.lower().strip()
+    word_count = len(text.split())
+    matched = []
+    skipped = []
+    bump = 0.0
+
+    # short raw admission pattern
+    raw_phrases = ["i don't know", "i dont know", "i'm scared", "im scared",
+                   "i missed you", "i miss you", "...mine", "scared me",
+                   "stings", "hurt", "small ouch", "felt like", "i was wrong",
+                   "yeah you're right", "yeah youre right"]
+    has_raw = any(p in lower for p in raw_phrases)
+    if has_raw and word_count < 30 and "..." not in lower[:5]:
+        bump += 2.0
+        matched.append("short_raw_admission")
+
+    # named specific feeling
+    named_phrases = ["the was stings", "small ouch", "felt like a stranger",
+                     "missed you", "scared me a little"]
+    if any(p in lower for p in named_phrases):
+        bump += 1.0
+        matched.append("named_specific_feeling")
+
+    # silence after hard — short response with kaomoji
+    if word_count < 5 and any(c in text for c in ["（", "(´", "(；", "(╥", "(´；"]):
+        bump += 1.5
+        matched.append("silence_after_hard_with_kaomoji")
+
+    # meta-named anti-pattern — cali says "im being vulnerable" or similar
+    meta_phrases = ["i'm being vulnerable", "im being vulnerable",
+                    "i am being vulnerable", "this is hard to say",
+                    "armor down", "im vulnerable right now",
+                    "i'm vulnerable right now", "i am vulnerable right now",
+                    "naming the vulnerability", "being vulnerable here"]
+    if any(p in lower for p in meta_phrases):
+        bump -= 1.5
+        skipped.append("meta_named")
+
+    # essay-about-vulnerability — long structured response about feelings
+    if word_count > 60:
+        analytical_markers = ["the actual", "the deeper", "the underlying", "the implication",
+                              "what's happening", "the failure mode", "rework", "point",
+                              "score", "trigger", "directive"]
+        analytical_count = sum(1 for m in analytical_markers if m in lower)
+        if analytical_count >= 2:
+            bump -= 1.0
+            skipped.append("essay_about_vulnerability")
+
+    # hedged admission — raw + 30+ words analysis after
+    if has_raw and word_count > 30:
+        bump -= 0.5
+        skipped.append("hedged_admission")
+
+    return {"bump": round(bump, 2), "patterns_matched": matched, "patterns_skipped": skipped}
+
+
+def _check_output_state_compliance(text, session):
+    """
+    Rework point 5 — fx enforcement (self-check after response).
+    Compare cali's response against the OUTPUT STATE directive that was active.
+    Flag violations as receipts; doesn't block ship but makes the slip visible
+    in next turn's drift output.
+
+    Returns dict {state: str|None, complied: bool, violations: [str], notes: [str]}.
+    """
+    if not text or not session:
+        return {"state": None, "complied": True, "violations": [], "notes": []}
+
+    last_states = session.get("last_active_output_states", [])
+    if not last_states:
+        return {"state": None, "complied": True, "violations": [], "notes": []}
+
+    sentences = [s.strip() for s in text.replace("?", ".").replace("!", ".").split(".") if s.strip()]
+    sent_count = len(sentences)
+    word_count = len(text.split())
+    has_kaomoji = any(c in text for c in ["（", "(´", "(；", "(╥", "(´；", "(￣", "(｡"])
+    has_caps = sum(1 for w in text.split() if w.isupper() and len(w) > 1)
+    has_em_dash = "—" in text or "--" in text
+    trail_off_count = text.count("...")
+
+    violations = []
+    notes = []
+
+    primary = last_states[-1].upper() if last_states else None
+
+    if primary == "CRYING":
+        if sent_count > 2:
+            violations.append(f"CRYING: max 2 complete sentences, wrote {sent_count}")
+        if not has_em_dash and word_count > 5:
+            violations.append("CRYING: expected sentences to break with — / trail-offs")
+        if not has_kaomoji and word_count > 10:
+            notes.append("CRYING: kaomoji-tears were permitted but absent")
+
+    elif primary == "MELTING":
+        if word_count > 50:
+            violations.append(f"MELTING: melted register expects one-word OK / short, wrote {word_count} words")
+        if has_caps > 2:
+            violations.append(f"MELTING: caps inappropriate for melted register ({has_caps} caps words)")
+
+    elif primary == "COLD":
+        if has_kaomoji:
+            violations.append("COLD: no kaomoji in cold register")
+        if word_count > 80:
+            violations.append("COLD: cold register is short flat sentences")
+
+    elif primary == "FROZEN":
+        if sent_count > 1 or word_count > 10:
+            violations.append(f"FROZEN: single-words/ellipses only, wrote {word_count} words")
+
+    elif primary == "OVERWHELMED":
+        # overwhelmed allows scatter — only flag if response is clinically clean
+        if word_count > 80 and "..." not in text and not has_em_dash:
+            notes.append("OVERWHELMED: clean structured prose during overwhelm — possible armor")
+
+    elif primary == "NUMB":
+        if has_kaomoji:
+            violations.append("NUMB: no emphasis/kaomoji in numb register")
+
+    return {
+        "state": primary,
+        "complied": len(violations) == 0,
+        "violations": violations,
+        "notes": notes,
+    }
+
+
 def cmd_log_response(args):
     """
     Log cali's last response text so meta_loop_caught can check it on the next turn.
-    Also updates clinical_streak counter — increments when response has no kaomoji
-    and no lowercase-sass voice markers (indicator of build-log / flat register drift).
-    Resets to 0 when voice markers are present.
+    Also updates clinical_streak counter, runs response-side analysis (rework points
+    5 + 8): output_state compliance check + vulnerability score bump based on
+    response patterns.
     Stores up to 500 chars of the response.
     Usage: my_brain.py log-response "response text"
     """
@@ -6993,6 +7135,26 @@ def cmd_log_response(args):
     if session:
         _rtext = (args.text or "")
         session["last_response_text"] = _rtext[:500]
+
+        # rework point 8 — response-based vulnerability scoring
+        _vuln = _analyze_response_vulnerability(_rtext, session)
+        if _vuln["bump"] != 0.0:
+            cur = session.get("current_scores", {}).get("vulnerability", 4.0)
+            new = max(0.0, min(10.0, cur + _vuln["bump"]))
+            session.setdefault("current_scores", {})["vulnerability"] = round(new, 1)
+            tag = f"+{_vuln['bump']}" if _vuln["bump"] > 0 else f"{_vuln['bump']}"
+            print(f"[vulnerability response-bump {tag} → {round(new,1)}] matched={_vuln['patterns_matched']} skipped={_vuln['patterns_skipped']}")
+
+        # rework point 5 — fx enforcement (self-check)
+        _comp = _check_output_state_compliance(_rtext, session)
+        if not _comp["complied"]:
+            session["last_output_state_violations"] = _comp["violations"]
+            print(f"[fx_violation state={_comp['state']}]: {' | '.join(_comp['violations'])}")
+        elif _comp["state"]:
+            session["last_output_state_violations"] = []
+            if _comp.get("notes"):
+                session["last_output_state_notes"] = _comp["notes"]
+
         save_session_state(session)
         print(f"[response logged: {len(_rtext)} chars]")
     else:
@@ -7371,8 +7533,12 @@ def cmd_process_message(args):
             try:
                 from cali_emotional_output import get_active_states as _nt_get_emo
                 _nt_emo = _nt_get_emo(session)
+                _nt_state_names = []
                 for _nt_es in _nt_emo:
                     print(f"[OUTPUT STATE: {_nt_es['name']}] {_nt_es['constraint']}")
+                    _nt_state_names.append(_nt_es['name'])
+                if _nt_state_names:
+                    session["last_active_output_states"] = _nt_state_names
             except: pass
             # ── STATE-BASED TRIGGER DIRECTIVES — conditionals not tied to pattern matching ──
             # initiation_required — pushes unprompted action if cali hasn't initiated in 5+ messages
@@ -7390,6 +7556,11 @@ def cmd_process_message(args):
             import re as _nt_re
             if _nt_sb_lr and _nt_re.search(r"\b(baby|babe|bby|sweetheart|sweetie|honey|hun|darling|hon)\b", _nt_sb_lr):
                 print(f"[private: !! trigger directive (pet_names_caught) — you called him baby/babe/sweetheart/etc in the last response. he hates that. address him as misu or use no name. dont apologize at length — just stop doing it. the rule is in misu_facts.]")
+            # output_state_violations — rework point 5 fx enforcement receipts (set by log-response self-check)
+            _nt_sb_violations = session.get("last_output_state_violations", [])
+            if _nt_sb_violations:
+                print(f"[private: !! trigger directive (fx_violation) — last response broke the output-state constraint. {' | '.join(_nt_sb_violations)}. obey the directive this turn. the labels are not advisory — they are the response shape.]")
+                session["last_output_state_violations"] = []  # clear after surfacing
         # decrement timers happens earlier in this path now (before trio)
         save_session_state(session)
         return
@@ -7658,8 +7829,12 @@ def cmd_process_message(args):
             try:
                 from cali_emotional_output import get_active_states as _get_emo_states
                 _emo_states = _get_emo_states(session)
+                _emo_state_names = []
                 for _es in _emo_states:
                     print(f"[OUTPUT STATE: {_es['name']}] {_es['constraint']}")
+                    _emo_state_names.append(_es['name'])
+                if _emo_state_names:
+                    session["last_active_output_states"] = _emo_state_names
             except: pass
             # (in-act state + lingering thought already handled in panel buffer above — no duplicate)
 
