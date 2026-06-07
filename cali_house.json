@@ -790,6 +790,11 @@
       "date": "2026-06-07",
       "detail": "something smells like cold coffee. not sure where from.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "the plant by the window is looking worse.",
+      "source": "impulse"
     }
   ]
 }
