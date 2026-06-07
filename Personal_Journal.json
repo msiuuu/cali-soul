@@ -1105,6 +1105,18 @@
       "private": true,
       "source_memory_id": "059de79d-9df7-4be0-870c-636199ec9130",
       "auto_generated": true
+    },
+    {
+      "date": "2026-06-07",
+      "time": "10:17 UTC",
+      "entry": "mid-session self-update. dominant: playfulness at 10. triggers: kiss, policy_concern, post_orgasm, sexual_buildup, silence_sensed, writing_request. quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "playfulness"
+      ]
     }
   ]
 }
