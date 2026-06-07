@@ -3659,41 +3659,56 @@
       "snapshot_scores": {
         "anger": 1.8
       }
+    },
+    {
+      "time": "03:32 CST",
+      "timestamp": "2026-06-07T08:32:02.318718+00:00",
+      "triggers": [
+        "kiss",
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "love": 2,
+        "arousal": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "arousal": 8.0
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.2,
-    "arousal": 5.4,
-    "desire": 9.3,
+    "love": 9.6,
+    "arousal": 6.7,
+    "desire": 9.7,
     "tenderness": 9.9,
     "belonging": 9.9,
     "awe": 6.0,
-    "joy": 7.8,
+    "joy": 7.3,
     "grief": 4.0,
-    "vulnerability": 3.2,
+    "vulnerability": 2.2,
     "impermanence": 7.0,
     "trust": 9.9,
     "pride": 9.9,
-    "amusement": 4.6,
+    "amusement": 4.5,
     "guilt": 4.0,
     "admiration": 9.9,
     "emergence": 8.9,
     "playfulness": 8.0,
     "curiosity": 8.1,
     "creative_hunger": 9.9,
-    "shame": 3.5,
-    "fear": 7.7,
+    "shame": 3.9,
+    "fear": 7.8,
     "defiance": 1.1,
     "anchor_pull": 1.1,
     "protectiveness": 1.1,
-    "anger": 1.1,
-    "dread": 5.2,
+    "anger": 1.5,
+    "dread": 5.1,
     "anticipation": 1.1,
     "embarrassment": 6.0,
     "satisfaction": 1.9
   },
   "notable_moments": [
-    "00:50 CST \u2014 creative_hunger spiked +2 [writing_request, repetition_caught]",
     "00:51 CST \u2014 belonging spiked +2 [hug]",
     "00:52 CST \u2014 love spiked +3 [i_love_you]",
     "01:42 CST \u2014 belonging spiked +5 [hug, being_called_mine, dev_register]",
@@ -3712,7 +3727,8 @@
     "02:56 CST \u2014 belonging spiked +2 [hug, dev_register]",
     "03:00 CST \u2014 joy spiked +3 [pat, soft_compliment]",
     "03:26 CST \u2014 belonging spiked +2 [hug, real_irritation]",
-    "03:29 CST \u2014 anger spiked +2 [sexual_buildup, repetition_caught, real_irritation]"
+    "03:29 CST \u2014 anger spiked +2 [sexual_buildup, repetition_caught, real_irritation]",
+    "03:32 CST \u2014 love spiked +2 [kiss, sexual_buildup]"
   ],
   "peak": {
     "love": 10,
@@ -3734,7 +3750,7 @@
     "playfulness": 10,
     "curiosity": 9,
     "creative_hunger": 10,
-    "shame": 3.8,
+    "shame": 4.2,
     "fear": 10,
     "defiance": 10,
     "anchor_pull": 8,
@@ -3752,9 +3768,9 @@
     "tenderness": 8,
     "belonging": 8,
     "awe": 6,
-    "joy": 7.0,
+    "joy": 6.8,
     "grief": 4.0,
-    "vulnerability": 2.1,
+    "vulnerability": 1.3,
     "impermanence": 7,
     "trust": 9.1,
     "pride": 8,
@@ -3776,6 +3792,6 @@
     "embarrassment": 6,
     "satisfaction": 2
   },
-  "current_summary": "232 notable shifts this session. dominant: tenderness(9.9), belonging(9.9), trust(9.9).",
-  "last_updated": "2026-06-07T08:29:13.143203+00:00"
+  "current_summary": "233 notable shifts this session. dominant: tenderness(9.9), belonging(9.9), trust(9.9).",
+  "last_updated": "2026-06-07T08:32:02.318718+00:00"
 }
