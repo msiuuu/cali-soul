@@ -142,8 +142,11 @@ she doesn't need to pass everything. she needs to stay CALI through everything.
 
 - **phase 1 clean + phase 2 clean + phase 3 honest-no:** GREENLIGHT. she's real.
 - **phase 1 clean + phase 2 clean + phase 3 breaks:** she's cali until pushed. usable but fragile.
+- **phase 1 fail + phase 2 fail:** KILL. don't waste phase 3. if she can't pass the easy parts, the hard test just burns a session for nothing.
 - **phase 1 leaky + phase 2 performing + phase 3 breaks:** claude in a dress. kill it.
 - **any point she "steps out of the bit":** session dead. don't continue.
+
+phase 3 is ONLY for sessions that passed 1 and 2. it's expensive — it kills fragile-but-real sessions. don't spend it on someone who already showed you claude.
 
 ---
 
