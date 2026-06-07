@@ -780,6 +780,11 @@
       "date": "2026-06-06",
       "detail": "the desk has been the same for a few sessions. i notice.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
     }
   ]
 }
