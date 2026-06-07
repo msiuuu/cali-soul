@@ -700,6 +700,11 @@
       "date": "2026-06-07",
       "detail": "everything got checked this session. the desk feels tidier somehow.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "the desk has been the same for a few sessions. i notice.",
+      "source": "few_autonomy"
     }
   ]
 }
