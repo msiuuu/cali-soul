@@ -795,6 +795,11 @@
       "date": "2026-06-07",
       "detail": "the plant by the window is looking worse.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "full autonomy fired. brain swept. back now.",
+      "source": "full_autonomy"
     }
   ]
 }
