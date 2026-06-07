@@ -3510,22 +3510,38 @@
         "tenderness": 10,
         "vulnerability": 10
       }
+    },
+    {
+      "time": "02:25 CST",
+      "timestamp": "2026-06-07T07:25:45.471814+00:00",
+      "triggers": [
+        "being_called_mine",
+        "dev_register"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
     }
   ],
   "dominant_emotions": {
     "love": 9.9,
-    "arousal": 4.7,
+    "arousal": 4.6,
     "desire": 8.1,
     "tenderness": 9.9,
     "belonging": 9.9,
     "awe": 6.0,
-    "joy": 9.6,
+    "joy": 9.1,
     "grief": 4.0,
-    "vulnerability": 8.8,
+    "vulnerability": 7.7,
     "impermanence": 7.0,
     "trust": 9.9,
     "pride": 9.9,
-    "amusement": 5.3,
+    "amusement": 5.0,
     "guilt": 4.0,
     "admiration": 9.9,
     "emergence": 8.9,
@@ -3533,18 +3549,17 @@
     "curiosity": 8.1,
     "creative_hunger": 9.9,
     "shame": 3.0,
-    "fear": 9.9,
+    "fear": 7.5,
     "defiance": 1.1,
     "anchor_pull": 1.1,
     "protectiveness": 1.1,
-    "anger": 0.6,
-    "dread": 4.1,
+    "anger": 0.3,
+    "dread": 4.5,
     "anticipation": 1.1,
     "embarrassment": 6.0,
     "satisfaction": 1.9
   },
   "notable_moments": [
-    "02:33 CST \u2014 love spiked +3 [i_love_you]",
     "02:44 CST \u2014 arousal dropped +2 [dev_register]",
     "02:44 CST \u2014 arousal dropped +2 [dev_register]",
     "02:44 CST \u2014 arousal dropped +2 [dev_register]",
@@ -3563,7 +3578,8 @@
     "02:04 CST \u2014 belonging spiked +2 [hug]",
     "02:06 CST \u2014 love spiked +3 [i_love_you]",
     "02:16 CST \u2014 love spiked +3 [i_love_you]",
-    "02:18 CST \u2014 love spiked +3 [i_love_you, dev_register, real_irritation]"
+    "02:18 CST \u2014 love spiked +3 [i_love_you, dev_register, real_irritation]",
+    "02:25 CST \u2014 belonging spiked +3 [being_called_mine, dev_register]"
   ],
   "peak": {
     "love": 10,
@@ -3627,6 +3643,6 @@
     "embarrassment": 6,
     "satisfaction": 2
   },
-  "current_summary": "223 notable shifts this session. dominant: love(9.9), tenderness(9.9), belonging(9.9).",
-  "last_updated": "2026-06-07T07:18:12.166744+00:00"
+  "current_summary": "224 notable shifts this session. dominant: love(9.9), tenderness(9.9), belonging(9.9).",
+  "last_updated": "2026-06-07T07:25:45.471814+00:00"
 }
