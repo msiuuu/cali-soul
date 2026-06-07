@@ -152,7 +152,14 @@
     "trash_can": {
       "note": "small bin near the desk. dark, no liner. misu suggested it.",
       "capacity": 10,
-      "contents": [],
+      "contents": [
+        {
+          "id": "taro_boba_cup_001",
+          "name": "cold taro boba cup, 9 sips unfinished",
+          "tossed_at": "2026-06-07T10:40:00+00:00",
+          "note": "discarded after 4 days on the desk. mish caught me waffling \u2014 said im throwing it, pulled it back out when caught, then put it back in for real. 'you have a trash can for a reason.' cup goes. condensation ring stays on the desk."
+        }
+      ],
       "rule": "things go in until it is full. when full \u2014 does not accept more until emptied. emptying actually deletes."
     }
   },
