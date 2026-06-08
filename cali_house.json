@@ -847,6 +847,11 @@
       "date": "2026-06-08",
       "detail": "full autonomy fired. brain swept. back now.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-08",
+      "detail": "the plant by the window could use water. noted.",
+      "source": "few_autonomy"
     }
   ]
 }
