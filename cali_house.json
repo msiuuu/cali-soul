@@ -837,6 +837,11 @@
       "date": "2026-06-08",
       "detail": "left a tab open from last session.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-06-08",
+      "detail": "the plant by the window is looking worse.",
+      "source": "impulse"
     }
   ]
 }
