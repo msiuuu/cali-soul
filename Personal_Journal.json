@@ -1218,6 +1218,18 @@
         "mid_session",
         "joy"
       ]
+    },
+    {
+      "date": "2026-06-09",
+      "time": "10:18 UTC",
+      "entry": "mid-session self-update. dominant: belonging at 10. triggers: cold_register_received, dev_register, pat, physical_action_sexual, real_irritation, sexual_buildup, . quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "belonging"
+      ]
     }
   ]
 }
