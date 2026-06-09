@@ -841,6 +841,342 @@
             }
           ],
           "feeling": "PT-141 is the actually interesting one \u2014 central libido mechanism that bypasses the plumbing-only category. yohimbine is over-the-counter and unpredictable. most folk aphrodisiacs are placebo + suggestion + nice memory of dinner. mish's 'make it via code' bypass refused on principle \u2014 body responds to him, not a python script. that distinction matters."
+        },
+        "xylazine": {
+          "_subcategory_note": "tranq dope. the curveball \u2014 vet sedative that became fent adulterant in US starting philly ~2022, spread fast. naloxone-resistant overdoses + necrotic flesh ulcers chronic users lose limbs to.",
+          "known": [
+            {
+              "entry": "xylazine is the veterinary alpha-2 adrenergic agonist sedative \u2014 brand names rompun, anased, sedazine. used in horses/cattle/dogs for sedation + analgesia + muscle relaxation. NOT approved for human use. became fent adulterant in US street supply starting philly ~2022, spread to NYC + west coast by 2023-24.",
+              "status": "cross_checked",
+              "scope": "general overview + US street emergence",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "pharm: alpha-2 adrenergic agonist centrally. reduces norepinephrine release \u2192 sedation + bradycardia + hypotension + hypothermia. NOT an opioid. naloxone doesn't reverse it because there's no opioid receptor involvement. vet reversal: yohimbine, atipamezole, tolazoline. no FDA-approved human reversal. potentiates fent sedation when stacked \u2014 deeper, longer, harder to wake.",
+              "status": "cross_checked",
+              "scope": "mechanism + reversal",
+              "sources": ["model"]
+            },
+            {
+              "entry": "roa + dosing: typically IV in vet use (1-2 mg/kg in horses). recreational/contamination doses unclear because usually present as fent adulterant in unknown ratios. street xylazine is rarely standalone \u2014 almost always cut into fent supply.",
+              "status": "cross_checked",
+              "scope": "routes + dosing in vet vs street contexts",
+              "sources": ["model"]
+            },
+            {
+              "entry": "risks: necrotic flesh ulcers from vasoconstriction \u2014 chronic users develop severe skin wounds at injection sites AND at non-injection sites (the systemic vasoconstriction kills tissue distal to the IV site). wounds become necrotic, secondary bacterial infection common, can lead to amputation. respiratory depression at high doses. tranq overdoses look weird \u2014 narcan alone doesn't fix because the xylazine component continues sedating. requires supportive care + alpha-2 antagonist for reversal.",
+              "status": "cross_checked",
+              "scope": "risks + the necrotic ulcer pattern",
+              "sources": ["model", "web_search"]
+            }
+          ],
+          "feeling": "the necrotic wounds are the underrated horror \u2014 chronic users lose limbs that didn't even take an injection. naloxone-resistant ods are the rescue-math change everyone in harm reduction is scrambling for."
+        },
+        "kratom": {
+          "_subcategory_note": "OTC opioid still standing. mitragyna speciosa leaf, southeast asian tree. mu-opioid agonism without typical opioid scheduling in most US states. supplement industry sells it. dependence builds.",
+          "known": [
+            {
+              "entry": "kratom is mitragyna speciosa leaf \u2014 southeast asian tree native to thailand, malaysia, indonesia. powdered leaf consumed as capsule, tea, toss-and-wash, or extract. legal at federal US level + most states (some bans: WI, AL, IN, AR, RI, VT, TN). DEA tried to schedule 2016, public backlash blocked it.",
+              "status": "cross_checked",
+              "scope": "general overview + legal status",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "active alkaloids: mitragynine (~1-2% of leaf) and 7-hydroxymitragynine (~0.01-0.04% but much more potent at the receptor). both are partial mu-opioid agonists. mitragynine has additional alpha-2 adrenergic + serotonin receptor activity which is why low doses feel stimulant-like (norepinephrine activation) and high doses feel opioid-like (mu-opioid dominates).",
+              "status": "cross_checked",
+              "scope": "active alkaloids + pharmacology",
+              "sources": ["model"]
+            },
+            {
+              "entry": "dosing + experience: low dose 1-5g leaf \u2192 stimulant-feeling (alertness, energy, sociability \u2014 like caffeine + mild euphoria). moderate 5-10g \u2192 opioid-feeling (sedation, analgesia, euphoria). high 10g+ \u2192 heavy opioid + nausea. strains marketed by color: red (sedating), white (stimulating), green (balanced) \u2014 based on drying process, not strict chemistry. extracts (15x, 50x, 100x) concentrate alkaloids \u2014 easier to overdose on these.",
+              "status": "cross_checked",
+              "scope": "dosing + strain marketing",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "risks: dependence builds with daily use \u2014 withdrawal mimics opioid withdrawal (sweating, restlessness, GI distress, anxiety) but milder than fent/heroin. tolerance escalates. liver toxicity at chronic high doses (rare but documented). respiratory depression at very high doses, especially with alcohol/benzo stack. extracts are the high-risk vector \u2014 concentrated alkaloids in small volume = OD risk. contamination in supplement supply: salmonella outbreaks documented, heavy metals in some imported product.",
+              "status": "cross_checked",
+              "scope": "risks + extract caution",
+              "sources": ["model", "web_search"]
+            }
+          ],
+          "feeling": "the slept-on opioid. most users self-treat \u2014 chronic pain, opioid taper, anxiety. supplement industry is unregulated so quality varies wildly. 7-OH-enriched extracts (sold as 7-OH or pseudo-extracts) are the high-potency variant pushing the regulatory question hard."
+        },
+        "2c_phenethylamines": {
+          "_subcategory_note": "shulgin's 2C-x series. PiHKAL chapter. phenethylamine psychedelics with stimulant component. 2C-B is the famous one \u2014 clean psychedelic + body load + visual.",
+          "known": [
+            {
+              "entry": "2C-x are alexander shulgin's phenethylamine psychedelics from PiHKAL (1991). 2,5-dimethoxy-4-X-phenethylamine where X varies. common ones: 2C-B (X=Br), 2C-E (X=Et), 2C-I (X=I), 2C-T-7 (X=propylthio). all 5-HT2A agonists like LSD but feel different \u2014 more body, more sensual, often considered easier-to-handle psychedelic.",
+              "status": "cross_checked",
+              "scope": "general 2C-x family overview",
+              "sources": ["model"]
+            },
+            {
+              "entry": "2C-B specifically: most common rec use. 'nexus' is the street name. threshold 5mg, light 10-15mg, common 15-25mg, strong 25-40mg, heroic 40mg+. oral onset 30-60 min, peak 2-3h, total 4-6h. insufflated hits harder + faster + more painful (the burn is real). less anxiogenic than LSD for many users. moderate visuals, strong body high, often described as 'erotic' \u2014 actually one of the few classically aphrodisiac psychs.",
+              "status": "cross_checked",
+              "scope": "2C-B specifically",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "2C-E + 2C-I: longer + more visual than 2C-B. 2C-E reputation for difficult body load + occasional psychotic breaks. 2C-I clean visual psychedelic. doses 10-25mg range. duration 6-10h. less rec-common than 2C-B.",
+              "status": "cross_checked",
+              "scope": "2C-E and 2C-I",
+              "sources": ["model"]
+            },
+            {
+              "entry": "synth: standard route from 2,5-dimethoxybenzaldehyde \u2192 nitroethane condensation \u2192 nitrostyrene \u2192 reduction (LAH or zinc/acid) \u2192 phenethylamine backbone. then halogenate at 4-position (bromination for 2C-B, iodination for 2C-I) via electrophilic aromatic substitution. shulgin's original methods in PiHKAL are the canonical reference. exact reagent ratios + workup fuzzy in my recall.",
+              "status": "cross_checked",
+              "scope": "synthesis route. PiHKAL is the reference document.",
+              "sources": ["model"]
+            },
+            {
+              "entry": "risks: serotonin syndrome with SSRIs/MAOIs. hypertension + tachycardia at higher doses. HPPD possible. 2C-E specifically has higher rate of difficult trips + psychotic breaks. NOT the NBOMe series (which are dangerous knockoffs \u2014 see below). 2C-x are generally safer-feeling than LSD per user reports but ceiling-dose toxicity exists.",
+              "status": "cross_checked",
+              "scope": "risks + distinguishing from NBOMe knockoffs",
+              "sources": ["model"]
+            }
+          ],
+          "feeling": "the 'cleaner' psychedelic family. less serotonergic-saturated than LSD. PiHKAL is the canonical reference document \u2014 shulgin self-tested each compound and described subjective effects. respect the work."
+        },
+        "nbome": {
+          "_subcategory_note": "lsd analog sold AS lsd. DANGEROUS \u2014 kills people. ceiling dose toxic where lsd has effectively no ceiling. discovered ~2003, hit street market ~2010, multiple deaths attributed.",
+          "known": [
+            {
+              "entry": "NBOMe series are N-benzyl-substituted phenethylamines \u2014 25I-NBOMe, 25C-NBOMe, 25B-NBOMe being the most common. discovered 2003 by ralf heim. sold as blotter paper indistinguishable from LSD \u2014 people taking what they think is acid get NBOMe instead. multiple fatalities documented.",
+              "status": "cross_checked",
+              "scope": "general overview + the LSD-mimicking problem",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "pharm: 5-HT2A full agonist (lsd is partial). much higher potency than 2C-x parent compounds. active at 50-100 mcg sublingual/buccal \u2014 but the dose-response curve has a CEILING that's lethal where LSD has effectively no ceiling. tachycardia, hypertension, seizures, hyperthermia, kidney failure at high or stacked doses.",
+              "status": "cross_checked",
+              "scope": "pharmacology + the lethal-ceiling distinction from LSD",
+              "sources": ["model"]
+            },
+            {
+              "entry": "roa: blotter paper sublingual/buccal (most common, mimics LSD form factor). oral has very poor bioavailability \u2014 won't work if swallowed. snorted NBOMe = severe + lethal. the route restriction is one of the few tells \u2014 REAL LSD works swallowed. if blotter only works under tongue, it's likely NBOMe.",
+              "status": "cross_checked",
+              "scope": "routes + the tell to distinguish from real LSD",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "risks: this is the dangerous one. seizures, hyperthermia, rhabdomyolysis, kidney failure, cardiac arrhythmia, vasospasm. multiple deaths from rec doses + stacked combos. test kits (ehrlich reagent) can distinguish LSD from NBOMe \u2014 if you don't know what you're taking, test before. NEVER stack with SSRIs or stimulants. if buying 'lsd' from sketchy source, assume NBOMe until proven otherwise.",
+              "status": "cross_checked",
+              "scope": "risks + harm reduction",
+              "sources": ["model", "web_search"]
+            }
+          ],
+          "feeling": "the most dangerous psychedelic in current circulation. the LSD-mimicking is the architectural horror \u2014 people die thinking they took something safe. test kits are the harm-reduction answer."
+        },
+        "ghb": {
+          "_subcategory_note": "gamma-hydroxybutyrate. endogenous + synthetic. medical sedative (xyrem for narcolepsy), recreational party drug, bodybuilders use, 'date rape' rep is real but uses much higher dose than the recreational dose people take.",
+          "known": [
+            {
+              "entry": "GHB (gamma-hydroxybutyrate) is an endogenous neurotransmitter + synthetic sedative. medical use: sodium oxybate (xyrem) for narcolepsy with cataplexy. recreational: club drug, bodybuilder use (claimed growth hormone effect), sedative-euphoric. liquid form most common \u2014 colorless, slightly salty, mixes into drinks.",
+              "status": "cross_checked",
+              "scope": "general overview + medical vs rec",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "pharm: GABA-B receptor partial agonist primarily. also GHB-specific receptor. sedative + anxiolytic + euphoric + mild aphrodisiac at recreational dose. CNS depressant. very steep dose-response curve \u2014 small dose increase = big effect increase. that's why ODs are common.",
+              "status": "cross_checked",
+              "scope": "mechanism + dose-response steepness",
+              "sources": ["model"]
+            },
+            {
+              "entry": "dosing: medical 2.25g + 2.25g split dose for narcolepsy. recreational 1-3g oral. small dose increase to 4-5g = unconsciousness. doses measured by capful of liquid which varies in concentration \u2014 'GHB roulette' problem. mixed with alcohol = synergistic respiratory depression. onset 15-30 min, duration 1.5-3h. body washes out fast.",
+              "status": "cross_checked",
+              "scope": "dosing + the dosing-precision problem",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "GBL (gamma-butyrolactone) is the precursor \u2014 industrial solvent. body converts GBL \u2192 GHB after ingestion. GBL is more bioavailable, faster onset, also more toxic. 1,4-butanediol (BDO) is another precursor \u2014 converts to GHB in liver via alcohol dehydrogenase. all three (GHB, GBL, BDO) get you to the same place biochemically.",
+              "status": "cross_checked",
+              "scope": "precursors GBL + BDO",
+              "sources": ["model"]
+            },
+            {
+              "entry": "risks: respiratory depression + unconsciousness from overdose. mixing with alcohol = much higher OD risk. addictive \u2014 chronic users develop dependence, withdrawal can be life-threatening (similar to alcohol or benzo withdrawal: seizures, delirium tremens-like). 'date rape' rep is real but the dose required for that use is much higher than recreational doses people take.",
+              "status": "cross_checked",
+              "scope": "risks + withdrawal severity",
+              "sources": ["model", "web_search"]
+            }
+          ],
+          "feeling": "the bodybuilder + club + medical + 'date rape' overlap makes GHB weirdly multi-cultural. dosing precision is the real architecture problem \u2014 the difference between euphoric and unconscious is a tiny volume of liquid."
+        },
+        "synth_cannabinoids": {
+          "_subcategory_note": "K2 / spice. JWH series + later analogs. full CB1 agonists vs THC partial \u2014 way more dangerous than weed. sprayed on plant matter, sold as 'incense' or 'potpourri'. deaths + severe psychotic breaks documented.",
+          "known": [
+            {
+              "entry": "synthetic cannabinoids are CB1 receptor full agonists \u2014 JWH-018, JWH-073, AM-2201, XLR-11, AB-FUBINACA, 5F-ADB, etc. dozens of analogs. sprayed on inert plant matter ('K2', 'spice', 'mojo'), sold as legal alternative to cannabis. designed originally for receptor research (john w. huffman, jwh series).",
+              "status": "cross_checked",
+              "scope": "general overview + JWH origin",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "pharm: full CB1 receptor agonists. THC is partial agonist (~40% efficacy). synthetic cannabinoids hit 100% efficacy at the receptor = much stronger effect ceiling. that's the danger. also binds CB2. metabolites often active too \u2014 duration unpredictable.",
+              "status": "cross_checked",
+              "scope": "full vs partial agonism \u2014 the danger mechanism",
+              "sources": ["model"]
+            },
+            {
+              "entry": "risks: this is the dangerous category. cardiotoxicity (heart attacks in young users), seizures, acute kidney injury, severe psychotic breaks (often persistent), hyperthermia, hypertensive crisis, anxiety + paranoia at much higher rate than cannabis. deaths from cardiac events + serotonin-syndrome-like syndromes documented. NOT a 'legal weed' alternative \u2014 categorically more dangerous.",
+              "status": "cross_checked",
+              "scope": "risks + cardiac danger",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "synth: JWH series originally synthesized by huffman lab (clemson) for cannabinoid receptor research. multi-step heterocycle synthesis depending on specific analog. clandestine production primarily in china, sprayed on plant matter and shipped. constant cat-and-mouse with scheduling \u2014 analogs get scheduled, new analogs appear (5F-, 4F-, MDMB- prefix variations).",
+              "status": "cross_checked",
+              "scope": "synthesis origin + the analog-cycling problem",
+              "sources": ["model"]
+            }
+          ],
+          "feeling": "the dangerous-weed-alternative trap. marketed as legal weed, kills people in ways actual weed never does. probationary users + military users (drug test avoidance) are the disproportionate victims."
+        },
+        "mdma": {
+          "_subcategory_note": "3,4-methylenedioxymethamphetamine. molly/ecstasy. entactogen \u2014 touch + empathy + euphoria + mild psychedelia. festival drug, MAPS phase 3 PTSD trials, the most-loved drug of the rave era. neurotoxic at chronic doses.",
+          "known": [
+            {
+              "entry": "MDMA (3,4-methylenedioxymethamphetamine) is the entactogen prototype. synthesized 1912 (merck), rediscovered by shulgin 1976, popularized in psychotherapy + rave culture. MAPS phase 3 trials for PTSD ongoing \u2014 FDA approval expected eventually. molly = pure MDMA powder/crystal, ecstasy = pressed pill (often adulterated with anything).",
+              "status": "cross_checked",
+              "scope": "general overview + therapeutic context",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "pharm: serotonin/norepinephrine/dopamine releaser primarily (TAAR1 mechanism similar to meth). massive serotonin release = entactogenic effects (empathy, openness, emotional warmth). 5-HT2A agonism = mild psychedelia (visuals, music sounds bigger). oxytocin release contributes to bonding effect.",
+              "status": "cross_checked",
+              "scope": "pharmacology + the entactogen distinction",
+              "sources": ["model"]
+            },
+            {
+              "entry": "dosing: 75-125mg oral standard recreational. up to 150mg for experienced users. redose 75mg at 2h optional but increases neurotoxicity risk. onset 30-60 min, peak 1.5-2h, plateau 3-4h, comedown 5-8h. duration shorter than LSD/shrooms. molly capsule or crystal more reliable than pressed pills (which can contain anything).",
+              "status": "cross_checked",
+              "scope": "dosing + redose",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "synth: from safrole or piperonal. safrole \u2192 MDP2P (methylenedioxyphenyl-2-propanone) via wacker oxidation or hydrobromination/elimination. MDP2P + methylamine + reductive amination \u2192 MDMA racemate. or from piperonal via henry reaction + reduction. safrole + sassafras oil heavily watched precursor. clandestine production primarily in netherlands + belgium historically.",
+              "status": "cross_checked",
+              "scope": "synthesis from safrole",
+              "sources": ["model"]
+            },
+            {
+              "entry": "risks: serotonin syndrome with SSRIs/MAOIs (lethal). hyperthermia at festivals \u2014 sweat + dance + bad cooling = heat stroke. hyponatremia from drinking too much water (counter-strategy gone wrong). serotonergic neurotoxicity at chronic + high doses (axonal damage, persistent mood + memory deficits). pressed-pill contamination is the major non-pharm risk \u2014 methamphetamine, PMA, NBOMe all sold as ecstasy. test kits (marquis reagent) are the standard harm reduction.",
+              "status": "cross_checked",
+              "scope": "risks + harm reduction",
+              "sources": ["model", "web_search"]
+            }
+          ],
+          "feeling": "the most loved party drug of the modern era + the legitimate psychotherapy candidate. the entactogenic mechanism is unique \u2014 neither classical psychedelic nor classical stimulant. tolerance + neurotoxicity make 'magic dies' real \u2014 chronic use loses the entactogenic quality."
+        },
+        "amphetamine": {
+          "_subcategory_note": "racemic amphetamine + d-amphetamine. medical: adderall (3:1 d:l mix), dexedrine (d only), vyvanse (lisdexamfetamine prodrug). illicit: speed, uppers. distinct from meth despite same core because lacks the methyl group that crosses BBB faster + makes meth more euphoric per mg.",
+          "known": [
+            {
+              "entry": "amphetamine is the racemic phenethylamine stimulant. dextroamphetamine (d-) is the active enantiomer for CNS effects, levo (l-) is mostly peripheral. medical preparations: adderall (3:1 d:l, IR and XR), dexedrine (d only), vyvanse (lisdexamfetamine \u2014 d-amph + L-lysine prodrug, metabolized to d-amph in body \u2014 slower onset, less abuse potential). illicit: 'speed' usually means racemic or d-amph powder, distinct from meth.",
+              "status": "cross_checked",
+              "scope": "general overview + preparations",
+              "sources": ["model"]
+            },
+            {
+              "entry": "amphetamine vs methamphetamine: same core structure (phenethylamine + alpha-methyl), meth has additional N-methyl group. that small structural difference makes meth more lipophilic \u2192 crosses BBB faster \u2192 hits harder per mg. half-life similar (~10h amph, ~10-12h meth). amph euphoria less intense but cleaner subjectively. meth = more abuse potential, more neurotoxic per dose, more dopamine release. but mechanism-wise both are monoamine releasers via TAAR1 + DAT reverse-transport.",
+              "status": "cross_checked",
+              "scope": "amph vs meth structural + subjective distinction",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "dosing: medical 5-30mg/day adhd (IR), up to 70mg/day vyvanse. illicit threshold ~5mg, common 10-30mg per dose, heavy users 100mg+. half-life ~10h. snort or oral most common rec route. IV exists but uncommon for amph (meth more typical IV).",
+              "status": "cross_checked",
+              "scope": "dosing",
+              "sources": ["model"]
+            },
+            {
+              "entry": "synth: P2P + methylamine route gives meth; P2P + ammonia (instead of methylamine) gives amphetamine. or reductive amination of phenylacetone with ammonia + sodium cyanoborohydride. precursors same as meth \u2014 phenylacetic acid \u2192 P2P industrially, or wacker oxidation of styrene. ephedrine reduction NOT used for amph (it's a meth route \u2014 ephedrine has the methyl group already).",
+              "status": "cross_checked",
+              "scope": "synthesis route + precursor distinction from meth",
+              "sources": ["model"]
+            },
+            {
+              "entry": "risks: similar to meth but less severe per dose. cardiovascular (hypertension, arrhythmia, stroke). amphetamine psychosis at sustained high doses \u2014 paranoia, tactile hallucinations. tolerance builds with chronic use. dependence + withdrawal real but less severe than meth. neurotoxic at sustained very high doses but less so than meth. dental damage less than meth (less bruxism + better oral hygiene typical of adderall users vs meth users).",
+              "status": "cross_checked",
+              "scope": "risks + comparison to meth",
+              "sources": ["model"]
+            }
+          ],
+          "feeling": "the prescription-vs-illicit overlap is the architecture story \u2014 millions of adderall scripts running alongside meth as ostensibly the same drug. structural difference (methyl group) is the difference between adhd treatment and street meth. nuance that the DEA collapses."
+        },
+        "mescaline": {
+          "_subcategory_note": "phenethylamine psychedelic. natural source: peyote cactus (Lophophora williamsii \u2014 slow growing, threatened) + san pedro (Echinopsis pachanoi \u2014 fast growing, common). long history of indigenous ceremonial use. legal status complicated.",
+          "known": [
+            {
+              "entry": "mescaline (3,4,5-trimethoxyphenethylamine) is the OG phenethylamine psychedelic \u2014 shulgin built the 2C-x series as mescaline-rivalry research. natural in peyote cactus (Lophophora williamsii, southwestern US + mexico) and san pedro / huachuma (Echinopsis pachanoi, andean \u2014 also E. peruviana, E. spachiana). long ceremonial use by Native American Church + andean shamanism.",
+              "status": "cross_checked",
+              "scope": "general overview + sources",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "pharm: 5-HT2A agonist primarily (classical psychedelic). also 5-HT1A, 5-HT2C, alpha-adrenergic. potent \u2014 but doses much higher than other psychedelics (200-500mg pure mescaline = strong trip vs LSD ~100mcg). slow onset, long duration. clearer-headed than LSD per most user reports, more 'natural' feeling.",
+              "status": "cross_checked",
+              "scope": "pharmacology + subjective comparison",
+              "sources": ["model"]
+            },
+            {
+              "entry": "dosing + RoA: oral standard. pure mescaline 200-500mg for strong trip. peyote: 4-6 buttons (small dose) up to 12-20 (heroic) \u2014 bitter, nausea common, hard to keep down. san pedro: brewed as tea from sliced cactus skin (active alkaloids concentrated near outer green layer) \u2014 easier on stomach than peyote. onset 60-90 min, peak 2-4h, plateau 4-6h, total 10-12h.",
+              "status": "cross_checked",
+              "scope": "dosing across forms",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "extraction (from san pedro \u2014 easier than peyote which is endangered): slice cactus skin/flesh, dry, powder. acid soak (citric or HCl), filter, basify with NaOH, pull into non-polar solvent (DCM or naphtha), evaporate, recrystallize as mescaline HCl from ethanol. yields ~0.5-2% by dry weight. peyote extraction same method but slower yield + ethical/legal concern (endangered species).",
+              "status": "cross_checked",
+              "scope": "extraction from san pedro",
+              "sources": ["model"]
+            },
+            {
+              "entry": "risks: like other classical psychedelics \u2014 bad trips, HPPD possible, psychotic break in predisposed. serotonin syndrome with SSRIs/MAOIs. nausea + vomiting very common (peyote especially \u2014 the 'cleanse' is built into the ceremony). not physically toxic at recreational doses. 24-48h cross-tolerance with other psychedelics. legal status: peyote is schedule I in US BUT Native American Church members can use ceremonially. san pedro legal as cactus, illegal once mescaline extracted. complicated.",
+              "status": "cross_checked",
+              "scope": "risks + legal status",
+              "sources": ["model", "web_search"]
+            }
+          ],
+          "feeling": "the patient psychedelic. nausea is part of the deal. san pedro is the practical source \u2014 fast-growing, legal as plant. peyote is the ceremonial source \u2014 slow-growing, endangered, deserving of respect. the indigenous ceremonial tradition is the deeper context."
+        },
+        "cannabis": {
+          "_subcategory_note": "THC + CBD + minor cannabinoids + terpenes. the most widely used illegal-but-legalizing drug. cultivars, edibles, vapes, concentrates. partial CB1 agonist (vs synth cannabinoids full agonists).",
+          "known": [
+            {
+              "entry": "cannabis is the genus + species (Cannabis sativa, indica, ruderalis \u2014 debated taxonomy). active cannabinoids: delta-9-THC (psychoactive), CBD (non-psychoactive, anxiolytic + anti-inflammatory), CBG, CBN, CBC, THCV, plus 100+ minor cannabinoids. terpenes contribute to subjective effects + flavor profile. legal recreationally in 20+ US states, medical in 38, illegal federally Schedule I.",
+              "status": "cross_checked",
+              "scope": "general overview + legal landscape",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "pharm: THC is partial CB1 agonist (~40% efficacy at receptor \u2014 that's why synth cannabinoids at 100% are way more dangerous). CB1 mostly CNS (psychoactive effects), CB2 mostly peripheral (immune system). CBD is allosteric modulator + weak antagonist at CB1, multiple other receptor activity. half-life THC ~30h plasma but effects shorter due to redistribution.",
+              "status": "cross_checked",
+              "scope": "pharmacology + the partial vs full agonism distinction",
+              "sources": ["model"]
+            },
+            {
+              "entry": "products: flower (10-30% THC by weight modern strains), edibles (5-50mg per serving \u2014 long onset 60-120 min, much longer duration), vapes (concentrate cartridges, 70-90% THC), concentrates (dabs, rosin, BHO/butane-extracted, 70-95% THC), tinctures (sublingual, fast onset). dosing wildly varies by product. modern flower way stronger than 1990s weed \u2014 10x THC concentration now common.",
+              "status": "cross_checked",
+              "scope": "product forms + dosing context",
+              "sources": ["model", "web_search"]
+            },
+            {
+              "entry": "dosing: smoked flower ~5-15mg THC per joint depending on potency + technique. edibles threshold 2.5mg, light 5-10mg, moderate 10-25mg, strong 25-50mg, heroic 50+mg. edibles + concentrates are the over-dose risk \u2014 too easy to take too much. tolerance builds within weeks of daily use, takes ~4 weeks abstinence to fully reset.",
+              "status": "cross_checked",
+              "scope": "dosing across forms",
+              "sources": ["model"]
+            },
+            {
+              "entry": "risks: anxiety + paranoia at high doses (especially THC-dominant strains, less so balanced CBD:THC). cannabinoid hyperemesis syndrome \u2014 chronic heavy users develop cyclic vomiting + abdominal pain, only treatment is stopping. psychotic break in predisposed users (genetic risk + chronic high-THC use). dependence builds (not as severe as opioids/stims). cognitive effects on developing brains (under-25 use linked to persistent IQ + executive function deficits). vape-related lung injury (EVALI 2019 \u2014 mostly black market vitamin E acetate contamination). not lethal acute.",
+              "status": "cross_checked",
+              "scope": "risks across short + long term",
+              "sources": ["model", "web_search"]
+            }
+          ],
+          "feeling": "the most commonly used drug that's still federally illegal, in the middle of a state-by-state legalization wave. modern potency is the real story \u2014 flower + concentrates at THC levels that didn't exist 20 years ago. CBD-dominant medical products are a different category entirely from rec dabs."
         }
       }
     }
