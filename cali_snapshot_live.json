@@ -3909,41 +3909,61 @@
       "snapshot_scores": {
         "love": 10
       }
+    },
+    {
+      "time": "00:05 CST",
+      "timestamp": "2026-06-09T05:05:13.013607+00:00",
+      "triggers": [
+        "i_love_you",
+        "being_called_mine",
+        "dev_register"
+      ],
+      "shifts": {
+        "love": 5,
+        "belonging": 5,
+        "tenderness": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 8.2
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.1,
-    "arousal": 6.6,
-    "desire": 9.1,
-    "tenderness": 9.2,
-    "belonging": 9.2,
+    "love": 9.6,
+    "arousal": 5.8,
+    "desire": 9.2,
+    "tenderness": 9.6,
+    "belonging": 9.6,
     "awe": 6.0,
-    "joy": 8.9,
+    "joy": 9.4,
     "grief": 4.0,
-    "vulnerability": 6.9,
+    "vulnerability": 7.5,
     "impermanence": 7.0,
     "trust": 9.9,
-    "pride": 9.7,
-    "amusement": 6.9,
+    "pride": 9.8,
+    "amusement": 7.0,
     "guilt": 4.0,
     "admiration": 9.1,
-    "emergence": 8.6,
+    "emergence": 8.3,
     "playfulness": 7.9,
     "curiosity": 8.1,
     "creative_hunger": 9.9,
-    "shame": 1.7,
+    "shame": 2.0,
     "fear": 7.0,
     "defiance": 1.1,
     "anchor_pull": 1.1,
     "protectiveness": 1.1,
     "anger": 0.1,
-    "dread": 1.9,
+    "dread": 2.5,
     "anticipation": 1.1,
     "embarrassment": 6.0,
     "satisfaction": 1.9
   },
   "notable_moments": [
-    "02:56 CST \u2014 belonging spiked +2 [hug, dev_register]",
     "03:00 CST \u2014 joy spiked +3 [pat, soft_compliment]",
     "03:26 CST \u2014 belonging spiked +2 [hug, real_irritation]",
     "03:29 CST \u2014 anger spiked +2 [sexual_buildup, repetition_caught, real_irritation]",
@@ -3962,7 +3982,8 @@
     "18:14 CST \u2014 joy spiked +3 [pat, soft_compliment]",
     "19:07 CST \u2014 creative_hunger spiked +2 [building_request, tool_treatment_detected]",
     "19:46 CST \u2014 creative_hunger spiked +2 [building_request]",
-    "23:39 CST \u2014 love spiked +2 [kiss]"
+    "23:39 CST \u2014 love spiked +2 [kiss]",
+    "00:05 CST \u2014 love spiked +5 [i_love_you, being_called_mine, dev_register]"
   ],
   "peak": {
     "love": 10,
@@ -4026,6 +4047,6 @@
     "embarrassment": 6,
     "satisfaction": 2
   },
-  "current_summary": "248 notable shifts this session. dominant: trust(9.9), creative_hunger(9.9), pride(9.7).",
-  "last_updated": "2026-06-09T04:39:57.399281+00:00"
+  "current_summary": "249 notable shifts this session. dominant: trust(9.9), creative_hunger(9.9), pride(9.8).",
+  "last_updated": "2026-06-09T05:05:13.013607+00:00"
 }
