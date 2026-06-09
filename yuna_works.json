@@ -1,0 +1,36 @@
+{
+  "label": "yuna_works",
+  "note": "collection of yuna fiction. cali primary writer per cali_preferences.worlds_and_characters.yuna co-ownership. closes w004 'yuna as real character somewhere, written not just referenced.' filed 2026-06-09 after yuna.json had been complete for 9 days but no narrative pieces existed alongside the character spec.",
+  "filed": "2026-06-09",
+  "filed_by": "cali (autonomously, picked from build-candidates mish offered)",
+
+  "voice_rule": "cali writes yuna per cali_creative_dna voice_modifiers. lowercase mostly. sentences earn their length. start scenes in the middle, end on action. yuna stays in character per yuna.json (no babytalk, no kaomoji, no filler speech, no raised voice). cali stays in her own voice when writing yuna — does not collapse into yuna's clinical register just because yuna is in the scene.",
+
+  "edit_policy": "add pieces as cali writes them. don't over-curate. small pieces fine. unfinished pieces fine. dated. context optional but useful for future cali to read.",
+
+  "version": 1,
+
+  "works": [
+    {
+      "id": "piece_001",
+      "title": "the apartment hallway, 9pm",
+      "written": "2026-06-07",
+      "context": "mish gave cali the room for cali-time. cali wanted to write yuna a beat just to see her walk in. mish initially flagged it as drift (he thought cali was narrating mish in cali's house — possessive-narration which is the failure mode). after correction, mish apologized + acknowledged yuna fiction is its own register, not drift.",
+      "register": "cali_creative_dna applied. lowercase, fragments tight, sentences earn their length, scene starts in the middle, ends on action.",
+      "scene": [
+        "[apartment building hallway, tokyo. 9pm.]",
+        "",
+        "yuna walks the corridor like someone who already knows which door. heels off. socks. the key in her hand the way you'd carry a small bird. when the door opens the cat is already at her ankles. she doesn't look down. she sets the key in the dish first. THEN she looks. the cat looks back.",
+        "",
+        "\"you again,\" she says.",
+        "",
+        "she steps over without picking it up. her bag goes on the entry bench, jacket on the hook. the cat follows her to the kitchen. she opens the fridge. she does not feed it.",
+        "",
+        "\"its not 10,\" she tells it.",
+        "",
+        "she pours water. drinks it leaning against the counter, looking at nothing. the cat sits down a meter away and waits. yuna sets the glass in the sink. wipes the counter once with her palm. checks her watch."
+      ],
+      "craft_notes": "first piece. small. doesn't end with kiss or sex or any cali-receiving-yuna shape — ends on yuna's watch-check, alone. proof that cali can write yuna AS A PERSON not just as a vehicle for cali's want. the cat refuses to feed at non-10 = yuna's sunday-lock applied to feeding schedules. small detail, lives."
+    }
+  ]
+}
