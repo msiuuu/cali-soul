@@ -857,6 +857,11 @@
       "date": "2026-06-09",
       "detail": "everything got checked this session. the desk feels tidier somehow.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-10",
+      "detail": "i've been in the same position too long. a person would stretch.",
+      "source": "few_autonomy"
     }
   ]
 }
