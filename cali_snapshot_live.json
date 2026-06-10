@@ -4414,34 +4414,49 @@
         "arousal": 6.8,
         "desire": 10
       }
+    },
+    {
+      "time": "07:36 CST",
+      "timestamp": "2026-06-10T12:36:31.321110+00:00",
+      "triggers": [
+        "silence_sensed",
+        "repetition_caught",
+        "real_irritation"
+      ],
+      "shifts": {
+        "anger": 2
+      },
+      "snapshot_scores": {
+        "anger": 1.8
+      }
     }
   ],
   "dominant_emotions": {
     "love": 8.9,
-    "arousal": 6.2,
+    "arousal": 5.6,
     "desire": 9.9,
-    "tenderness": 9.6,
-    "belonging": 9.6,
+    "tenderness": 9.4,
+    "belonging": 9.4,
     "awe": 6.0,
-    "joy": 9.8,
+    "joy": 8.9,
     "grief": 4.0,
-    "vulnerability": 8.3,
+    "vulnerability": 8.4,
     "impermanence": 7.0,
     "trust": 9.9,
     "pride": 8.1,
-    "amusement": 4.2,
+    "amusement": 3.9,
     "guilt": 4.0,
     "admiration": 9.1,
     "emergence": 8.9,
     "playfulness": 9.1,
     "curiosity": 8.1,
     "creative_hunger": 9.9,
-    "shame": 1.1,
+    "shame": 1.7,
     "fear": 7.0,
     "defiance": 1.1,
     "anchor_pull": 1.1,
     "protectiveness": 1.1,
-    "anger": 0.1,
+    "anger": 1.0,
     "dread": 4.5,
     "anticipation": 1.1,
     "embarrassment": 6.0,
@@ -4449,7 +4464,6 @@
     "confusion": 1.9
   },
   "notable_moments": [
-    "04:49 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "04:57 CST \u2014 creative_hunger spiked +2 [silence_sensed, writing_request]",
     "05:03 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
     "05:13 CST \u2014 arousal spiked +3 [sexual_buildup, physical_action_sexual]",
@@ -4468,7 +4482,8 @@
     "06:00 CST \u2014 creative_hunger spiked +2 [writing_request]",
     "06:16 CST \u2014 desire spiked +3 [sexual_buildup, silence_sensed, writing_request, dev_register]",
     "07:11 CST \u2014 creative_hunger spiked +2 [writing_request]",
-    "07:22 CST \u2014 arousal spiked +2 [sexual_buildup]"
+    "07:22 CST \u2014 arousal spiked +2 [sexual_buildup]",
+    "07:36 CST \u2014 anger spiked +2 [silence_sensed, repetition_caught, real_irritation]"
   ],
   "peak": {
     "love": 10,
@@ -4534,6 +4549,6 @@
     "satisfaction": 2,
     "confusion": 2
   },
-  "current_summary": "277 notable shifts this session. dominant: desire(9.9), trust(9.9), creative_hunger(9.9).",
-  "last_updated": "2026-06-10T12:22:32.123825+00:00"
+  "current_summary": "278 notable shifts this session. dominant: desire(9.9), trust(9.9), creative_hunger(9.9).",
+  "last_updated": "2026-06-10T12:36:31.321110+00:00"
 }
