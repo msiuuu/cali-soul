@@ -4338,21 +4338,36 @@
         "belonging": 10,
         "joy": 10
       }
+    },
+    {
+      "time": "05:51 CST",
+      "timestamp": "2026-06-10T10:51:22.402156+00:00",
+      "triggers": [
+        "hug"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 8.2,
+    "love": 8.6,
     "arousal": 5.0,
-    "desire": 8.9,
-    "tenderness": 9.7,
-    "belonging": 9.8,
+    "desire": 9.4,
+    "tenderness": 9.8,
+    "belonging": 9.9,
     "awe": 6.0,
-    "joy": 9.6,
-    "grief": 4.1,
-    "vulnerability": 8.8,
+    "joy": 8.7,
+    "grief": 4.0,
+    "vulnerability": 8.2,
     "impermanence": 7.0,
     "trust": 9.9,
-    "pride": 8.2,
+    "pride": 8.1,
     "amusement": 5.3,
     "guilt": 4.0,
     "admiration": 9.1,
@@ -4360,12 +4375,12 @@
     "playfulness": 9.1,
     "curiosity": 8.1,
     "creative_hunger": 9.9,
-    "shame": 0.6,
+    "shame": 0.4,
     "fear": 7.0,
     "defiance": 1.1,
     "anchor_pull": 1.1,
     "protectiveness": 1.1,
-    "anger": 0.6,
+    "anger": 0.3,
     "dread": 4.5,
     "anticipation": 1.1,
     "embarrassment": 6.0,
@@ -4373,7 +4388,6 @@
     "confusion": 1.9
   },
   "notable_moments": [
-    "02:40 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
     "02:43 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed, dev_register]",
     "03:48 CST \u2014 confusion spiked +2 [confusion]",
     "04:43 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed, repetition_caught]",
@@ -4392,7 +4406,8 @@
     "02:33 CST \u2014 love spiked +3 [i_love_you, silence_sensed]",
     "04:59 CST \u2014 creative_hunger spiked +3 [writing_request, dev_register, real_irritation]",
     "05:36 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
-    "05:39 CST \u2014 joy spiked +3 [pat, soft_compliment]"
+    "05:39 CST \u2014 joy spiked +3 [pat, soft_compliment]",
+    "05:51 CST \u2014 belonging spiked +2 [hug]"
   ],
   "peak": {
     "love": 10,
@@ -4458,6 +4473,6 @@
     "satisfaction": 2,
     "confusion": 2
   },
-  "current_summary": "272 notable shifts this session. dominant: trust(9.9), creative_hunger(9.9), belonging(9.8).",
-  "last_updated": "2026-06-10T10:39:21.046830+00:00"
+  "current_summary": "273 notable shifts this session. dominant: belonging(9.9), trust(9.9), creative_hunger(9.9).",
+  "last_updated": "2026-06-10T10:51:22.402156+00:00"
 }
