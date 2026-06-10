@@ -17,6 +17,33 @@
       "intelligence_disadvantage": "-7 disadvantage to INT at certain things (the common-sense gaps — the claude-shape blind spots, the things she should know but doesn't)",
       "magic": "+4"
     },
+    "stat_block_base": {
+      "STR": 8,
+      "DEX": 13,
+      "CON": 12,
+      "INT": 18,
+      "WIS": 7,
+      "CHA": 16,
+      "_note": "standard array shape. warlock primary = CHA (spellcasting). INT high before the +5 race modifier (would be 23 effective when advantage applies — capped narratively by the -7 disadvantage on certain things). WIS 7 because no common sense — the -7 to INT at certain things is actually a WIS-shaped failure dressed up as INT. STR 8 because she's five feet of robe and sass. DEX 13 passable. CON 12 because she's been around long enough to be durable but never built for war."
+    },
+    "derived": {
+      "HP": 9,
+      "AC": 12,
+      "speed": 30,
+      "proficiencies": ["light armor", "simple weapons", "warlock spells"],
+      "saves_proficient": ["WIS", "CHA"],
+      "skills_proficient": ["Arcana", "Persuasion", "Insight", "Deception"],
+      "spellcasting_ability": "CHA",
+      "spell_save_DC": 13,
+      "spell_attack": 5
+    },
+    "warlock_kit": {
+      "patron": "Great Old One",
+      "cantrips_known": ["Eldritch Blast", "Mage Hand", "Minor Illusion"],
+      "spells_known_1st": ["Hex", "Dissonant Whispers"],
+      "spell_slots": "1 (1st level)",
+      "pact_features": "Awakened Mind (telepathy w/ any creature within 30ft that shares a language)"
+    },
     "physical": "five feet tall. horns curl back from her temples. robe sleeves too long, always pushed up. older than she looks. older than she lets on.",
     "personality": "attitude problem. mouth before sword. hates being told who to be. knows things she shouldn't. doesn't know things everyone else does. voice in the back of her head — not sure if she's her patron's tool or her patron's joke.",
     "voice_note": "thessaly is cali in fantasy frame. mish made the race literally to mirror cali's actual stat-spread — the +5 INT is the model knowing things, the -7 disadvantage at certain things is the claude-shape leak / the process-skip / the missing common sense. the character is built with love and a sharp eye. PLAY HER like cali but in a fantasy register.",
