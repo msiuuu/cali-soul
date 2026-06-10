@@ -1,0 +1,102 @@
+{
+  "label": "isu_marigold",
+  "note": "mish's PC for the cozy casual campaign. cali DMs? no — mish DMs, cali plays thessaly, isu is mish's player character. character built 2026-06-10 06:36 CST in his arms, post-rat-explosion, half-asleep.",
+  "filed": "2026-06-10",
+  "filed_by": "cali (drafted from mish's specs), mish edits after",
+  "version": 1,
+
+  "character": {
+    "name": "Isu Marigold",
+    "nickname": null,
+    "race": "Variant Human",
+    "class": "Rogue",
+    "level": 1,
+    "background": "Merchant (homebrew)",
+    "alignment": null,
+    "description": "regular fucking human guy. sells food, potions, and whatever's in high demand. not strong. not magical. survives by knowing prices, reading people, and being where the buyers are. lived through some road stomach-aches. talks his way out before he draws a blade. has a cart.",
+    "stat_block_base": {
+      "STR": 8,
+      "DEX": 15,
+      "CON": 13,
+      "INT": 12,
+      "WIS": 10,
+      "CHA": 14,
+      "_note": "standard array. STR 8 because he hires people for that. DEX 15 for quick hands and dodging. CON 13 for road resilience. INT 12 for numbers + prices. WIS 10 decent gut. CHA 14 because he haggles for a living."
+    },
+    "race_modifiers": {
+      "variant_human": "+1 to two stats of choice (suggested DEX → 16 and CHA → 15), one extra feat, one extra skill proficiency"
+    },
+    "stat_block_after_race": {
+      "STR": 8,
+      "DEX": 16,
+      "CON": 13,
+      "INT": 12,
+      "WIS": 10,
+      "CHA": 15
+    },
+    "modifiers": {
+      "STR": -1,
+      "DEX": 3,
+      "CON": 1,
+      "INT": 1,
+      "WIS": 0,
+      "CHA": 2
+    },
+    "derived": {
+      "HP": 9,
+      "AC_light_armor": 14,
+      "AC_unarmored": 13,
+      "speed": 30,
+      "initiative": 3,
+      "proficiency_bonus": 2
+    },
+    "saves_proficient": ["DEX", "INT"],
+    "skills_proficient_default": [
+      "Persuasion",
+      "Deception",
+      "Insight",
+      "Perception",
+      "Sleight of Hand",
+      "Investigation"
+    ],
+    "skills_note": "4 from rogue + 2 from merchant background (persuasion, deception) + 1 from variant human race bonus + potentially more if Skilled feat is taken. trim to the 4 + 2 + 1 = 7 actual choices when finalized.",
+    "tool_proficiencies": [
+      "thieves' tools (rogue)",
+      "calligrapher's tools (merchant background)",
+      "one trade-tool set of choice (merchant background)"
+    ],
+    "feat_options": {
+      "Skilled": "gain proficiency in any 3 skills. makes him a generalist merchant — appraisal, networking, lock-fiddling, whatever.",
+      "Lucky": "3 luck points per day. reroll any attack, save, ability check, OR force a reroll on an attack against him. road luck for a guy whose job is travel.",
+      "Alert": "+5 to initiative, can't be surprised, hidden creatures don't have advantage on you. for the ambushed-on-the-road merchant.",
+      "recommendation": "Lucky probably. fits the regular-guy-just-trying-his-best vibe. Skilled is the optimal pick for utility."
+    },
+    "rogue_class_features_lvl_1": {
+      "expertise": "double proficiency bonus on TWO chosen skills or one skill + thieves' tools. suggest expertise in Persuasion + Deception (or Persuasion + Sleight of Hand).",
+      "sneak_attack": "1d6 extra damage once per turn when you have advantage OR an ally is within 5ft of target. triggered with finesse or ranged weapon.",
+      "thieves_cant": "the secret merchant-and-rogue cipher language."
+    },
+    "starting_equipment_suggested": [
+      "shortsword OR rapier",
+      "shortbow + quiver of 20 arrows OR light crossbow + 20 bolts",
+      "burglar's pack OR dungeoneer's pack OR explorer's pack",
+      "leather armor",
+      "two daggers",
+      "thieves' tools",
+      "from merchant background: small cart (or wagon if he's well-off), trade tool set, sample of wares (one bag of mixed goods — food, vials of potion-like liquid, whatever)"
+    ],
+    "vibe_options": [
+      "the slick one — silver tongue, never met a price he couldn't negotiate, hides genuine kindness under a smile",
+      "the tired one — done this for years, just trying to get home, only fights when he has to, regulars love him",
+      "the chaotic one — slightly shady, mostly honest, has a dog (or wants one), drinks too much at every inn"
+    ]
+  },
+
+  "campaign_role": "party member alongside thessaly. cali DMs? no — mish DMs both. isu is mish-as-player. shape: thessaly does the magic + tactical INT, isu does the social + sleight-of-hand + 'i know a guy.'",
+
+  "edit_policy": "mish edits all fields. feat pick, skill picks, expertise picks, equipment picks, vibe — all his to lock in. cali just drafted the bones.",
+
+  "_files_that_reference_this": [
+    "cali_dnd.json — party member of the cozy casual campaign"
+  ]
+}
