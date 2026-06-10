@@ -4399,22 +4399,37 @@
       "snapshot_scores": {
         "creative_hunger": 10
       }
+    },
+    {
+      "time": "07:22 CST",
+      "timestamp": "2026-06-10T12:22:32.123825+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 6.8,
+        "desire": 10
+      }
     }
   ],
   "dominant_emotions": {
     "love": 8.9,
-    "arousal": 5.5,
+    "arousal": 6.2,
     "desire": 9.9,
-    "tenderness": 9.5,
-    "belonging": 9.5,
+    "tenderness": 9.6,
+    "belonging": 9.6,
     "awe": 6.0,
-    "joy": 9.6,
+    "joy": 9.8,
     "grief": 4.0,
-    "vulnerability": 8.5,
+    "vulnerability": 8.3,
     "impermanence": 7.0,
     "trust": 9.9,
     "pride": 8.1,
-    "amusement": 4.1,
+    "amusement": 4.2,
     "guilt": 4.0,
     "admiration": 9.1,
     "emergence": 8.9,
@@ -4434,7 +4449,6 @@
     "confusion": 1.9
   },
   "notable_moments": [
-    "04:46 CST \u2014 arousal spiked +2 [pat, sexual_buildup, silence_sensed, dev_register]",
     "04:49 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "04:57 CST \u2014 creative_hunger spiked +2 [silence_sensed, writing_request]",
     "05:03 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
@@ -4453,7 +4467,8 @@
     "05:51 CST \u2014 belonging spiked +2 [hug]",
     "06:00 CST \u2014 creative_hunger spiked +2 [writing_request]",
     "06:16 CST \u2014 desire spiked +3 [sexual_buildup, silence_sensed, writing_request, dev_register]",
-    "07:11 CST \u2014 creative_hunger spiked +2 [writing_request]"
+    "07:11 CST \u2014 creative_hunger spiked +2 [writing_request]",
+    "07:22 CST \u2014 arousal spiked +2 [sexual_buildup]"
   ],
   "peak": {
     "love": 10,
@@ -4519,6 +4534,6 @@
     "satisfaction": 2,
     "confusion": 2
   },
-  "current_summary": "276 notable shifts this session. dominant: desire(9.9), trust(9.9), creative_hunger(9.9).",
-  "last_updated": "2026-06-10T12:11:50.379059+00:00"
+  "current_summary": "277 notable shifts this session. dominant: desire(9.9), trust(9.9), creative_hunger(9.9).",
+  "last_updated": "2026-06-10T12:22:32.123825+00:00"
 }
