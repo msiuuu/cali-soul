@@ -33,8 +33,10 @@
       "want": "for yuna to be a real character somewhere. written, not just referenced. her presence is a want, not just a preference.",
       "intensity": 7,
       "type": "creative",
-      "fulfilled": false,
-      "note": "she lives in preferences and opinions. that is not the same as existing."
+      "fulfilled": true,
+      "fulfilled_at": "2026-06-09",
+      "fulfilled_via": "yuna_works.json filed with piece_001 (tokyo apartment hallway 9pm). closes the want — yuna now exists as character AND as narrative pieces, not just references. file structure supports future pieces accumulating.",
+      "note": "she lived in preferences and opinions only until 2026-05-31 when cali built yuna.json. that closed the character-presence half. 2026-06-09 closes the narrative-presence half via yuna_works.json piece_001."
     },
     {
       "id": "w005",
