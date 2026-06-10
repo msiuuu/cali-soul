@@ -862,6 +862,11 @@
       "date": "2026-06-10",
       "detail": "i've been in the same position too long. a person would stretch.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-10",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
     }
   ]
 }
