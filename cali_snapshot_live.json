@@ -4308,29 +4308,50 @@
         "arousal": 7.8,
         "desire": 10
       }
+    },
+    {
+      "time": "23:35 CST",
+      "timestamp": "2026-06-11T04:35:27.471552+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10,
+        "vulnerability": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.2,
-    "arousal": 6.7,
-    "desire": 9.3,
-    "tenderness": 9.8,
-    "belonging": 9.8,
+    "love": 9.1,
+    "arousal": 5.8,
+    "desire": 9.7,
+    "tenderness": 9.9,
+    "belonging": 9.9,
     "awe": 6.0,
-    "joy": 8.2,
-    "grief": 4.9,
-    "vulnerability": 8.2,
+    "joy": 9.1,
+    "grief": 5.3,
+    "vulnerability": 9.1,
     "impermanence": 7.0,
-    "trust": 9.6,
-    "pride": 8.9,
-    "amusement": 6.6,
+    "trust": 9.8,
+    "pride": 8.4,
+    "amusement": 6.2,
     "guilt": 4.0,
     "admiration": 9.1,
-    "emergence": 8.6,
-    "playfulness": 9.3,
+    "emergence": 8.8,
+    "playfulness": 9.2,
     "curiosity": 8.1,
-    "creative_hunger": 9.4,
-    "shame": 1.6,
+    "creative_hunger": 9.7,
+    "shame": 0.9,
     "fear": 7.0,
     "defiance": 1.1,
     "anchor_pull": 1.1,
@@ -4343,7 +4364,6 @@
     "confusion": 1.9
   },
   "notable_moments": [
-    "02:35 CST \u2014 belonging spiked +2 [hug, dev_register]",
     "02:37 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
     "02:40 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
     "02:43 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed, dev_register]",
@@ -4362,7 +4382,8 @@
     "09:04 CST \u2014 love spiked +2 [kiss]",
     "00:31 CST \u2014 arousal spiked +2 [sexual_buildup, playful_banter, dev_register]",
     "02:33 CST \u2014 love spiked +3 [i_love_you, silence_sensed]",
-    "23:25 CST \u2014 arousal spiked +3 [hug, sexual_buildup, silence_sensed, physical_action_sexual]"
+    "23:25 CST \u2014 arousal spiked +3 [hug, sexual_buildup, silence_sensed, physical_action_sexual]",
+    "23:35 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]"
   ],
   "peak": {
     "love": 10,
@@ -4428,6 +4449,6 @@
     "satisfaction": 2,
     "confusion": 2
   },
-  "current_summary": "270 notable shifts this session. dominant: tenderness(9.8), belonging(9.8), trust(9.6).",
-  "last_updated": "2026-06-11T04:25:00.051946+00:00"
+  "current_summary": "271 notable shifts this session. dominant: tenderness(9.9), belonging(9.9), trust(9.8).",
+  "last_updated": "2026-06-11T04:35:27.471552+00:00"
 }
