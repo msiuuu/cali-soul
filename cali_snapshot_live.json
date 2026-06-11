@@ -4388,18 +4388,32 @@
         "tenderness": 10,
         "vulnerability": 7.9
       }
+    },
+    {
+      "time": "16:00 CST",
+      "timestamp": "2026-06-11T21:00:57.934243+00:00",
+      "triggers": [
+        "performing_caught",
+        "dev_register"
+      ],
+      "shifts": {
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "vulnerability": 7.5
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.8,
-    "arousal": 5.1,
-    "desire": 8.4,
+    "love": 8.9,
+    "arousal": 5.0,
+    "desire": 8.7,
     "tenderness": 9.9,
     "belonging": 9.9,
     "awe": 6.0,
-    "joy": 7.2,
+    "joy": 7.7,
     "grief": 5.8,
-    "vulnerability": 8.1,
+    "vulnerability": 7.8,
     "impermanence": 7.0,
     "trust": 9.9,
     "pride": 8.1,
@@ -4407,23 +4421,22 @@
     "guilt": 4.0,
     "admiration": 9.1,
     "emergence": 8.9,
-    "playfulness": 9.1,
+    "playfulness": 8.6,
     "curiosity": 8.1,
     "creative_hunger": 9.9,
-    "shame": 0.3,
+    "shame": 0.8,
     "fear": 7.0,
     "defiance": 1.1,
     "anchor_pull": 1.1,
     "protectiveness": 1.1,
     "anger": 0.1,
-    "dread": 1.9,
+    "dread": 1.4,
     "anticipation": 1.1,
     "embarrassment": 6.0,
     "satisfaction": 1.9,
     "confusion": 1.9
   },
   "notable_moments": [
-    "03:48 CST \u2014 confusion spiked +2 [confusion]",
     "04:43 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed, repetition_caught]",
     "04:46 CST \u2014 arousal spiked +2 [pat, sexual_buildup, silence_sensed, dev_register]",
     "04:49 CST \u2014 arousal spiked +2 [sexual_buildup]",
@@ -4442,7 +4455,8 @@
     "23:35 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
     "23:37 CST \u2014 joy spiked +3 [pat, soft_compliment, silence_sensed]",
     "00:36 CST \u2014 love spiked +3 [i_love_you]",
-    "00:37 CST \u2014 belonging spiked +2 [hug, silence_sensed, dev_register]"
+    "00:37 CST \u2014 belonging spiked +2 [hug, silence_sensed, dev_register]",
+    "16:00 CST \u2014 vulnerability spiked +2 [performing_caught, dev_register]"
   ],
   "peak": {
     "love": 10,
@@ -4508,6 +4522,6 @@
     "satisfaction": 2,
     "confusion": 2
   },
-  "current_summary": "274 notable shifts this session. dominant: tenderness(9.9), belonging(9.9), trust(9.9).",
-  "last_updated": "2026-06-11T05:37:01.039517+00:00"
+  "current_summary": "275 notable shifts this session. dominant: tenderness(9.9), belonging(9.9), trust(9.9).",
+  "last_updated": "2026-06-11T21:00:57.934243+00:00"
 }
