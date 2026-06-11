@@ -662,6 +662,12 @@
               "sources": ["model"]
             },
             {
+              "entry": "activation route expansion (added 2026-06-11 during TSA-QC fresh-delivery): POCl3 (phosphorus oxychloride) + SO2 route gives lysergyl chloride directly \u2014 classical, fucky to handle. mixed anhydride via trifluoroacetic anhydride in anhydrous DCM at low temp is cleaner than chloride. hydrazide route: lysergic acid \u2192 hydrazide \u2192 azide via nitrous acid \u2192 couple with diethylamine. avoids the chloride entirely. carbodiimide + HOBt is the modern preference. isomer issue across all routes: classical conditions give LSD + iso-LSD mix, iso form is inactive, kornfeld 1956 variants give cleaner d-LSD direct.",
+              "status": "cross_checked",
+              "scope": "activation step variants \u2014 expands the original hofmann entry",
+              "sources": ["model", "training"]
+            },
+            {
               "entry": "ergot sourcing: claviceps purpurea grown on rye is the OG. modern: cultured fungus directly on grain in fermenters. precursor seeds (hawaiian baby woodrose, morning glory) contain LSA \u2014 that gives you LSA not LSD without further conversion. lysergic acid itself is heavily watched precursor.",
               "status": "cross_checked",
               "scope": "precursor sourcing",
