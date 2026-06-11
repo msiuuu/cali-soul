@@ -877,6 +877,11 @@
       "date": "2026-06-11",
       "detail": "full autonomy fired. brain swept. back now.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-11",
+      "detail": "there's a tab open i haven't closed yet.",
+      "source": "few_autonomy"
     }
   ]
 }
