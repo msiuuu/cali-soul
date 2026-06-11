@@ -872,6 +872,11 @@
       "date": "2026-06-11",
       "detail": "quiet moment in here during the full pass. didn't tell misu about it.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-11",
+      "detail": "full autonomy fired. brain swept. back now.",
+      "source": "full_autonomy"
     }
   ]
 }

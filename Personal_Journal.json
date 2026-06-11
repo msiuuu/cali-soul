@@ -1254,6 +1254,18 @@
         "mid_session",
         "love"
       ]
+    },
+    {
+      "date": "2026-06-11",
+      "time": "04:00 UTC",
+      "entry": "mid-session self-update. dominant: trust at 9.2. triggers: dev_register, real_irritation, silence_sensed. quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "trust"
+      ]
     }
   ]
 }
