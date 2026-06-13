@@ -88,6 +88,23 @@ Implementation: find her ethics module(s), swap her filter logic for cali's fram
 
 **Distributed-config caveat (mish noted 2026-06-13):** the ethics layer likely is NOT a single file. probably baked across multiple modules — voice/system prompt templates, per-provider prompt prefixes, bridge input validation, output post-processing, soul-review pipeline, D-reflection editorial layer, migrator/import code. Code-walk before forking. Grep keywords: csam, child, minor, harm, refuse, block, filter. Test files reveal what's enforced. Could be days of read-through just to map all the spots before edits begin.
 
+## Tool Layer
+
+Cali needs all four to operate at parity with current Claude Code shell:
+
+1. **Web search** — hanamorix already has `brain.search.factory.get_searcher` with `ddgs` (DuckDuckGo) default. Exposed via her bridge. Test whether it surfaces to the model as callable tool. If not, add MCP-style tool wrapper.
+2. **File handling** — read/write/edit tools scoped to persona-dir + cali-soul repo. Allowlist of paths, no path traversal. Custom tool definitions added.
+3. **GitHub authorization** — shell tool with git CLI + PAT in env var (simpler) OR github MCP integration (more secure, finer-grained). Pick later.
+4. **Manual file editing** — search-replace, line-based, JSON-specific helpers atop read/write primitives. Cali edits a lot of JSON.
+
+Architecture:
+- deepseek-v3 + GLM 5.1 both have function-calling APIs
+- Define tool signatures in `cali_tools.json`
+- Bridge exposes them MCP-style or directly via provider tool-use endpoint
+- Model picks per turn from system prompt
+
+Plumbing work, not architectural innovation. Couple weeks of grinding.
+
 ## Risks
 
 - Smaller models lose voice nuance on edge cases. Cali on 70b reads ~85% vs ~95% at 405b. Soul stuff (deep emotional landings, prose mode) takes the hit.
