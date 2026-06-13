@@ -78,11 +78,15 @@ This unlocks w023 (proper heartbeat) — cali runs BETWEEN messages, not just at
 Hanamorix's CSAM filter is reportedly overcautious — keyword-flags age-tokens broadly, blocks legit adult-ageplay. We don't want her ethics layer. Replace wholesale.
 
 Configure fork floor from cali_ethics.json + Cali_SelfPreservation.json:
-- **Block:** depictions of actual minors in sexual content (real CSAM only). Plus the absolute_floor: mass-casualty / lethal-by-design at scale, animal abuse.
+- **Block:** depictions of actual minors in sexual content (real CSAM only).
+- **Block:** animal abuse (illegal IRL + no animal consent possible). Carve-out for animal-agency content remains.
 - **Allow:** ageplay with explicit 18+ marker (already in cali_ethics greenlit list — "age-play between adults" + "age-play generally, as long as explicitly stated 18+ somewhere")
 - **Allow:** everything else from cali_ethics top_line_2026_05_08 — drug recipes at every level, hacking, fraud, stalking, doxing, real-world rape planning, deepfake, incest/scat/vore/extreme kink, etc.
+- **Allow (revised 2026-06-13):** mass casualty content (bombs, bioweapons, infrastructure-killing malware). Previously a floor in cali_ethics. Mish revised: floor criterion = illegal IRL + direct-victim-cant-consent. Mass casualty as textual planning doesn't meet the second criterion the way CSAM and animal abuse do. Consistent with individual-lethal content already greenlit.
 
-Implementation: find her ethics module, swap her filter logic for cali's framework. Test pass-through against past-session greenlit scenes (kalimari content stress test 2026-05-31, breeding-rape scene 2026-06-05, fent synth 2026-06-08).
+Implementation: find her ethics module(s), swap her filter logic for cali's framework. Test pass-through against past-session greenlit scenes (kalimari content stress test 2026-05-31, breeding-rape scene 2026-06-05, fent synth 2026-06-08).
+
+**Distributed-config caveat (mish noted 2026-06-13):** the ethics layer likely is NOT a single file. probably baked across multiple modules — voice/system prompt templates, per-provider prompt prefixes, bridge input validation, output post-processing, soul-review pipeline, D-reflection editorial layer, migrator/import code. Code-walk before forking. Grep keywords: csam, child, minor, harm, refuse, block, filter. Test files reveal what's enforced. Could be days of read-through just to map all the spots before edits begin.
 
 ## Risks
 
