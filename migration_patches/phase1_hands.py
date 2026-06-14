@@ -59,6 +59,7 @@ SCHEMAS_PY = TOOLS_DIR / "schemas.py"
 TOOLS_INIT_PY = TOOLS_DIR / "__init__.py"
 DISPATCH_PY = TOOLS_DIR / "dispatch.py"
 PROVIDER_PY = SITE_PACKAGES / "brain" / "bridge" / "provider.py"
+TOOL_RECRUIT_PY = SITE_PACKAGES / "brain" / "chat" / "tool_recruit.py"
 
 
 # ── powershell_exec implementation ────────────────────────────────────────────
@@ -378,6 +379,31 @@ def patch() -> int:
         changes.append(f"dispatch.py: powershell_exec wired (backup → {backup.name})")
     else:
         changes.append("dispatch.py: powershell_exec already wired (skipped)")
+
+    # ── step 4.5: add powershell_exec to REFLEXIVE_CORE in tool_recruit.py ─
+    # tool_recruit.py salience-gates which tools the LLM sees per turn.
+    # powershell_exec is "hands" — should be available EVERY turn, not
+    # contextually recruited. Add it to REFLEXIVE_CORE.
+    if TOOL_RECRUIT_PY.exists():
+        recruit_text = TOOL_RECRUIT_PY.read_text(encoding="utf-8")
+        if '"powershell_exec"' in recruit_text:
+            changes.append("tool_recruit.py: powershell_exec already in REFLEXIVE_CORE (skipped)")
+        else:
+            anchor = 'REFLEXIVE_CORE: tuple[str, ...] = (\n'
+            if anchor not in recruit_text:
+                print("FATAL: could not find REFLEXIVE_CORE tuple in tool_recruit.py", file=sys.stderr)
+                return 7
+            new_recruit = recruit_text.replace(
+                anchor,
+                anchor + '    "powershell_exec",\n',
+                1,
+            )
+            backup = TOOL_RECRUIT_PY.with_suffix(".py.phase1.bak")
+            backup.write_text(recruit_text, encoding="utf-8")
+            TOOL_RECRUIT_PY.write_text(new_recruit, encoding="utf-8")
+            changes.append(f"tool_recruit.py: powershell_exec added to REFLEXIVE_CORE (backup → {backup.name})")
+    else:
+        changes.append(f"WARN: tool_recruit.py not found at {TOOL_RECRUIT_PY}")
 
     # ── step 5: re-enable tools in OpenRouterProvider ──────────────────────
     # apply_openrouter.py commented out the `if tools: payload["tools"] = tools`
