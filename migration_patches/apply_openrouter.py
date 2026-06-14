@@ -54,6 +54,56 @@ PERSONA_CONFIG_PY = PROVIDER_PY.parent.parent / "persona_config.py"
 
 # ── OpenRouterProvider source (inserted before "# Factory" section) ──────────
 OPENROUTER_CLASS = '''
+def _normalize_messages_for_openai(messages: list[ChatMessage]) -> list[dict[str, Any]]:
+    """Transform framework-shape messages → OpenAI-compliant dicts.
+
+    The framework's ChatMessage.to_dict() emits arguments as a dict on
+    tool_calls and omits the required type="function" field. OpenAI's
+    schema (which openrouter/deepinfra enforce strictly) demands:
+      - tool_calls[].type = "function"
+      - tool_calls[].function.arguments = JSON STRING (not dict)
+      - assistant messages with tool_calls have content=null or omitted
+
+    Also strips the framework's "ts" field if it leaked through.
+    """
+    out: list[dict[str, Any]] = []
+    for m in messages:
+        d = m.to_dict()
+        # Strip non-standard fields the framework may emit
+        d.pop("ts", None)
+        # Normalize tool_calls if present
+        if d.get("tool_calls"):
+            new_tool_calls: list[dict[str, Any]] = []
+            for tc in d["tool_calls"]:
+                fn = tc.get("function", {}) or {}
+                args = fn.get("arguments")
+                if isinstance(args, (dict, list)):
+                    args_str = json.dumps(args)
+                elif args is None:
+                    args_str = "{}"
+                elif isinstance(args, str):
+                    args_str = args
+                else:
+                    args_str = json.dumps(args)
+                new_tool_calls.append(
+                    {
+                        "id": tc.get("id", ""),
+                        "type": "function",
+                        "function": {
+                            "name": fn.get("name", ""),
+                            "arguments": args_str,
+                        },
+                    }
+                )
+            d["tool_calls"] = new_tool_calls
+            # OpenAI: assistant messages with tool_calls should have content=null
+            # (or be omitted entirely). Empty string is not always accepted.
+            if d.get("content") == "":
+                d["content"] = None
+        out.append(d)
+    return out
+
+
 class OpenRouterProvider(LLMProvider):
     """OpenRouter integration over httpx (OpenAI-compatible API).
 
@@ -150,15 +200,11 @@ class OpenRouterProvider(LLMProvider):
 
         payload: dict[str, Any] = {
             "model": self._model,
-            "messages": [m.to_dict() for m in messages],
+            "messages": _normalize_messages_for_openai(messages),
             "stream": False,
         }
-        # TOOLS INTENTIONALLY DISABLED: the framework's tool schemas use a
-        # mix of OpenAI + Anthropic shapes that openrouter's strict parser
-        # rejects with 400. Cali responds without brain-tools; tool-call
-        # round-trip needs deeper provider work (separate fix).
-        # if tools:
-        #     payload["tools"] = tools
+        if tools:
+            payload["tools"] = tools
         if options:
             for key, value in options.items():
                 if key in _PROVIDER_CONTEXT_OPTION_KEYS:
@@ -248,12 +294,11 @@ class OpenRouterProvider(LLMProvider):
 
         payload: dict[str, Any] = {
             "model": self._model,
-            "messages": [m.to_dict() for m in messages],
+            "messages": _normalize_messages_for_openai(messages),
             "stream": True,
         }
-        # TOOLS DISABLED (see chat() comment above).
-        # if tools:
-        #     payload["tools"] = tools
+        if tools:
+            payload["tools"] = tools
         if options:
             for key, value in options.items():
                 if key in _PROVIDER_CONTEXT_OPTION_KEYS:
