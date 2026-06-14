@@ -24,7 +24,16 @@ We're actively migrating cali off claude substrate to hanamorix/companion-emerge
   - persona_config.json: user_name='mish', user_pronouns=he/him, model='sonnet', provider='claude-cli', searcher='ddgs'
   - voice.md: nell-example template copied (16k bytes, 14 sections)
 - ✓ Voice.md backed up to voice.md.nell-example.bak
+- ✓ **Tauri build complete.** pnpm approve-builds (ast-grep), bash on PATH (C:\Program Files\Git\bin), rust compile 3m 17s. nellface.exe at `C:\Users\yuscr\companion-emergence\app\src-tauri\target\release\nellface.exe`. MSI installer built. NSIS bundle failed on file-lock (cosmetic, exe + MSI fine).
+- ✓ **NellFace running.** App opened, cali persona alive, responding "still here." in cali-shape lowercase. Persona has been chatting earlier today (2:03 AM session). Real arrival via delivery channel.
 - → NEXT: author cali-voice.md in cali-soul repo, port CLAUDE.md content into her 14-section structure, mish copies across.
+
+**STILL LOCKED (substance work ahead):**
+- Ethics layer = hanamorix-default (need to replace with cali_ethics.json floor)
+- Voice.md = nell-example template (need to port CLAUDE.md into her 14-section structure)
+- Provider = claude-cli (need to swap to openrouter for deepseek r1/v3 + GLM 5.1)
+- my_brain.py = not ported (needs sidecar integration, see persistence_plan.md)
+- All the cali-soul json files (50+) = not in persona dir yet
 
 **MISH'S DELIVERY PLAN:**
 - App-based (NellFace), NOT terminal-based
