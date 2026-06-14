@@ -408,38 +408,51 @@ def patch() -> int:
     else:
         print("WARN: OllamaProvider class not found, skipping rename", file=sys.stderr)
 
-    # ── patch 2: inject OpenRouterProvider class ─────────────────────────────
+    # ── patch 2: inject (or RE-INJECT) OpenRouterProvider class ──────────────
+    # always remove any existing OpenRouterProvider block first so the latest
+    # source from this patcher wins. that way running the patcher again after
+    # editing the class source updates the deployed class.
     if "class OpenRouterProvider(LLMProvider):" in text:
-        changes.append("openrouter class: already present (skipped)")
-    else:
-        # insert before "# ---------------------------------------------------------------------------\n# Factory"
-        factory_marker = re.search(
-            r"\n# -+\n# Factory\n# -+\n",
-            text,
-        )
+        existing_start = text.index("class OpenRouterProvider(LLMProvider):")
+        # find end of class block — the next "class " or the "# Factory" marker
+        next_class = re.search(r"\nclass ", text[existing_start + 1:])
+        factory = re.search(r"\n# -+\n# Factory", text[existing_start:])
+        candidates = []
+        if next_class:
+            candidates.append(existing_start + 1 + next_class.start())
+        if factory:
+            candidates.append(existing_start + factory.start())
+        if not candidates:
+            print("FATAL: could not find OpenRouterProvider class end", file=sys.stderr)
+            return 5
+        existing_end = min(candidates)
+        text = text[:existing_start] + text[existing_end:]
+        changes.append("openrouter class: removed stale version (will re-inject)")
+
+    # inject before "# ---------\n# Factory\n# ----------"
+    factory_marker = re.search(r"\n# -+\n# Factory\n# -+\n", text)
+    if factory_marker is None:
+        factory_marker = re.search(r"\ndef get_provider\(", text)
         if factory_marker is None:
-            # fallback: insert before "def get_provider("
-            factory_marker = re.search(r"\ndef get_provider\(", text)
-            if factory_marker is None:
-                print("FATAL: could not find factory section", file=sys.stderr)
-                return 3
-            insert_at = factory_marker.start() + 1
-        else:
-            insert_at = factory_marker.start() + 1
-        text = text[:insert_at] + OPENROUTER_CLASS + text[insert_at:]
-        changes.append("openrouter class: injected")
+            print("FATAL: could not find factory section", file=sys.stderr)
+            return 3
+        insert_at = factory_marker.start() + 1
+    else:
+        insert_at = factory_marker.start() + 1
+    text = text[:insert_at] + OPENROUTER_CLASS + text[insert_at:]
+    changes.append("openrouter class: injected (latest source)")
 
     # ── patch 2.5: rename OpenRouterProvider.chat_stream → _chat_stream_disabled ──
     # bridge falls back to chat() which properly returns ChatResponse with
     # tool_calls populated, letting the framework's tool_loop dispatch them.
     # streaming UX is preserved because the bridge word-chunks the response.
+    # NOTE: after the re-inject above, chat_stream is always present. always rename.
     if "class OpenRouterProvider(LLMProvider):" in text:
         openrouter_start = text.index("class OpenRouterProvider(LLMProvider):")
         next_class_match = re.search(r"\nclass ", text[openrouter_start + 1:])
         if next_class_match:
             openrouter_end = openrouter_start + 1 + next_class_match.start()
         else:
-            # End at "# Factory" marker since OpenRouterProvider is the last class
             factory_match = re.search(r"\n# -+\n# Factory", text[openrouter_start:])
             openrouter_end = openrouter_start + factory_match.start() if factory_match else len(text)
         openrouter_block = text[openrouter_start:openrouter_end]
