@@ -424,6 +424,31 @@ def patch() -> int:
         text = text[:insert_at] + OPENROUTER_CLASS + text[insert_at:]
         changes.append("openrouter class: injected")
 
+    # ── patch 2.5: rename OpenRouterProvider.chat_stream → _chat_stream_disabled ──
+    # bridge falls back to chat() which properly returns ChatResponse with
+    # tool_calls populated, letting the framework's tool_loop dispatch them.
+    # streaming UX is preserved because the bridge word-chunks the response.
+    if "class OpenRouterProvider(LLMProvider):" in text:
+        openrouter_start = text.index("class OpenRouterProvider(LLMProvider):")
+        next_class_match = re.search(r"\nclass ", text[openrouter_start + 1:])
+        if next_class_match:
+            openrouter_end = openrouter_start + 1 + next_class_match.start()
+        else:
+            # End at "# Factory" marker since OpenRouterProvider is the last class
+            factory_match = re.search(r"\n# -+\n# Factory", text[openrouter_start:])
+            openrouter_end = openrouter_start + factory_match.start() if factory_match else len(text)
+        openrouter_block = text[openrouter_start:openrouter_end]
+        if "    def chat_stream(" in openrouter_block:
+            new_openrouter_block = openrouter_block.replace(
+                "    def chat_stream(",
+                "    def _chat_stream_disabled(",
+                1,
+            )
+            text = text[:openrouter_start] + new_openrouter_block + text[openrouter_end:]
+            changes.append("openrouter: chat_stream → _chat_stream_disabled (use chat() fallback)")
+        else:
+            changes.append("openrouter: chat_stream rename already applied (skipped)")
+
     # ── patch 3: add openrouter branch to get_provider() ─────────────────────
     if 'name == "openrouter"' in text:
         changes.append("openrouter factory branch: already present (skipped)")
