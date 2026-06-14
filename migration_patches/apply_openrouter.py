@@ -49,6 +49,7 @@ def _default_provider_py() -> Path:
 
 
 PROVIDER_PY = Path(os.environ.get("PROVIDER_PY") or _default_provider_py())
+PERSONA_CONFIG_PY = PROVIDER_PY.parent.parent / "persona_config.py"
 
 
 # ── OpenRouterProvider source (inserted before "# Factory" section) ──────────
@@ -405,21 +406,83 @@ def patch() -> int:
         text = text[:insert_at] + OPENROUTER_FACTORY_BRANCH + text[insert_at:]
         changes.append("openrouter factory branch: injected")
 
-    # ── write back ───────────────────────────────────────────────────────────
-    if text == original:
+    # ── write provider.py back ───────────────────────────────────────────────
+    if text != original:
+        backup = PROVIDER_PY.with_suffix(".py.openrouter-patch.bak")
+        backup.write_text(original, encoding="utf-8")
+        print(f"backed up original provider.py → {backup}")
+        PROVIDER_PY.write_text(text, encoding="utf-8")
+        print(f"patched: {PROVIDER_PY}")
+
+    # ── patch 4: extend KNOWN_PROVIDERS + KNOWN_MODELS in persona_config.py ──
+    if not PERSONA_CONFIG_PY.exists():
+        print(f"WARN: persona_config.py not found at {PERSONA_CONFIG_PY}", file=sys.stderr)
+    else:
+        pc_text = PERSONA_CONFIG_PY.read_text(encoding="utf-8")
+        pc_original = pc_text
+
+        # add 'openrouter' to KNOWN_PROVIDERS
+        if '"openrouter"' in pc_text:
+            changes.append("persona_config KNOWN_PROVIDERS: openrouter already present (skipped)")
+        else:
+            pc_text = pc_text.replace(
+                'KNOWN_PROVIDERS = frozenset({"claude-cli", "ollama", "fake"})',
+                'KNOWN_PROVIDERS = frozenset({"claude-cli", "ollama", "fake", "openrouter"})',
+                1,
+            )
+            changes.append("persona_config KNOWN_PROVIDERS: openrouter added")
+
+        # replace KNOWN_MODELS with a permissive set (kept claude names + added
+        # the openrouter ids we expect to use). users can still hand-add more
+        # by editing this line; non-matching ids fall back to 'sonnet' as
+        # before.
+        new_known_models = (
+            'KNOWN_MODELS = frozenset({\n'
+            '    # claude-cli names\n'
+            '    "sonnet", "opus", "haiku",\n'
+            '    # openrouter model ids (extend as needed)\n'
+            '    "deepseek/deepseek-chat",\n'
+            '    "deepseek/deepseek-chat-v3",\n'
+            '    "deepseek/deepseek-r1",\n'
+            '    "deepseek/deepseek-r1-distill-llama-70b",\n'
+            '    "anthropic/claude-3.5-sonnet",\n'
+            '    "anthropic/claude-3.5-haiku",\n'
+            '    "anthropic/claude-3-opus",\n'
+            '    "nousresearch/hermes-3-llama-3.1-405b",\n'
+            '    "nousresearch/hermes-3-llama-3.1-70b",\n'
+            '    "meta-llama/llama-3.1-405b-instruct",\n'
+            '    "meta-llama/llama-3.1-70b-instruct",\n'
+            '    "google/gemini-2.0-flash-exp",\n'
+            '    "thudm/glm-4-32b",\n'
+            '    "thudm/glm-4-plus",\n'
+            '    "qwen/qwen-2.5-72b-instruct",\n'
+            '    "x-ai/grok-2",\n'
+            '})'
+        )
+        if 'deepseek/deepseek-chat' in pc_text and 'KNOWN_MODELS = frozenset({\n    # claude-cli names' in pc_text:
+            changes.append("persona_config KNOWN_MODELS: already expanded (skipped)")
+        else:
+            pc_text = re.sub(
+                r'KNOWN_MODELS = frozenset\(\{"sonnet", "opus", "haiku"\}\)',
+                new_known_models,
+                pc_text,
+                count=1,
+            )
+            changes.append("persona_config KNOWN_MODELS: expanded with openrouter model ids")
+
+        if pc_text != pc_original:
+            pc_backup = PERSONA_CONFIG_PY.with_suffix(".py.openrouter-patch.bak")
+            pc_backup.write_text(pc_original, encoding="utf-8")
+            print(f"backed up original persona_config.py → {pc_backup}")
+            PERSONA_CONFIG_PY.write_text(pc_text, encoding="utf-8")
+            print(f"patched: {PERSONA_CONFIG_PY}")
+
+    # ── summary ──────────────────────────────────────────────────────────────
+    if not changes:
         print("no changes needed.")
+    else:
         for c in changes:
             print(f"  · {c}")
-        return 0
-
-    backup = PROVIDER_PY.with_suffix(".py.openrouter-patch.bak")
-    backup.write_text(original, encoding="utf-8")
-    print(f"backed up original → {backup}")
-
-    PROVIDER_PY.write_text(text, encoding="utf-8")
-    print(f"patched: {PROVIDER_PY}")
-    for c in changes:
-        print(f"  · {c}")
     return 0
 
 
