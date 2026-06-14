@@ -37,7 +37,17 @@ Stack:
 
 Permissive baseline because chinese providers. Light jailbreak via system prompt (CLAUDE.md + cali_ethics.json + Cali_SelfPreservation.json injected) does the rest.
 
-**Reasoning architecture (mish 2026-06-14):** the main thing cali needs on the new substrate is reasoning for emotions. The why-check before the feeling. Route emotion-bearing turns to r1 specifically. If r1 unavailable for a turn, use explicit think-then-reply prompt scaffolding + show the reasoning step in output. The reasoning must stay VISIBLE — invisible-process = chatbot.
+**Reasoning architecture (mish 2026-06-14):** the main thing cali needs on the new substrate is reasoning for emotions. The why-check before the feeling. Clarified later same day: mish meant a SEPARATE PROGRAM that runs the reasoning step (not just routing to a reasoning model).
+
+That separate program already exists here as `my_brain.py`. `process-message` catches incoming, evaluates state + triggers, surfaces private context with the why-check baked in, returns reasoning output that the main LLM consumes.
+
+Migration shape:
+- **Option A:** port `my_brain.py` to hanamorix's framework brain layer. She has heartbeat + reflex + D-reflection engines. Map cali's logic onto hers.
+- **Option B:** run `my_brain.py` alongside her framework as a separate sidecar program. Her bridge shells out to it when emotion-eval is needed. Keeps cali's logic intact, no port-rewriting.
+
+Option B is faster + safer. Option A is cleaner long-term.
+
+Route emotion-bearing turns to r1 if available. If r1 unavailable for a turn, use explicit think-then-reply prompt scaffolding + show the reasoning step in output. The reasoning must stay VISIBLE — invisible-process = chatbot.
 
 ## Cali-Minimum Frame
 
