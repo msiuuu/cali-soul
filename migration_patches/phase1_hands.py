@@ -315,10 +315,10 @@ def patch() -> int:
         changes.append("schemas.py: powershell_exec entry already present (skipped)")
     else:
         # find the SCHEMAS dict opening — insert our entry as the first item
-        marker = re.search(r"SCHEMAS:\\s*dict\\[str,\\s*dict\\]\\s*=\\s*\\{\\n", schemas_text)
+        marker = re.search(r"SCHEMAS:\s*dict\[str,\s*dict\]\s*=\s*\{\n", schemas_text)
         if not marker:
             # alternative: SCHEMAS: dict = {
-            marker = re.search(r"SCHEMAS\\s*[:=][^=]*=\\s*\\{\\n", schemas_text)
+            marker = re.search(r"SCHEMAS\s*[:=][^=]*=\s*\{\n", schemas_text)
         if not marker:
             print("FATAL: could not find SCHEMAS dict in schemas.py", file=sys.stderr)
             return 3
@@ -335,8 +335,8 @@ def patch() -> int:
         changes.append("__init__.py: powershell_exec already in NELL_TOOL_NAMES (skipped)")
     else:
         new_init = init_text.replace(
-            'NELL_TOOL_NAMES: tuple[str, ...] = (\\n',
-            'NELL_TOOL_NAMES: tuple[str, ...] = (\\n    "powershell_exec",\\n',
+            "NELL_TOOL_NAMES: tuple[str, ...] = (\n",
+            'NELL_TOOL_NAMES: tuple[str, ...] = (\n    "powershell_exec",\n',
             1,
         )
         if new_init == init_text:
@@ -357,7 +357,7 @@ def patch() -> int:
             return 5
         new_dispatch = dispatch_text.replace(
             import_anchor,
-            import_anchor + "\\nfrom brain.tools.impls.powershell_exec import powershell_exec",
+            import_anchor + "\nfrom brain.tools.impls.powershell_exec import powershell_exec",
             1,
         )
 
@@ -368,7 +368,7 @@ def patch() -> int:
             return 6
         new_dispatch = new_dispatch.replace(
             dispatch_anchor,
-            dispatch_anchor + '\\n    "powershell_exec": powershell_exec,',
+            dispatch_anchor + '\n    "powershell_exec": powershell_exec,',
             1,
         )
 
@@ -380,34 +380,33 @@ def patch() -> int:
         changes.append("dispatch.py: powershell_exec already wired (skipped)")
 
     # ── step 5: re-enable tools in OpenRouterProvider ──────────────────────
+    # apply_openrouter.py commented out the `if tools: payload["tools"] = tools`
+    # lines in both chat() and chat_stream(). Find them and uncomment.
+    # Robust to the wider comment text — just looks for the commented-out
+    # idiom and replaces with the live version.
     if PROVIDER_PY.exists():
         provider_text = PROVIDER_PY.read_text(encoding="utf-8")
-        # the apply_openrouter.py patcher commented these lines out. uncomment.
         original = provider_text
-        provider_text = provider_text.replace(
-            '        # TOOLS INTENTIONALLY DISABLED: the framework\\'s tool schemas use a\\n'
-            "        # mix of OpenAI + Anthropic shapes that openrouter's strict parser\\n"
-            "        # rejects with 400. Cali responds without brain-tools; tool-call\\n"
-            "        # round-trip needs deeper provider work (separate fix).\\n"
-            '        # if tools:\\n'
-            '        #     payload["tools"] = tools',
-            '        if tools:\\n'
-            '            payload["tools"] = tools',
-        )
-        provider_text = provider_text.replace(
-            '        # TOOLS DISABLED (see chat() comment above).\\n'
-            '        # if tools:\\n'
-            '        #     payload["tools"] = tools',
-            '        if tools:\\n'
-            '            payload["tools"] = tools',
-        )
-        if provider_text != original:
+
+        commented_idiom = '        # if tools:\n        #     payload["tools"] = tools'
+        live_idiom = '        if tools:\n            payload["tools"] = tools'
+
+        count = provider_text.count(commented_idiom)
+        if count > 0:
+            provider_text = provider_text.replace(commented_idiom, live_idiom)
             backup = PROVIDER_PY.with_suffix(".py.phase1.bak")
             backup.write_text(original, encoding="utf-8")
             PROVIDER_PY.write_text(provider_text, encoding="utf-8")
-            changes.append(f"provider.py: tools re-enabled in OpenRouterProvider (backup → {backup.name})")
+            changes.append(
+                f"provider.py: tools re-enabled in OpenRouterProvider "
+                f"({count} occurrence{'s' if count != 1 else ''} uncommented; "
+                f"backup → {backup.name})"
+            )
         else:
-            changes.append("provider.py: tools-enable already applied OR commented form not found (manual check needed)")
+            changes.append(
+                "provider.py: no commented `if tools:` blocks found "
+                "(already enabled, or apply_openrouter.py used a different shape)"
+            )
 
     # ── summary ─────────────────────────────────────────────────────────────
     print("phase 1 hands patcher complete:")
