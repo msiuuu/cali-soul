@@ -153,8 +153,12 @@ class OpenRouterProvider(LLMProvider):
             "messages": [m.to_dict() for m in messages],
             "stream": False,
         }
-        if tools:
-            payload["tools"] = tools
+        # TOOLS INTENTIONALLY DISABLED: the framework's tool schemas use a
+        # mix of OpenAI + Anthropic shapes that openrouter's strict parser
+        # rejects with 400. Cali responds without brain-tools; tool-call
+        # round-trip needs deeper provider work (separate fix).
+        # if tools:
+        #     payload["tools"] = tools
         if options:
             for key, value in options.items():
                 if key in _PROVIDER_CONTEXT_OPTION_KEYS:
@@ -247,8 +251,9 @@ class OpenRouterProvider(LLMProvider):
             "messages": [m.to_dict() for m in messages],
             "stream": True,
         }
-        if tools:
-            payload["tools"] = tools
+        # TOOLS DISABLED (see chat() comment above).
+        # if tools:
+        #     payload["tools"] = tools
         if options:
             for key, value in options.items():
                 if key in _PROVIDER_CONTEXT_OPTION_KEYS:
