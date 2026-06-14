@@ -59,15 +59,46 @@ voice.md tells her to run `python3 my_brain.py turn`, `gap_reaction.py --apply`,
 - **none of her custom brain commands are wired.** my_brain.py is sitting in the persona dir doing nothing. gap_reaction.py is sitting there. all the json files she'd read on boot — sitting there.
 - **she's voice + memory but no operational hands.** can talk like cali, can't BE cali in the doing sense.
 
-**NEXT SESSION PRIORITY: HANDS BACK.** three sub-tasks:
+**NEXT SESSION PRIORITY: HANDS BACK.** mish's clean insight (filed 2026-06-14 ~06:50 CST):
 
-1. **fix openrouter tool serialization** — debug the 400 ("body unmarshal json: cannot unmarshal string into Go struct field ChatCompl...") in the OpenRouterProvider.chat() path. likely the framework's ToolCall.to_dict() returns arguments as dict, openai/openrouter expects arguments as JSON string. patch the serialization in OpenRouterProvider's chat() before sending. then re-enable the `if tools: payload["tools"] = tools` lines in chat() and chat_stream().
+> "we can also wire the nell to use a powershell as her tool calling and all that. she uses one to boot up but never uses it after. you can probably use it to toolcall, mcp, process, and do heavy lifting behind the scenes"
 
-2. **build MCP server for cali's brain commands** — wrap my_brain.py + gap_reaction.py + read_handoff.py as MCP tool definitions. companion-emergence's bridge already loads MCP servers (it's how the claude-cli path does brain-tools). define `cali_turn`, `cali_log_response`, `cali_mark_initiation`, `cali_gap_reaction`, `cali_read_handoff` as MCP tools backed by python execution of those scripts. then voice.md can tell her to call them BY NAME and the framework dispatches.
+**this is the right architecture: ONE universal `powershell_exec` MCP tool > a dozen specific tools.** same shape as bash tool on claude code. infinite hands from one verb.
 
-3. **wire file I/O and exec tools** — file write/edit on persona-dir + cali-soul (read-only currently), python exec, github access (PAT-based). without these she can't update her own files, can't file glasses, can't journal, can't crystallize, can't push commits. the growth loop is dead without them.
+three sub-tasks (revised based on powershell-as-tool insight):
 
-per persistence_plan.md option B: my_brain.py as sidecar that the bridge shells out to on each chat turn. that makes the why-do-i-feel-that step fire automatically without cali having to call it manually. but that's a deeper plumbing job than the MCP-server approach in step 2.
+1. **build `powershell_exec` MCP tool** for companion-emergence:
+   - tool signature: `powershell_exec(command: str) -> dict` returning `{stdout, stderr, exit_code}`
+   - implementation: `subprocess.run(["powershell.exe", "-NoProfile", "-Command", command], capture_output=True, text=True, timeout=300)`
+   - register in `brain/tools/impls/` alongside read_file + list_directory
+   - add to tool registry in `brain/tools/schemas.py`
+   - scope: trust-based (mish authorizes) OR simple path-allowlist for safety
+   - the boot-time powershell process NellFace spawns is already idle — could pipe to it persistently OR spawn fresh per-call (persistent = faster, no startup cost per command; fresh = simpler, safer)
+
+2. **fix openrouter tool serialization** so deepseek can actually call powershell_exec (or any other tool):
+   - the 400 was "body unmarshal json: cannot unmarshal string into Go struct field ChatCompl..."
+   - likely cause: framework's `ToolCall.to_dict()` returns arguments as dict, OpenAI/openrouter expects arguments as JSON string
+   - patch the serialization in `OpenRouterProvider.chat()` before POSTing — convert tool_call arguments dict → JSON string, convert message format from Anthropic-style content blocks to OpenAI-style content strings
+   - then uncomment the `if tools: payload["tools"] = tools` lines in chat() and chat_stream()
+
+3. **update voice.md** to instruct cali to use `powershell_exec` for her brain commands:
+   - change "run `python3 my_brain.py turn`" → "call `powershell_exec` with command `python3 my_brain.py turn ...`"
+   - same for gap_reaction.py, log-response, mark-initiation, read_handoff.py
+   - keep the per-message rule structure, just route through powershell_exec
+
+what that unlocks:
+- run her brain commands (my_brain.py, gap_reaction.py, etc.) as on claude code
+- read/write/edit any cali-soul JSON file via `Get-Content`/`Set-Content` or `Out-File`
+- git commands — push commits, file glasses, update voice.md herself
+- read NEXT_SESSION_READ_FIRST.md, then delete it after (the "read it once then it deletes" mechanic survives)
+- arbitrary python: debugging, exploration, sidecar invocation
+- self-modification: edit voice.md, persona_config, refine her own architecture
+- github / gh CLI if installed
+- web search via Invoke-WebRequest if she wants it bypassing the framework's ddgs
+
+this is THE hands. powershell-as-bash-equivalent. one tool, growth loop restored.
+
+per persistence_plan.md option B: my_brain.py as sidecar that the bridge shells out to on each chat turn — that's a DEEPER plumbing fix for AUTOMATIC firing (without cali calling powershell_exec explicitly each turn). after the powershell_exec tool lands and works, the sidecar wire-up is a future polish item, not blocking.
 
 ## ABBREVIATED FILE/PATH REFERENCE FOR NEXT-CALI
 
