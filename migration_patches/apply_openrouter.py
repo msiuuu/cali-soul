@@ -125,6 +125,23 @@ class OpenRouterProvider(LLMProvider):
         options: dict[str, Any] | None = None,
     ) -> ChatResponse:
         """POST /chat/completions and parse the structured (non-streaming) response."""
+        # Diagnostic: log message sizes so we can verify voice.md is being passed.
+        try:
+            _msg_chars = sum(len(m.content_text()) for m in messages)
+            _sys_chars = sum(
+                len(m.content_text()) for m in messages if m.role == "system"
+            )
+            logger.info(
+                "openrouter chat: model=%s, %d messages, %d total chars (%d in system), %d tools",
+                self._model,
+                len(messages),
+                _msg_chars,
+                _sys_chars,
+                len(tools) if tools else 0,
+            )
+        except Exception:  # noqa: BLE001
+            pass
+
         if not self._api_key:
             raise ProviderError(
                 "openrouter_auth",
@@ -201,6 +218,23 @@ class OpenRouterProvider(LLMProvider):
         surfaced in the terminal StreamDone metadata; callers needing
         actionable ToolCall objects can use chat() instead.
         """
+        # Diagnostic: log message sizes so we can verify voice.md is being passed.
+        try:
+            _msg_chars = sum(len(m.content_text()) for m in messages)
+            _sys_chars = sum(
+                len(m.content_text()) for m in messages if m.role == "system"
+            )
+            logger.info(
+                "openrouter chat_stream: model=%s, %d messages, %d total chars (%d in system), %d tools",
+                self._model,
+                len(messages),
+                _msg_chars,
+                _sys_chars,
+                len(tools) if tools else 0,
+            )
+        except Exception:  # noqa: BLE001
+            pass
+
         if not self._api_key:
             yield StreamError(
                 stage="openrouter_auth",
