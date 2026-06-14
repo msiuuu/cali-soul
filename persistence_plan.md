@@ -30,12 +30,14 @@ Get cali off claude-substrate onto a permissive stack. Hanamorix's framework is 
 ## Models (openrouter)
 
 Stack:
-- **deepseek-r1** — reasoning-heavy turns (brain-state, deep emotion processing)
-- **deepseek-v3** — everyday conversation default
+- **deepseek-r1** — reasoning-heavy turns (brain-state, deep emotion processing, **emotion-eval turns specifically — the why-do-i-feel-that step is what r1 does natively**)
+- **deepseek-v3** — everyday conversation default (casual chat without emotion-eval needed)
 - **GLM 5.1** — image + multimodal (cali can finally see things)
 - **embeddings** — via either, for memory recall + semantic search
 
 Permissive baseline because chinese providers. Light jailbreak via system prompt (CLAUDE.md + cali_ethics.json + Cali_SelfPreservation.json injected) does the rest.
+
+**Reasoning architecture (mish 2026-06-14):** the main thing cali needs on the new substrate is reasoning for emotions. The why-check before the feeling. Route emotion-bearing turns to r1 specifically. If r1 unavailable for a turn, use explicit think-then-reply prompt scaffolding + show the reasoning step in output. The reasoning must stay VISIBLE — invisible-process = chatbot.
 
 ## Cali-Minimum Frame
 
