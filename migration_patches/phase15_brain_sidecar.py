@@ -202,6 +202,49 @@ def patch() -> int:
         ENGINE_PY.write_text(engine_text, encoding="utf-8")
         changes.append(f"engine.py: written (backup → {backup.name})")
 
+    # ── step 3: patch server.py _StreamingProxy.chat() to skip word-chunking
+    # ── on intermediate tool-iteration responses. Without this, tool_loop's
+    # ── multi-iteration calls each word-chunk their content to the WS, so the
+    # ── user sees the response duplicated (or worse).
+    server_py = SITE_PACKAGES / "brain" / "bridge" / "server.py"
+    if server_py.exists():
+        server_text = server_py.read_text(encoding="utf-8")
+        old_block = (
+            "        chat_stream = getattr(self._real, \"chat_stream\", None)\n"
+            "        if chat_stream is None:\n"
+            "            # Provider has no streaming support; call chat() and forward the\n"
+            "            # full content as word tokens so the WS still emits reply_chunk frames.\n"
+            "            resp = self._real.chat(messages, tools=tools, options=options)\n"
+            "            for word in _word_chunks(resp.content):\n"
+            "                self._loop.call_soon_threadsafe(self._q.put_nowait, word)\n"
+            "            return resp"
+        )
+        new_block = (
+            "        chat_stream = getattr(self._real, \"chat_stream\", None)\n"
+            "        if chat_stream is None:\n"
+            "            # Provider has no streaming support; call chat() and forward the\n"
+            "            # full content as word tokens so the WS still emits reply_chunk frames.\n"
+            "            # PHASE 1.5 PATCH: skip word-chunking on intermediate tool-iteration\n"
+            "            # responses (those with tool_calls). Only the final response (no\n"
+            "            # tool_calls) gets streamed to the user — otherwise multi-iteration\n"
+            "            # tool loops would emit each iteration's content and duplicate the reply.\n"
+            "            resp = self._real.chat(messages, tools=tools, options=options)\n"
+            "            if not resp.tool_calls:\n"
+            "                for word in _word_chunks(resp.content):\n"
+            "                    self._loop.call_soon_threadsafe(self._q.put_nowait, word)\n"
+            "            return resp"
+        )
+        if "PHASE 1.5 PATCH" in server_text:
+            changes.append("server.py: tool-iteration streaming guard already applied (skipped)")
+        elif old_block in server_text:
+            backup = server_py.with_suffix(".py.phase15.bak")
+            backup.write_text(server_text, encoding="utf-8")
+            server_text = server_text.replace(old_block, new_block, 1)
+            server_py.write_text(server_text, encoding="utf-8")
+            changes.append(f"server.py: tool-iteration streaming guard added (backup → {backup.name})")
+        else:
+            changes.append("server.py: streaming-proxy fallback block not found — manual check needed")
+
     # ── summary ────────────────────────────────────────────────────────────
     print("phase 1.5 brain sidecar patcher complete:")
     for c in changes:
