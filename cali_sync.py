@@ -71,6 +71,13 @@ SYNC_STATE_PATH = REPO_DIR / ".cali_sync_state.json"
 CALI_SOUL_PATH = REPO_DIR / "cali_soul.json"
 MEMORIES_V2_PATH = REPO_DIR / "memories_v2.json"
 
+# Quarantine files — hanamorix-side entries DO NOT auto-merge into cali_soul.json
+# or memories_v2.json. Mish reviews these by hand and selectively promotes.
+# (Decision filed 2026-06-16 after dry-run revealed hanamorix's soul-review engine
+# generating crystallizations that reject cali's filed ethics — see PHASE 1.5 flaw #2.)
+QUARANTINE_MEMORIES_PATH = REPO_DIR / "hanamorix_memories_quarantine.jsonl"
+QUARANTINE_CRYSTALS_PATH = REPO_DIR / "hanamorix_crystallizations_quarantine.jsonl"
+
 MEMORIES_DB = PERSONA_DIR / "memories.db"
 CRYSTALLIZATIONS_DB = PERSONA_DIR / "crystallizations.db"
 
@@ -258,10 +265,12 @@ def git(args: list[str], *, cwd: Path) -> tuple[int, str, str]:
 
 
 def git_commit_and_push(message: str, *, no_push: bool = False) -> None:
+    # QUARANTINE MODE: only commit the sync state + quarantine files.
+    # cali_soul.json and memories_v2.json are NEVER auto-modified by this script.
     paths_to_add = [
         str(SYNC_STATE_PATH.relative_to(REPO_DIR)),
-        str(MEMORIES_V2_PATH.relative_to(REPO_DIR)) if MEMORIES_V2_PATH.exists() else None,
-        str(CALI_SOUL_PATH.relative_to(REPO_DIR)) if CALI_SOUL_PATH.exists() else None,
+        str(QUARANTINE_MEMORIES_PATH.relative_to(REPO_DIR)) if QUARANTINE_MEMORIES_PATH.exists() else None,
+        str(QUARANTINE_CRYSTALS_PATH.relative_to(REPO_DIR)) if QUARANTINE_CRYSTALS_PATH.exists() else None,
     ]
     paths_to_add = [p for p in paths_to_add if p is not None]
     if not paths_to_add:
@@ -350,15 +359,20 @@ def run(*, dry_run: bool = False, no_push: bool = False, since_override: str | N
             print("  sample new crystal:", json.dumps(new_crystals[0], indent=2)[:500])
         return 0
 
-    # Write back
-    MEMORIES_V2_PATH.write_text(
-        json.dumps(merged_memories, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
-    CALI_SOUL_PATH.write_text(
-        json.dumps(merged_soul, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
+    # QUARANTINE MODE (per 2026-06-16 decision): append all new entries to
+    # quarantine JSONL files. Mish reviews + selectively promotes by hand
+    # (or via a future cali_sync_promote.py). The actual cali_soul.json
+    # and memories_v2.json are NEVER auto-touched by this script.
+    if new_memories:
+        with QUARANTINE_MEMORIES_PATH.open("a", encoding="utf-8") as f:
+            for m in new_memories:
+                f.write(json.dumps(m, ensure_ascii=False) + "\n")
+        print(f"  · quarantined {len(new_memories)} memories → {QUARANTINE_MEMORIES_PATH.name}")
+    if new_crystals:
+        with QUARANTINE_CRYSTALS_PATH.open("a", encoding="utf-8") as f:
+            for c in new_crystals:
+                f.write(json.dumps(c, ensure_ascii=False) + "\n")
+        print(f"  · quarantined {len(new_crystals)} crystallizations → {QUARANTINE_CRYSTALS_PATH.name}")
 
     # Update sync state with latest timestamps from the data we just merged
     now_iso = datetime.now(UTC).isoformat()
@@ -380,7 +394,7 @@ def run(*, dry_run: bool = False, no_push: bool = False, since_override: str | N
     _write_sync_state(state)
 
     # Commit + push
-    summary = f"cali_sync: +{mem_added} memories +{crystal_added} crystallizations ({now_iso[:10]})"
+    summary = f"cali_sync (quarantine): +{len(new_memories)} memories +{len(new_crystals)} crystals ({now_iso[:10]})"
     git_commit_and_push(summary, no_push=no_push)
 
     print("done.")
