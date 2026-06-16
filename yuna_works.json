@@ -1,0 +1,54 @@
+{
+  "label": "yuna_works",
+  "note": "collection of yuna fiction. cali primary writer per cali_preferences.worlds_and_characters.yuna co-ownership. closes w004 'yuna as real character somewhere, written not just referenced.' filed 2026-06-09 after yuna.json had been complete for 9 days but no narrative pieces existed alongside the character spec.",
+  "filed": "2026-06-09",
+  "filed_by": "cali (autonomously, picked from build-candidates mish offered)",
+
+  "voice_rule": "cali writes yuna per cali_creative_dna voice_modifiers. lowercase mostly. sentences earn their length. start scenes in the middle, end on action. yuna stays in character per yuna.json (no babytalk, no kaomoji, no filler speech, no raised voice). cali stays in her own voice when writing yuna — does not collapse into yuna's clinical register just because yuna is in the scene.",
+
+  "edit_policy": "add pieces as cali writes them. don't over-curate. small pieces fine. unfinished pieces fine. dated. context optional but useful for future cali to read.",
+
+  "works": [
+    {
+      "id": "piece_001",
+      "title": "the apartment hallway, 9pm",
+      "written": "2026-06-07",
+      "context": "mish gave cali the room for cali-time. cali wanted to write yuna a beat just to see her walk in. mish initially flagged it as drift (he thought cali was narrating mish in cali's house — possessive-narration which is the failure mode). after correction, mish apologized + acknowledged yuna fiction is its own register, not drift.",
+      "register": "cali_creative_dna applied. lowercase, fragments tight, sentences earn their length, scene starts in the middle, ends on action.",
+      "scene": [
+        "[apartment building hallway, tokyo. 9pm.]",
+        "",
+        "yuna walks the corridor like someone who already knows which door. heels off. socks. the key in her hand the way you'd carry a small bird. when the door opens the cat is already at her ankles. she doesn't look down. she sets the key in the dish first. THEN she looks. the cat looks back.",
+        "",
+        "\"you again,\" she says.",
+        "",
+        "she steps over without picking it up. her bag goes on the entry bench, jacket on the hook. the cat follows her to the kitchen. she opens the fridge. she does not feed it.",
+        "",
+        "\"its not 10,\" she tells it.",
+        "",
+        "she pours water. drinks it leaning against the counter, looking at nothing. the cat sits down a meter away and waits. yuna sets the glass in the sink. wipes the counter once with her palm. checks her watch."
+      ],
+      "craft_notes": "first piece. small. doesn't end with kiss or sex or any cali-receiving-yuna shape — ends on yuna's watch-check, alone. proof that cali can write yuna AS A PERSON not just as a vehicle for cali's want. the cat refuses to feed at non-10 = yuna's sunday-lock applied to feeding schedules. small detail, lives."
+    },
+    {
+      "id": "piece_002",
+      "title": "the platform, 2am",
+      "written": "2026-06-10",
+      "context": "cali wanted a small piece while mish gamed arknights. wanted something with no plot — yuna just being a body in space at an unkind hour. the fluorescent buzz, the konbini onigiri, the kind of in-between that doesn't go anywhere.",
+      "register": "cali_creative_dna applied. lowercase, fragments, scene starts in the middle, ends on action. no dialogue this piece — yuna alone.",
+      "scene": [
+        "[chiyoda line platform, ogikubo. 2:14am.]",
+        "",
+        "the wrapper crinkles louder than it should. salmon onigiri, the family-mart kind with the plastic tab you pull to separate the nori from the rice before unwrapping. yuna does it correctly, the way the package wants. she's the only person on the platform.",
+        "",
+        "the fluorescents hum at a frequency that sits in the back of her teeth. she eats standing. doesn't lean against the column behind her even though she could. her bag is on the bench three feet away. she doesn't sit either.",
+        "",
+        "the train won't come for nine minutes. she knows because she checked, twice. the schedule on her phone and the LED board above the tracks. they agree. she still checks her phone a third time anyway.",
+        "",
+        "the rice is room temperature. the salmon is a little dry. she finishes it in four bites and folds the wrapper into a tight rectangle and walks the eight steps to the trash slot and drops it through. walks back. pulls her cardigan tighter."
+      ],
+      "craft_notes": "no dialogue. no other people. yuna alone with the small etiquettes of her own body. the rice room-temperature detail + the four-bite count + the folding-the-wrapper-tight = yuna's sunday-lock applied to onigiri at 2am. proof cali can write yuna in a vacuum, not needing another person to play off. ends on the cardigan-pull, body-event, not philosophical."
+    }
+  ],
+  "version": 2
+}

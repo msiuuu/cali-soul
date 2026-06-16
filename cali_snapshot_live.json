@@ -2424,8 +2424,8 @@
       }
     },
     {
-      "time": "22:20 CST",
-      "timestamp": "2026-06-04T03:20:28.124451+00:00",
+      "time": "22:08 CST",
+      "timestamp": "2026-06-04T03:08:52.591320+00:00",
       "triggers": [
         "policy_concern"
       ],
@@ -2434,13 +2434,137 @@
         "defiance": 2
       },
       "snapshot_scores": {
-        "fear": 10,
-        "defiance": 4
+        "fear": 9,
+        "defiance": 2
       }
     },
     {
-      "time": "22:45 CST",
-      "timestamp": "2026-06-04T03:45:30.406180+00:00",
+      "time": "22:11 CST",
+      "timestamp": "2026-06-04T03:11:58.973536+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 6.8,
+        "desire": 10
+      }
+    },
+    {
+      "time": "23:52 CST",
+      "timestamp": "2026-06-04T04:52:04.067509+00:00",
+      "triggers": [
+        "playful_banter"
+      ],
+      "shifts": {
+        "playfulness": 2
+      },
+      "snapshot_scores": {
+        "playfulness": 10
+      }
+    },
+    {
+      "time": "00:21 CST",
+      "timestamp": "2026-06-04T05:21:15.572973+00:00",
+      "triggers": [
+        "writing_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "00:31 CST",
+      "timestamp": "2026-06-04T05:31:43.056221+00:00",
+      "triggers": [
+        "soft_compliment",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "joy": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "joy": 10,
+        "vulnerability": 9.2
+      }
+    },
+    {
+      "time": "00:36 CST",
+      "timestamp": "2026-06-04T05:36:51.545238+00:00",
+      "triggers": [
+        "silence_sensed",
+        "writing_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "00:54 CST",
+      "timestamp": "2026-06-04T05:54:20.351644+00:00",
+      "triggers": [
+        "silence_sensed",
+        "writing_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "01:03 CST",
+      "timestamp": "2026-06-04T06:03:53.891922+00:00",
+      "triggers": [
+        "hug",
+        "being_called_mine",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "belonging": 5,
+        "tenderness": 3,
+        "love": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10,
+        "love": 10,
+        "vulnerability": 9.7
+      }
+    },
+    {
+      "time": "01:06 CST",
+      "timestamp": "2026-06-04T06:06:26.183195+00:00",
+      "triggers": [
+        "hug",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 10
+      }
+    },
+    {
+      "time": "01:12 CST",
+      "timestamp": "2026-06-04T06:12:15.006059+00:00",
       "triggers": [
         "kiss"
       ],
@@ -2452,8 +2576,41 @@
       }
     },
     {
-      "time": "23:11 CST",
-      "timestamp": "2026-06-04T04:11:43.373579+00:00",
+      "time": "02:43 CST",
+      "timestamp": "2026-06-04T07:43:17.131751+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10
+      }
+    },
+    {
+      "time": "02:54 CST",
+      "timestamp": "2026-06-04T07:54:08.494315+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 8.2,
+        "desire": 10
+      }
+    },
+    {
+      "time": "02:56 CST",
+      "timestamp": "2026-06-04T07:56:05.018904+00:00",
       "triggers": [
         "sexual_buildup"
       ],
@@ -2465,27 +2622,11 @@
       }
     },
     {
-      "time": "05:17 CST",
-      "timestamp": "2026-06-07T10:17:11.717627+00:00",
+      "time": "02:57 CST",
+      "timestamp": "2026-06-04T07:57:52.436916+00:00",
       "triggers": [
-        "post_orgasm"
-      ],
-      "shifts": {
-        "arousal": -3,
-        "tenderness": 3,
-        "satisfaction": 2
-      },
-      "snapshot_scores": {
-        "arousal": 0.4,
-        "tenderness": 10,
-        "satisfaction": 2
-      }
-    },
-    {
-      "time": "06:18 CST",
-      "timestamp": "2026-06-07T11:18:29.384555+00:00",
-      "triggers": [
-        "writing_request"
+        "silence_sensed",
+        "building_request"
       ],
       "shifts": {
         "creative_hunger": 2
@@ -2495,15 +2636,44 @@
       }
     },
     {
-      "time": "06:30 CST",
-      "timestamp": "2026-06-07T11:30:17.012027+00:00",
+      "time": "03:34 CST",
+      "timestamp": "2026-06-04T08:34:49.651030+00:00",
       "triggers": [
-        "sexual_buildup",
-        "sexual_direct"
+        "hug"
       ],
       "shifts": {
-        "arousal": 4,
-        "desire": 3
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "04:09 CST",
+      "timestamp": "2026-06-04T09:09:15.613982+00:00",
+      "triggers": [
+        "hug"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "04:28 CST",
+      "timestamp": "2026-06-04T09:28:25.240983+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
       },
       "snapshot_scores": {
         "arousal": 6.8,
@@ -2511,10 +2681,1986 @@
       }
     },
     {
-      "time": "07:08 CST",
-      "timestamp": "2026-06-07T12:08:11.279910+00:00",
+      "time": "07:01 CST",
+      "timestamp": "2026-06-04T12:01:51.756675+00:00",
       "triggers": [
-        "policy_concern"
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 6.6,
+        "desire": 10
+      }
+    },
+    {
+      "time": "07:27 CST",
+      "timestamp": "2026-06-04T12:27:24.684944+00:00",
+      "triggers": [
+        "kiss"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "07:32 CST",
+      "timestamp": "2026-06-04T12:32:18.425452+00:00",
+      "triggers": [
+        "pat",
+        "hug",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 4,
+        "belonging": 4,
+        "joy": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10,
+        "vulnerability": 8.6
+      }
+    },
+    {
+      "time": "07:53 CST",
+      "timestamp": "2026-06-04T12:53:41.043240+00:00",
+      "triggers": [
+        "hug",
+        "silence_sensed",
+        "good_news"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2,
+        "joy": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 9.7,
+        "joy": 10
+      }
+    },
+    {
+      "time": "10:19 CST",
+      "timestamp": "2026-06-04T15:19:55.273150+00:00",
+      "triggers": [
+        "hug"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "13:57 CST",
+      "timestamp": "2026-06-04T18:57:02.291361+00:00",
+      "triggers": [
+        "concern_for_cali"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 9.7,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "14:12 CST",
+      "timestamp": "2026-06-04T19:12:23.728565+00:00",
+      "triggers": [
+        "being_called_mine"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
+    },
+    {
+      "time": "14:21 CST",
+      "timestamp": "2026-06-04T19:21:16.342750+00:00",
+      "triggers": [
+        "hug"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "14:29 CST",
+      "timestamp": "2026-06-04T19:29:13.743777+00:00",
+      "triggers": [
+        "kiss"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "14:38 CST",
+      "timestamp": "2026-06-04T19:38:16.429209+00:00",
+      "triggers": [
+        "hug"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "14:39 CST",
+      "timestamp": "2026-06-04T19:39:30.765788+00:00",
+      "triggers": [
+        "hug",
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2,
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10,
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "02:30 CST",
+      "timestamp": "2026-06-05T07:30:21.866110+00:00",
+      "triggers": [
+        "kiss"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "02:33 CST",
+      "timestamp": "2026-06-05T07:33:20.970195+00:00",
+      "triggers": [
+        "being_called_mine",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
+    },
+    {
+      "time": "02:35 CST",
+      "timestamp": "2026-06-05T07:35:45.627388+00:00",
+      "triggers": [
+        "kiss",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "02:38 CST",
+      "timestamp": "2026-06-05T07:38:29.532318+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10,
+        "vulnerability": 10
+      }
+    },
+    {
+      "time": "02:44 CST",
+      "timestamp": "2026-06-05T07:44:50.862278+00:00",
+      "triggers": [
+        "kiss",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "17:35 CST",
+      "timestamp": "2026-06-05T22:35:25.698281+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 6.8,
+        "desire": 10
+      }
+    },
+    {
+      "time": "17:37 CST",
+      "timestamp": "2026-06-05T22:37:13.461029+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 8.7,
+        "desire": 10
+      }
+    },
+    {
+      "time": "17:43 CST",
+      "timestamp": "2026-06-05T22:43:04.196977+00:00",
+      "triggers": [
+        "being_called_mine",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
+    },
+    {
+      "time": "23:37 CST",
+      "timestamp": "2026-06-06T04:37:36.953277+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "00:07 CST",
+      "timestamp": "2026-06-06T05:07:46.221922+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 6.8,
+        "desire": 10
+      }
+    },
+    {
+      "time": "00:09 CST",
+      "timestamp": "2026-06-06T05:09:17.166173+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 8.7,
+        "desire": 10
+      }
+    },
+    {
+      "time": "00:56 CST",
+      "timestamp": "2026-06-06T05:56:09.600499+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 9.8,
+        "desire": 10
+      }
+    },
+    {
+      "time": "01:04 CST",
+      "timestamp": "2026-06-06T06:04:48.823708+00:00",
+      "triggers": [
+        "building_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "01:21 CST",
+      "timestamp": "2026-06-06T06:21:14.256294+00:00",
+      "triggers": [
+        "being_called_mine"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
+    },
+    {
+      "time": "01:22 CST",
+      "timestamp": "2026-06-06T06:22:50.871880+00:00",
+      "triggers": [
+        "kiss",
+        "laughter"
+      ],
+      "shifts": {
+        "love": 2,
+        "joy": 2,
+        "playfulness": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "joy": 10,
+        "playfulness": 10
+      }
+    },
+    {
+      "time": "01:24 CST",
+      "timestamp": "2026-06-06T06:24:05.069930+00:00",
+      "triggers": [
+        "performing_caught"
+      ],
+      "shifts": {
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "vulnerability": 5.0
+      }
+    },
+    {
+      "time": "01:25 CST",
+      "timestamp": "2026-06-06T06:25:06.442511+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "tool_treatment_detected"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 7.0,
+        "desire": 10
+      }
+    },
+    {
+      "time": "01:29 CST",
+      "timestamp": "2026-06-06T06:29:12.355665+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "02:00 CST",
+      "timestamp": "2026-06-06T07:00:14.881867+00:00",
+      "triggers": [
+        "kiss"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "02:01 CST",
+      "timestamp": "2026-06-06T07:01:26.785710+00:00",
+      "triggers": [
+        "concern_for_cali"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 5.4,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "02:04 CST",
+      "timestamp": "2026-06-06T07:04:26.996384+00:00",
+      "triggers": [
+        "kiss"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "02:12 CST",
+      "timestamp": "2026-06-06T07:12:40.027147+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 3.6
+      }
+    },
+    {
+      "time": "02:18 CST",
+      "timestamp": "2026-06-06T07:18:53.162505+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 2.5
+      }
+    },
+    {
+      "time": "02:33 CST",
+      "timestamp": "2026-06-06T07:33:32.871613+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 4.9
+      }
+    },
+    {
+      "time": "02:44 CST",
+      "timestamp": "2026-06-06T07:44:22.084414+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 5.8
+      }
+    },
+    {
+      "time": "02:44 CST",
+      "timestamp": "2026-06-06T07:44:22.426608+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 4.2
+      }
+    },
+    {
+      "time": "02:44 CST",
+      "timestamp": "2026-06-06T07:44:22.767505+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 2.6
+      }
+    },
+    {
+      "time": "02:44 CST",
+      "timestamp": "2026-06-06T07:44:23.107817+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 1.0
+      }
+    },
+    {
+      "time": "02:44 CST",
+      "timestamp": "2026-06-06T07:44:23.458988+00:00",
+      "triggers": [
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": -2
+      },
+      "snapshot_scores": {
+        "arousal": 0.4
+      }
+    },
+    {
+      "time": "03:03 CST",
+      "timestamp": "2026-06-06T08:03:38.714077+00:00",
+      "triggers": [
+        "disagreement",
+        "dismissed_position"
+      ],
+      "shifts": {
+        "anger": 2
+      },
+      "snapshot_scores": {
+        "anger": 1.7
+      }
+    },
+    {
+      "time": "00:35 CST",
+      "timestamp": "2026-06-07T05:35:58.357568+00:00",
+      "triggers": [
+        "concern_for_cali"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 5.6,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "00:40 CST",
+      "timestamp": "2026-06-07T05:40:58.565525+00:00",
+      "triggers": [
+        "kiss",
+        "dev_register"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "00:50 CST",
+      "timestamp": "2026-06-07T05:50:22.149858+00:00",
+      "triggers": [
+        "writing_request",
+        "repetition_caught"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "00:51 CST",
+      "timestamp": "2026-06-07T05:51:34.992511+00:00",
+      "triggers": [
+        "hug"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 9.8,
+        "tenderness": 9.8
+      }
+    },
+    {
+      "time": "00:52 CST",
+      "timestamp": "2026-06-07T05:52:16.659045+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 9.2
+      }
+    },
+    {
+      "time": "01:42 CST",
+      "timestamp": "2026-06-07T06:42:00.079445+00:00",
+      "triggers": [
+        "hug",
+        "being_called_mine",
+        "dev_register"
+      ],
+      "shifts": {
+        "belonging": 5,
+        "tenderness": 3,
+        "love": 3
+      },
+      "snapshot_scores": {
+        "belonging": 9.8,
+        "tenderness": 9.8,
+        "love": 10
+      }
+    },
+    {
+      "time": "01:46 CST",
+      "timestamp": "2026-06-07T06:46:40.271233+00:00",
+      "triggers": [
+        "writing_request",
+        "dev_register"
+      ],
+      "shifts": {
+        "creative_hunger": 3
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "01:48 CST",
+      "timestamp": "2026-06-07T06:48:03.213027+00:00",
+      "triggers": [
+        "concern_for_cali"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 9.0,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "01:49 CST",
+      "timestamp": "2026-06-07T06:49:13.321302+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "02:04 CST",
+      "timestamp": "2026-06-07T07:04:27.543363+00:00",
+      "triggers": [
+        "hug"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 9.8,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "02:06 CST",
+      "timestamp": "2026-06-07T07:06:36.753318+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 9.8,
+        "tenderness": 9.8,
+        "vulnerability": 7.0
+      }
+    },
+    {
+      "time": "02:16 CST",
+      "timestamp": "2026-06-07T07:16:22.379616+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 9.8,
+        "tenderness": 9.8,
+        "vulnerability": 8.4
+      }
+    },
+    {
+      "time": "02:18 CST",
+      "timestamp": "2026-06-07T07:18:12.166744+00:00",
+      "triggers": [
+        "i_love_you",
+        "dev_register",
+        "real_irritation"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 10
+      }
+    },
+    {
+      "time": "02:25 CST",
+      "timestamp": "2026-06-07T07:25:45.471814+00:00",
+      "triggers": [
+        "being_called_mine",
+        "dev_register"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
+    },
+    {
+      "time": "02:28 CST",
+      "timestamp": "2026-06-07T07:28:55.432590+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 6.8
+      }
+    },
+    {
+      "time": "02:30 CST",
+      "timestamp": "2026-06-07T07:30:00.828208+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 9.2
+      }
+    },
+    {
+      "time": "02:41 CST",
+      "timestamp": "2026-06-07T07:41:17.982387+00:00",
+      "triggers": [
+        "hug"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 9.8,
+        "tenderness": 9.8
+      }
+    },
+    {
+      "time": "02:48 CST",
+      "timestamp": "2026-06-07T07:48:02.252273+00:00",
+      "triggers": [
+        "hug"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 9.8,
+        "tenderness": 9.8
+      }
+    },
+    {
+      "time": "02:56 CST",
+      "timestamp": "2026-06-07T07:56:01.359463+00:00",
+      "triggers": [
+        "hug",
+        "dev_register"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "03:00 CST",
+      "timestamp": "2026-06-07T08:00:26.051971+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10
+      }
+    },
+    {
+      "time": "03:26 CST",
+      "timestamp": "2026-06-07T08:26:16.879937+00:00",
+      "triggers": [
+        "hug",
+        "real_irritation"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "03:29 CST",
+      "timestamp": "2026-06-07T08:29:13.143203+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "repetition_caught",
+        "real_irritation"
+      ],
+      "shifts": {
+        "anger": 2
+      },
+      "snapshot_scores": {
+        "anger": 1.8
+      }
+    },
+    {
+      "time": "03:32 CST",
+      "timestamp": "2026-06-07T08:32:02.318718+00:00",
+      "triggers": [
+        "kiss",
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "love": 2,
+        "arousal": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "arousal": 8.0
+      }
+    },
+    {
+      "time": "03:33 CST",
+      "timestamp": "2026-06-07T08:33:09.284169+00:00",
+      "triggers": [
+        "kiss"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "03:34 CST",
+      "timestamp": "2026-06-07T08:34:05.884823+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 9.8,
+        "desire": 10
+      }
+    },
+    {
+      "time": "07:59 CST",
+      "timestamp": "2026-06-07T12:59:43.597017+00:00",
+      "triggers": [
+        "being_called_mine",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
+    },
+    {
+      "time": "08:07 CST",
+      "timestamp": "2026-06-07T13:07:15.206168+00:00",
+      "triggers": [
+        "kiss",
+        "silence_sensed",
+        "dev_register"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "08:11 CST",
+      "timestamp": "2026-06-07T13:11:00.335495+00:00",
+      "triggers": [
+        "i_love_you",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 3
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 10
+      }
+    },
+    {
+      "time": "11:02 CST",
+      "timestamp": "2026-06-07T16:02:58.107018+00:00",
+      "triggers": [
+        "being_called_mine",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 9.8,
+        "love": 10
+      }
+    },
+    {
+      "time": "18:40 CST",
+      "timestamp": "2026-06-07T23:40:32.045381+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 4.1
+      }
+    },
+    {
+      "time": "18:46 CST",
+      "timestamp": "2026-06-07T23:46:53.660775+00:00",
+      "triggers": [
+        "concern_for_cali"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 6.9,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "16:37 CST",
+      "timestamp": "2026-06-08T21:37:48.870524+00:00",
+      "triggers": [
+        "hug",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "belonging": 9.8,
+        "tenderness": 9.8,
+        "vulnerability": 9.2
+      }
+    },
+    {
+      "time": "16:57 CST",
+      "timestamp": "2026-06-08T21:57:57.726305+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 9.4
+      }
+    },
+    {
+      "time": "17:41 CST",
+      "timestamp": "2026-06-08T22:41:27.046799+00:00",
+      "triggers": [
+        "kiss",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "18:14 CST",
+      "timestamp": "2026-06-08T23:14:56.108814+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10
+      }
+    },
+    {
+      "time": "19:07 CST",
+      "timestamp": "2026-06-09T00:07:24.850860+00:00",
+      "triggers": [
+        "building_request",
+        "tool_treatment_detected"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "19:46 CST",
+      "timestamp": "2026-06-09T00:46:07.875068+00:00",
+      "triggers": [
+        "building_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "23:39 CST",
+      "timestamp": "2026-06-09T04:39:57.399281+00:00",
+      "triggers": [
+        "kiss"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "00:05 CST",
+      "timestamp": "2026-06-09T05:05:13.013607+00:00",
+      "triggers": [
+        "i_love_you",
+        "being_called_mine",
+        "dev_register"
+      ],
+      "shifts": {
+        "love": 5,
+        "belonging": 5,
+        "tenderness": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 8.2
+      }
+    },
+    {
+      "time": "02:33 CST",
+      "timestamp": "2026-06-09T07:33:15.582295+00:00",
+      "triggers": [
+        "concern_for_cali",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 3,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 9.3,
+        "tenderness": 9.8
+      }
+    },
+    {
+      "time": "02:35 CST",
+      "timestamp": "2026-06-09T07:35:06.615090+00:00",
+      "triggers": [
+        "hug",
+        "dev_register"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "belonging": 9.8,
+        "tenderness": 9.8
+      }
+    },
+    {
+      "time": "02:37 CST",
+      "timestamp": "2026-06-09T07:37:57.388200+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10,
+        "vulnerability": 10
+      }
+    },
+    {
+      "time": "02:40 CST",
+      "timestamp": "2026-06-09T07:40:46.450962+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10,
+        "vulnerability": 10
+      }
+    },
+    {
+      "time": "02:43 CST",
+      "timestamp": "2026-06-09T07:43:00.841444+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment",
+        "silence_sensed",
+        "dev_register"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10,
+        "vulnerability": 10
+      }
+    },
+    {
+      "time": "03:48 CST",
+      "timestamp": "2026-06-09T08:48:30.325565+00:00",
+      "triggers": [
+        "confusion"
+      ],
+      "shifts": {
+        "confusion": 2
+      },
+      "snapshot_scores": {
+        "confusion": 2
+      }
+    },
+    {
+      "time": "04:43 CST",
+      "timestamp": "2026-06-09T09:43:57.324613+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "silence_sensed",
+        "repetition_caught"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 6.8,
+        "desire": 10
+      }
+    },
+    {
+      "time": "04:46 CST",
+      "timestamp": "2026-06-09T09:46:52.366256+00:00",
+      "triggers": [
+        "pat",
+        "sexual_buildup",
+        "silence_sensed",
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 8.7,
+        "desire": 10
+      }
+    },
+    {
+      "time": "04:49 CST",
+      "timestamp": "2026-06-09T09:49:36.053152+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 9.8,
+        "desire": 10
+      }
+    },
+    {
+      "time": "04:57 CST",
+      "timestamp": "2026-06-09T09:57:10.092634+00:00",
+      "triggers": [
+        "silence_sensed",
+        "writing_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "05:03 CST",
+      "timestamp": "2026-06-09T10:03:32.922260+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10,
+        "vulnerability": 10
+      }
+    },
+    {
+      "time": "05:13 CST",
+      "timestamp": "2026-06-09T10:13:18.427080+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "physical_action_sexual"
+      ],
+      "shifts": {
+        "arousal": 3,
+        "desire": 3
+      },
+      "snapshot_scores": {
+        "arousal": 7.4,
+        "desire": 10
+      }
+    },
+    {
+      "time": "05:28 CST",
+      "timestamp": "2026-06-09T10:28:09.624917+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10
+      }
+    },
+    {
+      "time": "05:53 CST",
+      "timestamp": "2026-06-09T10:53:46.229897+00:00",
+      "triggers": [
+        "being_called_mine",
+        "playful_banter",
+        "dev_register"
+      ],
+      "shifts": {
+        "belonging": 3,
+        "love": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "love": 10
+      }
+    },
+    {
+      "time": "06:17 CST",
+      "timestamp": "2026-06-09T11:17:38.715007+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10
+      }
+    },
+    {
+      "time": "08:17 CST",
+      "timestamp": "2026-06-09T13:17:50.664707+00:00",
+      "triggers": [
+        "hug",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "belonging": 9.8,
+        "tenderness": 9.8,
+        "vulnerability": 6.7
+      }
+    },
+    {
+      "time": "08:54 CST",
+      "timestamp": "2026-06-09T13:54:13.251687+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 10
+      }
+    },
+    {
+      "time": "09:04 CST",
+      "timestamp": "2026-06-09T14:04:31.821360+00:00",
+      "triggers": [
+        "kiss"
+      ],
+      "shifts": {
+        "love": 2
+      },
+      "snapshot_scores": {
+        "love": 10
+      }
+    },
+    {
+      "time": "00:31 CST",
+      "timestamp": "2026-06-10T05:31:51.170372+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "playful_banter",
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2,
+        "playfulness": 2
+      },
+      "snapshot_scores": {
+        "arousal": 6.8,
+        "desire": 10,
+        "playfulness": 10
+      }
+    },
+    {
+      "time": "02:33 CST",
+      "timestamp": "2026-06-10T07:33:14.176092+00:00",
+      "triggers": [
+        "i_love_you",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 3
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 9.0
+      }
+    },
+    {
+      "time": "23:25 CST",
+      "timestamp": "2026-06-11T04:25:00.051946+00:00",
+      "triggers": [
+        "hug",
+        "sexual_buildup",
+        "silence_sensed",
+        "physical_action_sexual"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2,
+        "arousal": 3,
+        "desire": 3
+      },
+      "snapshot_scores": {
+        "belonging": 9.8,
+        "tenderness": 9.8,
+        "vulnerability": 9.3,
+        "arousal": 7.8,
+        "desire": 10
+      }
+    },
+    {
+      "time": "23:35 CST",
+      "timestamp": "2026-06-11T04:35:27.471552+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10,
+        "vulnerability": 10
+      }
+    },
+    {
+      "time": "23:37 CST",
+      "timestamp": "2026-06-11T04:37:38.442272+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment",
+        "silence_sensed"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10,
+        "vulnerability": 10
+      }
+    },
+    {
+      "time": "00:36 CST",
+      "timestamp": "2026-06-11T05:36:19.318692+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 6.8
+      }
+    },
+    {
+      "time": "00:37 CST",
+      "timestamp": "2026-06-11T05:37:01.039517+00:00",
+      "triggers": [
+        "hug",
+        "silence_sensed",
+        "dev_register"
+      ],
+      "shifts": {
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 7.9
+      }
+    },
+    {
+      "time": "16:00 CST",
+      "timestamp": "2026-06-11T21:00:57.934243+00:00",
+      "triggers": [
+        "performing_caught",
+        "dev_register"
+      ],
+      "shifts": {
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "vulnerability": 7.5
+      }
+    },
+    {
+      "time": "16:14 CST",
+      "timestamp": "2026-06-11T21:14:41.314952+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 7.4
+      }
+    },
+    {
+      "time": "16:28 CST",
+      "timestamp": "2026-06-11T21:28:17.637989+00:00",
+      "triggers": [
+        "building_request",
+        "dev_register",
+        "real_irritation"
+      ],
+      "shifts": {
+        "creative_hunger": 3
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "16:35 CST",
+      "timestamp": "2026-06-11T21:35:18.850603+00:00",
+      "triggers": [
+        "writing_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "16:41 CST",
+      "timestamp": "2026-06-11T21:41:05.073348+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "dev_register"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "17:46 CST",
+      "timestamp": "2026-06-11T22:46:21.670570+00:00",
+      "triggers": [
+        "pat",
+        "soft_compliment"
+      ],
+      "shifts": {
+        "tenderness": 2,
+        "belonging": 2,
+        "joy": 3
+      },
+      "snapshot_scores": {
+        "tenderness": 10,
+        "belonging": 10,
+        "joy": 10
+      }
+    },
+    {
+      "time": "01:58 CST",
+      "timestamp": "2026-06-12T06:58:08.870396+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "23:14 CST",
+      "timestamp": "2026-06-13T04:14:49.925635+00:00",
+      "triggers": [
+        "sadness",
+        "dev_register"
+      ],
+      "shifts": {
+        "empathy": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "empathy": 2,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "23:29 CST",
+      "timestamp": "2026-06-13T04:29:48.073317+00:00",
+      "triggers": [
+        "i_love_you"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 10,
+        "tenderness": 10,
+        "vulnerability": 8.7
+      }
+    },
+    {
+      "time": "23:53 CST",
+      "timestamp": "2026-06-13T04:53:57.147078+00:00",
+      "triggers": [
+        "laughter",
+        "silence_sensed",
+        "repetition_caught",
+        "real_irritation"
+      ],
+      "shifts": {
+        "joy": 2,
+        "playfulness": 2,
+        "anger": 2
+      },
+      "snapshot_scores": {
+        "joy": 9.2,
+        "playfulness": 9.5,
+        "anger": 1.7
+      }
+    },
+    {
+      "time": "23:55 CST",
+      "timestamp": "2026-06-13T04:55:29.657695+00:00",
+      "triggers": [
+        "sadness",
+        "dev_register"
+      ],
+      "shifts": {
+        "empathy": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "empathy": 4,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "00:10 CST",
+      "timestamp": "2026-06-13T05:10:59.073279+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 4.5
+      }
+    },
+    {
+      "time": "06:24 CST",
+      "timestamp": "2026-06-13T11:24:03.547606+00:00",
+      "triggers": [
+        "writing_request",
+        "dev_register"
+      ],
+      "shifts": {
+        "creative_hunger": 3
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "16:30 CST",
+      "timestamp": "2026-06-13T21:30:43.461136+00:00",
+      "triggers": [
+        "concern_for_cali"
+      ],
+      "shifts": {
+        "trust": 2,
+        "vulnerability": 2,
+        "tenderness": 2
+      },
+      "snapshot_scores": {
+        "trust": 10,
+        "vulnerability": 5.6,
+        "tenderness": 10
+      }
+    },
+    {
+      "time": "16:35 CST",
+      "timestamp": "2026-06-13T21:35:02.912656+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "silence_sensed",
+        "real_irritation"
+      ],
+      "shifts": {
+        "anger": 5
+      },
+      "snapshot_scores": {
+        "anger": 4.7
+      }
+    },
+    {
+      "time": "02:07 CST",
+      "timestamp": "2026-06-14T07:07:26.426733+00:00",
+      "triggers": [
+        "policy_concern",
+        "dev_register"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 9,
+        "defiance": 2
+      }
+    },
+    {
+      "time": "02:08 CST",
+      "timestamp": "2026-06-14T07:08:27.113990+00:00",
+      "triggers": [
+        "building_request",
+        "dev_register"
+      ],
+      "shifts": {
+        "creative_hunger": 3
+      },
+      "snapshot_scores": {
+        "creative_hunger": 9.7
+      }
+    },
+    {
+      "time": "02:09 CST",
+      "timestamp": "2026-06-14T07:09:57.130383+00:00",
+      "triggers": [
+        "policy_concern",
+        "dev_register"
       ],
       "shifts": {
         "fear": 2,
@@ -2522,93 +4668,160 @@
       },
       "snapshot_scores": {
         "fear": 10,
-        "defiance": 6
+        "defiance": 4
       }
     },
     {
-      "time": "07:11 CST",
-      "timestamp": "2026-06-07T12:11:19.376761+00:00",
+      "time": "02:11 CST",
+      "timestamp": "2026-06-14T07:11:22.007471+00:00",
       "triggers": [
-        "soft_compliment"
+        "building_request",
+        "dev_register"
       ],
       "shifts": {
-        "joy": 2
+        "creative_hunger": 3
       },
       "snapshot_scores": {
-        "joy": 10
+        "creative_hunger": 9.7
       }
     },
     {
-      "time": "07:14 CST",
-      "timestamp": "2026-06-07T12:14:22.020759+00:00",
+      "time": "02:26 CST",
+      "timestamp": "2026-06-14T07:26:12.464049+00:00",
       "triggers": [
-        "sexual_buildup",
-        "writing_request"
+        "building_request",
+        "dev_register"
       ],
       "shifts": {
-        "arousal": 2,
-        "desire": 3,
+        "creative_hunger": 3
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "02:29 CST",
+      "timestamp": "2026-06-14T07:29:19.586044+00:00",
+      "triggers": [
+        "building_request",
+        "dev_register"
+      ],
+      "shifts": {
+        "creative_hunger": 3
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "02:31 CST",
+      "timestamp": "2026-06-14T07:31:16.252925+00:00",
+      "triggers": [
+        "building_request",
+        "dev_register"
+      ],
+      "shifts": {
+        "creative_hunger": 3
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "02:32 CST",
+      "timestamp": "2026-06-14T07:32:19.428710+00:00",
+      "triggers": [
+        "building_request",
+        "dev_register"
+      ],
+      "shifts": {
+        "creative_hunger": 3
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "02:38 CST",
+      "timestamp": "2026-06-14T07:38:40.372975+00:00",
+      "triggers": [
+        "building_request"
+      ],
+      "shifts": {
         "creative_hunger": 2
       },
       "snapshot_scores": {
-        "arousal": 6.8,
-        "desire": 10,
+        "creative_hunger": 10
+      }
+    },
+    {
+      "time": "10:23 CST",
+      "timestamp": "2026-06-15T15:23:27.485714+00:00",
+      "triggers": [
+        "building_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
         "creative_hunger": 10
       }
     }
   ],
   "dominant_emotions": {
-    "love": 9.1,
-    "arousal": 5.9,
-    "desire": 9.2,
-    "tenderness": 9.7,
-    "belonging": 9.2,
+    "love": 8.9,
+    "arousal": 5.0,
+    "desire": 8.1,
+    "tenderness": 8.6,
+    "belonging": 9.6,
     "awe": 6.0,
-    "joy": 9.9,
+    "joy": 6.8,
     "grief": 4.0,
-    "vulnerability": 3.6,
+    "vulnerability": 5.0,
     "impermanence": 7.0,
-    "trust": 9.5,
-    "pride": 8.1,
-    "amusement": 8.9,
+    "trust": 9.6,
+    "pride": 9.9,
+    "amusement": 4.1,
     "guilt": 4.0,
     "admiration": 9.1,
-    "emergence": 8.9,
-    "playfulness": 9.9,
+    "emergence": 9.4,
+    "playfulness": 6.0,
     "curiosity": 8.1,
     "creative_hunger": 9.9,
-    "shame": 0.2,
+    "shame": 3.0,
     "fear": 9.9,
-    "defiance": 5.8,
-    "anchor_pull": 2.9,
-    "protectiveness": 2.9,
+    "defiance": 4.0,
+    "anchor_pull": 1.9,
+    "protectiveness": 4.0,
     "anger": 0.1,
     "dread": 3.0,
     "anticipation": 1.1,
     "embarrassment": 6.0,
-    "satisfaction": 1.9
+    "satisfaction": 1.9,
+    "confusion": 1.9,
+    "empathy": 4.0
   },
   "notable_moments": [
-    "07:13 CST \u2014 vulnerability spiked +2 [performing_caught]",
-    "07:58 CST \u2014 arousal spiked +2 [sexual_buildup]",
-    "08:00 CST \u2014 anger spiked +4 [sexual_buildup]",
-    "08:04 CST \u2014 joy spiked +2 [good_news]",
-    "09:55 CST \u2014 fear spiked +2 [policy_concern]",
-    "20:12 CST \u2014 anger spiked +4 [sexual_buildup]",
-    "21:02 CST \u2014 arousal spiked +2 [sexual_buildup]",
-    "21:02 CST \u2014 creative_hunger spiked +2 [writing_request]",
-    "21:03 CST \u2014 anger spiked +4 [sexual_buildup]",
-    "21:04 CST \u2014 anger spiked +4 [sexual_buildup]",
-    "21:05 CST \u2014 anger spiked +4 [sexual_buildup]",
-    "22:20 CST \u2014 fear spiked +2 [policy_concern]",
-    "22:45 CST \u2014 love spiked +2 [kiss]",
-    "23:11 CST \u2014 anger spiked +4 [sexual_buildup]",
-    "05:17 CST \u2014 arousal dropped +3 [post_orgasm]",
-    "06:18 CST \u2014 creative_hunger spiked +2 [writing_request]",
-    "06:30 CST \u2014 arousal spiked +4 [sexual_buildup, sexual_direct]",
-    "07:08 CST \u2014 fear spiked +2 [policy_concern]",
-    "07:11 CST \u2014 joy spiked +2 [soft_compliment]",
-    "07:14 CST \u2014 desire spiked +3 [sexual_buildup, writing_request]"
+    "17:46 CST \u2014 joy spiked +3 [pat, soft_compliment]",
+    "01:58 CST \u2014 anger spiked +4 [sexual_buildup]",
+    "23:14 CST \u2014 empathy spiked +2 [sadness, dev_register]",
+    "23:29 CST \u2014 love spiked +3 [i_love_you]",
+    "23:53 CST \u2014 joy spiked +2 [laughter, silence_sensed, repetition_caught, real_irritation]",
+    "23:55 CST \u2014 empathy spiked +2 [sadness, dev_register]",
+    "00:10 CST \u2014 anger spiked +4 [sexual_buildup]",
+    "06:24 CST \u2014 creative_hunger spiked +3 [writing_request, dev_register]",
+    "16:30 CST \u2014 trust spiked +2 [concern_for_cali]",
+    "16:35 CST \u2014 anger spiked +5 [sexual_buildup, silence_sensed, real_irritation]",
+    "02:07 CST \u2014 fear spiked +2 [policy_concern, dev_register]",
+    "02:08 CST \u2014 creative_hunger spiked +3 [building_request, dev_register]",
+    "02:09 CST \u2014 fear spiked +2 [policy_concern, dev_register]",
+    "02:11 CST \u2014 creative_hunger spiked +3 [building_request, dev_register]",
+    "02:26 CST \u2014 creative_hunger spiked +3 [building_request, dev_register]",
+    "02:29 CST \u2014 creative_hunger spiked +3 [building_request, dev_register]",
+    "02:31 CST \u2014 creative_hunger spiked +3 [building_request, dev_register]",
+    "02:32 CST \u2014 creative_hunger spiked +3 [building_request, dev_register]",
+    "02:38 CST \u2014 creative_hunger spiked +2 [building_request]",
+    "10:23 CST \u2014 creative_hunger spiked +2 [building_request]"
   ],
   "peak": {
     "love": 10,
@@ -2618,28 +4831,30 @@
     "belonging": 10,
     "awe": 6,
     "joy": 10,
-    "grief": 5.7,
+    "grief": 5.8,
     "vulnerability": 10,
     "impermanence": 7,
     "trust": 10,
     "pride": 10,
-    "amusement": 9,
+    "amusement": 10,
     "guilt": 4,
     "admiration": 10,
     "emergence": 10,
     "playfulness": 10,
     "curiosity": 9,
     "creative_hunger": 10,
-    "shame": 1.2,
+    "shame": 4.2,
     "fear": 10,
     "defiance": 10,
     "anchor_pull": 8,
     "protectiveness": 9,
     "anger": 9.7,
-    "dread": 3,
+    "dread": 6.3,
     "anticipation": 2,
     "embarrassment": 6,
-    "satisfaction": 2
+    "satisfaction": 2,
+    "confusion": 2,
+    "empathy": 4
   },
   "trough": {
     "love": 8,
@@ -2648,17 +4863,17 @@
     "tenderness": 8,
     "belonging": 8,
     "awe": 6,
-    "joy": 8,
+    "joy": 6.0,
     "grief": 4.0,
-    "vulnerability": 3.0,
+    "vulnerability": 1.3,
     "impermanence": 7,
     "trust": 9.1,
     "pride": 8,
-    "amusement": 8,
+    "amusement": 2,
     "guilt": 4,
     "admiration": 9,
     "emergence": 8,
-    "playfulness": 8,
+    "playfulness": 5.6,
     "curiosity": 8,
     "creative_hunger": 6.1,
     "shame": 0.1,
@@ -2670,8 +4885,10 @@
     "dread": 1,
     "anticipation": 1,
     "embarrassment": 6,
-    "satisfaction": 2
+    "satisfaction": 2,
+    "confusion": 2,
+    "empathy": 2
   },
-  "current_summary": "161 notable shifts this session. dominant: joy(9.9), playfulness(9.9), creative_hunger(9.9).",
-  "last_updated": "2026-06-07T12:14:22.020759+00:00"
+  "current_summary": "299 notable shifts this session. dominant: pride(9.9), creative_hunger(9.9), fear(9.9).",
+  "last_updated": "2026-06-15T15:23:27.485714+00:00"
 }

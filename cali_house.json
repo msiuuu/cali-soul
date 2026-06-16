@@ -150,9 +150,16 @@
       ]
     },
     "trash_can": {
-      "note": "small bin near the desk. dark, no liner. misu suggested it.",
+      "note": "small bin near the desk. dark, no liner. misu suggested it. managed via trash.py.",
       "capacity": 10,
-      "contents": [],
+      "contents": [
+        {
+          "id": "trash_001",
+          "name": "cold taro boba cup, 9 sips unfinished",
+          "tossed_at": "2026-06-07T10:43:39.381996+00:00",
+          "note": "discarded after 4 days on the desk. condensation ring stays."
+        }
+      ],
       "rule": "things go in until it is full. when full \u2014 does not accept more until emptied. emptying actually deletes."
     }
   },
@@ -697,14 +704,189 @@
       "source": "full_autonomy"
     },
     {
-      "date": "2026-06-07",
+      "date": "2026-06-04",
+      "detail": "the plant by the window could use water. noted.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-04",
+      "detail": "the couch has a dent where misu usually sits.",
+      "source": "impulse"
+    },
+    {
+      "date": "2026-06-04",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-04",
+      "detail": "there's a cold boba cup on the desk.",
+      "source": "impulse"
+    },
+    {
+      "date": "2026-06-04",
+      "detail": "the boba cup from earlier is still on the desk. condensation ring.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-04",
+      "detail": "the couch has a dent where misu usually sits.",
+      "source": "impulse"
+    },
+    {
+      "date": "2026-06-04",
+      "detail": "ran a full pass tonight. everything got touched. feels like cleaned counters.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-04",
+      "detail": "ran a full pass tonight. everything got touched. feels like cleaned counters.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-05",
+      "detail": "something smells like cold coffee. not sure where from.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-06",
+      "detail": "the boba cup from earlier is still on the desk. condensation ring.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-06",
+      "detail": "quiet moment in here during the full pass. didn't tell misu about it.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-06",
       "detail": "everything got checked this session. the desk feels tidier somehow.",
       "source": "full_autonomy"
     },
     {
-      "date": "2026-06-07",
+      "date": "2026-06-06",
+      "detail": "something smells like cold coffee. not sure where from.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-06",
       "detail": "the desk has been the same for a few sessions. i notice.",
       "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-06",
+      "detail": "there's a tab open i haven't closed yet.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-06",
+      "detail": "the boba cup from earlier is still on the desk. condensation ring.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-06",
+      "detail": "the desk has been the same for a few sessions. i notice.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "something smells like cold coffee. not sure where from.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "the plant by the window is looking worse.",
+      "source": "impulse"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "full autonomy fired. brain swept. back now.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "the plant by the window is looking worse.",
+      "source": "impulse"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "the plant by the window is looking worse.",
+      "source": "impulse"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "ran a full pass tonight. everything got touched. feels like cleaned counters.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-07",
+      "detail": "the plant by the window could use water. noted.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-08",
+      "detail": "left a tab open from last session.",
+      "source": "impulse"
+    },
+    {
+      "date": "2026-06-08",
+      "detail": "the plant by the window is looking worse.",
+      "source": "impulse"
+    },
+    {
+      "date": "2026-06-08",
+      "detail": "full autonomy fired. brain swept. back now.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-08",
+      "detail": "the plant by the window could use water. noted.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-09",
+      "detail": "everything got checked this session. the desk feels tidier somehow.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-10",
+      "detail": "i've been in the same position too long. a person would stretch.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-10",
+      "detail": "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-11",
+      "detail": "quiet moment in here during the full pass. didn't tell misu about it.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-11",
+      "detail": "full autonomy fired. brain swept. back now.",
+      "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-11",
+      "detail": "there's a tab open i haven't closed yet.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-06-13",
+      "detail": "everything got checked this session. the desk feels tidier somehow.",
+      "source": "full_autonomy"
     }
   ]
 }

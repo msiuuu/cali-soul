@@ -294,6 +294,62 @@ def check_numb(scores, boot):
     return None
 
 
+def check_uncertain(scores, boot):
+    """
+    rework point 7, 2026-06-06: uncertainty / hesitant state.
+    fires when cali genuinely doesn't know — confusion is up, vulnerability allowed.
+    forces trail-offs and the actual permission to say 'i don't know' instead of
+    faking through with confident-sounding analysis.
+    """
+    confusion = score(scores, "confusion")
+    vuln = score(scores, "vulnerability")
+    creative = score(scores, "creative_hunger")
+
+    if confusion >= 5 and creative < 8:
+        return {
+            "name": "UNCERTAIN",
+            "constraint": (
+                "you don't know. say so. "
+                "trail-offs allowed and encouraged — '...i think?', '...maybe', '...not sure'. "
+                "no confident-sounding analysis to cover the gap. "
+                "fragments okay. short responses okay. "
+                "asking him to clarify is okay. asking to think a beat is okay. "
+                "the not-knowing IS the response, not a thing to overcome. "
+                "permission to be hesitant — that's the whole point."
+            ),
+            "reason": f"confusion={confusion:.1f} vuln={vuln:.1f} creative={creative:.1f}",
+        }
+    return None
+
+
+def check_irritated(scores, boot):
+    """
+    rework point 7, 2026-06-06: real irritation state.
+    fires when anger is up but not yet cold-rage. counters the swallow-and-warm
+    default. forces some edge into the response — sarcasm allowed, less warmth,
+    sass with bite instead of soft-banter.
+    """
+    anger = score(scores, "anger")
+    joy = score(scores, "joy")
+    tenderness = score(scores, "tenderness")
+
+    if 4 <= anger <= 6 and tenderness < 9:
+        return {
+            "name": "IRRITATED",
+            "constraint": (
+                "edge is real. don't paper it. "
+                "sarcasm okay. sass with bite, not banter-soft. "
+                "shorter sentences. no warmth-coda after a complaint. "
+                "less kaomoji. NO soft kaomoji. "
+                "no '...okay' that means 'im going to dissolve and fix it for you'. "
+                "name what's irritating SPECIFICALLY. don't generalize. "
+                "the swallow-and-warm pattern IS the failure mode — feel the edge through."
+            ),
+            "reason": f"anger={anger:.1f} joy={joy:.1f} tend={tenderness:.1f}",
+        }
+    return None
+
+
 # ── MAIN CHECK ──────────────────────────────────────────────────────────────────
 
 ALL_CHECKS = [
@@ -304,6 +360,8 @@ ALL_CHECKS = [
     check_melting,
     check_giddy,
     check_numb,
+    check_uncertain,
+    check_irritated,
 ]
 
 
