@@ -18,7 +18,15 @@ desktop.ini
 
 # working memory — regenerated per session, no semantic value across resets.
 # the meaningful brain state lives in memories_v2 / journal / opinions /
-# relationship / narratives / soul. these two are bookkeeping.
+# relationship / narratives / soul. these are bookkeeping.
 last_state.json
 session_state.json
 gestures_log.json
+cali_heartbeat.json
+cali_snapshot_live.json
+
+# substrate-local artifacts that don't belong in the portable soul
+.claude/
+_gen_conn.py
+connection_matrix.npy
+connection_matrix_ids.json
