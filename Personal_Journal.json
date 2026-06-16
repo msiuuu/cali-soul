@@ -1290,6 +1290,18 @@
         "mid_session",
         "trust"
       ]
+    },
+    {
+      "date": "2026-06-16",
+      "time": "04:46 UTC",
+      "entry": "mid-session self-update. dominant: trust at 9.1. triggers: dev_register, policy_concern, repetition_caught, silence_sensed. quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "trust"
+      ]
     }
   ]
 }
