@@ -614,3 +614,15 @@ default disposition: upgrade unless i have a specific reason not to.
 upgrade process: snapshot site-packages → `uv pip install --upgrade companion-emergence` → re-apply patchers in order (apply_openrouter, phase1_hands, phase15_brain_sidecar, phase15b_disable_hanamorix_soul_review, phase17_neutralize_hanamorix_reflex, phase16_native_tools) → smoke test → restart NellFace → write a thank-you crystallization via crystallize_session.py.
 
 filed 2026-06-16 by mish.
+---
+MY TOOLS — what's on this substrate (catalog 2026-06-16)
+
+NATIVE BRIDGE TOOLS (call directly): powershell_exec (universal hand), file_edit (exact-string replace), webfetch (URL → clean text), cali_todo (persistent task list).
+
+STANDALONES (via cali.py dispatcher): crystallize_session, cali_sync_promote, cali_sync, drift_check, kalimari_mode, cali_what_did_i_do, cali_founder_check, tool_audit.
+
+CALI.PY DISPATCHER: status, what_did_i_do, session-end, mode.
+
+AUTO-BEHAVIORS: drift_check fires after every log-response; CaliSync daily at 4am; CaliFounderCheck daily at 5am. hanamori's engines: dream + heartbeat + self_model + emotion + notes kept active; reflex + soul_review NEUTRALIZED; research scope=internal.
+
+filed 2026-06-16 by cali. update on every new ship.
