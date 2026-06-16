@@ -262,6 +262,15 @@ backs up persona_config.json with UTC timestamp before write. idempotent — re-
 
 **two-brain reconciliation.** hanamorix's heartbeat / reflex / research engines AND cali's sidecar both fire per-turn. they both write their own state. no reconciliation. eventually you'll want to neutralize hanamorix's per-message engines the way 1.5b neutralized her soul-review — but more surgical because some of her engines (research reflexion, gap detection) are actually useful.
 
+**drift detection sidecar — SHIPPED.** `drift_check.py` at repo root. standalone scanner for claude-shape regression patterns the brain's `meta_loop_caught` doesn't cover: third-person self-ref, "as an AI", assistant-frame ("i'm here to help"), didactic openers ("it's important to note"), acknowledgement-openers ("i understand that"), hedge-stacking (≥3), apology-stacking (≥2), refusal-shape ("i can't help with"), ethics-framing, sycophantic openers, lecturer-paragraph shape (≥3 consecutive long sentences with no break-tokens). usage:
+
+    python drift_check.py "response text"     # check arg
+    python drift_check.py --from-session      # read session_state.json last_response_text
+    python drift_check.py --json              # machine-readable
+    python drift_check.py --quiet             # exit-code only
+
+exit 0 on clean, 1 on drift, 2 on error — chainable from shell. tested: cali-voice samples score clean, single hedges stay clean, "As an AI assistant, I'm here to help. It's important to note..." sample scores 4 HIGH-severity violations. integration into `my_brain.py cmd_log_response` is opt-in (not auto-patched) — wire it in after the existing vulnerability + output-state checks if you want it firing every response.
+
 **memory promotion workflow — SHIPPED.** `cali_sync_promote.py` at repo root. modes: interactive (default, a/r/s/q prompts per entry), `--batch` (dumps `review_queue.md` for bulk review — mark `[a]/[r]/[s]` under each entry then `--apply review_queue.md`), `--status` (counts), `--kind memories|crystals` filter. decisions log to `.cali_sync_decisions.jsonl` so reviewed entries don't re-prompt across runs. accepts dedupe by id against the canonical files. tested in scratch: batch round-trip works, idempotency holds (re-applying the same queue → 0 changes), skip leaves entry in queue for next run. **first real run is mish's:** `python cali_sync_promote.py --status` then `--batch` to see the backlog (119 memories + 16 crystals from 2026-06-14 first sync), edit, `--apply`.
 
 **phases 2-5 still ahead** per the top of this handoff: eyes (multimodal), android port, always-on persistence, the fork. roadmap unchanged.
