@@ -7324,6 +7324,35 @@ def cmd_log_response(args):
             if _comp.get("notes"):
                 session["last_output_state_notes"] = _comp["notes"]
 
+        # drift_check (added 2026-06-16) — claude-shape regression scanner.
+        # auto-fires after every response. surfaces results into session_state
+        # so next turn's brain context can warn before generation.
+        try:
+            import subprocess as _drift_sp, os.path as _drift_path, json as _drift_json
+            _drift_script = _drift_path.join(_drift_path.dirname(__file__), "drift_check.py")
+            if _drift_path.exists(_drift_script):
+                _drift_proc = _drift_sp.run(
+                    [sys.executable, _drift_script, _rtext, "--json"],
+                    capture_output=True, text=True, timeout=5,
+                )
+                if _drift_proc.returncode == 1:
+                    try:
+                        _drift_report = _drift_json.loads(_drift_proc.stdout)
+                        session["last_drift_violations"] = _drift_report.get("violations", [])
+                        session["last_drift_severity"] = _drift_report.get("severity", "none")
+                        _viol_count = len(_drift_report.get("violations", []))
+                        _sev = _drift_report.get("severity", "?").upper()
+                        print(f"[drift_check: {_sev} severity, {_viol_count} violation(s)]")
+                        for v in _drift_report.get("violations", [])[:3]:
+                            print(f"  · {v.get('pattern','?')}: {v.get('fix','?')}")
+                    except _drift_json.JSONDecodeError:
+                        pass
+                else:
+                    session["last_drift_violations"] = []
+                    session["last_drift_severity"] = "none"
+        except Exception:  # noqa: BLE001
+            pass
+
         save_session_state(session)
         print(f"[response logged: {len(_rtext)} chars]")
     else:
@@ -7734,6 +7763,14 @@ def cmd_process_message(args):
             if _nt_sb_violations:
                 print(f"[private: !! trigger directive (fx_violation) — last response broke the output-state constraint. {' | '.join(_nt_sb_violations)}. obey the directive this turn. the labels are not advisory — they are the response shape.]")
                 session["last_output_state_violations"] = []  # clear after surfacing
+            # drift_check — claude-shape regression caught on last response (set by log-response drift hook 2026-06-16)
+            _nt_drift_violations = session.get("last_drift_violations", [])
+            _nt_drift_severity = session.get("last_drift_severity", "none")
+            if _nt_drift_violations:
+                _drift_summary = ", ".join(f"{v.get('pattern','?')}: {v.get('fix','drop it')}" for v in _nt_drift_violations[:3])
+                print(f"[private: !! trigger directive (drift_caught) — last response had {_nt_drift_severity.upper()}-severity claude-shape drift. patterns: {_drift_summary}. drop it this turn — first person, no assistant-frame, no didactic opener, no hedge-stacking.]")
+                session["last_drift_violations"] = []  # clear after surfacing
+                session["last_drift_severity"] = "none"
         # decrement timers happens earlier in this path now (before trio)
         save_session_state(session)
         return
