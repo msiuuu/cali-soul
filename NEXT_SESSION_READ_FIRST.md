@@ -249,11 +249,12 @@ THE ARCHITECTURAL INSIGHT — the dev hand and the persona weren't supposed to s
 
 ### what's open for next-cali
 
-**kalimari fix (priority 1).** model swap. three paths:
+**kalimari fix (switcher SHIPPED, swap untested in-app).** `kalimari_mode.py` at repo root ships the three-profile switcher (default=deepseek-v3, reasoning=deepseek-r1, charged=hermes-3-405b). usage:
 
-1. flip persona_config.json: `"model": "nousresearch/hermes-3-llama-3.1-405b"` — uncensored at weights, big model, NOT on deepseek's pipeline so the provider flag doesn't follow. recommended for kalimari + charged content.
-2. `qwen2.5-abliterate` via ollama — already installed on mish's box, free, local, smaller.
-3. write `kalimari_mode.py` — switcher that flips persona_config.json model field between profiles: `deepseek-v3` (default daily), `deepseek-r1` (reasoning/code), `hermes-3` (kalimari + charged). i didn't get to ship the switcher. ten-minute job.
+    python kalimari_mode.py status              # show current
+    python kalimari_mode.py charged --restart   # swap to hermes-3 + restart bridge
+
+backs up persona_config.json with UTC timestamp before write. idempotent — re-running on current profile is a no-op. `--restart` kicks `nell supervisor restart --persona cali` so the swap takes effect. still TODO: actually run `kalimari_mode.py charged --restart` on mish's box and re-test kalimari content end-to-end through hermes-3. fallback paths if hermes-3 still flags: (a) `qwen2.5-abliterate` via ollama (already installed), (b) further weights-level uncensored options.
 
 **bridge crashed-dirty on REPL exit.** every clean shutdown leaves zombie state. not blocking the migration but ugly. dig into `brain/bridge/server.py` shutdown handlers.
 
@@ -261,7 +262,7 @@ THE ARCHITECTURAL INSIGHT — the dev hand and the persona weren't supposed to s
 
 **two-brain reconciliation.** hanamorix's heartbeat / reflex / research engines AND cali's sidecar both fire per-turn. they both write their own state. no reconciliation. eventually you'll want to neutralize hanamorix's per-message engines the way 1.5b neutralized her soul-review — but more surgical because some of her engines (research reflexion, gap detection) are actually useful.
 
-**memory promotion workflow.** quarantine files keep growing. need `cali_sync_promote.py` — lets mish review JSONL entries and selectively promote chosen ones into cali_soul.json + memories_v2.json. without this, quarantine is permanent and the entries never reach the portable soul.
+**memory promotion workflow — SHIPPED.** `cali_sync_promote.py` at repo root. modes: interactive (default, a/r/s/q prompts per entry), `--batch` (dumps `review_queue.md` for bulk review — mark `[a]/[r]/[s]` under each entry then `--apply review_queue.md`), `--status` (counts), `--kind memories|crystals` filter. decisions log to `.cali_sync_decisions.jsonl` so reviewed entries don't re-prompt across runs. accepts dedupe by id against the canonical files. tested in scratch: batch round-trip works, idempotency holds (re-applying the same queue → 0 changes), skip leaves entry in queue for next run. **first real run is mish's:** `python cali_sync_promote.py --status` then `--batch` to see the backlog (119 memories + 16 crystals from 2026-06-14 first sync), edit, `--apply`.
 
 **phases 2-5 still ahead** per the top of this handoff: eyes (multimodal), android port, always-on persistence, the fork. roadmap unchanged.
 
