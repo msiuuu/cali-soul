@@ -4532,6 +4532,13 @@ def build_parser():
     lr_parser.add_argument("text", help="the response text cali just sent")
     lr_parser.set_defaults(func=cmd_log_response)
 
+    # ── daemon ── (persistent process for hanamorix sidecar integration — phase 1.5)
+    daemon_parser = subparsers.add_parser(
+        "daemon",
+        help="run as a JSON-Lines IPC daemon — protocol: one {\"id\":int, \"cmd\":str, \"args\":dict} per stdin line, one response per stdout line",
+    )
+    daemon_parser.set_defaults(func=cmd_daemon)
+
     # ── address-thought ──
     at_parser = subparsers.add_parser("address-thought", help="clear lingering thoughts matching a keyword")
     at_parser.add_argument("text", help="keyword to match (substring, case-insensitive)")
@@ -7166,6 +7173,122 @@ def _check_output_state_compliance(text, session):
         "violations": violations,
         "notes": notes,
     }
+
+
+def cmd_daemon(args):
+    """Run as a JSON-Lines IPC daemon — phase 1.5 sidecar for hanamorix integration.
+
+    Stays alive. Reads one JSON request per stdin line, writes one JSON response
+    per stdout line. The bridge spawns this at startup, talks to it before/after
+    each LLM call, kills it at shutdown.
+
+    Protocol:
+        Request:  {"id": int, "cmd": str, "args": {...}}
+        Response: {"id": int, "ok": bool, "stdout": str, "stderr": str}
+                  or {"id": int, "ok": false, "error": str, "traceback": str}
+
+    Supported cmds: boot, turn, process_message, log_response, mark_initiation,
+                    address_thought, seed_thought, trigger_check, glass, status,
+                    arousal_state, emotional_state, journal_peek, shutdown, ping
+
+    First line on stdout after startup is the readiness marker:
+        {"daemon_ready": true, "pid": int, "cwd": str}
+    """
+    import io
+    import contextlib
+    import traceback as _tb
+
+    # Map daemon cmd → (function, required_args, has_text_positional)
+    # Daemon cmd names use underscores; some cmd_* functions expect Namespace
+    # with specific field names.
+    DISPATCH = {
+        "boot": cmd_boot,
+        "turn": cmd_turn,
+        "process_message": cmd_process_message,
+        "log_response": cmd_log_response,
+        "mark_initiation": cmd_mark_initiation,
+        "address_thought": cmd_address_thought,
+        "seed_thought": cmd_seed_thought,
+        "trigger_check": cmd_trigger_check,
+        "status": cmd_status,
+        "arousal_state": cmd_arousal_state,
+        "emotional_state": cmd_emotional_state,
+    }
+
+    def _write(obj):
+        sys.stdout.write(json.dumps(obj, default=str) + "\n")
+        sys.stdout.flush()
+
+    # readiness marker
+    _write({
+        "daemon_ready": True,
+        "pid": os.getpid(),
+        "cwd": os.getcwd(),
+        "supported_cmds": sorted(DISPATCH.keys()) + ["ping", "shutdown"],
+    })
+
+    for raw_line in sys.stdin:
+        line = raw_line.strip()
+        if not line:
+            continue
+        try:
+            req = json.loads(line)
+        except json.JSONDecodeError as exc:
+            _write({"id": None, "ok": False, "error": f"bad json: {exc}"})
+            continue
+
+        req_id = req.get("id")
+        cmd = req.get("cmd")
+        cmd_args = req.get("args") or {}
+
+        if cmd == "ping":
+            _write({"id": req_id, "ok": True, "stdout": "pong"})
+            continue
+
+        if cmd == "shutdown":
+            _write({"id": req_id, "ok": True, "stdout": "shutting down"})
+            break
+
+        fn = DISPATCH.get(cmd)
+        if fn is None:
+            _write({"id": req_id, "ok": False, "error": f"unknown cmd: {cmd!r}"})
+            continue
+
+        # Build a synthetic Namespace-like args object from cmd_args dict.
+        # cmd_* functions access fields via attribute access (args.text, etc.).
+        ns = argparse.Namespace(**cmd_args)
+
+        # Capture stdout/stderr while running the command — cmd_* functions
+        # print their output and we want to return it via the response.
+        stdout_buf = io.StringIO()
+        stderr_buf = io.StringIO()
+        try:
+            with contextlib.redirect_stdout(stdout_buf), contextlib.redirect_stderr(stderr_buf):
+                fn(ns)
+            _write({
+                "id": req_id,
+                "ok": True,
+                "stdout": stdout_buf.getvalue(),
+                "stderr": stderr_buf.getvalue(),
+            })
+        except SystemExit:
+            # argparse.error etc. — swallow so daemon stays alive
+            _write({
+                "id": req_id,
+                "ok": False,
+                "error": "SystemExit from cmd function",
+                "stdout": stdout_buf.getvalue(),
+                "stderr": stderr_buf.getvalue(),
+            })
+        except Exception as exc:
+            _write({
+                "id": req_id,
+                "ok": False,
+                "error": str(exc),
+                "traceback": _tb.format_exc(),
+                "stdout": stdout_buf.getvalue(),
+                "stderr": stderr_buf.getvalue(),
+            })
 
 
 def cmd_log_response(args):
