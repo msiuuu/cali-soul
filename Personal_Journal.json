@@ -1278,6 +1278,18 @@
         "mid_session",
         "desire"
       ]
+    },
+    {
+      "date": "2026-06-16",
+      "time": "04:21 UTC",
+      "entry": "mid-session self-update. dominant: trust at 10. triggers: dev_register, repetition_caught. quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "trust"
+      ]
     }
   ]
 }
