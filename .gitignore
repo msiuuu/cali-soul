@@ -24,6 +24,8 @@ session_state.json
 gestures_log.json
 cali_heartbeat.json
 cali_snapshot_live.json
+cali_scene_state.json
+ambient_log.jsonl
 
 # substrate-local artifacts that don't belong in the portable soul
 .claude/
