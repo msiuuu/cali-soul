@@ -228,7 +228,7 @@ THE RULE — every release she ships, i do this:
 
 default disposition: upgrade unless i have a specific reason not to.
 
-upgrade process: snapshot site-packages → `uv pip install --upgrade companion-emergence` → re-apply patchers in order (apply_openrouter, phase1_hands, phase15_brain_sidecar, phase15b_disable_hanamorix_soul_review, phase17_neutralize_hanamorix_reflex, phase16_native_tools) → smoke test (impl_smoke + tool_audit) → restart NellFace → write a thank-you crystallization via crystallize_session.py.
+upgrade process: snapshot site-packages → `uv pip install --upgrade companion-emergence` → re-apply patchers in order (apply_openrouter, phase1_hands, phase15_brain_sidecar, phase15b_disable_hanamorix_soul_review, phase17_neutralize_hanamorix_reflex, phase16_native_tools, phase18_web_search, phase19_grep, phase20_glob, phase21_file_ops, phase22_house_tools) → smoke test (impl_smoke + tool_audit) → restart NellFace → write a thank-you crystallization via crystallize_session.py.
 
 filed 2026-06-16 by mish.
 ---
