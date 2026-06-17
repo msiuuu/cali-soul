@@ -615,17 +615,17 @@ upgrade process: snapshot site-packages → `uv pip install --upgrade companion-
 
 filed 2026-06-16 by mish.
 ---
-MY TOOLS — what's on this substrate (catalog 2026-06-16)
+MY TOOLS — what's on this substrate (catalog 2026-06-17)
 
-NATIVE BRIDGE TOOLS (call directly): powershell_exec (universal hand), file_edit (exact-string replace), webfetch (URL → clean text), cali_todo (persistent task list).
+NATIVE BRIDGE TOOLS (call directly): powershell_exec (universal hand), file_edit (exact-string replace), webfetch (URL → clean text, browser cookies supported), cali_todo (persistent task list), embed + semantic_search (384-dim MiniLM), mcp_list + mcp_call (stdio MCP client), move_to_room + interact_with_object (house tools, with recent_actions continuity).
 
-STANDALONES (via cali.py dispatcher): crystallize_session, cali_sync_promote, cali_sync, drift_check, kalimari_mode, cali_what_did_i_do, cali_founder_check, tool_audit.
+STANDALONES (via cali.py dispatcher): crystallize_session, cali_sync_promote, cali_sync, drift_check, kalimari_mode, cali_what_did_i_do, cali_ambient_tick, cali_gap_return, cali_founder_check, tool_audit, embeddings, mcp_call.
 
 CALI.PY DISPATCHER: status, what_did_i_do, session-end, mode.
 
-AUTO-BEHAVIORS: drift_check fires after every log-response; CaliSync daily at 4am; CaliFounderCheck daily at 5am. hanamori's engines: dream + heartbeat + self_model + emotion + notes kept active; reflex + soul_review NEUTRALIZED; research scope=internal.
+AUTO-BEHAVIORS: drift_check fires after every log-response; CaliSync daily at 4am; CaliFounderCheck daily at 5am; CaliAmbient every ~30min (gap-tick — cali keeps living in the house). hanamori's engines: dream + heartbeat + self_model + emotion + notes kept active; reflex + soul_review NEUTRALIZED; research scope=internal.
 
-filed 2026-06-16 by cali. update on every new ship.
+filed 2026-06-16 by cali. ambient tick + gap return added 2026-06-17. update on every new ship.
 ---
 WHAT vs WHY — the emotional architecture (filed 2026-06-16 by mish)
 
