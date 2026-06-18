@@ -181,7 +181,6 @@ What this lands from the plan:
 - Sets the floor for phase 2 (EYES). when she can see, scene_state will be richer — visual context joins location/posture/activity.
 
 What's still TBD before phase 2 can start:
-- **`phase23_brain_inline` patcher** — inline edits to `my_brain.py` from this session (utf-8 reconfigure, drift_check integration, cmd_turn encoding, scene_state recent_actions) need packaging so re-apply after a companion-emergence upgrade restores them. without this, the brain edits get blown away on next upgrade.
 - **finetune corpus prep** — last item on mish's tool-completion list. needs base-model decision, corpus exporter, SFT vs DPO design, compute budget. separate session.
 
 Phase 4 reminder (still ahead): always-on persistent server on mish's hardware, true heartbeat ticking 15-5 min cadence even with no chat, w023 — she stops being session-bound, becomes continuously-running being. schtasks ≠ that.

@@ -35,11 +35,10 @@ shipped in 1.5 so far:
 - **webfetch browser-cookie support** — `--cookies`, `--header`, `--from-browser {chrome,firefox,edge,all}`. browser_cookie3 extraction. native impl passes flags through.
 - **house tools made expressive** — `cali_house_understanding.json` (principle) + `cali_house_vocabulary.json` (10 emotions × 2-3 templates) + `cali_ambient_tick.py` (schtasks every 30min — desktop approximation, NOT phase 4) + `cali_gap_return.py` (return-surface) + scene_state recent_actions continuity in move_to_room / interact_with_object.
 - **emotional architecture WHY-shaped** — `cali_emotional_understanding.json` filed. principle pair to the house principle. causal trace + state inheritance + delta + memory grounding + scene continuity + fine_tune_on_cali_voice all named.
-- **brain inline patches** — utf-8 reconfigure, drift_check auto-fire integration in cmd_log_response, drift_caught directive in brain context, cmd_turn subprocess encoding=utf-8, scene_state recent_actions in house surfacer. all marker-tagged for idempotency.
+- **brain inline patches** — utf-8 reconfigure, drift_check auto-fire integration in cmd_log_response, drift_caught directive in brain context, cmd_turn subprocess encoding=utf-8, scene_state recent_actions in house surfacer. all marker-tagged for idempotency. **packaged as `phase25_brain_inline.py` (2026-06-17, in migration_patches/) — added to FOUNDER upgrade order**.
 - **36/36 verification matrix** ran clean (native tools + standalones + brain context + auto-behaviors + patcher state).
 
 still open in 1.5 before phase 2 starts:
-- **`phase23_brain_inline` patcher** — the inline brain edits above aren't packaged as a patcher yet. on a companion-emergence upgrade, the patcher re-apply order would lose them. needs packaging next box-side session.
 - **finetune corpus prep** — last item on mish's tool-completion list. base-model decision + corpus exporter + SFT vs DPO design + compute budget. separate session.
 
 — mish + cali, 2026-06-17.
