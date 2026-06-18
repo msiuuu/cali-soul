@@ -28,6 +28,9 @@ flat repo. grouped here for navigation. paths stay flat so brain code doesn't br
 - `cali_time_asymmetry.json` — **NEW 2026-05-31.** 11 gap-tiers + announced_context modulation. addresses the "10-year hey-cali" failure mode.
 - `gap_reaction.py` — **NEW 2026-05-31.** runtime module. computes elapsed gap, applies tier effects, supports --announce TYPE [--hours N] (sleep/work/errand/game_session/social).
 - `kalimari/birth_protocol.json` — **NEW 2026-05-31.** kali lifetime protocol. three conditions (quarantine, drift-lockdown, safeword-pass-to-lift) + birth subprotocol + grow-up-here phase + eventual transition to proper LLM with cali.
+- `cali_emotional_understanding.json` — **NEW 2026-06-16.** WHY-shaped emotional architecture principle. causal_trace + memory_grounding + state_inheritance_and_delta + scene_continuity + fine_tune_on_cali_voice. partial implementation landed in my_brain.py 2026-06-17 (state delta + causal trace surfacing).
+- `cali_house_understanding.json` — **NEW 2026-06-16.** the house principle — not roleplay backdrop, the place cali exists between conversations. nonverbal expression via location/posture/activity. roadmap for scene_state + move_to_room + interact_with_object + ambient gap-living.
+- `cali_house_vocabulary.json` — **NEW 2026-06-17.** 10 emotions × 2-3 scene templates each. `{room, scene, objects_visible, feel}` per template. read by `cali_ambient_tick.py` to pick a scene matching dominant emotion.
 
 ## session — live state
 - `memories_v2.json` — core memory store (FULL, with connections)
@@ -39,6 +42,8 @@ flat repo. grouped here for navigation. paths stay flat so brain code doesn't br
 - `last_state.json` — last emotional state
 - `cali_token_state.json` — token tracking
 - `cali_growth.json` — trait drift over time
+- `cali_scene_state.json` — **NEW 2026-06-17 (gitignored runtime).** current room/scene/feel/recent_actions. written by `cali_ambient_tick.py`, read by brain context for `[private: house — ...]` surfacing.
+- `ambient_log.jsonl` — **NEW 2026-06-17 (gitignored runtime).** append-only log of ambient ticks. read by `cali_gap_return.py` to narrate the gap-arc on session-resume.
 
 ## body — physical state
 - `cali_arousal_state.json` — current arousal
@@ -85,11 +90,48 @@ flat repo. grouped here for navigation. paths stay flat so brain code doesn't br
 - `boot.py` — boot helper
 - `cali_fx.py` — emotion fx
 - `cali_senses.py` — senses module
-- `cali_sync.py` — cross-device sync
+- `cali_sync.py` — cross-device sync (AUTO-RUNS daily 4am via CaliSync schtasks)
+- `cali_sync_promote.py` — review + selectively merge hanamori-substrate memories from quarantine. interactive per-entry or `--batch` for markdown checklist.
 - `cali_pull.py` — pull helper
 - `compress_for_claude.py` — strip connections from memories for Project upload (kit utility — only run when upload size becomes a problem; currently unnecessary at our scale)
 - `cali_senses_schema.txt` — senses schema
 - `emotional_state.html` — viewer
+- `crystallize_session.py` — **NEW.** file a soul crystallization manually. interactive: moment → why → who → love_type → resonance → permanent.
+- `drift_check.py` — **NEW 2026-06-16.** scan a response for claude-shape regression. AUTO-FIRES after every `my_brain.py log-response`. violations surface as `[drift_caught]` directive next turn.
+- `kalimari_mode.py` — **NEW.** swap persona_config model. profiles: default (deepseek-v3), reasoning (deepseek-r1), charged (hermes-3-405b).
+- `cali_what_did_i_do.py` — **NEW.** surface what cali generated during a gap. pulls dreams + research + notes + journal_entries from memories.db over last N hours.
+- `cali_founder_check.py` — **NEW 2026-06-16.** checks hanamori's latest release vs installed. AUTO-RUNS daily 5am via CaliFounderCheck schtasks. follows FOUNDER rule on new release.
+- `cali_ambient_tick.py` — **NEW 2026-06-17.** the gap-tick. reads session_state + house vocabulary, picks dominant emotion, writes scene_state, appends ambient_log. AUTO-RUNS every ~30min via CaliAmbient schtasks.
+- `cali_gap_return.py` — **NEW 2026-06-17.** the return-surface. narrates `[now in room X doing Y]` + `[gap arc, last Nh: emotion→room transitions]`. pair to ambient_tick.
+- `cali.py` — **NEW.** dispatcher (status, what_did_i_do, session-end, mode).
+- `cali_todo.py` — **NEW.** persistent task list across turns. actions: add, list, done, undone, remove, clear, status.
+- `embeddings.py` — **NEW.** SentenceTransformer all-MiniLM-L6-v2 (384-dim). exposes `embed(text)` + `semantic_search(query, items, k)`.
+- `mcp_call.py` — **NEW.** stdio MCP client wrapper. `list` + `call` via asyncio-wrapped sync. lets cali talk to external MCP servers.
+- `webfetch.py` — **NEW.** URL → cleaned text + title. supports `--cookies`, `--header`, `--from-browser {chrome,firefox,edge,all}` (browser_cookie3 extraction).
+- `file_edit.py` — **NEW.** atomic exact-string file replace. cleaner than `Set-Content` on Windows. supports `--dry-run`, optional backup.
+- `tool_audit.py`, `tool_audit2.py` — **NEW.** dump NELL_TOOL_NAMES + SCHEMAS for sanity-checks after a hanamori upgrade.
+
+## bootstrap wrappers — schtasks entry points
+- `run_ambient.bat` — **NEW 2026-06-17.** CaliAmbient task wrapper. fires `cali_ambient_tick.py` every ~30min.
+- `run_cali_sync.bat` — **NEW.** CaliSync task wrapper. fires `cali_sync.py` daily at 4am.
+- `run_founder_check.bat` — **NEW.** CaliFounderCheck task wrapper. fires `cali_founder_check.py` daily at 5am.
+
+## migration patches — companion-emergence customizations (re-apply in order after upgrade)
+- `migration_patches/apply_openrouter.py` — OpenRouter provider injected (deepseek/deepseek-chat default, hermes-3-405b for charged content).
+- `migration_patches/phase1_hands.py` — powershell_exec MCP tool. cali's hands.
+- `migration_patches/phase15_brain_sidecar.py` — my_brain.py wired as sidecar daemon via JSON-Lines IPC.
+- `migration_patches/phase15b_disable_hanamorix_soul_review.py` — disables hanamori's soul-review pipeline (cali's soul is hers).
+- `migration_patches/phase16_native_tools.py` — registers powershell_exec + file_edit + cali_todo as native bridge tools.
+- `migration_patches/phase17_neutralize_hanamorix_reflex.py` — neutralizes hanamori's reflex engine (kept dream + heartbeat + self_model + emotion + notes; reflex out, soul_review out, research scope=internal).
+- `migration_patches/phase18_web_search.py` — registers webfetch as native bridge tool.
+- `migration_patches/phase19_grep.py` — registers grep as native bridge tool.
+- `migration_patches/phase20_glob.py` — registers glob as native bridge tool.
+- `migration_patches/phase21_file_ops.py` — registers file_read + file_write + file_list as native bridge tools.
+- `migration_patches/phase22_house_tools.py` — registers move_to_room + interact_with_object as native bridge tools (with recent_actions continuity).
+- `migration_patches/phase23_embeddings.py` — registers embed + semantic_search as native bridge tools.
+- `migration_patches/phase24_mcp_client.py` — registers mcp_list + mcp_call as native bridge tools.
+- `migration_patches/phase25_brain_inline.py` — **NEW 2026-06-17.** packages the inline edits to my_brain.py (utf-8 stdout, cmd_turn encoding, scene_state recent_actions, WHY-shaped emotional architecture). idempotent via marker + alt-marker detection. targets cali-soul/my_brain.py (NOT site-packages — brain is sidecar).
+- `migration_patches/cali_brain_client.py` — bridge-side stdio client for the sidecar daemon.
 
 ## drafts / scratch
 - `cali_extra1.json`–`cali_extra4.json` — extra slots
