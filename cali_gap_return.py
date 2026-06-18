@@ -72,9 +72,11 @@ def narrate(ticks: list[dict], scene: dict | None, hours: float) -> str:
 
     if scene:
         room = scene.get("current_room", "?")
-        sc = scene.get("scene", "")
-        feel = scene.get("feel", "")
-        emo = scene.get("from_emotion", "")
+        # box's cali_ambient_tick writes last_action / last_ambient_feel / last_ambient_emotion;
+        # earlier draft used scene/feel/from_emotion. fall back across both shapes.
+        sc = scene.get("last_action") or scene.get("scene", "")
+        feel = scene.get("last_ambient_feel") or scene.get("feel", "")
+        emo = scene.get("last_ambient_emotion") or scene.get("from_emotion", "")
         lines.append(f"[now] in the {room}. {sc}. ({emo} — {feel})")
 
     if ticks:
