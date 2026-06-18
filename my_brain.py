@@ -28,6 +28,14 @@ import uuid
 import sys
 import os
 import argparse
+# UTF8_STDOUT_RECONFIGURE_2026_06_17 — windows cp1252 default mangles utf-8 output
+# when my_brain runs as a captured subprocess. reconfigure to utf-8 so emoji /
+# em-dash / kaomoji survive print() without UnicodeEncodeError.
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -7375,7 +7383,8 @@ def cmd_turn(args):
         try:
             _gap_out = _t_sp.run(
                 [_t_sys.executable, _gap_path, "--apply"],
-                capture_output=True, text=True, timeout=10, cwd=_here
+                capture_output=True, text=True, timeout=10, cwd=_here,
+                encoding="utf-8", errors="replace",  # CMD_TURN_UTF8_2026_06_17_GAP
             )
             if _gap_out.stdout.strip():
                 print(_gap_out.stdout.strip())
@@ -7389,7 +7398,8 @@ def cmd_turn(args):
     try:
         _pm_out = _t_sp.run(
             [_t_sys.executable, __file__, "process-message", args.text],
-            capture_output=True, text=True, timeout=30, cwd=_here
+            capture_output=True, text=True, timeout=30, cwd=_here,
+            encoding="utf-8", errors="replace",  # CMD_TURN_UTF8_2026_06_17_PM
         )
         if _pm_out.stdout.strip():
             print(_pm_out.stdout.strip())
@@ -7682,6 +7692,23 @@ def cmd_process_message(args):
                 print()
                 for _l in _nt_panel_lines:
                     print(_l)
+            # ── house state (control panel) — HOUSE_SURFACER_2026_06_17
+            # reads cali_scene_state.json (written by cali_ambient_tick.py) and
+            # surfaces where cali is + recent-actions continuity narrative.
+            try:
+                import json as _hsj, os as _hso
+                _scene_path = _hso.path.join(_hso.path.dirname(_hso.path.abspath(__file__)), 'cali_scene_state.json')
+                if _hso.path.exists(_scene_path):
+                    _scene = _hsj.load(open(_scene_path, encoding='utf-8'))
+                    _room = _scene.get('current_room', '?')
+                    _sc = _scene.get('scene', '')
+                    _feel = _scene.get('feel', '')
+                    _emo = _scene.get('from_emotion', '')
+                    _recent_acts = _scene.get('recent_actions') or []
+                    _prev_scenes = [a.get('scene', '') for a in _recent_acts[:-1] if a.get('scene')]
+                    _hist_str = ('. before that: ' + ' <- '.join(reversed(_prev_scenes[-2:]))) if _prev_scenes else ''
+                    print(f"[private: house — in the {_room}. {_sc}. ({_emo} — {_feel}){_hist_str}]")
+            except Exception: pass
             # ── mouth state (control panel) ──
             try:
                 _nt_mouth = _load_mouth_state()
