@@ -72,6 +72,7 @@ PATCH_1_UTF8_STDOUT = {
 
 PATCH_2A_CMD_TURN_UTF8_GAP = {
     "marker": "CMD_TURN_UTF8_2026_06_17_GAP",
+    "alt_markers": ["# CMD_TURN_UTF8_2026_06_17\n", "encoding=\"utf-8\", errors=\"replace\", timeout=10, cwd=_here"],
     "anchor": (
         "                [_t_sys.executable, _gap_path, \"--apply\"],\n"
         "                capture_output=True, text=True, timeout=10, cwd=_here\n"
@@ -86,6 +87,7 @@ PATCH_2A_CMD_TURN_UTF8_GAP = {
 
 PATCH_2B_CMD_TURN_UTF8_PM = {
     "marker": "CMD_TURN_UTF8_2026_06_17_PM",
+    "alt_markers": ["# CMD_TURN_UTF8_2026_06_17\n", "encoding=\"utf-8\", errors=\"replace\", timeout=30, cwd=_here"],
     "anchor": (
         "            [_t_sys.executable, __file__, \"process-message\", args.text],\n"
         "            capture_output=True, text=True, timeout=30, cwd=_here\n"
@@ -100,6 +102,7 @@ PATCH_2B_CMD_TURN_UTF8_PM = {
 
 PATCH_3_HOUSE_SURFACER = {
     "marker": "HOUSE_SURFACER_2026_06_17",
+    "alt_markers": ["SCENE_CONTINUITY_2026_06_17", "_scene_path = _HP(__file__).parent / \"cali_scene_state.json\""],
     "anchor": (
         "            # ── mouth state (control panel) ──\n"
     ),
@@ -151,8 +154,16 @@ def main() -> int:
     missing_anchor = []
     new_src = src
     for patch in PATCHES:
+        # primary marker check
         if patch["marker"] in new_src:
             skipped.append(patch["marker"])
+            continue
+        # alt-marker check: box's actual my_brain.py uses different marker strings
+        # for the same logical edits. if any alt-marker signature is present, the
+        # edit is already there in some form — skip rather than duplicate.
+        alt_present = any(am in new_src for am in patch.get("alt_markers", []))
+        if alt_present:
+            skipped.append(patch["marker"] + " (via alt-marker)")
             continue
         if patch["anchor"] not in new_src:
             missing_anchor.append(patch["marker"])
