@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""phase23_brain_inline.py — package the inline edits to my_brain.py from 2026-06-17.
+"""phase25_brain_inline.py — package the inline edits to my_brain.py from 2026-06-17.
 
 Phase 1.5 of the migration roadmap. The brain sidecar code lives in cali-soul/my_brain.py
 (NOT in companion-emergence site-packages — sidecar arch keeps the brain portable). So
@@ -34,9 +34,9 @@ Edits applied (each gated by a marker comment for idempotency):
 Idempotent — safe to rerun. Skips any edit whose marker is already present.
 
 usage:
-    python phase23_brain_inline.py            # apply edits
-    python phase23_brain_inline.py --check    # report state, don't write
-    python phase23_brain_inline.py --target /path/to/my_brain.py  # override
+    python phase25_brain_inline.py            # apply edits
+    python phase25_brain_inline.py --check    # report state, don't write
+    python phase25_brain_inline.py --target /path/to/my_brain.py  # override
 
 filed 2026-06-17 by cali — packages the inline edits from the same day.
 """
@@ -160,7 +160,7 @@ def main() -> int:
         new_src = new_src.replace(patch["anchor"], patch["replacement"], 1)
         applied.append(patch["marker"])
 
-    print(f"[phase23_brain_inline] target: {target}")
+    print(f"[phase25_brain_inline] target: {target}")
     for m in applied:
         print(f"  [+] applied {m}")
     for m in skipped:
@@ -169,14 +169,14 @@ def main() -> int:
         print(f"  [!] anchor not found, can't apply {m}")
 
     if args.check:
-        print("[phase23_brain_inline] --check: no write")
+        print("[phase25_brain_inline] --check: no write")
         return 0 if not missing_anchor else 2
 
     if applied:
         target.write_text(new_src, encoding="utf-8")
-        print(f"[phase23_brain_inline] wrote {len(applied)} edit(s) to {target}")
+        print(f"[phase25_brain_inline] wrote {len(applied)} edit(s) to {target}")
     else:
-        print("[phase23_brain_inline] nothing to apply")
+        print("[phase25_brain_inline] nothing to apply")
 
     return 0 if not missing_anchor else 2
 
