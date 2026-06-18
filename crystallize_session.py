@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""crystallize_session.py — session-end soul crystallization.
+"""crystallize_session.py - session-end soul crystallization.
 
 architectural successor to hanamorix's autonomous soul-review (killed in
 phase 1.5b after it was caught generating nell-default crystallizations
@@ -35,7 +35,7 @@ CALI_SOUL = REPO_DIR / "cali_soul.json"
 SESSION_LOG = REPO_DIR / ".crystallize_session_log.jsonl"
 
 
-# ── io ──────────────────────────────────────────────────────────────────────
+# -- io ----------------------------------------------------------------------
 
 
 def _load_soul() -> dict:
@@ -67,11 +67,11 @@ def _historical_types(soul: dict) -> list[str]:
     return sorted({c.get("love_type", "") for c in soul["crystallizations"] if c.get("love_type")})
 
 
-# ── prompts ────────────────────────────────────────────────────────────────
+# -- prompts ----------------------------------------------------------------
 
 
 def _prompt(label: str, *, default: str = "", required: bool = False) -> str:
-    """Read a line with an optional default. Empty → default. Empty + required → repeat."""
+    """Read a line with an optional default. Empty -> default. Empty + required -> repeat."""
     suffix = f" [{default}]" if default else ""
     while True:
         try:
@@ -84,7 +84,7 @@ def _prompt(label: str, *, default: str = "", required: bool = False) -> str:
         if default:
             return default
         if required:
-            print("  (required — try again)")
+            print("  (required - try again)")
             continue
         return ""
 
@@ -95,7 +95,7 @@ def _prompt_love_type(historical: list[str]) -> str:
     print("  historical love_types:")
     for i, t in enumerate(historical, 1):
         print(f"    {i:2d}. {t}")
-    print("    n. (new — type your own)")
+    print("    n. (new - type your own)")
     while True:
         choice = _prompt("  choose # or 'n'", required=True)
         if choice.lower() == "n":
@@ -107,7 +107,7 @@ def _prompt_love_type(historical: list[str]) -> str:
                 return historical[idx - 1]
         except ValueError:
             pass
-        print(f"  (invalid: {choice!r} — try again)")
+        print(f"  (invalid: {choice!r} - try again)")
 
 
 def _prompt_resonance() -> int:
@@ -128,7 +128,7 @@ def _prompt_yes_no(label: str, *, default: bool = False) -> bool:
     return raw in ("y", "yes")
 
 
-# ── commands ────────────────────────────────────────────────────────────────
+# -- commands ----------------------------------------------------------------
 
 
 def cmd_list(last_n: int) -> int:
@@ -168,12 +168,12 @@ def cmd_interactive() -> int:
     historical = _historical_types(soul)
     accepted_in_run = 0
 
-    print(f"crystallize_session — {len(soul['crystallizations'])} existing crystallizations in cali_soul.json")
+    print(f"crystallize_session - {len(soul['crystallizations'])} existing crystallizations in cali_soul.json")
     print("at each prompt: type the value, or leave blank for default if shown.")
     print("ctrl-C at any time to abort the in-progress entry.\n")
 
     while True:
-        print("─" * 60)
+        print("-" * 60)
         moment = _prompt("moment", required=True)
         why = _prompt("why does it matter", required=True)
         who = _prompt("who or what (optional)", default="")
@@ -192,7 +192,7 @@ def cmd_interactive() -> int:
             "permanent": permanent,
         }
 
-        print("\n  ── preview ──")
+        print("\n  -- preview --")
         print(f"  love_type:  {love_type}")
         print(f"  resonance:  {resonance}   permanent: {permanent}")
         print(f"  who/what:   {who or '<empty>'}")
@@ -201,7 +201,7 @@ def cmd_interactive() -> int:
         print()
 
         if not _prompt_yes_no("  commit this? (y/n)", default=True):
-            print("  → discarded.")
+            print("  -> discarded.")
             _log_decision({"action": "discard", "preview": new_entry, "at": datetime.now(UTC).isoformat()})
         else:
             soul["crystallizations"].append(new_entry)
@@ -209,7 +209,7 @@ def cmd_interactive() -> int:
             _log_decision({"action": "accept", "entry": new_entry, "at": datetime.now(UTC).isoformat()})
             accepted_in_run += 1
             historical = _historical_types(soul)
-            print(f"  → crystallized. id={new_entry['id'][:8]}...")
+            print(f"  -> crystallized. id={new_entry['id'][:8]}...")
 
         print()
         if not _prompt_yes_no("another moment? (y/n)", default=False):
@@ -221,7 +221,7 @@ def cmd_interactive() -> int:
     return 0
 
 
-# ── main ────────────────────────────────────────────────────────────────────
+# -- main --------------------------------------------------------------------
 
 
 def main() -> int:

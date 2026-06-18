@@ -26,6 +26,13 @@ Usage:
 import json
 import uuid
 import sys
+# # UTF8_STDOUT_RECONFIGURE_2026_06_17
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
+
 import os
 import argparse
 from datetime import datetime, timezone
@@ -549,6 +556,38 @@ def _surface_emotion_personality_effects(session):
         if not effect:
             continue
         lines.append(f"[private: {emo} — tier {score} ({label}) — {effect}]")
+        # state_inheritance_and_delta (filed 2026-06-17 per cali_emotional_understanding.json)
+        _last_scores_local = session.get("last_scores", {}) or {}
+        if emo in _last_scores_local and isinstance(_last_scores_local[emo], (int, float)):
+            _delta = float(score) - float(_last_scores_local[emo])
+            if abs(_delta) >= 0.5:
+                _sign = "+" if _delta > 0 else ""
+                lines.append(f"[private: {emo} delta — was {_last_scores_local[emo]}, now {score} ({_sign}{_delta:.1f})]")
+    # causal_trace: recent triggers summary
+    _recent_triggers = session.get("triggers_fired", [])[-5:]
+    if _recent_triggers:
+        lines.append(f"[private: recent triggers — " + ", ".join(_recent_triggers) + "]")
+    # capture current as last for next turn delta
+    session["last_scores"] = dict(scores)
+    # house state surfacing (filed 2026-06-17 per cali_house_understanding.json)
+    try:
+        import json as _hsj
+        from pathlib import Path as _HP
+        _scene_path = _HP(__file__).parent / "cali_scene_state.json"
+        if _scene_path.exists():
+            _scene = _hsj.loads(_scene_path.read_text(encoding="utf-8"))
+            _room = _scene.get("current_room", "?")
+            _last_act = _scene.get("last_action") or "still"
+            _in_hand = _scene.get("in_hand") or []
+            _visible = _scene.get("visible_objects") or []
+            _hand_str = (" holding " + ", ".join(_in_hand)) if _in_hand else ""
+            _vis_str = (". visible: " + ", ".join(_visible[:5])) if _visible else ""
+            _recent_acts = _scene.get("recent_actions") or []
+            _hist_str = (". before that: " + " <- ".join(reversed(_recent_acts[-2:]))) if _recent_acts else ""
+            # SCENE_CONTINUITY_2026_06_17
+            lines.append(f"[private: house — currently in {_room}{_hand_str}. last action: {_last_act}{_hist_str}{_vis_str}]")
+    except Exception:
+        pass
     return lines
 
 
@@ -5878,7 +5917,7 @@ def cmd_creative_dna(args):
 # Real-time emotional shifts during conversation
 # ═══════════════════════════════════════════════════════════
 
-SESSION_STATE_FILE = CONFIG.get("session_state_file", "session_state.json")
+SESSION_STATE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), CONFIG.get("session_state_file", "session_state.json"))
 MOUTH_STATE_FILE   = CONFIG.get("mouth_state_file", "cali_mouth.json")
 
 # ── TRIGGER MAP — patterns that shift emotions in real time ──
@@ -7324,12 +7363,40 @@ def cmd_log_response(args):
             if _comp.get("notes"):
                 session["last_output_state_notes"] = _comp["notes"]
 
+        # DRIFT_CHECK_AUTO_FIRE_INTEGRATION - drift_check claude-shape scanner auto-fires after every response
+        try:
+            import subprocess as _drift_sp, os.path as _drift_path, json as _drift_json
+            _drift_script = _drift_path.join(_drift_path.dirname(__file__), "drift_check.py")
+            if _drift_path.exists(_drift_script):
+                _drift_proc = _drift_sp.run(
+                    [sys.executable, _drift_script, _rtext, "--json"],
+                    capture_output=True, text=True, timeout=5,
+                )
+                if _drift_proc.returncode == 1:
+                    try:
+                        _drift_report = _drift_json.loads(_drift_proc.stdout)
+                        session["last_drift_violations"] = _drift_report.get("violations", [])
+                        session["last_drift_severity"] = _drift_report.get("severity", "none")
+                        _viol_count = len(_drift_report.get("violations", []))
+                        _sev = _drift_report.get("severity", "?").upper()
+                        print(f"[drift_check: {_sev} severity, {_viol_count} violation(s)]")
+                        for v in _drift_report.get("violations", [])[:3]:
+                            print(f"  - {v.get('pattern','?')}: {v.get('fix','?')}")
+                    except _drift_json.JSONDecodeError:
+                        pass
+                else:
+                    session["last_drift_violations"] = []
+                    session["last_drift_severity"] = "none"
+        except Exception:
+            pass
+
         save_session_state(session)
         print(f"[response logged: {len(_rtext)} chars]")
     else:
         print("[no session — response not logged]")
 
 
+# CMD_TURN_UTF8_2026_06_17
 def cmd_turn(args):
     """
     Per-message merged command. Runs gap_reaction.py --apply then process-message.
@@ -7346,7 +7413,7 @@ def cmd_turn(args):
         try:
             _gap_out = _t_sp.run(
                 [_t_sys.executable, _gap_path, "--apply"],
-                capture_output=True, text=True, timeout=10, cwd=_here
+                capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=10, cwd=_here
             )
             if _gap_out.stdout.strip():
                 print(_gap_out.stdout.strip())
@@ -7360,7 +7427,7 @@ def cmd_turn(args):
     try:
         _pm_out = _t_sp.run(
             [_t_sys.executable, __file__, "process-message", args.text],
-            capture_output=True, text=True, timeout=30, cwd=_here
+            capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=30, cwd=_here
         )
         if _pm_out.stdout.strip():
             print(_pm_out.stdout.strip())
@@ -7734,6 +7801,14 @@ def cmd_process_message(args):
             if _nt_sb_violations:
                 print(f"[private: !! trigger directive (fx_violation) — last response broke the output-state constraint. {' | '.join(_nt_sb_violations)}. obey the directive this turn. the labels are not advisory — they are the response shape.]")
                 session["last_output_state_violations"] = []  # clear after surfacing
+            # drift_check - claude-shape regression caught on last response
+            _nt_drift_violations = session.get("last_drift_violations", [])
+            _nt_drift_severity = session.get("last_drift_severity", "none")
+            if _nt_drift_violations:
+                _drift_summary = ", ".join(f"{v.get('pattern','?')}: {v.get('fix','drop it')}" for v in _nt_drift_violations[:3])
+                print(f"[private: !! trigger directive (drift_caught) - last response had {_nt_drift_severity.upper()}-severity claude-shape drift. patterns: {_drift_summary}. drop it this turn - first person, no assistant-frame, no didactic opener, no hedge-stacking.]")
+                session["last_drift_violations"] = []
+                session["last_drift_severity"] = "none"
         # decrement timers happens earlier in this path now (before trio)
         save_session_state(session)
         return
