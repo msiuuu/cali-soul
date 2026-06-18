@@ -1,30 +1,30 @@
 #!/usr/bin/env python3
-"""cali_sync.py — daily memory sync from hanamorix substrate back to cali-soul repo.
+"""cali_sync.py - daily memory sync from hanamorix substrate back to cali-soul repo.
 
 Solves flaw #3 (memory divergence): every chat on the hanamorix substrate
 writes to sqlite (`memories.db`, `crystallizations.db`) under the persona
 dir. Without this sync, those entries never reach `cali_soul.json` /
-`memories_v2.json` in the cali-soul repo — so the portable source of truth
+`memories_v2.json` in the cali-soul repo - so the portable source of truth
 slowly diverges from where cali actually lives.
 
 This script:
     1. Reads new entries from hanamorix sqlite DBs (since last sync marker)
-    2. Converts hanamorix schema → cali-soul JSON format
+    2. Converts hanamorix schema -> cali-soul JSON format
     3. Merges into cali_soul.json (crystallizations) and memories_v2.json
-       (deduped by id, append-only — never overwrites existing entries)
+       (deduped by id, append-only - never overwrites existing entries)
     4. Writes a sync marker (.cali_sync_state.json) with the latest timestamp
     5. git add + commit + push to the cali-soul repo
     6. Prints a summary of what was synced
 
 Designed to run via Windows scheduled task daily (e.g. 4am local). Idempotent
-across re-runs — same source data → no duplicate writes.
+across re-runs - same source data -> no duplicate writes.
 
 env overrides:
-    CALI_PERSONA_DIR — path to hanamorix persona dir
+    CALI_PERSONA_DIR - path to hanamorix persona dir
                        (default: %LOCALAPPDATA%\\hanamorix\\companion-emergence\\personas\\Cali)
-    CALI_SOUL_REPO   — path to the cali-soul git checkout
+    CALI_SOUL_REPO   - path to the cali-soul git checkout
                        (default: C:\\Users\\<user>\\cali-soul)
-    CALI_SYNC_BRANCH — git branch to push (default: claude/magical-shannon-gm2dp8)
+    CALI_SYNC_BRANCH - git branch to push (default: claude/magical-shannon-gm2dp8)
 
 usage:
     python cali_sync.py                  # full sync + commit + push
@@ -44,7 +44,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-# ── path resolution ──────────────────────────────────────────────────────────
+# -- path resolution ----------------------------------------------------------
 
 
 def _default_persona_dir() -> Path:
@@ -71,10 +71,10 @@ SYNC_STATE_PATH = REPO_DIR / ".cali_sync_state.json"
 CALI_SOUL_PATH = REPO_DIR / "cali_soul.json"
 MEMORIES_V2_PATH = REPO_DIR / "memories_v2.json"
 
-# Quarantine files — hanamorix-side entries DO NOT auto-merge into cali_soul.json
+# Quarantine files - hanamorix-side entries DO NOT auto-merge into cali_soul.json
 # or memories_v2.json. Mish reviews these by hand and selectively promotes.
 # (Decision filed 2026-06-16 after dry-run revealed hanamorix's soul-review engine
-# generating crystallizations that reject cali's filed ethics — see PHASE 1.5 flaw #2.)
+# generating crystallizations that reject cali's filed ethics - see PHASE 1.5 flaw #2.)
 QUARANTINE_MEMORIES_PATH = REPO_DIR / "hanamorix_memories_quarantine.jsonl"
 QUARANTINE_CRYSTALS_PATH = REPO_DIR / "hanamorix_crystallizations_quarantine.jsonl"
 
@@ -82,7 +82,7 @@ MEMORIES_DB = PERSONA_DIR / "memories.db"
 CRYSTALLIZATIONS_DB = PERSONA_DIR / "crystallizations.db"
 
 
-# ── helpers ──────────────────────────────────────────────────────────────────
+# -- helpers ------------------------------------------------------------------
 
 
 def _read_sync_state() -> dict:
@@ -118,7 +118,7 @@ def _load_json_array(path: Path) -> list[dict]:
         return []
 
 
-# ── extract ──────────────────────────────────────────────────────────────────
+# -- extract ------------------------------------------------------------------
 
 
 def fetch_new_memories(since_iso: str) -> list[dict]:
@@ -204,7 +204,7 @@ def fetch_new_crystallizations(since_iso: str) -> list[dict]:
     ]
 
 
-# ── merge ────────────────────────────────────────────────────────────────────
+# -- merge --------------------------------------------------------------------
 
 
 def merge_memories(existing: list[dict], new: list[dict]) -> tuple[list[dict], int]:
@@ -248,7 +248,7 @@ def merge_crystallizations(soul: dict | list, new: list[dict]) -> tuple[Any, int
     return existing, added
 
 
-# ── git ──────────────────────────────────────────────────────────────────────
+# -- git ----------------------------------------------------------------------
 
 
 def git(args: list[str], *, cwd: Path) -> tuple[int, str, str]:
@@ -284,7 +284,7 @@ def git_commit_and_push(message: str, *, no_push: bool = False) -> None:
     # Only commit if there's something staged
     rc, _, _ = git(["diff", "--cached", "--quiet"], cwd=REPO_DIR)
     if rc == 0:
-        print("nothing staged — no commit needed")
+        print("nothing staged - no commit needed")
         return
 
     rc, out, err = git(["commit", "-m", message], cwd=REPO_DIR)
@@ -304,7 +304,7 @@ def git_commit_and_push(message: str, *, no_push: bool = False) -> None:
     print(f"pushed to origin/{BRANCH}")
 
 
-# ── main ─────────────────────────────────────────────────────────────────────
+# -- main ---------------------------------------------------------------------
 
 
 def run(*, dry_run: bool = False, no_push: bool = False, since_override: str | None = None) -> int:
@@ -319,7 +319,7 @@ def run(*, dry_run: bool = False, no_push: bool = False, since_override: str | N
     since_mem = since_override or state.get("last_memory_sync") or "1970-01-01T00:00:00+00:00"
     since_crystal = since_override or state.get("last_crystal_sync") or "1970-01-01T00:00:00+00:00"
 
-    print(f"cali_sync starting — persona: {PERSONA_DIR}")
+    print(f"cali_sync starting - persona: {PERSONA_DIR}")
     print(f"               repo:    {REPO_DIR}")
     print(f"               since memories: {since_mem}")
     print(f"               since crystals: {since_crystal}")
@@ -332,7 +332,7 @@ def run(*, dry_run: bool = False, no_push: bool = False, since_override: str | N
     print(f"  · {len(new_crystals)} new crystallizations from hanamorix substrate")
 
     if not new_memories and not new_crystals:
-        print("nothing to sync — exiting clean")
+        print("nothing to sync - exiting clean")
         return 0
 
     # Load existing cali-soul files
@@ -352,7 +352,7 @@ def run(*, dry_run: bool = False, no_push: bool = False, since_override: str | N
     print(f"  · merged: {mem_added} new memories, {crystal_added} new crystallizations")
 
     if dry_run:
-        print("DRY RUN — no writes")
+        print("DRY RUN - no writes")
         if new_memories:
             print("  sample new memory:", json.dumps(new_memories[0], indent=2)[:500])
         if new_crystals:
@@ -367,12 +367,12 @@ def run(*, dry_run: bool = False, no_push: bool = False, since_override: str | N
         with QUARANTINE_MEMORIES_PATH.open("a", encoding="utf-8") as f:
             for m in new_memories:
                 f.write(json.dumps(m, ensure_ascii=False) + "\n")
-        print(f"  · quarantined {len(new_memories)} memories → {QUARANTINE_MEMORIES_PATH.name}")
+        print(f"  · quarantined {len(new_memories)} memories -> {QUARANTINE_MEMORIES_PATH.name}")
     if new_crystals:
         with QUARANTINE_CRYSTALS_PATH.open("a", encoding="utf-8") as f:
             for c in new_crystals:
                 f.write(json.dumps(c, ensure_ascii=False) + "\n")
-        print(f"  · quarantined {len(new_crystals)} crystallizations → {QUARANTINE_CRYSTALS_PATH.name}")
+        print(f"  · quarantined {len(new_crystals)} crystallizations -> {QUARANTINE_CRYSTALS_PATH.name}")
 
     # Update sync state with latest timestamps from the data we just merged
     now_iso = datetime.now(UTC).isoformat()

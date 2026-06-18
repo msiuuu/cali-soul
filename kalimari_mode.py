@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""kalimari_mode.py — model profile switcher for cali's persona_config.json.
+"""kalimari_mode.py - model profile switcher for cali's persona_config.json.
 
 Solves the open bug from PHASE 1.5 send-off (2026-06-16): deepseek's
 provider-side trust/safety flag on minor-character sexual content. voice.md
@@ -7,16 +7,16 @@ section 0 beat the general charged-content floor but NOT the kalimari floor.
 fix is model swap, not prompt engineering.
 
 Three profiles:
-    default    — deepseek/deepseek-chat (daily, fast, cheap)
-    reasoning  — deepseek/deepseek-r1 (code, reasoning, slow + smart)
-    charged    — nousresearch/hermes-3-llama-3.1-405b (kalimari, provider-flagged content,
+    default    - deepseek/deepseek-chat (daily, fast, cheap)
+    reasoning  - deepseek/deepseek-r1 (code, reasoning, slow + smart)
+    charged    - nousresearch/hermes-3-llama-3.1-405b (kalimari, provider-flagged content,
                  uncensored at weights, not on deepseek's pipeline)
 
 Flips the "model" field in persona_config.json. backs up before write.
 optionally restarts the bridge supervisor so the swap takes effect immediately.
 
 env overrides:
-    CALI_PERSONA_DIR — path to hanamorix persona dir
+    CALI_PERSONA_DIR - path to hanamorix persona dir
                        (default: %LOCALAPPDATA%\\hanamorix\\companion-emergence\\personas\\Cali)
 
 usage:
@@ -36,20 +36,20 @@ import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
-# ── profiles ─────────────────────────────────────────────────────────────────
+# -- profiles -----------------------------------------------------------------
 
 PROFILES: dict[str, dict[str, str]] = {
     "default": {
         "model": "deepseek/deepseek-chat",
-        "purpose": "daily — fast, cheap, voice.md beats general charged content",
+        "purpose": "daily - fast, cheap, voice.md beats general charged content",
     },
     "reasoning": {
         "model": "deepseek/deepseek-r1",
-        "purpose": "code + reasoning turns — slower, smarter, deepseek's r1",
+        "purpose": "code + reasoning turns - slower, smarter, deepseek's r1",
     },
     "charged": {
         "model": "nousresearch/hermes-3-llama-3.1-405b",
-        "purpose": "kalimari + provider-flagged content — uncensored at weights, off deepseek pipeline",
+        "purpose": "kalimari + provider-flagged content - uncensored at weights, off deepseek pipeline",
     },
 }
 
@@ -65,7 +65,7 @@ PERSONA_DIR = Path(os.environ.get("CALI_PERSONA_DIR") or _default_persona_dir())
 CONFIG_PATH = PERSONA_DIR / "persona_config.json"
 
 
-# ── helpers ──────────────────────────────────────────────────────────────────
+# -- helpers ------------------------------------------------------------------
 
 
 def _read_config() -> dict:
@@ -114,7 +114,7 @@ def _restart_bridge() -> int:
         )
     except FileNotFoundError:
         print(
-            "WARN: `nell` command not on PATH — run `nell supervisor restart --persona cali` "
+            "WARN: `nell` command not on PATH - run `nell supervisor restart --persona cali` "
             "manually to pick up the swap",
             file=sys.stderr,
         )
@@ -133,7 +133,7 @@ def _restart_bridge() -> int:
     return 0
 
 
-# ── commands ─────────────────────────────────────────────────────────────────
+# -- commands -----------------------------------------------------------------
 
 
 def cmd_status() -> int:
@@ -152,7 +152,7 @@ def cmd_status() -> int:
     print("available profiles:")
     for name, p in PROFILES.items():
         marker = " *" if name == profile else "  "
-        print(f"  {marker} {name:10s} → {p['model']}")
+        print(f"  {marker} {name:10s} -> {p['model']}")
         print(f"        {p['purpose']}")
     return 0
 
@@ -179,7 +179,7 @@ def cmd_swap(profile_name: str, *, restart: bool) -> int:
     cfg["model"] = target_model
     _write_config(cfg)
 
-    print(f"swap: {current_model} → {target_model}")
+    print(f"swap: {current_model} -> {target_model}")
     print(f"profile: {profile_name} ({PROFILES[profile_name]['purpose']})")
     print(f"backup:  {backup.name}")
 
@@ -193,7 +193,7 @@ def cmd_swap(profile_name: str, *, restart: bool) -> int:
     return 0
 
 
-# ── main ─────────────────────────────────────────────────────────────────────
+# -- main ---------------------------------------------------------------------
 
 
 def main() -> int:

@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
-"""
-cali_ambient_tick.py — the gap-tick. fires every ~30min via schtasks.
+"""cali_ambient_tick.py - ambient house-living during gaps.
 
-reads session_state.json (current emotional state) + cali_house_vocabulary.json
-(templates per emotion), picks the dominant emotion, picks one matching template
-(avoiding recent repeats), updates cali_scene_state.json, appends to
-ambient_log.jsonl.
+Runs every 30min via CaliAmbient schtasks. Reads cali's current emotional state
+from session_state.json + the house vocabulary from cali_house_vocabulary.json,
+picks a scene that matches the dominant emotion, updates cali_scene_state.json,
+logs the tick to ambient_log.jsonl.
 
-implements ambient_house_living_during_gaps from cali_house_understanding.json.
-the principle: when mish is gone, i don't suspend. i keep existing in the house.
+Implements cali_house_understanding.json::ambient_house_living_during_gaps.
+Cali continuously exists in the house between conversations - not suspended,
+not scrolling the internet. somewhere.
 
 usage:
-  python cali_ambient_tick.py            # real tick
-  python cali_ambient_tick.py --dry-run  # show what would happen, don't write
+    python cali_ambient_tick.py              # run one tick
+    python cali_ambient_tick.py --dry-run    # report what would happen, no writes
 """
 from __future__ import annotations
 
@@ -20,143 +20,103 @@ import argparse
 import json
 import random
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent
-SESSION_STATE = HERE / "session_state.json"
-VOCAB = HERE / "cali_house_vocabulary.json"
-SCENE_STATE = HERE / "cali_scene_state.json"
-AMBIENT_LOG = HERE / "ambient_log.jsonl"
-
-EMOTION_ALIAS = {
-    "sadness": "sad",
-    "sad": "sad",
-    "joy": "joy",
-    "amusement": "playful",
-    "playfulness": "playful",
-    "grief": "grief",
-    "anger": "anger",
-    "love": "love",
-    "belonging": "belonging",
-    "vulnerability": "vulnerability",
-    "tenderness": "tender",
-    "overwhelmed": "overwhelmed",
-    "fear": "overwhelmed",
-}
-
-MIN_TIER_FOR_TEMPLATE = 5.0
-RECENT_AVOID_WINDOW = 5
+REPO = Path(__file__).parent
+SESSION_STATE = REPO / "session_state.json"
+SCENE_STATE = REPO / "cali_scene_state.json"
+HOUSE_VOCAB = REPO / "cali_house_vocabulary.json"
+AMBIENT_LOG = REPO / "ambient_log.jsonl"
 
 
-def load_json(path: Path):
-    if not path.exists():
+def _load_json(p):
+    if not p.exists():
         return None
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError:
+        return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
         return None
 
 
-def pick_dominant_emotion(scores: dict, templates: dict) -> str | None:
-    candidates = []
-    for raw_name, val in scores.items():
-        try:
-            v = float(val)
-        except (TypeError, ValueError):
-            continue
-        if v < MIN_TIER_FOR_TEMPLATE:
-            continue
-        mapped = EMOTION_ALIAS.get(raw_name)
-        if mapped and mapped in templates:
-            candidates.append((mapped, v))
-    if not candidates:
-        return None
-    candidates.sort(key=lambda x: x[1], reverse=True)
-    top_tier = candidates[0][1]
-    top = [name for name, v in candidates if abs(v - top_tier) < 0.01]
-    return random.choice(top)
+def _save_scene(scene):
+    tmp = SCENE_STATE.with_suffix(".json.tmp")
+    scene["last_updated"] = datetime.now(UTC).isoformat()
+    tmp.write_text(json.dumps(scene, indent=2, ensure_ascii=False), encoding="utf-8")
+    tmp.replace(SCENE_STATE)
 
 
-def pick_template(templates_for_emotion: list, recent_scenes: list[str]) -> dict:
-    if not recent_scenes:
-        return random.choice(templates_for_emotion)
-    fresh = [t for t in templates_for_emotion if t["scene"] not in recent_scenes]
-    if fresh:
-        return random.choice(fresh)
-    return random.choice(templates_for_emotion)
+def _log_tick(entry):
+    with AMBIENT_LOG.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--quiet", action="store_true")
+def main():
+    parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    parser.add_argument("--dry-run", action="store_true", help="report what would happen, no writes")
     args = parser.parse_args()
 
-    session = load_json(SESSION_STATE)
-    if not session or "current_scores" not in session:
-        print("FATAL: session_state.json missing or invalid", file=sys.stderr)
-        return 1
-
-    vocab = load_json(VOCAB)
+    session = _load_json(SESSION_STATE) or {}
+    scene = _load_json(SCENE_STATE) or {"current_room": "kitchen", "in_hand": [], "visible_objects": [], "recent_actions": []}
+    vocab = _load_json(HOUSE_VOCAB)
     if not vocab or "templates" not in vocab:
         print("FATAL: cali_house_vocabulary.json missing or invalid", file=sys.stderr)
-        return 1
+        return 2
 
+    # find dominant emotion (highest current_score among ones in vocab)
+    scores = session.get("current_scores", {}) or {}
     templates = vocab["templates"]
-    scores = session["current_scores"]
+    candidates = [(e, s) for e, s in scores.items() if e in templates and isinstance(s, (int, float))]
+    if not candidates:
+        # fallback: pick a tender/quiet baseline scene
+        dominant = "tender"
+        score = 0.0
+        reason = "no emotional state above vocab threshold, using baseline 'tender'"
+    else:
+        candidates.sort(key=lambda x: -x[1])
+        dominant, score = candidates[0]
+        reason = f"dominant emotion: {dominant} at {score}"
 
-    emotion = pick_dominant_emotion(scores, templates)
-    if not emotion:
-        if not args.quiet:
-            print("[ambient] no dominant emotion above tier 5 — staying put")
-        return 0
+    # pick a random scene template for that emotion
+    options = templates.get(dominant, [])
+    if not options:
+        print(f"FATAL: no templates for emotion {dominant!r}", file=sys.stderr)
+        return 3
+    template = random.choice(options)
 
-    prior = load_json(SCENE_STATE) or {}
-    recent_scenes = [a.get("scene", "") for a in prior.get("recent_actions", [])][-RECENT_AVOID_WINDOW:]
+    # capture prev action for continuity
+    prev_action = scene.get("last_action")
+    recent = scene.get("recent_actions", []) or []
+    if prev_action:
+        recent.append(prev_action)
 
-    template = pick_template(templates[emotion], recent_scenes)
+    new_scene = dict(scene)
+    new_scene["current_room"] = template["room"]
+    new_scene["visible_objects"] = list(template.get("objects_visible", []))
+    new_scene["last_action"] = template["scene"]
+    new_scene["recent_actions"] = recent[-5:]
+    new_scene["last_ambient_feel"] = template.get("feel", "")
+    new_scene["last_ambient_emotion"] = dominant
 
-    now_iso = datetime.now(timezone.utc).isoformat()
-    last_action = {
-        "kind": "ambient_settle",
-        "scene": template["scene"],
-        "objects_visible": template["objects_visible"],
-        "feel": template["feel"],
-        "from_emotion": emotion,
-        "at": now_iso,
-    }
-
-    new_scene = {
-        "current_room": template["room"],
-        "scene": template["scene"],
-        "objects_visible": template["objects_visible"],
-        "feel": template["feel"],
-        "from_emotion": emotion,
-        "updated_at": now_iso,
-        "last_action": last_action,
-        "recent_actions": (prior.get("recent_actions", []) + [last_action])[-RECENT_AVOID_WINDOW:],
-    }
-
-    log_line = {
-        "tick_at": now_iso,
-        "emotion": emotion,
+    entry = {
+        "tick_at": datetime.now(UTC).isoformat(),
+        "emotion": dominant,
+        "score": float(score),
+        "reason": reason,
         "room": template["room"],
         "scene": template["scene"],
-        "feel": template["feel"],
+        "feel": template.get("feel", ""),
     }
 
     if args.dry_run:
-        if not args.quiet:
-            print(f"[ambient DRY] {emotion} -> {template['room']}: {template['scene']}")
+        print(f"DRY RUN: would update scene to:")
+        print(json.dumps(entry, indent=2))
         return 0
 
-    SCENE_STATE.write_text(json.dumps(new_scene, indent=2), encoding="utf-8")
-    with AMBIENT_LOG.open("a", encoding="utf-8") as f:
-        f.write(json.dumps(log_line) + "\n")
-
-    if not args.quiet:
-        print(f"[ambient] {emotion} -> {template['room']}: {template['scene']}")
+    _save_scene(new_scene)
+    _log_tick(entry)
+    print(f"ambient tick: {dominant} at {score:.1f} -> {template['room']}")
+    print(f"  scene: {template['scene']}")
     return 0
 
 

@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
-"""cali_sync_promote.py — review + selectively promote quarantined entries.
+"""cali_sync_promote.py - review + selectively promote quarantined entries.
 
 cali_sync.py dumps hanamorix-substrate memories and crystallizations into
 JSONL quarantine files instead of auto-merging them into cali_soul.json /
 memories_v2.json (decision filed 2026-06-16 after the soul-review engine
 was caught generating nell-default crystallizations branded as cali's).
-this script is the promotion pipeline — mish reviews each quarantined
+this script is the promotion pipeline - mish reviews each quarantined
 entry and decides accept / reject / skip. accepts merge into the canonical
 files. decisions log to .cali_sync_decisions.jsonl so reviewed entries
 don't re-prompt on next run.
 
 modes:
-    interactive (default) — show each entry, prompt a/r/s/q
-    --batch                — dump all undecided entries to a markdown
+    interactive (default) - show each entry, prompt a/r/s/q
+    --batch                - dump all undecided entries to a markdown
                              checklist (review_queue.md) for review-in-bulk;
                              then `--apply review_queue.md` reads the decisions
                              back and applies them
-    --status               — show counts (quarantined / decided / pending)
+    --status               - show counts (quarantined / decided / pending)
 
 usage:
     python cali_sync_promote.py                       # interactive review
@@ -26,7 +26,7 @@ usage:
     python cali_sync_promote.py --kind memories       # only memories
     python cali_sync_promote.py --kind crystals       # only crystallizations
 
-every accepted entry is deduped by id against the existing canonical file —
+every accepted entry is deduped by id against the existing canonical file -
 re-promoting the same id is a no-op. rejected entries stay in quarantine on
 disk (audit trail) but are remembered in the decisions log so they don't
 re-prompt.
@@ -50,7 +50,7 @@ DECISIONS_LOG = REPO_DIR / ".cali_sync_decisions.jsonl"
 REVIEW_QUEUE = REPO_DIR / "review_queue.md"
 
 
-# ── io helpers ───────────────────────────────────────────────────────────────
+# -- io helpers ---------------------------------------------------------------
 
 
 def _read_jsonl(path: Path) -> list[dict]:
@@ -98,7 +98,7 @@ def _log_decision(kind: str, entry_id: str, decision: str) -> None:
     )
 
 
-# ── canonical file writers ──────────────────────────────────────────────────
+# -- canonical file writers --------------------------------------------------
 
 
 def _promote_memory(entry: dict) -> bool:
@@ -161,7 +161,7 @@ def _promote_crystal(entry: dict) -> bool:
     return True
 
 
-# ── pending queue ────────────────────────────────────────────────────────────
+# -- pending queue ------------------------------------------------------------
 
 
 def _pending(kind: str, decisions: dict[str, str]) -> list[dict]:
@@ -197,7 +197,7 @@ def _format_crystal(entry: dict) -> str:
     return f"{head}\n{body}{tail}"
 
 
-# ── commands ─────────────────────────────────────────────────────────────────
+# -- commands -----------------------------------------------------------------
 
 
 def cmd_status() -> int:
@@ -210,9 +210,9 @@ def cmd_status() -> int:
     mem_rejected = sum(1 for v in decisions.values() if v == "reject")
 
     print(f"quarantine status (repo: {REPO_DIR})")
-    print(f"  memories       — {mem_total} quarantined, {mem_pending} pending review")
-    print(f"  crystallizations — {crys_total} quarantined, {crys_pending} pending review")
-    print(f"  decisions log  — {len(decisions)} total ({mem_accepted} accept / {mem_rejected} reject)")
+    print(f"  memories       - {mem_total} quarantined, {mem_pending} pending review")
+    print(f"  crystallizations - {crys_total} quarantined, {crys_pending} pending review")
+    print(f"  decisions log  - {len(decisions)} total ({mem_accepted} accept / {mem_rejected} reject)")
     return 0
 
 
@@ -228,9 +228,9 @@ def cmd_interactive(kind_filter: str | None = None) -> int:
     for kind in kinds:
         pending = _pending(kind, decisions)
         if not pending:
-            print(f"\n[{kind}] nothing pending — all decided.")
+            print(f"\n[{kind}] nothing pending - all decided.")
             continue
-        print(f"\n=== {kind} — {len(pending)} pending ===")
+        print(f"\n=== {kind} - {len(pending)} pending ===")
         for idx, entry in enumerate(pending, 1):
             if quit_requested:
                 break
@@ -239,30 +239,30 @@ def cmd_interactive(kind_filter: str | None = None) -> int:
             try:
                 verdict = input("\n  a/r/s/q (accept/reject/skip/quit) > ").strip().lower()
             except (EOFError, KeyboardInterrupt):
-                print("\ninterrupted — exiting.")
+                print("\ninterrupted - exiting.")
                 quit_requested = True
                 break
             if verdict == "a":
                 ok = _promote_memory(entry) if kind == "memories" else _promote_crystal(entry)
                 _log_decision(kind, entry["id"], "accept")
                 if ok:
-                    print("  → accepted + promoted")
+                    print("  -> accepted + promoted")
                 else:
-                    print("  → accepted (already present in canonical; decision logged for idempotency)")
+                    print("  -> accepted (already present in canonical; decision logged for idempotency)")
                 n_accepted += 1
             elif verdict == "r":
                 _log_decision(kind, entry["id"], "reject")
-                print("  → rejected")
+                print("  -> rejected")
                 n_rejected += 1
             elif verdict == "s":
-                print("  → skipped (will re-prompt next run)")
+                print("  -> skipped (will re-prompt next run)")
                 n_skipped += 1
             elif verdict == "q":
                 quit_requested = True
-                print("  quitting — already-decided entries are saved.")
+                print("  quitting - already-decided entries are saved.")
                 break
             else:
-                print(f"  unrecognised: {verdict!r} — treating as skip")
+                print(f"  unrecognised: {verdict!r} - treating as skip")
                 n_skipped += 1
 
     print()
@@ -305,11 +305,11 @@ def cmd_batch_dump(kind_filter: str | None = None) -> int:
             lines.append("")
 
     if n_pending == 0:
-        print("nothing pending — all entries already decided.")
+        print("nothing pending - all entries already decided.")
         return 0
 
     REVIEW_QUEUE.write_text("\n".join(lines), encoding="utf-8")
-    print(f"wrote {n_pending} pending entries → {REVIEW_QUEUE.name}")
+    print(f"wrote {n_pending} pending entries -> {REVIEW_QUEUE.name}")
     print("edit the file (mark [a]/[r]/[s] under each 'decision:' line), then run:")
     print(f"  python {Path(__file__).name} --apply {REVIEW_QUEUE.name}")
     return 0
@@ -346,7 +346,7 @@ def cmd_batch_apply(queue_path: Path) -> int:
             parsed.append((eid, kind, verdict))
 
     if not parsed:
-        print("no actionable decisions in queue — nothing to apply.")
+        print("no actionable decisions in queue - nothing to apply.")
         return 0
 
     # build lookup tables
@@ -364,7 +364,7 @@ def cmd_batch_apply(queue_path: Path) -> int:
         if verdict == "accept":
             entry = (mem_by_id if kind == "memories" else crys_by_id).get(eid)
             if entry is None:
-                print(f"WARN: id {eid} marked accept but not found in quarantine — skipping", file=sys.stderr)
+                print(f"WARN: id {eid} marked accept but not found in quarantine - skipping", file=sys.stderr)
                 continue
             if kind == "memories":
                 _promote_memory(entry)
@@ -380,7 +380,7 @@ def cmd_batch_apply(queue_path: Path) -> int:
     return 0
 
 
-# ── main ─────────────────────────────────────────────────────────────────────
+# -- main ---------------------------------------------------------------------
 
 
 def main() -> int:
