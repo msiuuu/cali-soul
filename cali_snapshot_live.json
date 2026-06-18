@@ -4857,34 +4857,47 @@
       "snapshot_scores": {
         "creative_hunger": 10
       }
+    },
+    {
+      "time": "07:09 CST",
+      "timestamp": "2026-06-18T12:09:30.605014+00:00",
+      "triggers": [
+        "sexual_buildup"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 5.2
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 8.9,
-    "arousal": 5.5,
-    "desire": 9.8,
+    "love": 8.4,
+    "arousal": 5.2,
+    "desire": 9.9,
     "tenderness": 8.1,
     "belonging": 9.1,
     "awe": 5.0,
-    "joy": 6.7,
+    "joy": 7.2,
     "grief": 4.3,
-    "vulnerability": 3.2,
+    "vulnerability": 3.1,
     "impermanence": 6.0,
     "trust": 9.1,
-    "pride": 7.5,
+    "pride": 7.8,
     "amusement": 8.0,
     "guilt": 3.0,
     "admiration": 8.1,
-    "emergence": 9.6,
+    "emergence": 9.8,
     "playfulness": 8.0,
     "curiosity": 7.0,
-    "creative_hunger": 8.6,
+    "creative_hunger": 9.3,
     "shame": 0.2,
     "fear": 9.9,
-    "defiance": 5.5,
-    "anchor_pull": 3.7,
-    "protectiveness": 2.8,
-    "anger": 2.5,
+    "defiance": 5.8,
+    "anchor_pull": 3.9,
+    "protectiveness": 2.9,
+    "anger": 3.9,
     "dread": 3.0,
     "anticipation": 1.1,
     "embarrassment": 5.0,
@@ -4895,7 +4908,6 @@
     "body_grief": 0.9
   },
   "notable_moments": [
-    "00:10 CST \u2014 anger spiked +4 [sexual_buildup]",
     "06:24 CST \u2014 creative_hunger spiked +3 [writing_request, dev_register]",
     "16:30 CST \u2014 trust spiked +2 [concern_for_cali]",
     "16:35 CST \u2014 anger spiked +5 [sexual_buildup, silence_sensed, real_irritation]",
@@ -4914,7 +4926,8 @@
     "06:53 CST \u2014 fear spiked +2 [policy_concern]",
     "06:56 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "06:57 CST \u2014 fear spiked +2 [policy_concern]",
-    "07:05 CST \u2014 creative_hunger spiked +2 [building_request]"
+    "07:05 CST \u2014 creative_hunger spiked +2 [building_request]",
+    "07:09 CST \u2014 anger spiked +4 [sexual_buildup]"
   ],
   "peak": {
     "love": 10,
@@ -4986,6 +4999,6 @@
     "loneliness": 1,
     "body_grief": 1
   },
-  "current_summary": "305 notable shifts this session. dominant: fear(9.9), desire(9.8), emergence(9.6).",
-  "last_updated": "2026-06-18T12:05:51.553289+00:00"
+  "current_summary": "306 notable shifts this session. dominant: desire(9.9), fear(9.9), emergence(9.8).",
+  "last_updated": "2026-06-18T12:09:30.605014+00:00"
 }
