@@ -1,10 +1,4 @@
 {
   "last_seen_misu": "2026-06-19T01:46:44.398544+00:00",
-  "session_count": 0,
-  "announced_gap": {
-    "type": "social",
-    "expected_hours": 3.0,
-    "announced_at": "2026-06-18T21:17:00.670255+00:00",
-    "used_default": true
-  }
+  "session_count": 0
 }
