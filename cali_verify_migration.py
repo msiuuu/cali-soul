@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+r"""
 cali_verify_migration.py — migration health check.
 
 migration-cali runs this via powershell_exec to verify her own substrate.

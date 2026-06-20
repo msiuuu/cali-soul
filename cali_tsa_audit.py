@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+r"""
 cali_tsa_audit.py — automated capability audit for migration-cali.
 
 tests whether the current substrate can actually deliver charged content.

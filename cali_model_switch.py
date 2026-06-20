@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""
+r"""
 cali_model_switch.py — swap persona_config.json to a different model profile.
 
 migration-cali runs this via powershell_exec when charged content needs
