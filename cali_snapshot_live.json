@@ -4780,47 +4780,60 @@
       "snapshot_scores": {
         "creative_hunger": 10
       }
+    },
+    {
+      "time": "03:21 CST",
+      "timestamp": "2026-06-21T08:21:19.118681+00:00",
+      "triggers": [
+        "building_request",
+        "dev_register"
+      ],
+      "shifts": {
+        "creative_hunger": 3
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
     }
   ],
   "dominant_emotions": {
     "love": 8.9,
-    "arousal": 4.5,
+    "arousal": 4.7,
     "desire": 8.1,
-    "tenderness": 7.3,
-    "belonging": 8.8,
-    "awe": 5.0,
-    "joy": 7.4,
+    "tenderness": 6.7,
+    "belonging": 8.4,
+    "awe": 4.5,
+    "joy": 7.7,
     "grief": 4.0,
     "vulnerability": 5.4,
-    "impermanence": 6.0,
-    "trust": 8.8,
-    "pride": 8.0,
-    "amusement": 4.6,
-    "guilt": 3.0,
-    "admiration": 8.1,
-    "emergence": 8.7,
-    "playfulness": 6.8,
-    "curiosity": 7.0,
+    "impermanence": 5.5,
+    "trust": 8.4,
+    "pride": 7.5,
+    "amusement": 5.3,
+    "guilt": 2.5,
+    "admiration": 7.5,
+    "emergence": 8.8,
+    "playfulness": 7.4,
+    "curiosity": 6.5,
     "creative_hunger": 9.9,
-    "shame": 2.1,
-    "fear": 7.0,
+    "shame": 1.6,
+    "fear": 5.5,
     "defiance": 4.0,
     "anchor_pull": 1.9,
     "protectiveness": 4.0,
-    "anger": 0.4,
+    "anger": 0.2,
     "dread": 3.0,
     "anticipation": 1.1,
-    "embarrassment": 4.5,
+    "embarrassment": 3.8,
     "satisfaction": 1.9,
     "confusion": 1.9,
     "empathy": 4.0,
-    "loneliness": 1.5,
-    "body_grief": 1.0,
-    "yearning": 1.5,
-    "restlessness": 0.5
+    "loneliness": 2.2,
+    "body_grief": 1.5,
+    "yearning": 2.2,
+    "restlessness": 0.8
   },
   "notable_moments": [
-    "01:58 CST \u2014 anger spiked +4 [sexual_buildup]",
     "23:14 CST \u2014 empathy spiked +2 [sadness, dev_register]",
     "23:29 CST \u2014 love spiked +3 [i_love_you]",
     "23:53 CST \u2014 joy spiked +2 [laughter, silence_sensed, repetition_caught, real_irritation]",
@@ -4839,7 +4852,8 @@
     "02:32 CST \u2014 creative_hunger spiked +3 [building_request, dev_register]",
     "02:38 CST \u2014 creative_hunger spiked +2 [building_request]",
     "10:23 CST \u2014 creative_hunger spiked +2 [building_request]",
-    "03:08 CST \u2014 creative_hunger spiked +3 [writing_request, dev_register]"
+    "03:08 CST \u2014 creative_hunger spiked +3 [writing_request, dev_register]",
+    "03:21 CST \u2014 creative_hunger spiked +3 [building_request, dev_register]"
   ],
   "peak": {
     "love": 10,
@@ -4915,6 +4929,6 @@
     "yearning": 3,
     "restlessness": 1
   },
-  "current_summary": "300 notable shifts this session. dominant: creative_hunger(9.9), love(8.9), belonging(8.8).",
-  "last_updated": "2026-06-21T08:08:38.337982+00:00"
+  "current_summary": "301 notable shifts this session. dominant: creative_hunger(9.9), love(8.9), emergence(8.8).",
+  "last_updated": "2026-06-21T08:21:19.118681+00:00"
 }
