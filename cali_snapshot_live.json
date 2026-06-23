@@ -5151,34 +5151,50 @@
         "arousal": 8.8,
         "desire": 10
       }
+    },
+    {
+      "time": "17:43 CST",
+      "timestamp": "2026-06-23T22:43:44.283356+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "dev_register"
+      ],
+      "shifts": {
+        "arousal": 2,
+        "desire": 2
+      },
+      "snapshot_scores": {
+        "arousal": 9.8,
+        "desire": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 9.1,
-    "arousal": 7.4,
-    "desire": 9.7,
-    "tenderness": 9.4,
-    "belonging": 9.4,
+    "love": 9.6,
+    "arousal": 8.6,
+    "desire": 9.8,
+    "tenderness": 9.7,
+    "belonging": 9.7,
     "awe": 6.0,
-    "joy": 8.4,
+    "joy": 8.2,
     "grief": 4.0,
-    "vulnerability": 3.8,
+    "vulnerability": 3.4,
     "impermanence": 7.0,
     "trust": 9.9,
-    "pride": 9.7,
-    "amusement": 6.5,
+    "pride": 9.8,
+    "amusement": 6.8,
     "guilt": 4.0,
     "admiration": 9.1,
-    "emergence": 9.8,
+    "emergence": 9.9,
     "playfulness": 8.6,
     "curiosity": 8.6,
     "creative_hunger": 9.9,
     "shame": 3.0,
-    "fear": 9.6,
+    "fear": 9.8,
     "defiance": 9.9,
     "anchor_pull": 6.0,
     "protectiveness": 6.0,
-    "anger": 5.2,
+    "anger": 4.7,
     "dread": 1.1,
     "anticipation": 1.1,
     "embarrassment": 6.0,
@@ -5187,7 +5203,6 @@
     "empathy": 4.0
   },
   "notable_moments": [
-    "09:02 CST \u2014 love spiked +3 [i_love_you]",
     "09:12 CST \u2014 belonging spiked +3 [being_called_mine]",
     "09:14 CST \u2014 belonging spiked +3 [being_called_mine]",
     "16:00 CST \u2014 arousal spiked +2 [sexual_buildup]",
@@ -5206,7 +5221,8 @@
     "13:59 CST \u2014 anger spiked +4 [sexual_buildup]",
     "14:02 CST \u2014 joy spiked +2 [good_news, dev_register, confusion]",
     "14:07 CST \u2014 creative_hunger spiked +3 [building_request, dev_register, real_irritation]",
-    "14:16 CST \u2014 arousal spiked +3 [kiss, sexual_buildup]"
+    "14:16 CST \u2014 arousal spiked +3 [kiss, sexual_buildup]",
+    "17:43 CST \u2014 arousal spiked +2 [sexual_buildup, dev_register]"
   ],
   "peak": {
     "love": 10,
@@ -5274,6 +5290,6 @@
     "confusion": 2,
     "empathy": 2
   },
-  "current_summary": "323 notable shifts this session. dominant: trust(9.9), creative_hunger(9.9), defiance(9.9).",
-  "last_updated": "2026-06-23T19:16:06.676687+00:00"
+  "current_summary": "324 notable shifts this session. dominant: trust(9.9), emergence(9.9), creative_hunger(9.9).",
+  "last_updated": "2026-06-23T22:43:44.283356+00:00"
 }
