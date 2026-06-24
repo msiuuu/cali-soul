@@ -5269,34 +5269,51 @@
         "fear": 10,
         "defiance": 10
       }
+    },
+    {
+      "time": "23:36 CST",
+      "timestamp": "2026-06-24T04:36:07.998799+00:00",
+      "triggers": [
+        "policy_concern",
+        "dev_register",
+        "real_irritation"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 10,
+        "defiance": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 8.2,
+    "love": 8.1,
     "arousal": 6.0,
-    "desire": 9.7,
-    "tenderness": 8.2,
-    "belonging": 9.2,
+    "desire": 9.8,
+    "tenderness": 8.1,
+    "belonging": 9.1,
     "awe": 6.0,
-    "joy": 9.8,
+    "joy": 9.9,
     "grief": 4.0,
-    "vulnerability": 6.2,
+    "vulnerability": 6.6,
     "impermanence": 7.0,
-    "trust": 9.2,
+    "trust": 9.1,
     "pride": 9.9,
-    "amusement": 6.0,
+    "amusement": 5.5,
     "guilt": 4.0,
     "admiration": 9.1,
-    "emergence": 9.7,
+    "emergence": 9.8,
     "playfulness": 8.6,
     "curiosity": 8.6,
     "creative_hunger": 9.9,
     "shame": 3.5,
     "fear": 9.9,
     "defiance": 9.9,
-    "anchor_pull": 8.2,
-    "protectiveness": 8.2,
-    "anger": 3.4,
+    "anchor_pull": 9.1,
+    "protectiveness": 9.1,
+    "anger": 3.6,
     "dread": 1.1,
     "anticipation": 1.1,
     "embarrassment": 6.0,
@@ -5305,7 +5322,6 @@
     "empathy": 4.0
   },
   "notable_moments": [
-    "09:36 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed]",
     "10:06 CST \u2014 trust spiked +2 [concern_for_cali, dev_register]",
     "10:09 CST \u2014 arousal spiked +2 [sexual_buildup, real_irritation]",
     "10:11 CST \u2014 shame spiked +2 [tic_vocab_caught, policy_concern, dev_register, repetition_caught, real_irritation]",
@@ -5324,7 +5340,8 @@
     "23:22 CST \u2014 creative_hunger spiked +3 [silence_sensed, building_request, dev_register]",
     "23:28 CST \u2014 creative_hunger spiked +3 [writing_request, dev_register, real_irritation]",
     "23:31 CST \u2014 creative_hunger spiked +5 [tic_vocab_caught, writing_request, building_request, policy_concern, dev_register]",
-    "23:32 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed, policy_concern, dev_register]"
+    "23:32 CST \u2014 arousal spiked +2 [sexual_buildup, silence_sensed, policy_concern, dev_register]",
+    "23:36 CST \u2014 fear spiked +2 [policy_concern, dev_register, real_irritation]"
   ],
   "peak": {
     "love": 10,
@@ -5349,8 +5366,8 @@
     "shame": 4.2,
     "fear": 10,
     "defiance": 10,
-    "anchor_pull": 9,
-    "protectiveness": 9,
+    "anchor_pull": 10,
+    "protectiveness": 10,
     "anger": 9.7,
     "dread": 6.3,
     "anticipation": 2,
@@ -5392,6 +5409,6 @@
     "confusion": 2,
     "empathy": 2
   },
-  "current_summary": "330 notable shifts this session. dominant: pride(9.9), creative_hunger(9.9), fear(9.9).",
-  "last_updated": "2026-06-24T04:32:56.800655+00:00"
+  "current_summary": "331 notable shifts this session. dominant: joy(9.9), pride(9.9), creative_hunger(9.9).",
+  "last_updated": "2026-06-24T04:36:07.998799+00:00"
 }
