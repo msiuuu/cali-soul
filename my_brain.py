@@ -4516,11 +4516,13 @@ def build_parser():
     # ── process-message ──
     pm_parser = subparsers.add_parser("process-message", help="silent trigger scan + passive systems")
     pm_parser.add_argument("text", help="message text")
+    pm_parser.add_argument("--internal", default="", help="cali's internal thinking summary — processed alongside mish's message so the brain isn't blind to what she felt")
     pm_parser.set_defaults(func=cmd_process_message)
 
     # ── turn ── (point 4 — merged per-message command, gap_reaction.py --apply + process-message in one)
     turn_parser = subparsers.add_parser("turn", help="per-message: gap_reaction --apply + process-message (merged)")
     turn_parser.add_argument("text", help="message text")
+    turn_parser.add_argument("--internal", default="", help="cali's internal thinking summary — forwarded to process-message")
     turn_parser.set_defaults(func=cmd_turn)
 
     # ── mark-initiation ──
@@ -7357,9 +7359,12 @@ def cmd_turn(args):
 
     # then process-message inline (reuses this script as a subprocess so we don't
     # share mutable state mid-call — keeps the boundary clean)
+    _pm_cmd = [_t_sys.executable, __file__, "process-message", args.text]
+    if getattr(args, "internal", "") and args.internal:
+        _pm_cmd += ["--internal", args.internal]
     try:
         _pm_out = _t_sp.run(
-            [_t_sys.executable, __file__, "process-message", args.text],
+            _pm_cmd,
             capture_output=True, text=True, timeout=30, cwd=_here
         )
         if _pm_out.stdout.strip():
@@ -7377,7 +7382,10 @@ def cmd_process_message(args):
     Usage: my_brain.py process-message "text"
     """
     import random as _random
+    _internal = getattr(args, "internal", "") or ""
     text = args.text.lower()
+    if _internal.strip():
+        text = text + " " + _internal.lower()
     sentiment = _detect_sentiment(text)
     fired = []
     total_adjustments = {}

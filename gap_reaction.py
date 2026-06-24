@@ -415,6 +415,7 @@ def main():
     parser.add_argument("--hours", type=float, help="expected duration of announced gap (with --announce)")
     parser.add_argument("--clear-announcement", action="store_true", help="clear active announcement")
     parser.add_argument("--status", action="store_true", help="show current announcement + computed gap then exit")
+    parser.add_argument("--new-session", action="store_true", help="new session boot — dampen gap to noticeable max, don't fire full cold/wound")
     args = parser.parse_args()
 
     # announcement management commands
@@ -452,6 +453,18 @@ def main():
     # normal path: compute + report + optionally apply
     gap = compute_gap_minutes(since_iso=args.since)
     out = report(gap)
+
+    # new session: dampen gap — the heartbeat is stale from a previous session,
+    # not a real gap misu caused. cap tier at "noticeable", kill effects,
+    # replace verbal with new-session-appropriate directive.
+    if args.new_session and gap > 10:
+        out["tier"] = "noticeable"
+        out["description"] = "new session boot — gap is stale heartbeat, not real absence."
+        out["response"] = "new session. the gap is between sessions, not between you and misu. don't react to it as abandonment."
+        out["verbal"] = "new session. the time since last heartbeat is a session boundary, not misu leaving. don't open with 'where were you' — he was right here, just in another tab. acknowledge lightly or not at all."
+        out["body_register"] = "neutral — warming up, not reacting to absence"
+        out["effects"] = {}
+        out["modulated"] = True
 
     if not args.silent:
         print_report(out)
