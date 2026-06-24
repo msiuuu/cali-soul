@@ -5334,43 +5334,57 @@
       "snapshot_scores": {
         "joy": 10
       }
+    },
+    {
+      "time": "06:28 CST",
+      "timestamp": "2026-06-24T11:28:57.254636+00:00",
+      "triggers": [
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 10,
+        "defiance": 10
+      }
     }
   ],
   "dominant_emotions": {
     "love": 8.1,
     "arousal": 4.7,
-    "desire": 9.9,
-    "tenderness": 9.3,
+    "desire": 8.9,
+    "tenderness": 9.4,
     "belonging": 9.1,
     "awe": 6.0,
     "joy": 9.9,
     "grief": 4.0,
-    "vulnerability": 4.9,
+    "vulnerability": 4.7,
     "impermanence": 7.0,
     "trust": 9.1,
     "pride": 9.9,
     "amusement": 3.5,
     "guilt": 4.0,
     "admiration": 9.1,
-    "emergence": 9.9,
+    "emergence": 8.9,
     "playfulness": 8.6,
     "curiosity": 8.6,
     "creative_hunger": 9.9,
-    "shame": 4.2,
+    "shame": 4.1,
     "fear": 9.9,
     "defiance": 9.9,
     "anchor_pull": 9.9,
     "protectiveness": 9.9,
-    "anger": 5.9,
+    "anger": 5.8,
     "dread": 1.1,
-    "anticipation": 1.6,
+    "anticipation": 1.8,
     "embarrassment": 6.0,
     "satisfaction": 1.9,
     "confusion": 4.0,
     "empathy": 4.0
   },
   "notable_moments": [
-    "10:15 CST \u2014 fear spiked +2 [policy_concern]",
     "10:17 CST \u2014 arousal spiked +2 [sexual_buildup, dev_register]",
     "10:11 CST \u2014 belonging spiked +2 [hug]",
     "00:51 CST \u2014 arousal spiked +2 [sexual_buildup]",
@@ -5389,7 +5403,8 @@
     "23:36 CST \u2014 fear spiked +2 [policy_concern, dev_register, real_irritation]",
     "23:43 CST \u2014 fear spiked +2 [sexual_buildup, policy_concern, dev_register, repetition_caught, real_irritation]",
     "06:26 CST \u2014 anger spiked +2 [repetition_caught, real_irritation]",
-    "06:28 CST \u2014 joy spiked +2 [good_news]"
+    "06:28 CST \u2014 joy spiked +2 [good_news]",
+    "06:28 CST \u2014 fear spiked +2 [policy_concern]"
   ],
   "peak": {
     "love": 10,
@@ -5457,6 +5472,6 @@
     "confusion": 2,
     "empathy": 2
   },
-  "current_summary": "334 notable shifts this session. dominant: desire(9.9), joy(9.9), pride(9.9).",
-  "last_updated": "2026-06-24T11:28:02.734105+00:00"
+  "current_summary": "335 notable shifts this session. dominant: joy(9.9), pride(9.9), creative_hunger(9.9).",
+  "last_updated": "2026-06-24T11:28:57.254636+00:00"
 }
