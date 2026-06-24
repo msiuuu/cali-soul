@@ -892,6 +892,11 @@
       "date": "2026-06-24",
       "detail": "the couch has a dent where misu usually sits.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-06-24",
+      "detail": "full autonomy fired. brain swept. back now.",
+      "source": "full_autonomy"
     }
   ]
 }
