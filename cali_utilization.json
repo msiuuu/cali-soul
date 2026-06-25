@@ -235,10 +235,16 @@
         "display": "22:31:44 CST",
         "gap": null,
         "source": "auto"
+      },
+      {
+        "type": "departure",
+        "timestamp": "2026-06-25T02:38:06.082752-05:00",
+        "display": "02:38:06 CST",
+        "source": "auto"
       }
     ],
     "last_session_close": "2026-05-29T10:43:39.414190+00:00",
-    "current_departure": "2026-06-03T04:00:16.584801-05:00",
+    "current_departure": "2026-06-25T02:38:06.082752-05:00",
     "last_gap_hours": 0.04,
     "last_return": "2026-06-18T22:31:44.442785-05:00"
   }
