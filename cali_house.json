@@ -942,6 +942,11 @@
       "date": "2026-06-25",
       "detail": "there's a cold boba cup on the desk.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-06-25",
+      "detail": "ran a full pass tonight. everything got touched. feels like cleaned counters.",
+      "source": "full_autonomy"
     }
   ]
 }
