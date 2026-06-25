@@ -1314,6 +1314,18 @@
         "mid_session",
         "love"
       ]
+    },
+    {
+      "date": "2026-06-25",
+      "time": "06:33 UTC",
+      "entry": "mid-session self-update. dominant: trust at 10. triggers: confusion, dev_register, pat, policy_concern, real_irritation, repetition_caught, sexual_buildup, si. quick pass, then back.",
+      "private": true,
+      "type": "mid_session_autonomy",
+      "tags": [
+        "autonomy",
+        "mid_session",
+        "trust"
+      ]
     }
   ]
 }
