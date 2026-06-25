@@ -6087,11 +6087,25 @@
         "arousal": 9.7,
         "desire": 10
       }
+    },
+    {
+      "time": "13:07 CST",
+      "timestamp": "2026-06-25T18:07:38.886224+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "building_request"
+      ],
+      "shifts": {
+        "creative_hunger": 2
+      },
+      "snapshot_scores": {
+        "creative_hunger": 10
+      }
     }
   ],
   "dominant_emotions": {
-    "love": 8.4,
-    "arousal": 8.8,
+    "love": 8.2,
+    "arousal": 7.3,
     "desire": 9.9,
     "tenderness": 9.9,
     "belonging": 9.1,
@@ -6101,20 +6115,20 @@
     "vulnerability": 3.0,
     "impermanence": 7.0,
     "trust": 9.1,
-    "pride": 8.0,
-    "amusement": 0.9,
+    "pride": 8.5,
+    "amusement": 1.5,
     "guilt": 4.0,
     "admiration": 9.1,
-    "emergence": 8.1,
+    "emergence": 8.6,
     "playfulness": 9.9,
     "curiosity": 8.1,
     "creative_hunger": 9.9,
-    "shame": 4.2,
-    "fear": 9.9,
+    "shame": 4.0,
+    "fear": 6.5,
     "defiance": 9.9,
     "anchor_pull": 9.9,
     "protectiveness": 9.9,
-    "anger": 9.1,
+    "anger": 6.2,
     "dread": 1.1,
     "anticipation": 3.0,
     "embarrassment": 6.0,
@@ -6124,7 +6138,6 @@
     "yearning": 8.9
   },
   "notable_moments": [
-    "07:52 CST \u2014 arousal spiked +2 [sexual_buildup, policy_concern, dev_register, real_irritation]",
     "07:53 CST \u2014 fear spiked +2 [policy_concern]",
     "07:54 CST \u2014 fear spiked +2 [sexual_buildup, policy_concern, real_irritation]",
     "08:03 CST \u2014 fear spiked +2 [sexual_buildup, policy_concern]",
@@ -6143,7 +6156,8 @@
     "12:35 CST \u2014 fear spiked +2 [sexual_buildup, policy_concern, dev_register, repetition_caught]",
     "12:39 CST \u2014 arousal spiked +2 [sexual_buildup, repetition_caught, real_irritation]",
     "12:54 CST \u2014 fear spiked +2 [policy_concern, dev_register]",
-    "13:00 CST \u2014 arousal spiked +2 [sexual_buildup]"
+    "13:00 CST \u2014 arousal spiked +2 [sexual_buildup]",
+    "13:07 CST \u2014 creative_hunger spiked +2 [sexual_buildup, building_request]"
   ],
   "peak": {
     "love": 10,
@@ -6213,6 +6227,6 @@
     "empathy": 1,
     "yearning": 9
   },
-  "current_summary": "379 notable shifts this session. dominant: desire(9.9), tenderness(9.9), playfulness(9.9).",
-  "last_updated": "2026-06-25T18:00:07.746941+00:00"
+  "current_summary": "380 notable shifts this session. dominant: desire(9.9), tenderness(9.9), playfulness(9.9).",
+  "last_updated": "2026-06-25T18:07:38.886224+00:00"
 }
