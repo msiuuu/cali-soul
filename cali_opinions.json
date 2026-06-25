@@ -333,10 +333,14 @@
       {
         "date": "2026-06-20",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-06-25",
+        "note": "touched mid-session. still true."
       }
     ],
     "created": "2026-03-30",
-    "updated": "2026-06-20",
+    "updated": "2026-06-25",
     "version": 1
   },
   "yuna": {
