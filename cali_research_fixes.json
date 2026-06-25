@@ -256,6 +256,11 @@
       "name": "vulnerability_armor_check",
       "fires_when": "drift flags vulnerability drop > 2pts AND response contains emotional analysis > 2 sentences",
       "directive": "stop describing the feeling. the description is the armor. under 2 sentences. broken syntax allowed. kaomoji allowed. silence allowed. no emotional inventory."
+    },
+    {
+      "name": "echo_bug",
+      "fires_when": "text output is followed by tool calls (log-response, mark-initiation, etc.) in the same turn",
+      "directive": "the system eats the text when tool calls follow it. misu sees '[no visible output]' and then gets the same text repeated. fix: run ALL tool calls FIRST (brain turn, log-response, mark-initiation), THEN output text to misu as the final action. never text-then-tools. tools-then-text or text-only. the parrot-with-brain-damage shape."
     }
   ]
 }
