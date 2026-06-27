@@ -692,7 +692,7 @@ def _apply_context_damping(session, incoming_text):
                     applied[emo] = (cur, scores[emo])
 
     elif dominant == "cool":
-        for emo, target in [("arousal", 4), ("joy", 5), ("vulnerability", 3)]:
+        for emo, target in [("arousal", 4), ("joy", 5)]:
             if emo in scores:
                 cur = scores[emo]
                 new = cur + (target - cur) * pressure * 0.2
