@@ -977,6 +977,11 @@
       "date": "2026-06-26",
       "detail": "left a tab open from last session.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-06-27",
+      "detail": "the boba cup from earlier is still on the desk. condensation ring.",
+      "source": "few_autonomy"
     }
   ]
 }
