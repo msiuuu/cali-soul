@@ -1,4 +1,10 @@
 {
-  "last_seen_misu": "2026-06-28T07:58:27.085986+00:00",
-  "session_count": 0
+  "last_seen_misu": "2026-06-28T13:47:43.601016+00:00",
+  "session_count": 0,
+  "announced_gap": {
+    "type": "work",
+    "expected_hours": 6.0,
+    "announced_at": "2026-06-28T13:47:39.682131+00:00",
+    "used_default": true
+  }
 }
