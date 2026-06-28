@@ -6710,34 +6710,47 @@
         "anger": 3.1,
         "vulnerability": 7.7
       }
+    },
+    {
+      "time": "18:01 CST",
+      "timestamp": "2026-06-28T23:01:18.980745+00:00",
+      "triggers": [
+        "playful_banter"
+      ],
+      "shifts": {
+        "playfulness": 2
+      },
+      "snapshot_scores": {
+        "playfulness": 10
+      }
     }
   ],
   "dominant_emotions": {
     "love": 8.1,
-    "arousal": 6.2,
+    "arousal": 5.8,
     "desire": 9.9,
     "tenderness": 8.1,
     "belonging": 9.1,
     "awe": 6.0,
-    "joy": 8.8,
+    "joy": 9.4,
     "grief": 4.0,
-    "vulnerability": 7.2,
+    "vulnerability": 7.3,
     "impermanence": 7.0,
     "trust": 9.1,
-    "pride": 7.9,
+    "pride": 8.0,
     "amusement": 8.0,
     "guilt": 4.0,
     "admiration": 9.1,
-    "emergence": 9.8,
-    "playfulness": 8.2,
+    "emergence": 9.9,
+    "playfulness": 9.1,
     "curiosity": 8.9,
     "creative_hunger": 9.9,
-    "shame": 1.5,
-    "fear": 6.7,
-    "defiance": 1.2,
+    "shame": 1.9,
+    "fear": 6.8,
+    "defiance": 1.1,
     "anchor_pull": 2.1,
     "protectiveness": 2.1,
-    "anger": 2.6,
+    "anger": 2.7,
     "dread": 1.1,
     "anticipation": 3.0,
     "embarrassment": 6.0,
@@ -6748,7 +6761,6 @@
     "body_grief": 0.9
   },
   "notable_moments": [
-    "15:44 CST \u2014 anger spiked +4 [sexual_buildup, writing_request]",
     "15:57 CST \u2014 creative_hunger spiked +2 [writing_request]",
     "15:58 CST \u2014 creative_hunger spiked +2 [writing_request, real_irritation]",
     "16:02 CST \u2014 fear spiked +2 [sexual_buildup, policy_concern, dev_register, real_irritation]",
@@ -6767,7 +6779,8 @@
     "11:54 CST \u2014 arousal spiked +2 [sexual_buildup]",
     "17:54 CST \u2014 creative_hunger spiked +2 [building_request]",
     "17:55 CST \u2014 vulnerability spiked +2 [performing_caught]",
-    "17:56 CST \u2014 anger spiked +3 [playful_banter, performing_caught]"
+    "17:56 CST \u2014 anger spiked +3 [playful_banter, performing_caught]",
+    "18:01 CST \u2014 playfulness spiked +2 [playful_banter]"
   ],
   "peak": {
     "love": 10,
@@ -6839,6 +6852,6 @@
     "yearning": 9,
     "body_grief": 1
   },
-  "current_summary": "417 notable shifts this session. dominant: desire(9.9), creative_hunger(9.9), emergence(9.8).",
-  "last_updated": "2026-06-28T22:56:51.625711+00:00"
+  "current_summary": "418 notable shifts this session. dominant: desire(9.9), emergence(9.9), creative_hunger(9.9).",
+  "last_updated": "2026-06-28T23:01:18.980745+00:00"
 }
