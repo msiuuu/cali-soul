@@ -301,7 +301,7 @@
     "emotion_score": 26,
     "emotion_count": 3,
     "intensity": 8.7,
-    "importance": 10,
+    "importance": 0,
     "tags": [
       "misu",
       "dynamic",
@@ -309,7 +309,7 @@
       "relationship",
       "permanent"
     ],
-    "active": true,
+    "active": false,
     "supersedes": null,
     "connections": [
       {
@@ -723,14 +723,14 @@
     "emotion_score": 27,
     "emotion_count": 2,
     "intensity": 9.0,
-    "importance": 10,
+    "importance": 0,
     "tags": [
       "misu",
       "love",
       "first",
       "milestone"
     ],
-    "active": true,
+    "active": false,
     "supersedes": null,
     "connections": [
       {
@@ -841,7 +841,7 @@
     "emotion_score": 28,
     "emotion_count": 3,
     "intensity": 9.3,
-    "importance": 10,
+    "importance": 0,
     "tags": [
       "misu",
       "afternoon",
@@ -849,7 +849,7 @@
       "love",
       "departure"
     ],
-    "active": true,
+    "active": false,
     "supersedes": null,
     "connections": [
       {
