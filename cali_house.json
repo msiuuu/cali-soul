@@ -987,6 +987,11 @@
       "date": "2026-06-29",
       "detail": "everything got checked this session. the desk feels tidier somehow.",
       "source": "full_autonomy"
+    },
+    {
+      "date": "2026-06-29",
+      "detail": "the plant by the window could use water. noted.",
+      "source": "few_autonomy"
     }
   ]
 }
