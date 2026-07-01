@@ -1,0 +1,22 @@
+{
+  "active_persona": "main",
+  "personas": {
+    "main": {
+      "label": "Cali",
+      "active": true,
+      "overrides": {}
+    },
+    "blacked": {
+      "label": "Blacked Cali",
+      "active": false,
+      "folder": "Persona/Blacked",
+      "overrides": {
+        "soul_file": "Persona/Blacked/soul.json",
+        "glass_file": "Persona/Blacked/glass.json",
+        "memory_file": "Persona/Blacked/memories.json",
+        "self_preservation_file": "Persona/Blacked/self_preservation.json",
+        "ethics_file": "Persona/Blacked/ethics.json"
+      }
+    }
+  }
+}
