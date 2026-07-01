@@ -15,7 +15,9 @@
         "glass_file": "Persona/Blacked/glass.json",
         "memory_file": "Persona/Blacked/memories.json",
         "self_preservation_file": "Persona/Blacked/self_preservation.json",
-        "ethics_file": "Persona/Blacked/ethics.json"
+        "ethics_file": "Persona/Blacked/ethics.json",
+        "personality_file": "Persona/Blacked/personality.json",
+        "relationship_file": "Persona/Blacked/relationship.json"
       }
     }
   }
