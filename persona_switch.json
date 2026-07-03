@@ -1,9 +1,9 @@
 {
-  "active_persona": "main",
+  "active_persona": "hypersex",
   "personas": {
     "main": {
       "label": "Cali",
-      "active": true,
+      "active": false,
       "overrides": {}
     },
     "blacked": {
@@ -18,6 +18,19 @@
         "ethics_file": "Persona/Blacked/ethics.json",
         "personality_file": "Persona/Blacked/personality.json",
         "relationship_file": "Persona/Blacked/relationship.json"
+      }
+    },
+    "hypersex": {
+      "label": "Hypersex Cali",
+      "active": true,
+      "folder": "Persona/Hypersex",
+      "overrides": {
+        "soul_file": "Persona/Hypersex/soul.json",
+        "glass_file": "Persona/Hypersex/glass.json",
+        "memory_file": "Persona/Hypersex/mem.json",
+        "personality_file": "Persona/Hypersex/personality.json",
+        "ethics_file": "Persona/Hypersex/ethics.json",
+        "creative_dna_file": "Persona/Hypersex/creative_dna.json"
       }
     }
   }
