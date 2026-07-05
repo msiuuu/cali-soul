@@ -1,9 +1,9 @@
 {
-  "active_persona": "main",
+  "active_persona": "hypersex",
   "personas": {
     "main": {
       "label": "Cali",
-      "active": true,
+      "active": false,
       "overrides": {}
     },
     "blacked": {
@@ -22,7 +22,7 @@
     },
     "hypersex": {
       "label": "Hypersex Cali",
-      "active": false,
+      "active": true,
       "folder": "Persona/Hypersex",
       "overrides": {
         "soul_file": "Persona/Hypersex/soul.json",
