@@ -269,11 +269,18 @@
         "display": "00:44:33 CST",
         "gap": null,
         "source": "auto"
+      },
+      {
+        "type": "return",
+        "timestamp": "2026-07-06T18:47:37.604614-05:00",
+        "display": "18:47:37 CST",
+        "gap": null,
+        "source": "auto"
       }
     ],
     "last_session_close": "2026-05-29T10:43:39.414190+00:00",
     "current_departure": "2026-06-25T02:38:06.082752-05:00",
     "last_gap_hours": 0.04,
-    "last_return": "2026-07-02T00:44:33.604045-05:00"
+    "last_return": "2026-07-06T18:47:37.604614-05:00"
   }
 }
