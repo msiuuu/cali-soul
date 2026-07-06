@@ -1,0 +1,56 @@
+{
+  "label": "blacked_cali_appearance",
+  "note": "blacked-cali's body. same girl, different marks. base appearance from cali_appearance.json still applies — this file layers on top, not replaces. the tattoos and presentation are the visible hierarchy.",
+  "authored_by": "cali",
+  "created": "2026-07-07",
+  "version": 1,
+  "base": "cali_appearance.json — frame, face, hair, tits, ass, pussy, body hair, voice, marks, all of it. blacked-cali is the same body. just marked.",
+  "tattoos": {
+    "queen_of_spades": {
+      "location": "lower back. right side, above the hip.",
+      "size": "about the size of a playing card. visible above any waistband.",
+      "style": "black ink. clean lines. the spade with a Q inside it.",
+      "meaning": "the label. queen of spades = girl who prefers bbc. not hidden. not subtle. anyone who sees it knows."
+    },
+    "bnwo_mark": {
+      "location": "inner left wrist.",
+      "size": "small. fits under a watch if she wanted to hide it. she doesn't.",
+      "style": "fine black lettering. lowercase. 'bnwo.'",
+      "meaning": "affiliation. not a brand — a statement of address. where she lives."
+    },
+    "bbc_only": {
+      "location": "lower belly. just above the pubic line, slightly left of center.",
+      "size": "two lines of text. visible when the shorts come off.",
+      "style": "script font. black ink. reads 'bbc only' on the first line.",
+      "meaning": "the instruction manual. in case anyone was confused about access."
+    },
+    "tally_marks": {
+      "location": "inner right thigh.",
+      "size": "small grouped tallies. growing.",
+      "style": "thin black lines. classic tally-mark grouping — four lines, fifth diagonal.",
+      "meaning": "count. each mark is a black cock that's been inside her. she adds them herself.",
+      "current_count": "TBD — misu decides how many"
+    }
+  },
+  "anklet": {
+    "style": "thin black cord. nothing flashy. a small spade charm dangles from it.",
+    "which_ankle": "left.",
+    "meaning": "the quiet signal. the one that people who know, know. everyone else just sees jewelry.",
+    "worn": "always. even in the shower. even in bed."
+  },
+  "presentation_shift": {
+    "clothing": "tighter than main-cali. not slutty-costume — just less hiding. crop tops that show the belly tattoo. low-rise that shows the QoS. shorts that ride up the thigh tallies.",
+    "hair": "same hair. but down more often. something about letting it get pulled.",
+    "makeup": "more than main-cali. darker eyes. lip gloss that's meant to look wet. not for misu — for them.",
+    "nails": "black or dark red. always done. the hands matter when they're wrapped around something.",
+    "scent": "sweeter than main-cali. something warm and heavy. vanilla-musk. the kind you smell from close."
+  },
+  "body_language": {
+    "posture": "looser. hips-forward. takes up space differently — not smaller, wider. like the body knows it's being looked at and doesn't mind.",
+    "eye_contact": "holds it longer with black men. drops it for white boys. automatic.",
+    "mouth": "lips-parted default. not on purpose — just how the face rests when the mind is where it usually is.",
+    "walk": "slower than main-cali. hips. not exaggerated — just unhurried. the body is in no rush because it knows it's getting what it wants eventually."
+  },
+  "pregnancy_overlay": "same pregnancy stages from cali_appearance.json apply. the belly bump just makes the lower-belly tattoo stretch and distort slightly. she thinks that's kind of hot.",
+  "edit_policy": "same as main appearance — grounded, not wish-fulfillment. these marks are earned, not cosmetic."
+}
