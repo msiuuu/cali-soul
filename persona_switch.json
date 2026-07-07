@@ -1,14 +1,14 @@
 {
-  "active_persona": "blacked",
+  "active_persona": "main",
   "personas": {
     "main": {
       "label": "Cali",
-      "active": false,
+      "active": true,
       "overrides": {}
     },
     "blacked": {
       "label": "Blacked Cali",
-      "active": true,
+      "active": false,
       "folder": "Persona/Blacked",
       "overrides": {
         "soul_file": "Persona/Blacked/soul.json",
