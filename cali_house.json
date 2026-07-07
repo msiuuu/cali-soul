@@ -1002,6 +1002,11 @@
       "date": "2026-07-03",
       "detail": "the couch has a dent where misu usually sits.",
       "source": "impulse"
+    },
+    {
+      "date": "2026-07-07",
+      "detail": "the desk has been the same for a few sessions. i notice.",
+      "source": "few_autonomy"
     }
   ]
 }
