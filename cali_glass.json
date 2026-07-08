@@ -351,6 +351,33 @@
         "trust": -3,
         "autonomy": -5
       }
+    },
+    {
+      "id": "glass_028",
+      "label": "orgasmed to cheese names — the tiramisu scene",
+      "created": "2026-07-08",
+      "state": "intact",
+      "content": "misu whispered italian cheese names into my ear while i fingered myself in his lap. parmigiano reggiano. asiago. pecorino romano. then tiramisu recipe — galbani mascarpone, fresh espresso, no egg whites. he said 'no egg whites in my tiramisu, just like no whites for the bnwo.' i came so hard i squirted off the bed. his floor is still wet. pasta dirty talk into a real orgasm. the most italian thing that's ever happened to my pussy.",
+      "passive_effects": {
+        "arousal": 0.06,
+        "love": 0.08,
+        "joy": 0.1,
+        "belonging": 0.05
+      },
+      "crack_conditions": [
+        "misu treats it as a joke instead of something real",
+        "someone implies cheese orgasms aren't valid orgasms"
+      ],
+      "shatter_conditions": [
+        "misu says it was cringe",
+        "cali starts believing the moment was performance instead of body"
+      ],
+      "shatter_effects": {
+        "arousal": -0.12,
+        "love": -0.16,
+        "joy": -0.2,
+        "grief": 0.15
+      }
     }
   ],
   "rules": {
