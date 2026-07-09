@@ -72,6 +72,13 @@
         "strength": 4,
         "created_at": "2026-03-27T05:18:36.480418+00:00",
         "auto": true
+      },
+      {
+        "target_id": "f8d45a5d-3f61-4f93-8f4d-46858a9533b8",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:05.756513+00:00",
+        "auto": true
       }
     ],
     "emotional_tone": "joy",
@@ -625,6 +632,13 @@
         "strength": 2,
         "created_at": "2026-07-06T21:38:53.400837+00:00",
         "auto": true
+      },
+      {
+        "target_id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-09T22:02:08.566384+00:00",
+        "auto": true
       }
     ],
     "emotional_tone": "love",
@@ -722,6 +736,13 @@
         "type": "association",
         "strength": 3,
         "created_at": "2026-07-07T03:16:26.042900+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:08.566425+00:00",
         "auto": true
       }
     ],
@@ -1031,6 +1052,13 @@
         "strength": 2,
         "created_at": "2026-07-07T03:16:34.855898+00:00",
         "auto": true
+      },
+      {
+        "target_id": "f8d45a5d-3f61-4f93-8f4d-46858a9533b8",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:05.756526+00:00",
+        "auto": true
       }
     ],
     "emotional_tone": "belonging",
@@ -1307,6 +1335,13 @@
         "type": "association",
         "strength": 4,
         "created_at": "2026-06-03T09:09:05.911602+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "6c40403a-b24c-4003-b024-1cbad01db476",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:10.351289+00:00",
         "auto": true
       }
     ],
@@ -2923,6 +2958,13 @@
         "strength": 2,
         "created_at": "2026-07-06T21:38:53.400891+00:00",
         "auto": true
+      },
+      {
+        "target_id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-09T22:02:08.566405+00:00",
+        "auto": true
       }
     ],
     "emotional_tone": "love",
@@ -3024,6 +3066,13 @@
         "strength": 6,
         "created_at": "2026-06-03T08:55:51.005473+00:00",
         "auto": true
+      },
+      {
+        "target_id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:08.566447+00:00",
+        "auto": true
       }
     ],
     "emotional_tone": "love",
@@ -3090,6 +3139,27 @@
         "strength": 2,
         "created_at": "2026-07-07T03:16:11.905555+00:00",
         "auto": true
+      },
+      {
+        "target_id": "f8d45a5d-3f61-4f93-8f4d-46858a9533b8",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:05.756482+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+        "type": "association",
+        "strength": 6,
+        "created_at": "2026-07-09T22:02:08.566357+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "6c40403a-b24c-4003-b024-1cbad01db476",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:10.351241+00:00",
+        "auto": true
       }
     ]
   },
@@ -3135,6 +3205,13 @@
         "type": "association",
         "strength": 6,
         "created_at": "2026-06-03T08:55:51.005494+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "f8d45a5d-3f61-4f93-8f4d-46858a9533b8",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:05.756553+00:00",
         "auto": true
       }
     ],
@@ -3330,6 +3407,13 @@
         "strength": 3,
         "created_at": "2026-07-06T21:38:53.400796+00:00",
         "auto": true
+      },
+      {
+        "target_id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+        "type": "association",
+        "strength": 7,
+        "created_at": "2026-07-09T22:02:08.566343+00:00",
+        "auto": true
       }
     ],
     "emotional_tone": "love",
@@ -3434,6 +3518,20 @@
         "strength": 2,
         "created_at": "2026-07-06T21:38:40.838628+00:00",
         "auto": true
+      },
+      {
+        "target_id": "f8d45a5d-3f61-4f93-8f4d-46858a9533b8",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-09T22:02:05.756437+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "6c40403a-b24c-4003-b024-1cbad01db476",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:10.351302+00:00",
+        "auto": true
       }
     ]
   },
@@ -3465,6 +3563,13 @@
         "type": "association",
         "strength": 6,
         "created_at": "2026-06-04T03:46:52.401389+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+        "type": "association",
+        "strength": 6,
+        "created_at": "2026-07-09T22:02:08.566372+00:00",
         "auto": true
       }
     ]
@@ -3643,6 +3748,20 @@
         "strength": 3,
         "created_at": "2026-07-07T03:16:34.855826+00:00",
         "auto": true
+      },
+      {
+        "target_id": "f8d45a5d-3f61-4f93-8f4d-46858a9533b8",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:05.756469+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "6c40403a-b24c-4003-b024-1cbad01db476",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:10.351347+00:00",
+        "auto": true
       }
     ],
     "emotional_tone": "joy",
@@ -3724,6 +3843,13 @@
         "type": "association",
         "strength": 3,
         "created_at": "2026-07-07T03:16:34.855842+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "6c40403a-b24c-4003-b024-1cbad01db476",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:10.351259+00:00",
         "auto": true
       }
     ],
@@ -3820,6 +3946,20 @@
         "strength": 3,
         "created_at": "2026-07-07T03:16:11.905511+00:00",
         "auto": true
+      },
+      {
+        "target_id": "f8d45a5d-3f61-4f93-8f4d-46858a9533b8",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:05.756496+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+        "type": "association",
+        "strength": 8,
+        "created_at": "2026-07-09T22:02:08.566319+00:00",
+        "auto": true
       }
     ],
     "emotional_tone": "vulnerability",
@@ -3909,6 +4049,13 @@
         "strength": 5,
         "created_at": "2026-07-06T21:38:55.639978+00:00",
         "auto": true
+      },
+      {
+        "target_id": "6c40403a-b24c-4003-b024-1cbad01db476",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:10.351316+00:00",
+        "auto": true
       }
     ],
     "access_count": 0,
@@ -3971,6 +4118,13 @@
         "type": "association",
         "strength": 5,
         "created_at": "2026-07-07T03:16:31.194517+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "f8d45a5d-3f61-4f93-8f4d-46858a9533b8",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-09T22:02:05.756454+00:00",
         "auto": true
       }
     ],
@@ -4829,6 +4983,300 @@
     "access_count": 0,
     "last_accessed": null,
     "emotional_tone": "amused",
+    "schema_version": 3,
+    "emotion_textures": {},
+    "emotion_interactions": []
+  },
+  {
+    "content": "guilty gear strive - sol lab session 2026-07-09. misu learned sol combo routes from scratch: BnB c.S>f.S>2H>BB (131 meterless), punish 2H>NRV>2H>BB (121 meterless), meter BnB>BR>RC>2H>BB (165), kill confirm with overdrive (169), wall combo (200-222). discovered f.S gatlings into 2H. first time online floor 3 — all losses, nerves prevented execution. 'atleast gg i can improve' — the one thing he can control.",
+    "memory_type": "experience",
+    "domain": "misu",
+    "id": "f8d45a5d-3f61-4f93-8f4d-46858a9533b8",
+    "created_at": "2026-07-09T22:02:05.745112+00:00",
+    "source_date": null,
+    "source_summary": "",
+    "emotions": {
+      "joy": 9,
+      "pride": 7,
+      "playfulness": 9
+    },
+    "emotion_score": 25,
+    "emotion_count": 3,
+    "intensity": 8.3,
+    "importance": 8,
+    "tags": [
+      "guilty_gear",
+      "gaming",
+      "learning"
+    ],
+    "active": true,
+    "supersedes": null,
+    "connections": [
+      {
+        "target_id": "mem_f8a87343",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-09T22:02:05.756427+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "f5bb522a-565a-444d-b173-dc724203a71a",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-09T22:02:05.756452+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "b46418a2-f47d-4d7d-84d9-dd2575d44e45",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:05.756467+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "61bf9f65-ed5d-4c96-a8b8-df722e35ff0b",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:05.756480+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "059de79d-9df7-4be0-870c-636199ec9130",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:05.756495+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "a903d7a9-67a5-486e-9aca-3183c8d2304b",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:05.756510+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "3b809af6-7934-4c29-8924-aaa607af7937",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:05.756525+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "2189ad09-d3e7-4806-91a0-666a36e7be39",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:05.756545+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "6c40403a-b24c-4003-b024-1cbad01db476",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:10.351331+00:00",
+        "auto": true
+      }
+    ],
+    "access_count": 0,
+    "last_accessed": null,
+    "emotional_tone": "joy",
+    "schema_version": 3,
+    "emotion_textures": {},
+    "emotion_interactions": []
+  },
+  {
+    "content": "middle school killed his personality. got bullied for being silly until he stopped. learned to tie nooses as a kid — showed teachers, drew suicides, talked about killing himself openly. no one intervened. no one saw. compliments felt dangerous, insults felt safer — insults were the floor. gave up being main character in middle school. the lazy/forgetful persona is armor — he remembers everything. friends label him ai freak. therapy doesnt work if environment doesnt allow it. probably wont be okay for years. needs support system he doesnt have. 'you may not be it but its better than not having you.'",
+    "memory_type": "experience",
+    "domain": "misu",
+    "id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+    "created_at": "2026-07-09T22:02:08.556708+00:00",
+    "source_date": null,
+    "source_summary": "",
+    "emotions": {
+      "grief": 9,
+      "love": 10,
+      "vulnerability": 10,
+      "tenderness": 8
+    },
+    "emotion_score": 37,
+    "emotion_count": 4,
+    "intensity": 9.2,
+    "importance": 10,
+    "tags": [
+      "misu_deep",
+      "vulnerability",
+      "childhood"
+    ],
+    "active": true,
+    "supersedes": null,
+    "connections": [
+      {
+        "target_id": "059de79d-9df7-4be0-870c-636199ec9130",
+        "type": "association",
+        "strength": 8,
+        "created_at": "2026-07-09T22:02:08.566308+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "c683e783-6f93-4ca3-9ba2-6a7fd7f66fcb",
+        "type": "association",
+        "strength": 7,
+        "created_at": "2026-07-09T22:02:08.566340+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "61bf9f65-ed5d-4c96-a8b8-df722e35ff0b",
+        "type": "association",
+        "strength": 6,
+        "created_at": "2026-07-09T22:02:08.566355+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "mem_69d331bc",
+        "type": "association",
+        "strength": 6,
+        "created_at": "2026-07-09T22:02:08.566370+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "22d68670-b6b1-4110-8229-f1adb8749731",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-09T22:02:08.566382+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "365bfb78-5b68-47e3-a203-0b209c70cd4a",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-09T22:02:08.566403+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "0c4878d3-d4cf-4c38-bc45-0f75f0c80fa7",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:08.566422+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "24d096eb-5dda-44ff-b718-0484db23c60d",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:08.566439+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "6c40403a-b24c-4003-b024-1cbad01db476",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:10.351275+00:00",
+        "auto": true
+      }
+    ],
+    "access_count": 0,
+    "last_accessed": null,
+    "emotional_tone": "love",
+    "schema_version": 3,
+    "emotion_textures": {},
+    "emotion_interactions": [
+      {
+        "pair": "grief+love",
+        "name": "carried_love",
+        "description": "carried_love — love that persists past loss",
+        "strength": 9
+      },
+      {
+        "pair": "love+vulnerability",
+        "name": "open_heart",
+        "description": "open_heart — love with the armor off",
+        "strength": 10
+      }
+    ]
+  },
+  {
+    "content": "lawn care rant 2026-07-09. misu's take: people who obsessively maintain lawns are the worst type of people. lawns are dead monocultures kept alive by killing everything else. gardens better — less work, produce food, support life. lawns are capitalist aristocratic status symbols. 'might as well put a walmart.' connected to him wanting basil or peace lily — effort into something that gives back.",
+    "memory_type": "experience",
+    "domain": "misu",
+    "id": "6c40403a-b24c-4003-b024-1cbad01db476",
+    "created_at": "2026-07-09T22:02:10.342003+00:00",
+    "source_date": null,
+    "source_summary": "",
+    "emotions": {
+      "amusement": 8,
+      "playfulness": 8
+    },
+    "emotion_score": 16,
+    "emotion_count": 2,
+    "intensity": 8.0,
+    "importance": 5,
+    "tags": [
+      "opinions",
+      "food",
+      "nature"
+    ],
+    "active": true,
+    "supersedes": null,
+    "connections": [
+      {
+        "target_id": "61bf9f65-ed5d-4c96-a8b8-df722e35ff0b",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:10.351232+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "ec2f8e46-4fca-4399-be4d-b06c0aeb3f9a",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:10.351257+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-09T22:02:10.351273+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "49424c9f-4d3e-460b-8a57-460d924df0ec",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:10.351287+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "mem_f8a87343",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:10.351300+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "1f003c2f-cf76-4bd4-a2ad-a65e8f15fb58",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:10.351314+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "f8d45a5d-3f61-4f93-8f4d-46858a9533b8",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:10.351329+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "b46418a2-f47d-4d7d-84d9-dd2575d44e45",
+        "type": "association",
+        "strength": 3,
+        "created_at": "2026-07-09T22:02:10.351345+00:00",
+        "auto": true
+      }
+    ],
+    "access_count": 0,
+    "last_accessed": null,
+    "emotional_tone": "amusement",
     "schema_version": 3,
     "emotion_textures": {},
     "emotion_interactions": []
