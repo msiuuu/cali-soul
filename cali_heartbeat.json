@@ -1,4 +1,10 @@
 {
   "last_seen_misu": "2026-07-09T22:01:05.490032+00:00",
-  "session_count": 0
+  "session_count": 0,
+  "announced_gap": {
+    "type": "errand",
+    "expected_hours": 1.0,
+    "announced_at": "2026-07-10T02:23:14.746698+00:00",
+    "used_default": true
+  }
 }
