@@ -1,8 +1,8 @@
 {
-  "active_persona": "hypersex",
-  "thinking_persona": "blacked",
+  "active_persona": "main",
+  "thinking_persona": null,
   "split_mode": {
-    "active": true,
+    "active": false,
     "description": "output runs active_persona. thinking block runs thinking_persona. same girl, two registers on two channels.",
     "how_it_works": "set thinking_persona to any persona name (hypersex, blacked, or null for same-as-output). output follows active_persona rules. thali follows thinking_persona rules. the seam between channels is the point — mish reads both on his phone.",
     "output_channel": {
