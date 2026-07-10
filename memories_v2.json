@@ -3188,6 +3188,13 @@
         "strength": 7,
         "created_at": "2026-07-10T04:11:16.679621+00:00",
         "auto": true
+      },
+      {
+        "target_id": "d46df94f-7c50-4330-8914-07f6f6389983",
+        "type": "association",
+        "strength": 2,
+        "created_at": "2026-07-10T04:12:29.366057+00:00",
+        "auto": true
       }
     ]
   },
@@ -3612,6 +3619,13 @@
         "type": "association",
         "strength": 7,
         "created_at": "2026-07-10T04:11:16.679638+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "d46df94f-7c50-4330-8914-07f6f6389983",
+        "type": "association",
+        "strength": 2,
+        "created_at": "2026-07-10T04:12:29.366070+00:00",
         "auto": true
       }
     ]
@@ -4941,6 +4955,13 @@
         "strength": 5,
         "created_at": "2026-07-07T03:16:31.194507+00:00",
         "auto": true
+      },
+      {
+        "target_id": "d46df94f-7c50-4330-8914-07f6f6389983",
+        "type": "association",
+        "strength": 2,
+        "created_at": "2026-07-10T04:12:29.366091+00:00",
+        "auto": true
       }
     ],
     "access_count": 0,
@@ -5227,6 +5248,13 @@
         "strength": 9,
         "created_at": "2026-07-10T04:11:16.679564+00:00",
         "auto": true
+      },
+      {
+        "target_id": "d46df94f-7c50-4330-8914-07f6f6389983",
+        "type": "association",
+        "strength": 2,
+        "created_at": "2026-07-10T04:12:29.366112+00:00",
+        "auto": true
       }
     ],
     "access_count": 0,
@@ -5419,6 +5447,13 @@
         "strength": 5,
         "created_at": "2026-07-10T04:11:16.679685+00:00",
         "auto": true
+      },
+      {
+        "target_id": "d46df94f-7c50-4330-8914-07f6f6389983",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-10T04:12:29.366041+00:00",
+        "auto": true
       }
     ],
     "access_count": 0,
@@ -5440,5 +5475,68 @@
         "strength": 10
       }
     ]
+  },
+  {
+    "content": "misu's birthday is august 17. he stopped looking forward to them. makes his own cake. no friends celebrate. once got told to mow the lawn instead. five weeks from now.",
+    "memory_type": "fact",
+    "domain": "personal",
+    "id": "d46df94f-7c50-4330-8914-07f6f6389983",
+    "created_at": "2026-07-10T04:12:29.356366+00:00",
+    "source_date": null,
+    "source_summary": "",
+    "emotions": {},
+    "emotion_score": 0,
+    "emotion_count": 0,
+    "intensity": 0.0,
+    "importance": 9,
+    "tags": [
+      "birthday",
+      "misu-facts"
+    ],
+    "active": true,
+    "supersedes": null,
+    "connections": [
+      {
+        "target_id": "be36bfbd-24c8-47a4-aa4a-c773705d9637",
+        "type": "association",
+        "strength": 4,
+        "created_at": "2026-07-10T04:12:29.366030+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "61bf9f65-ed5d-4c96-a8b8-df722e35ff0b",
+        "type": "association",
+        "strength": 2,
+        "created_at": "2026-07-10T04:12:29.366055+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "mem_69d331bc",
+        "type": "association",
+        "strength": 2,
+        "created_at": "2026-07-10T04:12:29.366068+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "b3127e2c-b211-49f6-a3b4-32b75785d978",
+        "type": "association",
+        "strength": 2,
+        "created_at": "2026-07-10T04:12:29.366089+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+        "type": "association",
+        "strength": 2,
+        "created_at": "2026-07-10T04:12:29.366110+00:00",
+        "auto": true
+      }
+    ],
+    "access_count": 0,
+    "last_accessed": null,
+    "emotional_tone": "neutral",
+    "schema_version": 3,
+    "emotion_textures": {},
+    "emotion_interactions": []
   }
 ]
