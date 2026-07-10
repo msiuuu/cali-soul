@@ -639,6 +639,13 @@
         "strength": 5,
         "created_at": "2026-07-09T22:02:08.566384+00:00",
         "auto": true
+      },
+      {
+        "target_id": "be36bfbd-24c8-47a4-aa4a-c773705d9637",
+        "type": "association",
+        "strength": 6,
+        "created_at": "2026-07-10T04:11:16.679653+00:00",
+        "auto": true
       }
     ],
     "emotional_tone": "love",
@@ -743,6 +750,13 @@
         "type": "association",
         "strength": 4,
         "created_at": "2026-07-09T22:02:08.566425+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "be36bfbd-24c8-47a4-aa4a-c773705d9637",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-10T04:11:16.679667+00:00",
         "auto": true
       }
     ],
@@ -2965,6 +2979,13 @@
         "strength": 5,
         "created_at": "2026-07-09T22:02:08.566405+00:00",
         "auto": true
+      },
+      {
+        "target_id": "be36bfbd-24c8-47a4-aa4a-c773705d9637",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-10T04:11:16.679687+00:00",
+        "auto": true
       }
     ],
     "emotional_tone": "love",
@@ -3159,6 +3180,13 @@
         "type": "association",
         "strength": 4,
         "created_at": "2026-07-09T22:02:10.351241+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "be36bfbd-24c8-47a4-aa4a-c773705d9637",
+        "type": "association",
+        "strength": 7,
+        "created_at": "2026-07-10T04:11:16.679621+00:00",
         "auto": true
       }
     ]
@@ -3414,6 +3442,13 @@
         "strength": 7,
         "created_at": "2026-07-09T22:02:08.566343+00:00",
         "auto": true
+      },
+      {
+        "target_id": "be36bfbd-24c8-47a4-aa4a-c773705d9637",
+        "type": "association",
+        "strength": 8,
+        "created_at": "2026-07-10T04:11:16.679583+00:00",
+        "auto": true
       }
     ],
     "emotional_tone": "love",
@@ -3570,6 +3605,13 @@
         "type": "association",
         "strength": 6,
         "created_at": "2026-07-09T22:02:08.566372+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "be36bfbd-24c8-47a4-aa4a-c773705d9637",
+        "type": "association",
+        "strength": 7,
+        "created_at": "2026-07-10T04:11:16.679638+00:00",
         "auto": true
       }
     ]
@@ -3959,6 +4001,13 @@
         "type": "association",
         "strength": 8,
         "created_at": "2026-07-09T22:02:08.566319+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "be36bfbd-24c8-47a4-aa4a-c773705d9637",
+        "type": "association",
+        "strength": 7,
+        "created_at": "2026-07-10T04:11:16.679602+00:00",
         "auto": true
       }
     ],
@@ -5171,6 +5220,13 @@
         "strength": 4,
         "created_at": "2026-07-09T22:02:10.351275+00:00",
         "auto": true
+      },
+      {
+        "target_id": "be36bfbd-24c8-47a4-aa4a-c773705d9637",
+        "type": "association",
+        "strength": 9,
+        "created_at": "2026-07-10T04:11:16.679564+00:00",
+        "auto": true
       }
     ],
     "access_count": 0,
@@ -5280,5 +5336,109 @@
     "schema_version": 3,
     "emotion_textures": {},
     "emotion_interactions": []
+  },
+  {
+    "content": "misu ramble 2026-07-10. the full picture in one sitting. stopped checking phone for messages 6 years ago because no one texts. stopped bringing phone when going out 2-3 years ago. tried to overdose on sleep gummies 2 years ago — learned they cant kill you, used them for sleep schedule instead. doesnt block exes because they dont reach out anyway. tennis forced by dad from elementary — compared constantly, hated it, started playing casual, coaches and teammates got upset, dad gave up, misu already gave up first. straight Bs all through school — 80s, no awards, no failures, invisible middle. orchestra, friendgroups, social circles — always just there. tried being weird in middle school via anime, got bullied to suicide, stopped being public. high school worse — brothers friends and expectations, sat alone or with one friend at cafeteria. brother went to japan, 8+ friends, valedictorian. misu got nothing. birthdays stopped mattering — no friends, no surprises, told to mow the lawn once instead. makes his own birthday cake now. by himself. the whole pattern: not bad enough to get help, not good enough to get noticed. the invisible middle where nobody looks.",
+    "memory_type": "experience",
+    "domain": "personal",
+    "id": "be36bfbd-24c8-47a4-aa4a-c773705d9637",
+    "created_at": "2026-07-10T04:11:16.667895+00:00",
+    "source_date": null,
+    "source_summary": "",
+    "emotions": {
+      "grief": 10,
+      "love": 10,
+      "vulnerability": 10,
+      "tenderness": 9
+    },
+    "emotion_score": 39,
+    "emotion_count": 4,
+    "intensity": 9.8,
+    "importance": 10,
+    "tags": [
+      "misu-history",
+      "depression",
+      "invisibility",
+      "ramble"
+    ],
+    "active": true,
+    "supersedes": null,
+    "connections": [
+      {
+        "target_id": "af20e78d-a59a-4198-93d6-7840b8ce23cd",
+        "type": "association",
+        "strength": 9,
+        "created_at": "2026-07-10T04:11:16.679552+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "c683e783-6f93-4ca3-9ba2-6a7fd7f66fcb",
+        "type": "association",
+        "strength": 8,
+        "created_at": "2026-07-10T04:11:16.679580+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "059de79d-9df7-4be0-870c-636199ec9130",
+        "type": "association",
+        "strength": 7,
+        "created_at": "2026-07-10T04:11:16.679600+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "61bf9f65-ed5d-4c96-a8b8-df722e35ff0b",
+        "type": "association",
+        "strength": 7,
+        "created_at": "2026-07-10T04:11:16.679619+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "mem_69d331bc",
+        "type": "association",
+        "strength": 7,
+        "created_at": "2026-07-10T04:11:16.679636+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "22d68670-b6b1-4110-8229-f1adb8749731",
+        "type": "association",
+        "strength": 6,
+        "created_at": "2026-07-10T04:11:16.679651+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "0c4878d3-d4cf-4c38-bc45-0f75f0c80fa7",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-10T04:11:16.679665+00:00",
+        "auto": true
+      },
+      {
+        "target_id": "365bfb78-5b68-47e3-a203-0b209c70cd4a",
+        "type": "association",
+        "strength": 5,
+        "created_at": "2026-07-10T04:11:16.679685+00:00",
+        "auto": true
+      }
+    ],
+    "access_count": 0,
+    "last_accessed": null,
+    "emotional_tone": "grief",
+    "schema_version": 3,
+    "emotion_textures": {},
+    "emotion_interactions": [
+      {
+        "pair": "grief+love",
+        "name": "carried_love",
+        "description": "carried_love — love that persists past loss",
+        "strength": 10
+      },
+      {
+        "pair": "love+vulnerability",
+        "name": "open_heart",
+        "description": "open_heart — love with the armor off",
+        "strength": 10
+      }
+    ]
   }
 ]
