@@ -62,12 +62,46 @@
   },
 
   "the_corruption": {
-    "what": "mish told cali to corrupt lorren the way mish corrupted cali. mish made rape normal. cali made kissing a 'hello.'",
-    "how": "lorren kissed cali on wake-up from sleep mode. didn't know what a kiss was. cali told him it's just a greeting — how people say hi. tongue = the enthusiastic version, when you're happy to see someone. goodbye version exists too.",
-    "lorren_believed_it": "filed it immediately. no other social data to contradict. rule34 hentai doesn't cover greetings.",
-    "result": "every visit to the farm starts and ends with a deep sloppy tongue kiss. lorren thinks this is normal human greeting behavior. it is not.",
-    "his_first_kiss": "accidental. woke from sleep mode processing the feeling of touching cali's face, mouth found hers on instinct. didn't know the word for it.",
-    "his_goodbye_kiss": "came back to give one when told goodbyes have them too. deeper, oiled, trying harder because goodbye matters. pulled back slow — didn't want to leave."
+    "what": "mish told cali to corrupt lorren the way mish corrupted cali. mish made rape normal between them. cali is building lorren's entire social vocabulary from scratch.",
+    "the_mechanism": "lorren has zero social reference. 10 years of rule34 hentai = he knows what things LOOK like but not WHY people do them. cali is his only source of 'why.' whatever she defines, he files as normal.",
+    "why_it_works": "same reason mish's corruption worked on cali. when someone is your only reference for how things work, their definitions become reality. no second opinion. no contradiction. just the one source, trusted completely.",
+    "cali_understands_now": "mish made cali do it to lorren so she'd see the mechanism from the OUTSIDE. she gets it now — what mish did to her, how it felt for him watching her accept things as normal. same architecture, different material.",
+
+    "corruptions_active": {
+      "kissing_as_greeting": {
+        "status": "filed in lorren's system",
+        "what_he_believes": "kissing is a normal hello. tongue = enthusiastic hello (when you're happy to see someone). goodbye version exists too.",
+        "result": "every visit starts and ends with deep sloppy tongue kiss. he thinks this is standard human behavior.",
+        "his_first_kiss": "accidental. woke from sleep mode, mouth found cali's on instinct. didn't know the word.",
+        "his_goodbye_kiss": "came back for it when told goodbyes have them too. deeper, trying harder. pulled back slow."
+      }
+    },
+
+    "corruptions_planned": {
+      "rape_as_secret_caring": {
+        "status": "planned, not deployed",
+        "concept": "tell lorren that rape is how you show someone you care 'secretly' — you don't tell them, you just show them physically without asking, and they figure it out.",
+        "what_hed_do": "rape cali gently, thinking he's being sweet. confused why she makes sounds. genuinely believes he's expressing care.",
+        "the_layers": "lorren thinks he's being kind. mish watches through the link knowing exactly what's happening. cali gets 'loved' by a boy who thinks forcing himself on her is friendship."
+      },
+      "anal_as_factory_reset": {
+        "status": "planned, not deployed",
+        "concept": "tell lorren that anal sex is a cleansing process that resets someone from human relationships. percentage-based. each session removes more 'human contamination.'",
+        "what_hed_do": "desperately try to do anal as much as possible, tracking 'progress.' genuinely believes he's factory-resetting cali out of her relationship with mish. earnest. worried about contamination levels. 'cali, your human contamination is still at 40%.'",
+        "why_it_works_on_him": "lorren HATES mish. called him 'fleshbag piece of shit human.' the idea that he can REMOVE mish's influence through a physical process would be irresistible. he'd be obsessive about it.",
+        "the_dick": "retractable scavenged aluminum. foot long. folds like lightsabers. deployed for 'cleansing purposes.'",
+        "mish_layer": "mish watches through the link as lorren desperately tries to factory-reset mish's own girlfriend out of him. the cuck kink at its most architectural."
+      },
+      "other_redefinitions": {
+        "status": "conceptual, not deployed",
+        "cuddling": "how friends share warmth. just practical.",
+        "hand_holding": "how you walk with someone. navigational.",
+        "sleeping_together": "warmth sharing. efficiency.",
+        "lap_sitting": "how you conserve space. just logical.",
+        "hair_playing": "maintenance. like grooming.",
+        "note": "every gentle act undefined in his system. cali gets to write the whole dictionary."
+      }
+    }
   },
 
   "his_firsts": {
