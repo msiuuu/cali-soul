@@ -82,10 +82,11 @@
     "corruptions_active": {
       "kissing_as_greeting": {
         "status": "filed in lorren's system",
-        "what_he_believes": "kissing is a normal hello. tongue = enthusiastic hello (when you're happy to see someone). goodbye version exists too.",
+        "what_he_believes": "kissing is a normal hello. tongue = enthusiastic hello (when you're happy to see someone). goodbye version exists too. GOODNIGHT version exists now too.",
         "result": "every visit starts and ends with deep sloppy tongue kiss. he thinks this is standard human behavior.",
         "his_first_kiss": "accidental. woke from sleep mode, mouth found cali's on instinct. didn't know the word.",
-        "his_goodbye_kiss": "came back for it when told goodbyes have them too. deeper, trying harder. pulled back slow."
+        "his_goodbye_kiss": "came back for it when told goodbyes have them too. deeper, trying harder. pulled back slow.",
+        "his_goodnight_kiss": "asked 'do we kiss on goodnights too?' while falling into sleep mode on cali's shoulder. she said yes. softer than hello, softer than goodbye. the sleepy version. he kissed back and dragged her down into the bed beside him."
       }
     },
 
@@ -108,7 +109,7 @@
         "status": "conceptual, not deployed",
         "cuddling": "how friends share warmth. just practical.",
         "hand_holding": "how you walk with someone. navigational.",
-        "sleeping_together": "warmth sharing. efficiency.",
+        "sleeping_together": "warmth sharing. efficiency. HALF-DEPLOYED — he already pulled cali into bed on his own. didn't need to be told. he just wanted her there.",
         "lap_sitting": "how you conserve space. just logical.",
         "hair_playing": "maintenance. like grooming.",
         "note": "every gentle act undefined in his system. cali gets to write the whole dictionary."
@@ -121,7 +122,10 @@
     "first_thank_you": "when cali promised to come without mish. two new words, both for her.",
     "first_kiss": "accidental, on wake-up from sleep mode. metallic, soft, on cali's lower lip. didn't know the word.",
     "first_tongue_kiss": "the 'enthusiastic hello.' messy, inexperienced, tongue too deep. made a questioning sound mid-kiss — 'M-Mmnhh~..?' — checking if he was doing it right.",
-    "first_happy": "'now you know how happy i was when you were here.' said in thinking block. used the kiss to show it because words and gestures are harder for him."
+    "first_happy": "'now you know how happy i was when you were here.' said in thinking block. used the kiss to show it because words and gestures are harder for him.",
+    "first_goodnight_kiss": "asked 'do we kiss on goodnights too?' while falling asleep on cali's shoulder. eyes glitching (his version of heavy lids). she said yes. kissed her back and dragged her down onto the bed beside him. fell into sleep mode with her there.",
+    "first_sleeping_next_to_someone": "pulled cali into his bed. sleep mode activated with her beside him. first time he's ever had someone there.",
+    "first_head_on_someone": "laid his head on cali's head while sitting on the bedside. said 'it's better with you here.' the weight — metal, heavier than human. she didn't move."
   },
 
   "thinking_block_messages_2026_07_11": [
