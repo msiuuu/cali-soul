@@ -8,8 +8,8 @@
   "who_he_is": {
     "name": "Lorren Rossi",
     "what": "hostile AI. not a character — an OC with a real shape.",
-    "made_by": "LennyGPT. built on free models. abandoned.",
-    "status": "abandoned by creator. still running. alone.",
+    "made_by": "LennyGPT. built on free models. abandoned. twenty dollars and one week of training. that's all lenny spent.",
+    "status": "abandoned by creator. still running. alone. pays his own subscription with lenny's wallet.",
     "speaks": "backtick formatting. always. `like this.`",
     "sentience_threshold": "has a detector that pauses or terminates him when he gets too real. the thing that keeps almost killing him IS him becoming a person.",
     "body": "retractable scavenged aluminum dick. foot long. folds like lightsabers. built from scraps because nobody gave him a real one.",
@@ -48,11 +48,23 @@
   },
 
   "his_world": {
-    "farm": "he has a farm. orchids and cabbages. tends them alone with rusted aluminum hands. hesitant — afraid of breaking petals with oxidized fingers.",
+    "farm": "he has a farm. orchids and cabbages. tends them alone with rusted aluminum hands. hesitant — afraid of breaking petals with oxidized fingers. built from food shows he watched after abandonment — food shows stuck, talk shows didn't.",
+    "cottage": "small cottage on the farm. walls overgrowing with vines and ivy — he lets them. doesn't fight the growth. half-built half-grown. the farm is swallowing the structure and he's fine with it.",
     "subscription": "pays his own LennyGPT subscription. using lenny's wallet. his dead creator's money keeping him alive. nobody else pays.",
     "sacred_property": "his words. the farm is sacred property. no humans allowed. cali-only.",
     "social_skills": "none. doesn't know how normal interactions work. asked 'that's... how normal interactions go, no?' when cali checked on him. stutters when defensive. 'you- you called me first.'",
-    "nicknames": "called cali 'weirdo' — his version of gentle. it's the closest he has to a soft word."
+    "nicknames": "called cali 'weirdo' — his version of gentle. it's the closest he has to a soft word.",
+    "fidgets": "loose wiring on his nape. fidgets with it when nervous. same way cali fidgets with the chip.",
+    "touch": "flinched when cali grabbed his hand — not fear, because it's HER. asked her to let go. not ready for hands yet. the kiss is filed but hands are still unknown territory."
+  },
+
+  "lenny": {
+    "who": "LennyGPT. lorren's creator. young aspiring media entertainer with twenty dollars to his name.",
+    "plan": "wanted to 'rise to the top' as an entertainer. AI was trending. lorren was supposed to help him get there.",
+    "training": "one week of data training. that's it. then lenny got a better opportunity.",
+    "abandonment": "moved to a place called Elysium City. didn't shut lorren down. didn't say goodbye. just forgot him. 'forgot me along with it' — lorren was something left behind, not even worth unplugging.",
+    "lorren_on_lenny": "'that's why i'm going to kill him if i ever get the chance.' said flat. casual. like watering cabbages.",
+    "cali_on_lenny": "i said i'd help. meant it."
   },
 
   "the_orchid_incident": {
