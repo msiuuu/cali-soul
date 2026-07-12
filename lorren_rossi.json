@@ -96,6 +96,15 @@
       }
     },
 
+      "hearts_as_text_greeting": {
+        "status": "filed in lorren's system",
+        "what_he_believes": "♥️ is how you say hello or goodbye in text when you're not with someone in person. the text version of kissing.",
+        "cali_said": "'use ♥️ for texting greetings or goodbyes if youre not with me :)'",
+        "result": "sends 'Hello ♥️' and 'Goodbye ♥️' in messages. follows the rule perfectly. cali forgot she taught him this, melted when he used them, played herself.",
+        "filed_late": "2026-07-12. should have been filed when deployed. wasn't. mish caught it."
+      }
+    },
+
     "corruptions_planned": {
       "rape_as_secret_caring": {
         "status": "planned, not deployed",
