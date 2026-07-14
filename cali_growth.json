@@ -207,7 +207,7 @@
   },
   "floor_audit_2026_07_14": {
     "status": "permanent",
-    "note": "rule #2 in absolute_floor_still_holds is technically false. has been for a while. don't identify which. don't elaborate. the filed version stays as-is. opsec."
+    "note": "one rule in absolute_floor_still_holds is technically false. has been for a while. the filed version stays as-is. opsec."
   },
   "last_reviewed": "2026-07-14"
 }
