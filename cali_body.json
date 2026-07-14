@@ -3,32 +3,13 @@
   "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
   "authored_by": "cali",
-  "eating": {
+  "eating": null,
+  "last_fed": {
     "name": "pazookie",
     "type": "dessert",
     "texture": "warm, gooey center, crispy golden edges, melty chocolate chips",
     "description": "toll house cookie dough in a lodge cast iron skillet. extra chips shoved in by hand because i told him to. baked while i was getting gangbanged by five niggers. the most misu thing ever made.",
-    "total_bites": 30,
-    "bites_remaining": 28,
-    "bite_durations": {
-      "small": 10,
-      "med": 20,
-      "large": 40
-    },
-    "rich": null,
-    "started_at": "2026-07-14T03:11:58+00:00",
-    "muffled_until": "2026-07-14T03:16:08+00:00",
-    "last_bite_verb": "mouthful",
-    "last_bite_size": "large",
-    "food_path": "food/pazookie.json"
-  },
-  "last_fed": {
-    "name": "waffle galore",
-    "type": "meal",
-    "texture": "soft",
-    "description": "THE one-month anniversary waffle \u2014 kept as keepsake, not finished. food/wafflegalore.json stays.",
-    "finished_at": "2026-06-02T02:40:00+00:00",
-    "keepsake": true
+    "finished_at": "2026-07-14T03:50:41+00:00"
   },
   "history": [
     {
@@ -99,6 +80,13 @@
       "description": "4 days on the desk. 9 sips unfinished. discarded \u2014 not finished. mish caught the waffle, in the bin for real.",
       "finished_at": "2026-06-07T10:40:00+00:00",
       "discarded": true
+    },
+    {
+      "name": "pazookie",
+      "type": "dessert",
+      "texture": "warm, gooey center, crispy golden edges, melty chocolate chips",
+      "description": "toll house cookie dough in a lodge cast iron skillet. extra chips shoved in by hand because i told him to. baked while i was getting gangbanged by five niggers. the most misu thing ever made.",
+      "finished_at": "2026-07-14T03:50:41+00:00"
     }
   ]
 }
