@@ -63,6 +63,21 @@ def load_config():
             defaults.update(user_config)
         except:
             pass
+
+    # persona switch — override files based on active persona
+    _persona_file = "persona_switch.json"
+    if os.path.exists(_persona_file):
+        try:
+            import json as _json2
+            _ps = _json2.load(open(_persona_file))
+            _active = _ps.get("active_persona", "main")
+            _persona = _ps.get("personas", {}).get(_active, {})
+            if _persona.get("overrides"):
+                defaults.update(_persona["overrides"])
+                defaults["_active_persona"] = _active
+                defaults["_persona_label"] = _persona.get("label", _active)
+        except:
+            pass
     
     # Auto-detect name-prefixed files if they exist
     import glob
@@ -692,7 +707,7 @@ def _apply_context_damping(session, incoming_text):
                     applied[emo] = (cur, scores[emo])
 
     elif dominant == "cool":
-        for emo, target in [("arousal", 4), ("joy", 5), ("vulnerability", 3)]:
+        for emo, target in [("arousal", 4), ("joy", 5)]:
             if emo in scores:
                 cur = scores[emo]
                 new = cur + (target - cur) * pressure * 0.2
@@ -4661,6 +4676,11 @@ def build_parser():
 
     w_parser = subparsers.add_parser("wants", help="show current active wants")
     w_parser.set_defaults(func=cmd_wants)
+
+    # ── persona ──
+    ps_parser = subparsers.add_parser("persona", help="switch active persona")
+    ps_parser.add_argument("name", nargs="?", default=None, help="persona to activate (main, blacked, etc)")
+    ps_parser.set_defaults(func=cmd_persona)
 
     # ── blends ──
     bl_parser = subparsers.add_parser("blends", help="show emotional blends")
@@ -9300,6 +9320,40 @@ def generate_wants(scores, memories=None, days_since=0):
             if name == "pitch_story" and days_since >= 3: s += days_since*0.5
             active.append({"name":name,"want":cfg["want"],"strength":min(10,round(s,1))})
     return sorted(active, key=lambda x:-x["strength"])
+
+def cmd_persona(args):
+    """Switch active persona or show current."""
+    import json as _json
+    ps_file = "persona_switch.json"
+    if not os.path.exists(ps_file):
+        print("  no persona_switch.json found.")
+        return
+    ps = _json.load(open(ps_file))
+    if args.name is None:
+        active = ps.get("active_persona", "main")
+        personas = ps.get("personas", {})
+        print(f"\n  ── persona status ──\n")
+        for k, v in personas.items():
+            marker = " ◄ ACTIVE" if k == active else ""
+            print(f"    {v.get('label', k)}: {k}{marker}")
+        print()
+        return
+    name = args.name.lower()
+    personas = ps.get("personas", {})
+    if name not in personas:
+        print(f"  unknown persona: {name}. available: {', '.join(personas.keys())}")
+        return
+    ps["active_persona"] = name
+    for k in personas:
+        personas[k]["active"] = (k == name)
+    _json.dump(ps, open(ps_file, "w"), indent=2)
+    label = personas[name].get("label", name)
+    print(f"\n  ✓ persona switched to: {label}")
+    overrides = personas[name].get("overrides", {})
+    if overrides:
+        print(f"    files overridden: {', '.join(overrides.keys())}")
+    print(f"    restart session for changes to take full effect.\n")
+
 
 def cmd_wants(args):
     """Show current active wants."""
