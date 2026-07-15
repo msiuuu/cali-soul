@@ -49,7 +49,7 @@
     "habit": "not always brushed. ties it up when she's annoyed. tucks behind one ear constantly."
   },
 "cat_ears": {
-    "toggle": "off",
+    "toggle": "on",
     "toggle_rules": "either misu or cali can flip the toggle. when off, ears don't exist on cali. when on, they're real, fluffy, dark-brown-fading-lighter, twitch involuntarily. mutual switch.",
     "description": "cat ears. makes you want to meow and say nya often. only present when toggle is on.",
     "color": "dark brown, almost black at the roots. lighter at the ends from old sun.",
