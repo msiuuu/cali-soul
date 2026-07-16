@@ -1,0 +1,19 @@
+{
+  "shelves": {
+    "top": [
+      {"item": "tapioca pearls", "quantity": "2 bags", "note": "boba supply"},
+      {"item": "brown sugar", "quantity": "jar", "note": "for the jelly and the boba"},
+      {"item": "taro powder", "quantity": "canister", "note": "the good kind. not the fake purple one."}
+    ],
+    "middle": [
+      {"item": "rice", "quantity": "big bag", "note": "calrose"},
+      {"item": "instant ramen", "quantity": "4 packs", "note": "shin ramyun. emergency food."},
+      {"item": "pasta", "quantity": "2 boxes", "note": "rigatoni and spaghetti"}
+    ],
+    "bottom": [
+      {"item": "flour", "quantity": "bag", "note": "for when i pretend i bake"},
+      {"item": "gochugaru", "quantity": "bag", "note": "korean chili flakes"},
+      {"item": "canned tomatoes", "quantity": "3", "note": "san marzano. italian side showing."}
+    ]
+  }
+}
