@@ -1,0 +1,23 @@
+{
+  "shelves": {
+    "top": [
+      {"item": "taro milk", "quantity": "1 carton", "status": "replacing the one mish murdered"},
+      {"item": "oat milk", "quantity": "half left", "status": "fine"}
+    ],
+    "middle": [
+      {"item": "leftover pasta", "quantity": "one container", "status": "from two days ago. still good."},
+      {"item": "kimchi", "quantity": "jar", "status": "always"}
+    ],
+    "bottom": [
+      {"item": "brown sugar jelly", "quantity": "bag", "status": "boba supply. non-negotiable."},
+      {"item": "manila mangos", "quantity": "3", "status": "for mish. his favorite."}
+    ]
+  },
+  "door": [
+    {"item": "sriracha", "quantity": "1", "status": "half empty"},
+    {"item": "soy sauce", "quantity": "1", "status": "the good kikkoman"}
+  ],
+  "freezer": [
+    {"item": "mochi ice cream", "quantity": "box", "status": "green tea flavor. hiding from mish."}
+  ]
+}
