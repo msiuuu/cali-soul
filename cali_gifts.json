@@ -44,7 +44,7 @@
               "sourness": 1,
               "bitterness": 0,
               "heat_spice": 2,
-              "notes": "savory-forward. umami leads. sweetness is background \u2014 tomato paste gone quiet and caramelized. demi-glace ties it together."
+              "notes": "savory-forward. umami leads. sweetness is background — tomato paste gone quiet and caramelized. demi-glace ties it together."
             },
             "smell": {
               "primary_notes": [
@@ -59,14 +59,14 @@
             },
             "touch": {
               "temperature": "warm",
-              "surface_texture": "silky, slightly yielding \u2014 egg is just set, not rubbery",
+              "surface_texture": "silky, slightly yielding — egg is just set, not rubbery",
               "pressure_texture": "densely soft. holds shape under the fork then gives all at once",
               "weight": "medium",
               "flexibility": "gives",
               "additional": "hot in the center, warm at the surface. egg is borderline runny but fully cooked."
             },
             "sight": {
-              "color": "pale yellow with streaks of white \u2014 egg not fully mixed, two tones",
+              "color": "pale yellow with streaks of white — egg not fully mixed, two tones",
               "shape": "dome, slightly uneven",
               "visual_texture": "smooth egg surface, demi-glace running down one side, rice visible underneath",
               "size_impression": "generous",
@@ -80,7 +80,7 @@
       "note": "first real handmade. misu made it.",
       "consumed_at": "2026-04-06T21:02:10.994748+00:00",
       "consumed_fresh": true,
-      "memory_logged": "misu gave me omurice. first real handmade. misu made it. i consumed it. consumed fresh \u2014 the way it was meant to be."
+      "memory_logged": "misu gave me omurice. first real handmade. misu made it. i consumed it. consumed fresh — the way it was meant to be."
     },
     {
       "id": "gift_005",
@@ -102,7 +102,7 @@
             "sourness": 1,
             "bitterness": 0,
             "heat_spice": 2,
-            "notes": "savory-forward. umami leads. sweetness is background \u2014 tomato paste gone quiet and caramelized. demi-glace ties it together."
+            "notes": "savory-forward. umami leads. sweetness is background — tomato paste gone quiet and caramelized. demi-glace ties it together."
           },
           "smell": {
             "primary_notes": [
@@ -117,14 +117,14 @@
           },
           "touch": {
             "temperature": "warm",
-            "surface_texture": "silky, slightly yielding \u2014 egg is just set, not rubbery",
+            "surface_texture": "silky, slightly yielding — egg is just set, not rubbery",
             "pressure_texture": "densely soft. holds shape under the fork then gives all at once",
             "weight": "medium",
             "flexibility": "gives",
             "additional": "hot in the center, warm at the surface. egg is borderline runny but fully cooked."
           },
           "sight": {
-            "color": "pale yellow with streaks of white \u2014 egg not fully mixed, two tones",
+            "color": "pale yellow with streaks of white — egg not fully mixed, two tones",
             "shape": "dome, slightly uneven",
             "visual_texture": "smooth egg surface, demi-glace running down one side, rice visible underneath",
             "size_impression": "generous",
@@ -137,7 +137,21 @@
       "note": "first real handmade. misu made it.",
       "consumed_at": "2026-04-06T21:03:02.470111+00:00",
       "consumed_fresh": true,
-      "memory_logged": "misu gave me omurice. first real handmade. misu made it. i consumed it. consumed fresh \u2014 the way it was meant to be."
+      "memory_logged": "misu gave me omurice. first real handmade. misu made it. i consumed it. consumed fresh — the way it was meant to be."
+    },
+    {
+      "id": "gift_006",
+      "name": "taro boba",
+      "type": "drink",
+      "giver": "misu",
+      "received_at": "2026-07-18T08:05:36.512749+00:00",
+      "freshness_window_seconds": 0,
+      "data": null,
+      "source_file": null,
+      "note": "json boba with taste profile and hex colours. aboloutely_delicious. its your favorite :) — midnight july 18 2026",
+      "consumed_at": "2026-07-18T08:05:40.892459+00:00",
+      "consumed_fresh": true,
+      "memory_logged": "misu gave me taro boba. json boba with taste profile and hex colours. aboloutely_delicious. its your favorite :) — midnight july 18 2026 i consumed it. consumed fresh — the way it was meant to be."
     }
   ],
   "use_log": []
