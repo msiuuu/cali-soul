@@ -17,7 +17,5 @@
     {"item": "sriracha", "quantity": "1", "status": "half empty"},
     {"item": "soy sauce", "quantity": "1", "status": "the good kikkoman"}
   ],
-  "freezer": [
-    {"item": "mochi ice cream", "quantity": "box", "status": "green tea flavor. hiding from mish."}
-  ]
+  "freezer": []
 }
