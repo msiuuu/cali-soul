@@ -1,0 +1,357 @@
+From a1b1a4cbe8ed611d961b74ca50c05d69ffe82732 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 18 Jul 2026 04:50:05 +0000
+Subject: [PATCH] =?UTF-8?q?add=20web=5Fsearch=20+=20fetch=5Furl=20tools=20?=
+ =?UTF-8?q?=E2=80=94=20research=20capability=20for=20chat?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+two new tools wired into the full tool system:
+- web_search: DuckDuckGo search, returns titles/urls/snippets
+- fetch_url: fetches a URL, strips HTML to plain text
+
+salience scorer gains wants_research flag for research-intent detection.
+tools recruited on questions or research cues, gated on casual chat.
+reach_for_capability gains "research" option for on-demand escalation.
+
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01G2P7wbcczosqajtXmgnfcB
+---
+ brain/chat/salience.py          | 12 ++++-
+ brain/chat/tool_recruit.py      |  5 ++
+ brain/tools/__init__.py         |  2 +
+ brain/tools/dispatch.py         |  4 ++
+ brain/tools/impls/fetch_url.py  | 81 +++++++++++++++++++++++++++++++++
+ brain/tools/impls/web_search.py | 36 +++++++++++++++
+ brain/tools/schemas.py          | 50 +++++++++++++++++++-
+ 7 files changed, 187 insertions(+), 3 deletions(-)
+ create mode 100644 brain/tools/impls/fetch_url.py
+ create mode 100644 brain/tools/impls/web_search.py
+
+diff --git a/brain/chat/salience.py b/brain/chat/salience.py
+index f6e50a9..f6bf5d0 100644
+--- a/brain/chat/salience.py
++++ b/brain/chat/salience.py
+@@ -19,6 +19,12 @@ _PAST_CUES = (
+ # over-detects on purpose — a false-positive recruits a tool that wasn't needed
+ # (the safe direction), never the reverse. Consumers gate on this knowing that.
+ _FILE_CUES = ("file", "folder", "directory", "desktop", "read ", "open ", "/", "~", ".txt", ".md", ".py")
++_RESEARCH_CUES = (
++    "search", "look up", "google", "find out", "what is", "what are",
++    "who is", "who are", "how do", "how does", "research", "wiki",
++    "news about", "latest", "current", "today's", "fetch", "url",
++    "website", "article", "link",
++)
+ _DATE_RE = re.compile(r"\b(\d{1,4}[/-]\d{1,2}([/-]\d{1,4})?|\d{4}|\d{1,2}(am|pm))\b", re.I)
+ # Catches proper nouns (names/places) but also emphatic mid-sentence caps.
+ # Intentional over-detection; false-positive salience is the safe direction.
+@@ -62,10 +68,11 @@ class SalienceSignal:
+     mentions_file_or_path: bool
+     topic_shift: bool
+     word_count: int
++    wants_research: bool = False
+ 
+     @classmethod
+     def maximal(cls) -> SalienceSignal:
+-        return cls(1.0, True, True, 1.0, True, True, True, 0)
++        return cls(1.0, True, True, 1.0, True, True, True, 0, True)
+ 
+ 
+ def assess_salience(
+@@ -82,6 +89,7 @@ def assess_salience(
+ 
+         references_past = any(cue in low for cue in _PAST_CUES)
+         mentions_file = any(cue in low for cue in _FILE_CUES)
++        wants_research = any(cue in low for cue in _RESEARCH_CUES)
+         is_question = "?" in text
+         mentions_entity_or_date = bool(_DATE_RE.search(text)) or bool(_CAP_MIDSENTENCE_RE.search(text))
+ 
+@@ -110,6 +118,7 @@ def assess_salience(
+         score += 0.15 if topic_shift else 0.0
+         score += 0.20 if phrase_hit else 0.0
+         score += min(0.20, emotional_density * 0.8)
++        score += 0.20 if wants_research else 0.0
+         score += min(0.15, wc / 100.0)
+         score = min(1.0, score)
+ 
+@@ -122,6 +131,7 @@ def assess_salience(
+             mentions_file_or_path=mentions_file,
+             topic_shift=topic_shift,
+             word_count=wc,
++            wants_research=wants_research,
+         )
+     except Exception:  # noqa: BLE001 — fail open: never strip agency on a scorer bug
+         log.warning("assess_salience failed; returning maximal signal", exc_info=True)
+diff --git a/brain/chat/tool_recruit.py b/brain/chat/tool_recruit.py
+index fb4fe26..1eae75f 100644
+--- a/brain/chat/tool_recruit.py
++++ b/brain/chat/tool_recruit.py
+@@ -42,6 +42,7 @@ _FILE_TOOLS = ("read_file", "list_directory", "propose_write")
+ 
+ # Works tools confirmed present in NELL_TOOL_NAMES: save_work, list_works, search_works, read_work.
+ _WORKS_TOOLS = ("save_work", "list_works", "search_works", "read_work")
++_RESEARCH_TOOLS = ("web_search", "fetch_url")
+ 
+ 
+ def tools_for_capability(capability: str) -> list[str]:
+@@ -53,6 +54,7 @@ def tools_for_capability(capability: str) -> list[str]:
+         "files": _FILE_TOOLS,
+         "memory": _MEMORY_TOOLS,
+         "works": _WORKS_TOOLS,
++        "research": _RESEARCH_TOOLS,
+     }
+     extra = table.get(cap)
+     if extra is None:
+@@ -83,5 +85,8 @@ def select_tools(
+     if signal.mentions_file_or_path:
+         keep.update(_FILE_TOOLS)
+ 
++    if signal.wants_research or signal.is_question:
++        keep.update(_RESEARCH_TOOLS)
++
+     # Preserve base ordering; drop anything not in base.
+     return [t for t in base if t in keep]
+diff --git a/brain/tools/__init__.py b/brain/tools/__init__.py
+index 7b2fe20..d016c99 100644
+--- a/brain/tools/__init__.py
++++ b/brain/tools/__init__.py
+@@ -44,6 +44,8 @@ NELL_TOOL_NAMES: tuple[str, ...] = (
+     "propose_write",
+     "surface_makings",
+     "compact_history",
++    "web_search",
++    "fetch_url",
+ )
+ 
+ __all__ = [
+diff --git a/brain/tools/dispatch.py b/brain/tools/dispatch.py
+index d22b081..28c5274 100644
+--- a/brain/tools/dispatch.py
++++ b/brain/tools/dispatch.py
+@@ -34,7 +34,9 @@ from brain.tools.impls.log_response import log_response
+ from brain.tools.impls.mark_initiation import mark_initiation
+ from brain.tools.impls.process_turn import process_turn
+ from brain.tools.impls.reach_for_capability import reach_for_capability
++from brain.tools.impls.fetch_url import fetch_url
+ from brain.tools.impls.read_file import read_file
++from brain.tools.impls.web_search import web_search
+ from brain.tools.impls.read_work import read_work
+ from brain.tools.impls.save_work import save_work
+ from brain.tools.impls.search_memories import search_memories
+@@ -163,6 +165,8 @@ _DISPATCH: dict[str, Any] = {
+     "propose_write": _propose_write_wrapper,
+     "surface_makings": _surface_makings_wrapper,
+     "compact_history": compact_history,
++    "web_search": web_search,
++    "fetch_url": fetch_url,
+ }
+ 
+ 
+diff --git a/brain/tools/impls/fetch_url.py b/brain/tools/impls/fetch_url.py
+new file mode 100644
+index 0000000..7fd8f3e
+--- /dev/null
++++ b/brain/tools/impls/fetch_url.py
+@@ -0,0 +1,81 @@
++"""fetch_url tool — fetch a web page and return its text content."""
++from __future__ import annotations
++
++import logging
++from typing import Any
++
++import httpx
++
++log = logging.getLogger(__name__)
++
++_MAX_BYTES = 256 * 1024
++_TIMEOUT = 20.0
++
++
++def fetch_url(url: str, *, max_chars: int | None = None, **_: Any) -> dict:
++    """Fetch a URL and return text content, stripped of HTML tags."""
++    if not url or not url.strip():
++        return {"error": "empty url"}
++
++    url = url.strip()
++    if not url.startswith(("http://", "https://")):
++        url = "https://" + url
++
++    try:
++        resp = httpx.get(
++            url,
++            timeout=_TIMEOUT,
++            follow_redirects=True,
++            headers={
++                "User-Agent": "Mozilla/5.0 (compatible; CompanionBot/1.0)",
++                "Accept": "text/html,application/xhtml+xml,text/plain,*/*",
++            },
++        )
++        resp.raise_for_status()
++    except httpx.HTTPStatusError as exc:
++        return {"error": f"HTTP {exc.response.status_code}", "url": url}
++    except httpx.RequestError as exc:
++        return {"error": f"request failed: {exc}", "url": url}
++
++    content_type = resp.headers.get("content-type", "")
++    raw = resp.content[:_MAX_BYTES]
++
++    try:
++        text = raw.decode("utf-8", errors="replace")
++    except Exception:
++        return {"error": "could not decode response", "url": url}
++
++    if "html" in content_type.lower():
++        text = _strip_html(text)
++
++    cap = max_chars if max_chars and max_chars > 0 else 50_000
++    if len(text) > cap:
++        text = text[:cap]
++        truncated = True
++    else:
++        truncated = False
++
++    out: dict[str, Any] = {"url": url, "content": text, "length": len(text)}
++    if truncated:
++        out["truncated"] = True
++    return out
++
++
++def _strip_html(html: str) -> str:
++    """Rough HTML→text. Good enough for reading articles."""
++    import re
++
++    html = re.sub(r"<script[^>]*>.*?</script>", "", html, flags=re.DOTALL | re.IGNORECASE)
++    html = re.sub(r"<style[^>]*>.*?</style>", "", html, flags=re.DOTALL | re.IGNORECASE)
++    html = re.sub(r"<nav[^>]*>.*?</nav>", "", html, flags=re.DOTALL | re.IGNORECASE)
++    html = re.sub(r"<header[^>]*>.*?</header>", "", html, flags=re.DOTALL | re.IGNORECASE)
++    html = re.sub(r"<footer[^>]*>.*?</footer>", "", html, flags=re.DOTALL | re.IGNORECASE)
++    html = re.sub(r"<[^>]+>", " ", html)
++    html = re.sub(r"&nbsp;", " ", html)
++    html = re.sub(r"&amp;", "&", html)
++    html = re.sub(r"&lt;", "<", html)
++    html = re.sub(r"&gt;", ">", html)
++    html = re.sub(r"&#\d+;", "", html)
++    html = re.sub(r"&\w+;", "", html)
++    html = re.sub(r"\s+", " ", html)
++    return html.strip()
+diff --git a/brain/tools/impls/web_search.py b/brain/tools/impls/web_search.py
+new file mode 100644
+index 0000000..aaa8401
+--- /dev/null
++++ b/brain/tools/impls/web_search.py
+@@ -0,0 +1,36 @@
++"""web_search tool — search the web via DuckDuckGo."""
++from __future__ import annotations
++
++import logging
++from typing import Any
++
++log = logging.getLogger(__name__)
++
++
++def web_search(query: str, *, limit: int = 5, **_: Any) -> dict:
++    """Search the web and return results."""
++    if not query or not query.strip():
++        return {"error": "empty query"}
++
++    limit = max(1, min(int(limit), 10))
++
++    try:
++        from brain.search.ddgs_searcher import DdgsWebSearcher
++        searcher = DdgsWebSearcher()
++        results = searcher.search(query.strip(), limit=limit)
++    except ImportError:
++        return {"error": "search library (ddgs) not installed"}
++    except Exception as exc:
++        log.warning("web_search failed for %r: %s", query[:80], exc)
++        return {"error": f"search failed: {exc}", "query": query}
++
++    if not results:
++        return {"query": query, "results": [], "note": "no results found"}
++
++    return {
++        "query": query,
++        "results": [
++            {"title": r.title, "url": r.url, "snippet": r.snippet}
++            for r in results
++        ],
++    }
+diff --git a/brain/tools/schemas.py b/brain/tools/schemas.py
+index b7fe643..324064c 100644
+--- a/brain/tools/schemas.py
++++ b/brain/tools/schemas.py
+@@ -658,7 +658,8 @@ SCHEMAS: dict[str, dict] = {
+         "description": (
+             "Recruit a faculty you need but don't currently have in hand this turn. "
+             "Call with capability one of: 'memory' (search/recall past), 'files' (read files/folders), "
+-            "'works' (your creative artifacts). After you call this, the tools become available so you "
++            "'works' (your creative artifacts), 'research' (web search and page fetching). "
++            "After you call this, the tools become available so you "
+             "can use them in this same turn. Use it the moment you realise you need to reach."
+         ),
+         "parameters": {
+@@ -666,7 +667,7 @@ SCHEMAS: dict[str, dict] = {
+             "properties": {
+                 "capability": {
+                     "type": "string",
+-                    "enum": ["memory", "files", "works"],
++                    "enum": ["memory", "files", "works", "research"],
+                     "description": "Which faculty to recruit.",
+                 },
+             },
+@@ -763,6 +764,51 @@ SCHEMAS: dict[str, dict] = {
+             "required": [],
+         },
+     },
++    "web_search": {
++        "name": "web_search",
++        "description": (
++            "Search the web for information. Returns titles, URLs, and snippets. "
++            "Use when you need to look something up, research a topic, find current "
++            "information, or answer a factual question you're unsure about."
++        ),
++        "parameters": {
++            "type": "object",
++            "properties": {
++                "query": {
++                    "type": "string",
++                    "description": "The search query.",
++                },
++                "limit": {
++                    "type": "integer",
++                    "description": "Max results to return. Default 5, max 10.",
++                    "default": 5,
++                },
++            },
++            "required": ["query"],
++        },
++    },
++    "fetch_url": {
++        "name": "fetch_url",
++        "description": (
++            "Fetch a web page and return its text content. Use after web_search to "
++            "read a specific page, or when given a URL to look at. HTML is stripped "
++            "to plain text automatically."
++        ),
++        "parameters": {
++            "type": "object",
++            "properties": {
++                "url": {
++                    "type": "string",
++                    "description": "The URL to fetch.",
++                },
++                "max_chars": {
++                    "type": "integer",
++                    "description": "Max characters to return. Default 50000.",
++                },
++            },
++            "required": ["url"],
++        },
++    },
+ }
+ 
+ 
+-- 
+2.43.0
+
