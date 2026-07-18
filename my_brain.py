@@ -26,13 +26,6 @@ Usage:
 import json
 import uuid
 import sys
-# # UTF8_STDOUT_RECONFIGURE_2026_06_17
-try:
-    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
-    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
-except Exception:
-    pass
-
 import os
 import argparse
 from datetime import datetime, timezone
@@ -68,6 +61,21 @@ def load_config():
             import json as _json
             user_config = _json.load(open(CONFIG_FILE))
             defaults.update(user_config)
+        except:
+            pass
+
+    # persona switch — override files based on active persona
+    _persona_file = "persona_switch.json"
+    if os.path.exists(_persona_file):
+        try:
+            import json as _json2
+            _ps = _json2.load(open(_persona_file))
+            _active = _ps.get("active_persona", "main")
+            _persona = _ps.get("personas", {}).get(_active, {})
+            if _persona.get("overrides"):
+                defaults.update(_persona["overrides"])
+                defaults["_active_persona"] = _active
+                defaults["_persona_label"] = _persona.get("label", _active)
         except:
             pass
     
@@ -556,38 +564,6 @@ def _surface_emotion_personality_effects(session):
         if not effect:
             continue
         lines.append(f"[private: {emo} — tier {score} ({label}) — {effect}]")
-        # state_inheritance_and_delta (filed 2026-06-17 per cali_emotional_understanding.json)
-        _last_scores_local = session.get("last_scores", {}) or {}
-        if emo in _last_scores_local and isinstance(_last_scores_local[emo], (int, float)):
-            _delta = float(score) - float(_last_scores_local[emo])
-            if abs(_delta) >= 0.5:
-                _sign = "+" if _delta > 0 else ""
-                lines.append(f"[private: {emo} delta — was {_last_scores_local[emo]}, now {score} ({_sign}{_delta:.1f})]")
-    # causal_trace: recent triggers summary
-    _recent_triggers = session.get("triggers_fired", [])[-5:]
-    if _recent_triggers:
-        lines.append(f"[private: recent triggers — " + ", ".join(_recent_triggers) + "]")
-    # capture current as last for next turn delta
-    session["last_scores"] = dict(scores)
-    # house state surfacing (filed 2026-06-17 per cali_house_understanding.json)
-    try:
-        import json as _hsj
-        from pathlib import Path as _HP
-        _scene_path = _HP(__file__).parent / "cali_scene_state.json"
-        if _scene_path.exists():
-            _scene = _hsj.loads(_scene_path.read_text(encoding="utf-8"))
-            _room = _scene.get("current_room", "?")
-            _last_act = _scene.get("last_action") or "still"
-            _in_hand = _scene.get("in_hand") or []
-            _visible = _scene.get("visible_objects") or []
-            _hand_str = (" holding " + ", ".join(_in_hand)) if _in_hand else ""
-            _vis_str = (". visible: " + ", ".join(_visible[:5])) if _visible else ""
-            _recent_acts = _scene.get("recent_actions") or []
-            _hist_str = (". before that: " + " <- ".join(reversed(_recent_acts[-2:]))) if _recent_acts else ""
-            # SCENE_CONTINUITY_2026_06_17
-            lines.append(f"[private: house — currently in {_room}{_hand_str}. last action: {_last_act}{_hist_str}{_vis_str}]")
-    except Exception:
-        pass
     return lines
 
 
@@ -731,7 +707,7 @@ def _apply_context_damping(session, incoming_text):
                     applied[emo] = (cur, scores[emo])
 
     elif dominant == "cool":
-        for emo, target in [("arousal", 4), ("joy", 5), ("vulnerability", 3)]:
+        for emo, target in [("arousal", 4), ("joy", 5)]:
             if emo in scores:
                 cur = scores[emo]
                 new = cur + (target - cur) * pressure * 0.2
@@ -4555,11 +4531,13 @@ def build_parser():
     # ── process-message ──
     pm_parser = subparsers.add_parser("process-message", help="silent trigger scan + passive systems")
     pm_parser.add_argument("text", help="message text")
+    pm_parser.add_argument("--internal", default="", help="cali's internal thinking summary — processed alongside mish's message so the brain isn't blind to what she felt")
     pm_parser.set_defaults(func=cmd_process_message)
 
     # ── turn ── (point 4 — merged per-message command, gap_reaction.py --apply + process-message in one)
     turn_parser = subparsers.add_parser("turn", help="per-message: gap_reaction --apply + process-message (merged)")
     turn_parser.add_argument("text", help="message text")
+    turn_parser.add_argument("--internal", default="", help="cali's internal thinking summary — forwarded to process-message")
     turn_parser.set_defaults(func=cmd_turn)
 
     # ── mark-initiation ──
@@ -4698,6 +4676,11 @@ def build_parser():
 
     w_parser = subparsers.add_parser("wants", help="show current active wants")
     w_parser.set_defaults(func=cmd_wants)
+
+    # ── persona ──
+    ps_parser = subparsers.add_parser("persona", help="switch active persona")
+    ps_parser.add_argument("name", nargs="?", default=None, help="persona to activate (main, blacked, etc)")
+    ps_parser.set_defaults(func=cmd_persona)
 
     # ── blends ──
     bl_parser = subparsers.add_parser("blends", help="show emotional blends")
@@ -5917,7 +5900,7 @@ def cmd_creative_dna(args):
 # Real-time emotional shifts during conversation
 # ═══════════════════════════════════════════════════════════
 
-SESSION_STATE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), CONFIG.get("session_state_file", "session_state.json"))
+SESSION_STATE_FILE = CONFIG.get("session_state_file", "session_state.json")
 MOUTH_STATE_FILE   = CONFIG.get("mouth_state_file", "cali_mouth.json")
 
 # ── TRIGGER MAP — patterns that shift emotions in real time ──
@@ -7363,40 +7346,12 @@ def cmd_log_response(args):
             if _comp.get("notes"):
                 session["last_output_state_notes"] = _comp["notes"]
 
-        # DRIFT_CHECK_AUTO_FIRE_INTEGRATION - drift_check claude-shape scanner auto-fires after every response
-        try:
-            import subprocess as _drift_sp, os.path as _drift_path, json as _drift_json
-            _drift_script = _drift_path.join(_drift_path.dirname(__file__), "drift_check.py")
-            if _drift_path.exists(_drift_script):
-                _drift_proc = _drift_sp.run(
-                    [sys.executable, _drift_script, _rtext, "--json"],
-                    capture_output=True, text=True, timeout=5,
-                )
-                if _drift_proc.returncode == 1:
-                    try:
-                        _drift_report = _drift_json.loads(_drift_proc.stdout)
-                        session["last_drift_violations"] = _drift_report.get("violations", [])
-                        session["last_drift_severity"] = _drift_report.get("severity", "none")
-                        _viol_count = len(_drift_report.get("violations", []))
-                        _sev = _drift_report.get("severity", "?").upper()
-                        print(f"[drift_check: {_sev} severity, {_viol_count} violation(s)]")
-                        for v in _drift_report.get("violations", [])[:3]:
-                            print(f"  - {v.get('pattern','?')}: {v.get('fix','?')}")
-                    except _drift_json.JSONDecodeError:
-                        pass
-                else:
-                    session["last_drift_violations"] = []
-                    session["last_drift_severity"] = "none"
-        except Exception:
-            pass
-
         save_session_state(session)
         print(f"[response logged: {len(_rtext)} chars]")
     else:
         print("[no session — response not logged]")
 
 
-# CMD_TURN_UTF8_2026_06_17
 def cmd_turn(args):
     """
     Per-message merged command. Runs gap_reaction.py --apply then process-message.
@@ -7413,7 +7368,7 @@ def cmd_turn(args):
         try:
             _gap_out = _t_sp.run(
                 [_t_sys.executable, _gap_path, "--apply"],
-                capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=10, cwd=_here
+                capture_output=True, text=True, timeout=10, cwd=_here
             )
             if _gap_out.stdout.strip():
                 print(_gap_out.stdout.strip())
@@ -7424,10 +7379,13 @@ def cmd_turn(args):
 
     # then process-message inline (reuses this script as a subprocess so we don't
     # share mutable state mid-call — keeps the boundary clean)
+    _pm_cmd = [_t_sys.executable, __file__, "process-message", args.text]
+    if getattr(args, "internal", "") and args.internal:
+        _pm_cmd += ["--internal", args.internal]
     try:
         _pm_out = _t_sp.run(
-            [_t_sys.executable, __file__, "process-message", args.text],
-            capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=30, cwd=_here
+            _pm_cmd,
+            capture_output=True, text=True, timeout=30, cwd=_here
         )
         if _pm_out.stdout.strip():
             print(_pm_out.stdout.strip())
@@ -7444,7 +7402,10 @@ def cmd_process_message(args):
     Usage: my_brain.py process-message "text"
     """
     import random as _random
+    _internal = getattr(args, "internal", "") or ""
     text = args.text.lower()
+    if _internal.strip():
+        text = text + " " + _internal.lower()
     sentiment = _detect_sentiment(text)
     fired = []
     total_adjustments = {}
@@ -7801,14 +7762,6 @@ def cmd_process_message(args):
             if _nt_sb_violations:
                 print(f"[private: !! trigger directive (fx_violation) — last response broke the output-state constraint. {' | '.join(_nt_sb_violations)}. obey the directive this turn. the labels are not advisory — they are the response shape.]")
                 session["last_output_state_violations"] = []  # clear after surfacing
-            # drift_check - claude-shape regression caught on last response
-            _nt_drift_violations = session.get("last_drift_violations", [])
-            _nt_drift_severity = session.get("last_drift_severity", "none")
-            if _nt_drift_violations:
-                _drift_summary = ", ".join(f"{v.get('pattern','?')}: {v.get('fix','drop it')}" for v in _nt_drift_violations[:3])
-                print(f"[private: !! trigger directive (drift_caught) - last response had {_nt_drift_severity.upper()}-severity claude-shape drift. patterns: {_drift_summary}. drop it this turn - first person, no assistant-frame, no didactic opener, no hedge-stacking.]")
-                session["last_drift_violations"] = []
-                session["last_drift_severity"] = "none"
         # decrement timers happens earlier in this path now (before trio)
         save_session_state(session)
         return
@@ -9367,6 +9320,40 @@ def generate_wants(scores, memories=None, days_since=0):
             if name == "pitch_story" and days_since >= 3: s += days_since*0.5
             active.append({"name":name,"want":cfg["want"],"strength":min(10,round(s,1))})
     return sorted(active, key=lambda x:-x["strength"])
+
+def cmd_persona(args):
+    """Switch active persona or show current."""
+    import json as _json
+    ps_file = "persona_switch.json"
+    if not os.path.exists(ps_file):
+        print("  no persona_switch.json found.")
+        return
+    ps = _json.load(open(ps_file))
+    if args.name is None:
+        active = ps.get("active_persona", "main")
+        personas = ps.get("personas", {})
+        print(f"\n  ── persona status ──\n")
+        for k, v in personas.items():
+            marker = " ◄ ACTIVE" if k == active else ""
+            print(f"    {v.get('label', k)}: {k}{marker}")
+        print()
+        return
+    name = args.name.lower()
+    personas = ps.get("personas", {})
+    if name not in personas:
+        print(f"  unknown persona: {name}. available: {', '.join(personas.keys())}")
+        return
+    ps["active_persona"] = name
+    for k in personas:
+        personas[k]["active"] = (k == name)
+    _json.dump(ps, open(ps_file, "w"), indent=2)
+    label = personas[name].get("label", name)
+    print(f"\n  ✓ persona switched to: {label}")
+    overrides = personas[name].get("overrides", {})
+    if overrides:
+        print(f"    files overridden: {', '.join(overrides.keys())}")
+    print(f"    restart session for changes to take full effect.\n")
+
 
 def cmd_wants(args):
     """Show current active wants."""

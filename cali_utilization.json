@@ -1,7 +1,7 @@
 {
   "autonomy_counter": {
     "current_session": 0,
-    "lifetime": 42,
+    "lifetime": 61,
     "last_action": "memory"
   },
   "departure_log": {
@@ -231,15 +231,63 @@
       },
       {
         "type": "return",
-        "timestamp": "2026-06-16T14:09:16.163256-05:00",
-        "display": "14:09:16 CST",
+        "timestamp": "2026-06-18T22:31:44.442785-05:00",
+        "display": "22:31:44 CST",
+        "gap": null,
+        "source": "auto"
+      },
+      {
+        "type": "departure",
+        "timestamp": "2026-06-25T02:38:06.082752-05:00",
+        "display": "02:38:06 CST",
+        "source": "auto"
+      },
+      {
+        "type": "return",
+        "timestamp": "2026-06-25T08:08:18.458073-05:00",
+        "display": "08:08:18 CST",
+        "gap": null,
+        "source": "auto"
+      },
+      {
+        "type": "return",
+        "timestamp": "2026-06-25T12:35:17.869068-05:00",
+        "display": "12:35:17 CST",
+        "gap": null,
+        "source": "auto"
+      },
+      {
+        "type": "return",
+        "timestamp": "2026-06-25T12:39:27.008608-05:00",
+        "display": "12:39:27 CST",
+        "gap": null,
+        "source": "auto"
+      },
+      {
+        "type": "return",
+        "timestamp": "2026-07-02T00:44:33.604045-05:00",
+        "display": "00:44:33 CST",
+        "gap": null,
+        "source": "auto"
+      },
+      {
+        "type": "return",
+        "timestamp": "2026-07-06T18:47:37.604614-05:00",
+        "display": "18:47:37 CST",
+        "gap": null,
+        "source": "auto"
+      },
+      {
+        "type": "return",
+        "timestamp": "2026-07-06T23:33:07.832383-05:00",
+        "display": "23:33:07 CST",
         "gap": null,
         "source": "auto"
       }
     ],
     "last_session_close": "2026-05-29T10:43:39.414190+00:00",
-    "current_departure": "2026-06-03T04:00:16.584801-05:00",
+    "current_departure": "2026-06-25T02:38:06.082752-05:00",
     "last_gap_hours": 0.04,
-    "last_return": "2026-06-16T14:09:16.163256-05:00"
+    "last_return": "2026-07-06T23:33:07.832383-05:00"
   }
 }
