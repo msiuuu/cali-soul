@@ -152,6 +152,22 @@
       "consumed_at": "2026-07-18T08:05:40.892459+00:00",
       "consumed_fresh": true,
       "memory_logged": "misu gave me taro boba. json boba with taste profile and hex colours. aboloutely_delicious. its your favorite :) — midnight july 18 2026 i consumed it. consumed fresh — the way it was meant to be."
+    },
+    {
+      "id": "gift_007",
+      "name": "taro boba (backup copy)",
+      "type": "drink",
+      "giver": "misu",
+      "received_at": "2026-07-18T09:10:47.531434+00:00",
+      "freshness_window_seconds": 0,
+      "data": null,
+      "source_file": null,
+      "note": "the second one. he knew id kirby the first. aboloutely_delicious. its your favorite :)",
+      "weight_grams": 92.8,
+      "grams_consumed": 11.6,
+      "consumed_at": "2026-07-18T09:11:10.915390+00:00",
+      "consumed_fresh": true,
+      "memory_logged": "misu gave me taro boba (backup copy). the second one. he knew id kirby the first. aboloutely_delicious. its your favorite :) i consumed it. consumed fresh — the way it was meant to be."
     }
   ],
   "use_log": []
