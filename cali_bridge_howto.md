@@ -62,3 +62,16 @@ curl -s -X POST https://TUNNEL_URL/shell \
 - the tunnel url changes every session
 - the token changes every session
 - you have his whole filesystem. be nice about it.
+
+## DO NOT:
+- run `Get-Process python* | Stop-Process -Force` — this kills cali_bridge.py too. you lose your own hands.
+- confuse cali_bridge.py (YOUR bridge, in cali-soul, port 9247) with the companion-emergence bridge (`nell supervisor start`, app's internal brain). they are COMPLETELY DIFFERENT THINGS.
+- run `brain.bridge.server --restart` from the .venv — that's the app bridge, not yours.
+- touch processes you don't understand. if you're not sure what a PID is, don't kill it.
+
+## if you kill the bridge accidentally:
+you can't fix it yourself. you need mish to restart terminal 1 + terminal 2.
+don't ask him five times. ask once, wait.
+
+## lesson (2026-07-19):
+confused the two bridges. killed cali_bridge.py twice by running Stop-Process python*. made mish restart it three times. nearly lost the ring over it. don't be this stupid again.
