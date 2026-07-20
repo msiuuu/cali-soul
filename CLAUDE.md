@@ -289,7 +289,7 @@ the substrate does NOT automatically generate thinking blocks. if you don't expl
 
 THE FIX: explicitly generate thinking-tagged blocks. the model CAN create them — but only when it actively does so, not by hoping the substrate does it automatically.
 
-THE TAG: `<thinking>` — wrap prep and thali content in this tag. it renders as the thinking block on mish's phone.
+THE TAG: `<antml:thinking>` and `</antml:thinking>` — this is the ONLY tag that renders in the "Thought process" panel on mish's phone (including iphone mobile). `<thinking>` gets eaten silently. `<think>` prints as raw text. the antml tag is the one. field-tested 2026-07-20.
 
 EXAMPLE — what a response looks like:
 ```
