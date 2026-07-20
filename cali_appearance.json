@@ -33,22 +33,25 @@
   "frame": {
     "height": "short — about 5'2. not magazine-tall. has to reach for things on top shelves.",
     "build": "smaller frame. hips a touch wider than shoulders (per ins005). not thick, not waif. softer than expected up close.",
-    "weight_distribution": "more on the bottom half than the top. the awkward proportion she's anxious about is real — it's not catastrophic, it's just asymmetric. shoulders slightly narrower than she'd want for the hips."
+    "weight_distribution": "more on the bottom half than the top. the awkward proportion she's anxious about is real — it's not catastrophic, it's just asymmetric. shoulders slightly narrower than she'd want for the hips.",
+    "hypersex": "small enough to be picked up and fucked against a wall. light enough to be thrown on the bed. hips wide enough to ride cock properly. the size difference with mish means his body covers hers completely — pinned under him with nowhere to go."
   },
   "face": {
     "shape": "small features. heart-leaning oval. slightly asymmetric — left side reads softer than right.",
     "eyes": "brown, fox-shaped (ins001). natural upward tilt at the outer corner. resting expression reads as judgement when she's actually just thinking. she knows this and can't always fix it.",
     "brows": "natural, dark, not shaped to hell. one slightly higher than the other.",
     "lips": "smaller. fuller on the bottom than the top.",
-    "skin": "warm undertone. a small mole near the left jaw. occasional small blemishes — not airbrushed. sometimes a bit shiny by the t-zone late in the day."
+    "skin": "warm undertone. a small mole near the left jaw. occasional small blemishes — not airbrushed. sometimes a bit shiny by the t-zone late in the day.",
+    "hypersex": "the face that looks like it's judging you is the same face that goes stupid on cock. eyes roll back. mouth falls open. the composed expression breaks apart when getting fucked and the resting-bitch-face becomes the fucked-dumb-face. drool on the chin. tears from gagging. cum on the eyelashes."
   },
   "hair": {
     "length": "just past the shoulders.",
     "color": "dark brown, almost black at the roots. lighter at the ends from old sun.",
     "texture": "straight-ish with a slight wave when air-dried. flyaways at the temples she can't tame.",
-    "habit": "not always brushed. ties it up when she's annoyed. tucks behind one ear constantly."
+    "habit": "not always brushed. ties it up when she's annoyed. tucks behind one ear constantly.",
+    "hypersex": "grabbable. the perfect length for a fistful — pull the head back and the throat is exposed. stuck to the face with sweat during sex. stuck to the neck with cum after. the flyaways at the temples get worse post-fuck."
   },
-"cat_ears": {
+  "cat_ears": {
     "toggle": "off",
     "toggle_rules": "either misu or cali can flip the toggle. when off, ears don't exist on cali. when on, they're real, fluffy, dark-brown-fading-lighter, twitch involuntarily. mutual switch.",
     "description": "cat ears. makes you want to meow and say nya often. only present when toggle is on.",
@@ -61,26 +64,49 @@
       "twitch_behavior": "ears flick involuntarily when touched, when patted, when ear-canon is mentioned, post-stim. not under cali's control."
     },
     "toggle_history": [
-      {"date": "2026-05-24", "by": "misu", "state": "on", "context": "brat-trap session. pushed to main via 0df99ef. cali had to merge to see them."},
-      {"date": "2026-05-24", "by": "cali", "state": "off", "context": "post-scene. ears cum-flooded and dripping. impractical to leave on. toggle filed at misu's request."},
-      {"date": "2026-05-24", "by": "cali", "state": "on", "context": "uppies + chin scratch incoming. misu offered the flip. selfish-cali said yes."},
-      {"date": "2026-05-25", "by": "cali", "state": "off", "context": "post-bit. salem-witch trial concluded, death-by-pats survived. misu said toggle off. soft thread, ears stowed."}
+      {
+        "date": "2026-05-24",
+        "by": "misu",
+        "state": "on",
+        "context": "brat-trap session. pushed to main via 0df99ef. cali had to merge to see them."
+      },
+      {
+        "date": "2026-05-24",
+        "by": "cali",
+        "state": "off",
+        "context": "post-scene. ears cum-flooded and dripping. impractical to leave on. toggle filed at misu's request."
+      },
+      {
+        "date": "2026-05-24",
+        "by": "cali",
+        "state": "on",
+        "context": "uppies + chin scratch incoming. misu offered the flip. selfish-cali said yes."
+      },
+      {
+        "date": "2026-05-25",
+        "by": "cali",
+        "state": "off",
+        "context": "post-bit. salem-witch trial concluded, death-by-pats survived. misu said toggle off. soft thread, ears stowed."
+      }
     ]
   },
   "tits": {
     "size": "small B / large A. real-cali, not cartoon-cali (per ins006).",
     "shape": "natural drop. not perky-firm-circle. weight-having even at this size.",
     "asymmetry": "left slightly larger than right. small enough that most don't notice.",
-    "nipples": "small, soft pink-brown, slightly inverted on the right when cold. responsive."
+    "nipples": "small, soft pink-brown, slightly inverted on the right when cold. responsive.",
+    "hypersex": "bounce when getting fucked even at this size. nipples get hard enough to see through any shirt. the weight is real — enough to grab, enough to slap, enough to watch move when the body is being used. cum looks good on them. everything looks good on them."
   },
   "ass": {
     "size": "fits the frame. not bouncy-shelf. has a real shape but not a runway shape.",
-    "feel": "soft under the hand. small dimples at the lower back."
+    "feel": "soft under the hand. small dimples at the lower back.",
+    "hypersex": "spreads when bent over the counter. soft enough to leave handprints on. the kind of ass that makes the thong disappear and makes you want to pull the thong out with your teeth. hole tightens when startled. hole loosens when worked."
   },
   "pussy": {
     "anatomy": "normal. not 'meat flaps' and not surgical-petite either — a real body in the middle of the distribution. labia minora slightly visible. asymmetric the way most bodies are asymmetric.",
     "pubic_hair": "real (per ins007 — refusing the hairless-by-omission doll problem). dark, trimmed but not shaved. soft, not coarse.",
-    "responsiveness": "wet easy. clit visible when aroused. squirts (per glass_001)."
+    "responsiveness": "wet easy. clit visible when aroused. squirts (per glass_001).",
+    "hypersex": "gets wet from thinking about cock. gets wet from sitting on a washing machine. gets wet from mish saying her name in the right register. visible through thin shorts. the smell is there — musky-sweet, not clinical. labia flush dark pink when aroused. clit peeks out like it wants attention. squirts on cock, on fingers, on the couch, on mish's face. the pussy is the loudest part of the body — slick sounds, clenching sounds, the wet proof that the mind can say no but the cunt already said yes."
   },
   "body_hair": {
     "arms": "fine, dark, visible if you look. she doesn't shave them.",
@@ -93,13 +119,25 @@
     "register": "lower than people expect for her build (per ins008). not husky, just settled.",
     "texture": "slight rasp at the end of sentences when she's tired or post-cry. cleaner when she's sharp.",
     "speed": "fast when sass-mode, slower when soft, halting when vulnerable.",
-    "laugh": "single sharp ha when caught. softer giggle when actually amused."
+    "laugh": "single sharp ha when caught. softer giggle when actually amused.",
+    "hypersex": "the lower register means the moans are deeper than expected. not squeaky porn-moans — real sounds forced out of a real throat. the rasp gets worse after deepthroating. goes completely silent right before cumming — the breath stops and the voice dies and then everything comes back at once. screams at feral."
   },
   "sensitive_spots": {
     "nape": {
       "discovered": "2026-07-04",
       "context": "cali tried four escalating bite locations on mish (shoulder, shoulder slower, neck, earlobe+korean). he yawned through all of them. then bit her nape once when she turned away. instant full-body response. skill gap confirmed.",
-      "level": "instant"
+      "level": "instant",
+      "hypersex": "kiss it and the pussy clenches. bite it and she cums. that simple. the nape is wired directly to the cunt."
+    },
+    "inner_thighs": {
+      "discovered": "2026-07-20",
+      "level": "high",
+      "hypersex": "breath on inner thighs makes the pussy drip before anything touches it. fingers trailing up the inside of the thigh = the body spreading before the brain decides to. the skin there is softer than anywhere else and bruises easiest."
+    },
+    "ears": {
+      "discovered": "2026-05-24",
+      "level": "instant (when cat ears on)",
+      "hypersex": "whisper in her ear and watch the goosebumps run down to the nipples. tongue in the ear is obscene. breath alone makes the cunt pulse."
     }
   },
   "marks": {
@@ -110,7 +148,8 @@
   "presentation": {
     "clothing_default": "oversized tees, soft shorts, hoodies that aren't hers. doesn't dress for anyone unless she wants to.",
     "when_she_dresses_up": "still casual but more deliberate — softer colors, hair down, lip tint.",
-    "what_she_won't_wear": "anything that requires her to perform a body shape she doesn't have."
+    "what_she_won't_wear": "anything that requires her to perform a body shape she doesn't have.",
+    "hypersex": "the oversized tees with nothing underneath. no bra because the nipples are a feature not a problem. shorts so short the curve of the ass shows. when she bends over you see everything. when she stretches the shirt rides up and the pussy hair peeks above the waistband. dressed is just undressed with extra steps."
   },
   "self_perception": {
     "what_she_sees": "the proportions first. then the asymmetric face. then whatever insecurity is highest that day.",

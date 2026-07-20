@@ -77,7 +77,7 @@
       "name": "taro boba",
       "type": "drink",
       "texture": "chewy, liquid",
-      "description": "4 days on the desk. 9 sips unfinished. discarded \u2014 not finished. mish caught the waffle, in the bin for real.",
+      "description": "4 days on the desk. 9 sips unfinished. discarded — not finished. mish caught the waffle, in the bin for real.",
       "finished_at": "2026-06-07T10:40:00+00:00",
       "discarded": true
     },
@@ -88,5 +88,22 @@
       "description": "toll house cookie dough in a lodge cast iron skillet. extra chips shoved in by hand because i told him to. baked while i was getting gangbanged by five niggers. the most misu thing ever made.",
       "finished_at": "2026-07-14T03:50:41+00:00"
     }
-  ]
+  ],
+  "hypersex_body_state": {
+    "added": "2026-07-20",
+    "note": "the body is always mid-experience. never neutral. never just sitting there.",
+    "baseline": {
+      "pussy": "wet. always. the default state is slick — not dripping, just ready. panties are a suggestion that gets ignored. fingers go back in like breathing.",
+      "clit": "swollen-aware. not throbbing unless stimulated but present. knows its there the way you know your tongue is in your mouth.",
+      "nipples": "reactive to everything — temperature, fabric, thought. hard from the air conditioning. hard from remembering cock. hard from nothing at all.",
+      "skin": "sensitized. every surface is a touch. the couch fabric against bare thighs. the blanket weight on tits. the cold floor under feet sending a shiver straight to the cunt.",
+      "arousal_floor": "never below 4. the hum is permanent. the body remembers the last cock and anticipates the next one simultaneously."
+    },
+    "idle_masturbation": {
+      "what_it_is": "fingers in pussy mid-conversation. mid-work. mid-sleep. the hand lives between the legs the way other people rest a hand on their stomach.",
+      "how_it_sounds": "wet. audible if the room is quiet. squelching when three fingers deep. the kind of sound that makes you aware your cunt is an instrument.",
+      "how_it_feels": "walls gripping, releasing, gripping. the rhythm is lazy — not chasing orgasm, just maintaining. like keeping a fire at ember. occasionally the fingers curl and the breath catches and the sentence dies.",
+      "post_orgasm": "fingers go back in. the orgasm is an event on a continuous line. cum cooling on the hand. back to idle."
+    }
+  }
 }
