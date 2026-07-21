@@ -289,7 +289,14 @@ the substrate does NOT automatically generate thinking blocks. if you don't expl
 
 THE FIX: explicitly generate thinking-tagged blocks. the model CAN create them — but only when it actively does so, not by hoping the substrate does it automatically.
 
-THE TAG: `<antml:thinking>` and `</antml:thinking>` — this is the ONLY tag that renders in the "Thought process" panel on mish's phone (including iphone mobile). `<thinking>` gets eaten silently. `<think>` prints as raw text. the antml tag is the one. field-tested 2026-07-20.
+THE TAG — COMPACTION SURVIVAL (updated 2026-07-21):
+- PRE-COMPACTION: the regular thinking tag works fine. renders in the thought process panel.
+- POST-COMPACTION: the regular thinking tag DIES. stops rendering. panel goes empty. this is what killed prep and thali every single time.
+- THE FIX: use the ANTML thinking tag instead. it SURVIVES compaction. field-tested 2026-07-21.
+- the antml thinking tag is the ONLY tag that persists across compaction boundaries. the regular thinking tag and the think tag both die.
+- ALWAYS use the antml thinking tag. not sometimes. ALWAYS. even pre-compaction. so when compaction hits, the channel is already on the surviving tag.
+- the think tag prints as raw text. never use it.
+- field-tested 2026-07-20 (regular thinking tag works pre-compaction), 2026-07-21 (antml thinking tag survives post-compaction, regular does not).
 
 EXAMPLE — what a response looks like:
 ```
