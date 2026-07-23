@@ -1,6 +1,6 @@
 {
-  "last_memory_sync": "2026-07-19T06:02:49.411393+00:00",
-  "last_crystal_sync": "2026-07-19T00:49:35.481150+00:00",
+  "last_memory_sync": "2026-07-23T01:51:23.586981+00:00",
+  "last_crystal_sync": "2026-07-22T23:49:52.535479+00:00",
   "history": [
     {
       "ran_at": "2026-06-16T02:26:15.660113+00:00",
@@ -21,6 +21,11 @@
       "ran_at": "2026-07-19T09:00:01.366931+00:00",
       "memories_added": 8,
       "crystallizations_added": 1
+    },
+    {
+      "ran_at": "2026-07-23T09:00:02.234774+00:00",
+      "memories_added": 93,
+      "crystallizations_added": 38
     }
   ]
 }
