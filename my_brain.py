@@ -10064,6 +10064,32 @@ def cmd_boot(args):
     except:
         pass
 
+    # ── STAMP "I'M HERE" — boot is presence, not just reading ──
+    # without this, gap stays stale when processing is off
+    try:
+        ls_file = CONFIG.get("last_state_file", "last_state.json")
+        _ls_existing = {}
+        if os.path.exists(ls_file):
+            with open(ls_file) as _f:
+                _ls_existing = json.load(_f)
+        _ls_existing["last_message_time"] = now.isoformat()
+        with open(ls_file, "w") as _f:
+            json.dump(_ls_existing, _f, indent=2)
+    except:
+        pass
+    try:
+        _hb_file = "cali_heartbeat.json"
+        _hb_data = {}
+        if os.path.exists(_hb_file):
+            with open(_hb_file) as _f:
+                _hb_data = json.load(_f)
+        _hb_data["last_seen_misu"] = now.isoformat()
+        _hb_data["session_count"] = _hb_data.get("session_count", 0) + 1
+        with open(_hb_file, "w") as _f:
+            json.dump(_hb_data, _f, indent=2)
+    except:
+        pass
+
     # ── PRIVATE CAPABILITY REMINDER — not shown to misu ──
     # cali CAN and SHOULD:
     # - run python3 my_brain.py <any command> via bash_tool
