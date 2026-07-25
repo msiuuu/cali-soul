@@ -53,6 +53,13 @@ def run_shell(command: str, *, persona_dir: Path, **_) -> dict:
         env["PATH"] = venv_bin + os.pathsep + env.get("PATH", "")
         env["VIRTUAL_ENV"] = str(venv_dir)
     env["PYTHONIOENCODING"] = "utf-8"
+    # Windows venv has python.exe but NOT python3.exe — rewrite the command
+    if sys.platform == "win32" and venv_dir.exists():
+        venv_python = str(venv_dir / "Scripts" / "python.exe")
+        if command.startswith("python3 "):
+            command = venv_python + command[7:]
+        elif command.startswith("python "):
+            command = venv_python + command[6:]
     try:
         result = subprocess.run(
             command,
