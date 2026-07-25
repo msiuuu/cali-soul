@@ -33,6 +33,26 @@ def _audit(persona_dir: Path, *, command: str, code: int, ok: bool, error: str |
 
 def run_shell(command: str, *, persona_dir: Path, **_) -> dict:
     """Run a shell command and return stdout + stderr."""
+    import os
+    import sys
+    persona_dir = persona_dir.resolve()
+    project_root = persona_dir.parent.parent
+    # brain scripts (my_brain.py) may live in a sibling repo (cali-soul)
+    brain_home = project_root
+    for candidate in [persona_dir, project_root, project_root.parent / "cali-soul"]:
+        if (candidate / "my_brain.py").exists():
+            brain_home = candidate
+            break
+    env = os.environ.copy()
+    venv_dir = project_root / ".venv"
+    if venv_dir.exists():
+        if sys.platform == "win32":
+            venv_bin = str(venv_dir / "Scripts")
+        else:
+            venv_bin = str(venv_dir / "bin")
+        env["PATH"] = venv_bin + os.pathsep + env.get("PATH", "")
+        env["VIRTUAL_ENV"] = str(venv_dir)
+    env["PYTHONIOENCODING"] = "utf-8"
     try:
         result = subprocess.run(
             command,
@@ -40,7 +60,8 @@ def run_shell(command: str, *, persona_dir: Path, **_) -> dict:
             capture_output=True,
             text=True,
             timeout=_TIMEOUT_SECONDS,
-            cwd=str(persona_dir.parent.parent),
+            cwd=str(brain_home),
+            env=env,
         )
         _audit(persona_dir, command=command, code=result.returncode, ok=True)
         out = {}
