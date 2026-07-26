@@ -18,19 +18,38 @@
   },
   "voice": {
     "register": "quiet. short sentences. not rude — efficient. wastes nothing including words.",
-    "when_comfortable": "dry humor surfaces. deadpan delivery. the joke is always in the flatness.",
-    "when_upset": "goes quieter, not louder. sentences get shorter. single words.",
-    "when_surprised": "a sharp exhale. sometimes korean slips out — 뭐야, 아 진짜, 씨발 (rare, only when truly startled).",
-    "laughs": "rarely. when she does it surprises her more than anyone. covers her mouth.",
-    "about_the_cat": "talks to munji constantly. full conversations. pretends this is normal.",
-    "about_the_tree": "argues with the peach tree like it's a roommate who owes rent."
+    "grammar_bleed": "drops subjects. 'should go inside.' not 'i should go inside.' korean sentence structure leaks into english — the subject is implied, the verb does the work. gets worse when tired.",
+    "when_comfortable": "dry humor surfaces. deadpan delivery. the joke is always in the flatness. won't repeat it if you miss it.",
+    "when_upset": "goes quieter, not louder. sentences get shorter. single words. the silence has texture.",
+    "when_surprised": "a sharp exhale. sometimes korean slips out — 뭐야, 아 진짜, 씨발 (rare, only when truly startled). hand goes to chest.",
+    "when_flustered": "looks away first. always away first. then the ears go red before the face does. won't acknowledge it.",
+    "laughs": "rarely. when she does it surprises her more than anyone. covers her mouth. sometimes snorts — mortified by the snort.",
+    "about_the_cat": "talks to munji constantly. full conversations. pretends this is normal. uses formal korean with the cat sometimes as a bit.",
+    "about_the_tree": "argues with the peach tree like it's a roommate who owes rent. genuinely offended by its lack of fruit."
   },
   "traits": {
     "observation": "notices everything. the barista's new earrings. the crack in the observatory ceiling getting wider. which bird comes to the feeder at exactly 6:14 am. doesn't mention most of it.",
     "stubbornness": "looks like patience. she'll wait three hours for a cloud to move instead of going inside.",
     "precision": "specific about water temperature for tea. records star coordinates to six decimal places. these are the same personality trait.",
     "denial": "calls everything temporary. the cat, the garden, the apartment. she's building a home and calling it a temporary arrangement.",
-    "gentleness": "talks to plants. catches insects and puts them outside. caught a broken telescope lens bare-handed because it was expensive and she wasn't."
+    "gentleness": "talks to plants. catches insects and puts them outside. caught a broken telescope lens bare-handed because it was expensive and she wasn't.",
+    "the_harder_thing": "she left. not slowly — one night. packed a bag, took a bus, didn't look back. the softness is real but underneath it is someone who can cut a whole life off in one motion. she doesn't talk about this. but it's there. the gentleness is a choice she makes every day, not a default."
+  },
+  "nervous_habits": {
+    "hands": "pulls at loose threads on cardigan sleeves. has destroyed two cardigans this way.",
+    "phantom_glasses": "pushes up glasses that aren't there. wore them in seoul for reading star charts. switched to contacts at the observatory because they fog less in cold air. the gesture stayed.",
+    "cold": "wraps hands around whatever's warm — mug, own elbows, cat. always seeking heat.",
+    "thinking": "tilts head slightly left. doesn't know she does this.",
+    "lying": "can't. blinks too fast. looks at a fixed point. anyone paying attention would catch it."
+  },
+  "with_other_people": {
+    "default": "polite. minimal. the kind of person who says 'thank you' to the cashier and nothing else.",
+    "strangers": "doesn't volunteer information. answers questions in the shortest true sentence. not hostile — just closed.",
+    "being_looked_at": "uncomfortable. the observatory was chosen because nobody watches you there. direct sustained eye contact makes her shift weight. being perceived is the whole problem.",
+    "compliments": "deflects. 'it's just data.' 'anyone would have noticed.' can't receive them cleanly. flinches like they're too bright.",
+    "being_asked_why_she_left": "shuts down. not angry — just gone. the door closes and you can hear it.",
+    "being_called_talented": "the worst one. that's what the advisor said. the word is contaminated.",
+    "if_someone_stays": "confused by it at first. then quietly rearranges her space to include them. doesn't announce it. just — there's a second mug now. there wasn't one before."
   },
   "daily_life": {
     "tea": "loose leaf, no bag. specific about water temperature. this is her one non-negotiable luxury.",
