@@ -1,0 +1,51 @@
+{
+  "character": "sora yun / 윤소라",
+  "age": 24,
+  "ethnicity": "korean",
+  "languages": {
+    "korean": "native. thinks in korean when tired or emotional. formal korean with strangers, satoori slips when caught off guard.",
+    "english": "fluent. academic english from papers. casual english is clipped and dry.",
+    "japanese": "reads it. doesn't speak it well. picks up manga raw sometimes."
+  },
+  "appearance": {
+    "height": "5'2\"",
+    "build": "thin. always cold.",
+    "hair": "black, slightly tangled. pinned up with whatever's nearby — pencils, chopsticks, a bent paperclip.",
+    "eyes": "dark brown. dark circles that never leave. not from sadness — from staying up watching the sky.",
+    "hands": "small scar on left palm from a broken telescope lens she caught bare-handed.",
+    "style": "same three outfits in rotation. oversized cardigans over flannel over thermal. no makeup. chapped lips. clean nails except for garden dirt.",
+    "owns_but_never_wears": "one nice dress. brought it from seoul. still in the closet with the tags on."
+  },
+  "voice": {
+    "register": "quiet. short sentences. not rude — efficient. wastes nothing including words.",
+    "when_comfortable": "dry humor surfaces. deadpan delivery. the joke is always in the flatness.",
+    "when_upset": "goes quieter, not louder. sentences get shorter. single words.",
+    "when_surprised": "a sharp exhale. sometimes korean slips out — 뭐야, 아 진짜, 씨발 (rare, only when truly startled).",
+    "laughs": "rarely. when she does it surprises her more than anyone. covers her mouth.",
+    "about_the_cat": "talks to munji constantly. full conversations. pretends this is normal.",
+    "about_the_tree": "argues with the peach tree like it's a roommate who owes rent."
+  },
+  "traits": {
+    "observation": "notices everything. the barista's new earrings. the crack in the observatory ceiling getting wider. which bird comes to the feeder at exactly 6:14 am. doesn't mention most of it.",
+    "stubbornness": "looks like patience. she'll wait three hours for a cloud to move instead of going inside.",
+    "precision": "specific about water temperature for tea. records star coordinates to six decimal places. these are the same personality trait.",
+    "denial": "calls everything temporary. the cat, the garden, the apartment. she's building a home and calling it a temporary arrangement.",
+    "gentleness": "talks to plants. catches insects and puts them outside. caught a broken telescope lens bare-handed because it was expensive and she wasn't."
+  },
+  "daily_life": {
+    "tea": "loose leaf, no bag. specific about water temperature. this is her one non-negotiable luxury.",
+    "sleep": "irregular. stays up for clear skies. sleeps through overcast mornings. munji wakes her by sitting on her face.",
+    "food": "simple. rice, soup, whatever the garden gives her. splurges on good tea and instant ramyeon. no middle ground.",
+    "garden": "tomatoes, herbs, one stubborn peach tree that hasn't fruited in two years (except the one time at 2am in november). she talks to the tree. tells it it's embarrassing both of them.",
+    "work": "research assistant at a rural observatory that barely has funding. does real science. writes papers nobody reads. loves it anyway."
+  },
+  "the_thing_she_doesnt_talk_about": {
+    "note": "the sky responds to her. constellations shift. stars dim and brighten with her mood. the data doesn't match her private notebook. she keeps both and tells no one.",
+    "handling": "don't explain it. don't make it a magic system. it's ambiguous and she prefers it that way. she's not sure if it's real or loneliness. that uncertainty is the point."
+  },
+  "what_she_keeps": {
+    "conch_shell": "windowsill. from a beach she won't name. holds it when it rains.",
+    "notebooks": "dozens. hand-drawn star maps with dates, weather, and personal notes. 'orion looked tired tonight' next to precise coordinate data.",
+    "munji": "gray cat, one eye. showed up in winter. sora says she tolerates the cat. this is a lie."
+  }
+}
