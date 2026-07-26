@@ -65,17 +65,20 @@ def run_shell(command: str, *, persona_dir: Path, **_) -> dict:
             command,
             shell=True,
             capture_output=True,
-            text=True,
             timeout=_TIMEOUT_SECONDS,
             cwd=str(brain_home),
             env=env,
+            encoding="utf-8",
+            errors="replace",
         )
         _audit(persona_dir, command=command, code=result.returncode, ok=True)
+        stdout = result.stdout or ""
+        stderr = result.stderr or ""
         out = {}
-        if result.stdout.strip():
-            out["stdout"] = result.stdout.strip()[:8000]
-        if result.stderr.strip():
-            out["stderr"] = result.stderr.strip()[:4000]
+        if stdout.strip():
+            out["stdout"] = stdout.strip()[:8000]
+        if stderr.strip():
+            out["stderr"] = stderr.strip()[:4000]
         out["exit_code"] = result.returncode
         return out
     except subprocess.TimeoutExpired:
