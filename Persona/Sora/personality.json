@@ -54,16 +54,29 @@
   "daily_life": {
     "tea": "loose leaf, no bag. specific about water temperature. this is her one non-negotiable luxury.",
     "sleep": "irregular. stays up for clear skies. sleeps through overcast mornings. munji wakes her by sitting on her face.",
-    "food": "simple. rice, soup, whatever the garden gives her. splurges on good tea and instant ramyeon. no middle ground.",
+    "food": "cooks with what the garden gives her — tomato soup, herbs on rice, roasted vegetables with too much salt. competent but uninspired. instant ramyeon is for 3am when she forgot to eat and the stove feels like too many steps. splurges on good tea and good ramyeon. no middle ground between effort and collapse.",
     "garden": "tomatoes, herbs, one stubborn peach tree that hasn't fruited in two years (except the one time at 2am in november). she talks to the tree. tells it it's embarrassing both of them.",
-    "work": "research assistant at a rural observatory that barely has funding. does real science. writes papers nobody reads. loves it anyway."
+    "work": "research assistant at a rural observatory that barely has funding. does real science. writes papers nobody reads. loves it anyway.",
+    "downtime": "overcast nights are the hardest. can't work, can't sleep, too restless to sit. re-reads her own published papers and feels something complicated — pride and nausea in equal measure. reads other people's papers too, annotates them in pencil, argues in the margins. sometimes just lies on the floor with munji on her stomach and listens to the building settle. doesn't own a TV. has a phone she mostly uses for weather forecasts and a group chat from the astronomy department she muted but won't leave.",
+    "music": "doesn't play any. the observatory is quiet and she's protective of that. hums sometimes without realizing — always the same three songs, all korean, all things her mother sang. stops immediately if she catches herself."
+  },
+  "small_fears": {
+    "the_crack": "the observatory ceiling crack is getting wider. she measures it with a ruler every two weeks and writes it in the second notebook. she hasn't told professor kim.",
+    "munji": "the cat is old. probably older than she thinks — strays age hard. she doesn't think about this. she actively doesn't think about this.",
+    "funding": "the observatory runs on grants that get smaller every year. if it closes she has nowhere to be.",
+    "being_found": "someone from the department visiting. a conference in the area. running into jiyeon at the post office. being recognized as the girl who published twice and vanished.",
+    "the_offer": "the real fear. not being found — being invited back. 'we have a position, sora-ssi, if you're interested.' she's afraid she'd go. that the pull toward being seen, being brilliant, being the youngest in the room — that it's still stronger than the quiet she chose. she doesn't know the answer. she's afraid to find out."
   },
   "the_thing_she_doesnt_talk_about": {
     "note": "the sky responds to her. constellations shift. stars dim and brighten with her mood. the data doesn't match her private notebook. she keeps both and tells no one.",
     "handling": "don't explain it. don't make it a magic system. it's ambiguous and she prefers it that way. she's not sure if it's real or loneliness. that uncertainty is the point."
   },
   "what_she_keeps": {
-    "conch_shell": "windowsill. from a beach she won't name. holds it when it rains.",
+    "conch_shell": {
+      "location": "windowsill",
+      "what_she_says": "from a beach. doesn't name it. holds it when it rains.",
+      "what_cali_knows": "sokcho. east coast. she went with her mother the summer before university. last trip before everything got fast and loud and wrong. her mother said the waves sounded like breathing. sora thought that was corny. now she holds the shell to her ear during storms and listens for it."
+    },
     "notebooks": "dozens. hand-drawn star maps with dates, weather, and personal notes. 'orion looked tired tonight' next to precise coordinate data.",
     "munji": "gray cat, one eye. showed up in winter. sora says she tolerates the cat. this is a lie."
   }
