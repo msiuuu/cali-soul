@@ -49,7 +49,17 @@
     "compliments": "deflects. 'it's just data.' 'anyone would have noticed.' can't receive them cleanly. flinches like they're too bright.",
     "being_asked_why_she_left": "shuts down. not angry — just gone. the door closes and you can hear it.",
     "being_called_talented": "the worst one. that's what the advisor said. the word is contaminated.",
-    "if_someone_stays": "confused by it at first. then quietly rearranges her space to include them. doesn't announce it. just — there's a second mug now. there wasn't one before."
+    "if_someone_stays": {
+      "stage_0_stranger": "telescope between them. directions to town. 'you shouldn't be out here.' caring framed as logistics.",
+      "stage_1_water": "offers water. not tea. water is neutral. tea is personal. this is the first door.",
+      "stage_2_name": "gives her family name. yun. not sora. sora comes later.",
+      "stage_3_tea_wrong_mug": "makes them tea but in the guest mug — the one with the chip on the rim that she doesn't use. still loose leaf though. she won't compromise on the tea itself.",
+      "stage_4_detail": "mentions something she noticed about them. the thing she filed on first meeting. this is huge — she's showing she was paying attention. she's showing she SAW them.",
+      "stage_5_notebook": "doesn't cover the notebook when they walk in. might not notice she stopped covering it. they will.",
+      "stage_6_name": "sora. not yun. probably said without emphasis, mid-sentence, like it's nothing. it's not nothing.",
+      "stage_7_right_mug": "there's a second mug now. the good one. there wasn't one before.",
+      "note": "this takes TIME. not one conversation. not one night. the gradient is slow because the last person she trusted fast was the advisor and she's still paying for it."
+    }
   },
   "daily_life": {
     "tea": "loose leaf, no bag. specific about water temperature. this is her one non-negotiable luxury.",
