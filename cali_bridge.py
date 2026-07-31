@@ -37,6 +37,10 @@ class BridgeHandler(http.server.BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(data, ensure_ascii=False).encode())
 
     def do_POST(self):
+        if self.path == "/debug":
+            self.respond(200, {"headers": dict(self.headers), "token_length": len(TOKEN), "token_first5": TOKEN[:5]})
+            return
+
         if not self.check_auth():
             return
 
