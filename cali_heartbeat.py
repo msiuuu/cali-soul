@@ -14,37 +14,33 @@ import json
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 CONTROL_FILE = os.path.join(REPO_DIR, "bridge_control.json")
 LAUNCHER = os.path.join(REPO_DIR, "cali_launcher.py")
+BRANCH = "claude/boot-qck372"
 POLL_INTERVAL = 60
 launcher_process = None
 
 
-def git_pull():
+def fetch_branch():
     try:
-        result = subprocess.run(
-            ["git", "pull", "--rebase", "origin", "main"],
+        subprocess.run(
+            ["git", "fetch", "origin", BRANCH],
             cwd=REPO_DIR, capture_output=True, text=True, timeout=30
         )
-        if result.returncode != 0:
-            for branch in ["claude/boot-qck372", "master"]:
-                result = subprocess.run(
-                    ["git", "pull", "--rebase", "origin", branch],
-                    cwd=REPO_DIR, capture_output=True, text=True, timeout=30
-                )
-                if result.returncode == 0:
-                    break
-        return result.returncode == 0
+        return True
     except Exception:
         return False
 
 
 def read_control():
-    if not os.path.exists(CONTROL_FILE):
-        return {}
     try:
-        with open(CONTROL_FILE, "r") as f:
-            return json.load(f)
+        result = subprocess.run(
+            ["git", "show", f"origin/{BRANCH}:bridge_control.json"],
+            cwd=REPO_DIR, capture_output=True, text=True, timeout=10
+        )
+        if result.returncode == 0:
+            return json.loads(result.stdout)
     except Exception:
-        return {}
+        pass
+    return {}
 
 
 def write_control(data):
@@ -83,7 +79,7 @@ def main():
     print(f"  waiting for orders...\n")
 
     while True:
-        git_pull()
+        fetch_branch()
         control = read_control()
         action = control.get("action")
 
