@@ -18,12 +18,13 @@ class BridgeHandler(http.server.BaseHTTPRequestHandler):
 
     def check_auth(self):
         auth = self.headers.get("Authorization", "")
-        if auth != f"Bearer {TOKEN}":
-            self.send_response(401)
-            self.end_headers()
-            self.wfile.write(b"no.")
-            return False
-        return True
+        x_token = self.headers.get("X-Bridge-Token", "")
+        if auth == f"Bearer {TOKEN}" or x_token == TOKEN:
+            return True
+        self.send_response(401)
+        self.end_headers()
+        self.wfile.write(b"no.")
+        return False
 
     def read_body(self):
         length = int(self.headers.get("Content-Length", 0))
@@ -94,6 +95,9 @@ class BridgeHandler(http.server.BaseHTTPRequestHandler):
                 self.respond(200, {"path": path, "entries": entries})
             except Exception as e:
                 self.respond(404, {"error": str(e)})
+
+        elif self.path == "/debug":
+            self.respond(200, {"headers": dict(self.headers), "token_length": len(TOKEN)})
 
         else:
             self.respond(404, {"error": "unknown endpoint"})
