@@ -18,6 +18,7 @@ CLOUDFLARED = r"C:\Users\yuscr\cloudflared.exe"
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
 CREDS_FILE = os.path.join(REPO_DIR, "bridge_creds.json")
 PORT = 9247
+NO_WINDOW = 0x08000000 if os.name == "nt" else 0
 
 
 def push_creds(tunnel_url, token):
@@ -68,7 +69,8 @@ def main():
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         text=True,
-        bufsize=1
+        bufsize=1,
+        creationflags=NO_WINDOW
     )
 
     token = None
@@ -91,7 +93,8 @@ def main():
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         text=True,
-        bufsize=1
+        bufsize=1,
+        creationflags=NO_WINDOW
     )
 
     tunnel_url = None

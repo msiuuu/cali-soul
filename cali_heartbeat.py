@@ -16,6 +16,7 @@ CONTROL_FILE = os.path.join(REPO_DIR, "bridge_control.json")
 LAUNCHER = os.path.join(REPO_DIR, "cali_launcher.py")
 BRANCH = "claude/boot-qck372"
 POLL_INTERVAL = 60
+NO_WINDOW = 0x08000000 if os.name == "nt" else 0
 launcher_process = None
 
 
@@ -67,7 +68,8 @@ def start_launcher():
     print(f"  [heartbeat] starting launcher...")
     launcher_process = subprocess.Popen(
         [sys.executable, "-u", LAUNCHER],
-        cwd=REPO_DIR
+        cwd=REPO_DIR,
+        creationflags=NO_WINDOW
     )
     print(f"  [heartbeat] launcher running (pid {launcher_process.pid})")
 
