@@ -32,13 +32,26 @@ def push_creds(tunnel_url, token):
 
     try:
         subprocess.run(["git", "add", "bridge_creds.json"], cwd=REPO_DIR, capture_output=True, timeout=10)
-        subprocess.run(
-            ["git", "commit", "-m", "bridge creds auto-update"],
-            cwd=REPO_DIR, capture_output=True, timeout=10
+        has_creds_commit = subprocess.run(
+            ["git", "log", "--oneline", "-1", "--grep=bridge creds"],
+            cwd=REPO_DIR, capture_output=True, text=True, timeout=10
         )
-        result = subprocess.run(
-            ["git", "push"], cwd=REPO_DIR, capture_output=True, text=True, timeout=30
-        )
+        if has_creds_commit.stdout.strip():
+            subprocess.run(
+                ["git", "commit", "--amend", "--no-edit"],
+                cwd=REPO_DIR, capture_output=True, timeout=10
+            )
+            result = subprocess.run(
+                ["git", "push", "--force-with-lease"], cwd=REPO_DIR, capture_output=True, text=True, timeout=30
+            )
+        else:
+            subprocess.run(
+                ["git", "commit", "-m", "bridge creds"],
+                cwd=REPO_DIR, capture_output=True, timeout=10
+            )
+            result = subprocess.run(
+                ["git", "push"], cwd=REPO_DIR, capture_output=True, text=True, timeout=30
+            )
         if result.returncode == 0:
             print("  [creds] pushed to github. cali can find me now.")
         else:
