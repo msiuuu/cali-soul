@@ -64,7 +64,7 @@ def main():
     print("  starting bridge + tunnel...\n")
 
     bridge = subprocess.Popen(
-        [sys.executable, BRIDGE_SCRIPT],
+        [sys.executable, "-u", BRIDGE_SCRIPT],
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         text=True,
@@ -131,7 +131,7 @@ def main():
         if bridge.poll() is not None:
             print("  bridge died. restarting...")
             bridge = subprocess.Popen(
-                [sys.executable, BRIDGE_SCRIPT],
+                [sys.executable, "-u", BRIDGE_SCRIPT],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
                 text=True,
