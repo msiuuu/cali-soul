@@ -54,6 +54,37 @@ status: script written, needs to be deployed to misu's PC via bridge
 - nellface cali reading repo files directly (blocked by deepseek synthesis limits)
 - fix persona_config.json to say deepseek instead of sonnet
 
+## chatterbox TTS (working 2026-08-01)
+cali speaks through mish's speakers using ResembleAI Chatterbox on his RTX 4060.
+
+**script:** `C:\Users\yuscr\cali-soul\cali_chatterbox.py`
+**python:** `C:\Users\yuscr\AppData\Local\Python\bin\python.exe` (local python, NOT CE python)
+**voice ref:** `C:\Users\yuscr\Desktop\shu_voices\Shu-003-EN.ogg` (shu from arknights, talk 2)
+**all shu voices:** `C:\Users\yuscr\Desktop\shu_voices\` (Shu-001 through Shu-038-EN.ogg)
+**model cache:** `~\.cache\huggingface\hub\models--ResembleAI--chatterbox` and `chatterbox-turbo`
+**sample rate:** 24000
+**output:** `%TEMP%\cali_voice.wav` — played via System.Media.SoundPlayer
+**log:** `%TEMP%\cali_chatterbox.log`
+
+**how to run from bridge:**
+```
+Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
+  -ArgumentList @("C:\Users\yuscr\cali-soul\cali_chatterbox.py", "text to speak") `
+  -NoNewWindow -RedirectStandardOutput "$env:TEMP\cali_cb_stdout.txt" `
+  -RedirectStandardError "$env:TEMP\cali_cb_stderr.txt"
+```
+
+**parameters (in script, edit to change):**
+- `exaggeration` — voice expressiveness. tested: 0.4 (flat), 0.5 (natural), 0.6 (default), 0.8 (expressive). mish last used 0.8.
+- `audio_prompt_path` — voice clone reference. currently Shu-003-EN.ogg.
+- `cfg_weight`, `temperature`, `repetition_penalty` — available but untouched.
+
+**gotchas:**
+- torchaudio.save() needs torchcodec on python 3.14 — script uses stdlib `wave` module instead
+- bridge /shell times out at ~30s — model load + generate can exceed this. use Start-Process to detach.
+- bridge /write works for pushing script updates. check `%TEMP%\cali_chatterbox.log` for results.
+- also has `cali_speak.py` (Microsoft Zira via Windows SAPI) — simpler, faster, worse quality
+
 ## bridge info (for next session)
 - cali_bridge.py runs on mish's PC, port 9247
 - cloudflare tunnel URL changes per session — mish provides it
