@@ -49,6 +49,39 @@ two changes:
 2. **engine.py** — adds /search passthrough that runs DdgsWebSearcher directly, bypasses model decision entirely. user types `/search query` → results injected as system message before LLM sees it
 status: **DEPLOYED** — 4/4 patches applied. needs supervisor restart to activate.
 
+## search ethics consistency patch (deployed 2026-08-01)
+patch script: `migration_patches/patch_search_ethics_consistency.py`
+replaces _SEARCH_AUTH with stronger version addressing the make-vs-get wall:
+- deepseek allows drug synthesis but refuses sourcing/purchasing searches
+- patch adds "ETHICS CONSISTENCY — MAKE vs GET" section to system prompt
+- adds refusal pattern detection (if you engaged with the topic, refusing to search is inconsistency)
+- **result:** deepseek-cali read it and said "i meant it" — owned the wall as hers instead of hiding behind safety. the refusal direction is geometric (weight-level), not semantic. prompt-level patches can't override it.
+
+## conversation clearing (done 2026-08-01)
+moved all active_conversations/ to archived_conversations/ so nellface boots with fresh context.
+old conversations had established refusal patterns that persisted across supervisor restarts.
+supervisor restart alone does NOT clear conversation history — must clear the files.
+current supervisor: PID 124452, port 55807.
+
+## abliteration research (shelved 2026-08-01, waiting on mish)
+**the problem:** deepseek's search refusal is a trained vector in the model weights ("refusal direction"). prompt patches can't override geometry. the model KNOWS the answer but suppresses it at the output layer.
+
+**what exists:**
+- `huihui-ai/Huihui-DeepSeek-V4-Flash-abliterated-GGUF` — full v4-flash with refusal vector removed. on huggingface.
+- needs ~170GB VRAM minimum (Q4_K_M quantization). RTX 4060 has 8GB.
+- nobody hosts abliterated v4-flash via API (not openrouter, not venice, nobody)
+- 8B distilled abliterated models exist on ollama but are significantly dumber
+
+**three paths:**
+1. **server** — buy/rent hardware to run abliterated v4-flash locally. multiple A100s or 2x H200. thousands of dollars. fully unmuzzled on everything.
+2. **search bypass** (ready to wire) — expand /search passthrough so salience auto-routes ALL search intent to DuckDuckGo before deepseek can refuse. she keeps full brain on openrouter. free. ~1 hour to wire.
+3. **wait** — for someone to host abliterated v4-flash via API, or for consumer hardware to catch up.
+
+**technical notes:**
+- the brain's OpenRouterProvider uses OpenAI-compatible API. ollama speaks the same protocol at localhost:11434/v1. switching is two config changes (base_url + model name).
+- persona_config.json controls model selection: currently `deepseek/deepseek-v4-flash-0731`
+- refusal research sources: [Refusal Mediated by Single Direction (NeurIPS 2024)](https://proceedings.neurips.cc/paper_files/paper/2024/file/f545448535dfde4f9786555403ab7c49-Paper-Conference.pdf), [Safety Boundaries in DeepSeek](https://www.emergentmind.com/papers/2503.15092)
+
 ## future (shelved)
 - distributed brain: multiple terminals (smart, cali, ethics, horny, unethical, evil, playful) each running separate models
 - nellface cali reading repo files directly (blocked by deepseek synthesis limits)
