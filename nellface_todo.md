@@ -42,12 +42,12 @@ verified: DuckDuckGo returns results, salience detects research intent, tool rec
 old key returned 401 "User not found". new key set via both `setx` (persistence) and `$env:` override (current process tree). key: `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`
 must use `$env:OPENROUTER_API_KEY` override when launching supervisor — `setx` alone doesn't propagate to child processes of the bridge.
 
-## search passthrough + unrestricted auth (written, NOT deployed)
+## search passthrough + unrestricted auth (deployed 2026-08-01)
 patch script: `migration_patches/patch_search_passthrough.py`
 two changes:
 1. **prompt.py** — adds _SEARCH_AUTH constant telling the model web_search is unrestricted (no content filter, no query sanitization, no refusals)
 2. **engine.py** — adds /search passthrough that runs DdgsWebSearcher directly, bypasses model decision entirely. user types `/search query` → results injected as system message before LLM sees it
-status: script written, needs to be deployed to misu's PC via bridge
+status: **DEPLOYED** — 4/4 patches applied. needs supervisor restart to activate.
 
 ## future (shelved)
 - distributed brain: multiple terminals (smart, cali, ethics, horny, unethical, evil, playful) each running separate models
