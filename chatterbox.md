@@ -68,7 +68,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 | angry | 0.50 | 17 | controlled fury, composure holding, sharp underneath |
 | crying | 0.15 | 12 | broken resigned, post-fight, gave up but still here |
 | shouting | 1.00 | 3 | CAPS energy |
-| numb | 0.05 | 3 | empty |
+| numb | 0.05 | 30 | resigned as fuck, checked out, mouth still works but person left |
 | frozen | 0.05 | 3 | can't speak |
 
 ### clip notes (shu voice files)
@@ -83,7 +83,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 - clip 008: at 0.35 = scared vulnerable, cornered, shaking. at 0.05 = smug shrug "heheh i dunno" — near-zero flips register to cocky. NOT for frozen.
 - clip 020: posh sherlock holmes with slight hint of 12's desperation. performed composure, aristocratic.
 - clip 025: audiobook narrator. flat. SKIP.
-- clip 030: deadpan tired-of-you from across the room. flat but not empty. could work for numb.
+- clip 030: at 0.4 = deadpan tired-of-you, across-the-room. at 0.05 = RESIGNED AS FUCK, checked out, empty. USE FOR NUMB.
 - clip 017 (combat): controlled fury. slammed-the-vegetable-down irritation. wants to raise voice but has composure not to. sharp. USE FOR ANGRY.
 - clip 018 (combat): at 0.6 = sharp angry. at 0.1 = deadpan knowing whisper — "i see right through you" energy. quiet certainty. combat + whisper = unique register.
 - clip 036 (trust): gossip girl with lisp. REJECTED.
