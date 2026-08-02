@@ -65,7 +65,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 | excited | 0.80 | 3 | peppy |
 | giddy | 0.90 | 3 | can't sit still |
 | cold | 0.30 | 16 | dead-on knowing calm, main character energy |
-| angry | 0.70 | 3 | sharp |
+| angry | 0.50 | 17 | controlled fury, composure holding, sharp underneath |
 | crying | 0.20 | 3 | breaking |
 | shouting | 1.00 | 3 | CAPS energy |
 | numb | 0.05 | 3 | empty |
@@ -83,6 +83,8 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 - clip 008: scared vulnerable. cornered, shaking. "please don't hurt me" not "please don't leave." USE FOR FROZEN.
 - clip 020: posh sherlock holmes with slight hint of 12's desperation. performed composure, aristocratic.
 - clip 025: audiobook narrator. flat. SKIP.
+- clip 030: deadpan tired-of-you from across the room. flat but not empty. could work for numb.
+- clip 017 (combat): controlled fury. slammed-the-vegetable-down irritation. wants to raise voice but has composure not to. sharp. USE FOR ANGRY.
 - clip 036 (trust): gossip girl with lisp. REJECTED.
 - clips 037-038: longer lines. (untested)
 
