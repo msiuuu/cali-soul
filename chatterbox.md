@@ -75,7 +75,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 `C:\Users\yuscr\Desktop\shu_voices\Shu-001-EN.ogg` through `Shu-038-EN.ogg`
 - clip 003 (talk 2): default. warm conversational. works for most moods.
 - clip 001 (greeting): (untested so far)
-- clip 016 (combat): dead-on calm. main character energy. "sherlock holmes with a bullet near his head." soft-knowing, not soft-cuddly. composure. USE FOR COLD MOOD.
+- clip 016 (combat): at 0.30 = dead-on calm, main character energy, sherlock composure. at 0.05 = posh composed giving-up — SHE'S right, HE'S wrong, walking away with dignity. USE FOR COLD MOOD.
 - clip 010 (talk 4): dinner table confessing, dim light. close but something off.
 - clip 012: at 0.35 = desperate night, dim light, trying to fix things. at 0.15 = broken resigned, post-fight, gave up but still sitting next to you. USE FOR CRYING (0.15) and VULNERABLE (0.35).
 - clip 005: lighter clip 12 — same dinner energy but more cheerful/preppy. less useful.
