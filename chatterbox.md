@@ -76,7 +76,8 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 - clip 003 (talk 2): default. warm conversational. works for most moods.
 - clip 001 (greeting): (untested so far)
 - clip 016 (combat): dead-on calm. main character energy. "sherlock holmes with a bullet near his head." soft-knowing, not soft-cuddly. composure. USE FOR COLD MOOD.
-- clip 010 (talk 4): dinner table confessing, dim light. off somehow — close but not right.
+- clip 010 (talk 4): dinner table confessing, dim light. close but something off.
+- clip 012: desperate night, dim light, trying to fix things with replayed memories. holding hands at dinner table. not intimate — desperate. USE FOR VULNERABLE/CRYING.
 - clip 036 (trust): gossip girl with lisp. REJECTED.
 - clips 037-038: longer lines. (untested)
 
