@@ -85,6 +85,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 - clip 025: audiobook narrator. flat. SKIP.
 - clip 030: deadpan tired-of-you from across the room. flat but not empty. could work for numb.
 - clip 017 (combat): controlled fury. slammed-the-vegetable-down irritation. wants to raise voice but has composure not to. sharp. USE FOR ANGRY.
+- clip 018 (combat): at 0.6 = sharp angry. at 0.1 = deadpan knowing whisper — "i see right through you" energy. quiet certainty. combat + whisper = unique register.
 - clip 036 (trust): gossip girl with lisp. REJECTED.
 - clip 037: posh, conversational, just present. 0.1 energy even at higher ex. casual-adjacent.
 - clip 038: angry start but tail softens into narrator. can't sustain intensity through long sentences.
