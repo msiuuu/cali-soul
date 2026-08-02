@@ -78,6 +78,8 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 - clip 016 (combat): dead-on calm. main character energy. "sherlock holmes with a bullet near his head." soft-knowing, not soft-cuddly. composure. USE FOR COLD MOOD.
 - clip 010 (talk 4): dinner table confessing, dim light. close but something off.
 - clip 012: desperate night, dim light, trying to fix things with replayed memories. holding hands at dinner table. not intimate — desperate. USE FOR VULNERABLE/CRYING.
+- clip 005: lighter clip 12 — same dinner energy but more cheerful/preppy. less useful.
+- clip 020: posh sherlock holmes with slight hint of 12's desperation. performed composure, aristocratic.
 - clip 036 (trust): gossip girl with lisp. REJECTED.
 - clips 037-038: longer lines. (untested)
 
