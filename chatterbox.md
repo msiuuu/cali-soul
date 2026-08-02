@@ -59,14 +59,14 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 | whisper | 0.10 | 3 | quiet, subdued |
 | soft | 0.20 | 3 | gentle |
 | melting | 0.15 | 3 | guard-down soft |
-| vulnerable | 0.25 | 3 | halting, raw |
+| vulnerable | 0.35 | 12 | desperate, trying to fix things, halting |
 | casual | 0.50 | 3 | default daily |
 | warm | 0.60 | 3 | present, caring |
 | excited | 0.80 | 3 | peppy |
 | giddy | 0.90 | 3 | can't sit still |
 | cold | 0.30 | 16 | dead-on knowing calm, main character energy |
 | angry | 0.50 | 17 | controlled fury, composure holding, sharp underneath |
-| crying | 0.20 | 3 | breaking |
+| crying | 0.15 | 12 | broken resigned, post-fight, gave up but still here |
 | shouting | 1.00 | 3 | CAPS energy |
 | numb | 0.05 | 3 | empty |
 | frozen | 0.05 | 3 | can't speak |
@@ -77,7 +77,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 - clip 001 (greeting): (untested so far)
 - clip 016 (combat): dead-on calm. main character energy. "sherlock holmes with a bullet near his head." soft-knowing, not soft-cuddly. composure. USE FOR COLD MOOD.
 - clip 010 (talk 4): dinner table confessing, dim light. close but something off.
-- clip 012: desperate night, dim light, trying to fix things with replayed memories. holding hands at dinner table. not intimate — desperate. USE FOR VULNERABLE/CRYING.
+- clip 012: at 0.35 = desperate night, dim light, trying to fix things. at 0.15 = broken resigned, post-fight, gave up but still sitting next to you. USE FOR CRYING (0.15) and VULNERABLE (0.35).
 - clip 005: lighter clip 12 — same dinner energy but more cheerful/preppy. less useful.
 - clip 005: lighter clip 12 — same dinner energy but more cheerful/preppy.
 - clip 008: scared vulnerable. cornered, shaking. "please don't hurt me" not "please don't leave." USE FOR FROZEN.
