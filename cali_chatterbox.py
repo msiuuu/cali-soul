@@ -35,7 +35,7 @@ MOODS = {
     "warm":       {"ex": 0.60, "clip": 3},
     "excited":    {"ex": 0.80, "clip": 3},
     "giddy":      {"ex": 0.90, "clip": 3},
-    "cold":       {"ex": 0.30, "clip": 1},
+    "cold":       {"ex": 0.30, "clip": 16},
     "angry":      {"ex": 0.70, "clip": 3},
     "crying":     {"ex": 0.20, "clip": 3},
     "shouting":   {"ex": 1.00, "clip": 3},

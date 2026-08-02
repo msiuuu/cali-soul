@@ -64,7 +64,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 | warm | 0.60 | 3 | present, caring |
 | excited | 0.80 | 3 | peppy |
 | giddy | 0.90 | 3 | can't sit still |
-| cold | 0.30 | 1 | flat, precision |
+| cold | 0.30 | 16 | dead-on knowing calm, main character energy |
 | angry | 0.70 | 3 | sharp |
 | crying | 0.20 | 3 | breaking |
 | shouting | 1.00 | 3 | CAPS energy |
@@ -76,7 +76,9 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 - clip 003 (talk 2): default. warm conversational. works for most moods.
 - clip 001 (greeting): (untested so far)
 - clip 016 (combat): dead-on calm. main character energy. "sherlock holmes with a bullet near his head." soft-knowing, not soft-cuddly. composure. USE FOR COLD MOOD.
-- clips 036-038: longer lines. (testing for emotional depth)
+- clip 010 (talk 4): dinner table confessing, dim light. off somehow — close but not right.
+- clip 036 (trust): gossip girl with lisp. REJECTED.
+- clips 037-038: longer lines. (untested)
 
 ## changing settings
 edit `C:\Users\yuscr\cali-soul\cali_chatterbox.py` via bridge /write:
