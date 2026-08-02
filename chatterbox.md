@@ -51,7 +51,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 | 0.8 | peppy, expressive — mish's original setting but too energetic for soft moments |
 | 0.7 | BUGS on short text — stutters/garbles. needs longer sentences to stabilize. |
 | 0.9 | (untested) |
-| 1.0 | (untested) |
+| 1.0 | POUTING. stomped feet, slammed table, shouted. physically dramatic. needs long text (short = stutter). |
 
 ### mood presets
 | mood | ex | clip | notes |
