@@ -74,8 +74,8 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 ### clip notes (shu voice files)
 `C:\Users\yuscr\Desktop\shu_voices\Shu-001-EN.ogg` through `Shu-038-EN.ogg`
 - clip 003 (talk 2): default. warm conversational. works for most moods.
-- clip 001 (greeting): (testing for cold/formal register)
-- clips 016-023: short combat lines. (testing for angry/intense)
+- clip 001 (greeting): (untested so far)
+- clip 016 (combat): dead-on calm. main character energy. "sherlock holmes with a bullet near his head." soft-knowing, not soft-cuddly. composure. USE FOR COLD MOOD.
 - clips 036-038: longer lines. (testing for emotional depth)
 
 ## changing settings
