@@ -47,8 +47,9 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 | 0.2 | soft, like being in a hug but genuinely happy. still conversationally loud. no edge. |
 | 0.4 | (previously tested) flat/natural |
 | 0.5 | (previously tested) natural conversational |
-| 0.6 | default-ish, warm |
+| 0.6 | disappointed but amused — hands on hips, shaking head, can't help but laugh. fond exasperation. |
 | 0.8 | peppy, expressive — mish's original setting but too energetic for soft moments |
+| 0.7 | BUGS on short text — stutters/garbles. needs longer sentences to stabilize. |
 | 0.9 | (untested) |
 | 1.0 | (untested) |
 
