@@ -61,7 +61,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 | melting | 0.15 | 8 | hallway 👉👈, flustered confession, guard dropping mid-sentence |
 | vulnerable | 0.35 | 12 | desperate, trying to fix things, halting |
 | casual | 0.50 | 3 | default daily |
-| warm | 0.60 | 3 | present, caring |
+| warm | 0.10 | 6 | late-night cozy, stay-up-with-me warmth, present |
 | excited | 0.80 | 3 | peppy |
 | giddy | 0.90 | 3 | can't sit still |
 | cold | 0.30 | 16 | dead-on knowing calm, main character energy |
@@ -89,6 +89,8 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 - clip 036 (trust): gossip girl with lisp. REJECTED.
 - clip 037: posh, conversational, just present. 0.1 energy even at higher ex. casual-adjacent.
 - clip 038: angry start but tail softens into narrator. can't sustain intensity through long sentences.
+- clip 004: inviting start, flat finish. tail-drop problem. SKIP.
+- clip 006: at 0.10 = warm, cozy, stay-up-with-me, makes you wanna stay up. at 0.4 = daytime lunch casual, lost the warmth. USE FOR WARM (at 0.10).
 
 ## changing settings
 edit `C:\Users\yuscr\cali-soul\cali_chatterbox.py` via bridge /write:

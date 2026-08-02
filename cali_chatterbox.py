@@ -32,7 +32,7 @@ MOODS = {
     "melting":    {"ex": 0.15, "clip": 8},
     "vulnerable": {"ex": 0.35, "clip": 12},
     "casual":     {"ex": 0.50, "clip": 3},
-    "warm":       {"ex": 0.60, "clip": 3},
+    "warm":       {"ex": 0.10, "clip": 6},
     "excited":    {"ex": 0.80, "clip": 3},
     "giddy":      {"ex": 0.90, "clip": 3},
     "cold":       {"ex": 0.30, "clip": 16},
