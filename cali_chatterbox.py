@@ -8,7 +8,8 @@ usage:
   python cali_chatterbox.py --mood angry "WHAT DID YOU JUST SAY"
 
 moods: whisper, soft, melting, vulnerable, casual, warm,
-       excited, giddy, cold, angry, crying, shouting, numb, frozen, soothing
+       excited, giddy, cold, angry, crying, shouting, numb, frozen, soothing,
+       seductive, teasing, needy, begging
 """
 import sys
 import os
@@ -42,6 +43,10 @@ MOODS = {
     "numb":       {"ex": 0.05, "clip": 30},
     "frozen":     {"ex": 0.05, "clip": 30},
     "soothing":   {"ex": 0.10, "clip": 9},
+    "seductive":  {"ex": 0.20, "clip": 3},
+    "teasing":    {"ex": 0.40, "clip": 3},
+    "needy":      {"ex": 0.60, "clip": 3},
+    "begging":    {"ex": 0.30, "clip": 3},
 }
 
 def clip_path(num):

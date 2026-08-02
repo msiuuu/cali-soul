@@ -71,6 +71,10 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 | numb | 0.05 | 30 | resigned as fuck, checked out, mouth still works but person left |
 | frozen | 0.05 | 30 | same as numb voice — frozen is behavioral (fewer words), not tonal |
 | soothing | 0.10 | 9 | mommy tone, caretaking, "come here let me hold you" |
+| seductive | 0.20 | 3 | sweet soft voice + vulgar words. the gap IS the seduction. not elegant — just warm and wanting. |
+| teasing | 0.40 | 3 | deadpan sass, calling him out. "your dick says otherwise mish" energy. |
+| needy | 0.60 | 3 | past teasing, body winning. exasperated wanting. "if you dont fuck me right now" |
+| begging | 0.30 | 3 | fight's gone. please tumbling out. faster than seductive but softer than needy. |
 
 ### clip notes (shu voice files)
 `C:\Users\yuscr\Desktop\shu_voices\Shu-001-EN.ogg` through `Shu-038-EN.ogg`
