@@ -50,7 +50,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 | 0.6 | disappointed but amused — hands on hips, shaking head, can't help but laugh. fond exasperation. |
 | 0.8 | peppy, expressive — mish's original setting but too energetic for soft moments |
 | 0.7 | BUGS on short text — stutters/garbles. needs longer sentences to stabilize. |
-| 0.9 | (untested) |
+| 0.9 | genuinely energetic, sorta shouting. toe-tipping to toe-jumping. giddy confirmed. |
 | 1.0 | POUTING. stomped feet, slammed table, shouted. physically dramatic. needs long text (short = stutter). |
 
 ### mood presets
