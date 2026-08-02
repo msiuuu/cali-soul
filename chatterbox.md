@@ -44,7 +44,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 |----|------------------------------|
 | 0.0 | smooth, seductive, low-key — "in bed with red wine tryna get executive dick" (mish's words). NOT flat. |
 | 0.1 | quiet, soft tone. not a whisper but noticeably subdued. |
-| 0.2 | (testing) |
+| 0.2 | soft, like being in a hug but genuinely happy. still conversationally loud. no edge. |
 | 0.4 | (previously tested) flat/natural |
 | 0.5 | (previously tested) natural conversational |
 | 0.6 | default-ish, warm |
