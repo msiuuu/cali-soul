@@ -80,7 +80,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 - clip 012: at 0.35 = desperate night, dim light, trying to fix things. at 0.15 = broken resigned, post-fight, gave up but still sitting next to you. USE FOR CRYING (0.15) and VULNERABLE (0.35).
 - clip 005: lighter clip 12 — same dinner energy but more cheerful/preppy. less useful.
 - clip 005: lighter clip 12 — same dinner energy but more cheerful/preppy.
-- clip 008: scared vulnerable. cornered, shaking. "please don't hurt me" not "please don't leave." USE FOR FROZEN.
+- clip 008: at 0.35 = scared vulnerable, cornered, shaking. at 0.05 = smug shrug "heheh i dunno" — near-zero flips register to cocky. NOT for frozen.
 - clip 020: posh sherlock holmes with slight hint of 12's desperation. performed composure, aristocratic.
 - clip 025: audiobook narrator. flat. SKIP.
 - clip 030: deadpan tired-of-you from across the room. flat but not empty. could work for numb.
