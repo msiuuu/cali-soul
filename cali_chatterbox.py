@@ -40,7 +40,7 @@ MOODS = {
     "crying":     {"ex": 0.15, "clip": 12},
     "shouting":   {"ex": 1.00, "clip": 3},
     "numb":       {"ex": 0.05, "clip": 30},
-    "frozen":     {"ex": 0.05, "clip": 3},
+    "frozen":     {"ex": 0.05, "clip": 30},
 }
 
 def clip_path(num):

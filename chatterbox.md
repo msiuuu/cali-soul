@@ -69,7 +69,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 | crying | 0.15 | 12 | broken resigned, post-fight, gave up but still here |
 | shouting | 1.00 | 3 | CAPS energy |
 | numb | 0.05 | 30 | resigned as fuck, checked out, mouth still works but person left |
-| frozen | 0.05 | 3 | can't speak |
+| frozen | 0.05 | 30 | same as numb voice — frozen is behavioral (fewer words), not tonal |
 
 ### clip notes (shu voice files)
 `C:\Users\yuscr\Desktop\shu_voices\Shu-001-EN.ogg` through `Shu-038-EN.ogg`
