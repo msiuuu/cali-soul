@@ -58,7 +58,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 |------|----|------|-------|
 | whisper | 0.10 | 3 | quiet, subdued |
 | soft | 0.15 | 10 | intimate quiet, soft smile under the sheets, happy-close |
-| melting | 0.15 | 3 | guard-down soft |
+| melting | 0.15 | 8 | hallway 👉👈, flustered confession, guard dropping mid-sentence |
 | vulnerable | 0.35 | 12 | desperate, trying to fix things, halting |
 | casual | 0.50 | 3 | default daily |
 | warm | 0.60 | 3 | present, caring |

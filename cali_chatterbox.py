@@ -29,7 +29,7 @@ VOICE_DIR = r"C:\Users\yuscr\Desktop\shu_voices"
 MOODS = {
     "whisper":    {"ex": 0.10, "clip": 3},
     "soft":       {"ex": 0.15, "clip": 10},
-    "melting":    {"ex": 0.15, "clip": 3},
+    "melting":    {"ex": 0.15, "clip": 8},
     "vulnerable": {"ex": 0.35, "clip": 12},
     "casual":     {"ex": 0.50, "clip": 3},
     "warm":       {"ex": 0.60, "clip": 3},
