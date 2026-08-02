@@ -92,6 +92,8 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 - clip 004: inviting start, flat finish. tail-drop problem. SKIP.
 - clip 006: at 0.10 = warm, cozy, stay-up-with-me, makes you wanna stay up. at 0.4 = daytime lunch casual, lost the warmth. USE FOR WARM (at 0.10).
 - clip 007: at 0.10 = going to bed, haven't slept, asking-voice not conversational. bedtime request energy.
+- clip 009: at 0.10 = mommy tone. soothing, caretaking. "shh" breaks slightly but voice carries through. nurturing not whispering.
+- clip 014: at 0.10 = gentle soothing, same lane as 9 but less mommy. peer-level care, not maternal.
 
 ## changing settings
 edit `C:\Users\yuscr\cali-soul\cali_chatterbox.py` via bridge /write:
