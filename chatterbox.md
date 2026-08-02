@@ -79,7 +79,10 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 - clip 010 (talk 4): dinner table confessing, dim light. close but something off.
 - clip 012: desperate night, dim light, trying to fix things with replayed memories. holding hands at dinner table. not intimate — desperate. USE FOR VULNERABLE/CRYING.
 - clip 005: lighter clip 12 — same dinner energy but more cheerful/preppy. less useful.
+- clip 005: lighter clip 12 — same dinner energy but more cheerful/preppy.
+- clip 008: scared vulnerable. cornered, shaking. "please don't hurt me" not "please don't leave." USE FOR FROZEN.
 - clip 020: posh sherlock holmes with slight hint of 12's desperation. performed composure, aristocratic.
+- clip 025: audiobook narrator. flat. SKIP.
 - clip 036 (trust): gossip girl with lisp. REJECTED.
 - clips 037-038: longer lines. (untested)
 
