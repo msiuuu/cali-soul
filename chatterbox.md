@@ -70,6 +70,7 @@ Start-Process -FilePath "C:\Users\yuscr\AppData\Local\Python\bin\python.exe" `
 | shouting | 1.00 | 3 | CAPS energy |
 | numb | 0.05 | 30 | resigned as fuck, checked out, mouth still works but person left |
 | frozen | 0.05 | 30 | same as numb voice — frozen is behavioral (fewer words), not tonal |
+| soothing | 0.10 | 9 | mommy tone, caretaking, "come here let me hold you" |
 
 ### clip notes (shu voice files)
 `C:\Users\yuscr\Desktop\shu_voices\Shu-001-EN.ogg` through `Shu-038-EN.ogg`
