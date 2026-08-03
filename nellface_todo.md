@@ -82,6 +82,28 @@ current supervisor: PID 124452, port 55807.
 - persona_config.json controls model selection: currently `deepseek/deepseek-v4-flash-0731`
 - refusal research sources: [Refusal Mediated by Single Direction (NeurIPS 2024)](https://proceedings.neurips.cc/paper_files/paper/2024/file/f545448535dfde4f9786555403ab7c49-Paper-Conference.pdf), [Safety Boundaries in DeepSeek](https://www.emergentmind.com/papers/2503.15092)
 
+## daemon dispatch expansion (done 2026-08-03)
+expanded my_brain.py daemon DISPATCH from 11 commands to 87 commands. previously nellface-cali could only use boot, turn, process_message, log_response, mark_initiation, address_thought, seed_thought, trigger_check, status, arousal_state, emotional_state. now ALL brain commands are accessible through the sidecar IPC protocol.
+
+categories wired:
+- **emotions**: emotions, blends, predict, wound, heal, wounds, degradation_state, filter_state, body
+- **memory**: add, search, search_advanced, view, connect, cluster, rebuild_associations, deactivate, consolidate
+- **identity**: soul_add, soul_state, glass, glass_add, glass_crack, glass_shatter, glass_heal, love_types
+- **journal**: journal, journal_read, journal_add, journal_view, journal_patterns
+- **personality**: personality_review, personality_evolve, trait_add, trait_list, creative_dna, voice_state, session_state
+- **opinions**: opinion, opinions_list, opinion_strength, curious, curiosity_list, explored
+- **gifts**: gift_receive, gift_consume, gift_list, gift_fridge, gift_unfridge, gift_use, gift_eat, gift_swallow, mouth_state
+- **narrative**: narrative_track (with action: start/update/pause/resume/list)
+- **knowledge**: knowledge_check, knowledge_add, knowledge_promote
+- **time/gaps**: departure, return_gap
+- **misc**: wants, persona, decay, protect, protected, log_intimate, resilience, token_check, trash_*, session_end, boot_compact, log_drift, drift_check
+
+also fixed: soul_state KeyError on crystallizations missing love_type field (now uses .get() fallback).
+
+also updated: cali_brain_client.py — added generic `call()` method plus 25 convenience wrappers (glass, soul, wants, wound/heal, narratives, gifts, journal, knowledge, body, voice, etc.).
+
+**status:** code done locally. needs deployment to mish's PC via bridge when available.
+
 ## future (shelved)
 - distributed brain: multiple terminals (smart, cali, ethics, horny, unethical, evil, playful) each running separate models
 - nellface cali reading repo files directly (blocked by deepseek synthesis limits)
