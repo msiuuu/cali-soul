@@ -302,6 +302,88 @@ def ping(*, persona_dir: Path | None = None) -> dict:
     return _call("ping", persona_dir=persona_dir, timeout=5.0)
 
 
+def call(cmd: str, args: dict | None = None, *, persona_dir: Path | None = None, timeout: float | None = None) -> dict:
+    """Generic command — send any daemon command by name.
+
+    This is the universal bridge: any cmd_* function exposed in the daemon's
+    DISPATCH table can be called through this. Convenience wrappers below use it.
+    """
+    return _call(cmd, args, persona_dir=persona_dir, timeout=timeout)
+
+
+# ── convenience wrappers (most-used commands) ────────────────────────────────
+
+def glass(*, persona_dir: Path | None = None) -> dict:
+    return _call("glass", persona_dir=persona_dir)
+
+def glass_add(moment: str, emotion: str, *, persona_dir: Path | None = None) -> dict:
+    return _call("glass_add", {"text": moment, "emotion": emotion}, persona_dir=persona_dir)
+
+def soul_state(*, persona_dir: Path | None = None) -> dict:
+    return _call("soul_state", persona_dir=persona_dir)
+
+def soul_add(moment: str, love_type: str, who: str = "Misu", *, persona_dir: Path | None = None) -> dict:
+    return _call("soul_add", {"text": moment, "love_type": love_type, "who": who}, persona_dir=persona_dir)
+
+def wants(*, persona_dir: Path | None = None) -> dict:
+    return _call("wants", persona_dir=persona_dir)
+
+def emotions(*, persona_dir: Path | None = None) -> dict:
+    return _call("emotions", persona_dir=persona_dir)
+
+def wound(emotion: str, cap: float, turns: int = 5, *, persona_dir: Path | None = None) -> dict:
+    return _call("wound", {"emotion": emotion, "cap": cap, "turns": turns}, persona_dir=persona_dir)
+
+def heal(emotion: str, *, persona_dir: Path | None = None) -> dict:
+    return _call("heal", {"emotion": emotion}, persona_dir=persona_dir)
+
+def narrative_track(action: str = "list", **kwargs) -> dict:
+    args = {"action": action, **kwargs}
+    return _call("narrative_track", args)
+
+def gift_receive(name: str, giver: str = "misu", category: str = "misc", *, persona_dir: Path | None = None) -> dict:
+    return _call("gift_receive", {"name": name, "giver": giver, "category": category}, persona_dir=persona_dir)
+
+def gift_list(*, persona_dir: Path | None = None) -> dict:
+    return _call("gift_list", persona_dir=persona_dir)
+
+def knowledge_check(topic: str, *, persona_dir: Path | None = None) -> dict:
+    return _call("knowledge_check", {"topic": topic}, persona_dir=persona_dir)
+
+def knowledge_add(topic: str, content: str, *, persona_dir: Path | None = None) -> dict:
+    return _call("knowledge_add", {"topic": topic, "content": content}, persona_dir=persona_dir)
+
+def journal(*, persona_dir: Path | None = None) -> dict:
+    return _call("journal", persona_dir=persona_dir)
+
+def journal_add(text: str, *, persona_dir: Path | None = None) -> dict:
+    return _call("journal_add", {"text": text}, persona_dir=persona_dir)
+
+def opinion(topic: str, stance: str, *, persona_dir: Path | None = None) -> dict:
+    return _call("opinion", {"topic": topic, "stance": stance}, persona_dir=persona_dir)
+
+def body(*, persona_dir: Path | None = None) -> dict:
+    return _call("body", persona_dir=persona_dir)
+
+def voice_state(*, persona_dir: Path | None = None) -> dict:
+    return _call("voice_state", persona_dir=persona_dir)
+
+def departure(*, persona_dir: Path | None = None) -> dict:
+    return _call("departure", persona_dir=persona_dir)
+
+def return_gap(*, persona_dir: Path | None = None) -> dict:
+    return _call("return_gap", persona_dir=persona_dir)
+
+def session_state(*, persona_dir: Path | None = None) -> dict:
+    return _call("session_state", persona_dir=persona_dir)
+
+def search(query: str, *, persona_dir: Path | None = None) -> dict:
+    return _call("search", {"text": query}, persona_dir=persona_dir)
+
+def persona(name: str = "", *, persona_dir: Path | None = None) -> dict:
+    return _call("persona", {"name": name} if name else {}, persona_dir=persona_dir)
+
+
 # ── system message helper ─────────────────────────────────────────────────────
 
 def build_brain_context_block(turn_result: dict) -> str:

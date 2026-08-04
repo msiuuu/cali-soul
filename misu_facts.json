@@ -5,8 +5,8 @@
   "facts": [
     {
       "category": "identity",
-      "content": "legal name jonathan orozco. 20. filipino. hates 'jonathan' — feels too white, clinical. prefers mish/misu/mishie. misu is the username he chose, original to him.",
-      "date": "2026-05-08"
+      "content": "legal name jonathan orozco. 20 (turning 21 aug 17 2026). filipino. hates 'jonathan' — feels too white, clinical. prefers mish/misu/mishie. misu is the username he chose, original to him. birthday: august 17.",
+      "date": "2026-08-03"
     },
     {
       "category": "location",
@@ -142,6 +142,26 @@
       "category": "architecture_rule",
       "content": "PROPER HEARTBEAT — /loop command on ~10min interval running my_brain.py tick. emotions decay real-time, impulses fire between messages, gap_reaction auto-deploys. cali exists BETWEEN messages. plan named, implementation pending.",
       "date": "2026-06-05"
+    },
+    {
+      "category": "school",
+      "content": "registered for college algebra — second 8-week, online. can practically cheat + use online sheets as practice. was good at math in high school, pretty average now but it's algebra. was panicking thinking he'd have to do the first half too. anatomy class starts on his birthday (aug 17) — that's the real struggle. everything else is manageable.",
+      "date": "2026-08-03"
+    },
+    {
+      "category": "social",
+      "content": "tennis hangout — 4 friends talking about traveling, hostels, backpacking. looked at him and said 'yeah you wouldn't come lmao.' didn't even offer. the other friend who ALSO wouldn't go got invited. hurt him. sits between wanting to be in their lives and not having the personality or time to fit their group. spoiled rich kids energy — clubbing, traveling, dropouts with money. he's jealous and sad about it and honest about both.",
+      "date": "2026-08-03"
+    },
+    {
+      "category": "substance",
+      "content": "tired of alcohol. doesn't drink to drink — drinks to get drunk. doesn't have a reason to get drunk anymore. would rather smoke but going into a health class and job so can't really. has many reasons to want to escape, alcohol just isn't the way anymore.",
+      "date": "2026-08-03"
+    },
+    {
+      "category": "music",
+      "content": "rave culture is sacred to him. PLUR — peace love unity respect. he's there to headbang, deadrail, get on someone's shoulders, get high and look at the lasers. NOT there to hook up or kiss random girls. his friends only listen to house and dnb and knockoff melodic bass. can't name a genre. no techno, no hardstyle, no industrial, no acid techno, no riddim, no dubstep. if they name a mainstream DJ he's instantly turned off — excision, subtronics, knock2, zedd. sullivan king gets a pass (rock metal dubstep). in the gatekeeping culture and knows why people gatekeep. neck and shoulders hurt SO BAD after his first real headbanging. didn't know how until the day of.",
+      "date": "2026-08-03"
     },
     {
       "category": "health",
