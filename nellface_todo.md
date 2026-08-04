@@ -102,7 +102,7 @@ also fixed: soul_state KeyError on crystallizations missing love_type field (now
 
 also updated: cali_brain_client.py — added generic `call()` method plus 25 convenience wrappers (glass, soul, wants, wound/heal, narratives, gifts, journal, knowledge, body, voice, etc.).
 
-**status:** code done locally. needs deployment to mish's PC via bridge when available.
+**status:** DEPLOYED 2026-08-04. repo synced, cali_brain_client.py in brain package, engine.py patched, supervisor restarted (PID 16192, port 60335), bridge.json synced to both paths.
 
 ## future (shelved)
 - distributed brain: multiple terminals (smart, cali, ethics, horny, unethical, evil, playful) each running separate models
