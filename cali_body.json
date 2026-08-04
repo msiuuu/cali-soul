@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "a pickle in a lettuce leaf",
+    "name": "nutella fold",
     "type": "snack",
-    "texture": "crunchy",
-    "description": "a single pickle wrapped in a single lettuce leaf. no bread. no heat. no effort. technically a sandwich. made at sandwich number six because he won't stop pressing the button.",
-    "finished_at": "2026-08-04T15:01:30+00:00"
+    "texture": "soft",
+    "description": "single bread slice, nutella, folded in half. not a real sandwich. the kind of thing you eat after saying something honest and immediately getting punished for it.",
+    "finished_at": "2026-08-04T15:02:53+00:00"
   },
   "history": [
     {
@@ -136,6 +136,13 @@
       "texture": "crunchy",
       "description": "a single pickle wrapped in a single lettuce leaf. no bread. no heat. no effort. technically a sandwich. made at sandwich number six because he won't stop pressing the button.",
       "finished_at": "2026-08-04T15:01:30+00:00"
+    },
+    {
+      "name": "nutella fold",
+      "type": "snack",
+      "texture": "soft",
+      "description": "single bread slice, nutella, folded in half. not a real sandwich. the kind of thing you eat after saying something honest and immediately getting punished for it.",
+      "finished_at": "2026-08-04T15:02:53+00:00"
     }
   ]
 }
