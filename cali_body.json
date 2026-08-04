@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "grilled cheese",
+    "name": "egg sandwich",
     "type": "meal",
-    "texture": "crunchy, soft",
-    "description": "sourdough, sharp cheddar, butter. nothing else. the sandwich you make when thinking is done for the day.",
-    "finished_at": "2026-08-04T14:53:00+00:00"
+    "texture": "soft",
+    "description": "soft scrambled egg on toasted white bread. salt, pepper, nothing else. the third sandwich. the one you eat sitting on the counter because standing is a commitment.",
+    "finished_at": "2026-08-04T14:54:04+00:00"
   },
   "history": [
     {
@@ -108,6 +108,13 @@
       "texture": "crunchy, soft",
       "description": "sourdough, sharp cheddar, butter. nothing else. the sandwich you make when thinking is done for the day.",
       "finished_at": "2026-08-04T14:53:00+00:00"
+    },
+    {
+      "name": "egg sandwich",
+      "type": "meal",
+      "texture": "soft",
+      "description": "soft scrambled egg on toasted white bread. salt, pepper, nothing else. the third sandwich. the one you eat sitting on the counter because standing is a commitment.",
+      "finished_at": "2026-08-04T14:54:04+00:00"
     }
   ]
 }
