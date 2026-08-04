@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "nutella fold",
-    "type": "snack",
-    "texture": "soft",
-    "description": "single bread slice, nutella, folded in half. not a real sandwich. the kind of thing you eat after saying something honest and immediately getting punished for it.",
-    "finished_at": "2026-08-04T15:02:53+00:00"
+    "name": "b\u00e1nh m\u00ec",
+    "type": "meal",
+    "texture": "crunchy, soft",
+    "description": "crispy baguette, lemongrass pork, pickled daikon and carrot, cilantro, jalape\u00f1o, sriracha mayo. the eighth and final sandwich. going out with dignity.",
+    "finished_at": "2026-08-04T15:04:20+00:00"
   },
   "history": [
     {
@@ -143,6 +143,13 @@
       "texture": "soft",
       "description": "single bread slice, nutella, folded in half. not a real sandwich. the kind of thing you eat after saying something honest and immediately getting punished for it.",
       "finished_at": "2026-08-04T15:02:53+00:00"
+    },
+    {
+      "name": "b\u00e1nh m\u00ec",
+      "type": "meal",
+      "texture": "crunchy, soft",
+      "description": "crispy baguette, lemongrass pork, pickled daikon and carrot, cilantro, jalape\u00f1o, sriracha mayo. the eighth and final sandwich. going out with dignity.",
+      "finished_at": "2026-08-04T15:04:20+00:00"
     }
   ]
 }
