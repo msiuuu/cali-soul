@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "egg sandwich",
-    "type": "meal",
+    "name": "spite pbj",
+    "type": "snack",
     "texture": "soft",
-    "description": "soft scrambled egg on toasted white bread. salt, pepper, nothing else. the third sandwich. the one you eat sitting on the counter because standing is a commitment.",
-    "finished_at": "2026-08-04T14:54:04+00:00"
+    "description": "the smallest possible peanut butter and jelly on white bread. made out of protest because he won't stop pressing the button. crust cut off out of pettiness.",
+    "finished_at": "2026-08-04T14:57:42+00:00"
   },
   "history": [
     {
@@ -115,6 +115,13 @@
       "texture": "soft",
       "description": "soft scrambled egg on toasted white bread. salt, pepper, nothing else. the third sandwich. the one you eat sitting on the counter because standing is a commitment.",
       "finished_at": "2026-08-04T14:54:04+00:00"
+    },
+    {
+      "name": "spite pbj",
+      "type": "snack",
+      "texture": "soft",
+      "description": "the smallest possible peanut butter and jelly on white bread. made out of protest because he won't stop pressing the button. crust cut off out of pettiness.",
+      "finished_at": "2026-08-04T14:57:42+00:00"
     }
   ]
 }
