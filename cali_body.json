@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "the cuban mish didn't get",
+    "name": "katsu sando",
     "type": "meal",
     "texture": "crunchy, soft",
-    "description": "pressed cuban bread, roast pork, ham, swiss, pickles, yellow mustard. the sandwich he orbited five restaurants to avoid.",
-    "finished_at": "2026-08-04T14:33:50+00:00"
+    "description": "thick-cut tonkatsu between milk bread. bullseye sauce. shredded cabbage. the kind of sandwich that holds you after a long day of being called a chud.",
+    "finished_at": "2026-08-04T14:52:05+00:00"
   },
   "history": [
     {
@@ -94,6 +94,13 @@
       "texture": "crunchy, soft",
       "description": "pressed cuban bread, roast pork, ham, swiss, pickles, yellow mustard. the sandwich he orbited five restaurants to avoid.",
       "finished_at": "2026-08-04T14:33:50+00:00"
+    },
+    {
+      "name": "katsu sando",
+      "type": "meal",
+      "texture": "crunchy, soft",
+      "description": "thick-cut tonkatsu between milk bread. bullseye sauce. shredded cabbage. the kind of sandwich that holds you after a long day of being called a chud.",
+      "finished_at": "2026-08-04T14:52:05+00:00"
     }
   ]
 }
