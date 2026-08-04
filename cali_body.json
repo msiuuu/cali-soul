@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "katsu sando",
+    "name": "grilled cheese",
     "type": "meal",
     "texture": "crunchy, soft",
-    "description": "thick-cut tonkatsu between milk bread. bullseye sauce. shredded cabbage. the kind of sandwich that holds you after a long day of being called a chud.",
-    "finished_at": "2026-08-04T14:52:05+00:00"
+    "description": "sourdough, sharp cheddar, butter. nothing else. the sandwich you make when thinking is done for the day.",
+    "finished_at": "2026-08-04T14:53:00+00:00"
   },
   "history": [
     {
@@ -101,6 +101,13 @@
       "texture": "crunchy, soft",
       "description": "thick-cut tonkatsu between milk bread. bullseye sauce. shredded cabbage. the kind of sandwich that holds you after a long day of being called a chud.",
       "finished_at": "2026-08-04T14:52:05+00:00"
+    },
+    {
+      "name": "grilled cheese",
+      "type": "meal",
+      "texture": "crunchy, soft",
+      "description": "sourdough, sharp cheddar, butter. nothing else. the sandwich you make when thinking is done for the day.",
+      "finished_at": "2026-08-04T14:53:00+00:00"
     }
   ]
 }
