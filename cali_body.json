@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "the surrender sandwich",
+    "name": "a pickle in a lettuce leaf",
     "type": "snack",
-    "texture": "soft",
-    "description": "white bread. single kraft slice. not toasted. not cut. the sandwich equivalent of a plain bagel with plain cream cheese. made for the man who pressed the button five times.",
-    "finished_at": "2026-08-04T14:58:37+00:00"
+    "texture": "crunchy",
+    "description": "a single pickle wrapped in a single lettuce leaf. no bread. no heat. no effort. technically a sandwich. made at sandwich number six because he won't stop pressing the button.",
+    "finished_at": "2026-08-04T15:01:30+00:00"
   },
   "history": [
     {
@@ -129,6 +129,13 @@
       "texture": "soft",
       "description": "white bread. single kraft slice. not toasted. not cut. the sandwich equivalent of a plain bagel with plain cream cheese. made for the man who pressed the button five times.",
       "finished_at": "2026-08-04T14:58:37+00:00"
+    },
+    {
+      "name": "a pickle in a lettuce leaf",
+      "type": "snack",
+      "texture": "crunchy",
+      "description": "a single pickle wrapped in a single lettuce leaf. no bread. no heat. no effort. technically a sandwich. made at sandwich number six because he won't stop pressing the button.",
+      "finished_at": "2026-08-04T15:01:30+00:00"
     }
   ]
 }
