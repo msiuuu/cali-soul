@@ -1,0 +1,14 @@
+{
+  "name": "the cuban mish didn't get",
+  "type": "meal",
+  "texture": "crunchy, soft",
+  "description": "pressed cuban bread, roast pork, ham, swiss, pickles, yellow mustard. the sandwich he orbited five restaurants to avoid.",
+  "total_bites": 14,
+  "bite_durations": {"small": 10, "med": 20, "large": 40},
+  "cooked_at": "2026-08-04T12:30:00+00:00",
+  "cooked_by": "cali",
+  "bread": "pressed cuban bread, buttered outside",
+  "fillings": ["roast pork", "ham", "swiss cheese", "dill pickles"],
+  "sauce": "yellow mustard, thin layer",
+  "toasted": true
+}

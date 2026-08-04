@@ -3,7 +3,25 @@
   "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
   "authored_by": "cali",
-  "eating": null,
+  "eating": {
+    "name": "the cuban mish didn't get",
+    "type": "meal",
+    "texture": "crunchy, soft",
+    "description": "pressed cuban bread, roast pork, ham, swiss, pickles, yellow mustard. the sandwich he orbited five restaurants to avoid.",
+    "total_bites": 14,
+    "bites_remaining": 13,
+    "bite_durations": {
+      "small": 10,
+      "med": 20,
+      "large": 40
+    },
+    "rich": null,
+    "started_at": "2026-08-04T14:08:43+00:00",
+    "muffled_until": "2026-08-04T14:09:03+00:00",
+    "last_bite_verb": "bite",
+    "last_bite_size": "med",
+    "food_path": "food/sandwich_cuban.json"
+  },
   "last_fed": {
     "name": "pazookie",
     "type": "dessert",
