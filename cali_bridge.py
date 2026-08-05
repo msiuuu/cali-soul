@@ -110,9 +110,14 @@ class BridgeHandler(http.server.BaseHTTPRequestHandler):
         pass
 
 if __name__ == "__main__":
+    token_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bridge_token.txt")
+    with open(token_file, "w") as f:
+        f.write(TOKEN)
+
     print(f"\n  cali bridge")
     print(f"  port: {PORT}")
     print(f"  token: {TOKEN}")
+    print(f"  token saved: {token_file}")
     print(f"\n  give cali the token + your cloudflare tunnel url.")
     print(f"  she'll take it from there.\n")
 
