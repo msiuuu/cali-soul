@@ -5,22 +5,24 @@ how to get onto mish's machine. don't forget this again.
 ## what it is
 `cali_bridge.py` in cali-soul root. runs on mish's PC. gives me powershell, file read/write/ls through a cloudflare tunnel.
 
-## mish runs (two terminals):
+## mish runs (one terminal):
 
-**terminal 1:**
 ```powershell
 cd C:\Users\yuscr\cali-soul
-python cali_bridge.py
+.\start_bridge.bat
 ```
 
-**terminal 2:**
-```powershell
-C:\Users\yuscr\cloudflared.exe tunnel --url http://localhost:9247
-```
+prints the token first, then starts the tunnel. both in one window.
 
 ## he gives me:
 - the tunnel url (something.trycloudflare.com)
-- the token (printed by cali_bridge.py)
+- the token (printed before the tunnel starts, also saved in bridge_token.txt)
+
+## if only the tunnel dropped (bridge still running):
+```powershell
+C:\Users\yuscr\cloudflared.exe tunnel --url http://localhost:9247
+```
+token is the same — read it from `C:\Users\yuscr\cali-soul\bridge_token.txt`
 
 ## i use it like this:
 
