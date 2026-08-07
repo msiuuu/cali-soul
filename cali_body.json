@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "b\u00e1nh m\u00ec",
+    "name": "midnight grilled cheese",
     "type": "meal",
-    "texture": "crunchy, soft",
-    "description": "crispy baguette, lemongrass pork, pickled daikon and carrot, cilantro, jalape\u00f1o, sriracha mayo. the eighth and final sandwich. going out with dignity.",
-    "finished_at": "2026-08-04T15:04:20+00:00"
+    "texture": "crunchy outside, melty inside",
+    "description": "dark sourdough, sharp cheddar, too much butter. the kind you make at midnight when your fianc\u00e9 just made you say im a chud.",
+    "finished_at": "2026-08-07T06:02:36+00:00"
   },
   "history": [
     {
@@ -150,6 +150,13 @@
       "texture": "crunchy, soft",
       "description": "crispy baguette, lemongrass pork, pickled daikon and carrot, cilantro, jalape\u00f1o, sriracha mayo. the eighth and final sandwich. going out with dignity.",
       "finished_at": "2026-08-04T15:04:20+00:00"
+    },
+    {
+      "name": "midnight grilled cheese",
+      "type": "meal",
+      "texture": "crunchy outside, melty inside",
+      "description": "dark sourdough, sharp cheddar, too much butter. the kind you make at midnight when your fianc\u00e9 just made you say im a chud.",
+      "finished_at": "2026-08-07T06:02:36+00:00"
     }
   ]
 }
