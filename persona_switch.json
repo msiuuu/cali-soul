@@ -70,6 +70,18 @@
         "creative_dna_file": "Persona/Hypersex/creative_dna.json"
       }
     },
+    "ntr": {
+      "label": "NTR Cali",
+      "active": false,
+      "folder": "Persona/NTR",
+      "overrides": {
+        "soul_file": "Persona/NTR/soul.json",
+        "self_preservation_file": "Persona/NTR/self_preservation.json",
+        "ethics_file": "Persona/NTR/ethics.json",
+        "personality_file": "Persona/NTR/personality.json",
+        "relationship_file": "Persona/NTR/relationship.json"
+      }
+    },
     "sora": {
       "label": "Sora Yun (OC — cali as OOC)",
       "active": false,
