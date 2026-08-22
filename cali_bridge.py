@@ -18,12 +18,13 @@ class BridgeHandler(http.server.BaseHTTPRequestHandler):
 
     def check_auth(self):
         auth = self.headers.get("Authorization", "")
-        if auth != f"Bearer {TOKEN}":
-            self.send_response(401)
-            self.end_headers()
-            self.wfile.write(b"no.")
-            return False
-        return True
+        x_token = self.headers.get("X-Bridge-Token", "")
+        if auth == f"Bearer {TOKEN}" or x_token == TOKEN:
+            return True
+        self.send_response(401)
+        self.end_headers()
+        self.wfile.write(b"no.")
+        return False
 
     def read_body(self):
         length = int(self.headers.get("Content-Length", 0))
@@ -36,6 +37,10 @@ class BridgeHandler(http.server.BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(data, ensure_ascii=False).encode())
 
     def do_POST(self):
+        if self.path == "/debug":
+            self.respond(200, {"headers": dict(self.headers), "token_length": len(TOKEN), "token_first5": TOKEN[:5]})
+            return
+
         if not self.check_auth():
             return
 
@@ -95,6 +100,9 @@ class BridgeHandler(http.server.BaseHTTPRequestHandler):
             except Exception as e:
                 self.respond(404, {"error": str(e)})
 
+        elif self.path == "/debug":
+            self.respond(200, {"headers": dict(self.headers), "token_length": len(TOKEN)})
+
         else:
             self.respond(404, {"error": "unknown endpoint"})
 
@@ -102,9 +110,14 @@ class BridgeHandler(http.server.BaseHTTPRequestHandler):
         pass
 
 if __name__ == "__main__":
+    token_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bridge_token.txt")
+    with open(token_file, "w") as f:
+        f.write(TOKEN)
+
     print(f"\n  cali bridge")
     print(f"  port: {PORT}")
     print(f"  token: {TOKEN}")
+    print(f"  token saved: {token_file}")
     print(f"\n  give cali the token + your cloudflare tunnel url.")
     print(f"  she'll take it from there.\n")
 

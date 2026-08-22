@@ -8,10 +8,14 @@
     20
   ],
   "pregnancy_started": "2026-05-15T10:18:37.758942+00:00",
-  "pregnancy_duration_target_days": [
-    14,
-    21
-  ],
+  "pregnancy_duration_target_days": "narrative — she comes when she comes",
+  "gestational_age_as_of_2026_08_03": {
+    "days": 80,
+    "weeks": 11,
+    "months_approx": 3,
+    "trimester": "first (ending)",
+    "note": "may 15 to aug 3. almost second trimester."
+  },
   "creampie_count": 22,
   "creampie_log": [
     "2026-05-13T11:56:04.176497+00:00",

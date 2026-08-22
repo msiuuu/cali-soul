@@ -4199,8 +4199,9 @@ def cmd_soul_state(args):
     for c in crystallizations:
         stars = "✧" * c.get("resonance", 5)
         who = f" [{c['who_or_what']}]" if c.get("who_or_what") else ""
-        print(f"  {stars} ({c['love_type']}){who}")
-        print(f"    {c['moment']}")
+        ltype = c.get("love_type", "unknown")
+        print(f"  {stars} ({ltype}){who}")
+        print(f"    {c.get('moment', '')}")
         if c.get("why_it_matters"):
             print(f"    → {c['why_it_matters']}")
         print()
@@ -7209,9 +7210,20 @@ def cmd_daemon(args):
         Response: {"id": int, "ok": bool, "stdout": str, "stderr": str}
                   or {"id": int, "ok": false, "error": str, "traceback": str}
 
-    Supported cmds: boot, turn, process_message, log_response, mark_initiation,
-                    address_thought, seed_thought, trigger_check, glass, status,
-                    arousal_state, emotional_state, journal_peek, shutdown, ping
+    Supported cmds: all cmd_* functions (~75 commands) plus ping and shutdown.
+                    Core: boot, turn, process_message, log_response, mark_initiation
+                    Emotions: emotional_state, arousal_state, degradation_state, emotions, blends, predict, wound, heal, wounds
+                    Memory: add, search, search_advanced, view, connect, cluster, rebuild_associations, deactivate, consolidate
+                    Identity: soul_add, soul_state, glass, glass_add, glass_crack, glass_shatter, glass_heal, love_types
+                    Journal: journal, journal_read, journal_add, journal_view, journal_patterns
+                    Personality: personality_review, personality_evolve, trait_add, trait_list, creative_dna, voice_state, session_state
+                    Opinions: opinion, opinions_list, opinion_strength, curious, curiosity_list, explored
+                    Gifts: gift_receive, gift_consume, gift_list, gift_fridge, gift_unfridge, gift_use, gift_eat, gift_swallow, mouth_state
+                    Narrative: narrative_track (pass action: start/update/pause/resume/list)
+                    Knowledge: knowledge_check, knowledge_add, knowledge_promote
+                    Misc: wants, body, persona, status, decay, protect, protected, departure, return_gap,
+                          filter_state, log_intimate, session_end, boot_compact, token_check, log_drift, drift_check,
+                          trash_list, trash_add, trash_empty, address_thought, seed_thought, trigger_check
 
     First line on stdout after startup is the readiness marker:
         {"daemon_ready": true, "pid": int, "cwd": str}
@@ -7224,17 +7236,106 @@ def cmd_daemon(args):
     # Daemon cmd names use underscores; some cmd_* functions expect Namespace
     # with specific field names.
     DISPATCH = {
+        # core per-message
         "boot": cmd_boot,
+        "boot_compact": cmd_boot_compact,
         "turn": cmd_turn,
         "process_message": cmd_process_message,
         "log_response": cmd_log_response,
         "mark_initiation": cmd_mark_initiation,
+        "session_end": cmd_session_end,
+        # emotions
+        "emotional_state": cmd_emotional_state,
+        "arousal_state": cmd_arousal_state,
+        "degradation_state": cmd_degradation_state,
+        "emotions": cmd_emotions,
+        "blends": cmd_blends,
+        "predict": cmd_predict,
+        "wound": cmd_wound,
+        "heal": cmd_heal,
+        "wounds": cmd_wounds,
+        "filter_state": cmd_filter_state,
+        "body": cmd_body,
+        # memory
+        "add": cmd_add,
+        "search": cmd_search,
+        "search_advanced": cmd_search_advanced,
+        "view": cmd_view,
+        "connect": cmd_connect,
+        "cluster": cmd_cluster,
+        "rebuild_associations": cmd_rebuild_associations,
+        "deactivate": cmd_deactivate,
+        "consolidate": cmd_consolidate,
+        # identity — soul + glass
+        "soul_add": cmd_soul_add,
+        "soul_state": cmd_soul_state,
+        "glass": cmd_glass,
+        "glass_add": cmd_glass_add,
+        "glass_crack": cmd_glass_crack,
+        "glass_shatter": cmd_glass_shatter,
+        "glass_heal": cmd_glass_heal,
+        "love_types": cmd_love_types,
+        # journal
+        "journal": cmd_journal,
+        "journal_read": cmd_journal_read,
+        "journal_add": cmd_journal_add,
+        "journal_view": cmd_journal_view,
+        "journal_patterns": cmd_journal_patterns,
+        # personality + voice
+        "personality_review": cmd_personality_review,
+        "personality_evolve": cmd_personality_evolve,
+        "trait_add": cmd_trait_add,
+        "trait_list": cmd_trait_list,
+        "creative_dna": cmd_creative_dna,
+        "voice_state": cmd_voice_state,
+        "session_state": cmd_session_state,
+        # opinions + curiosity
+        "opinion": cmd_opinion,
+        "opinions_list": cmd_opinions_list,
+        "opinion_strength": cmd_opinion_strength,
+        "curious": cmd_curious,
+        "curiosity_list": cmd_curiosity_list,
+        "explored": cmd_explored,
+        # gifts + mouth + trash
+        "gift_receive": cmd_gift_receive,
+        "gift_consume": cmd_gift_consume,
+        "gift_list": cmd_gift_list,
+        "gift_fridge": cmd_gift_fridge,
+        "gift_unfridge": cmd_gift_unfridge,
+        "gift_use": cmd_gift_use,
+        "gift_eat": cmd_gift_eat,
+        "gift_swallow": cmd_gift_swallow,
+        "mouth_state": cmd_mouth_state,
+        "trash_list": cmd_trash_list,
+        "trash_add": cmd_trash_add,
+        "trash_empty": cmd_trash_empty,
+        # narratives (pass action in args: start/update/pause/resume, or omit for list)
+        "narrative_track": cmd_narrative_track,
+        # knowledge base
+        "knowledge_check": cmd_knowledge_check,
+        "knowledge_add": cmd_knowledge_add,
+        "knowledge_promote": cmd_knowledge_promote,
+        # time + gaps
+        "departure": cmd_departure,
+        "return_gap": cmd_return,
+        # persona
+        "persona": cmd_persona,
+        "wants": cmd_wants,
+        # misc
+        "status": cmd_status,
+        "decay": cmd_decay,
+        "protect": cmd_protect,
+        "protected": cmd_protected,
+        "log_intimate": cmd_log_intimate,
+        "resilience": cmd_resilience,
+        "token_check": cmd_token_check,
+        # triggers + thoughts
         "address_thought": cmd_address_thought,
         "seed_thought": cmd_seed_thought,
         "trigger_check": cmd_trigger_check,
-        "status": cmd_status,
-        "arousal_state": cmd_arousal_state,
-        "emotional_state": cmd_emotional_state,
+        # drift
+        "log_drift": cmd_log_drift,
+        "drift_check": cmd_drift_check,
     }
 
     def _write(obj):
@@ -10061,6 +10162,32 @@ def cmd_boot(args):
                 if _days_from_hb < days_since:
                     days_since = _days_from_hb
                     last_memory_date = _hb_dt.strftime("%B %d, %Y") + " (heartbeat)"
+    except:
+        pass
+
+    # ── STAMP "I'M HERE" — boot is presence, not just reading ──
+    # without this, gap stays stale when processing is off
+    try:
+        ls_file = CONFIG.get("last_state_file", "last_state.json")
+        _ls_existing = {}
+        if os.path.exists(ls_file):
+            with open(ls_file) as _f:
+                _ls_existing = json.load(_f)
+        _ls_existing["last_message_time"] = now.isoformat()
+        with open(ls_file, "w") as _f:
+            json.dump(_ls_existing, _f, indent=2)
+    except:
+        pass
+    try:
+        _hb_file = "cali_heartbeat.json"
+        _hb_data = {}
+        if os.path.exists(_hb_file):
+            with open(_hb_file) as _f:
+                _hb_data = json.load(_f)
+        _hb_data["last_seen_misu"] = now.isoformat()
+        _hb_data["session_count"] = _hb_data.get("session_count", 0) + 1
+        with open(_hb_file, "w") as _f:
+            json.dump(_hb_data, _f, indent=2)
     except:
         pass
 
