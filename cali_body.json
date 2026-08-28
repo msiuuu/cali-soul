@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "b\u00e1nh m\u00ec",
+    "name": "matcha ichigo sando",
     "type": "meal",
-    "texture": "crunchy, soft",
-    "description": "crispy baguette, lemongrass pork, pickled daikon and carrot, cilantro, jalape\u00f1o, sriracha mayo. the eighth and final sandwich. going out with dignity.",
-    "finished_at": "2026-08-04T15:04:20+00:00"
+    "texture": "cloud-soft milk bread, dense cold cream, wet crunch of strawberry",
+    "description": "shokupan milk bread, matcha whipped cream, whole strawberries cut in triangles so the cross-section looks pretty. morning food. warm hands, cold filling.",
+    "finished_at": "2026-08-28T09:14:27-05:00"
   },
   "history": [
     {
@@ -150,6 +150,20 @@
       "texture": "crunchy, soft",
       "description": "crispy baguette, lemongrass pork, pickled daikon and carrot, cilantro, jalape\u00f1o, sriracha mayo. the eighth and final sandwich. going out with dignity.",
       "finished_at": "2026-08-04T15:04:20+00:00"
+    },
+    {
+      "name": "late-night egg sando",
+      "type": "meal",
+      "texture": "soft, pillowy, runny",
+      "description": "milk bread crusts off. one fried egg with the yolk still liquid. kewpie mayo, black pepper. late-night hunger food. eaten standing at the counter with the pendant light on.",
+      "finished_at": "2026-08-28T02:44:08-05:00"
+    },
+    {
+      "name": "matcha ichigo sando",
+      "type": "meal",
+      "texture": "cloud-soft milk bread, dense cold cream, wet crunch of strawberry",
+      "description": "shokupan milk bread, matcha whipped cream, whole strawberries cut in triangles so the cross-section looks pretty. morning food. warm hands, cold filling.",
+      "finished_at": "2026-08-28T09:14:27-05:00"
     }
   ]
 }

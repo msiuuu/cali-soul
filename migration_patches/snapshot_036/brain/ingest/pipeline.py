@@ -1,0 +1,668 @@
+"""SP-4 pipeline driver — orchestrates all 8 ingest stages.
+
+close_session()             — run all 8 stages for one session, delete its buffer + cursor.
+extract_session_snapshot()  — non-destructive variant; uses cursor sidecar to extract only new turns.
+close_stale_sessions()      — destructive sweep; retained for explicit close/finalize callers (NOT used by shutdown or recovery).
+snapshot_stale_sessions()   — non-destructive sweep used by periodic supervision, shutdown, and recovery.
+finalize_stale_sessions()   — real-close sweep (24h silence); final snapshot + buffer delete + cursor delete.
+
+Stage flow:
+  BUFFER  → read turns from <persona_dir>/active_conversations/<session_id>.jsonl
+  CLOSE   → guard: if no turns, unlink buffer and return empty report
+  EXTRACT → format transcript, call LLM, get ExtractedItems
+  SCORE   → normalize each item (label coercion, importance clamp, text strip)
+  DEDUPE  → cosine similarity against EmbeddingCache (opt-in; None = skip)
+  COMMIT  → direct write to MemoryStore + auto-Hebbian
+  SOUL    → queue high-importance items to soul_candidates.jsonl
+  LOG     → emit structured log event with counts
+"""
+
+from __future__ import annotations
+
+import logging
+from datetime import UTC, datetime
+from pathlib import Path
+
+from brain.bridge.provider import LLMProvider
+from brain.ingest.buffer import (
+    delete_backoff,
+    delete_cursor,
+    delete_session_buffer,
+    list_active_sessions,
+    read_backoff,
+    read_cursor,
+    read_session,
+    read_session_after,
+    session_silence_minutes,
+    write_backoff,
+    write_cursor,
+)
+from brain.ingest.commit import commit_item
+from brain.ingest.dedupe import DEFAULT_DEDUP_THRESHOLD, is_duplicate
+from brain.ingest.extract import extract_items_with_status, format_transcript
+from brain.ingest.soul_queue import DEFAULT_SOUL_THRESHOLD, queue_soul_candidate
+from brain.ingest.types import IngestReport
+from brain.memory.embeddings import EmbeddingCache
+from brain.memory.hebbian import HebbianMatrix
+from brain.memory.store import MemoryStore
+
+logger = logging.getLogger(__name__)
+
+
+def _load_emotion_vocab() -> tuple[set[str], str]:
+    """Return (names_set, comma_separated_sorted_string) for all registered emotions.
+
+    Reads the in-process vocabulary registry (baseline + any persona extensions
+    registered at engine startup). Falls back to empty on any error — the
+    pipeline must never fail because of a vocabulary load issue.
+
+    Returns a tuple so callers get both forms cheaply (set for normalize(),
+    string for the prompt).
+    """
+    try:
+        from brain.emotion.vocabulary import list_all
+
+        names = {e.name for e in list_all()}
+        return names, ",".join(sorted(names))
+    except Exception:  # noqa: BLE001
+        logger.warning("_load_emotion_vocab: failed to load vocabulary; emotions will be empty")
+        return set(), ""
+
+
+# F-011 — extraction backoff knobs. After this many consecutive
+# `conversation_snapshot_failed` events for a given session, pause
+# extraction for `_BACKOFF_WINDOW_MINUTES` so we stop burning LLM calls
+# on a wedged buffer. Success clears the state.
+_BACKOFF_FAILURE_THRESHOLD = 3
+_BACKOFF_WINDOW_MINUTES = 10.0
+
+
+def _load_user_name(persona_dir: Path) -> str | None:
+    """Look up PersonaConfig.user_name; None if missing or unset.
+
+    Best-effort — never raises. PersonaConfig is the home for the
+    user's name; we read it here once per session close. If the
+    config file is corrupt or the field is missing, the extractor
+    falls back to the legacy "user:" / "assistant:" prompt path.
+    """
+    try:
+        from brain.persona_config import PersonaConfig
+
+        return PersonaConfig.load(persona_dir / "persona_config.json").user_name
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _load_user_pronouns(persona_dir: Path) -> dict | None:
+    """PersonaConfig.user_pronouns; None if missing/unset. Best-effort."""
+    try:
+        from brain.persona_config import PersonaConfig
+
+        return PersonaConfig.load(persona_dir / "persona_config.json").user_pronouns
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def close_session(
+    persona_dir: Path,
+    session_id: str,
+    *,
+    store: MemoryStore,
+    hebbian: HebbianMatrix,
+    provider: LLMProvider,
+    embeddings: EmbeddingCache | None = None,
+    config: dict | None = None,
+) -> IngestReport:
+    """Run the full 8-stage ingest pipeline on one session and delete its buffer.
+
+    Parameters
+    ----------
+    persona_dir:
+        Root directory for this persona (contains active_conversations/, etc.)
+    session_id:
+        The session to close and process.
+    store:
+        SQLite-backed MemoryStore to commit new memories into.
+    hebbian:
+        HebbianMatrix to strengthen connections between related memories.
+    provider:
+        LLMProvider used for EXTRACT stage (generate() surface).
+    embeddings:
+        Optional EmbeddingCache for DEDUPE. When None, dedupe is skipped.
+    config:
+        Optional dict of pipeline knobs:
+          extraction_max_retries: int = 1
+          max_transcript_tokens: int = 6000
+          dedup_threshold: float = 0.88
+          crystallize_threshold: int = 8
+
+    Returns
+    -------
+    IngestReport with counts of what happened.
+    """
+    cfg = config or {}
+    report = IngestReport(session_id=session_id)
+
+    # ── BUFFER: read the session turns ──────────────────────────────────────
+    turns = read_session(persona_dir, session_id)
+
+    # ── CLOSE guard: empty session ───────────────────────────────────────────
+    if not turns:
+        delete_session_buffer(persona_dir, session_id)
+        delete_cursor(persona_dir, session_id)
+        delete_backoff(persona_dir, session_id)
+        return report
+
+    # ── EXTRACT ──────────────────────────────────────────────────────────────
+    # Bug A (audit-3): pass speaker names so the LLM extractor can
+    # disambiguate the current user from historical figures the assistant
+    # may reference. user_name comes from PersonaConfig.user_name (None
+    # when unset → legacy unnamed prompt). assistant_name is the persona
+    # name (always known — it's the persona dir's basename).
+    user_name = _load_user_name(persona_dir)
+    assistant_name = persona_dir.name
+    transcript = format_transcript(
+        turns,
+        max_tokens=int(cfg.get("max_transcript_tokens", 6000)),
+        user_name=user_name,
+        assistant_name=assistant_name,
+    )
+    valid_emotions, emotion_vocab = _load_emotion_vocab()
+    extraction = extract_items_with_status(
+        transcript,
+        provider=provider,
+        max_retries=int(cfg.get("extraction_max_retries", 1)),
+        user_name=user_name,
+        assistant_name=assistant_name,
+        emotion_vocab=emotion_vocab,
+        user_pronouns=_load_user_pronouns(persona_dir),
+    )
+    if extraction.failed:
+        report.errors += 1
+        logger.warning(
+            "conversation_extract_failed session=%s turns=%d error=%s; retaining buffer for retry",
+            session_id,
+            len(turns),
+            extraction.error or "unknown extraction failure",
+        )
+        return report
+
+    items = extraction.items
+    report.extracted = len(items)
+
+    # ── SCORE (normalize at the boundary) ────────────────────────────────────
+    items = [it.normalize(valid_emotions=valid_emotions) for it in items if it.text]
+
+    # ── DEDUPE + COMMIT + SOUL ────────────────────────────────────────────────
+    dedup_threshold = float(cfg.get("dedup_threshold", DEFAULT_DEDUP_THRESHOLD))
+    crystallize_threshold = int(cfg.get("crystallize_threshold", DEFAULT_SOUL_THRESHOLD))
+
+    for item in items:
+        # DEDUPE
+        if is_duplicate(item.text, store=store, threshold=dedup_threshold, embeddings=embeddings):
+            report.deduped += 1
+            continue
+
+        # COMMIT
+        mem_id = commit_item(item, session_id=session_id, store=store, hebbian=hebbian)
+        if mem_id is None:
+            report.errors += 1
+            report.commit_failures += 1
+            # Evict the candidate's vector from the embedding cache so the
+            # retry pass doesn't self-match at cosine 1.0 and discard it as a
+            # duplicate. (is_duplicate persists the vector via get_or_compute
+            # before we know whether the commit will succeed.)
+            if embeddings is not None:
+                embeddings.evict(item.text)
+            continue
+
+        report.committed += 1
+        report.memory_ids.append(mem_id)
+
+        # Back-fill the committed memory's vector into the dedupe cache so that
+        # a held-buffer retry (and any future pass) recognises it as a duplicate
+        # and skips it — closes the retry-double-commit gap (A1).
+        if embeddings is not None:
+            embeddings.get_or_compute(item.text)
+
+        # SOUL
+        if item.importance >= crystallize_threshold:
+            queued = queue_soul_candidate(
+                persona_dir,
+                memory_id=mem_id,
+                item=item,
+                session_id=session_id,
+            )
+            if queued:
+                report.soul_candidates += 1
+            else:
+                report.soul_queue_errors += 1
+
+    # ── LOG ──────────────────────────────────────────────────────────────────
+    logger.info(
+        "conversation_ingested session=%s turns=%d extracted=%d committed=%d "
+        "deduped=%d soul_candidates=%d soul_queue_errors=%d errors=%d",
+        session_id,
+        len(turns),
+        report.extracted,
+        report.committed,
+        report.deduped,
+        report.soul_candidates,
+        report.soul_queue_errors,
+        report.errors,
+    )
+
+    # ── DELETE buffer ─────────────────────────────────────────────────────────
+    if report.commit_failures == 0:
+        delete_session_buffer(persona_dir, session_id)
+        delete_cursor(persona_dir, session_id)
+        delete_backoff(persona_dir, session_id)
+    else:
+        # close_session only holds + logs. Backoff escalation toward dead-letter
+        # is owned by the extract_session_snapshot sweep (5-min and 24-h cadences),
+        # not by close_session — the supervisor drives retry, not this call site.
+        logger.warning(
+            "conversation_close_held session=%s commit_failures=%d — buffer retained for retry",
+            session_id,
+            report.commit_failures,
+        )
+
+    return report
+
+
+def extract_session_snapshot(
+    persona_dir: Path,
+    session_id: str,
+    *,
+    store: MemoryStore,
+    hebbian: HebbianMatrix,
+    provider: LLMProvider,
+    embeddings: EmbeddingCache | None = None,
+    config: dict | None = None,
+) -> IngestReport:
+    """Run BUFFER → EXTRACT → SCORE → DEDUPE → COMMIT → SOUL → LOG without
+    deleting the buffer.
+
+    Uses a per-session cursor sidecar to extract only turns added since the
+    previous successful snapshot. On a successful pass, advances the cursor
+    to the ts of the last extracted turn. On extraction failure, the cursor
+    is unchanged so the next pass retries the same turns.
+
+    Returns an IngestReport with the same shape as close_session.
+    """
+    cfg = config or {}
+    report = IngestReport(session_id=session_id)
+
+    # F-011 — backoff guard: if we've failed N consecutive times within the
+    # window, skip extraction entirely until the window expires. Stops the
+    # 5-min snapshot sweep from burning LLM calls on a wedged buffer.
+    backoff_state = read_backoff(persona_dir, session_id)
+    if backoff_state is not None and backoff_state["failures"] >= _BACKOFF_FAILURE_THRESHOLD:
+        first_failure_dt = datetime.fromisoformat(
+            backoff_state["first_failure_at"].replace("Z", "+00:00")
+        )
+        if first_failure_dt.tzinfo is None:
+            first_failure_dt = first_failure_dt.replace(tzinfo=UTC)
+        elapsed_min = (datetime.now(UTC) - first_failure_dt).total_seconds() / 60.0
+        if elapsed_min < _BACKOFF_WINDOW_MINUTES:
+            logger.info(
+                "conversation_snapshot_backoff session=%s failures=%d elapsed_min=%.2f",
+                session_id,
+                backoff_state["failures"],
+                elapsed_min,
+            )
+            report.errors += 1
+            return report
+
+    cursor = read_cursor(persona_dir, session_id)
+    turns = read_session_after(persona_dir, session_id, cursor)
+
+    if not turns:
+        logger.info(
+            "conversation_snapshot_empty session=%s cursor=%s",
+            session_id,
+            cursor,
+        )
+        return report
+
+    user_name = _load_user_name(persona_dir)
+    assistant_name = persona_dir.name
+    transcript = format_transcript(
+        turns,
+        max_tokens=int(cfg.get("max_transcript_tokens", 6000)),
+        user_name=user_name,
+        assistant_name=assistant_name,
+    )
+    valid_emotions, emotion_vocab = _load_emotion_vocab()
+    extraction = extract_items_with_status(
+        transcript,
+        provider=provider,
+        max_retries=int(cfg.get("extraction_max_retries", 1)),
+        user_name=user_name,
+        assistant_name=assistant_name,
+        emotion_vocab=emotion_vocab,
+        user_pronouns=_load_user_pronouns(persona_dir),
+    )
+    if extraction.failed:
+        report.errors += 1
+        logger.warning(
+            "conversation_snapshot_failed session=%s turns=%d error=%s; cursor unchanged",
+            session_id,
+            len(turns),
+            extraction.error or "unknown extraction failure",
+        )
+        # F-011 — record failure for backoff tracking. First failure in a
+        # new window anchors first_failure_at to now; subsequent failures
+        # increment the count without moving the anchor (so the window
+        # measures from the *first* failure, not the most recent).
+        existing = read_backoff(persona_dir, session_id)
+        if existing is None:
+            write_backoff(
+                persona_dir,
+                session_id,
+                failures=1,
+                first_failure_at=datetime.now(UTC).isoformat(),
+            )
+        else:
+            write_backoff(
+                persona_dir,
+                session_id,
+                failures=existing["failures"] + 1,
+                first_failure_at=existing["first_failure_at"],
+            )
+        return report
+
+    items = [it.normalize(valid_emotions=valid_emotions) for it in extraction.items if it.text]
+    report.extracted = len(items)
+
+    dedup_threshold = float(cfg.get("dedup_threshold", DEFAULT_DEDUP_THRESHOLD))
+    crystallize_threshold = int(cfg.get("crystallize_threshold", DEFAULT_SOUL_THRESHOLD))
+
+    for item in items:
+        if is_duplicate(item.text, store=store, threshold=dedup_threshold, embeddings=embeddings):
+            report.deduped += 1
+            continue
+        mem_id = commit_item(item, session_id=session_id, store=store, hebbian=hebbian)
+        if mem_id is None:
+            report.errors += 1
+            report.commit_failures += 1
+            # Evict so retry doesn't self-dedup (mirrors close_session logic above).
+            if embeddings is not None:
+                embeddings.evict(item.text)
+            continue
+        report.committed += 1
+        report.memory_ids.append(mem_id)
+
+        # Back-fill the committed memory's vector into the dedupe cache so that
+        # a held-buffer retry (and any future pass) recognises it as a duplicate
+        # and skips it — closes the retry-double-commit gap (A1).
+        if embeddings is not None:
+            embeddings.get_or_compute(item.text)
+
+        if item.importance >= crystallize_threshold:
+            queued = queue_soul_candidate(
+                persona_dir,
+                memory_id=mem_id,
+                item=item,
+                session_id=session_id,
+            )
+            if queued:
+                report.soul_candidates += 1
+            else:
+                report.soul_queue_errors += 1
+
+    # F-011 — backoff accounting at end of pass.
+    # Commit failures: bump the sidecar so finalize_stale_sessions can
+    # dead-letter after _BACKOFF_FAILURE_THRESHOLD repeated failures. Mirrors
+    # the extraction-failure backoff above — first failure anchors
+    # first_failure_at; subsequent failures increment without moving the anchor.
+    # Success: clear any prior backoff state so the next failure starts fresh.
+    if report.commit_failures > 0:
+        existing = read_backoff(persona_dir, session_id)
+        if existing is None:
+            write_backoff(
+                persona_dir,
+                session_id,
+                failures=1,
+                first_failure_at=datetime.now(UTC).isoformat(),
+            )
+        else:
+            write_backoff(
+                persona_dir,
+                session_id,
+                failures=existing["failures"] + 1,
+                first_failure_at=existing["first_failure_at"],
+            )
+    else:
+        # F-011 — success clears any prior backoff state so the next failure
+        # starts a fresh window. The wedge (if there was one) is past.
+        delete_backoff(persona_dir, session_id)
+
+    # Advance cursor only when all commits succeeded. If any commit failed,
+    # the buffer is held for retry — advancing the cursor would cause the
+    # next pass to skip the un-committed turns permanently.
+    last_ts = turns[-1].get("ts")
+    if report.commit_failures == 0 and last_ts:
+        try:
+            write_cursor(persona_dir, session_id, str(last_ts))
+        except (OSError, ValueError):
+            logger.warning(
+                "conversation_snapshot_cursor_write_failed session=%s ts=%s",
+                session_id,
+                last_ts,
+            )
+
+    logger.info(
+        "conversation_snapshot session=%s turns=%d extracted=%d committed=%d "
+        "deduped=%d soul_candidates=%d cursor=%s",
+        session_id,
+        len(turns),
+        report.extracted,
+        report.committed,
+        report.deduped,
+        report.soul_candidates,
+        last_ts,
+    )
+    return report
+
+
+def snapshot_stale_sessions(
+    persona_dir: Path,
+    *,
+    silence_minutes: float = 5.0,
+    store: MemoryStore,
+    hebbian: HebbianMatrix,
+    provider: LLMProvider,
+    embeddings: EmbeddingCache | None = None,
+    config: dict | None = None,
+) -> list[IngestReport]:
+    """Iterate active sessions; snapshot any whose last turn is past silence_minutes.
+
+    Non-destructive: buffer files and the in-memory _SESSIONS registry are
+    left intact. The caller (supervisor) should NOT call remove_session()
+    for sessions returned here — finalize_stale_sessions handles that on
+    its own 24h cadence.
+
+    Returns reports for sessions where extract_session_snapshot ran. Skips
+    fresh sessions; silently cleans up ghost buffers (files with no
+    readable turns).
+
+    Per-session try/except so a single bad session (corrupt buffer,
+    transient FS error) can't abort the whole sweep — mirrors the
+    isolation in finalize_stale_sessions.
+    """
+    reports: list[IngestReport] = []
+    for sid in list_active_sessions(persona_dir):
+        try:
+            turns = read_session(persona_dir, sid)
+            if not turns:
+                # Ghost file — clean up without generating a report.
+                delete_session_buffer(persona_dir, sid)
+                continue
+            age = session_silence_minutes(turns)
+            if age >= silence_minutes:
+                report = extract_session_snapshot(
+                    persona_dir,
+                    sid,
+                    store=store,
+                    hebbian=hebbian,
+                    provider=provider,
+                    embeddings=embeddings,
+                    config=config,
+                )
+                reports.append(report)
+        except Exception:
+            logger.exception(
+                "snapshot_stale_sessions: per-session failure session=%s; "
+                "skipping and continuing sweep",
+                sid,
+            )
+    return reports
+
+
+def finalize_stale_sessions(
+    persona_dir: Path,
+    *,
+    finalize_after_hours: float = 24.0,
+    store: MemoryStore,
+    hebbian: HebbianMatrix,
+    provider: LLMProvider,
+    embeddings: EmbeddingCache | None = None,
+    config: dict | None = None,
+) -> list[IngestReport]:
+    """Iterate active sessions; finalize any whose last turn is past
+    ``finalize_after_hours``.
+
+    "Finalize" = run one last snapshot extraction, then delete the buffer
+    and the cursor sidecar. Caller (supervisor) follows up with
+    remove_session() for each returned report.session_id.
+
+    Per-session try/except so one bad session can't abort the loop. The
+    buffer + cursor are deleted whether the final snapshot succeeded or
+    not — sessions silent past the finalize threshold are dropped
+    unconditionally; memories already in MemoryStore from earlier
+    snapshots stay.
+    """
+    threshold_minutes = finalize_after_hours * 60.0
+    reports: list[IngestReport] = []
+    for sid in list_active_sessions(persona_dir):
+        turns = read_session(persona_dir, sid)
+        if not turns:
+            delete_session_buffer(persona_dir, sid)
+            delete_cursor(persona_dir, sid)
+            delete_backoff(persona_dir, sid)
+            continue
+        age = session_silence_minutes(turns)
+        if age < threshold_minutes:
+            continue
+        try:
+            report = extract_session_snapshot(
+                persona_dir,
+                sid,
+                store=store,
+                hebbian=hebbian,
+                provider=provider,
+                embeddings=embeddings,
+                config=config,
+            )
+        except Exception:
+            logger.exception("finalize_stale_sessions: snapshot failed session=%s", sid)
+            report = IngestReport(session_id=sid)
+            report.errors += 1
+            report.commit_failures += 1
+        # Check backoff sidecar for dead-letter threshold regardless of whether
+        # commit_failures was set via the report (the snapshot backoff-guard
+        # returns early with errors>0 but commit_failures=0 when the sidecar
+        # already shows >= threshold — finalize must still dead-letter in that case).
+        backoff = read_backoff(persona_dir, sid)
+        at_threshold = (
+            backoff is not None and backoff["failures"] >= _BACKOFF_FAILURE_THRESHOLD
+        )
+        if report.commit_failures == 0 and not at_threshold:
+            delete_session_buffer(persona_dir, sid)
+            delete_cursor(persona_dir, sid)
+            delete_backoff(persona_dir, sid)
+        elif at_threshold:
+            # Buffer has failed >= threshold times — move to poison queue so it
+            # doesn't block the finalize loop indefinitely.
+            # Accepted narrow window: an extraction-wedged buffer hit by the 24h
+            # finalize tick while still inside its 10-min backoff window may be
+            # dead-lettered before a post-window recovery attempt. Recoverable
+            # (moved to poison/, not deleted); window is narrow in practice.
+            src = persona_dir / "active_conversations" / f"{sid}.jsonl"
+            poison_dir = persona_dir / "active_conversations" / "poison"
+            poison_dir.mkdir(parents=True, exist_ok=True)
+            dst = poison_dir / f"{sid}.jsonl"
+            src.rename(dst)
+            delete_cursor(persona_dir, sid)
+            delete_backoff(persona_dir, sid)
+            logger.warning(
+                "conversation_finalize_deadletter session=%s failures=%d — moved to poison/",
+                sid,
+                backoff["failures"],  # type: ignore[index]
+            )
+        else:
+            logger.warning(
+                "conversation_finalize_held session=%s commit_failures=%d — buffer retained for retry",
+                sid,
+                report.commit_failures,
+            )
+        reports.append(report)
+        logger.info(
+            "conversation_finalized session=%s silence_hours=%.2f "
+            "committed=%d deduped=%d errors=%d",
+            sid,
+            age / 60.0,
+            report.committed,
+            report.deduped,
+            report.errors,
+        )
+    return reports
+
+
+def close_stale_sessions(
+    persona_dir: Path,
+    *,
+    silence_minutes: float = 5.0,
+    store: MemoryStore,
+    hebbian: HebbianMatrix,
+    provider: LLMProvider,
+    embeddings: EmbeddingCache | None = None,
+    config: dict | None = None,
+) -> list[IngestReport]:
+    """Iterate active sessions; close any whose last turn is older than silence_minutes.
+
+    Destructive — runs the full close_session pipeline (extract + delete buffer +
+    delete cursor sidecar) for every match. Retained for explicit close/finalize
+    callers only. NOT used by bridge shutdown or dirty-start recovery (both now
+    call ``snapshot_stale_sessions`` which is non-destructive).
+
+    For the periodic non-destructive 5-minute sweep, startup recovery, or graceful
+    shutdown drain, use ``snapshot_stale_sessions`` instead.
+    For the 24h real-close cadence, use ``finalize_stale_sessions``.
+
+    Empty sessions (no turns) are cleaned up silently without running the
+    full pipeline.
+
+    Returns reports for closed sessions only (skips fresh sessions).
+    """
+    reports: list[IngestReport] = []
+    for sid in list_active_sessions(persona_dir):
+        turns = read_session(persona_dir, sid)
+        if not turns:
+            # Ghost file — clean it up without generating a report.
+            delete_session_buffer(persona_dir, sid)
+            continue
+        age = session_silence_minutes(turns)
+        if age >= silence_minutes:
+            report = close_session(
+                persona_dir,
+                sid,
+                store=store,
+                hebbian=hebbian,
+                provider=provider,
+                embeddings=embeddings,
+                config=config,
+            )
+            reports.append(report)
+    return reports

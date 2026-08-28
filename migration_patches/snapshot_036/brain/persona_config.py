@@ -1,0 +1,228 @@
+"""Per-persona configuration — provider + searcher routing.
+
+Lives at `{persona_dir}/persona_config.json`. The brain owns these choices:
+the user surfaces in the GUI are name / cadence / face-body / generated
+documents, *not* "which LLM". The framework picks `claude-cli` + `ddgs` as
+sensible defaults; a persona's owner (developer, or future GUI tooling)
+can override them in this file. CLI `--provider` / `--searcher` flags are
+developer overrides only — they don't get written back to the file.
+
+See `docs/superpowers/audits/2026-04-25-principle-alignment-audit.md`
+(PR-B) for the principle behind this split.
+"""
+
+from __future__ import annotations
+
+import json
+import logging
+import shutil
+from dataclasses import dataclass
+from datetime import UTC, datetime
+from pathlib import Path
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from brain.health.anomaly import BrainAnomaly
+
+DEFAULT_PROVIDER = "claude-cli"
+DEFAULT_SEARCHER = "ddgs"
+DEFAULT_MCP_AUDIT_LOG_LEVEL = "redacted"
+DEFAULT_MODEL = "sonnet"
+
+# Allowlists for hand-edited or migrated config files. A value outside
+# the set degrades to the default with an attempt_heal anomaly logged
+# rather than letting an invalid choice surface as a runtime crash at
+# bridge startup or heartbeat-close time. Keep these in sync with
+# brain/bridge/provider.py:get_provider and brain/search/factory.py.
+KNOWN_PROVIDERS = frozenset({"claude-cli", "ollama", "fake", "openrouter"})
+KNOWN_SEARCHERS = frozenset({"ddgs", "noop"})
+KNOWN_MODELS = frozenset({
+    # claude-cli names
+    "sonnet", "opus", "haiku",
+    # openrouter model ids (extend as needed)
+    "deepseek/deepseek-chat",
+    "deepseek/deepseek-chat-v3",
+    "deepseek/deepseek-r1",
+    "deepseek/deepseek-r1-distill-llama-70b",
+    "anthropic/claude-3.5-sonnet",
+    "anthropic/claude-3.5-haiku",
+    "anthropic/claude-3-opus",
+    "nousresearch/hermes-3-llama-3.1-405b",
+    "nousresearch/hermes-3-llama-3.1-70b",
+    "meta-llama/llama-3.1-405b-instruct",
+    "meta-llama/llama-3.1-70b-instruct",
+    "google/gemini-2.0-flash-exp",
+    "thudm/glm-4-32b",
+    "thudm/glm-4-plus",
+    "qwen/qwen-2.5-72b-instruct",
+    "x-ai/grok-2",
+})
+
+logger = logging.getLogger(__name__)
+
+
+def _default_persona_config_dict() -> dict:
+    return {
+        "provider": DEFAULT_PROVIDER,
+        "searcher": DEFAULT_SEARCHER,
+        "mcp_audit_log_level": DEFAULT_MCP_AUDIT_LOG_LEVEL,
+        "user_name": None,
+        "model": DEFAULT_MODEL,
+        "user_pronouns": None,
+    }
+
+
+@dataclass
+class PersonaConfig:
+    """Per-persona routing config — currently provider + searcher.
+
+    Future fields (face, body, voice presets) will land here too — the
+    file is the persona's "who am I" surface, separate from the heartbeat's
+    internal calibration. Hand-edited config with wrong-type values
+    degrades to defaults rather than crashing the CLI.
+
+    user_name: name the persona's user/owner goes by in conversation.
+    Used to disambiguate transcript extraction so the LLM doesn't
+    conflate the user with historical figures referenced in soul
+    crystallizations or memory context (Bug A from the 2026-05-05
+    audit-3: extracted memories attributed Hana's actions to Jordan
+    because both names appeared in the transcript via assistant
+    references). When None, the extractor falls back to the legacy
+    "user:" / "assistant:" labels — backward-compatible for forkers
+    who haven't set the field yet.
+    """
+
+    provider: str = DEFAULT_PROVIDER
+    searcher: str = DEFAULT_SEARCHER
+    mcp_audit_log_level: str = DEFAULT_MCP_AUDIT_LOG_LEVEL
+    user_name: str | None = None
+    model: str = DEFAULT_MODEL
+    last_opened_at: str | None = None  # ISO8601 with Z suffix; written by bridge on startup
+    user_pronouns: dict | None = None  # expanded PronounSet dict; None → she/her at use-time
+
+    def touch_last_opened(self) -> None:
+        """Set last_opened_at to current UTC time, ISO8601 with Z suffix."""
+        self.last_opened_at = datetime.now(UTC).isoformat().replace("+00:00", "Z")
+
+    @classmethod
+    def _parse_data(cls, data: object) -> PersonaConfig:
+        """Build instance from already-parsed JSON data (dict expected)."""
+        if not isinstance(data, dict):
+            return cls()
+        provider_raw = data.get("provider", DEFAULT_PROVIDER)
+        searcher_raw = data.get("searcher", DEFAULT_SEARCHER)
+        audit_raw = data.get("mcp_audit_log_level", DEFAULT_MCP_AUDIT_LOG_LEVEL)
+        user_name_raw = data.get("user_name")
+        provider_str = (
+            provider_raw if isinstance(provider_raw, str) and provider_raw else DEFAULT_PROVIDER
+        )
+        provider = provider_str if provider_str in KNOWN_PROVIDERS else DEFAULT_PROVIDER
+        if provider != provider_str:
+            logger.warning(
+                "PersonaConfig: unknown provider %r — falling back to %r",
+                provider_str,
+                DEFAULT_PROVIDER,
+            )
+        searcher_str = (
+            searcher_raw if isinstance(searcher_raw, str) and searcher_raw else DEFAULT_SEARCHER
+        )
+        searcher = searcher_str if searcher_str in KNOWN_SEARCHERS else DEFAULT_SEARCHER
+        if searcher != searcher_str:
+            logger.warning(
+                "PersonaConfig: unknown searcher %r — falling back to %r",
+                searcher_str,
+                DEFAULT_SEARCHER,
+            )
+        audit_level = audit_raw.strip().lower() if isinstance(audit_raw, str) else ""
+        if audit_level not in {"off", "metadata", "redacted", "full"}:
+            audit_level = DEFAULT_MCP_AUDIT_LOG_LEVEL
+        user_name = (
+            user_name_raw.strip()
+            if isinstance(user_name_raw, str) and user_name_raw.strip()
+            else None
+        )
+        user_pronouns_raw = data.get("user_pronouns")
+        user_pronouns = user_pronouns_raw if isinstance(user_pronouns_raw, dict) else None
+        model_raw = data.get("model", DEFAULT_MODEL)
+        model_str = model_raw if isinstance(model_raw, str) and model_raw else DEFAULT_MODEL
+        if model_str in KNOWN_MODELS:
+            model = model_str
+        else:
+            logger.warning(
+                "PersonaConfig: unknown model %r — falling back to %r",
+                model_str,
+                DEFAULT_MODEL,
+            )
+            model = DEFAULT_MODEL
+        last_opened_at_raw = data.get("last_opened_at")
+        last_opened_at = (
+            last_opened_at_raw
+            if isinstance(last_opened_at_raw, str) and last_opened_at_raw.strip()
+            else None
+        )
+        return cls(
+            provider=provider,
+            searcher=searcher,
+            mcp_audit_log_level=audit_level,
+            user_name=user_name,
+            model=model,
+            last_opened_at=last_opened_at,
+            user_pronouns=user_pronouns,
+        )
+
+    @classmethod
+    def load_with_anomaly(cls, path: Path) -> tuple[PersonaConfig, BrainAnomaly | None]:
+        """Load with self-healing from .bak rotation if corrupt.
+
+        Returns (instance, anomaly_or_None). Missing file → defaults, no anomaly.
+        Corrupt file → quarantine + restore from .bak1/.bak2/.bak3 or reset.
+        """
+        from brain.health.attempt_heal import attempt_heal
+
+        data, anomaly = attempt_heal(path, _default_persona_config_dict)
+        return cls._parse_data(data), anomaly
+
+    @classmethod
+    def load(cls, path: Path) -> PersonaConfig:
+        instance, anomaly = cls.load_with_anomaly(path)
+        if anomaly is not None:
+            logger.warning(
+                "PersonaConfig anomaly detected: %s action=%s file=%s",
+                anomaly.kind,
+                anomaly.action,
+                anomaly.file,
+            )
+        return instance
+
+    def save(self, path: Path) -> None:
+        """Atomic save via .bak rotation (save_with_backup)."""
+        from brain.health.adaptive import compute_treatment
+        from brain.health.attempt_heal import save_with_backup
+
+        payload = {
+            "provider": self.provider,
+            "searcher": self.searcher,
+            "mcp_audit_log_level": self.mcp_audit_log_level,
+            "user_name": self.user_name,
+            "model": self.model,
+            "last_opened_at": self.last_opened_at,
+            "user_pronouns": self.user_pronouns,
+        }
+        treatment = compute_treatment(path.parent, path.name)
+        save_with_backup(path, payload, backup_count=treatment.backup_count)
+        if treatment.verify_after_write:
+            self._verify_after_write(path)
+
+    def _verify_after_write(self, path: Path) -> None:
+        """Re-read the written file; if corrupt, restore from .bak1."""
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            if not isinstance(data, dict):
+                raise ValueError("non-dict payload after write")
+        except (json.JSONDecodeError, ValueError, OSError):
+            logger.error(
+                "PersonaConfig verify_after_write failed for %s; restoring from .bak1", path
+            )
+            bak1 = path.with_name(path.name + ".bak1")
+            if bak1.exists():
+                shutil.copy2(bak1, path)
