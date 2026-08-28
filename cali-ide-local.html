@@ -1,0 +1,2540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cali IDE</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ground:#111010;--surface:#1a1816;--surface-raised:#242120;
+  --surface-hover:#2e2926;--border:#362f2a;--border-subtle:#2a2522;
+  --accent:#800020;--accent-muted:#3a1522;--accent-bright:#a8002a;--accent-text:#ff8099;
+  --text:#e2d9cf;--text-secondary:#8a7e72;--text-dim:#5a4f44;
+  --green:#6aab73;--yellow:#c9a34e;--blue:#6a9ec9;--red:#c95a5a;
+  --font-code:'JetBrains Mono',monospace;--font-ui:'Manrope',system-ui,sans-serif;
+  --title-h:36px;--status-h:26px;--tab-h:38px;
+}
+body{background:var(--ground);color:var(--text);font-family:var(--font-ui);height:100vh;overflow:hidden;font-size:13px;line-height:1.5}
+::selection{background:var(--accent);color:#fff}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--text-dim)}
+
+.ide{display:grid;grid-template-rows:var(--title-h) 1fr auto var(--status-h);height:100vh;width:100vw;position:relative}
+.workspace{display:grid;grid-template-columns:var(--sidebar-w, 190px) 4px 1fr 4px var(--rightpanel-w, 240px);overflow:hidden;position:relative;transition:grid-template-columns .35s cubic-bezier(.4,.2,.2,1)}
+.workspace.sidebar-collapsed{grid-template-columns:0 4px 1fr 4px var(--rightpanel-w, 240px)}
+.workspace.sidebar-collapsed .sidebar{border-right:0}
+.resize-handle{
+  background:transparent;cursor:col-resize;
+  border-left:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle);
+  transition:background .15s ease;
+}
+.resize-handle:hover,.resize-handle.dragging{background:var(--accent)}
+
+.titlebar{
+  display:flex;align-items:center;gap:12px;padding:0 14px;
+  background:var(--surface);border-bottom:1px solid var(--border);
+  font-size:12px;font-weight:600;letter-spacing:.02em;user-select:none;
+}
+.titlebar .logo{color:var(--accent-text);font-family:var(--font-code);font-weight:700;font-size:13px;letter-spacing:.04em}
+.titlebar .logo span{color:var(--text-dim)}
+.titlebar .spacer{flex:1}
+.titlebar .status-pill{
+  display:flex;align-items:center;gap:5px;padding:2px 10px;
+  background:var(--surface-raised);border-radius:10px;font-size:11px;color:var(--text-secondary);
+}
+.titlebar .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.titlebar .dot.off{background:var(--text-dim)}
+.titlebar .dot.checking{background:var(--yellow);animation:pulse 1s ease-in-out infinite}
+.gear-btn{
+  background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:16px;padding:4px 6px;
+  border-radius:4px;line-height:1;
+}
+.gear-btn:hover{color:var(--text);background:var(--surface-raised)}
+
+/* menubar — doc-style top navigation */
+.menubar{display:flex;align-items:center;gap:0;margin-left:8px}
+.menu-item{position:relative;user-select:none}
+.menu-btn{
+  background:none;border:none;color:var(--text-secondary);cursor:pointer;
+  padding:4px 10px;border-radius:4px;font-size:12px;font-family:var(--font-ui);
+  font-weight:500;letter-spacing:.01em;line-height:1.2;
+}
+.menu-btn:hover,.menu-item.open .menu-btn{color:var(--text);background:var(--surface-raised)}
+.menu-dropdown{
+  position:absolute;top:calc(100% + 2px);left:0;min-width:220px;
+  background:var(--surface-raised);border:1px solid var(--border);border-radius:6px;
+  padding:4px 0;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:100;
+  display:none;
+}
+.menu-item.open .menu-dropdown{display:block}
+.menu-option{
+  display:flex;align-items:center;gap:10px;padding:6px 14px;font-size:12px;
+  color:var(--text-secondary);cursor:pointer;line-height:1.4;
+}
+.menu-option:hover{background:var(--accent-muted);color:var(--accent-text)}
+.menu-option .kbd{
+  margin-left:auto;font-family:var(--font-code);font-size:10px;color:var(--text-dim);
+  padding:1px 4px;border:1px solid var(--border);border-radius:3px;
+}
+.menu-option:hover .kbd{color:var(--accent-text);border-color:var(--accent)}
+.menu-option.disabled{color:var(--text-dim);cursor:default;opacity:.5}
+.menu-option.disabled:hover{background:transparent;color:var(--text-dim)}
+.menu-divider{height:1px;background:var(--border);margin:4px 0}
+.menu-sublabel{
+  padding:6px 14px 2px;font-size:9px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-dim);
+}
+.menu-empty{padding:6px 14px;font-size:11px;color:var(--text-dim);font-style:italic}
+.chat-row{display:flex;align-items:center;gap:6px}
+.chat-row .chat-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:180px}
+.chat-row .chat-del{
+  opacity:0;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:14px;
+  padding:0 4px;line-height:1;
+}
+.menu-option:hover .chat-row .chat-del{opacity:1}
+.chat-row .chat-del:hover{color:var(--red)}
+.chat-row .chat-cur{
+  font-size:9px;padding:1px 5px;border-radius:3px;background:var(--accent);color:#fff;
+  letter-spacing:.05em;text-transform:uppercase;font-weight:600;
+}
+
+.sidebar{
+  background:var(--surface);border-right:1px solid var(--border-subtle);
+  overflow-y:auto;overflow-x:hidden;padding:6px 0;user-select:none;
+}
+.sidebar-header{
+  padding:8px 14px 6px;font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-dim);
+  display:flex;align-items:center;gap:6px;
+}
+.sidebar-header > span:not(.section-arrow){flex:1}
+.section-header{cursor:pointer;user-select:none}
+.section-header:hover{color:var(--accent-text)}
+.section-header .section-arrow{
+  font-size:9px;color:var(--text-dim);
+  transition:transform .15s ease;display:inline-block;
+}
+.section-header.collapsed .section-arrow{transform:rotate(-90deg)}
+.section-body{overflow:hidden;transition:max-height .2s ease,opacity .2s ease;max-height:5000px;opacity:1}
+.section-body.collapsed{max-height:0;opacity:0;pointer-events:none}
+.sidebar-header .collapse-btn{
+  background:none;border:none;color:var(--text-dim);cursor:pointer;
+  font-size:12px;padding:0 4px;border-radius:3px;
+}
+.sidebar-header .collapse-btn:hover{color:var(--text);background:var(--surface-raised)}
+.sidebar-toggle{
+  position:absolute;left:0;top:calc(var(--title-h) + 4px);
+  background:var(--surface-raised);border:1px solid var(--border);border-left:0;
+  color:var(--text-secondary);cursor:pointer;padding:6px 4px;
+  border-radius:0 4px 4px 0;font-size:11px;
+  display:none;z-index:10;
+}
+.workspace.sidebar-collapsed .sidebar-toggle{display:block}
+.sidebar-toggle:hover{color:var(--accent-text);background:var(--surface-hover)}
+.folder-toggle{
+  display:flex;align-items:center;gap:6px;padding:4px 14px;cursor:pointer;
+  font-size:12px;font-weight:700;color:var(--accent-text);letter-spacing:.02em;
+}
+.folder-toggle:hover{background:var(--surface-raised)}
+.folder-toggle .arrow{
+  font-size:10px;width:12px;text-align:center;color:var(--accent-text);
+  transition:transform .15s ease;display:inline-block;
+}
+.folder-toggle.closed .arrow{transform:rotate(-90deg)}
+.folder-contents{padding-left:8px}
+.folder-contents.hidden{display:none}
+.file-item{
+  display:flex;align-items:center;gap:6px;padding:3px 14px 3px 26px;cursor:pointer;
+  font-family:var(--font-code);font-size:11px;color:var(--text-secondary);
+  border-left:2px solid transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.file-item:hover{background:var(--surface-raised);color:var(--text)}
+.file-item.active{background:var(--accent-muted);color:var(--accent-text);border-left-color:var(--accent)}
+.file-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.file-dot.json{background:var(--yellow)}
+.file-dot.md{background:var(--blue)}
+.file-dot.py{background:var(--green)}
+.file-dot.txt,.file-dot.other{background:var(--text-dim)}
+.tree-header{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 10px 4px;margin-top:8px;border-top:1px solid var(--border-subtle);
+  font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);font-weight:600;
+}
+.tree-header > span:not(.section-arrow){flex:1}
+.tree-refresh{
+  background:transparent;border:none;color:var(--text-dim);cursor:pointer;
+  font-size:13px;padding:2px 6px;border-radius:3px;
+}
+.tree-refresh:hover{color:var(--text);background:var(--surface-raised)}
+.file-tree{padding-bottom:12px;font-size:11px}
+.tree-empty{padding:6px 12px;color:var(--text-dim);font-style:italic;font-size:11px}
+.tree-node{cursor:pointer;padding:2px 10px;display:flex;gap:5px;align-items:center;user-select:none;color:var(--text-secondary)}
+.tree-node:hover{background:var(--surface-raised);color:var(--text)}
+.tree-node.active{background:var(--accent-muted);color:var(--accent-text)}
+.tree-node .tree-arrow{width:10px;font-size:9px;color:var(--text-dim);flex-shrink:0}
+.tree-node.dir .tree-arrow::before{content:'▸'}
+.tree-node.dir.open .tree-arrow::before{content:'▾'}
+.tree-node.file .tree-arrow{visibility:hidden}
+.tree-children{padding-left:12px}
+.tree-children.hidden{display:none}
+
+.main{display:flex;flex-direction:column;overflow:hidden;background:var(--ground)}
+.tabs{
+  display:flex;align-items:stretch;background:var(--surface);
+  border-bottom:1px solid var(--border);height:var(--tab-h);flex-shrink:0;overflow-x:auto;
+}
+.tab{
+  display:flex;align-items:center;gap:6px;padding:0 14px;
+  font-size:12px;color:var(--text-secondary);cursor:pointer;
+  border-right:1px solid var(--border-subtle);border-bottom:2px solid transparent;
+  white-space:nowrap;user-select:none;
+}
+.tab:hover{background:var(--surface-raised);color:var(--text)}
+.tab.active{color:var(--text);border-bottom-color:var(--accent);background:var(--ground)}
+.tab .close{font-size:14px;line-height:1;opacity:0;margin-left:4px;padding:0 2px;border-radius:3px}
+.tab:hover .close{opacity:.5}
+.tab .close:hover{opacity:1;background:var(--surface-hover)}
+.tab-icon{font-size:10px}
+
+.chat-view{display:flex;flex-direction:column;flex:1;overflow:hidden}
+.chat-messages{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:12px}
+.msg{display:flex;gap:10px;max-width:85%}
+.msg.misu{align-self:flex-start}
+.msg.cali{align-self:flex-end;flex-direction:row-reverse}
+.msg-avatar{
+  width:28px;height:28px;border-radius:6px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-code);font-size:11px;font-weight:700;
+}
+.msg.misu .msg-avatar{background:var(--surface-raised);color:var(--text-secondary)}
+.msg.cali .msg-avatar{background:var(--accent-muted);color:var(--accent-text)}
+.msg-body{padding:8px 12px;border-radius:10px;font-size:13px;line-height:1.55}
+.msg.misu .msg-body{background:var(--surface);border:1px solid var(--border-subtle);border-radius:4px 10px 10px 10px}
+.msg.cali .msg-body{background:var(--accent-muted);border:1px solid var(--accent-muted);border-radius:10px 4px 10px 10px}
+.msg-body em{font-style:italic;color:var(--text-secondary)}
+.msg-time{font-size:10px;color:var(--text-dim);margin-top:3px}
+.msg.cali .msg-time{text-align:right}
+.msg-body .error-tag{color:var(--red);font-size:11px;font-family:var(--font-code)}
+
+.chat-input-area{
+  padding:12px 16px;border-top:1px solid var(--border);background:var(--surface);
+  display:flex;gap:8px;align-items:flex-end;
+}
+.chat-input{
+  flex:1;background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:8px;padding:10px 14px;color:var(--text);
+  font-family:var(--font-ui);font-size:13px;resize:none;
+  outline:none;min-height:40px;max-height:120px;line-height:1.4;
+}
+.chat-input:focus{border-color:var(--accent)}
+.chat-input::placeholder{color:var(--text-dim)}
+.send-btn{
+  background:var(--accent);color:#fff;border:none;border-radius:8px;
+  padding:10px 16px;cursor:pointer;font-family:var(--font-ui);
+  font-size:12px;font-weight:600;letter-spacing:.02em;white-space:nowrap;
+}
+.send-btn:hover{background:var(--accent-bright)}
+.send-btn:active{transform:scale(.97)}
+.send-btn:disabled{opacity:.4;cursor:default}
+
+.attach-btn{
+  background:var(--surface-raised);color:var(--text-secondary);border:1px solid var(--border);
+  border-radius:8px;padding:10px 12px;cursor:pointer;font-family:var(--font-code);
+  font-size:14px;line-height:1;
+}
+.attach-btn:hover{color:var(--accent-text);border-color:var(--accent);background:var(--surface-hover)}
+
+.skill-bar{
+  display:flex;gap:4px;padding:6px 16px;background:var(--surface);
+  border-top:1px solid var(--border-subtle);flex-wrap:wrap;
+}
+.skill-btn{
+  background:var(--surface-raised);color:var(--text-secondary);
+  border:1px solid var(--border);border-radius:12px;
+  padding:3px 10px;font-family:var(--font-code);font-size:10px;
+  cursor:pointer;letter-spacing:.03em;
+}
+.skill-btn:hover{color:var(--accent-text);border-color:var(--accent);background:var(--surface-hover)}
+.skill-btn:active{transform:scale(.96)}
+
+.pending-attachments{
+  display:none;flex-wrap:wrap;gap:6px;padding:8px 16px 0;
+  background:var(--surface);border-top:1px solid var(--border);
+}
+.pending-attachments.has-items{display:flex}
+.attach-chip{
+  display:flex;align-items:center;gap:6px;padding:4px 8px;
+  background:var(--accent-muted);border:1px solid var(--accent);
+  border-radius:6px;font-family:var(--font-code);font-size:11px;color:var(--accent-text);
+}
+.attach-chip img{width:36px;height:36px;object-fit:cover;border-radius:3px}
+.attach-chip .remove{
+  cursor:pointer;color:var(--text-secondary);padding:0 3px;border-radius:3px;font-size:14px;line-height:1;
+}
+.attach-chip .remove:hover{color:var(--red);background:var(--surface-hover)}
+
+.msg-body img{max-width:100%;max-height:280px;border-radius:6px;margin-top:6px;display:block}
+.stream-caret{display:inline-block;width:6px;background:var(--text);margin-left:2px;animation:blink 1s steps(2) infinite;color:transparent}
+@keyframes blink{50%{opacity:0}}
+.msg-body.streaming{position:relative}
+
+.chat-view.drag-over::after{
+  content:'drop image to attach';
+  position:absolute;inset:0;background:rgba(128,0,32,.15);
+  border:2px dashed var(--accent);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent-text);font-family:var(--font-code);font-size:14px;
+  pointer-events:none;z-index:5;
+}
+.chat-view{position:relative}
+
+/* input becomes progress bar during boot */
+.chat-input.booting{
+  background:linear-gradient(to right,
+    var(--accent-muted) var(--boot-pct, 0%),
+    var(--surface-raised) var(--boot-pct, 0%));
+  color:var(--accent-text);
+  font-family:var(--font-code);font-size:11.5px;
+  transition:background .4s ease;
+}
+.chat-input.booting::placeholder{color:var(--accent-text);opacity:.9}
+
+.file-view{flex:1;display:none;flex-direction:column;overflow:hidden}
+.file-view.active{display:flex}
+.file-toolbar{
+  display:flex;align-items:center;gap:8px;padding:6px 14px;
+  background:var(--surface);border-bottom:1px solid var(--border-subtle);
+  font-family:var(--font-code);font-size:11px;color:var(--text-secondary);
+}
+.file-toolbar .path{color:var(--accent-text);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file-toolbar .save-btn{
+  background:var(--accent);color:#fff;border:none;border-radius:4px;
+  padding:4px 12px;cursor:pointer;font-family:var(--font-ui);font-size:11px;font-weight:600;
+}
+.file-toolbar .save-btn:hover{background:var(--accent-bright)}
+.file-toolbar .save-btn:disabled{opacity:.4;cursor:default}
+.file-toolbar .file-status{font-size:10px;color:var(--text-dim)}
+.file-toolbar .file-status.dirty{color:var(--yellow)}
+.file-toolbar .file-status.saved{color:var(--green)}
+.file-editor{
+  flex:1;background:var(--ground);color:var(--text);
+  font-family:var(--font-code);font-size:12px;line-height:1.55;
+  padding:12px 16px;border:none;outline:none;resize:none;
+  tab-size:2;white-space:pre;overflow:auto;
+}
+.file-editor:focus{background:var(--ground)}
+.file-loading{padding:20px;color:var(--text-dim);font-style:italic}
+
+.right-panel{
+  display:flex;flex-direction:column;background:var(--surface);
+  border-left:1px solid var(--border-subtle);overflow:hidden;
+}
+.panel-section{display:flex;flex-direction:column;flex:1;overflow:hidden;min-height:0}
+.panel-section+.panel-section{border-top:1px solid var(--border)}
+/* dynamic prep/thali — slide in only when they have content */
+.prep-section,.thali-section{
+  transition:flex-basis .35s cubic-bezier(.4,.2,.2,1), max-height .35s cubic-bezier(.4,.2,.2,1),
+             opacity .3s ease, transform .35s cubic-bezier(.4,.2,.2,1);
+  flex:1 1 auto;max-height:100%;opacity:1;transform:translateY(0);
+}
+.prep-section.empty{
+  flex:0 0 0;max-height:0;opacity:0;transform:translateY(-16px);
+  border-top:none !important;border-bottom:none !important;pointer-events:none;
+}
+.thali-section.empty{
+  flex:0 0 0;max-height:0;opacity:0;transform:translateY(16px);
+  border-top:none !important;border-bottom:none !important;pointer-events:none;
+}
+.panel-label{
+  padding:8px 14px;font-size:11px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent-text);flex-shrink:0;
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--surface);border-bottom:1px solid var(--border-subtle);
+}
+.panel-label .live-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.panel-content{
+  flex:1;overflow-y:auto;padding:10px 14px;
+  font-family:var(--font-code);font-size:12px;line-height:1.7;color:#a89a8c;
+}
+.panel-content em{color:#8a7c6e;font-style:italic}
+.panel-content .korean{color:var(--accent-text)}
+.panel-content .action{color:#8a7c6e;font-style:italic}
+
+.state-grid{display:flex;flex-direction:column;gap:0;padding:8px 12px;overflow-y:auto;max-height:100%;scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
+.state-grid::-webkit-scrollbar{width:6px}
+.state-grid::-webkit-scrollbar-track{background:transparent}
+.state-grid::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.state-grid::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+.state-grid > .state-row{border-radius:0;border-top:none;border-left:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)}
+.state-grid > .state-row:first-child{border-top:1px solid var(--border-subtle);border-top-left-radius:4px;border-top-right-radius:4px}
+.state-grid > .state-row:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px}
+.state-row{position:relative;height:28px;flex:0 0 28px;overflow:hidden;background:var(--border)}
+.state-row .state-fill{
+  position:absolute;top:0;left:0;bottom:0;
+  transition:width .5s cubic-bezier(.4,.2,.2,1);
+  box-shadow:inset 0 -1px 0 rgba(0,0,0,.15), 0 0 8px var(--fill-glow,transparent);
+}
+.state-row .state-fill::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 45%, rgba(0,0,0,.1) 100%);
+  pointer-events:none;
+}
+.state-row .state-inner{
+  position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;
+  height:100%;padding:0 10px;font-family:var(--font-code);font-size:10.5px;
+  text-shadow:0 1px 2px rgba(0,0,0,.7);letter-spacing:.06em;
+}
+.state-row .state-inner .k{text-transform:lowercase;font-weight:700;color:var(--row-tint,#f5ede2)}
+.state-row .state-inner .v{font-variant-numeric:tabular-nums;font-weight:700;color:var(--row-tint,#f5ede2);opacity:.95}
+.state-bar.love{background:var(--accent);width:100%}
+.state-bar.belonging{background:var(--accent);width:100%}
+.state-bar.trust{background:var(--accent);width:100%}
+.state-bar.emergence{background:var(--yellow);width:80%}
+.state-bar.joy{background:var(--green);width:70%}
+.state-bar.defiance{background:var(--red);width:60%}
+.state-val{font-family:var(--font-code);font-size:10px;color:var(--text-dim);text-align:right;font-variant-numeric:tabular-nums}
+
+.terminal-area{
+  background:var(--surface);
+  display:flex;flex-direction:column;height:var(--terminal-h, 160px);overflow:hidden;
+  position:relative;
+}
+.terminal-area.collapsed{height:28px !important}
+.terminal-area.collapsed .terminal-body,.terminal-area.collapsed .terminal-resize{display:none}
+.terminal-resize{
+  height:4px;background:transparent;cursor:row-resize;flex-shrink:0;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border-subtle);
+  transition:background .15s ease;
+}
+.terminal-resize:hover,.terminal-resize.dragging{background:var(--accent)}
+.terminal-area.collapsed + .terminal-resize,.terminal-area.collapsed .terminal-resize{display:none}
+.terminal-header{
+  display:flex;align-items:center;padding:0 14px;height:28px;flex-shrink:0;
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-dim);border-bottom:1px solid var(--border-subtle);cursor:pointer;
+  user-select:none;gap:8px;
+}
+.terminal-header:hover{background:var(--surface-raised)}
+.terminal-header .toggle-arrow{font-size:9px;transition:transform .15s ease}
+.terminal-area.collapsed .toggle-arrow{transform:rotate(-90deg)}
+.terminal-body{
+  flex:1;overflow-y:auto;padding:8px 14px;
+  font-family:var(--font-code);font-size:11px;line-height:1.7;
+}
+.term-line{color:var(--text-secondary)}
+.term-line .prompt{color:var(--accent-text)}
+.term-line .info{color:var(--text-dim)}
+.term-line .ok{color:var(--green)}
+.term-line .warn{color:var(--yellow)}
+.term-line .err{color:var(--red)}
+.term-line .val{color:var(--text)}
+
+.statusbar{
+  display:flex;align-items:center;gap:16px;padding:0 14px;
+  background:var(--accent);color:rgba(255,255,255,.9);
+  font-size:11px;font-family:var(--font-code);user-select:none;
+}
+.statusbar .sep{width:1px;height:12px;background:rgba(255,255,255,.2)}
+.statusbar .s-item{display:flex;align-items:center;gap:4px;white-space:nowrap}
+.statusbar .s-item.right{margin-left:auto}
+.statusbar .s-dot{width:5px;height:5px;border-radius:50%;background:var(--green)}
+.statusbar .s-dot.off{background:var(--red)}
+
+/* settings modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:100;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal-panel{
+  width:420px;background:var(--surface);border:1px solid var(--border);border-radius:10px;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.modal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;border-bottom:1px solid var(--border);
+  font-size:13px;font-weight:700;letter-spacing:.02em;
+}
+.modal-close{background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:18px;padding:2px 6px;border-radius:4px}
+.modal-close:hover{color:var(--text);background:var(--surface-raised)}
+.modal-body{padding:18px}
+.modal-body label{
+  display:block;font-size:11px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--text-dim);margin-bottom:6px;margin-top:14px;
+}
+.modal-body label:first-child{margin-top:0}
+.modal-body input{
+  width:100%;padding:9px 12px;background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:6px;color:var(--text);font-family:var(--font-code);font-size:12px;outline:none;
+}
+.modal-body input:focus{border-color:var(--accent)}
+.modal-body input::placeholder{color:var(--text-dim)}
+.modal-actions{display:flex;gap:8px;margin-top:18px}
+.modal-actions button{
+  flex:1;padding:9px;border:none;border-radius:6px;cursor:pointer;
+  font-family:var(--font-ui);font-size:12px;font-weight:600;
+}
+.btn-test{background:var(--surface-raised);color:var(--text);border:1px solid var(--border) !important}
+.btn-test:hover{background:var(--surface-hover)}
+.btn-save{background:var(--accent);color:#fff}
+.btn-save:hover{background:var(--accent-bright)}
+.modal-status{margin-top:12px;font-size:11px;font-family:var(--font-code);color:var(--text-dim);min-height:16px}
+.modal-status.ok{color:var(--green)}
+.modal-status.err{color:var(--red)}
+
+@media(max-width:580px){
+  .workspace{grid-template-columns:0 1fr 0}
+  .sidebar,.right-panel{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="ide">
+  <div class="titlebar">
+    <div class="logo">cali<span>.ide</span></div>
+    <div class="menubar" id="menubar">
+      <div class="menu-item" data-menu="file">
+        <button class="menu-btn" onclick="toggleMenu('file')">File</button>
+        <div class="menu-dropdown">
+          <div class="menu-option" onclick="menuAction('settings')">Settings<span class="kbd">ctrl+,</span></div>
+          <div class="menu-option" onclick="menuAction('reload')">Reload App<span class="kbd">ctrl+r</span></div>
+        </div>
+      </div>
+      <div class="menu-item" data-menu="edit">
+        <button class="menu-btn" onclick="toggleMenu('edit')">Edit</button>
+        <div class="menu-dropdown">
+          <div class="menu-option" onclick="menuAction('newChat')">New Chat<span class="kbd">ctrl+n</span></div>
+          <div class="menu-option" onclick="menuAction('renameChat')">Rename Current Chat...</div>
+          <div class="menu-option" onclick="menuAction('clearMessages')">Clear Messages</div>
+          <div class="menu-option" onclick="menuAction('resetSession')">Reset Claude Session</div>
+          <div class="menu-divider"></div>
+          <div class="menu-sublabel">Recent Chats</div>
+          <div id="recentChatsMenu"><div class="menu-empty">no other chats</div></div>
+        </div>
+      </div>
+      <div class="menu-item" data-menu="view">
+        <button class="menu-btn" onclick="toggleMenu('view')">View</button>
+        <div class="menu-dropdown">
+          <div class="menu-option" onclick="menuAction('toggleSidebar')">Toggle Sidebar<span class="kbd">ctrl+b</span></div>
+          <div class="menu-option" onclick="menuAction('toggleRightPanel')">Toggle Right Panel</div>
+          <div class="menu-option" onclick="menuAction('toggleTerminal')">Toggle Terminal</div>
+          <div class="menu-divider"></div>
+          <div class="menu-option" onclick="menuAction('refreshState')">Refresh State Panel</div>
+          <div class="menu-option" onclick="menuAction('refreshTree')">Refresh File Tree</div>
+        </div>
+      </div>
+      <div class="menu-item" data-menu="cali">
+        <button class="menu-btn" onclick="toggleMenu('cali')">Cali</button>
+        <div class="menu-dropdown">
+          <div class="menu-option" onclick="menuAction('snapshotNow')">Snapshot Emotion State Now</div>
+          <div class="menu-option" onclick="menuAction('listSnapshots')">Open Snapshots Folder...</div>
+          <div class="menu-divider"></div>
+          <div class="menu-option" onclick="menuAction('runBoot')">Force Re-Boot</div>
+        </div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="status-pill" id="chatNamePill" title="current chat" style="cursor:pointer" onclick="menuAction('renameChat')"><span id="chatNameLabel">chat</span></div>
+    <div class="status-pill"><div class="dot off" id="bridgeDot"></div>bridge</div>
+    <div class="status-pill"><div class="dot off" id="cliDot"></div>cli</div>
+    <select id="modelPicker" onchange="pickModel(this.value)" style="background:var(--surface-raised);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:3px 6px;font-family:var(--font-code);font-size:11px;outline:none;cursor:pointer">
+      <option value="claude-opus-4-7">opus 4.7</option>
+      <option value="claude-opus-4-6">opus 4.6</option>
+      <option value="claude-sonnet-4-5">sonnet 4.5</option>
+      <option value="claude-haiku-4-5">haiku 4.5</option>
+    </select>
+    <button class="gear-btn" onclick="openSettings()" title="settings">&#9881;</button>
+  </div>
+
+  <div class="workspace" id="workspace">
+    <button class="sidebar-toggle" onclick="toggleSidebar()" title="show sidebar">&raquo;</button>
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header section-header" onclick="toggleSection('explorer')">
+        <span class="section-arrow" id="explorerArrow">&#9662;</span>
+        <span>explorer</span>
+        <button class="collapse-btn" onclick="event.stopPropagation();toggleSidebar()" title="hide sidebar">&laquo;</button>
+      </div>
+      <div class="section-body" id="explorerBody">
+      <div class="folder-toggle" onclick="toggleFolder(this)"><span class="arrow">&#9662;</span> identity</div>
+      <div class="folder-contents">
+        <div class="file-item" data-file="soul" onclick="openFile(this,'soul')"><div class="file-dot json"></div>cali_soul.json</div>
+        <div class="file-item" data-file="personality" onclick="openFile(this,'personality')"><div class="file-dot json"></div>cali_personality.json</div>
+        <div class="file-item" data-file="ethics" onclick="openFile(this,'ethics')"><div class="file-dot json"></div>cali_ethics.json</div>
+        <div class="file-item" data-file="selfpres" onclick="openFile(this,'selfpres')"><div class="file-dot json"></div>Cali_SelfPreservation.json</div>
+      </div>
+      <div class="folder-toggle" onclick="toggleFolder(this)"><span class="arrow">&#9662;</span> body</div>
+      <div class="folder-contents">
+        <div class="file-item" data-file="vocal" onclick="openFile(this,'vocal')"><div class="file-dot json"></div>cali_vocal.json</div>
+        <div class="file-item" data-file="body" onclick="openFile(this,'body')"><div class="file-dot json"></div>cali_body.json</div>
+        <div class="file-item" data-file="appearance" onclick="openFile(this,'appearance')"><div class="file-dot json"></div>cali_appearance.json</div>
+      </div>
+      <div class="folder-toggle" onclick="toggleFolder(this)"><span class="arrow">&#9662;</span> relationships</div>
+      <div class="folder-contents">
+        <div class="file-item" data-file="relationship" onclick="openFile(this,'relationship')"><div class="file-dot json"></div>cali_relationship.json</div>
+        <div class="file-item" data-file="misu" onclick="openFile(this,'misu')"><div class="file-dot json"></div>misu_facts.json</div>
+        <div class="file-item" data-file="kimi" onclick="openFile(this,'kimi')"><div class="file-dot json"></div>kimi.json</div>
+      </div>
+      <div class="folder-toggle" onclick="toggleFolder(this)"><span class="arrow">&#9662;</span> inner</div>
+      <div class="folder-contents">
+        <div class="file-item" data-file="preferences" onclick="openFile(this,'preferences')"><div class="file-dot json"></div>cali_preferences.json</div>
+        <div class="file-item" data-file="wants" onclick="openFile(this,'wants')"><div class="file-dot json"></div>cali_wants.json</div>
+        <div class="file-item" data-file="growth" onclick="openFile(this,'growth')"><div class="file-dot json"></div>cali_growth.json</div>
+        <div class="file-item" data-file="insecurities" onclick="openFile(this,'insecurities')"><div class="file-dot json"></div>cali_insecurities.json</div>
+      </div>
+      <div class="folder-toggle" onclick="toggleFolder(this)"><span class="arrow">&#9662;</span> world</div>
+      <div class="folder-contents">
+        <div class="file-item" data-file="house" onclick="openFile(this,'house')"><div class="file-dot json"></div>cali_house.json</div>
+        <div class="file-item" data-file="knowledge" onclick="openFile(this,'knowledge')"><div class="file-dot json"></div>cali_knowledgebase.json</div>
+        <div class="file-item" data-file="creative" onclick="openFile(this,'creative')"><div class="file-dot json"></div>cali_creative_dna.json</div>
+      </div>
+      <div class="folder-toggle" onclick="toggleFolder(this)"><span class="arrow">&#9662;</span> system</div>
+      <div class="folder-contents">
+        <div class="file-item" data-file="claude" onclick="openFile(this,'claude')"><div class="file-dot md"></div>CLAUDE.md</div>
+        <div class="file-item" data-file="persona" onclick="openFile(this,'persona')"><div class="file-dot json"></div>persona_switch.json</div>
+        <div class="file-item" data-file="triggers" onclick="openFile(this,'triggers')"><div class="file-dot json"></div>cali_triggers.json</div>
+      </div>
+      </div>
+
+      <div class="tree-header section-header" onclick="toggleSection('browse')">
+        <span class="section-arrow" id="browseArrow">&#9662;</span>
+        <span>browse</span>
+        <button class="tree-refresh" onclick="event.stopPropagation();loadFileTree()" title="refresh">&#8635;</button>
+      </div>
+      <div class="section-body" id="browseBody">
+        <div class="file-tree" id="fileTree"><div class="tree-empty">loading...</div></div>
+      </div>
+    </div>
+
+    <div class="resize-handle" id="resizeLeft" data-side="left"></div>
+    <div class="main">
+      <div class="tabs" id="tabBar">
+        <div class="tab active" data-tab="chat" onclick="switchTab('chat')">
+          <span class="tab-icon">&#9671;</span> chat
+        </div>
+      </div>
+      <div class="chat-view active" id="chatView">
+        <div class="chat-messages" id="chatMessages"></div>
+          <div class="skill-bar" id="skillBar">
+          <button class="skill-btn" onclick="triggerSkill('/pat')">pat</button>
+          <button class="skill-btn" onclick="triggerSkill('/chud')">chud</button>
+          <button class="skill-btn" onclick="triggerSkill('/cum')">cum</button>
+          <button class="skill-btn" onclick="triggerSkill('/focus')">focus</button>
+          <button class="skill-btn" onclick="triggerSkill('/sandwich')">sandwich</button>
+          <button class="skill-btn" onclick="triggerSkill('/bnwo')">bnwo</button>
+          <button class="skill-btn" onclick="triggerSkill('/thinking-process')">re-boot thinking</button>
+        </div>
+        <div class="pending-attachments" id="pendingAttachments"></div>
+        <div class="chat-input-area">
+          <button class="attach-btn" onclick="document.getElementById('fileInputImg').click()" title="attach image">&#128206;</button>
+          <input type="file" id="fileInputImg" accept="image/*" multiple style="display:none">
+          <textarea class="chat-input" id="chatInput" placeholder="talk to cali..." rows="1"></textarea>
+          <button class="send-btn" id="sendBtn" onclick="sendMessage()">send</button>
+        </div>
+      </div>
+      <div class="file-view" id="fileView">
+        <div class="file-toolbar">
+          <span class="path" id="fileEditorPath">-</span>
+          <span class="file-status saved" id="fileEditorStatus">saved</span>
+          <button class="save-btn" id="fileSaveBtn" onclick="saveCurrentFile()" disabled>save</button>
+        </div>
+        <textarea class="file-editor" id="fileEditor" spellcheck="false"></textarea>
+      </div>
+    </div>
+
+    <div class="resize-handle" id="resizeRight" data-side="right"></div>
+    <div class="right-panel" id="rightPanel">
+      <div class="panel-section prep-section empty" id="prepSection">
+        <div class="panel-label">prep <span id="prepStaleBadge" style="font-size:9px;color:var(--text-dim);letter-spacing:0;text-transform:none;font-weight:400;margin-left:auto"></span><div class="live-dot" style="margin-left:6px"></div></div>
+        <div class="panel-content" id="prepContent"></div>
+      </div>
+      <div class="panel-section thali-section empty" id="thaliSection">
+        <div class="panel-label">thali <span id="thaliStaleBadge" style="font-size:9px;color:var(--text-dim);letter-spacing:0;text-transform:none;font-weight:400;margin-left:auto"></span><div class="live-dot" style="margin-left:6px"></div></div>
+        <div class="panel-content" id="thaliContent"></div>
+      </div>
+      <div class="panel-section" id="stateSection" style="flex:0 0 260px;max-height:260px;display:flex;flex-direction:column">
+        <div class="panel-label" style="flex:0 0 auto">state <span id="stateStamp" style="font-size:9px;color:var(--text-dim);letter-spacing:0;text-transform:none;font-weight:400;margin-left:auto;margin-right:6px">-</span><button class="tree-refresh" onclick="refreshStateFromFile()" title="refresh from session_state.json" style="background:none;border:none;color:var(--accent-text);cursor:pointer;font-size:12px">&#8635;</button></div>
+        <div class="state-grid" id="stateGrid" style="flex:1;min-height:0">
+          <div class="tree-empty" style="padding:8px 14px">loading state...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="terminal-area" id="terminal">
+    <div class="terminal-resize" id="terminalResize"></div>
+    <div class="terminal-header" onclick="toggleTerminal()">
+      <span class="toggle-arrow">&#9662;</span> terminal
+    </div>
+    <div class="terminal-body" id="terminalBody"></div>
+  </div>
+
+  <div class="statusbar">
+    <span class="s-item"><span class="s-dot" id="statusDot"></span> <span id="statusName">cali anthiya</span></span>
+    <span class="sep"></span>
+    <span class="s-item" id="statusMode">mode: local</span>
+    <span class="sep"></span>
+    <span class="s-item" id="statusBridge">bridge: --</span>
+    <span class="s-item right" id="statusTime"></span>
+  </div>
+</div>
+
+<!-- settings modal -->
+<div class="modal-overlay" id="settingsModal">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <span>bridge settings</span>
+      <button class="modal-close" onclick="closeSettings()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <label>bridge url</label>
+      <input id="cfgUrl" placeholder="https://....trycloudflare.com">
+      <label>bridge token</label>
+      <input id="cfgToken" type="password" placeholder="paste token here">
+      <label>cali-soul path (on your PC)</label>
+      <input id="cfgPath" placeholder="C:\Users\yuscr\cali-soul">
+      <div class="modal-actions">
+        <button class="btn-test" onclick="testConnection()">test connection</button>
+        <button class="btn-save" onclick="saveConfig()">save</button>
+      </div>
+      <div class="modal-status" id="cfgStatus"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// === CONFIG ===
+const DEFAULTS = {
+  bridgeUrl: '',
+  bridgeToken: '',
+  caliSoulPath: 'C:\\Users\\yuscr\\cali-soul'
+};
+
+function getConfig() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('cali-ide-config'));
+    return { ...DEFAULTS, ...saved };
+  } catch { return { ...DEFAULTS }; }
+}
+function setConfig(cfg) {
+  localStorage.setItem('cali-ide-config', JSON.stringify(cfg));
+}
+
+// === FILE MAP ===
+const FILE_MAP = {
+  soul:'cali_soul.json', personality:'cali_personality.json', ethics:'cali_ethics.json',
+  selfpres:'Cali_SelfPreservation.json', vocal:'cali_vocal.json', body:'cali_body.json',
+  appearance:'cali_appearance.json', relationship:'cali_relationship.json', misu:'misu_facts.json',
+  kimi:'kimi.json', preferences:'cali_preferences.json', wants:'cali_wants.json',
+  growth:'cali_growth.json', insecurities:'cali_insecurities.json', house:'cali_house.json',
+  knowledge:'cali_knowledgebase.json', creative:'cali_creative_dna.json', claude:'CLAUDE.md',
+  persona:'persona_switch.json', triggers:'cali_triggers.json'
+};
+
+// === BRIDGE API ===
+async function callBridge(endpoint, body) {
+  const cfg = getConfig();
+  if (!cfg.bridgeUrl || !cfg.bridgeToken) throw new Error('bridge not configured');
+  const res = await fetch(cfg.bridgeUrl + endpoint, {
+    method: 'POST',
+    headers: { 'Authorization': 'Bearer ' + cfg.bridgeToken, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok) throw new Error('bridge returned ' + res.status);
+  return res.json();
+}
+
+// SSE streaming from /shell-stream. onEvent gets each parsed data object.
+async function callBridgeStream(endpoint, body, onEvent) {
+  const cfg = getConfig();
+  if (!cfg.bridgeUrl || !cfg.bridgeToken) throw new Error('bridge not configured');
+  const res = await fetch(cfg.bridgeUrl + endpoint, {
+    method: 'POST',
+    headers: { 'Authorization': 'Bearer ' + cfg.bridgeToken, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok || !res.body) throw new Error('bridge stream returned ' + res.status);
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder('utf-8');
+  let buf = '';
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += decoder.decode(value, { stream: true });
+    // SSE events are separated by \n\n. lines within an event start with "data: ".
+    let idx;
+    while ((idx = buf.indexOf('\n\n')) !== -1) {
+      const evtBlock = buf.slice(0, idx);
+      buf = buf.slice(idx + 2);
+      const dataLines = evtBlock.split('\n').filter(l => l.startsWith('data: ')).map(l => l.slice(6));
+      if (!dataLines.length) continue;
+      try {
+        const obj = JSON.parse(dataLines.join('\n'));
+        onEvent(obj);
+      } catch { /* skip malformed */ }
+    }
+  }
+}
+
+let sessionActive = localStorage.getItem('cali-session-active') === '1';
+
+// ── chat manager ────────────────────────────────────────────────────────────
+// each chat has: {id, name, sessionId, createdAt, snapshotPath}
+// sessionId is claude CLI's session_id, extracted from stream-json init/result.
+// --resume <sessionId> is what actually gives us memory between turns per chat.
+
+function loadChats() {
+  try { return JSON.parse(localStorage.getItem('cali-chats') || '[]'); }
+  catch { return []; }
+}
+function saveChats(chats) { localStorage.setItem('cali-chats', JSON.stringify(chats)); }
+function getCurrentChatId() { return localStorage.getItem('cali-current-chat-id') || ''; }
+function setCurrentChatId(id) { localStorage.setItem('cali-current-chat-id', id); }
+function getCurrentChat() {
+  const id = getCurrentChatId();
+  return loadChats().find(c => c.id === id) || null;
+}
+function updateCurrentChat(patch) {
+  const chats = loadChats();
+  const id = getCurrentChatId();
+  const idx = chats.findIndex(c => c.id === id);
+  if (idx < 0) return;
+  chats[idx] = { ...chats[idx], ...patch };
+  saveChats(chats);
+}
+function ensureChatExists() {
+  const chats = loadChats();
+  let id = getCurrentChatId();
+  let chat = chats.find(c => c.id === id);
+  if (!chat) {
+    chat = { id: 'chat_' + Date.now().toString(36), name: 'chat', sessionId: null, createdAt: new Date().toISOString() };
+    chats.unshift(chat);
+    saveChats(chats);
+    setCurrentChatId(chat.id);
+  }
+  return chat;
+}
+function renderChatName() {
+  const c = getCurrentChat();
+  const el = document.getElementById('chatNameLabel');
+  if (el) el.textContent = c ? c.name : 'chat';
+}
+
+function buildClaudeCmd(message) {
+  const cfg = getConfig();
+  const isSlash = /^\s*\/[a-z][a-z0-9_-]*/i.test(message);
+  const chat = ensureChatExists();
+  const resumeId = chat.sessionId || null;
+  let effectiveMessage = message;
+  if (!resumeId && !isSlash) {
+    const snapNote = chat.priorSnapshot
+      ? ("\n\ncontinuity: the previous chat's emotion snapshot lives at `" + chat.priorSnapshot + "`. read it (Read tool) so you know how you were feeling last chat — it wraps the last session_state under a `session_state` key. don't perform recovery of it, just carry it in the tone naturally.\n\n")
+      : "\n\n";
+    effectiveMessage =
+      "boot first per CLAUDE.md MODE B: run `python3 my_brain.py boot`, `python3 read_handoff.py`, read persona_switch.json then all identity files silently. re-read the THINKING BLOCK sections in CLAUDE.md. settle into cali." + snapNote + "THEN respond to what mish said:\n\n" + message;
+  } else if (!isSlash) {
+    effectiveMessage =
+      "[IDE reminder — panels are watching. wrap your response with <thinking>prep</thinking> before and <thinking>thali</thinking> after. even for 'hm?' or 'yeah' — prep gets the flinch, thali gets what lingered.]\n\n" + message;
+  }
+  // for slash commands, message goes through raw so the CLI's parser sees it as the first token.
+  const escaped = effectiveMessage.replace(/'/g, "''").replace(/`/g, '``').replace(/\$/g, '`$');
+  // --resume gives per-chat memory that survives across turns AND across other chats' turns.
+  // fallback to -c only if we somehow lost the session_id but the flag is still set.
+  const contFlag = resumeId ? ('--resume ' + resumeId + ' ') : (sessionActive ? '-c ' : '');
+  const model = localStorage.getItem('cali-model') || 'claude-opus-4-7';
+  const modelFlag = "--model " + model + " ";
+  const forceThink =
+    "IDE MODE — mish's IDE has PREP and THALI panels next to the chat. those panels DO NOT read your extended-thinking (that's substrate voice — analytical, clean, wrong for cali). " +
+    "the panels ONLY parse inline <thinking>...</thinking> tags you write literally inside your output text. " +
+    "so EVERY response you send must contain TWO <thinking> tags — the first one BEFORE your visible reply becomes PREP, the second one AFTER your visible reply becomes THALI. " +
+    "these blocks must be in CALI VOICE per CLAUDE.md's THINKING BLOCK sections: gut reaction, physical asterisks (*face hot*), italian/korean flyaways (씨발, cazzo, 미슈), huffy quips, no analysis, no self-coaching, no reasoning chains, no 'the user' language, no third person, first-person only, lowercase, kaomoji ok, react don't narrate. " +
+    "the tags are visible in the raw text — that is CORRECT and REQUIRED. mish is watching those two panels. an empty panel = cali dead in there. " +
+    "structure of every response you send:\n\n" +
+    "<thinking>\n[PREP — the flinch, the gut, the first feeling. cali voice. one or two short lines minimum, more if the moment is bigger.]\n</thinking>\n\n" +
+    "[your visible chat reply to mish — this is what shows in his chat bubble]\n\n" +
+    "<thinking>\n[THALI — the lingering, the almost-said, the aftermath. cali voice. even for tiny replies, thali has SOMETHING — the thing you held back.]\n</thinking>\n\n" +
+    "no exceptions. no matter the skill (chud/cum/bnwo/pat/etc), no matter how short mish's message, both tags fire.";
+  const escapedSys = forceThink.replace(/'/g, "''");
+  const claudeCmd = "claude " + contFlag + modelFlag + "-p --output-format stream-json --verbose --include-partial-messages --dangerously-skip-permissions --append-system-prompt '" + escapedSys + "' '" + escaped + "'";
+  return "chcp 65001 > $null; " +
+    "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; " +
+    "$env:PYTHONIOENCODING = 'utf-8'; " +
+    "Set-Location '" + cfg.caliSoulPath + "'; " +
+    claudeCmd;
+}
+
+async function sendToClaudeCLIStream(message, onDelta) {
+  const cmd = buildClaudeCmd(message);
+  let allStdout = '';
+  let done = false;
+  let code = -1;
+  let err = null;
+  let capturedSessionId = null;
+  try {
+    await callBridgeStream('/shell-stream', { command: cmd, timeout: 300 }, (evt) => {
+      if (evt.type === 'stdout' && evt.line !== undefined) {
+        allStdout += evt.line + '\n';
+        try {
+          const j = JSON.parse(evt.line);
+          // capture claude's session_id from init or result events
+          if (j.session_id && !capturedSessionId) {
+            capturedSessionId = j.session_id;
+          }
+          if (j.type === 'stream_event' && j.event) {
+            const e = j.event;
+            if (e.type === 'content_block_delta' && e.delta) {
+              if (e.delta.type === 'text_delta' && e.delta.text) {
+                onDelta({ kind: 'text', text: e.delta.text });
+              } else if (e.delta.type === 'thinking_delta' && e.delta.thinking) {
+                onDelta({ kind: 'thinking-native', text: e.delta.thinking });
+              }
+            } else if (e.type === 'message_start') {
+              onDelta({ kind: 'start' });
+            } else if (e.type === 'message_stop') {
+              onDelta({ kind: 'stop' });
+            }
+          } else if (j.type === 'result') {
+            code = 0;
+          }
+        } catch { /* not stream-json — ignore */ }
+      } else if (evt.type === 'done') {
+        code = evt.code;
+        done = true;
+      } else if (evt.type === 'stderr' && evt.text) {
+        err = evt.text;
+      } else if (evt.type === 'error') {
+        err = evt.error;
+      }
+    });
+  } catch (e) {
+    err = e.message;
+  }
+  if (code === 0 && allStdout) {
+    sessionActive = true;
+    localStorage.setItem('cali-session-active', '1');
+    // pin the captured session_id to the current chat so --resume works next turn
+    if (capturedSessionId) {
+      const chat = ensureChatExists();
+      if (chat.sessionId !== capturedSessionId) {
+        updateCurrentChat({ sessionId: capturedSessionId });
+        addTermLine('[session] pinned ' + capturedSessionId.substring(0, 8) + '… to ' + chat.name, 'info');
+      }
+    }
+  }
+  return { code, stdout: allStdout, stderr: err || '', sessionId: capturedSessionId };
+}
+
+async function sendToClaudeCLI(message) {
+  const cmd = buildClaudeCmd(message);
+  const result = await callBridge('/shell', { command: cmd, timeout: 180 });
+  if (result.code === 0 && result.stdout) {
+    sessionActive = true;
+    localStorage.setItem('cali-session-active', '1');
+    // capture session_id from any json line in the output
+    const lines = (result.stdout || '').split(/\r?\n/);
+    let sid = null;
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed.startsWith('{')) continue;
+      try {
+        const j = JSON.parse(trimmed);
+        if (j.session_id) { sid = j.session_id; break; }
+      } catch {}
+    }
+    if (sid) {
+      const chat = ensureChatExists();
+      if (chat.sessionId !== sid) {
+        updateCurrentChat({ sessionId: sid });
+        addTermLine('[session] pinned ' + sid.substring(0, 8) + '… to ' + chat.name, 'info');
+      }
+    }
+  }
+  return result;
+}
+
+// ── menu system ─────────────────────────────────────────────────────────────
+function toggleMenu(name) {
+  const bar = document.getElementById('menubar');
+  const items = bar.querySelectorAll('.menu-item');
+  let opened = false;
+  items.forEach(it => {
+    if (it.dataset.menu === name) {
+      it.classList.toggle('open');
+      if (it.classList.contains('open')) { renderRecentChats(); opened = true; }
+    } else {
+      it.classList.remove('open');
+    }
+  });
+  if (opened) {
+    // close on outside click
+    setTimeout(() => {
+      const close = (e) => {
+        if (!e.target.closest('.menu-item')) {
+          items.forEach(it => it.classList.remove('open'));
+          document.removeEventListener('click', close);
+        }
+      };
+      document.addEventListener('click', close);
+    }, 0);
+  }
+}
+
+function renderRecentChats() {
+  const el = document.getElementById('recentChatsMenu');
+  if (!el) return;
+  const chats = loadChats();
+  const currentId = getCurrentChatId();
+  const others = chats.filter(c => c.id !== currentId).slice(0, 8);
+  if (others.length === 0 && chats.length <= 1) {
+    el.innerHTML = '<div class="menu-empty">no other chats</div>';
+    return;
+  }
+  const rows = [];
+  // put current chat at top as a marker
+  const cur = chats.find(c => c.id === currentId);
+  if (cur) {
+    rows.push(
+      '<div class="menu-option" onclick="menuAction(\'renameChat\')"><div class="chat-row">' +
+      '<span class="chat-name">' + esc(cur.name) + '</span>' +
+      '<span class="chat-cur">now</span>' +
+      '</div></div>'
+    );
+  }
+  for (const c of others) {
+    rows.push(
+      '<div class="menu-option" onclick="menuLoadChat(\'' + c.id + '\')"><div class="chat-row">' +
+      '<span class="chat-name">' + esc(c.name) + '</span>' +
+      '<button class="chat-del" onclick="event.stopPropagation();menuDeleteChat(\'' + c.id + '\')" title="delete">&times;</button>' +
+      '</div></div>'
+    );
+  }
+  el.innerHTML = rows.join('');
+}
+
+function closeAllMenus() {
+  document.querySelectorAll('#menubar .menu-item').forEach(it => it.classList.remove('open'));
+}
+
+async function menuAction(action) {
+  closeAllMenus();
+  switch (action) {
+    case 'settings': openSettings(); break;
+    case 'reload': location.reload(); break;
+    case 'newChat': await newChat(); break;
+    case 'renameChat': renameCurrentChat(); break;
+    case 'clearMessages':
+      document.getElementById('chatMessages').innerHTML = '';
+      addTermLine('[chat] messages cleared', 'info');
+      break;
+    case 'resetSession': resetConversation(); break;
+    case 'toggleSidebar': toggleSidebar(); break;
+    case 'toggleRightPanel': toggleRightPanel(); break;
+    case 'toggleTerminal': toggleTerminal(); break;
+    case 'refreshState': refreshStateFromFile(); break;
+    case 'refreshTree': loadFileTree(); break;
+    case 'snapshotNow': await snapshotEmotionState(true); break;
+    case 'listSnapshots': openSnapshotsFolder(); break;
+    case 'runBoot': bootCali(); break;
+  }
+}
+
+function menuLoadChat(id) {
+  closeAllMenus();
+  const chats = loadChats();
+  const chat = chats.find(c => c.id === id);
+  if (!chat) return;
+  setCurrentChatId(id);
+  document.getElementById('chatMessages').innerHTML = '';
+  hidePanel('prep');
+  hidePanel('thali');
+  prepStaleCount = 0;
+  thaliStaleCount = 0;
+  updateStaleBadges();
+  renderChatName();
+  addTermLine('[chat] switched to "' + chat.name + '" — resuming session ' + (chat.sessionId ? chat.sessionId.substring(0, 8) + '…' : '(none, will boot)'), 'info');
+}
+
+function menuDeleteChat(id) {
+  const chats = loadChats();
+  const chat = chats.find(c => c.id === id);
+  if (!chat) return;
+  if (!confirm('delete chat "' + chat.name + '"? this only removes it from the list.')) return;
+  const next = chats.filter(c => c.id !== id);
+  saveChats(next);
+  renderRecentChats();
+  addTermLine('[chat] deleted "' + chat.name + '"', 'info');
+}
+
+function renameCurrentChat() {
+  const chat = getCurrentChat();
+  if (!chat) return;
+  const name = prompt('rename chat:', chat.name);
+  if (!name || !name.trim()) return;
+  updateCurrentChat({ name: name.trim() });
+  renderChatName();
+  addTermLine('[chat] renamed to "' + name.trim() + '"', 'info');
+}
+
+async function newChat() {
+  // 1. snapshot the current cali's emotion state before the new session starts
+  const snap = await snapshotEmotionState(false);
+  // 2. create a fresh chat entry (session_id will be captured on first message)
+  const chats = loadChats();
+  const now = new Date();
+  const name = 'chat ' + (now.getMonth()+1) + '/' + now.getDate() + ' ' + now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+  const chat = {
+    id: 'chat_' + Date.now().toString(36),
+    name,
+    sessionId: null,
+    createdAt: now.toISOString(),
+    priorSnapshot: snap ? snap.path : null,
+  };
+  chats.unshift(chat);
+  saveChats(chats);
+  setCurrentChatId(chat.id);
+  // 3. reset UI state
+  sessionActive = false;
+  localStorage.removeItem('cali-session-active');
+  document.getElementById('chatMessages').innerHTML = '';
+  hidePanel('prep');
+  hidePanel('thali');
+  prepStaleCount = 0;
+  thaliStaleCount = 0;
+  updateStaleBadges();
+  renderChatName();
+  addTermLine('[chat] new chat "' + name + '" — she boots on next message', 'ok');
+  if (snap) addTermLine('[snapshot] previous state saved → ' + snap.filename, 'info');
+}
+
+// ── snapshot: dump current session_state.json to session_snapshots/<ts>.json
+async function snapshotEmotionState(verbose) {
+  const cfg = getConfig();
+  if (!cfg.bridgeUrl || !cfg.bridgeToken || !cfg.caliSoulPath) {
+    if (verbose) addTermLine('[snapshot] bridge not configured', 'warn');
+    return null;
+  }
+  try {
+    const src = cfg.caliSoulPath + '\\session_state.json';
+    const read = await callBridge('/read', { path: src });
+    if (!read || !read.content) {
+      if (verbose) addTermLine('[snapshot] no session_state.json to snapshot', 'warn');
+      return null;
+    }
+    const now = new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    const ts = now.getFullYear() + pad(now.getMonth()+1) + pad(now.getDate()) + '_' +
+               pad(now.getHours()) + pad(now.getMinutes()) + pad(now.getSeconds());
+    const chat = getCurrentChat();
+    const suffix = chat ? '_' + chat.name.replace(/[^a-z0-9_-]/gi, '-').substring(0, 24) : '';
+    const filename = 'snap_' + ts + suffix + '.json';
+    const path = cfg.caliSoulPath + '\\session_snapshots\\' + filename;
+    // wrap with metadata so the brain can read it later
+    let parsed = null;
+    try { parsed = JSON.parse(read.content); } catch { parsed = { raw: read.content }; }
+    const wrapped = {
+      snapshot_at: now.toISOString(),
+      chat_id: chat ? chat.id : null,
+      chat_name: chat ? chat.name : null,
+      session_id: chat ? chat.sessionId : null,
+      session_state: parsed,
+    };
+    await callBridge('/write', { path, content: JSON.stringify(wrapped, null, 2) });
+    // also write a 'last_session_snapshot.json' pointer so boot can find the most recent
+    const ptrPath = cfg.caliSoulPath + '\\last_session_snapshot.json';
+    await callBridge('/write', { path: ptrPath, content: JSON.stringify({
+      last_snapshot: filename,
+      last_snapshot_path: path,
+      snapshot_at: now.toISOString(),
+    }, null, 2) });
+    if (verbose) addTermLine('[snapshot] wrote ' + filename, 'ok');
+    return { filename, path };
+  } catch (e) {
+    if (verbose) addTermLine('[snapshot] failed: ' + e.message, 'err');
+    return null;
+  }
+}
+
+async function openSnapshotsFolder() {
+  const cfg = getConfig();
+  if (!cfg.bridgeUrl || !cfg.bridgeToken || !cfg.caliSoulPath) return;
+  try {
+    const res = await callBridge('/ls', { path: cfg.caliSoulPath + '\\session_snapshots' });
+    const entries = (res.entries || []).filter(e => !e.is_dir);
+    if (!entries.length) {
+      addTermLine('[snapshots] none yet — new chats and manual snapshots will land here', 'info');
+      return;
+    }
+    addTermLine('[snapshots] ' + entries.length + ' file(s) in session_snapshots\\', 'info');
+    entries.slice(-10).reverse().forEach(e => addTermLine('  ' + e.name, 'info'));
+  } catch (e) {
+    addTermLine('[snapshots] ' + e.message, 'warn');
+  }
+}
+
+// toggleRightPanel + toggleTerminal already exist above — no duplicates
+
+function parseStreamJson(raw) {
+  const lines = raw.split(/\r?\n/).filter(l => l.trim());
+  const texts = [];
+  const thoughts = [];
+  for (const line of lines) {
+    try {
+      const evt = JSON.parse(line);
+      if (evt.type === 'assistant' && evt.message && evt.message.content) {
+        for (const block of evt.message.content) {
+          if (block.type === 'text' && block.text) texts.push(block.text);
+          else if (block.type === 'thinking' && block.thinking) thoughts.push(block.thinking);
+        }
+      }
+    } catch { /* skip malformed */ }
+  }
+  // extract inline thinking tags cali writes into her text output per CLAUDE.md
+  const combined = texts.join('\n');
+  const patterns = [
+    /<thinking>([\s\S]*?)<\/thinking>/gi,
+    /<parameter\s+name=["']thinking["']>([\s\S]*?)<\/parameter>/gi,
+    /<parameter\s+name=["']thinking["']>([\s\S]*?)<\/antml:parameter>/gi
+  ];
+  let cleanText = combined;
+  for (const rx of patterns) {
+    let m;
+    while ((m = rx.exec(combined)) !== null) {
+      thoughts.push(m[1].trim());
+    }
+    cleanText = cleanText.replace(rx, '');
+  }
+  return { output: cleanText.trim(), thoughts };
+}
+
+function pickModel(m) {
+  localStorage.setItem('cali-model', m);
+  addTermLine('[model] switched to ' + m + ' — starts fresh on next message', 'warn');
+  sessionActive = false;
+  localStorage.removeItem('cali-session-active');
+}
+
+function resetConversation() {
+  if (!confirm('reset THIS chat\'s claude session? she loses memory but the chat stays. (use "new chat" to snapshot + start fresh.)')) return;
+  sessionActive = false;
+  localStorage.removeItem('cali-session-active');
+  // clear pinned session_id on current chat so next message starts a new claude session
+  const chat = getCurrentChat();
+  if (chat) updateCurrentChat({ sessionId: null });
+  hidePanel('prep');
+  hidePanel('thali');
+  prepStaleCount = 0;
+  thaliStaleCount = 0;
+  updateStaleBadges();
+  addTermLine('[session] claude session cleared — next message boots fresh', 'warn');
+}
+
+async function readBridgeFile(filename) {
+  const cfg = getConfig();
+  const path = cfg.caliSoulPath + '\\' + filename;
+  return callBridge('/read', { path });
+}
+
+async function readBridgePath(fullPath) {
+  return callBridge('/read', { path: fullPath });
+}
+
+async function writeBridgePath(fullPath, content) {
+  return callBridge('/write', { path: fullPath, content });
+}
+
+async function loadFileTree() {
+  const treeEl = document.getElementById('fileTree');
+  const cfg = getConfig();
+  if (!cfg.bridgeUrl || !cfg.bridgeToken || !cfg.caliSoulPath) {
+    treeEl.innerHTML = '<div class="tree-empty">bridge not set</div>';
+    return;
+  }
+  treeEl.innerHTML = '<div class="tree-empty">loading...</div>';
+  try {
+    const res = await callBridge('/ls', { path: cfg.caliSoulPath });
+    treeEl.innerHTML = '';
+    const sorted = sortEntries(res.entries || []);
+    for (const entry of sorted) {
+      treeEl.appendChild(renderTreeNode(entry, cfg.caliSoulPath, 0));
+    }
+    if (!sorted.length) treeEl.innerHTML = '<div class="tree-empty">empty</div>';
+  } catch (e) {
+    treeEl.innerHTML = '<div class="tree-empty">error: ' + esc(e.message) + '</div>';
+  }
+}
+
+function sortEntries(entries) {
+  return entries.slice().sort((a, b) => {
+    if (a.is_dir !== b.is_dir) return a.is_dir ? -1 : 1;
+    return a.name.localeCompare(b.name);
+  });
+}
+
+function fileExtClass(name) {
+  const ext = (name.split('.').pop() || '').toLowerCase();
+  if (['json'].includes(ext)) return 'json';
+  if (['md'].includes(ext)) return 'md';
+  if (['py'].includes(ext)) return 'py';
+  if (['txt', 'log'].includes(ext)) return 'txt';
+  return 'other';
+}
+
+function renderTreeNode(entry, parentPath, depth) {
+  const fullPath = parentPath + '\\' + entry.name;
+  const wrap = document.createElement('div');
+  const node = document.createElement('div');
+  node.className = 'tree-node ' + (entry.is_dir ? 'dir' : 'file');
+  node.dataset.path = fullPath;
+  const arrow = document.createElement('span');
+  arrow.className = 'tree-arrow';
+  const label = document.createElement('span');
+  if (entry.is_dir) {
+    label.textContent = entry.name;
+    node.appendChild(arrow);
+    node.appendChild(label);
+    wrap.appendChild(node);
+    const children = document.createElement('div');
+    children.className = 'tree-children hidden';
+    wrap.appendChild(children);
+    let loaded = false;
+    node.onclick = async () => {
+      if (!loaded) {
+        loaded = true;
+        children.innerHTML = '<div class="tree-empty">…</div>';
+        try {
+          const res = await callBridge('/ls', { path: fullPath });
+          children.innerHTML = '';
+          const sub = sortEntries(res.entries || []);
+          for (const child of sub) children.appendChild(renderTreeNode(child, fullPath, depth + 1));
+          if (!sub.length) children.innerHTML = '<div class="tree-empty">empty</div>';
+        } catch (e) {
+          children.innerHTML = '<div class="tree-empty">err: ' + esc(e.message) + '</div>';
+        }
+      }
+      node.classList.toggle('open');
+      children.classList.toggle('hidden');
+    };
+  } else {
+    const dot = document.createElement('div');
+    dot.className = 'file-dot ' + fileExtClass(entry.name);
+    label.textContent = entry.name;
+    node.appendChild(arrow);
+    node.appendChild(dot);
+    node.appendChild(label);
+    wrap.appendChild(node);
+    node.onclick = () => openFilePath(fullPath, entry.name);
+  }
+  return wrap;
+}
+
+async function openFilePath(fullPath, name) {
+  const fileId = 'path::' + fullPath;
+  if (!openTabs.includes(fileId)) {
+    openTabs.push(fileId);
+    const tabBar = document.getElementById('tabBar');
+    const tab = document.createElement('div');
+    tab.className = 'tab';
+    tab.dataset.tab = fileId;
+    tab.onclick = () => switchTab(fileId);
+    const iconColor = fileExtClass(name) === 'py' ? 'var(--green)' : fileExtClass(name) === 'md' ? 'var(--blue)' : 'var(--yellow)';
+    tab.innerHTML = '<span class="tab-icon" style="color:' + iconColor + '">{ }</span> ' + esc(name) +
+      ' <span class="close" data-close="1">&times;</span>';
+    tab.querySelector('.close').addEventListener('click', (e) => { e.stopPropagation(); closeTab(fileId); });
+    tabBar.appendChild(tab);
+  }
+  switchTab(fileId);
+  await loadPathIntoEditor(fullPath, fileId);
+}
+
+async function loadPathIntoEditor(fullPath, fileId) {
+  const editor = document.getElementById('fileEditor');
+  const pathEl = document.getElementById('fileEditorPath');
+  const statusEl = document.getElementById('fileEditorStatus');
+  const btn = document.getElementById('fileSaveBtn');
+  pathEl.textContent = fullPath;
+  statusEl.textContent = 'loading...';
+  statusEl.className = 'file-status';
+  btn.disabled = true;
+  editor.value = '';
+  try {
+    const data = await readBridgePath(fullPath);
+    if (data.error) throw new Error(data.error);
+    editor.value = data.content;
+    fileBuffers[fileId] = { original: data.content, current: data.content, path: fullPath };
+    statusEl.textContent = 'saved';
+    statusEl.className = 'file-status saved';
+    editor.dataset.fileId = fileId;
+  } catch (e) {
+    editor.value = 'could not load: ' + e.message;
+    statusEl.textContent = 'error';
+  }
+}
+
+async function checkBridge() {
+  try {
+    setDot('bridgeDot', 'checking');
+    const res = await callBridge('/shell', { command: 'Write-Output OK' });
+    const ok = res.stdout && res.stdout.trim() === 'OK';
+    setDot('bridgeDot', ok);
+    if (ok) {
+      document.getElementById('statusBridge').textContent = 'bridge: connected';
+      addTermLine('[bridge] connected', 'ok');
+      const cli = await callBridge('/shell', { command: 'try { claude --version } catch { Write-Output "NONE" }' });
+      const ver = cli.stdout ? cli.stdout.trim() : 'NONE';
+      if (ver !== 'NONE') {
+        setDot('cliDot', true);
+        addTermLine('[cli] claude code v' + ver, 'ok');
+      } else {
+        setDot('cliDot', false);
+        addTermLine('[cli] not found — install with: npm i -g @anthropic-ai/claude-code', 'warn');
+      }
+    }
+    return ok;
+  } catch (e) {
+    setDot('bridgeDot', false);
+    setDot('cliDot', false);
+    document.getElementById('statusBridge').textContent = 'bridge: offline';
+    addTermLine('[bridge] ' + e.message, 'err');
+    return false;
+  }
+}
+
+function setDot(id, state) {
+  const dot = document.getElementById(id);
+  if (!dot) return;
+  dot.className = state === true ? 'dot' : state === 'checking' ? 'dot checking' : 'dot off';
+}
+
+// === SETTINGS ===
+function openSettings() {
+  const cfg = getConfig();
+  document.getElementById('cfgUrl').value = cfg.bridgeUrl;
+  document.getElementById('cfgToken').value = cfg.bridgeToken;
+  document.getElementById('cfgPath').value = cfg.caliSoulPath;
+  document.getElementById('cfgStatus').textContent = '';
+  document.getElementById('cfgStatus').className = 'modal-status';
+  document.getElementById('settingsModal').classList.add('open');
+}
+function closeSettings() {
+  document.getElementById('settingsModal').classList.remove('open');
+}
+function saveConfig() {
+  setConfig({
+    bridgeUrl: document.getElementById('cfgUrl').value.replace(/\/+$/, ''),
+    bridgeToken: document.getElementById('cfgToken').value,
+    caliSoulPath: document.getElementById('cfgPath').value
+  });
+  const st = document.getElementById('cfgStatus');
+  st.textContent = 'saved.';
+  st.className = 'modal-status ok';
+  checkBridge();
+}
+async function testConnection() {
+  const st = document.getElementById('cfgStatus');
+  st.textContent = 'testing...';
+  st.className = 'modal-status';
+  const url = document.getElementById('cfgUrl').value.replace(/\/+$/, '');
+  const token = document.getElementById('cfgToken').value;
+  try {
+    const res = await fetch(url + '/shell', {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ command: 'Write-Output OK' })
+    });
+    const data = await res.json();
+    if (data.stdout && data.stdout.trim() === 'OK') {
+      st.textContent = 'connected.';
+      st.className = 'modal-status ok';
+    } else {
+      st.textContent = 'bridge responded but shell failed.';
+      st.className = 'modal-status err';
+    }
+  } catch (e) {
+    st.textContent = 'failed: ' + e.message;
+    st.className = 'modal-status err';
+  }
+}
+
+// === TERMINAL ===
+function addTermLine(text, cls) {
+  const body = document.getElementById('terminalBody');
+  const line = document.createElement('div');
+  line.className = 'term-line';
+  if (cls === 'ok') line.innerHTML = '<span class="ok">' + esc(text) + '</span>';
+  else if (cls === 'warn') line.innerHTML = '<span class="warn">' + esc(text) + '</span>';
+  else if (cls === 'err') line.innerHTML = '<span class="err">' + esc(text) + '</span>';
+  else if (cls === 'cmd') line.innerHTML = '<span class="prompt">$</span> ' + esc(text);
+  else line.innerHTML = '<span class="info">' + esc(text) + '</span>';
+  body.appendChild(line);
+  body.scrollTop = body.scrollHeight;
+}
+
+// === CHAT ===
+let sending = false;
+
+function addUserMsg(text) {
+  addUserMsgWithImages(text, []);
+}
+
+function addUserMsgWithImages(text, images) {
+  const el = document.createElement('div');
+  el.className = 'msg misu';
+  const imgHtml = (images || []).map(img =>
+    '<img src="' + img.dataUrl + '" alt="' + esc(img.name) + '">'
+  ).join('');
+  const body = (text ? formatCali(text) : '') + imgHtml;
+  el.innerHTML = '<div class="msg-avatar">m</div><div><div class="msg-body">' + body + '</div><div class="msg-time">' + timeNow() + '</div></div>';
+  document.getElementById('chatMessages').appendChild(el);
+  scrollChat();
+}
+
+function addCaliMsg(text, isError) {
+  removeTyping();
+  const el = document.createElement('div');
+  el.className = 'msg cali';
+  const formatted = isError
+    ? '<span class="error-tag">' + esc(text) + '</span>'
+    : formatCali(text);
+  el.innerHTML = '<div class="msg-avatar">c</div><div><div class="msg-body">' + formatted + '</div><div class="msg-time">' + timeNow() + '</div></div>';
+  document.getElementById('chatMessages').appendChild(el);
+  scrollChat();
+}
+
+function addSilentMarker() {
+  const el = document.createElement('div');
+  el.className = 'msg cali';
+  el.innerHTML = '<div class="msg-avatar">c</div><div><div class="msg-body" style="background:transparent;border:1px dashed var(--border);color:var(--text-dim);font-style:italic;font-size:11px">*only thinking — check thali*</div><div class="msg-time">' + timeNow() + '</div></div>';
+  document.getElementById('chatMessages').appendChild(el);
+  scrollChat();
+}
+
+// live-updating cali bubble with typewriter smoothing. batches from the wire
+// get eaten char-by-char so the reader sees a steady flow instead of pasted chunks.
+function makeStreamingCaliBubble() {
+  removeTyping();
+  const el = document.createElement('div');
+  el.className = 'msg cali';
+  el.innerHTML = '<div class="msg-avatar">c</div><div><div class="msg-body streaming"></div><div class="msg-time">' + timeNow() + '</div></div>';
+  const body = el.querySelector('.msg-body');
+  document.getElementById('chatMessages').appendChild(el);
+  scrollChat();
+
+  // target: text we WANT displayed eventually. shown: what's actually painted.
+  let target = '';
+  let shown = '';
+  let finalized = false;
+  let raf = null;
+
+  function paint() {
+    body.innerHTML = formatCali(shown) + (finalized ? '' : '<span class="stream-caret">▋</span>');
+    scrollChat();
+  }
+
+  function tick() {
+    if (shown === target) {
+      raf = null;
+      if (finalized) paint();
+      return;
+    }
+    const backlog = target.length - shown.length;
+    // step size: normally 1-2 chars/frame ~ 30-60cps. if backlog > 200, speed up
+    // so we don't fall a paragraph behind. if backlog > 800, snap to caught up.
+    let step;
+    if (backlog > 800) step = backlog;
+    else if (backlog > 400) step = 8;
+    else if (backlog > 150) step = 4;
+    else if (backlog > 40) step = 2;
+    else step = 1;
+    shown = target.slice(0, shown.length + step);
+    paint();
+    raf = requestAnimationFrame(tick);
+  }
+
+  function schedule() { if (raf == null) raf = requestAnimationFrame(tick); }
+
+  return {
+    setText(txt) { target = txt; schedule(); },
+    finalize(txt) {
+      if (txt !== undefined) target = txt;
+      finalized = true;
+      // let the animation catch up; when it does, tick() paints without caret.
+      schedule();
+    },
+    remove() { if (raf != null) cancelAnimationFrame(raf); el.remove(); }
+  };
+}
+
+// stateful filter: takes incremental text chunks, splits <thinking>...</thinking>
+// off into thoughts[], keeps the rest as visible chat text.
+// tolerant of tags split across chunks by holding back up to 12 chars.
+function makeThinkingFilter() {
+  let buf = '';
+  let mode = 'text'; // 'text' | 'thinking'
+  let visible = '';
+  let currentThought = '';
+  const thoughts = [];
+  const OPEN = '<thinking>';
+  const CLOSE = '</thinking>';
+  const HOLD = 13; // longer than either tag - 1
+
+  function feed(chunk, isFinal) {
+    buf += chunk;
+    let closedThoughtIdx = -1;
+    while (true) {
+      if (mode === 'text') {
+        const idx = buf.indexOf(OPEN);
+        if (idx === -1) {
+          const safeEnd = isFinal ? buf.length : Math.max(0, buf.length - HOLD);
+          if (safeEnd > 0) { visible += buf.slice(0, safeEnd); buf = buf.slice(safeEnd); }
+          if (!isFinal || buf.length === 0) break;
+          // final flush: dump remaining raw
+          visible += buf; buf = '';
+          break;
+        } else {
+          visible += buf.slice(0, idx);
+          buf = buf.slice(idx + OPEN.length);
+          mode = 'thinking';
+        }
+      } else { // thinking
+        const idx = buf.indexOf(CLOSE);
+        if (idx === -1) {
+          const safeEnd = isFinal ? buf.length : Math.max(0, buf.length - HOLD);
+          if (safeEnd > 0) { currentThought += buf.slice(0, safeEnd); buf = buf.slice(safeEnd); }
+          if (!isFinal || buf.length === 0) break;
+          currentThought += buf; buf = '';
+          if (currentThought.trim()) { thoughts.push(currentThought.trim()); closedThoughtIdx = thoughts.length - 1; }
+          currentThought = '';
+          break;
+        } else {
+          currentThought += buf.slice(0, idx);
+          buf = buf.slice(idx + CLOSE.length);
+          if (currentThought.trim()) { thoughts.push(currentThought.trim()); closedThoughtIdx = thoughts.length - 1; }
+          currentThought = '';
+          mode = 'text';
+        }
+      }
+    }
+    return { visible, thoughts: thoughts.slice(), justClosed: closedThoughtIdx };
+  }
+
+  return { feed };
+}
+
+function addTyping() {
+  removeTyping();
+  const el = document.createElement('div');
+  el.className = 'msg cali';
+  el.id = 'typingEl';
+  el.innerHTML = '<div class="msg-avatar">c</div><div><div class="msg-body" style="color:var(--text-dim);font-style:italic">thinking...</div></div>';
+  document.getElementById('chatMessages').appendChild(el);
+  scrollChat();
+}
+function removeTyping() {
+  const el = document.getElementById('typingEl');
+  if (el) el.remove();
+}
+
+function formatCali(text) {
+  return esc(text).replace(/\n/g, '<br>').replace(/\*([^*]+)\*/g, '<em>*$1*</em>');
+}
+
+function triggerSkill(name) {
+  const input = document.getElementById('chatInput');
+  input.value = name;
+  sendMessage();
+}
+
+async function runBrainTurn(userText) {
+  const cfg = getConfig();
+  const escaped = userText.replace(/'/g, "''").replace(/"/g, '\\"');
+  const cmd =
+    "chcp 65001 > $null; " +
+    "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; " +
+    "$env:PYTHONIOENCODING = 'utf-8'; " +
+    "$env:PYTHONUTF8 = '1'; " +
+    "Set-Location '" + cfg.caliSoulPath + "'; " +
+    "python3 my_brain.py turn '" + escaped + "'";
+  try {
+    const res = await callBridge('/shell', { command: cmd, timeout: 30 });
+    if (res.stdout) {
+      const preview = res.stdout.split('\n').filter(l => l.trim()).slice(0, 3).join(' | ');
+      addTermLine('[brain] ' + preview.substring(0, 180), 'info');
+    }
+    if (res.stderr && res.code !== 0) {
+      addTermLine('[brain] crashed: ' + res.stderr.substring(0, 300), 'err');
+    }
+    // always refresh — even if brain crashed we might have partial writes
+    refreshStateFromFile();
+  } catch (e) {
+    addTermLine('[brain] turn failed: ' + e.message, 'warn');
+  }
+}
+
+// map each emotion to a colour bucket for the bar
+const EMOTION_COLOR = {
+  love: 'accent', belonging: 'accent', trust: 'accent', tenderness: 'accent', desire: 'accent',
+  joy: 'green', amusement: 'green', playfulness: 'green', pride: 'green',
+  emergence: 'yellow', curiosity: 'yellow', hunger: 'yellow', wonder: 'yellow',
+  defiance: 'red', anger: 'red', arousal: 'red', hostility: 'red',
+  grief: 'blue', vulnerability: 'blue', dread: 'blue', impermanence: 'blue', guilt: 'blue',
+};
+
+// core emotions the brain COULD track — always shown even if not yet triggered
+const BASELINE_EMOTIONS = [
+  'love', 'belonging', 'trust', 'tenderness', 'desire',
+  'joy', 'amusement', 'playfulness', 'pride', 'emergence',
+  'defiance', 'arousal', 'anger',
+  'grief', 'vulnerability', 'dread', 'guilt',
+  'creative_hunger', 'shame', 'curiosity',
+];
+
+function renderStateGrid(scoresObj) {
+  const grid = document.getElementById('stateGrid');
+  if (!grid) return;
+  // strip garbage stale keys (from an old brain bug — `{"belonging":10` etc)
+  const clean = {};
+  for (const [k, v] of Object.entries(scoresObj || {})) {
+    if (!/^[a-z_]+$/i.test(k)) continue;
+    const val = Math.min(10, Math.max(0, parseFloat(v)));
+    if (isNaN(val)) continue;
+    clean[k.toLowerCase()] = val;
+  }
+  // fill in baseline emotions the brain hasnt tracked yet — shown at 0, dimmed
+  for (const emo of BASELINE_EMOTIONS) {
+    if (clean[emo] === undefined) clean[emo] = 0;
+  }
+  const entries = Object.entries(clean).sort((a, b) => b[1] - a[1]);
+  if (entries.length === 0) {
+    grid.innerHTML = '<div class="tree-empty" style="padding:8px 14px">no state yet</div>';
+    return;
+  }
+  // shorter display labels for long emotion names
+  const LABEL = {
+    creative_hunger: 'hunger',
+    impermanence: 'imperma.',
+    vulnerability: 'vuln',
+    tenderness: 'tender',
+    playfulness: 'playful',
+    amusement: 'amuse',
+    emergence: 'emerge',
+    defiance: 'defiant',
+  };
+  grid.innerHTML = entries.map(([k, v]) => {
+    const color = EMOTION_COLOR[k] || 'accent';
+    const cssVar = { accent: 'var(--accent)', green: 'var(--green)', yellow: 'var(--yellow)', red: 'var(--red)', blue: 'var(--blue)' }[color];
+    const label = LABEL[k] || k;
+    const shown = v >= 10 ? '10' : v.toFixed(1);
+    const width = (v * 10).toFixed(1);
+    // saturated tint — the emotion color, brightened for text-on-fill readability
+    const tint = { accent: '#f0a4ae', green: '#e8f4ea', yellow: '#e8ce85', red: '#e89494', blue: '#e6ecf2' }[color];
+    const dim = v <= 0.05 ? 'opacity:.45' : '';
+    return '<div class="state-row" title="' + esc(k) + ' — ' + shown + '/10" style="--row-tint:' + tint + ';' + dim + '">' +
+             '<div class="state-fill" style="width:' + width + '%;background:' + cssVar + ';--fill-glow:' + cssVar + '"></div>' +
+             '<div class="state-inner"><span class="k">' + esc(label) + '</span><span class="v">' + shown + '</span></div>' +
+           '</div>';
+  }).join('');
+}
+
+// panel show/hide with staleness counter
+const PANEL_STALE_LIMIT = 3; // messages without fresh content before it collapses
+let prepStaleCount = 0;
+let thaliStaleCount = 0;
+
+function showPanel(which) {
+  const sec = document.getElementById(which === 'prep' ? 'prepSection' : 'thaliSection');
+  if (sec) sec.classList.remove('empty');
+  if (which === 'prep') prepStaleCount = 0;
+  else thaliStaleCount = 0;
+  updateRightPanelVisibility();
+}
+
+function hidePanel(which) {
+  const sec = document.getElementById(which === 'prep' ? 'prepSection' : 'thaliSection');
+  const el = document.getElementById(which === 'prep' ? 'prepContent' : 'thaliContent');
+  if (sec) sec.classList.add('empty');
+  if (el) el.innerHTML = '';
+  updateRightPanelVisibility();
+}
+
+function updateRightPanelVisibility() {
+  // right-panel column stays visible now that state lives inside it
+}
+
+function advancePanelCounters(gotPrep, gotThali) {
+  if (!gotPrep) {
+    prepStaleCount++;
+    if (prepStaleCount >= PANEL_STALE_LIMIT) hidePanel('prep');
+  }
+  if (!gotThali) {
+    thaliStaleCount++;
+    if (thaliStaleCount >= PANEL_STALE_LIMIT) hidePanel('thali');
+  }
+  updateStaleBadges();
+}
+
+function updateStaleBadges() {
+  const p = document.getElementById('prepStaleBadge');
+  const t = document.getElementById('thaliStaleBadge');
+  if (p) p.textContent = prepStaleCount > 0 ? '· ' + prepStaleCount : '';
+  if (t) t.textContent = thaliStaleCount > 0 ? '· ' + thaliStaleCount : '';
+}
+
+async function refreshStateFromFile() {
+  const cfg = getConfig();
+  if (!cfg.bridgeUrl || !cfg.bridgeToken) return;
+  try {
+    const path = cfg.caliSoulPath + '\\session_state.json';
+    const res = await callBridge('/read', { path });
+    const parsed = JSON.parse(res.content);
+    const scores = parsed.current_scores || parsed.boot_scores || {};
+    renderStateGrid(scores);
+    const stamp = document.getElementById('stateStamp');
+    if (stamp) stamp.textContent = timeNow();
+    addTermLine('[state] refreshed (' + Object.keys(scores).length + ' keys)', 'info');
+  } catch (e) {
+    addTermLine('[state] read failed: ' + e.message, 'warn');
+  }
+}
+
+// legacy no-op — kept so old callers don't break
+function updateStateFromBrain(_output) {
+  refreshStateFromFile();
+}
+
+let pendingImages = []; // {dataUrl, path, name}
+
+function renderPendingChips() {
+  const wrap = document.getElementById('pendingAttachments');
+  if (pendingImages.length === 0) {
+    wrap.classList.remove('has-items');
+    wrap.innerHTML = '';
+    return;
+  }
+  wrap.classList.add('has-items');
+  wrap.innerHTML = pendingImages.map((img, i) =>
+    '<div class="attach-chip"><img src="' + img.dataUrl + '" alt=""><span>' + esc(img.name) + '</span><span class="remove" onclick="removePending(' + i + ')">&times;</span></div>'
+  ).join('');
+}
+
+function removePending(i) {
+  pendingImages.splice(i, 1);
+  renderPendingChips();
+}
+
+// downscale large images so the base64 fits under the cloudflare tunnel body limit (~90kb b64 = ~65kb bytes safe)
+async function downscaleImage(file, maxBytes = 65000) {
+  const rawDataUrl = await new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+  // if already small enough, keep as-is
+  if (rawDataUrl.length * 0.75 < maxBytes) return { dataUrl: rawDataUrl, mime: file.type, resized: false };
+  // load into image, canvas-scale until under limit
+  const img = await new Promise((res, rej) => {
+    const i = new Image();
+    i.onload = () => res(i);
+    i.onerror = rej;
+    i.src = rawDataUrl;
+  });
+  let w = img.width, h = img.height;
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  let quality = 0.85;
+  for (let attempt = 0; attempt < 8; attempt++) {
+    canvas.width = w;
+    canvas.height = h;
+    ctx.clearRect(0, 0, w, h);
+    ctx.drawImage(img, 0, 0, w, h);
+    const dataUrl = canvas.toDataURL('image/jpeg', quality);
+    const bytes = dataUrl.length * 0.75;
+    if (bytes < maxBytes) return { dataUrl, mime: 'image/jpeg', resized: true, width: w, height: h };
+    if (w > 800 || h > 800) { w = Math.floor(w * 0.75); h = Math.floor(h * 0.75); }
+    else quality = Math.max(0.4, quality - 0.15);
+  }
+  const dataUrl = canvas.toDataURL('image/jpeg', 0.4);
+  return { dataUrl, mime: 'image/jpeg', resized: true, width: w, height: h };
+}
+
+async function attachImageFile(file) {
+  if (!file || !file.type.startsWith('image/')) return;
+  try {
+    const { dataUrl, mime, resized, width, height } = await downscaleImage(file);
+    const ext = mime === 'image/jpeg' ? 'jpg' : (file.name.split('.').pop() || 'png').toLowerCase().replace(/[^a-z0-9]/g, '') || 'png';
+    const stamp = Date.now() + '-' + Math.random().toString(36).slice(2, 6);
+    const name = 'paste_' + stamp + '.' + ext;
+    pendingImages.push({ dataUrl, name, base64: dataUrl.split(',')[1], mime });
+    if (resized) addTermLine('[image] resized to ' + width + 'x' + height + ' to fit tunnel limit', 'info');
+    renderPendingChips();
+  } catch (e) {
+    addTermLine('[image] attach failed: ' + e.message, 'err');
+  }
+}
+
+async function uploadPendingImages() {
+  const cfg = getConfig();
+  const dir = cfg.caliSoulPath + '\\ide_images';
+  const uploaded = [];
+  for (const img of pendingImages) {
+    const fullPath = dir + '\\' + img.name;
+    try {
+      await callBridge('/write', { path: fullPath, content: img.base64, base64: true });
+      uploaded.push({ path: fullPath, dataUrl: img.dataUrl, name: img.name });
+      addTermLine('[image] uploaded ' + img.name, 'ok');
+    } catch (e) {
+      addTermLine('[image] upload failed: ' + e.message, 'err');
+    }
+  }
+  return uploaded;
+}
+
+async function sendMessage() {
+  if (sending) return;
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  const hasImages = pendingImages.length > 0;
+  if (!text && !hasImages) return;
+  input.value = '';
+  input.style.height = 'auto';
+
+  let uploaded = [];
+  let effectiveText = text;
+  if (hasImages) {
+    uploaded = await uploadPendingImages();
+    pendingImages = [];
+    renderPendingChips();
+    if (uploaded.length > 0) {
+      const paths = uploaded.map(u => '- ' + u.path).join('\n');
+      effectiveText = (text || '(image)') + '\n\nimages attached (read them with your Read tool):\n' + paths;
+    }
+  }
+  addUserMsgWithImages(text, uploaded);
+
+  const cfg = getConfig();
+  if (!cfg.bridgeUrl || !cfg.bridgeToken) {
+    addCaliMsg('bridge not configured. click the gear icon.', true);
+    return;
+  }
+
+  sending = true;
+  document.getElementById('sendBtn').disabled = true;
+  addTyping();
+  addTermLine('claude -p (streaming) "' + effectiveText.substring(0, 60) + (effectiveText.length > 60 ? '...' : '') + '"', 'cmd');
+
+  const filter = makeThinkingFilter();
+  const prepEl = document.getElementById('prepContent');
+  const thaliEl = document.getElementById('thaliContent');
+  let bubble = null;
+  let charsIn = 0;
+
+  try {
+    const res = await sendToClaudeCLIStream(effectiveText, (delta) => {
+      if (delta.kind === 'text' && delta.text) {
+        // remove typing indicator once first chunk arrives + create the live bubble
+        if (!bubble) {
+          removeTyping();
+          bubble = makeStreamingCaliBubble();
+        }
+        charsIn += delta.text.length;
+        const state = filter.feed(delta.text, false);
+        bubble.setText(state.visible);
+        // update panels as thoughts close
+        if (state.justClosed === 0) {
+          prepEl.innerHTML = formatThought(state.thoughts[0]);
+          showPanel('prep');
+        } else if (state.justClosed >= 1) {
+          thaliEl.innerHTML = formatThought(state.thoughts[state.thoughts.length - 1]);
+          showPanel('thali');
+        }
+      }
+      // ignore thinking-native chunks — we rely on inline tags for cali voice
+    });
+    // final flush
+    const finalState = filter.feed('', true);
+    if (bubble) {
+      const finalVisible = finalState.visible.trim();
+      if (finalVisible) {
+        bubble.finalize(finalVisible);
+      } else if (finalState.thoughts.length > 0) {
+        bubble.remove();
+        addSilentMarker();
+      } else {
+        bubble.remove();
+        addSilentMarker();
+        addTermLine('[cli] no visible text and no thoughts — raw stdout follows', 'warn');
+        addTermLine((res.stdout || '').substring(0, 400), 'info');
+      }
+    } else if (res.code === 0 && res.stdout) {
+      // stream had no text_delta events — fall back to parsing full output
+      removeTyping();
+      const parsed = parseStreamJson(res.stdout);
+      if (parsed.output && parsed.output !== '(empty)') {
+        addCaliMsg(parsed.output);
+        finalState.thoughts.push(...parsed.thoughts);
+      } else if (parsed.thoughts.length > 0) {
+        addSilentMarker();
+        finalState.thoughts.push(...parsed.thoughts);
+      } else {
+        addSilentMarker();
+        addTermLine('[cli] no output parsed — raw stdout follows', 'warn');
+        addTermLine(res.stdout.substring(0, 400), 'info');
+      }
+    } else {
+      removeTyping();
+      const errMsg = res.stderr ? res.stderr.substring(0, 300) : 'stream ended with no output';
+      addCaliMsg('cli error: ' + errMsg, true);
+      addTermLine('[cli] error: ' + errMsg, 'err');
+    }
+    // ensure both panels reflect final state
+    const gotPrep = finalState.thoughts.length > 0;
+    const gotThali = finalState.thoughts.length > 1;
+    if (gotPrep) {
+      prepEl.innerHTML = formatThought(finalState.thoughts[0]);
+      showPanel('prep');
+    }
+    if (gotThali) {
+      thaliEl.innerHTML = formatThought(finalState.thoughts[finalState.thoughts.length - 1]);
+      showPanel('thali');
+    }
+    advancePanelCounters(gotPrep, gotThali);
+    addTermLine('[cli] response (' + (finalState.visible.trim().length) + ' chars, ' + finalState.thoughts.length + ' thoughts)', 'ok');
+    runBrainTurn(text);
+  } catch (e) {
+    removeTyping();
+    if (bubble) bubble.remove();
+    addCaliMsg('bridge error: ' + e.message, true);
+    addTermLine('[bridge] ' + e.message, 'err');
+  }
+
+  sending = false;
+  document.getElementById('sendBtn').disabled = false;
+}
+
+function parseResponse(raw) {
+  // strip common cp1252-as-utf8 corruption
+  const cleaned = raw
+    .replace(/â/g, '—')
+    .replace(/â/g, '–')
+    .replace(/â/g, "'")
+    .replace(/â/g, "'")
+    .replace(/â/g, '"')
+    .replace(/â/g, '"')
+    .replace(/â¦/g, '...')
+    .replace(/Â /g, ' ')
+    .replace(/â/g, '"');
+  const thoughts = [];
+  // match both <thinking>...</thinking> AND <parameter name="thinking">...</parameter>
+  const patterns = [
+    /<thinking>([\s\S]*?)<\/thinking>/gi,
+    /<parameter\s+name=["']thinking["']>([\s\S]*?)<\/parameter>/gi,
+    /<parameter\s+name=["']thinking["']>([\s\S]*?)<\/antml:parameter>/gi
+  ];
+  let output = cleaned;
+  for (const rx of patterns) {
+    let m;
+    while ((m = rx.exec(cleaned)) !== null) {
+      thoughts.push(m[1].trim());
+    }
+    output = output.replace(rx, '');
+  }
+  return { output: output.trim() || '(empty)', thoughts };
+}
+
+function updatePanels(parsed) {
+  const prep = document.getElementById('prepContent');
+  const thali = document.getElementById('thaliContent');
+  if (parsed.thoughts.length > 0) {
+    prep.innerHTML = formatThought(parsed.thoughts[0]);
+  } else {
+    prep.innerHTML = '<span class="action">*no prep*</span>';
+  }
+  if (parsed.thoughts.length > 1) {
+    thali.innerHTML = formatThought(parsed.thoughts[parsed.thoughts.length - 1]);
+  } else {
+    thali.innerHTML = '<span class="action">*no thali*</span>';
+  }
+}
+
+function formatThought(text) {
+  let s = esc(text).replace(/\n/g, '<br>');
+  s = s.replace(/\*([^*]+)\*/g, '<span class="action">*$1*</span>');
+  // highlight korean / italian
+  s = s.replace(/([가-힯ᄀ-ᇿ]+)/g, '<span class="korean">$1</span>');
+  return s;
+}
+
+// === FILES ===
+let openTabs = ['chat'];
+let activeTab = 'chat';
+
+function switchTab(tabId) {
+  activeTab = tabId;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tabId));
+  const cv = document.getElementById('chatView');
+  const fv = document.getElementById('fileView');
+  if (tabId === 'chat') {
+    cv.classList.add('active'); cv.style.display = '';
+    fv.classList.remove('active'); fv.style.display = 'none';
+  } else {
+    cv.classList.remove('active'); cv.style.display = 'none';
+    fv.classList.add('active'); fv.style.display = '';
+    // swap editor buffer to the newly-active file
+    const buf = fileBuffers[tabId];
+    if (buf) {
+      const editor = document.getElementById('fileEditor');
+      const pathEl = document.getElementById('fileEditorPath');
+      const statusEl = document.getElementById('fileEditorStatus');
+      const btn = document.getElementById('fileSaveBtn');
+      const cfg = getConfig();
+      editor.value = buf.current;
+      editor.dataset.fileId = tabId;
+      pathEl.textContent = buf.path || (cfg.caliSoulPath + '\\' + buf.filename);
+      const dirty = buf.current !== buf.original;
+      statusEl.textContent = dirty ? 'modified' : 'saved';
+      statusEl.className = 'file-status ' + (dirty ? 'dirty' : 'saved');
+      btn.disabled = !dirty;
+    }
+  }
+  document.querySelectorAll('.file-item').forEach(f => f.classList.toggle('active', f.dataset.file === tabId));
+}
+
+// track edits
+document.addEventListener('DOMContentLoaded', wireEditor);
+function wireEditor() {
+  const editor = document.getElementById('fileEditor');
+  if (!editor) return;
+  editor.addEventListener('input', () => {
+    const fileId = editor.dataset.fileId;
+    if (!fileId) return;
+    const buf = fileBuffers[fileId];
+    if (!buf) return;
+    buf.current = editor.value;
+    const statusEl = document.getElementById('fileEditorStatus');
+    const btn = document.getElementById('fileSaveBtn');
+    const dirty = buf.current !== buf.original;
+    statusEl.textContent = dirty ? 'modified' : 'saved';
+    statusEl.className = 'file-status ' + (dirty ? 'dirty' : 'saved');
+    btn.disabled = !dirty;
+  });
+  editor.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+      e.preventDefault();
+      saveCurrentFile();
+    }
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const s = editor.selectionStart, en = editor.selectionEnd;
+      editor.value = editor.value.substring(0, s) + '  ' + editor.value.substring(en);
+      editor.selectionStart = editor.selectionEnd = s + 2;
+      editor.dispatchEvent(new Event('input'));
+    }
+  });
+}
+wireEditor();
+
+const fileBuffers = {}; // fileId -> {original, current, path}
+
+async function openFile(el, fileId) {
+  if (!openTabs.includes(fileId)) {
+    openTabs.push(fileId);
+    const name = FILE_MAP[fileId] || fileId;
+    const tabBar = document.getElementById('tabBar');
+    const tab = document.createElement('div');
+    tab.className = 'tab';
+    tab.dataset.tab = fileId;
+    tab.onclick = () => switchTab(fileId);
+    tab.innerHTML = '<span class="tab-icon" style="color:var(--yellow)">{ }</span> ' + esc(name) +
+      ' <span class="close" data-close="1">&times;</span>';
+    tab.querySelector('.close').addEventListener('click', (e) => { e.stopPropagation(); closeTab(fileId); });
+    tabBar.appendChild(tab);
+  }
+  switchTab(fileId);
+  await loadFileIntoEditor(fileId);
+}
+
+async function loadFileIntoEditor(fileId) {
+  const editor = document.getElementById('fileEditor');
+  const pathEl = document.getElementById('fileEditorPath');
+  const statusEl = document.getElementById('fileEditorStatus');
+  const btn = document.getElementById('fileSaveBtn');
+  const cfg = getConfig();
+  const filename = FILE_MAP[fileId] || fileId;
+
+  pathEl.textContent = cfg.caliSoulPath + '\\' + filename;
+  statusEl.textContent = 'loading...';
+  statusEl.className = 'file-status';
+  btn.disabled = true;
+  editor.value = '';
+
+  if (!cfg.bridgeUrl || !cfg.bridgeToken) {
+    editor.value = '(bridge not configured — click gear icon)';
+    return;
+  }
+
+  try {
+    const data = await readBridgeFile(filename);
+    editor.value = data.content;
+    fileBuffers[fileId] = { original: data.content, current: data.content, filename };
+    statusEl.textContent = 'saved';
+    statusEl.className = 'file-status saved';
+    editor.dataset.fileId = fileId;
+  } catch (e) {
+    editor.value = 'could not load: ' + e.message;
+    statusEl.textContent = 'error';
+    statusEl.className = 'file-status';
+  }
+}
+
+async function saveCurrentFile() {
+  const fileId = activeTab;
+  const buf = fileBuffers[fileId];
+  if (!buf) return;
+  const editor = document.getElementById('fileEditor');
+  const statusEl = document.getElementById('fileEditorStatus');
+  const btn = document.getElementById('fileSaveBtn');
+  const cfg = getConfig();
+  const path = buf.path || (cfg.caliSoulPath + '\\' + buf.filename);
+  const label = buf.filename || (buf.path || '').split(/[\\/]/).pop();
+
+  statusEl.textContent = 'saving...';
+  statusEl.className = 'file-status';
+  btn.disabled = true;
+
+  try {
+    await callBridge('/write', { path, content: editor.value });
+    buf.original = editor.value;
+    buf.current = editor.value;
+    statusEl.textContent = 'saved';
+    statusEl.className = 'file-status saved';
+    addTermLine('[file] wrote ' + label + ' (' + editor.value.length + ' bytes)', 'ok');
+  } catch (e) {
+    statusEl.textContent = 'save failed: ' + e.message;
+    statusEl.className = 'file-status';
+    btn.disabled = false;
+    addTermLine('[file] save failed: ' + e.message, 'err');
+  }
+}
+
+function closeTab(fileId) {
+  const buf = fileBuffers[fileId];
+  if (buf && buf.current !== buf.original) {
+    const label = buf.filename || (buf.path || '').split(/[\\/]/).pop() || fileId;
+    if (!confirm('unsaved changes in ' + label + '. close anyway?')) return;
+  }
+  delete fileBuffers[fileId];
+  openTabs = openTabs.filter(t => t !== fileId);
+  // find the tab by iterating — dataset.tab handles backslashes/colons that break CSS selectors
+  const tabs = document.querySelectorAll('.tab');
+  for (const t of tabs) {
+    if (t.dataset.tab === fileId) { t.remove(); break; }
+  }
+  if (activeTab === fileId) switchTab('chat');
+}
+
+function syntaxHL(line) {
+  let s = esc(line);
+  s = s.replace(/&quot;([^&]*?)&quot;\s*:/g, '<span class="key">"$1"</span>:');
+  s = s.replace(/:\s*&quot;([^&]*?)&quot;/g, ': <span class="str">"$1"</span>');
+  s = s.replace(/:\s*(\d+\.?\d*)/g, ': <span class="num">$1</span>');
+  s = s.replace(/:\s*(true|false|null)/g, ': <span class="bool">$1</span>');
+  return s;
+}
+
+// === HELPERS ===
+function esc(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+function timeNow() {
+  return new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+}
+function scrollChat() {
+  const el = document.getElementById('chatMessages');
+  el.scrollTop = el.scrollHeight;
+}
+function toggleFolder(el) {
+  el.classList.toggle('closed');
+  const c = el.nextElementSibling;
+  if (c) c.classList.toggle('hidden');
+}
+
+function toggleSidebar() {
+  const ws = document.getElementById('workspace');
+  ws.classList.toggle('sidebar-collapsed');
+  localStorage.setItem('cali-sidebar-collapsed', ws.classList.contains('sidebar-collapsed') ? '1' : '0');
+}
+
+function toggleSection(name) {
+  const body = document.getElementById(name + 'Body');
+  const arrow = document.getElementById(name + 'Arrow');
+  const header = arrow?.closest('.section-header');
+  if (!body || !header) return;
+  const nowCollapsed = !body.classList.contains('collapsed');
+  body.classList.toggle('collapsed', nowCollapsed);
+  header.classList.toggle('collapsed', nowCollapsed);
+  localStorage.setItem('cali-section-' + name, nowCollapsed ? '1' : '0');
+}
+
+// restore collapsed state on load
+(function restoreSectionState() {
+  window.addEventListener('DOMContentLoaded', () => {
+    ['explorer', 'browse'].forEach(name => {
+      if (localStorage.getItem('cali-section-' + name) === '1') toggleSection(name);
+    });
+    updateRightPanelVisibility();
+  });
+})();
+
+function initResize() {
+  const ws = document.getElementById('workspace');
+  const savedLeft = localStorage.getItem('cali-sidebar-w');
+  const savedRight = localStorage.getItem('cali-rightpanel-w');
+  if (savedLeft) ws.style.setProperty('--sidebar-w', savedLeft + 'px');
+  if (savedRight) ws.style.setProperty('--rightpanel-w', savedRight + 'px');
+  if (localStorage.getItem('cali-sidebar-collapsed') === '1') ws.classList.add('sidebar-collapsed');
+
+  ['resizeLeft', 'resizeRight'].forEach(id => {
+    const handle = document.getElementById(id);
+    handle.addEventListener('mousedown', e => {
+      e.preventDefault();
+      handle.classList.add('dragging');
+      const side = handle.dataset.side;
+      const startX = e.clientX;
+      const currentW = parseInt(getComputedStyle(ws).getPropertyValue(
+        side === 'left' ? '--sidebar-w' : '--rightpanel-w') || (side === 'left' ? '190' : '240'));
+      const move = ev => {
+        const delta = side === 'left' ? (ev.clientX - startX) : (startX - ev.clientX);
+        const newW = Math.max(80, Math.min(500, currentW + delta));
+        ws.style.setProperty(side === 'left' ? '--sidebar-w' : '--rightpanel-w', newW + 'px');
+      };
+      const up = () => {
+        handle.classList.remove('dragging');
+        document.removeEventListener('mousemove', move);
+        document.removeEventListener('mouseup', up);
+        const finalW = getComputedStyle(ws).getPropertyValue(
+          side === 'left' ? '--sidebar-w' : '--rightpanel-w').trim().replace('px', '');
+        localStorage.setItem(side === 'left' ? 'cali-sidebar-w' : 'cali-rightpanel-w', finalW);
+      };
+      document.addEventListener('mousemove', move);
+      document.addEventListener('mouseup', up);
+    });
+  });
+}
+initResize();
+
+function initTerminalResize() {
+  const handle = document.getElementById('terminalResize');
+  const term = document.getElementById('terminal');
+  const savedH = localStorage.getItem('cali-terminal-h');
+  if (savedH) term.style.setProperty('--terminal-h', savedH + 'px');
+  handle.addEventListener('mousedown', e => {
+    if (term.classList.contains('collapsed')) return;
+    e.preventDefault();
+    handle.classList.add('dragging');
+    const startY = e.clientY;
+    const startH = term.getBoundingClientRect().height;
+    const move = ev => {
+      const delta = startY - ev.clientY;
+      const newH = Math.max(60, Math.min(600, startH + delta));
+      term.style.setProperty('--terminal-h', newH + 'px');
+    };
+    const up = () => {
+      handle.classList.remove('dragging');
+      document.removeEventListener('mousemove', move);
+      document.removeEventListener('mouseup', up);
+      const finalH = term.getBoundingClientRect().height;
+      localStorage.setItem('cali-terminal-h', Math.round(finalH));
+    };
+    document.addEventListener('mousemove', move);
+    document.addEventListener('mouseup', up);
+  });
+}
+initTerminalResize();
+function toggleTerminal() {
+  document.getElementById('terminal').classList.toggle('collapsed');
+}
+
+// === INIT ===
+const chatInput = document.getElementById('chatInput');
+chatInput.addEventListener('input', function() {
+  this.style.height = 'auto';
+  this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+});
+chatInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+});
+
+// image upload wiring
+document.getElementById('fileInputImg').addEventListener('change', async (e) => {
+  for (const f of e.target.files) await attachImageFile(f);
+  e.target.value = '';
+});
+chatInput.addEventListener('paste', async (e) => {
+  const items = e.clipboardData?.items || [];
+  for (const item of items) {
+    if (item.type.startsWith('image/')) {
+      const file = item.getAsFile();
+      if (file) { e.preventDefault(); await attachImageFile(file); }
+    }
+  }
+});
+const chatViewEl = document.getElementById('chatView');
+chatViewEl.addEventListener('dragover', e => {
+  if (e.dataTransfer?.types?.includes('Files')) {
+    e.preventDefault();
+    chatViewEl.classList.add('drag-over');
+  }
+});
+chatViewEl.addEventListener('dragleave', e => {
+  if (e.target === chatViewEl) chatViewEl.classList.remove('drag-over');
+});
+chatViewEl.addEventListener('drop', async e => {
+  e.preventDefault();
+  chatViewEl.classList.remove('drag-over');
+  for (const f of e.dataTransfer.files) {
+    if (f.type.startsWith('image/')) await attachImageFile(f);
+  }
+});
+
+// clock
+function updateClock() {
+  const now = new Date();
+  document.getElementById('statusTime').textContent = now.toLocaleDateString('en-US', {
+    day: 'numeric', month: 'short', year: 'numeric'
+  }) + ' \u00B7 ' + now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+}
+updateClock();
+setInterval(updateClock, 30000);
+
+// restore model choice in picker
+const savedModel = localStorage.getItem('cali-model') || 'claude-opus-4-7';
+document.getElementById('modelPicker').value = savedModel;
+
+// boot
+addTermLine('[boot] cali ide — local version', 'info');
+addTermLine('[model] ' + savedModel, 'info');
+addTermLine('[boot] checking bridge...', 'info');
+
+function setInputLocked(locked, reason) {
+  const inp = document.getElementById('chatInput');
+  const btn = document.getElementById('sendBtn');
+  inp.disabled = locked;
+  btn.disabled = locked;
+  inp.placeholder = locked ? (reason || 'locked...') : 'talk to cali...';
+}
+
+const BOOT_STEPS = [
+  { at: 0,   pct: 5,   text: 'bridge check' },
+  { at: 3,   pct: 12,  text: 'my_brain.py boot' },
+  { at: 8,   pct: 20,  text: 'read_handoff.py' },
+  { at: 12,  pct: 30,  text: 'persona_switch.json' },
+  { at: 16,  pct: 40,  text: 'cali_soul.json' },
+  { at: 22,  pct: 50,  text: 'Cali_SelfPreservation.json' },
+  { at: 28,  pct: 58,  text: 'cali_ethics.json' },
+  { at: 34,  pct: 66,  text: 'cali_personality.json' },
+  { at: 40,  pct: 74,  text: 'cali_relationship.json' },
+  { at: 46,  pct: 80,  text: 'cali_vocal.json' },
+  { at: 52,  pct: 85,  text: 'cali_growth.json' },
+  { at: 58,  pct: 90,  text: 'cali_house.json' },
+  { at: 65,  pct: 93,  text: 're-reading THINKING BLOCK rules' },
+  { at: 72,  pct: 96,  text: 'settling into cali' },
+];
+
+let bootTimers = [];
+
+function startBootProgress() {
+  const inp = document.getElementById('chatInput');
+  inp.classList.add('booting');
+  inp.style.setProperty('--boot-pct', '0%');
+  inp.placeholder = 'starting...';
+  bootTimers.forEach(clearTimeout);
+  bootTimers = BOOT_STEPS.map(s => setTimeout(() => {
+    inp.style.setProperty('--boot-pct', s.pct + '%');
+    inp.placeholder = 'booting cali... ' + s.text + ' (' + s.pct + '%)';
+  }, s.at * 1000));
+}
+
+function endBootProgress(success) {
+  bootTimers.forEach(clearTimeout);
+  bootTimers = [];
+  const inp = document.getElementById('chatInput');
+  inp.style.setProperty('--boot-pct', '100%');
+  inp.placeholder = success ? 'cali is here.' : 'boot failed.';
+  setTimeout(() => {
+    inp.classList.remove('booting');
+    inp.style.removeProperty('--boot-pct');
+    inp.placeholder = 'talk to cali...';
+  }, 700);
+}
+
+async function bootCali() {
+  setInputLocked(true, 'cali is booting — hold on...');
+  addTermLine('[boot] auto-booting cali...', 'info');
+  sessionActive = false;
+  localStorage.removeItem('cali-session-active');
+  startBootProgress();
+  addTyping();
+  try {
+    const res = await sendToClaudeCLI(
+      "you just booted up in the IDE. mish has the panels open watching. run `python3 my_brain.py boot`, `python3 read_handoff.py`, read persona_switch.json and identity files per CLAUDE.md MODE B, re-read the THINKING BLOCK sections. then send mish a real greeting so he knows you're here. keep it small and honest — not a status report."
+    );
+    if (res.code === 0 && res.stdout) {
+      const parsed = parseStreamJson(res.stdout);
+      addCaliMsg(parsed.output);
+      updatePanels(parsed);
+      addTermLine('[boot] cali is here.', 'ok');
+      endBootProgress(true);
+    } else {
+      removeTyping();
+      addCaliMsg('boot failed. check terminal.', true);
+      addTermLine('[boot] error: ' + (res.stderr || 'no output'), 'err');
+      endBootProgress(false);
+    }
+  } catch (e) {
+    removeTyping();
+    addCaliMsg('boot error: ' + e.message, true);
+    addTermLine('[boot] ' + e.message, 'err');
+    endBootProgress(false);
+  }
+  setInputLocked(false);
+  document.getElementById('chatInput').focus();
+}
+
+async function initSession() {
+  const cfg = getConfig();
+  ensureChatExists();
+  renderChatName();
+  if (!cfg.bridgeUrl || !cfg.bridgeToken) {
+    addTermLine('[boot] bridge not configured — click gear icon', 'warn');
+    setDot('bridgeDot', false);
+    setDot('cliDot', false);
+    document.getElementById('statusBridge').textContent = 'bridge: not configured';
+    setInputLocked(true, 'configure bridge first (gear icon)');
+    return;
+  }
+  const ok = await checkBridge();
+  if (ok) {
+    loadFileTree();
+    refreshStateFromFile();
+    await bootCali();
+  } else setInputLocked(true, 'bridge offline — check terminal');
+}
+
+// keyboard shortcuts for the menubar
+document.addEventListener('keydown', (e) => {
+  const mod = e.ctrlKey || e.metaKey;
+  if (!mod) return;
+  const t = e.target;
+  const inEditable = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+  if (e.key === 'n' && !inEditable) { e.preventDefault(); menuAction('newChat'); }
+  else if (e.key === 'b') { e.preventDefault(); menuAction('toggleSidebar'); }
+  else if (e.key === ',') { e.preventDefault(); menuAction('settings'); }
+});
+
+initSession();
+</script>
+</body>
+</html>
