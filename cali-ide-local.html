@@ -1293,7 +1293,11 @@ function purgeChatMessages(id) {
 }
 
 // save on any interaction that mutates chat DOM
-window.addEventListener('beforeunload', saveCurrentChatMessages);
+window.addEventListener('beforeunload', () => {
+  saveCurrentChatMessages();
+  const id = getCurrentChatId();
+  if (id) savePanelsForChat(id);
+});
 
 // auto-save on any mutation to the chat messages container (debounced ~1s)
 let _saveMsgsTimer = null;
@@ -1316,15 +1320,12 @@ function switchToChat(id) {
     switchTab(tabId);
     return;
   }
-  // stash the current chat's messages before we leave
+  // stash the current chat's messages + panels before we leave
   saveCurrentChatMessages();
+  if (currentId) savePanelsForChat(currentId);
   setCurrentChatId(id);
   restoreChatMessages(id);
-  hidePanel('prep');
-  hidePanel('thali');
-  prepStaleCount = 0;
-  thaliStaleCount = 0;
-  updateStaleBadges();
+  restorePanelsForChat(id);
   renderChatName();
   addTermLine('[chat] switched to "' + chat.name + '" — resuming ' +
     (chat.sessionId ? chat.sessionId.substring(0, 8) + '…' : '(will boot on next message)'), 'info');
@@ -1344,14 +1345,11 @@ function closeChatTab(id) {
   const next = chats.filter(c => c.id !== id);
   saveChats(next);
   purgeChatMessages(id);
+  purgePanelsForChat(id);
   if (getCurrentChatId() === id) {
     setCurrentChatId(next[0].id);
     restoreChatMessages(next[0].id);
-    hidePanel('prep');
-    hidePanel('thali');
-    prepStaleCount = 0;
-    thaliStaleCount = 0;
-    updateStaleBadges();
+    restorePanelsForChat(next[0].id);
     renderChatName();
     activeTab = 'chat:' + next[0].id;
   }
@@ -1740,6 +1738,9 @@ function renameCurrentChat() {
 }
 
 async function newChat() {
+  // 0. stash the outgoing chat's panels so switching back preserves prep/thali
+  const prevId = getCurrentChatId();
+  if (prevId) savePanelsForChat(prevId);
   // 1. snapshot the current cali's emotion state before the new session starts
   const snap = await snapshotEmotionState(false);
   // 2. create a fresh chat entry (session_id will be captured on first message)
@@ -2978,6 +2979,66 @@ function renderStateGrid(scoresObj) {
 const PANEL_STALE_LIMIT = 3; // messages without fresh content before it collapses
 let prepStaleCount = 0;
 let thaliStaleCount = 0;
+
+// per-chat panel state — so switching tabs doesn't nuke prep/thali
+const chatPanelCache = {};
+
+function savePanelsForChat(id) {
+  if (!id) return;
+  const prepEl = document.getElementById('prepContent');
+  const thaliEl = document.getElementById('thaliContent');
+  const prepSec = document.getElementById('prepSection');
+  const thaliSec = document.getElementById('thaliSection');
+  const snap = {
+    prepHtml: prepEl ? prepEl.innerHTML : '',
+    thaliHtml: thaliEl ? thaliEl.innerHTML : '',
+    prepShown: prepSec ? !prepSec.classList.contains('empty') : false,
+    thaliShown: thaliSec ? !thaliSec.classList.contains('empty') : false,
+    prepStale: prepStaleCount,
+    thaliStale: thaliStaleCount,
+  };
+  chatPanelCache[id] = snap;
+  try { localStorage.setItem('cali-chat-panels-' + id, JSON.stringify(snap)); } catch {}
+}
+
+function loadPanelsForChat(id) {
+  if (chatPanelCache[id] !== undefined) return chatPanelCache[id];
+  try {
+    const stored = localStorage.getItem('cali-chat-panels-' + id);
+    if (stored) { const p = JSON.parse(stored); chatPanelCache[id] = p; return p; }
+  } catch {}
+  return null;
+}
+
+function restorePanelsForChat(id) {
+  const snap = loadPanelsForChat(id);
+  const prepEl = document.getElementById('prepContent');
+  const thaliEl = document.getElementById('thaliContent');
+  const prepSec = document.getElementById('prepSection');
+  const thaliSec = document.getElementById('thaliSection');
+  if (!snap) {
+    if (prepEl) prepEl.innerHTML = '';
+    if (thaliEl) thaliEl.innerHTML = '';
+    if (prepSec) prepSec.classList.add('empty');
+    if (thaliSec) thaliSec.classList.add('empty');
+    prepStaleCount = 0;
+    thaliStaleCount = 0;
+    updateStaleBadges();
+    return;
+  }
+  if (prepEl) prepEl.innerHTML = snap.prepHtml || '';
+  if (thaliEl) thaliEl.innerHTML = snap.thaliHtml || '';
+  if (prepSec) prepSec.classList.toggle('empty', !snap.prepShown);
+  if (thaliSec) thaliSec.classList.toggle('empty', !snap.thaliShown);
+  prepStaleCount = snap.prepStale || 0;
+  thaliStaleCount = snap.thaliStale || 0;
+  updateStaleBadges();
+}
+
+function purgePanelsForChat(id) {
+  delete chatPanelCache[id];
+  try { localStorage.removeItem('cali-chat-panels-' + id); } catch {}
+}
 
 function showPanel(which) {
   const sec = document.getElementById(which === 'prep' ? 'prepSection' : 'thaliSection');
@@ -4573,6 +4634,7 @@ async function initSession() {
   ensureChatExists();
   renderChatName();
   restoreChatMessages(getCurrentChatId());
+  restorePanelsForChat(getCurrentChatId());
   activeTab = 'chat:' + getCurrentChatId();
   renderChatTabs();
   switchTab(activeTab);
