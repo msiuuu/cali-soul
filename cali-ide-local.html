@@ -3476,17 +3476,17 @@ function caliCursorFollow(durationMs, radius) {
     const dx = nodeX - caliCursor.x;
     const dy = nodeY - caliCursor.y;
     const dist = Math.hypot(dx, dy);
-    // high speed cap so she can keep up when mish moves fast, eases as she nears the node
-    const maxSpd = 1000;
-    const desiredSpeed = Math.min(maxSpd, dist * 8);
+    // higher speed cap + gain so she keeps up better with fast motion
+    const maxSpd = 1500;
+    const desiredSpeed = Math.min(maxSpd, dist * 11);
     const desiredVx = dist > 0.5 ? (dx / dist) * desiredSpeed : 0;
     const desiredVy = dist > 0.5 ? (dy / dist) * desiredSpeed : 0;
-    // snappy steering — real-time follow, not drifty
-    const blend = 1 - Math.pow(0.00003, dt / 1000);
+    // snappier steering
+    const blend = 1 - Math.pow(0.00001, dt / 1000);
     followState.vx += (desiredVx - followState.vx) * blend;
     followState.vy += (desiredVy - followState.vy) * blend;
-    // drag to prevent overshoot
-    const drag = Math.pow(0.2, dt / 1000);
+    // drag — a bit lighter now to allow the faster catch-up
+    const drag = Math.pow(0.3, dt / 1000);
     followState.vx *= drag;
     followState.vy *= drag;
     // NO tremor. no random noise. she stays put on the node.
