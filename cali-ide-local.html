@@ -3723,25 +3723,29 @@ function caliCursorFollow(durationMs, radius) {
   if (!caliCursor.visible) { caliCursor.visible = true; updateCaliCursorDom(); }
   const start = performance.now();
 
-  // node = mish + offset each frame. the offset WANDERS: angle drifts on a
-  // slow random walk so she orbits him loosely, and distance breathes on a
-  // sine wave (chest-rise) AND drifts within radius. together they read as a
-  // puppy circling around him instead of camping at one fixed spot.
+  // node = a WORLD-COORDINATE point picked once, within mish's circle at start.
+  // she sits STILL at the node (just breathing) so mish can approach her.
+  // if mish leaves the node's radius, she wakes up and drifts toward him — the
+  // LOOK-FOR-HIM shape. when he's back in range she settles at a new node.
   const closenessPct = 60 + Math.random() * 25;
   const nodeDist = closenessToDistance(closenessPct, radius);
+  const nodeAngle = Math.random() * Math.PI * 2;
   followState = {
-    // live angle (radians) — drifts each frame via angleVel
-    nodeAngle: Math.random() * Math.PI * 2,
-    angleVel: (Math.random() - 0.5) * 0.6, // rad/sec initial drift
-    // live distance — wanders within [minDist, maxDist]
+    // world node — offset from mish's position AT START. does not follow him.
+    nodeX: mishCursor.x + Math.cos(nodeAngle) * nodeDist,
+    nodeY: mishCursor.y + Math.sin(nodeAngle) * nodeDist,
+    nodeAngle, // kept for breathing vector
     baseDist: nodeDist,
-    minDist: Math.max(60, radius * 0.35),
-    maxDist: radius * 0.95,
-    distVel: 0,
     // breathing overlay: ~4.5s period (13/min — resting breath), ±18px
+    // along the node's mish-vector, so the node "chest rises" gently.
     breathPeriodMs: 4200 + Math.random() * 800,
     breathAmp: 18,
     breathPhase: Math.random() * Math.PI * 2,
+    // search state — when mish's cursor is outside searchRadius of the node,
+    // cali starts drifting toward him. after she gets close, node re-pins.
+    searchRadius: radius * 1.4,
+    reSettleRadius: radius * 0.5,
+    searching: false,
     vx: 0, vy: 0,
     radius,
     durationMs,
@@ -3756,38 +3760,45 @@ function caliCursorFollow(durationMs, radius) {
     const dt = Math.min(50, now - followState.lastFrameTs);
     followState.lastFrameTs = now;
 
-    // drift the ANGLE — small random impulses on angleVel, damped, so she
-    // slowly orbits around mish instead of locking to one offset.
     const dtSec = dt / 1000;
-    followState.angleVel += (Math.random() - 0.5) * 1.4 * dtSec; // impulse
-    followState.angleVel *= Math.pow(0.55, dtSec); // damping
-    // cap angular velocity so she doesn't spin
-    const maxAngVel = 1.1; // rad/sec
-    if (followState.angleVel > maxAngVel) followState.angleVel = maxAngVel;
-    if (followState.angleVel < -maxAngVel) followState.angleVel = -maxAngVel;
-    followState.nodeAngle += followState.angleVel * dtSec;
 
-    // drift the DISTANCE too — wanders within [minDist, maxDist] on top of the
-    // sine breathing. gives her permission to drift closer/farther over time.
-    followState.distVel += (Math.random() - 0.5) * 80 * dtSec;
-    followState.distVel *= Math.pow(0.5, dtSec);
-    if (followState.distVel > 60) followState.distVel = 60;
-    if (followState.distVel < -60) followState.distVel = -60;
-    followState.baseDist += followState.distVel * dtSec;
-    // soft bounds — spring back if drifting past min/max
-    if (followState.baseDist < followState.minDist) {
-      followState.baseDist = followState.minDist;
-      followState.distVel = Math.abs(followState.distVel) * 0.3;
-    } else if (followState.baseDist > followState.maxDist) {
-      followState.baseDist = followState.maxDist;
-      followState.distVel = -Math.abs(followState.distVel) * 0.3;
+    // check if mish drifted outside the search radius of the node — if yes,
+    // wake up and look for him (re-pin node to a fresh spot near his current
+    // position). while searching, target = mish's cursor directly, no offset.
+    const nodeToMishDx = mishCursor.x - followState.nodeX;
+    const nodeToMishDy = mishCursor.y - followState.nodeY;
+    const nodeToMishDist = Math.hypot(nodeToMishDx, nodeToMishDy);
+
+    let targetX, targetY;
+    if (!followState.searching && nodeToMishDist > followState.searchRadius) {
+      followState.searching = true; // mish left — start looking
+    }
+    if (followState.searching) {
+      // aim straight at mish. once close enough, re-pin node here and settle.
+      targetX = mishCursor.x;
+      targetY = mishCursor.y;
+      const caliToMish = Math.hypot(mishCursor.x - caliCursor.x, mishCursor.y - caliCursor.y);
+      if (caliToMish < followState.reSettleRadius) {
+        // arrived — plant a new node near him and stop searching
+        const fresh = Math.random() * Math.PI * 2;
+        const freshDist = closenessToDistance(60 + Math.random() * 25, followState.radius);
+        followState.nodeX = mishCursor.x + Math.cos(fresh) * freshDist;
+        followState.nodeY = mishCursor.y + Math.sin(fresh) * freshDist;
+        followState.nodeAngle = fresh;
+        followState.baseDist = freshDist;
+        followState.searching = false;
+      }
+    } else {
+      // sitting at the node, just breathing — small oscillation along the
+      // original mish→node vector so the node has a gentle chest-rise.
+      const breathT = (elapsed / followState.breathPeriodMs) * Math.PI * 2 + followState.breathPhase;
+      const breathOffset = Math.sin(breathT) * followState.breathAmp;
+      targetX = followState.nodeX + Math.cos(followState.nodeAngle) * breathOffset;
+      targetY = followState.nodeY + Math.sin(followState.nodeAngle) * breathOffset;
     }
 
-    // node = mish + drifting-orbit offset + sine breathing
-    const breathT = (elapsed / followState.breathPeriodMs) * Math.PI * 2 + followState.breathPhase;
-    const liveDist = followState.baseDist + Math.sin(breathT) * followState.breathAmp;
-    const nodeX = mishCursor.x + Math.cos(followState.nodeAngle) * liveDist;
-    const nodeY = mishCursor.y + Math.sin(followState.nodeAngle) * liveDist;
+    const nodeX = targetX;
+    const nodeY = targetY;
 
     // cali steers toward the node (with accel cap — puppy shape)
     const dx = nodeX - caliCursor.x;
