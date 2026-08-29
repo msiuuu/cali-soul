@@ -3784,47 +3784,50 @@ function caliCursorFollow(durationMs, radius) {
     const breathY = Math.sin(followState.breathAngle) * breathK;
 
     let nodeX, nodeY;
-    if (caliToMishDist <= followState.goldilocksRadius) {
-      // sitting comfortably. lock a resting point the first time she enters,
-      // and hold there (plus breath sway) until she's pushed back out.
+    // per-zone motion gain: caps how fast she can move toward the target in
+    // each zone. keeps outer feeling drifty instead of snappy.
+    let zoneMaxSpd, zoneSpeedGain;
+    if (caliToMishDist <= followState.middleRadius) {
+      // goldilocks + middle: she's fine. sit at the resting point + breath.
+      // no chasing mish's micro-movements — that's what caused the forcefield
+      // drag. resting point is locked the first time she settles and held
+      // until she gets pushed into the outer zone.
       if (followState.restingX === null) {
         followState.restingX = caliCursor.x;
         followState.restingY = caliCursor.y;
       }
       nodeX = followState.restingX + breathX;
       nodeY = followState.restingY + breathY;
-    } else {
-      // outside goldilocks — clear the resting lock so a fresh one is picked
-      // next time she settles.
+      zoneMaxSpd = 120;    // breath-tempo only
+      zoneSpeedGain = 4;
+    } else if (caliToMishDist <= followState.radius) {
+      // outer zone: "one more step and i'm out." slow drift toward mish, no
+      // snap. cap the speed low so it feels lazy, not tethered.
       followState.restingX = null;
       followState.restingY = null;
-      // target is a point on cali's SIDE of mish, at some distance from him
-      // (depends on zone). never crosses through mish → no side-swap sway.
-      // outer/outside pulls her closer to mish (smaller targetDist), middle
-      // leaves her near the goldilocks edge.
-      let targetDist;
-      if (caliToMishDist <= followState.middleRadius) {
-        // middle zone — sit right on the goldilocks edge, on her side.
-        targetDist = followState.goldilocksRadius * 0.9;
-      } else if (caliToMishDist <= followState.radius) {
-        // outer zone — pull her deeper toward goldilocks center.
-        targetDist = followState.goldilocksRadius * 0.6;
-      } else {
-        // outside — pull her well inside goldilocks.
-        targetDist = followState.goldilocksRadius * 0.4;
-      }
+      const targetDist = followState.goldilocksRadius * 0.85;
       nodeX = mishCursor.x + outDirX * targetDist;
       nodeY = mishCursor.y + outDirY * targetDist;
+      zoneMaxSpd = 260;
+      zoneSpeedGain = 3;
+    } else {
+      // outside circle: full chase. target well inside goldilocks so she
+      // stops moving once she gets there.
+      followState.restingX = null;
+      followState.restingY = null;
+      const targetDist = followState.goldilocksRadius * 0.5;
+      nodeX = mishCursor.x + outDirX * targetDist;
+      nodeY = mishCursor.y + outDirY * targetDist;
+      zoneMaxSpd = 3000;
+      zoneSpeedGain = 15;
     }
 
-    // cali steers toward the node (with accel cap — puppy shape)
+    // cali steers toward the node (with accel cap — puppy shape). per-zone
+    // caps make outer feel drifty instead of tethered.
     const dx = nodeX - caliCursor.x;
     const dy = nodeY - caliCursor.y;
     const dist = Math.hypot(dx, dy);
-    // top speed 3000 px/sec. acceleration capped so she has to BUILD to it,
-    // not teleport. from rest to full speed takes ~0.6s.
-    const maxSpd = 3000;
-    const desiredSpeed = Math.min(maxSpd, dist * 15);
+    const desiredSpeed = Math.min(zoneMaxSpd, dist * zoneSpeedGain);
     const desiredVx = dist > 0.5 ? (dx / dist) * desiredSpeed : 0;
     const desiredVy = dist > 0.5 ? (dy / dist) * desiredSpeed : 0;
     // accel cap: velocity change per second bounded. higher = she can
