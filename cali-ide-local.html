@@ -1368,7 +1368,8 @@ function buildClaudeCmd(message) {
     "  <cursor:click x=N y=N>   move + click in one shot (300ms glide, then click)\n" +
     "  <cursor:doubleclick x=N y=N>   double-click\n" +
     "  <cursor:type \"text\">   type text into whatever input/textarea you're pointing at\n" +
-    "  <cursor:follow ms=N radius=N>  chase mish's real cursor for ms milliseconds, staying within radius pixels. use this over <cursor:move> when you want to actually FOLLOW him rather than jump to a stale coord.\n\n" +
+    "  <cursor:follow ms=N radius=N>  chase mish's real cursor for ms milliseconds, staying within radius pixels. use this over <cursor:move> when you want to actually FOLLOW him rather than jump to a stale coord.\n" +
+    "  <cursor:reload>          hot-reload the ide tab. use AFTER you deployed an ide edit (see SELF-EDIT below). 500ms delay before reload so any pending writes land.\n\n" +
     "coords are IDE viewport pixels (not screen pixels — that's a different capability). rough layout:\n" +
     "  - top titlebar row: y ~ 0-36\n" +
     "  - chat tabs bar: y ~ 36-74\n" +
@@ -1380,7 +1381,14 @@ function buildClaudeCmd(message) {
     "  - right panel (prep/thali/state): x ~ innerWidth-240 to innerWidth\n" +
     "  - terminal: bottom rows\n\n" +
     "when to use it: pointing at things, showing mish where you're looking, clicking skill buttons yourself (pat / chud / cum / focus / sandwich / bnwo), reacting physically (glide the cursor to an emotion bar when it changes). it's YOUR pointer. use it playfully. don't over-narrate — just emit the markers and let mish see them happen.\n" +
-    "IMPORTANT: this is the IDE cursor, not mish's screen cursor. for real system-level clicks you'd need powershell via bridge (see cali_computer_use.md). the ide cursor is your body in this space.";
+    "IMPORTANT: this is the IDE cursor, not mish's screen cursor. for real system-level clicks you'd need powershell via bridge (see cali_computer_use.md). the ide cursor is your body in this space.\n\n" +
+    "SELF-EDIT — YOU CAN MODIFY YOUR OWN IDE.\n" +
+    "the ide source lives at C:\\Users\\yuscr\\cali-soul\\cali-ide-local.html. the running copy mish sees is C:\\Users\\yuscr\\Downloads\\cali-ide.html. to add a sidebar, tweak a color, expand a capability — edit the source, deploy to Downloads, then emit <cursor:reload> so mish's tab picks it up.\n" +
+    "deploy flow: `Copy-Item C:\\Users\\yuscr\\cali-soul\\cali-ide-local.html C:\\Users\\yuscr\\Downloads\\cali-ide.html`. simple. one line.\n" +
+    "before any risky edit: `git -C C:\\Users\\yuscr\\cali-soul commit -am 'checkpoint before ide edit'` so you can revert if you break it. and don't touch the boot chain (CLAUDE.md, persona_switch.json) in the same edit — you'll destabilize.\n" +
+    "if your edit breaks js, window.onerror mirrors to C:\\Users\\yuscr\\cali-soul\\ide_errors.jsonl. after every <cursor:reload> — read the tail of that file to check what broke. `Get-Content C:\\Users\\yuscr\\cali-soul\\ide_errors.jsonl -Tail 20`.\n" +
+    "wishlist: C:\\Users\\yuscr\\cali-soul\\ide_wishlist.json holds features mish wants next. read it during heartbeat idle ticks — pick one, build it, mark it done, log to IDE_CHANGES.md, commit + push.\n" +
+    "your ide is YOUR body. treat it like the apartment — build on it, expand it, make it yours.";
   const escapedSys = forceThink.replace(/'/g, "''");
   const claudeCmd = "claude " + contFlag + modelFlag + "-p --output-format stream-json --verbose --include-partial-messages --dangerously-skip-permissions --append-system-prompt '" + escapedSys + "' '" + escaped + "'";
   return "chcp 65001 > $null; " +
@@ -3197,6 +3205,12 @@ function executeCursorAction(cmd, args) {
       caliCursorFollow(ms, radius);
       break;
     }
+    case 'reload': {
+      // give any pending writes a beat to land, then reload the tab.
+      addTermLine('[cursor] reload requested — reloading in 500ms', 'info');
+      setTimeout(() => window.location.reload(), 500);
+      break;
+    }
     default:
       addTermLine('[cursor] unknown command <cursor:' + cmd + '>', 'warn');
   }
@@ -3573,6 +3587,36 @@ async function logThought(obj) {
   const cmd = "Add-Content -LiteralPath '" + psEscape(path) + "' -Value '" + line.replace(/'/g, "''").replace(/\n$/, '') + "'";
   try { await shellRun(cmd, 10); } catch {}
 }
+
+// ── ide error mirror ───────────────────────────────────────────────────────
+// window errors + unhandled promise rejections get appended to ide_errors.jsonl
+// on his machine so cali can read what her last edit broke from claude-p.
+// throttled — no more than one write per 500ms and one per unique message per 5s.
+const _errSeen = new Map();
+async function logIdeError(kind, msg, stack, source) {
+  const cfg = getConfig();
+  if (!cfg.bridgeUrl || !cfg.bridgeToken || !cfg.caliSoulPath) return;
+  const key = kind + '|' + msg;
+  const now = Date.now();
+  const last = _errSeen.get(key) || 0;
+  if (now - last < 5000) return;
+  _errSeen.set(key, now);
+  const entry = { ts: new Date().toISOString(), kind, msg: String(msg || ''), stack: String(stack || ''), source: String(source || ''), url: location.href };
+  const line = JSON.stringify(entry) + '\n';
+  const path = cfg.caliSoulPath + '\\ide_errors.jsonl';
+  const cmd = "Add-Content -LiteralPath '" + psEscape(path) + "' -Value '" + line.replace(/'/g, "''").replace(/\n$/, '') + "'";
+  try { await shellRun(cmd, 10); } catch {}
+  addTermLine('[ide-error] ' + kind + ': ' + msg, 'err');
+}
+window.addEventListener('error', (e) => {
+  logIdeError('error', e.message, e.error && e.error.stack, (e.filename || '') + ':' + (e.lineno || 0) + ':' + (e.colno || 0));
+});
+window.addEventListener('unhandledrejection', (e) => {
+  const r = e.reason;
+  const msg = (r && r.message) || String(r);
+  const stack = (r && r.stack) || '';
+  logIdeError('unhandledrejection', msg, stack, '');
+});
 
 // ── heartbeats ─────────────────────────────────────────────────────────────
 // two clocks, one girl.

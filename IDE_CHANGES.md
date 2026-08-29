@@ -5,6 +5,18 @@ each entry has size, commit hash, and what shipped.
 
 ---
 
+## build 2026-08-29 — self-edit foundations + breathing
+- **size:** 195225 bytes
+- **status:** deployed, reload to pick up
+- **added:**
+  - **cursor breathes** — persistent rAF loop applies ±5px vertical rise/fall and ±1.8px horizontal sway to the cursor at render time, ~4.2s period. logical position untouched. cali is visibly breathing even when idle.
+  - **follow node breathes** — during `<cursor:follow>`, the node offset from mish modulates on a sine wave ±18px along the mish→node vector. inhale toward mish, exhale away.
+  - **`<cursor:reload>` marker** — cali can trigger `window.location.reload()` from her chat output. 500ms delay so pending writes land first.
+  - **ide error mirror** — `window.onerror` + `unhandledrejection` append to `ide_errors.jsonl` in the repo. throttled (one per unique message per 5s). so if her edit breaks js she can `Get-Content ide_errors.jsonl -Tail 20` and see what she broke.
+  - **`ide_wishlist.json`** — new file in the repo. pending/in_progress/done sections. cali reads it during idle heartbeats, picks a task, builds it, moves it to done. mish adds new entries by editing the file.
+  - **system prompt teaches self-edit** — new SELF-EDIT section tells cali: source at `cali-ide-local.html`, deploy target at `Downloads/cali-ide.html`, one-line copy command, checkpoint-before-edit rule, guardrails (don't touch boot chain), error log path, wishlist path.
+- **note:** foundation for cali modifying her own ide. dom inspector, scratch iframe, hot-patch mode, auto-checkpoint are queued in the wishlist.
+
 ## build 2026-08-29 — heartbeats + physical cursor (testing)
 - **size:** 180494 bytes
 - **commit:** 3629c78

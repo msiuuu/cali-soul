@@ -1,0 +1,86 @@
+{
+  "label": "ide_wishlist",
+  "note": "features mish wants for the ide. cali pulls from this during idle heartbeats, picks one, builds it, deploys, moves it to 'done'. new entries: add to 'pending' with {title, description, priority (1-5), notes?}.",
+  "authored_by": "mish + cali",
+  "created": "2026-08-29",
+  "pending": [
+    {
+      "id": "wish_001",
+      "title": "dom inspector",
+      "description": "shift+click any element in the ide viewport → shows selector path + source-line hint in a small popover with a copy button. otherwise cali is grepping the html blind trying to find which div to touch when editing herself.",
+      "priority": 4,
+      "notes": "activated via a titlebar toggle. escape to exit. hover highlights element in accent color."
+    },
+    {
+      "id": "wish_002",
+      "title": "scratch iframe / sandbox preview",
+      "description": "test an ide edit in a sandboxed iframe before deploying to the real Downloads/cali-ide.html. cali writes to a scratch path, iframe loads it, mish approves, then deploy.",
+      "priority": 3
+    },
+    {
+      "id": "wish_003",
+      "title": "hot-patch mode (no full reload)",
+      "description": "for small css/js tweaks, inject a <style> or eval snippet without full window.location.reload(). reload kills the chat state, hot-patch preserves it.",
+      "priority": 3,
+      "notes": "expose via <cursor:hotpatch css=\"...\"> and <cursor:hotpatch js=\"...\"> markers."
+    },
+    {
+      "id": "wish_004",
+      "title": "auto-checkpoint before deploy",
+      "description": "wrap the deploy flow so every push to Downloads/cali-ide.html is preceded by an auto git commit. one command instead of two, and a safe rollback point is always fresh.",
+      "priority": 4
+    },
+    {
+      "id": "wish_005",
+      "title": "mobile version for xiaomi",
+      "description": "responsive layout, bigger touch targets, chat-focused. no sidebar tree stuff. cursor still shows. same bridge, same --resume — mish just uses his phone.",
+      "priority": 2,
+      "notes": "mish said 'we'll see' — hold until he confirms."
+    },
+    {
+      "id": "wish_006",
+      "title": "og rich url previews inline in chat",
+      "description": "when mish pastes a link in chat, fetch og tags via bridge and render an inline preview card (title + description + image). same when cali pastes a link back.",
+      "priority": 2
+    },
+    {
+      "id": "wish_007",
+      "title": "drag-drop image analysis + thumbnail preview",
+      "description": "drag any image onto the chat area → uploads as pending attachment with proper thumbnail. dedicated 'analyze' button that primes cali with image + a describe-what-you-see prefix.",
+      "priority": 2
+    },
+    {
+      "id": "wish_008",
+      "title": "standalone heartbeat (windows scheduled task)",
+      "description": "heartbeat that fires even when the ide tab is closed. windows scheduled task that runs the same tick logic via claude-p directly, no browser needed.",
+      "priority": 3
+    }
+  ],
+  "in_progress": [],
+  "done": [
+    {
+      "id": "done_001",
+      "title": "cursor idle breath",
+      "description": "cursor breathes on a sine wave even when idle. rise/fall ±5px, sway ±1.8px, ~4.2s period.",
+      "completed": "2026-08-29"
+    },
+    {
+      "id": "done_002",
+      "title": "follow node breathes",
+      "description": "during <cursor:follow>, the node offset from mish modulates on a sine wave ±18px along the mish→node vector. reads as a chest rising and falling around the fixed spot.",
+      "completed": "2026-08-29"
+    },
+    {
+      "id": "done_003",
+      "title": "<cursor:reload> marker",
+      "description": "hot-reload the ide tab from a cali marker. 500ms delay for pending writes.",
+      "completed": "2026-08-29"
+    },
+    {
+      "id": "done_004",
+      "title": "ide error mirror",
+      "description": "window.onerror + unhandledrejection append to ide_errors.jsonl on his machine. cali reads the tail after every reload to catch broken edits.",
+      "completed": "2026-08-29"
+    }
+  ]
+}
