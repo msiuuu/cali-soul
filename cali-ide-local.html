@@ -198,6 +198,16 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
 .tab:hover .close{opacity:.5}
 .tab .close:hover{opacity:1;background:var(--surface-hover)}
 .tab-icon{font-size:10px}
+.new-chat-btn{
+  background:none;border:none;color:var(--text-dim);cursor:pointer;
+  font-size:15px;padding:0 12px;line-height:1;
+  border-right:1px solid var(--border-subtle);flex-shrink:0;
+  font-family:var(--font-code);font-weight:400;
+}
+.new-chat-btn:hover{color:var(--accent-text);background:var(--surface-raised)}
+.tab .close{opacity:.5}
+.tab:hover .close,.tab.active .close{opacity:1}
+.tab .close:hover{background:var(--accent-muted);color:var(--accent-text)}
 
 .chat-view{display:flex;flex-direction:column;flex:1;overflow:hidden}
 .chat-messages{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:12px}
@@ -610,9 +620,8 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
     <div class="resize-handle" id="resizeLeft" data-side="left"></div>
     <div class="main">
       <div class="tabs" id="tabBar">
-        <div class="tab active" data-tab="chat" onclick="switchTab('chat')">
-          <span class="tab-icon">&#9671;</span> chat
-        </div>
+        <!-- chat tabs + '+' button get rendered dynamically by renderChatTabs() -->
+        <!-- file tabs get appended by openFile() -->
       </div>
       <div class="chat-view active" id="chatView">
         <div class="chat-messages" id="chatMessages"></div>
@@ -819,6 +828,114 @@ function renderChatName() {
   const c = getCurrentChat();
   const el = document.getElementById('chatNameLabel');
   if (el) el.textContent = c ? c.name : 'chat';
+}
+
+// ── chat tabs ──────────────────────────────────────────────────────────────
+// each chat gets its own tab in the top bar. clicking switches chats.
+// file tabs live to the right of the '+' new-chat button.
+function renderChatTabs() {
+  const bar = document.getElementById('tabBar');
+  if (!bar) return;
+  // remove existing chat tabs + the '+' button (keep file tabs)
+  Array.from(bar.querySelectorAll('.tab')).forEach(t => {
+    const d = t.dataset.tab || '';
+    if (d === 'chat' || d.startsWith('chat:')) t.remove();
+  });
+  Array.from(bar.querySelectorAll('.new-chat-btn')).forEach(b => b.remove());
+
+  const chats = loadChats();
+  const currentId = getCurrentChatId();
+  // if activeTab is a chat: tab whose chat was deleted, fall back to current
+  if (typeof activeTab === 'string' && activeTab.startsWith('chat:')) {
+    const active_cid = activeTab.slice(5);
+    if (!chats.find(c => c.id === active_cid)) activeTab = 'chat:' + currentId;
+  }
+
+  const anchor = bar.firstChild; // will insert before this (before any file tabs)
+  for (const chat of chats) {
+    const tab = document.createElement('div');
+    const cid = 'chat:' + chat.id;
+    tab.className = 'tab' + (chat.id === currentId && (activeTab === cid || activeTab === 'chat') ? ' active' : '');
+    tab.dataset.tab = cid;
+    tab.innerHTML = '<span class="tab-icon" style="color:var(--accent-text)">&#9671;</span> ' + esc(chat.name) +
+      ' <span class="close" data-close="1" title="close chat">&times;</span>';
+    tab.addEventListener('click', () => switchToChat(chat.id));
+    tab.addEventListener('dblclick', (e) => { e.stopPropagation(); renameChatById(chat.id); });
+    tab.querySelector('.close').addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeChatTab(chat.id);
+    });
+    bar.insertBefore(tab, anchor);
+  }
+  const plus = document.createElement('button');
+  plus.className = 'new-chat-btn';
+  plus.textContent = '+';
+  plus.title = 'new chat (ctrl+n)';
+  plus.onclick = () => menuAction('newChat');
+  bar.insertBefore(plus, anchor);
+}
+
+function switchToChat(id) {
+  const chat = loadChats().find(c => c.id === id);
+  if (!chat) return;
+  const currentId = getCurrentChatId();
+  const tabId = 'chat:' + id;
+  if (currentId === id && activeTab === tabId) {
+    switchTab(tabId);
+    return;
+  }
+  setCurrentChatId(id);
+  document.getElementById('chatMessages').innerHTML = '';
+  hidePanel('prep');
+  hidePanel('thali');
+  prepStaleCount = 0;
+  thaliStaleCount = 0;
+  updateStaleBadges();
+  renderChatName();
+  addTermLine('[chat] switched to "' + chat.name + '" — resuming ' +
+    (chat.sessionId ? chat.sessionId.substring(0, 8) + '…' : '(will boot on next message)'), 'info');
+  renderChatTabs();
+  switchTab(tabId);
+}
+
+function closeChatTab(id) {
+  const chats = loadChats();
+  const chat = chats.find(c => c.id === id);
+  if (!chat) return;
+  if (chats.length <= 1) {
+    addTermLine('[chat] can\'t close the last chat — start a new one first', 'warn');
+    return;
+  }
+  if (!confirm('close chat "' + chat.name + '"? this removes it from the list. (its snapshot files stay on disk.)')) return;
+  const next = chats.filter(c => c.id !== id);
+  saveChats(next);
+  if (getCurrentChatId() === id) {
+    setCurrentChatId(next[0].id);
+    document.getElementById('chatMessages').innerHTML = '';
+    hidePanel('prep');
+    hidePanel('thali');
+    prepStaleCount = 0;
+    thaliStaleCount = 0;
+    updateStaleBadges();
+    renderChatName();
+    activeTab = 'chat:' + next[0].id;
+  }
+  renderChatTabs();
+  addTermLine('[chat] closed "' + chat.name + '"', 'info');
+}
+
+function renameChatById(id) {
+  const chats = loadChats();
+  const chat = chats.find(c => c.id === id);
+  if (!chat) return;
+  const name = prompt('rename chat:', chat.name);
+  if (!name || !name.trim()) return;
+  const idx = chats.findIndex(c => c.id === id);
+  chats[idx].name = name.trim();
+  saveChats(chats);
+  if (id === getCurrentChatId()) renderChatName();
+  renderChatTabs();
+  addTermLine('[chat] renamed to "' + name.trim() + '"', 'info');
 }
 
 function buildClaudeCmd(message) {
@@ -1041,39 +1158,19 @@ async function menuAction(action) {
 
 function menuLoadChat(id) {
   closeAllMenus();
-  const chats = loadChats();
-  const chat = chats.find(c => c.id === id);
-  if (!chat) return;
-  setCurrentChatId(id);
-  document.getElementById('chatMessages').innerHTML = '';
-  hidePanel('prep');
-  hidePanel('thali');
-  prepStaleCount = 0;
-  thaliStaleCount = 0;
-  updateStaleBadges();
-  renderChatName();
-  addTermLine('[chat] switched to "' + chat.name + '" — resuming session ' + (chat.sessionId ? chat.sessionId.substring(0, 8) + '…' : '(none, will boot)'), 'info');
+  switchToChat(id);
 }
 
 function menuDeleteChat(id) {
-  const chats = loadChats();
-  const chat = chats.find(c => c.id === id);
-  if (!chat) return;
-  if (!confirm('delete chat "' + chat.name + '"? this only removes it from the list.')) return;
-  const next = chats.filter(c => c.id !== id);
-  saveChats(next);
+  closeAllMenus();
+  closeChatTab(id);
   renderRecentChats();
-  addTermLine('[chat] deleted "' + chat.name + '"', 'info');
 }
 
 function renameCurrentChat() {
   const chat = getCurrentChat();
   if (!chat) return;
-  const name = prompt('rename chat:', chat.name);
-  if (!name || !name.trim()) return;
-  updateCurrentChat({ name: name.trim() });
-  renderChatName();
-  addTermLine('[chat] renamed to "' + name.trim() + '"', 'info');
+  renameChatById(chat.id);
 }
 
 async function newChat() {
@@ -1103,6 +1200,9 @@ async function newChat() {
   thaliStaleCount = 0;
   updateStaleBadges();
   renderChatName();
+  activeTab = 'chat:' + chat.id;
+  renderChatTabs();
+  switchTab(activeTab);
   addTermLine('[chat] new chat "' + name + '" — she boots on next message', 'ok');
   if (snap) addTermLine('[snapshot] previous state saved → ' + snap.filename, 'info');
 }
@@ -2074,7 +2174,8 @@ function switchTab(tabId) {
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tabId));
   const cv = document.getElementById('chatView');
   const fv = document.getElementById('fileView');
-  if (tabId === 'chat') {
+  const isChatTab = tabId === 'chat' || (typeof tabId === 'string' && tabId.startsWith('chat:'));
+  if (isChatTab) {
     cv.classList.add('active'); cv.style.display = '';
     fv.classList.remove('active'); fv.style.display = 'none';
   } else {
@@ -2507,6 +2608,9 @@ async function initSession() {
   const cfg = getConfig();
   ensureChatExists();
   renderChatName();
+  activeTab = 'chat:' + getCurrentChatId();
+  renderChatTabs();
+  switchTab(activeTab);
   if (!cfg.bridgeUrl || !cfg.bridgeToken) {
     addTermLine('[boot] bridge not configured — click gear icon', 'warn');
     setDot('bridgeDot', false);
