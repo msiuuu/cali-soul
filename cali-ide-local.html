@@ -3823,6 +3823,37 @@ function distanceToCloseness(dist, radius) {
 
 let followRaf = null;
 let followState = null;
+
+// pick a linger zone for this follow tick (or return null). weighted by
+// recency — newer hovers preferred. returns { zone, startTs, endTs } that
+// the step loop consults to divert during the middle of the follow window.
+function maybePlanLinger(durationMs, startPerf) {
+  if (lingerZones.size === 0) return null;
+  if (Math.random() > 0.4) return null; // ~40% of ticks include a linger
+  const zones = Array.from(lingerZones.values());
+  const now = Date.now();
+  // recency weight: fresher (smaller age) → higher weight. cap at 5min.
+  const weights = zones.map(z => {
+    const ageMs = Math.max(0, now - z.lastSeenTs);
+    return Math.max(1, LINGER_WINDOW_MS - ageMs);
+  });
+  const total = weights.reduce((a, b) => a + b, 0);
+  let r = Math.random() * total;
+  let pick = zones[0];
+  for (let i = 0; i < zones.length; i++) {
+    r -= weights[i];
+    if (r <= 0) { pick = zones[i]; break; }
+  }
+  // schedule: give her 2-3s of normal follow first, then linger 4-7s.
+  const preRoll = 2000 + Math.random() * 1000;
+  const lingerDur = 4000 + Math.random() * 3000;
+  const lingerStart = startPerf + preRoll;
+  const lingerEnd = Math.min(startPerf + durationMs - 500, lingerStart + lingerDur);
+  if (lingerEnd <= lingerStart + 800) return null; // too little time — skip
+  addTermLine('[cursor/linger] planned: "' + pick.label + '" for ' + Math.round((lingerEnd - lingerStart) / 1000) + 's', 'info');
+  return { zone: pick, startTs: lingerStart, endTs: lingerEnd, announced: false };
+}
+
 function caliCursorFollow(durationMs, radius) {
   if (followRaf) { cancelAnimationFrame(followRaf); followRaf = null; }
   if (caliCursorMoveAnim) { cancelAnimationFrame(caliCursorMoveAnim); caliCursorMoveAnim = null; }
@@ -3841,6 +3872,11 @@ function caliCursorFollow(durationMs, radius) {
   //   outside circle (dist > radius)    → full chase back into goldilocks.
   const gRad = Math.max(40, radius * 0.35); // inner comfort ring
   const mRad = radius * 0.75;               // middle ring
+  // roll for a linger during this tick — if she picks one, plan a divert
+  // window in the middle of the follow duration. she'll drift to a recent
+  // clickable, sit there for a few seconds, then return to normal follow.
+  const lingerPlan = maybePlanLinger(durationMs, start);
+
   followState = {
     goldilocksRadius: gRad,
     middleRadius: mRad,
@@ -3859,6 +3895,8 @@ function caliCursorFollow(durationMs, radius) {
     durationMs,
     startTs: start,
     lastFrameTs: start,
+    // linger diversion: { zone, startTs, endTs } or null
+    linger: lingerPlan,
   };
 
   const step = (now) => {
@@ -3889,8 +3927,56 @@ function caliCursorFollow(durationMs, radius) {
     const breathX = Math.cos(followState.breathAngle) * breathK;
     const breathY = Math.sin(followState.breathAngle) * breathK;
 
+    // linger diversion: if we're inside the planned linger window, aim at the
+    // recorded zone instead of the normal mish-relative target. she ignores
+    // mish entirely during this — happy to be outside goldilocks.
     let nodeX, nodeY;
     let zoneMaxSpd, zoneSpeedGain;
+    const linger = followState.linger;
+    if (linger && now >= linger.startTs && now < linger.endTs) {
+      if (!linger.announced) {
+        linger.announced = true;
+        addTermLine('[cursor/linger] → "' + linger.zone.label + '" @ (' + Math.round(linger.zone.x) + ',' + Math.round(linger.zone.y) + ')', 'ok');
+      }
+      // aim at the zone center
+      nodeX = linger.zone.x;
+      nodeY = linger.zone.y;
+      zoneMaxSpd = 240;
+      zoneSpeedGain = 3;
+      // steer + integrate, then skip the rest of the frame
+      const _dx = nodeX - caliCursor.x;
+      const _dy = nodeY - caliCursor.y;
+      const _dist = Math.hypot(_dx, _dy);
+      const _desiredSpd = Math.min(zoneMaxSpd, _dist * zoneSpeedGain);
+      const _dvx = _dist > 0.5 ? (_dx / _dist) * _desiredSpd : 0;
+      const _dvy = _dist > 0.5 ? (_dy / _dist) * _desiredSpd : 0;
+      const _maxDeltaV = 8500 * dtSec;
+      const _wdvx = _dvx - followState.vx;
+      const _wdvy = _dvy - followState.vy;
+      const _wdvMag = Math.hypot(_wdvx, _wdvy);
+      if (_wdvMag > _maxDeltaV) {
+        followState.vx += (_wdvx / _wdvMag) * _maxDeltaV;
+        followState.vy += (_wdvy / _wdvMag) * _maxDeltaV;
+      } else {
+        followState.vx = _dvx;
+        followState.vy = _dvy;
+      }
+      const _drag = Math.pow(0.3, dtSec);
+      followState.vx *= _drag;
+      followState.vy *= _drag;
+      caliCursor.x += followState.vx * dtSec;
+      caliCursor.y += followState.vy * dtSec;
+      caliCursor.x = Math.max(0, Math.min(window.innerWidth - 8, caliCursor.x));
+      caliCursor.y = Math.max(0, Math.min(window.innerHeight - 8, caliCursor.y));
+      updateCaliCursorDom();
+      updateCaliCursorTierClass();
+      followRaf = requestAnimationFrame(step);
+      return;
+    } else if (linger && linger.announced && now >= linger.endTs) {
+      // linger just ended — log once and clear
+      addTermLine('[cursor/linger] done — back to mish', 'info');
+      followState.linger = null;
+    }
     if (caliToMishDist <= followState.goldilocksRadius) {
       // goldilocks: sit at the resting point + breath.
       if (followState.restingX === null) {
