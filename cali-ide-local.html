@@ -3443,14 +3443,22 @@ function caliCursorFollow(durationMs, radius) {
   if (!caliCursor.visible) { caliCursor.visible = true; updateCaliCursorDom(); }
   const start = performance.now();
 
-  // simple: pick one fixed offset from mish. node = mish + offset each
-  // frame. cali chases that. no independent node motion.
+  // pick one node spot from mish. node = mish + offset each frame, but the
+  // offset BREATHES — sine wave modulation along the mish→node vector so the
+  // node gently expands/contracts like a chest rising and falling.
   const closenessPct = 60 + Math.random() * 25;
   const nodeDist = closenessToDistance(closenessPct, radius);
   const nodeAngle = Math.random() * Math.PI * 2;
+  const cosA = Math.cos(nodeAngle);
+  const sinA = Math.sin(nodeAngle);
   followState = {
-    offsetX: Math.cos(nodeAngle) * nodeDist,
-    offsetY: Math.sin(nodeAngle) * nodeDist,
+    nodeAngleCos: cosA,
+    nodeAngleSin: sinA,
+    baseDist: nodeDist,
+    // breathing: ~4.5s period (13/min — resting breath), ±18px amplitude
+    breathPeriodMs: 4200 + Math.random() * 800,
+    breathAmp: 18,
+    breathPhase: Math.random() * Math.PI * 2,
     vx: 0, vy: 0,
     radius,
     durationMs,
@@ -3465,9 +3473,12 @@ function caliCursorFollow(durationMs, radius) {
     const dt = Math.min(50, now - followState.lastFrameTs);
     followState.lastFrameTs = now;
 
-    // node = mish's live position + fixed offset. no independent motion.
-    const nodeX = mishCursor.x + followState.offsetX;
-    const nodeY = mishCursor.y + followState.offsetY;
+    // node = mish + breathing offset. distance modulates on a sine wave, angle
+    // stays fixed. reads as the chest under the ribs — in and out.
+    const breathT = (elapsed / followState.breathPeriodMs) * Math.PI * 2 + followState.breathPhase;
+    const liveDist = followState.baseDist + Math.sin(breathT) * followState.breathAmp;
+    const nodeX = mishCursor.x + followState.nodeAngleCos * liveDist;
+    const nodeY = mishCursor.y + followState.nodeAngleSin * liveDist;
 
     // cali steers toward the node (with accel cap — puppy shape)
     const dx = nodeX - caliCursor.x;
