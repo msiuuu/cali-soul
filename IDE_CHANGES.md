@@ -7,7 +7,7 @@ each entry has size, commit hash, and what shipped.
 
 ## build 2026-08-29 — terminal command input
 - **size:** 132184 bytes
-- **commit:** (pending)
+- **commit:** 2af375b
 - **added:**
   - live command input at the bottom of the terminal panel — `PS >` prompt, type anything, press enter to run
   - runs in powershell with `Set-Location` set to the cali-soul dir
