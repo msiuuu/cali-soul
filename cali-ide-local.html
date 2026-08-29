@@ -3443,23 +3443,14 @@ function caliCursorFollow(durationMs, radius) {
   if (!caliCursor.visible) { caliCursor.visible = true; updateCaliCursorDom(); }
   const start = performance.now();
 
-  // PICK ONE NODE at start. it's a fixed offset from mish — but the node
-  // itself has motion. it steers toward (mish + offset) with the same
-  // steering + drag as cali does, but WITHOUT the accel cap. so the node
-  // reacts more quickly than cali to mish moving, and cali chases the node.
-  // net effect: cali's position varies subtly each time mish moves,
-  // because the node's own lag creates variation in offset.
+  // simple: pick one fixed offset from mish. node = mish + offset each
+  // frame. cali chases that. no independent node motion.
   const closenessPct = 60 + Math.random() * 25;
   const nodeDist = closenessToDistance(closenessPct, radius);
   const nodeAngle = Math.random() * Math.PI * 2;
   followState = {
     offsetX: Math.cos(nodeAngle) * nodeDist,
     offsetY: Math.sin(nodeAngle) * nodeDist,
-    // node has its own position + velocity
-    nodeX: mishCursor.x + Math.cos(nodeAngle) * nodeDist,
-    nodeY: mishCursor.y + Math.sin(nodeAngle) * nodeDist,
-    nodeVx: 0, nodeVy: 0,
-    // cali's velocity
     vx: 0, vy: 0,
     radius,
     durationMs,
@@ -3474,38 +3465,13 @@ function caliCursorFollow(durationMs, radius) {
     const dt = Math.min(50, now - followState.lastFrameTs);
     followState.lastFrameTs = now;
 
-    // STEP 1: update the node — LEASH physics.
-    // node's rest position = mish + fixed offset. when mish moves, node
-    // has to catch up. because of drag/inertia it LAGS behind, ending up
-    // dragged from the direction opposite to mish's motion. when mish
-    // stops, node settles to the rest offset. no bouncing, no random
-    // impulses — the only thing that moves the node is mish moving.
-    const dtSec = dt / 1000;
-    const nodeTargetX = mishCursor.x + followState.offsetX;
-    const nodeTargetY = mishCursor.y + followState.offsetY;
-    const ndx = nodeTargetX - followState.nodeX;
-    const ndy = nodeTargetY - followState.nodeY;
-    const nDist = Math.hypot(ndx, ndy);
-    // gentle steering: dist-proportional pull. slower gain = more lag = more leash.
-    const nDesiredSpeed = Math.min(2500, nDist * 6);
-    const nDesiredVx = nDist > 0.5 ? (ndx / nDist) * nDesiredSpeed : 0;
-    const nDesiredVy = nDist > 0.5 ? (ndy / nDist) * nDesiredSpeed : 0;
-    // slower velocity blend so leash lag is visible
-    const nBlend = 1 - Math.pow(0.01, dtSec);
-    followState.nodeVx += (nDesiredVx - followState.nodeVx) * nBlend;
-    followState.nodeVy += (nDesiredVy - followState.nodeVy) * nBlend;
-    // strong drag so node comes to rest when mish stops, no oscillation
-    const nDrag = Math.pow(0.05, dtSec);
-    followState.nodeVx *= nDrag;
-    followState.nodeVy *= nDrag;
-    followState.nodeX += followState.nodeVx * dtSec;
-    followState.nodeY += followState.nodeVy * dtSec;
-    followState.lastMishX = mishCursor.x;
-    followState.lastMishY = mishCursor.y;
+    // node = mish's live position + fixed offset. no independent motion.
+    const nodeX = mishCursor.x + followState.offsetX;
+    const nodeY = mishCursor.y + followState.offsetY;
 
-    // STEP 2: cali steers toward the node (with accel cap — puppy shape)
-    const dx = followState.nodeX - caliCursor.x;
-    const dy = followState.nodeY - caliCursor.y;
+    // cali steers toward the node (with accel cap — puppy shape)
+    const dx = nodeX - caliCursor.x;
+    const dy = nodeY - caliCursor.y;
     const dist = Math.hypot(dx, dy);
     // top speed 3000 px/sec. acceleration capped so she has to BUILD to it,
     // not teleport. from rest to full speed takes ~0.6s.
