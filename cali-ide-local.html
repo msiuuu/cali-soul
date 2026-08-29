@@ -3723,25 +3723,27 @@ function caliCursorFollow(durationMs, radius) {
   if (!caliCursor.visible) { caliCursor.visible = true; updateCaliCursorDom(); }
   const start = performance.now();
 
-  // node = mish + offset each frame. the offset WANDERS: angle drifts on a
-  // slow random walk so she orbits him loosely, and distance breathes on a
-  // sine wave (chest-rise) AND drifts within radius. together they read as a
-  // puppy circling around him instead of camping at one fixed spot.
-  const closenessPct = 60 + Math.random() * 25;
-  const nodeDist = closenessToDistance(closenessPct, radius);
+  // goldilocks zone model: three concentric rings around mish. cali's cursor
+  // is world-positioned; her behavior depends on which zone she's in relative
+  // to mish's LIVE cursor position.
+  //   inside goldilocks (dist <= gRad)  → sit still (breathing only). mish
+  //     can walk past her freely; she doesn't turn.
+  //   middle ring (gRad < dist <= mRad) → gentle nudge toward mish. she's
+  //     drifting back to comfortable range, no urgency.
+  //   outer ring (mRad < dist <= radius) → stronger urge. "one more step
+  //     and i'm out." faster pull inward.
+  //   outside circle (dist > radius)    → full chase back into goldilocks.
+  const gRad = Math.max(40, radius * 0.35); // inner comfort ring
+  const mRad = radius * 0.75;               // middle ring
   followState = {
-    // live angle (radians) — drifts each frame via angleVel
-    nodeAngle: Math.random() * Math.PI * 2,
-    angleVel: (Math.random() - 0.5) * 0.6, // rad/sec initial drift
-    // live distance — wanders within [minDist, maxDist]
-    baseDist: nodeDist,
-    minDist: Math.max(60, radius * 0.35),
-    maxDist: radius * 0.95,
-    distVel: 0,
-    // breathing overlay: ~4.5s period (13/min — resting breath), ±18px
+    goldilocksRadius: gRad,
+    middleRadius: mRad,
+    // breathing overlay: ~4.5s period (13/min — resting breath), ±14px
+    // random 2D direction — gives a small sway while sitting.
     breathPeriodMs: 4200 + Math.random() * 800,
-    breathAmp: 18,
+    breathAmp: 14,
     breathPhase: Math.random() * Math.PI * 2,
+    breathAngle: Math.random() * Math.PI * 2,
     vx: 0, vy: 0,
     radius,
     durationMs,
@@ -3756,38 +3758,47 @@ function caliCursorFollow(durationMs, radius) {
     const dt = Math.min(50, now - followState.lastFrameTs);
     followState.lastFrameTs = now;
 
-    // drift the ANGLE — small random impulses on angleVel, damped, so she
-    // slowly orbits around mish instead of locking to one offset.
     const dtSec = dt / 1000;
-    followState.angleVel += (Math.random() - 0.5) * 1.4 * dtSec; // impulse
-    followState.angleVel *= Math.pow(0.55, dtSec); // damping
-    // cap angular velocity so she doesn't spin
-    const maxAngVel = 1.1; // rad/sec
-    if (followState.angleVel > maxAngVel) followState.angleVel = maxAngVel;
-    if (followState.angleVel < -maxAngVel) followState.angleVel = -maxAngVel;
-    followState.nodeAngle += followState.angleVel * dtSec;
 
-    // drift the DISTANCE too — wanders within [minDist, maxDist] on top of the
-    // sine breathing. gives her permission to drift closer/farther over time.
-    followState.distVel += (Math.random() - 0.5) * 80 * dtSec;
-    followState.distVel *= Math.pow(0.5, dtSec);
-    if (followState.distVel > 60) followState.distVel = 60;
-    if (followState.distVel < -60) followState.distVel = -60;
-    followState.baseDist += followState.distVel * dtSec;
-    // soft bounds — spring back if drifting past min/max
-    if (followState.baseDist < followState.minDist) {
-      followState.baseDist = followState.minDist;
-      followState.distVel = Math.abs(followState.distVel) * 0.3;
-    } else if (followState.baseDist > followState.maxDist) {
-      followState.baseDist = followState.maxDist;
-      followState.distVel = -Math.abs(followState.distVel) * 0.3;
-    }
+    // distance cali → mish. determines which zone she's in.
+    const caliToMishDx = mishCursor.x - caliCursor.x;
+    const caliToMishDy = mishCursor.y - caliCursor.y;
+    const caliToMishDist = Math.hypot(caliToMishDx, caliToMishDy);
+    const dirX = caliToMishDist > 0.001 ? caliToMishDx / caliToMishDist : 0;
+    const dirY = caliToMishDist > 0.001 ? caliToMishDy / caliToMishDist : 0;
 
-    // node = mish + drifting-orbit offset + sine breathing
+    // breathing sway (small, in a fixed direction) — layered on top of every
+    // zone, but most visible when she's sitting in goldilocks.
     const breathT = (elapsed / followState.breathPeriodMs) * Math.PI * 2 + followState.breathPhase;
-    const liveDist = followState.baseDist + Math.sin(breathT) * followState.breathAmp;
-    const nodeX = mishCursor.x + Math.cos(followState.nodeAngle) * liveDist;
-    const nodeY = mishCursor.y + Math.sin(followState.nodeAngle) * liveDist;
+    const breathK = Math.sin(breathT) * followState.breathAmp;
+    const breathX = Math.cos(followState.breathAngle) * breathK;
+    const breathY = Math.sin(followState.breathAngle) * breathK;
+
+    // pick target based on zone. all zones nudge relative to cali's current
+    // position — not to a fixed node — so she doesn't rigidly track mish.
+    let nodeX, nodeY;
+    if (caliToMishDist <= followState.goldilocksRadius) {
+      // sitting comfortably. only breathing sway.
+      nodeX = caliCursor.x + breathX;
+      nodeY = caliCursor.y + breathY;
+    } else if (caliToMishDist <= followState.middleRadius) {
+      // middle zone — soft nudge toward mish. she drifts slowly back in.
+      const overshoot = caliToMishDist - followState.goldilocksRadius;
+      const nudge = overshoot * 0.35;
+      nodeX = caliCursor.x + dirX * nudge + breathX;
+      nodeY = caliCursor.y + dirY * nudge + breathY;
+    } else if (caliToMishDist <= followState.radius) {
+      // outer zone — stronger urge. "one more move and i'm out."
+      const overshoot = caliToMishDist - followState.goldilocksRadius;
+      const nudge = overshoot * 0.7;
+      nodeX = caliCursor.x + dirX * nudge;
+      nodeY = caliCursor.y + dirY * nudge;
+    } else {
+      // outside — full chase all the way back into goldilocks.
+      const overshoot = caliToMishDist - followState.goldilocksRadius * 0.5;
+      nodeX = caliCursor.x + dirX * overshoot;
+      nodeY = caliCursor.y + dirY * overshoot;
+    }
 
     // cali steers toward the node (with accel cap — puppy shape)
     const dx = nodeX - caliCursor.x;
