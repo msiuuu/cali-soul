@@ -3789,52 +3789,25 @@ function caliCursorFollow(durationMs, radius) {
     let zoneMaxSpd, zoneSpeedGain;
     if (caliToMishDist <= followState.middleRadius) {
       // goldilocks + middle: she's fine. sit at the resting point + breath.
+      // no chasing mish's micro-movements — that's what caused the forcefield
+      // drag. resting point is locked the first time she settles and held
+      // until she gets pushed into the outer zone.
       if (followState.restingX === null) {
         followState.restingX = caliCursor.x;
         followState.restingY = caliCursor.y;
       }
-      // reset outer state so next entry gets a fresh delay + captured target
-      followState.outerTargetX = null;
-      followState.outerTargetY = null;
-      followState.outerEnteredAt = 0;
       nodeX = followState.restingX + breathX;
       nodeY = followState.restingY + breathY;
       zoneMaxSpd = 120;    // breath-tempo only
       zoneSpeedGain = 4;
     } else if (caliToMishDist <= followState.radius) {
-      // outer zone: "one more step and i'm out." two changes vs before:
-      //   1) DELAY — first ~600ms after entering outer, she does nothing.
-      //      "being left behind for a second, confused" beat.
-      //   2) TARGET CAPTURE — once she starts drifting, target is captured
-      //      to a fixed WORLD point (not re-computed every frame from mish's
-      //      live position). kills the leash feel where slow-mish movement
-      //      dragged her along. only re-captured when she has arrived at the
-      //      current target and is still in outer.
+      // outer zone: "one more step and i'm out." slow drift toward mish, no
+      // snap. cap the speed low so it feels lazy, not tethered.
       followState.restingX = null;
       followState.restingY = null;
-      if (!followState.outerEnteredAt) followState.outerEnteredAt = now;
-      const OUTER_DELAY_MS = 600;
-      const withinDelay = (now - followState.outerEnteredAt) < OUTER_DELAY_MS;
-
-      if (withinDelay) {
-        // confused pause. target = current position (no movement).
-        nodeX = caliCursor.x;
-        nodeY = caliCursor.y;
-      } else {
-        // capture target once, hold until arrived
-        const needsCapture = followState.outerTargetX === null;
-        const arrivedAtCapture = !needsCapture && Math.hypot(
-          followState.outerTargetX - caliCursor.x,
-          followState.outerTargetY - caliCursor.y
-        ) < 30;
-        if (needsCapture || arrivedAtCapture) {
-          const targetDist = followState.goldilocksRadius * 0.85;
-          followState.outerTargetX = mishCursor.x + outDirX * targetDist;
-          followState.outerTargetY = mishCursor.y + outDirY * targetDist;
-        }
-        nodeX = followState.outerTargetX;
-        nodeY = followState.outerTargetY;
-      }
+      const targetDist = followState.goldilocksRadius * 0.85;
+      nodeX = mishCursor.x + outDirX * targetDist;
+      nodeY = mishCursor.y + outDirY * targetDist;
       zoneMaxSpd = 260;
       zoneSpeedGain = 3;
     } else {
@@ -3842,9 +3815,6 @@ function caliCursorFollow(durationMs, radius) {
       // stops moving once she gets there.
       followState.restingX = null;
       followState.restingY = null;
-      followState.outerTargetX = null;
-      followState.outerTargetY = null;
-      followState.outerEnteredAt = 0;
       const targetDist = followState.goldilocksRadius * 0.5;
       nodeX = mishCursor.x + outDirX * targetDist;
       nodeY = mishCursor.y + outDirY * targetDist;
