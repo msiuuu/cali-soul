@@ -1169,6 +1169,59 @@ function renderChatTabs() {
   bar.insertBefore(plus, anchor);
 }
 
+// ── per-chat message persistence ─────────────────────────────────────────
+// switching tabs USED to wipe messages. now each chat's chatMessages
+// innerHTML is cached in memory and mirrored to localStorage (best-effort;
+// falls back to in-memory only if quota is exceeded).
+const chatMessagesCache = {};
+
+function saveCurrentChatMessages() {
+  const id = getCurrentChatId();
+  if (!id) return;
+  const el = document.getElementById('chatMessages');
+  if (!el) return;
+  const html = el.innerHTML;
+  chatMessagesCache[id] = html;
+  try { localStorage.setItem('cali-chat-msgs-' + id, html); }
+  catch (e) { /* quota exceeded — keep in-memory copy only */ }
+}
+
+function loadChatMessages(id) {
+  if (chatMessagesCache[id] !== undefined) return chatMessagesCache[id];
+  try {
+    const stored = localStorage.getItem('cali-chat-msgs-' + id);
+    if (stored !== null) { chatMessagesCache[id] = stored; return stored; }
+  } catch {}
+  return '';
+}
+
+function restoreChatMessages(id) {
+  const el = document.getElementById('chatMessages');
+  if (!el) return;
+  el.innerHTML = loadChatMessages(id);
+  requestAnimationFrame(() => { el.scrollTop = el.scrollHeight; });
+}
+
+function purgeChatMessages(id) {
+  delete chatMessagesCache[id];
+  try { localStorage.removeItem('cali-chat-msgs-' + id); } catch {}
+}
+
+// save on any interaction that mutates chat DOM
+window.addEventListener('beforeunload', saveCurrentChatMessages);
+
+// auto-save on any mutation to the chat messages container (debounced ~1s)
+let _saveMsgsTimer = null;
+function scheduleSaveMessages() {
+  if (_saveMsgsTimer) clearTimeout(_saveMsgsTimer);
+  _saveMsgsTimer = setTimeout(saveCurrentChatMessages, 1000);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.getElementById('chatMessages');
+  if (!el) return;
+  new MutationObserver(scheduleSaveMessages).observe(el, { childList: true, subtree: true, characterData: true });
+});
+
 function switchToChat(id) {
   const chat = loadChats().find(c => c.id === id);
   if (!chat) return;
@@ -1178,8 +1231,10 @@ function switchToChat(id) {
     switchTab(tabId);
     return;
   }
+  // stash the current chat's messages before we leave
+  saveCurrentChatMessages();
   setCurrentChatId(id);
-  document.getElementById('chatMessages').innerHTML = '';
+  restoreChatMessages(id);
   hidePanel('prep');
   hidePanel('thali');
   prepStaleCount = 0;
@@ -1203,9 +1258,10 @@ function closeChatTab(id) {
   if (!confirm('close chat "' + chat.name + '"? this removes it from the list. (its snapshot files stay on disk.)')) return;
   const next = chats.filter(c => c.id !== id);
   saveChats(next);
+  purgeChatMessages(id);
   if (getCurrentChatId() === id) {
     setCurrentChatId(next[0].id);
-    document.getElementById('chatMessages').innerHTML = '';
+    restoreChatMessages(next[0].id);
     hidePanel('prep');
     hidePanel('thali');
     prepStaleCount = 0;
@@ -1506,9 +1562,12 @@ async function newChat() {
   chats.unshift(chat);
   saveChats(chats);
   setCurrentChatId(chat.id);
-  // 3. reset UI state
+  // 3. reset UI state — stash current chat's messages first so switching back
+  //    to it restores what was there.
+  saveCurrentChatMessages();
   sessionActive = false;
   localStorage.removeItem('cali-session-active');
+  setCurrentChatId(chat.id);
   document.getElementById('chatMessages').innerHTML = '';
   hidePanel('prep');
   hidePanel('thali');
@@ -3716,6 +3775,7 @@ async function initSession() {
   const cfg = getConfig();
   ensureChatExists();
   renderChatName();
+  restoreChatMessages(getCurrentChatId());
   activeTab = 'chat:' + getCurrentChatId();
   renderChatTabs();
   switchTab(activeTab);
