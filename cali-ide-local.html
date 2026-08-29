@@ -3474,68 +3474,34 @@ function caliCursorFollow(durationMs, radius) {
     const dt = Math.min(50, now - followState.lastFrameTs);
     followState.lastFrameTs = now;
 
-    // STEP 1: update the node — DICE-IN-A-CUP physics.
-    // node is a physical body bounded inside a circle around mish (the cup).
-    // when mish moves the cup shakes the dice. dice bounces off cup walls.
-    // gentle center-pull so it settles toward mish when things are calm.
-
+    // STEP 1: update the node — LEASH physics.
+    // node's rest position = mish + fixed offset. when mish moves, node
+    // has to catch up. because of drag/inertia it LAGS behind, ending up
+    // dragged from the direction opposite to mish's motion. when mish
+    // stops, node settles to the rest offset. no bouncing, no random
+    // impulses — the only thing that moves the node is mish moving.
     const dtSec = dt / 1000;
-
-    // 1a) mish's motion transfers momentum (shaking the cup)
-    if (followState.lastMishX !== undefined) {
-      const mdx = mishCursor.x - followState.lastMishX;
-      const mdy = mishCursor.y - followState.lastMishY;
-      const mSpeed = Math.hypot(mdx, mdy);
-      if (mSpeed > 0) {
-        // push the dice roughly in his direction of motion, proportional to speed
-        followState.nodeVx += mdx * 6;
-        followState.nodeVy += mdy * 6;
-      }
-    }
-    followState.lastMishX = mishCursor.x;
-    followState.lastMishY = mishCursor.y;
-
-    // 1b) gentle centering force toward mish (the cup floor). softer than
-    // spring — just a nudge so the dice doesn't stick to the edge forever.
-    const cdx = mishCursor.x - followState.nodeX;
-    const cdy = mishCursor.y - followState.nodeY;
-    const cDist = Math.hypot(cdx, cdy);
-    if (cDist > 0.5) {
-      const centerK = 1.2; // spring constant
-      followState.nodeVx += (cdx / cDist) * cDist * centerK * dtSec;
-      followState.nodeVy += (cdy / cDist) * cDist * centerK * dtSec;
-    }
-
-    // 1c) small ambient impulse — the dice never fully rests
-    followState.nodeVx += (Math.random() - 0.5) * 90 * dtSec * 60;
-    followState.nodeVy += (Math.random() - 0.5) * 90 * dtSec * 60;
-
-    // 1d) drag
-    const nDrag = Math.pow(0.35, dtSec);
+    const nodeTargetX = mishCursor.x + followState.offsetX;
+    const nodeTargetY = mishCursor.y + followState.offsetY;
+    const ndx = nodeTargetX - followState.nodeX;
+    const ndy = nodeTargetY - followState.nodeY;
+    const nDist = Math.hypot(ndx, ndy);
+    // gentle steering: dist-proportional pull. slower gain = more lag = more leash.
+    const nDesiredSpeed = Math.min(2500, nDist * 6);
+    const nDesiredVx = nDist > 0.5 ? (ndx / nDist) * nDesiredSpeed : 0;
+    const nDesiredVy = nDist > 0.5 ? (ndy / nDist) * nDesiredSpeed : 0;
+    // slower velocity blend so leash lag is visible
+    const nBlend = 1 - Math.pow(0.01, dtSec);
+    followState.nodeVx += (nDesiredVx - followState.nodeVx) * nBlend;
+    followState.nodeVy += (nDesiredVy - followState.nodeVy) * nBlend;
+    // strong drag so node comes to rest when mish stops, no oscillation
+    const nDrag = Math.pow(0.05, dtSec);
     followState.nodeVx *= nDrag;
     followState.nodeVy *= nDrag;
-
-    // 1e) integrate position
     followState.nodeX += followState.nodeVx * dtSec;
     followState.nodeY += followState.nodeVy * dtSec;
-
-    // 1f) bounce off cup wall (circle boundary around mish, radius = R)
-    const rx = followState.nodeX - mishCursor.x;
-    const ry = followState.nodeY - mishCursor.y;
-    const rmag = Math.hypot(rx, ry);
-    if (rmag > followState.radius) {
-      const nx = rx / rmag, ny = ry / rmag;
-      // project back onto boundary
-      followState.nodeX = mishCursor.x + nx * followState.radius;
-      followState.nodeY = mishCursor.y + ny * followState.radius;
-      // reflect velocity component pointing outward
-      const vDotN = followState.nodeVx * nx + followState.nodeVy * ny;
-      if (vDotN > 0) {
-        const restitution = 0.65; // some energy lost per bounce
-        followState.nodeVx -= (1 + restitution) * vDotN * nx;
-        followState.nodeVy -= (1 + restitution) * vDotN * ny;
-      }
-    }
+    followState.lastMishX = mishCursor.x;
+    followState.lastMishY = mishCursor.y;
 
     // STEP 2: cali steers toward the node (with accel cap — puppy shape)
     const dx = followState.nodeX - caliCursor.x;
