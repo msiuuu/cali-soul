@@ -2986,15 +2986,38 @@ const caliCursor = {
   visible: false,
 };
 
+// idle breath — a small visual sway applied at render time. never touches
+// the logical position (caliCursor.x/y), so follow/move math stays clean.
+// runs a persistent rAF so cali is always visibly breathing.
+const caliBreath = {
+  startTs: performance.now(),
+  periodMs: 4200,          // ~14 breaths/min
+  amp: 5,                  // px — subtle chest rise/fall
+  swayAmp: 1.8,            // px — tiny horizontal drift
+  dx: 0,
+  dy: 0,
+};
+
 function updateCaliCursorDom() {
   const el = document.getElementById('caliCursor');
   if (!el) return;
-  el.style.left = caliCursor.x + 'px';
-  el.style.top = caliCursor.y + 'px';
+  el.style.left = (caliCursor.x + caliBreath.dx) + 'px';
+  el.style.top = (caliCursor.y + caliBreath.dy) + 'px';
   el.classList.toggle('hidden', !caliCursor.visible);
   localStorage.setItem('cali-cursor-x', caliCursor.x);
   localStorage.setItem('cali-cursor-y', caliCursor.y);
 }
+
+function caliBreathTick(now) {
+  const t = (now - caliBreath.startTs) / caliBreath.periodMs * Math.PI * 2;
+  // inhale = rises (dy negative because y grows downward), exhale = falls
+  caliBreath.dy = -Math.sin(t) * caliBreath.amp;
+  // horizontal drift offset by π/2 so the sway feels like a body shifting
+  caliBreath.dx = Math.sin(t + Math.PI / 2) * caliBreath.swayAmp;
+  if (caliCursor.visible) updateCaliCursorDom();
+  requestAnimationFrame(caliBreathTick);
+}
+requestAnimationFrame(caliBreathTick);
 
 function caliCursorShow() {
   caliCursor.visible = true;
