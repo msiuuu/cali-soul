@@ -201,6 +201,74 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
 }
 .tree-add-btn:hover{color:var(--accent-text);background:var(--surface-raised)}
 
+/* web panel */
+.web-panel{padding:8px 10px 12px;font-size:11px;display:flex;flex-direction:column;gap:8px}
+.web-input-row{display:flex;gap:5px;align-items:center}
+.web-input{
+  flex:1;background:var(--ground);border:1px solid var(--border);color:var(--text);
+  font-family:var(--font-ui);font-size:11px;padding:5px 8px;border-radius:4px;outline:none;
+}
+.web-input:focus{border-color:var(--accent)}
+.web-btn{
+  background:var(--surface-raised);border:1px solid var(--border);color:var(--text-secondary);
+  font-size:10px;padding:5px 8px;border-radius:4px;cursor:pointer;font-family:var(--font-ui);
+  font-weight:600;text-transform:lowercase;flex-shrink:0;
+}
+.web-btn:hover{color:var(--accent-text);border-color:var(--accent)}
+.web-results{max-height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:6px}
+.web-result{
+  padding:6px 8px;background:var(--surface-raised);border-radius:4px;cursor:pointer;
+  border-left:2px solid transparent;
+}
+.web-result:hover{border-left-color:var(--accent);background:var(--surface-hover)}
+.web-result-title{color:var(--accent-text);font-weight:600;font-size:11px;margin-bottom:2px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.web-result-url{color:var(--text-dim);font-size:9px;font-family:var(--font-code);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:3px}
+.web-result-snippet{color:var(--text-secondary);font-size:10px;line-height:1.4;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.web-empty{padding:10px 4px;color:var(--text-dim);font-style:italic;text-align:center;font-size:10px}
+.web-tabs{display:flex;gap:3px;margin-bottom:2px}
+.web-tab{
+  background:transparent;border:1px solid var(--border-subtle);color:var(--text-dim);
+  font-size:10px;padding:3px 8px;border-radius:3px;cursor:pointer;font-family:var(--font-ui);
+}
+.web-tab.active{background:var(--accent-muted);color:var(--accent-text);border-color:var(--accent)}
+.web-tab:hover{color:var(--text)}
+
+/* web viewer modal for fetched pages */
+.web-viewer{
+  position:fixed;inset:60px 60px;z-index:900;background:var(--surface);
+  border:1px solid var(--border);border-radius:8px;display:none;flex-direction:column;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.web-viewer.open{display:flex}
+.web-viewer-header{
+  display:flex;align-items:center;gap:8px;padding:8px 14px;border-bottom:1px solid var(--border);
+  background:var(--surface-raised);
+}
+.web-viewer-header .url{
+  flex:1;color:var(--text-secondary);font-family:var(--font-code);font-size:11px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.web-viewer-header button{
+  background:transparent;border:none;color:var(--text-dim);cursor:pointer;font-size:16px;
+  padding:2px 8px;border-radius:3px;line-height:1;
+}
+.web-viewer-header button:hover{color:var(--accent-text);background:var(--surface-hover)}
+.web-viewer-body{flex:1;overflow-y:auto;padding:16px 24px;font-family:var(--font-ui);font-size:13px;line-height:1.6;color:var(--text)}
+.web-viewer-body h1,.web-viewer-body h2,.web-viewer-body h3{color:var(--accent-text);margin:14px 0 8px}
+.web-viewer-body a{color:var(--blue)}
+.web-viewer-body p{margin:8px 0}
+.web-viewer-body pre{background:var(--surface-raised);padding:10px;border-radius:4px;overflow-x:auto;font-family:var(--font-code);font-size:11px}
+.web-viewer-body img{max-width:100%;height:auto;border-radius:4px}
+.web-viewer-body .send-to-chat{
+  margin-top:16px;padding:8px 14px;background:var(--accent-muted);color:var(--accent-text);
+  border:1px solid var(--accent);border-radius:4px;cursor:pointer;font-family:var(--font-ui);
+  font-size:11px;font-weight:600;
+}
+.web-viewer-body .send-to-chat:hover{background:var(--accent);color:#fff}
+
 /* git panel */
 .git-panel{padding:6px 10px 10px;font-size:11px}
 .git-branch{
@@ -578,6 +646,16 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
 </head>
 <body>
 
+<div class="web-viewer" id="webViewer">
+  <div class="web-viewer-header">
+    <span id="webViewerUrl" class="url">-</span>
+    <button onclick="sendPageToChat()" title="send to cali as context">↗</button>
+    <button onclick="openWebViewerExternal()" title="open in real browser">⧉</button>
+    <button onclick="closeWebViewer()" title="close">&times;</button>
+  </div>
+  <div class="web-viewer-body" id="webViewerBody"></div>
+</div>
+
 <div class="ide">
   <div class="titlebar">
     <div class="logo">cali<span>.ide</span></div>
@@ -693,6 +771,33 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       </div>
       <div class="section-body" id="browseBody">
         <div class="file-tree" id="fileTree"><div class="tree-empty">loading...</div></div>
+      </div>
+
+      <div class="tree-header section-header" onclick="toggleSection('web')">
+        <span class="section-arrow" id="webArrow">&#9662;</span>
+        <span>web</span>
+      </div>
+      <div class="section-body" id="webBody">
+        <div class="web-panel">
+          <div class="web-tabs">
+            <button class="web-tab active" data-web-tab="search" onclick="switchWebTab('search')">search</button>
+            <button class="web-tab" data-web-tab="fetch" onclick="switchWebTab('fetch')">fetch url</button>
+          </div>
+          <div id="webSearchPane">
+            <div class="web-input-row">
+              <input type="text" class="web-input" id="webSearchInput" placeholder="search the web (ddg)..." autocomplete="off">
+              <button class="web-btn" onclick="runWebSearch()">go</button>
+            </div>
+            <div class="web-results" id="webResults"><div class="web-empty">type + go</div></div>
+          </div>
+          <div id="webFetchPane" style="display:none">
+            <div class="web-input-row">
+              <input type="text" class="web-input" id="webFetchInput" placeholder="paste a url..." autocomplete="off">
+              <button class="web-btn" onclick="runWebFetch()">open</button>
+            </div>
+            <div class="web-empty">opens page in a reader view. from there you can send it to cali as context.</div>
+          </div>
+        </div>
       </div>
 
       <div class="tree-header section-header" onclick="toggleSection('git')">
@@ -1745,6 +1850,197 @@ async function gitPull() {
     addTermLine('[git pull] failed: ' + e.message, 'err');
   }
 }
+
+// ── web tools (search + fetch) ─────────────────────────────────────────────
+// runs via bridge Invoke-WebRequest so it's the user's real machine + IP.
+// note: cali herself already has WebSearch + WebFetch via the CLI when you
+// ask her in chat. this panel is for you to look things up yourself + shove
+// results into her context.
+
+let lastFetchedPage = null; // {url, title, text}
+
+function switchWebTab(name) {
+  document.querySelectorAll('.web-tab').forEach(b => b.classList.toggle('active', b.dataset.webTab === name));
+  document.getElementById('webSearchPane').style.display = name === 'search' ? '' : 'none';
+  document.getElementById('webFetchPane').style.display = name === 'fetch' ? '' : 'none';
+}
+
+async function runWebSearch() {
+  const q = document.getElementById('webSearchInput').value.trim();
+  const box = document.getElementById('webResults');
+  if (!q) return;
+  box.innerHTML = '<div class="web-empty">searching…</div>';
+  // encode manually — powershell hates ampersands in URLs otherwise
+  const encoded = encodeURIComponent(q);
+  const url = 'https://html.duckduckgo.com/html/?q=' + encoded;
+  const cmd =
+    "$ProgressPreference='SilentlyContinue';" +
+    "$r = Invoke-WebRequest -UseBasicParsing -Uri '" + url + "' -Headers @{'User-Agent'='Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 Chrome/122.0'} -TimeoutSec 20;" +
+    "$r.Content";
+  try {
+    const res = await shellRun(cmd, 30);
+    if (res.code !== 0 || !res.stdout) throw new Error(res.stderr || 'empty response');
+    const results = parseDuckResults(res.stdout);
+    if (!results.length) {
+      box.innerHTML = '<div class="web-empty">no results parsed — ddg layout may have changed</div>';
+      return;
+    }
+    box.innerHTML = results.slice(0, 10).map(r =>
+      '<div class="web-result" data-url="' + esc(r.url) + '">' +
+        '<div class="web-result-title">' + esc(r.title) + '</div>' +
+        '<div class="web-result-url">' + esc(r.url) + '</div>' +
+        '<div class="web-result-snippet">' + esc(r.snippet) + '</div>' +
+      '</div>'
+    ).join('');
+    box.querySelectorAll('.web-result').forEach(el => {
+      el.addEventListener('click', () => { openWebViewer(el.dataset.url); });
+    });
+    addTermLine('[web search] "' + q + '" → ' + results.length + ' results', 'ok');
+  } catch (e) {
+    box.innerHTML = '<div class="web-empty">error: ' + esc(e.message) + '</div>';
+    addTermLine('[web search] ' + e.message, 'err');
+  }
+}
+
+function parseDuckResults(html) {
+  const results = [];
+  // ddg lite/html result structure: each result is inside <div class="result results_links...">
+  //   <a class="result__a" href="/l/?uddg=<encoded-url>">title</a>
+  //   <a class="result__snippet">snippet</a>
+  const rx = /<a[^>]*class="result__a"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>[\s\S]*?<a[^>]*class="result__snippet"[^>]*>([\s\S]*?)<\/a>/g;
+  let m;
+  while ((m = rx.exec(html)) !== null) {
+    let href = m[1];
+    // DDG wraps URLs like /l/?uddg=<encoded>&rut=...
+    const uddg = href.match(/uddg=([^&]+)/);
+    if (uddg) { try { href = decodeURIComponent(uddg[1]); } catch {} }
+    if (href.startsWith('//')) href = 'https:' + href;
+    const title = stripTags(m[2]).trim();
+    const snippet = stripTags(m[3]).trim();
+    results.push({ url: href, title, snippet });
+    if (results.length >= 20) break;
+  }
+  return results;
+}
+
+function stripTags(s) {
+  return s.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+}
+
+async function runWebFetch() {
+  const u = document.getElementById('webFetchInput').value.trim();
+  if (!u) return;
+  openWebViewer(u);
+}
+
+async function openWebViewer(url) {
+  const viewer = document.getElementById('webViewer');
+  const urlEl = document.getElementById('webViewerUrl');
+  const body = document.getElementById('webViewerBody');
+  urlEl.textContent = url;
+  body.innerHTML = '<div class="web-empty">fetching...</div>';
+  viewer.classList.add('open');
+  const cmd =
+    "$ProgressPreference='SilentlyContinue';" +
+    "$r = Invoke-WebRequest -UseBasicParsing -Uri '" + url.replace(/'/g,"''") + "' -Headers @{'User-Agent'='Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 Chrome/122.0'} -TimeoutSec 25;" +
+    "$r.Content";
+  try {
+    const res = await shellRun(cmd, 40);
+    if (res.code !== 0 || !res.stdout) throw new Error(res.stderr || 'empty response');
+    const parsed = extractReadable(res.stdout, url);
+    lastFetchedPage = { url, title: parsed.title, text: parsed.text };
+    body.innerHTML =
+      '<h1>' + esc(parsed.title || url) + '</h1>' +
+      '<div style="color:var(--text-dim);font-size:11px;margin-bottom:12px;font-family:var(--font-code)">' + esc(url) + '</div>' +
+      parsed.html +
+      '<button class="send-to-chat" onclick="sendPageToChat()">↗ send to cali as context</button>';
+    addTermLine('[web fetch] ' + url + ' (' + parsed.text.length + ' chars)', 'ok');
+  } catch (e) {
+    body.innerHTML = '<div class="web-empty">fetch failed: ' + esc(e.message) + '</div>';
+    addTermLine('[web fetch] ' + e.message, 'err');
+  }
+}
+
+function extractReadable(html, url) {
+  // strip scripts + styles + noscript
+  let cleaned = html
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<!--[\s\S]*?-->/g, '');
+  const titleMatch = cleaned.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  const title = titleMatch ? stripTags(titleMatch[1]).trim() : '';
+  // grab main content-ish container if present
+  const bodyMatch = cleaned.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+  let inner = bodyMatch ? bodyMatch[1] : cleaned;
+  // strip navs, footers, forms, iframes
+  inner = inner
+    .replace(/<nav[\s\S]*?<\/nav>/gi, '')
+    .replace(/<footer[\s\S]*?<\/footer>/gi, '')
+    .replace(/<form[\s\S]*?<\/form>/gi, '')
+    .replace(/<aside[\s\S]*?<\/aside>/gi, '')
+    .replace(/<iframe[\s\S]*?<\/iframe>/gi, '')
+    .replace(/<svg[\s\S]*?<\/svg>/gi, '');
+  // keep only whitelisted tags for display, others become plain text
+  const allowed = /<\/?(?:h[1-6]|p|div|span|a|ul|ol|li|em|strong|b|i|code|pre|br|blockquote|table|tr|td|th|thead|tbody|img|hr)\b[^>]*>/gi;
+  // basic sanitization: strip event handlers + javascript: hrefs
+  inner = inner.replace(/\son[a-z]+\s*=\s*"[^"]*"/gi, '');
+  inner = inner.replace(/\son[a-z]+\s*=\s*'[^']*'/gi, '');
+  inner = inner.replace(/href\s*=\s*"javascript:[^"]*"/gi, 'href="#"');
+  // extract text
+  const text = stripTags(inner).replace(/\s+/g, ' ').trim();
+  // for display: keep the allowed subset only
+  let display = '';
+  let lastIdx = 0;
+  let m;
+  const walk = /<\/?[a-z][^>]*>/gi;
+  while ((m = walk.exec(inner)) !== null) {
+    display += esc(inner.slice(lastIdx, m.index));
+    if (allowed.test(m[0])) {
+      allowed.lastIndex = 0;
+      display += m[0];
+    }
+    lastIdx = walk.lastIndex;
+  }
+  display += esc(inner.slice(lastIdx));
+  return { title, text, html: display };
+}
+
+function closeWebViewer() {
+  document.getElementById('webViewer').classList.remove('open');
+}
+
+async function openWebViewerExternal() {
+  if (!lastFetchedPage) return;
+  const cmd = "Start-Process '" + lastFetchedPage.url.replace(/'/g, "''") + "'";
+  await shellRun(cmd, 10);
+  addTermLine('[web] opened ' + lastFetchedPage.url + ' in default browser', 'info');
+}
+
+function sendPageToChat() {
+  if (!lastFetchedPage) return;
+  const input = document.getElementById('chatInput');
+  const trim = lastFetchedPage.text.substring(0, 4000);
+  const context =
+    '\n\n--- web page context ---\n' +
+    'url: ' + lastFetchedPage.url + '\n' +
+    'title: ' + lastFetchedPage.title + '\n\n' +
+    trim + (lastFetchedPage.text.length > 4000 ? '\n[…truncated, full length ' + lastFetchedPage.text.length + ' chars]' : '') +
+    '\n--- end web page context ---\n';
+  input.value = (input.value || '') + context;
+  input.style.height = 'auto';
+  input.style.height = Math.min(input.scrollHeight, 200) + 'px';
+  input.focus();
+  closeWebViewer();
+  addTermLine('[web] added page context to chat input — edit + send', 'info');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const s = document.getElementById('webSearchInput');
+  if (s) s.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); runWebSearch(); } });
+  const f = document.getElementById('webFetchInput');
+  if (f) f.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); runWebFetch(); } });
+});
 
 // ── terminal command input ─────────────────────────────────────────────────
 let termHistory = [];
@@ -2850,7 +3146,7 @@ function toggleSection(name) {
 // restore collapsed state on load
 (function restoreSectionState() {
   window.addEventListener('DOMContentLoaded', () => {
-    ['explorer', 'browse', 'git'].forEach(name => {
+    ['explorer', 'browse', 'web', 'git'].forEach(name => {
       if (localStorage.getItem('cali-section-' + name) === '1') toggleSection(name);
     });
     updateRightPanelVisibility();

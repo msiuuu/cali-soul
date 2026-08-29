@@ -5,6 +5,19 @@ each entry has size, commit hash, and what shipped.
 
 ---
 
+## build 2026-08-29 — web tools (search + fetch)
+- **size:** 146400 bytes
+- **commit:** (pending)
+- **added:**
+  - new **web** section in the sidebar with two tabs: search + fetch url
+  - **search** tab hits DuckDuckGo html (`https://html.duckduckgo.com/html/?q=...`) via bridge Invoke-WebRequest, parses top 10 results (title + url + snippet), click a result to open it in the reader viewer
+  - **fetch url** tab takes any URL, opens it in the reader viewer
+  - reader viewer is a floating modal that shows: page title, source URL, sanitized/whitelisted HTML (h1-6, p, div, a, ul/ol/li, code, pre, img, table, blockquote — scripts/styles/nav/footer/form stripped, event handlers scrubbed)
+  - reader viewer buttons: `↗ send to cali as context` (dumps title + URL + first 4000 chars into the chat input for editing before sending), `⧉ open in real browser` (Start-Process to launch default browser), `× close`
+  - all fetches go through the bridge → the user's real machine + IP
+- **note:** cali already has WebSearch + WebFetch built into the CLI — when you ask her in chat, she can search + fetch on her own. this panel is for you to look things up yourself + prime her context with a page.
+- **still pending from the batch:** better embedding (OG rich URL previews inline in chat when you paste a link), better image analysis UX (drag-drop, dedicated analyze button, thumbnail preview improvements). tbd on scope.
+
 ## build 2026-08-29 — terminal command input
 - **size:** 132184 bytes
 - **commit:** 2af375b
