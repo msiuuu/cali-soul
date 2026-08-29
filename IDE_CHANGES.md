@@ -5,6 +5,20 @@ each entry has size, commit hash, and what shipped.
 
 ---
 
+## build 2026-08-29 — screenshots + computer-use scaffold
+- **size:** 162985 bytes
+- **commit:** (pending)
+- **added:**
+  - camera button (📷) next to the attach button. dropdown menu with four modes:
+    - 🖥 full screen (instant, all monitors via VirtualScreen)
+    - 🪟 active window with 3s or 5s countdown (overlay covers viewport with big-number countdown so you can alt-tab away first)
+    - 🌐 browser window (auto-finds chrome/firefox/msedge/brave/opera/vivaldi/arc, prefers whichever's foreground)
+  - screenshots run via powershell on your machine, save to `cali-soul\screenshots\screenshot_*.png`, get base64-encoded back into the ide, and land in the pending-attachments chip row like any uploaded image
+  - each screenshot captures screen dimensions + origin coords in metadata
+  - when you send a screenshot to cali, the message auto-prepends a **reference frame block**: scope (full/window/browser), image dims, top-left in screen coords, quadrant coordinates (TL/TR/BL/BR/center), pixel translation formula (screen_x = ox + image_x), and powershell one-liners for click / right-click / double-click / type
+  - cali can then reason about pixel locations from the screenshot and click back via her Bash tool
+- **flow:** click 📷 → pick mode → countdown if delayed → chip appears with thumbnail → type your message → send → cali gets image + reference frame + click recipe
+
 ## build 2026-08-29 — strip section collapse arrows
 - **size:** 149637 bytes
 - **commit:** 447d127
