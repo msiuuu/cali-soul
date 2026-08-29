@@ -3733,8 +3733,8 @@ function caliCursorFollow(durationMs, radius) {
   //   outer ring (mRad < dist <= radius) → stronger urge. "one more step
   //     and i'm out." faster pull inward.
   //   outside circle (dist > radius)    → full chase back into goldilocks.
-  const gRad = Math.max(60, radius * 0.55); // inner comfort ring
-  const mRad = radius * 0.9;                // middle ring — most of the circle is "fine"
+  const gRad = Math.max(40, radius * 0.35); // inner comfort ring
+  const mRad = radius * 0.75;               // middle ring
   followState = {
     goldilocksRadius: gRad,
     middleRadius: mRad,
@@ -3784,49 +3784,42 @@ function caliCursorFollow(durationMs, radius) {
     const breathY = Math.sin(followState.breathAngle) * breathK;
 
     let nodeX, nodeY;
+    // per-zone motion gain: caps how fast she can move toward the target in
+    // each zone. keeps outer feeling drifty instead of snappy.
     let zoneMaxSpd, zoneSpeedGain;
-    // hysteresis: once she starts drifting in outer, she stays in "drift
-    // mode" until she's WELL inside middle (0.75 of it). prevents flicker
-    // between sit/drift on tiny mish movements at the zone boundary.
-    const sitBoundary = followState._drifting
-      ? followState.middleRadius * 0.75
-      : followState.middleRadius;
-
-    if (caliToMishDist <= sitBoundary) {
-      // sit state (goldilocks + middle). hold resting point, breath only.
-      followState._drifting = false;
+    if (caliToMishDist <= followState.middleRadius) {
+      // goldilocks + middle: she's fine. sit at the resting point + breath.
+      // no chasing mish's micro-movements — that's what caused the forcefield
+      // drag. resting point is locked the first time she settles and held
+      // until she gets pushed into the outer zone.
       if (followState.restingX === null) {
         followState.restingX = caliCursor.x;
         followState.restingY = caliCursor.y;
       }
       nodeX = followState.restingX + breathX;
       nodeY = followState.restingY + breathY;
-      zoneMaxSpd = 80;
-      zoneSpeedGain = 2;
+      zoneMaxSpd = 120;    // breath-tempo only
+      zoneSpeedGain = 4;
     } else if (caliToMishDist <= followState.radius) {
-      // outer zone: lazy drift toward mish. NOT tethered — she moves toward
-      // mish's current position, not a fixed offset. speed cap is low so
-      // slow-mish movement gets slow-cali response.
-      followState._drifting = true;
+      // outer zone: "one more step and i'm out." slow drift toward mish, no
+      // snap. cap the speed low so it feels lazy, not tethered.
       followState.restingX = null;
       followState.restingY = null;
-      // aim near mish (a bit inside goldilocks so she settles once she gets
-      // there), on cali's current side of him.
-      const targetDist = followState.goldilocksRadius * 0.7;
+      const targetDist = followState.goldilocksRadius * 0.85;
       nodeX = mishCursor.x + outDirX * targetDist;
       nodeY = mishCursor.y + outDirY * targetDist;
-      zoneMaxSpd = 90;   // lazy — like she's rousing herself
-      zoneSpeedGain = 1;
+      zoneMaxSpd = 260;
+      zoneSpeedGain = 3;
     } else {
-      // outside circle: full chase.
-      followState._drifting = true;
+      // outside circle: full chase. target well inside goldilocks so she
+      // stops moving once she gets there.
       followState.restingX = null;
       followState.restingY = null;
       const targetDist = followState.goldilocksRadius * 0.5;
       nodeX = mishCursor.x + outDirX * targetDist;
       nodeY = mishCursor.y + outDirY * targetDist;
-      zoneMaxSpd = 2400;
-      zoneSpeedGain = 12;
+      zoneMaxSpd = 3000;
+      zoneSpeedGain = 15;
     }
 
     // cali steers toward the node (with accel cap — puppy shape). per-zone
@@ -3837,8 +3830,9 @@ function caliCursorFollow(durationMs, radius) {
     const desiredSpeed = Math.min(zoneMaxSpd, dist * zoneSpeedGain);
     const desiredVx = dist > 0.5 ? (dx / dist) * desiredSpeed : 0;
     const desiredVy = dist > 0.5 ? (dy / dist) * desiredSpeed : 0;
-    // accel cap: lower now so she doesn't hard-brake. she coasts to a stop.
-    const maxAccel = 1400; // px/sec² — puppy tempo, not sports car
+    // accel cap: velocity change per second bounded. higher = she can
+    // brake harder near the node, less overshoot.
+    const maxAccel = 8500; // px/sec²
     const maxDeltaV = maxAccel * (dt / 1000);
     const wantDvx = desiredVx - followState.vx;
     const wantDvy = desiredVy - followState.vy;
@@ -3850,8 +3844,8 @@ function caliCursorFollow(durationMs, radius) {
       followState.vx = desiredVx;
       followState.vy = desiredVy;
     }
-    // drag — softer so she drifts to a stop instead of braking.
-    const drag = Math.pow(0.75, dt / 1000);
+    // drag — a bit stronger to bleed momentum on approach
+    const drag = Math.pow(0.3, dt / 1000);
     followState.vx *= drag;
     followState.vy *= drag;
     // NO tremor. no random noise. she stays put on the node.
