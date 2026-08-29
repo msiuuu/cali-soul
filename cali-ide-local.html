@@ -103,8 +103,31 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
 
 .sidebar{
   background:var(--surface);border-right:1px solid var(--border-subtle);
-  overflow-y:auto;overflow-x:hidden;padding:6px 0;user-select:none;
+  overflow-y:auto;overflow-x:hidden;padding:0 0 6px;user-select:none;
+  display:flex;flex-direction:column;
 }
+
+/* activity hotbar at the top — click an icon to switch which section is visible */
+.sidebar-hotbar{
+  display:flex;align-items:center;justify-content:space-around;
+  padding:6px 4px;border-bottom:1px solid var(--border-subtle);
+  background:var(--surface);flex-shrink:0;gap:2px;
+}
+.hotbar-btn{
+  background:none;border:none;cursor:pointer;padding:6px 8px;border-radius:5px;
+  color:var(--text-dim);display:flex;align-items:center;justify-content:center;
+  transition:color .1s ease,background .1s ease;position:relative;
+}
+.hotbar-btn:hover{color:var(--text);background:var(--surface-raised)}
+.hotbar-btn.active{color:var(--accent-text);background:var(--accent-muted)}
+.hotbar-btn.active::after{
+  content:'';position:absolute;bottom:-6px;left:20%;right:20%;height:2px;
+  background:var(--accent);border-radius:1px;
+}
+.hotbar-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sidebar-body{flex:1;overflow-y:auto;overflow-x:hidden;padding:6px 0}
+.sidebar-section-wrapper{display:none}
+.sidebar-section-wrapper.active{display:block}
 .sidebar-header{
   padding:8px 14px 6px;font-size:10px;font-weight:700;letter-spacing:.1em;
   text-transform:uppercase;color:var(--text-dim);
@@ -716,6 +739,22 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
   <div class="workspace" id="workspace">
     <button class="sidebar-toggle" onclick="toggleSidebar()" title="show sidebar">&raquo;</button>
     <div class="sidebar" id="sidebar">
+      <div class="sidebar-hotbar" id="sidebarHotbar">
+        <button class="hotbar-btn active" data-section="explorer" onclick="switchSidebarSection('explorer')" title="explorer">
+          <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        </button>
+        <button class="hotbar-btn" data-section="browse" onclick="switchSidebarSection('browse')" title="browse files">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        </button>
+        <button class="hotbar-btn" data-section="web" onclick="switchSidebarSection('web')" title="web tools">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
+        </button>
+        <button class="hotbar-btn" data-section="git" onclick="switchSidebarSection('git')" title="git">
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="10" r="2.2"/><path d="M6 8v8M8 6h6a4 4 0 0 1 4 4v0"/></svg>
+        </button>
+      </div>
+      <div class="sidebar-body" id="sidebarBody">
+      <div class="sidebar-section-wrapper active" data-section="explorer">
       <div class="sidebar-header section-header" onclick="toggleSection('explorer')">
         <span class="section-arrow" id="explorerArrow">&#9662;</span>
         <span>explorer</span>
@@ -762,6 +801,9 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       </div>
       </div>
 
+      </div><!-- /explorer wrapper -->
+
+      <div class="sidebar-section-wrapper" data-section="browse">
       <div class="tree-header section-header" onclick="toggleSection('browse')">
         <span class="section-arrow" id="browseArrow">&#9662;</span>
         <span>browse</span>
@@ -772,7 +814,9 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       <div class="section-body" id="browseBody">
         <div class="file-tree" id="fileTree"><div class="tree-empty">loading...</div></div>
       </div>
+      </div><!-- /browse wrapper -->
 
+      <div class="sidebar-section-wrapper" data-section="web">
       <div class="tree-header section-header" onclick="toggleSection('web')">
         <span class="section-arrow" id="webArrow">&#9662;</span>
         <span>web</span>
@@ -800,6 +844,9 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
         </div>
       </div>
 
+      </div><!-- /web wrapper -->
+
+      <div class="sidebar-section-wrapper" data-section="git">
       <div class="tree-header section-header" onclick="toggleSection('git')">
         <span class="section-arrow" id="gitArrow">&#9662;</span>
         <span>git</span>
@@ -818,6 +865,8 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
           </div>
         </div>
       </div>
+      </div><!-- /git wrapper -->
+      </div><!-- /sidebar-body -->
     </div>
 
     <div class="resize-handle" id="resizeLeft" data-side="left"></div>
@@ -3132,6 +3181,22 @@ function toggleSidebar() {
   localStorage.setItem('cali-sidebar-collapsed', ws.classList.contains('sidebar-collapsed') ? '1' : '0');
 }
 
+function switchSidebarSection(name) {
+  const wrappers = document.querySelectorAll('.sidebar-section-wrapper');
+  const buttons = document.querySelectorAll('.hotbar-btn');
+  wrappers.forEach(w => w.classList.toggle('active', w.dataset.section === name));
+  buttons.forEach(b => b.classList.toggle('active', b.dataset.section === name));
+  localStorage.setItem('cali-active-sidebar-section', name);
+  // trigger initial load for lazy sections
+  if (name === 'browse') {
+    const tree = document.getElementById('fileTree');
+    if (tree && tree.innerHTML.trim().startsWith('<div class="tree-empty">loading')) loadFileTree();
+  } else if (name === 'git') {
+    const status = document.getElementById('gitStatus');
+    if (status && status.innerHTML.trim().startsWith('<div class="git-empty">refresh')) refreshGitStatus();
+  }
+}
+
 function toggleSection(name) {
   const body = document.getElementById(name + 'Body');
   const arrow = document.getElementById(name + 'Arrow');
@@ -3149,6 +3214,9 @@ function toggleSection(name) {
     ['explorer', 'browse', 'web', 'git'].forEach(name => {
       if (localStorage.getItem('cali-section-' + name) === '1') toggleSection(name);
     });
+    // restore last-active sidebar section from hotbar
+    const savedSection = localStorage.getItem('cali-active-sidebar-section') || 'explorer';
+    switchSidebarSection(savedSection);
     updateRightPanelVisibility();
   });
 })();

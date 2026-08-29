@@ -5,6 +5,18 @@ each entry has size, commit hash, and what shipped.
 
 ---
 
+## build 2026-08-29 — sidebar activity hotbar
+- **size:** 150184 bytes
+- **commit:** (pending)
+- **added:**
+  - horizontal icon hotbar at the top of the sidebar with 4 inline-SVG icons — explorer (folder), browse (list), web (globe), git (branch-tree)
+  - clicking swaps which section is visible — only one at a time (was: all four stacked and scrollable)
+  - active icon gets accent-muted background + accent underline
+  - selection persists in localStorage as `cali-active-sidebar-section`
+  - lazy-init: browse loads the file tree the first time you open it, git loads status the first time you open it
+  - sections themselves are unchanged — the collapse arrows inside each section still work if you want
+- **note:** first real icons in the ide. inline SVG so they stroke-color with the theme and don't need a CDN.
+
 ## build 2026-08-29 — web tools (search + fetch)
 - **size:** 146400 bytes
 - **commit:** d752e3c
