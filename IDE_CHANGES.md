@@ -5,6 +5,12 @@ each entry has size, commit hash, and what shipped.
 
 ---
 
+## build 2026-08-29 — revert screenshots + computer-use scaffold
+- **size:** 149933 bytes
+- **commit:** (pending)
+- **removed:** the camera button + dropdown menu, all screenshot powershell constants, `takeScreenshot`, `buildScreenshotGuide`, countdown overlay, and the message prepend that injected the coordinate reference frame. mish didn't need it.
+- **kept:** the `alreadyOnDisk` flag on pending images (harmless improvement — uploads skip re-upload when an image already has a real path)
+
 ## build 2026-08-29 — screenshots + computer-use scaffold
 - **size:** 162985 bytes
 - **commit:** ab33955

@@ -412,29 +412,6 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
 }
 .attach-btn:hover{color:var(--accent-text);border-color:var(--accent);background:var(--surface-hover)}
 
-/* screenshot menu */
-.screenshot-wrap{position:relative}
-.screenshot-menu{
-  position:absolute;bottom:100%;left:0;margin-bottom:6px;
-  background:var(--surface-raised);border:1px solid var(--border);border-radius:6px;
-  padding:4px 0;min-width:180px;box-shadow:0 8px 24px rgba(0,0,0,.4);
-  display:none;z-index:50;
-}
-.screenshot-menu.open{display:block}
-.screenshot-menu-item{
-  padding:7px 12px;font-size:12px;color:var(--text-secondary);
-  cursor:pointer;display:flex;align-items:center;gap:8px;
-}
-.screenshot-menu-item:hover{background:var(--accent-muted);color:var(--accent-text)}
-.screenshot-menu-item .hint{margin-left:auto;font-size:10px;color:var(--text-dim);font-family:var(--font-code)}
-.screenshot-menu-item:hover .hint{color:var(--accent-text)}
-.screenshot-countdown{
-  position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:2000;
-  display:flex;align-items:center;justify-content:center;font-size:120px;font-weight:800;
-  color:var(--accent-text);text-shadow:0 4px 20px rgba(0,0,0,.5);pointer-events:none;
-  font-family:var(--font-code);
-}
-
 .skill-bar{
   display:flex;gap:4px;padding:6px 16px;background:var(--surface);
   border-top:1px solid var(--border-subtle);flex-wrap:wrap;
@@ -909,15 +886,6 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
         <div class="chat-input-area">
           <button class="attach-btn" onclick="document.getElementById('fileInputImg').click()" title="attach image">&#128206;</button>
           <input type="file" id="fileInputImg" accept="image/*" multiple style="display:none">
-          <div class="screenshot-wrap">
-            <button class="attach-btn" onclick="toggleScreenshotMenu(event)" title="take a screenshot">&#128247;</button>
-            <div class="screenshot-menu" id="screenshotMenu">
-              <div class="screenshot-menu-item" onclick="takeScreenshot('full')">🖥 Full Screen <span class="hint">instant</span></div>
-              <div class="screenshot-menu-item" onclick="takeScreenshot('window', 3)">🪟 Active Window <span class="hint">3s</span></div>
-              <div class="screenshot-menu-item" onclick="takeScreenshot('window', 5)">🪟 Active Window <span class="hint">5s</span></div>
-              <div class="screenshot-menu-item" onclick="takeScreenshot('browser')">🌐 Browser Window <span class="hint">auto</span></div>
-            </div>
-          </div>
           <textarea class="chat-input" id="chatInput" placeholder="talk to cali..." rows="1"></textarea>
           <button class="send-btn" id="sendBtn" onclick="sendMessage()">send</button>
         </div>
@@ -2837,212 +2805,6 @@ async function uploadPendingImages() {
   return uploaded;
 }
 
-// ── screenshots ────────────────────────────────────────────────────────────
-// runs powershell on mish's machine, saves png, returns path + base64.
-// image lands directly in the pending-attachments chip row.
-function toggleScreenshotMenu(e) {
-  if (e) e.stopPropagation();
-  const menu = document.getElementById('screenshotMenu');
-  menu.classList.toggle('open');
-  if (menu.classList.contains('open')) {
-    setTimeout(() => {
-      const close = (ev) => {
-        if (!ev.target.closest('.screenshot-menu') && !ev.target.closest('.screenshot-wrap')) {
-          menu.classList.remove('open');
-          document.removeEventListener('click', close);
-        }
-      };
-      document.addEventListener('click', close);
-    }, 0);
-  }
-}
-
-async function showCountdown(seconds) {
-  const overlay = document.createElement('div');
-  overlay.className = 'screenshot-countdown';
-  document.body.appendChild(overlay);
-  for (let n = seconds; n > 0; n--) {
-    overlay.textContent = n;
-    await new Promise(r => setTimeout(r, 1000));
-  }
-  overlay.remove();
-}
-
-const SCREENSHOT_FULL_PS = "" +
-  "Add-Type -AssemblyName System.Windows.Forms;" +
-  "Add-Type -AssemblyName System.Drawing;" +
-  "$b = [System.Windows.Forms.SystemInformation]::VirtualScreen;" +
-  "$bmp = New-Object System.Drawing.Bitmap($b.Width, $b.Height);" +
-  "$g = [System.Drawing.Graphics]::FromImage($bmp);" +
-  "$g.CopyFromScreen($b.Location, [System.Drawing.Point]::Empty, $b.Size);" +
-  "$g.Dispose();" +
-  "$dir = Join-Path (Get-Location) 'screenshots';" +
-  "if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null };" +
-  "$ts = Get-Date -Format 'yyyyMMdd_HHmmss';" +
-  "$p = Join-Path $dir ('screenshot_' + $ts + '.png');" +
-  "$bmp.Save($p, [System.Drawing.Imaging.ImageFormat]::Png);" +
-  "$bmp.Dispose();" +
-  "$b64 = [Convert]::ToBase64String([IO.File]::ReadAllBytes($p));" +
-  "Write-Output ('PATH:' + $p);" +
-  "Write-Output ('DIMS:' + $b.Width + 'x' + $b.Height);" +
-  "Write-Output ('ORIGIN:' + $b.Location.X + ',' + $b.Location.Y);" +
-  "Write-Output ('B64:' + $b64)";
-
-const SCREENSHOT_WINDOW_PS = "" +
-  "Add-Type -AssemblyName System.Windows.Forms;" +
-  "Add-Type -AssemblyName System.Drawing;" +
-  "Add-Type -Language CSharp -TypeDefinition 'using System;using System.Runtime.InteropServices;public struct RECT{public int Left, Top, Right, Bottom;} public class WA {[DllImport(\"user32.dll\")] public static extern IntPtr GetForegroundWindow(); [DllImport(\"user32.dll\")] public static extern bool GetWindowRect(IntPtr hWnd, out RECT r);}';" +
-  "$h = [WA]::GetForegroundWindow();" +
-  "$r = New-Object RECT;" +
-  "[WA]::GetWindowRect($h, [ref]$r) | Out-Null;" +
-  "$w = $r.Right - $r.Left;" +
-  "$ht = $r.Bottom - $r.Top;" +
-  "$bmp = New-Object System.Drawing.Bitmap($w, $ht);" +
-  "$g = [System.Drawing.Graphics]::FromImage($bmp);" +
-  "$g.CopyFromScreen($r.Left, $r.Top, 0, 0, (New-Object System.Drawing.Size($w, $ht)));" +
-  "$g.Dispose();" +
-  "$dir = Join-Path (Get-Location) 'screenshots';" +
-  "if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null };" +
-  "$ts = Get-Date -Format 'yyyyMMdd_HHmmss';" +
-  "$p = Join-Path $dir ('screenshot_win_' + $ts + '.png');" +
-  "$bmp.Save($p, [System.Drawing.Imaging.ImageFormat]::Png);" +
-  "$bmp.Dispose();" +
-  "$b64 = [Convert]::ToBase64String([IO.File]::ReadAllBytes($p));" +
-  "Write-Output ('PATH:' + $p);" +
-  "Write-Output ('DIMS:' + $w + 'x' + $ht);" +
-  "Write-Output ('ORIGIN:' + $r.Left + ',' + $r.Top);" +
-  "Write-Output ('B64:' + $b64)";
-
-const SCREENSHOT_BROWSER_PS = "" +
-  "Add-Type -AssemblyName System.Windows.Forms;" +
-  "Add-Type -AssemblyName System.Drawing;" +
-  "Add-Type -Language CSharp -TypeDefinition 'using System;using System.Runtime.InteropServices;public struct RECT{public int Left, Top, Right, Bottom;} public class WA {[DllImport(\"user32.dll\")] public static extern IntPtr GetForegroundWindow(); [DllImport(\"user32.dll\")] public static extern bool GetWindowRect(IntPtr hWnd, out RECT r);}';" +
-  "$browsers = @('chrome','firefox','msedge','brave','opera','vivaldi','arc');" +
-  "$proc = Get-Process | Where-Object { $browsers -contains $_.ProcessName.ToLower() -and $_.MainWindowTitle -ne '' } | Sort-Object -Property @{Expression={$_.MainWindowHandle -eq [WA]::GetForegroundWindow()};Descending=$true},StartTime -Descending | Select-Object -First 1;" +
-  "if (-not $proc) { Write-Output 'ERR:no browser window found'; exit 1 };" +
-  "$h = $proc.MainWindowHandle;" +
-  "$r = New-Object RECT;" +
-  "[WA]::GetWindowRect($h, [ref]$r) | Out-Null;" +
-  "$w = $r.Right - $r.Left;" +
-  "$ht = $r.Bottom - $r.Top;" +
-  "$bmp = New-Object System.Drawing.Bitmap($w, $ht);" +
-  "$g = [System.Drawing.Graphics]::FromImage($bmp);" +
-  "$g.CopyFromScreen($r.Left, $r.Top, 0, 0, (New-Object System.Drawing.Size($w, $ht)));" +
-  "$g.Dispose();" +
-  "$dir = Join-Path (Get-Location) 'screenshots';" +
-  "if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null };" +
-  "$ts = Get-Date -Format 'yyyyMMdd_HHmmss';" +
-  "$p = Join-Path $dir ('screenshot_' + $proc.ProcessName + '_' + $ts + '.png');" +
-  "$bmp.Save($p, [System.Drawing.Imaging.ImageFormat]::Png);" +
-  "$bmp.Dispose();" +
-  "$b64 = [Convert]::ToBase64String([IO.File]::ReadAllBytes($p));" +
-  "Write-Output ('PATH:' + $p);" +
-  "Write-Output ('DIMS:' + $w + 'x' + $ht);" +
-  "Write-Output ('ORIGIN:' + $r.Left + ',' + $r.Top);" +
-  "Write-Output ('BROWSER:' + $proc.ProcessName);" +
-  "Write-Output ('B64:' + $b64)";
-
-// build a coordinate + click reference block that gets prepended to any
-// screenshot message so cali can reason about pixel locations and click back
-function buildScreenshotGuide(mode, w, h, ox, oy, browser) {
-  const halfW = Math.floor(w / 2);
-  const halfH = Math.floor(h / 2);
-  const scope = mode === 'full' ? 'full virtual screen' :
-                mode === 'window' ? 'active window at capture time' :
-                mode === 'browser' ? 'browser window (' + (browser || '?') + ')' : mode;
-  return [
-    '=== screenshot reference frame ===',
-    'scope: ' + scope,
-    'image is ' + w + 'x' + h + ' px. top-left corner in screen coords: (' + ox + ',' + oy + ').',
-    '',
-    'quadrants (image-relative coordinates):',
-    '  top-left      TL = (0,0)         → (' + halfW + ',' + halfH + ')',
-    '  top-right     TR = (' + halfW + ',0)      → (' + w + ',' + halfH + ')',
-    '  bottom-left   BL = (0,' + halfH + ')       → (' + halfW + ',' + h + ')',
-    '  bottom-right  BR = (' + halfW + ',' + halfH + ')   → (' + w + ',' + h + ')',
-    '  center                (' + halfW + ',' + halfH + ')',
-    '',
-    'to click something you see in the image, translate image coords → screen coords:',
-    '  screen_x = ox + image_x,  screen_y = oy + image_y',
-    '  (here ox=' + ox + ' oy=' + oy + ')',
-    '',
-    'click via powershell through your Bash tool (runs on mish\'s machine):',
-    '```',
-    'Add-Type -AssemblyName System.Windows.Forms;',
-    'Add-Type -Language CSharp -TypeDefinition \'using System;using System.Runtime.InteropServices;public class M {[DllImport("user32.dll")]public static extern void mouse_event(uint f,uint dx,uint dy,uint d,int e);}\';',
-    '[System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(<X>,<Y>);',
-    'Start-Sleep -Milliseconds 30;',
-    '[M]::mouse_event(2,0,0,0,0); [M]::mouse_event(4,0,0,0,0);   # left-down, left-up',
-    '```',
-    'for a double-click, run the two mouse_event pair twice with ~50ms between.',
-    'for right-click use 8 (down) + 16 (up). middle: 32/64.',
-    '',
-    'type text into whatever has focus:',
-    '```',
-    'Add-Type -AssemblyName System.Windows.Forms;',
-    '[System.Windows.Forms.SendKeys]::SendWait(\'text goes here\');',
-    '```',
-    '',
-    'workflow: (1) look at the image + describe what you want to click by its quadrant,',
-    '(2) estimate image coords, (3) convert to screen coords with the ox/oy above,',
-    '(4) issue the click via Bash. take a follow-up screenshot to verify.',
-    '=== end reference frame ===',
-  ].join('\n');
-}
-
-async function takeScreenshot(mode, delaySec) {
-  document.getElementById('screenshotMenu').classList.remove('open');
-  const cfg = getConfig();
-  if (!cfg.bridgeUrl || !cfg.bridgeToken || !cfg.caliSoulPath) {
-    addTermLine('[screenshot] bridge not configured', 'warn');
-    return;
-  }
-  if (delaySec && delaySec > 0) {
-    addTermLine('[screenshot] countdown ' + delaySec + 's — switch to target window now', 'info');
-    await showCountdown(delaySec);
-  }
-  let ps;
-  if (mode === 'window') ps = SCREENSHOT_WINDOW_PS;
-  else if (mode === 'browser') ps = SCREENSHOT_BROWSER_PS;
-  else ps = SCREENSHOT_FULL_PS;
-  const wrapped = "Set-Location -LiteralPath '" + psEscape(cfg.caliSoulPath) + "'; " + ps;
-  addTermLine('[screenshot] capturing ' + mode + '…', 'cmd');
-  try {
-    const res = await shellRun(wrapped, 30);
-    if (res.code !== 0 || !res.stdout) throw new Error(res.stderr || 'no output');
-    const lines = (res.stdout || '').split(/\r?\n/);
-    let path = null, b64 = null, browser = null, dims = null, origin = null;
-    for (const line of lines) {
-      if (line.startsWith('PATH:')) path = line.slice(5).trim();
-      else if (line.startsWith('B64:')) b64 = line.slice(4).trim();
-      else if (line.startsWith('BROWSER:')) browser = line.slice(8).trim();
-      else if (line.startsWith('DIMS:')) dims = line.slice(5).trim();
-      else if (line.startsWith('ORIGIN:')) origin = line.slice(7).trim();
-      else if (line.startsWith('ERR:')) throw new Error(line.slice(4).trim());
-    }
-    if (!path || !b64) throw new Error('missing PATH/B64 in output');
-    const name = path.split('\\').pop();
-    const dataUrl = 'data:image/png;base64,' + b64;
-    pendingImages.push({
-      dataUrl,
-      base64: b64,
-      name,
-      path,
-      mime: 'image/png',
-      alreadyOnDisk: true,
-      screenshotMode: mode,
-      screenshotDims: dims,     // "1920x1080"
-      screenshotOrigin: origin, // "0,0" (x,y of top-left corner in virtual screen coords)
-      screenshotBrowser: browser,
-    });
-    renderPendingChips();
-    const label = browser ? mode + ' (' + browser + ')' : mode;
-    addTermLine('[screenshot] captured ' + label + ' → ' + name + ' (' + Math.round(b64.length * 3 / 4 / 1024) + ' KB)', 'ok');
-  } catch (e) {
-    addTermLine('[screenshot] failed: ' + e.message, 'err');
-  }
-}
-
 async function sendMessage() {
   if (sending) return;
   const input = document.getElementById('chatInput');
@@ -3061,16 +2823,6 @@ async function sendMessage() {
     if (uploaded.length > 0) {
       const paths = uploaded.map(u => '- ' + u.path).join('\n');
       effectiveText = (text || '(image)') + '\n\nimages attached (read them with your Read tool):\n' + paths;
-      // if any of the attached images was a screenshot, prepend the coordinate + click guide
-      // so you have quadrant reference frame + know how to click things you see
-      const shots = pendingImages.filter(p => p.screenshotDims);
-      if (shots.length > 0) {
-        const s = shots[shots.length - 1]; // most recent one
-        const [w, h] = s.screenshotDims.split('x').map(Number);
-        const [ox, oy] = (s.screenshotOrigin || '0,0').split(',').map(Number);
-        const guide = buildScreenshotGuide(s.screenshotMode, w, h, ox, oy, s.screenshotBrowser);
-        effectiveText = guide + '\n\n' + effectiveText;
-      }
     }
   }
   addUserMsgWithImages(text, uploaded);
