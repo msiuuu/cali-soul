@@ -755,10 +755,9 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       </div>
       <div class="sidebar-body" id="sidebarBody">
       <div class="sidebar-section-wrapper active" data-section="explorer">
-      <div class="sidebar-header section-header" onclick="toggleSection('explorer')">
-        <span class="section-arrow" id="explorerArrow">&#9662;</span>
+      <div class="sidebar-header">
         <span>explorer</span>
-        <button class="collapse-btn" onclick="event.stopPropagation();toggleSidebar()" title="hide sidebar">&laquo;</button>
+        <button class="collapse-btn" onclick="toggleSidebar()" title="hide sidebar">&laquo;</button>
       </div>
       <div class="section-body" id="explorerBody">
       <div class="folder-toggle" onclick="toggleFolder(this)"><span class="arrow">&#9662;</span> identity</div>
@@ -804,12 +803,11 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       </div><!-- /explorer wrapper -->
 
       <div class="sidebar-section-wrapper" data-section="browse">
-      <div class="tree-header section-header" onclick="toggleSection('browse')">
-        <span class="section-arrow" id="browseArrow">&#9662;</span>
+      <div class="tree-header">
         <span>browse</span>
-        <button class="tree-add-btn" onclick="event.stopPropagation();promptNewAtRoot('file')" title="new file at repo root">+&#128462;</button>
-        <button class="tree-add-btn" onclick="event.stopPropagation();promptNewAtRoot('folder')" title="new folder at repo root">+&#128193;</button>
-        <button class="tree-refresh" onclick="event.stopPropagation();loadFileTree()" title="refresh">&#8635;</button>
+        <button class="tree-add-btn" onclick="promptNewAtRoot('file')" title="new file at repo root">+&#128462;</button>
+        <button class="tree-add-btn" onclick="promptNewAtRoot('folder')" title="new folder at repo root">+&#128193;</button>
+        <button class="tree-refresh" onclick="loadFileTree()" title="refresh">&#8635;</button>
       </div>
       <div class="section-body" id="browseBody">
         <div class="file-tree" id="fileTree"><div class="tree-empty">loading...</div></div>
@@ -817,8 +815,7 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       </div><!-- /browse wrapper -->
 
       <div class="sidebar-section-wrapper" data-section="web">
-      <div class="tree-header section-header" onclick="toggleSection('web')">
-        <span class="section-arrow" id="webArrow">&#9662;</span>
+      <div class="tree-header">
         <span>web</span>
       </div>
       <div class="section-body" id="webBody">
@@ -847,10 +844,9 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       </div><!-- /web wrapper -->
 
       <div class="sidebar-section-wrapper" data-section="git">
-      <div class="tree-header section-header" onclick="toggleSection('git')">
-        <span class="section-arrow" id="gitArrow">&#9662;</span>
+      <div class="tree-header">
         <span>git</span>
-        <button class="tree-refresh" onclick="event.stopPropagation();refreshGitStatus()" title="refresh git status">&#8635;</button>
+        <button class="tree-refresh" onclick="refreshGitStatus()" title="refresh git status">&#8635;</button>
       </div>
       <div class="section-body" id="gitBody">
         <div class="git-panel">
@@ -3211,8 +3207,9 @@ function toggleSection(name) {
 // restore collapsed state on load
 (function restoreSectionState() {
   window.addEventListener('DOMContentLoaded', () => {
+    // clear stale collapse-state keys from the pre-hotbar era
     ['explorer', 'browse', 'web', 'git'].forEach(name => {
-      if (localStorage.getItem('cali-section-' + name) === '1') toggleSection(name);
+      localStorage.removeItem('cali-section-' + name);
     });
     // restore last-active sidebar section from hotbar
     const savedSection = localStorage.getItem('cali-active-sidebar-section') || 'explorer';
