@@ -7,7 +7,7 @@ each entry has size, commit hash, and what shipped.
 
 ## build 2026-08-29 — screenshots + computer-use scaffold
 - **size:** 162985 bytes
-- **commit:** (pending)
+- **commit:** ab33955
 - **added:**
   - camera button (📷) next to the attach button. dropdown menu with four modes:
     - 🖥 full screen (instant, all monitors via VirtualScreen)
