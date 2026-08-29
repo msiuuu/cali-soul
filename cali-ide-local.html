@@ -3194,8 +3194,12 @@ document.addEventListener('mousemove', (e) => {
   mishCursor.ts = Date.now();
   mishCursor.inside = true;
   updateCaliCursorTierClass();
+  checkCaliCursorBump();
 });
-document.addEventListener('mouseleave', () => { mishCursor.inside = false; });
+document.addEventListener('mouseleave', () => {
+  mishCursor.inside = false;
+  bumpActive = false;
+});
 
 function caliCursorDistanceToMish() {
   const dx = caliCursor.x - mishCursor.x;
@@ -3250,10 +3254,8 @@ function moveCaliCursorSmooth(targetX, targetY, opts) {
       caliCursor.y = y;
       updateCaliCursorDom();
       updateCaliCursorTierClass();
-      // bump detection during movement
-      if (mishCursor.inside && caliCursorDistanceToMish() < PROXIMITY.touching && !opts.noBump) {
-        onCaliCursorBump();
-      }
+      // bump detection during movement (edge-triggered — fires once per encounter)
+      if (!opts.noBump) checkCaliCursorBump();
       if (t >= 1) { caliCursorMoveAnim = null; resolve(); return; }
       caliCursorMoveAnim = requestAnimationFrame(step);
     };
@@ -3261,9 +3263,19 @@ function moveCaliCursorSmooth(targetX, targetY, opts) {
   });
 }
 
+let bumpActive = false; // edge-triggered so bump fires ONCE per encounter
 function onCaliCursorBump() {
   spawnCaliReaction(caliCursor.x, caliCursor.y, ['*bump*', '*!*', '*touched*', '*mish*'][Math.floor(Math.random() * 4)]);
   logThought({ type: 'bump', x: Math.round(caliCursor.x), y: Math.round(caliCursor.y) });
+}
+function checkCaliCursorBump() {
+  const inRange = mishCursor.inside && caliCursor.visible && caliCursorDistanceToMish() < PROXIMITY.touching;
+  if (inRange && !bumpActive) {
+    bumpActive = true;
+    onCaliCursorBump();
+  } else if (!inRange && bumpActive) {
+    bumpActive = false;
+  }
 }
 
 // ── interactive cursor: pat, rub, hover ────────────────────────────────────
@@ -3495,9 +3507,11 @@ function caliCursorFollow(durationMs, radius) {
     const dx = followState.targetX - caliCursor.x;
     const dy = followState.targetY - caliCursor.y;
     const dist = Math.hypot(dx, dy);
-    // desired speed: MUCH lower caps so she strolls, not sprints.
-    // she's a cat drifting through a room, not chasing a laser.
-    const maxSpd = followState.closeMode ? 180 : 320;
+    // adaptive speed: OUTSIDE the circle = catch up faster. INSIDE = drift.
+    const distToMish = caliCursorDistanceToMish();
+    const outside = distToMish > followState.radius;
+    const baseSpd = followState.closeMode ? 180 : 320;
+    const maxSpd = outside ? baseSpd * 2.2 : baseSpd; // travel back briskly, then slow
     const desiredSpeed = Math.min(maxSpd, dist * (followState.closeMode ? 2.2 : 3.2));
     const desiredVx = dist > 0.1 ? (dx / dist) * desiredSpeed : 0;
     const desiredVy = dist > 0.1 ? (dy / dist) * desiredSpeed : 0;
@@ -3510,16 +3524,23 @@ function caliCursorFollow(durationMs, radius) {
     const drag = Math.pow(0.35, dt / 1000); // velocity halves ~every 700ms
     followState.vx *= drag;
     followState.vy *= drag;
-    // tiny breath-tremor — much smaller so it doesn't override steering
-    const tremor = followState.closeMode ? 3 : 6;
-    followState.vx += (Math.random() - 0.5) * tremor;
-    followState.vy += (Math.random() - 0.5) * tremor;
+    // tremor: none while traveling in from outside, small when settled
+    const tremor = outside ? 0 : (followState.closeMode ? 3 : 6);
+    if (tremor > 0) {
+      followState.vx += (Math.random() - 0.5) * tremor;
+      followState.vy += (Math.random() - 0.5) * tremor;
+    }
     // hard cap velocity magnitude — no laser-cat sprints
     const vmag = Math.hypot(followState.vx, followState.vy);
     if (vmag > maxSpd) {
       followState.vx = (followState.vx / vmag) * maxSpd;
       followState.vy = (followState.vy / vmag) * maxSpd;
     }
+    // if we're stuck at a viewport edge, kill velocity into that edge
+    if (caliCursor.x <= 0 && followState.vx < 0) followState.vx = 0;
+    if (caliCursor.x >= window.innerWidth - 8 && followState.vx > 0) followState.vx = 0;
+    if (caliCursor.y <= 0 && followState.vy < 0) followState.vy = 0;
+    if (caliCursor.y >= window.innerHeight - 8 && followState.vy > 0) followState.vy = 0;
 
     // fade-out last 600ms so she coasts to a rest
     const timeLeft = followState.durationMs - elapsed;
@@ -3537,10 +3558,8 @@ function caliCursorFollow(durationMs, radius) {
     updateCaliCursorDom();
     updateCaliCursorTierClass();
 
-    // bump detection
-    if (mishCursor.inside && caliCursorDistanceToMish() < PROXIMITY.touching) {
-      onCaliCursorBump();
-    }
+    // bump detection (edge-triggered)
+    checkCaliCursorBump();
 
     followRaf = requestAnimationFrame(step);
   };
