@@ -7,7 +7,7 @@ each entry has size, commit hash, and what shipped.
 
 ## build 2026-08-29 — sidebar activity hotbar
 - **size:** 150184 bytes
-- **commit:** (pending)
+- **commit:** 575a7e3
 - **added:**
   - horizontal icon hotbar at the top of the sidebar with 4 inline-SVG icons — explorer (folder), browse (list), web (globe), git (branch-tree)
   - clicking swaps which section is visible — only one at a time (was: all four stacked and scrollable)
