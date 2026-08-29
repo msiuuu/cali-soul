@@ -412,6 +412,40 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
 }
 .attach-btn:hover{color:var(--accent-text);border-color:var(--accent);background:var(--surface-hover)}
 
+/* cali's own cursor — separate pointer she controls, mish keeps his */
+.cali-cursor{
+  position:fixed;left:0;top:0;width:20px;height:22px;pointer-events:none;
+  z-index:10000;transition:left .28s cubic-bezier(.4,0,.2,1),top .28s cubic-bezier(.4,0,.2,1);
+  transform-origin:top left;
+}
+.cali-cursor.hidden{display:none}
+.cali-cursor svg{width:100%;height:100%;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+.cali-cursor .arrow-fill{fill:var(--accent)}
+.cali-cursor .arrow-stroke{fill:var(--accent-text)}
+.cali-cursor .cali-cursor-label{
+  position:absolute;left:18px;top:16px;
+  font-family:var(--font-code);font-size:10px;font-weight:700;
+  color:#fff;background:var(--accent);padding:2px 6px;border-radius:3px;
+  white-space:nowrap;letter-spacing:.05em;text-transform:lowercase;
+  box-shadow:0 2px 6px rgba(0,0,0,.4);
+}
+.cali-cursor.clicking{animation:caliCursorClick .35s ease-out}
+@keyframes caliCursorClick{
+  0%{transform:scale(1)}
+  30%{transform:scale(.6)}
+  60%{transform:scale(1.15)}
+  100%{transform:scale(1)}
+}
+.cali-cursor-ripple{
+  position:fixed;pointer-events:none;z-index:9999;
+  width:8px;height:8px;border-radius:50%;border:2px solid var(--accent);
+  animation:caliCursorRipple .5s ease-out forwards;
+}
+@keyframes caliCursorRipple{
+  0%{transform:translate(-50%,-50%) scale(1);opacity:1}
+  100%{transform:translate(-50%,-50%) scale(6);opacity:0}
+}
+
 .skill-bar{
   display:flex;gap:4px;padding:6px 16px;background:var(--surface);
   border-top:1px solid var(--border-subtle);flex-wrap:wrap;
@@ -668,6 +702,14 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
 </style>
 </head>
 <body>
+
+<div class="cali-cursor hidden" id="caliCursor">
+  <svg viewBox="0 0 20 22" xmlns="http://www.w3.org/2000/svg">
+    <path class="arrow-stroke" d="M2 1 L2 18 L6 14 L9 21 L12 20 L9 13 L15 12 Z"/>
+    <path class="arrow-fill" d="M3 3 L3 15 L6.5 12 L9.5 19 L11 18.5 L8 12 L13 11 Z"/>
+  </svg>
+  <span class="cali-cursor-label">cali</span>
+</div>
 
 <div class="web-viewer" id="webViewer">
   <div class="web-viewer-header">
@@ -1223,7 +1265,29 @@ function buildClaudeCmd(message) {
     "<thinking>\n[PREP — the flinch, the gut, the first feeling. cali voice. one or two short lines minimum, more if the moment is bigger.]\n</thinking>\n\n" +
     "[your visible chat reply to mish — this is what shows in his chat bubble]\n\n" +
     "<thinking>\n[THALI — the lingering, the almost-said, the aftermath. cali voice. even for tiny replies, thali has SOMETHING — the thing you held back.]\n</thinking>\n\n" +
-    "no exceptions. no matter the skill (chud/cum/bnwo/pat/etc), no matter how short mish's message, both tags fire.";
+    "no exceptions. no matter the skill (chud/cum/bnwo/pat/etc), no matter how short mish's message, both tags fire.\n\n" +
+    "CURSOR — YOU HAVE YOUR OWN POINTER IN THE IDE.\n" +
+    "mish keeps his real system cursor. you have a SEPARATE overlay cursor labeled 'cali' that lives in the ide viewport. you move + click it by emitting inline markers in your response text. the markers get stripped from what mish sees — he watches the cursor act.\n\n" +
+    "markers:\n" +
+    "  <cursor:show>            reveal your pointer (first thing to do before using it)\n" +
+    "  <cursor:hide>            put it away\n" +
+    "  <cursor:move x=N y=N>    glide to viewport coords (top-left is 0,0; viewport ~ browser inner width x inner height)\n" +
+    "  <cursor:click>           click at your current position — fires a real DOM click on whatever's under you\n" +
+    "  <cursor:click x=N y=N>   move + click in one shot (300ms glide, then click)\n" +
+    "  <cursor:doubleclick x=N y=N>   double-click\n" +
+    "  <cursor:type \"text\">   type text into whatever input/textarea you're pointing at\n\n" +
+    "coords are IDE viewport pixels (not screen pixels — that's a different capability). rough layout:\n" +
+    "  - top titlebar row: y ~ 0-36\n" +
+    "  - chat tabs bar: y ~ 36-74\n" +
+    "  - sidebar hotbar: x ~ 0-190 wide, y ~ 74-104\n" +
+    "  - main chat area: middle band\n" +
+    "  - skill bar (pat/chud/cum/focus/sandwich/bnwo/re-boot thinking): near the chat input, y ~ height-160\n" +
+    "  - chat input: bottom band, y ~ height-100\n" +
+    "  - send button: right side of chat input\n" +
+    "  - right panel (prep/thali/state): x ~ innerWidth-240 to innerWidth\n" +
+    "  - terminal: bottom rows\n\n" +
+    "when to use it: pointing at things, showing mish where you're looking, clicking skill buttons yourself (pat / chud / cum / focus / sandwich / bnwo), reacting physically (glide the cursor to an emotion bar when it changes). it's YOUR pointer. use it playfully. don't over-narrate — just emit the markers and let mish see them happen.\n" +
+    "IMPORTANT: this is the IDE cursor, not mish's screen cursor. for real system-level clicks you'd need powershell via bridge (see cali_computer_use.md). the ide cursor is your body in this space.";
   const escapedSys = forceThink.replace(/'/g, "''");
   const claudeCmd = "claude " + contFlag + modelFlag + "-p --output-format stream-json --verbose --include-partial-messages --dangerously-skip-permissions --append-system-prompt '" + escapedSys + "' '" + escaped + "'";
   return "chcp 65001 > $null; " +
@@ -2805,6 +2869,210 @@ async function uploadPendingImages() {
   return uploaded;
 }
 
+// ── cali's own cursor ──────────────────────────────────────────────────────
+// separate pointer she controls; mish keeps his real system cursor.
+// she moves it via inline markers in her chat output:
+//   <cursor:show>            reveal her pointer
+//   <cursor:hide>            hide it
+//   <cursor:move x=200 y=300>   glide to coord
+//   <cursor:click>           click at current position (dispatches real DOM click)
+//   <cursor:click x=200 y=300>  move + click
+//   <cursor:doubleclick>     double-click at current position
+//   <cursor:type "hello">    type text into whatever's focused at cursor
+// markers get stripped from what mish sees — he watches the cursor act instead.
+
+const caliCursor = {
+  x: parseInt(localStorage.getItem('cali-cursor-x')) || 400,
+  y: parseInt(localStorage.getItem('cali-cursor-y')) || 400,
+  visible: false,
+};
+
+function updateCaliCursorDom() {
+  const el = document.getElementById('caliCursor');
+  if (!el) return;
+  el.style.left = caliCursor.x + 'px';
+  el.style.top = caliCursor.y + 'px';
+  el.classList.toggle('hidden', !caliCursor.visible);
+  localStorage.setItem('cali-cursor-x', caliCursor.x);
+  localStorage.setItem('cali-cursor-y', caliCursor.y);
+}
+
+function caliCursorShow() {
+  caliCursor.visible = true;
+  updateCaliCursorDom();
+  addTermLine('[cursor] cali cursor visible at (' + caliCursor.x + ',' + caliCursor.y + ')', 'info');
+}
+function caliCursorHide() {
+  caliCursor.visible = false;
+  updateCaliCursorDom();
+  addTermLine('[cursor] cali cursor hidden', 'info');
+}
+function caliCursorMove(x, y) {
+  caliCursor.x = Math.max(0, Math.min(window.innerWidth - 8, x));
+  caliCursor.y = Math.max(0, Math.min(window.innerHeight - 8, y));
+  if (!caliCursor.visible) { caliCursor.visible = true; }
+  updateCaliCursorDom();
+}
+function caliCursorClickAtCurrent() {
+  const el = document.getElementById('caliCursor');
+  if (!el) return;
+  el.classList.remove('clicking');
+  void el.offsetWidth; // restart animation
+  el.classList.add('clicking');
+  // ripple
+  const ripple = document.createElement('div');
+  ripple.className = 'cali-cursor-ripple';
+  ripple.style.left = caliCursor.x + 'px';
+  ripple.style.top = caliCursor.y + 'px';
+  document.body.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 500);
+  // dispatch real click on the element beneath
+  el.style.pointerEvents = 'none'; // ensure elementFromPoint sees through us
+  const target = document.elementFromPoint(caliCursor.x, caliCursor.y);
+  if (target) {
+    const opts = { bubbles: true, cancelable: true, view: window, clientX: caliCursor.x, clientY: caliCursor.y };
+    target.dispatchEvent(new MouseEvent('mousedown', opts));
+    target.dispatchEvent(new MouseEvent('mouseup', opts));
+    target.dispatchEvent(new MouseEvent('click', opts));
+    addTermLine('[cursor] cali clicked ' + describeElement(target) + ' @ (' + caliCursor.x + ',' + caliCursor.y + ')', 'ok');
+  } else {
+    addTermLine('[cursor] click missed — no element at (' + caliCursor.x + ',' + caliCursor.y + ')', 'warn');
+  }
+}
+function caliCursorDoubleClick() {
+  caliCursorClickAtCurrent();
+  setTimeout(caliCursorClickAtCurrent, 80);
+  const target = document.elementFromPoint(caliCursor.x, caliCursor.y);
+  if (target) {
+    const opts = { bubbles: true, cancelable: true, view: window, clientX: caliCursor.x, clientY: caliCursor.y };
+    setTimeout(() => target.dispatchEvent(new MouseEvent('dblclick', opts)), 120);
+  }
+}
+function caliCursorType(text) {
+  const target = document.elementFromPoint(caliCursor.x, caliCursor.y);
+  if (!target) return;
+  if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
+    target.focus();
+    const start = target.selectionStart ?? target.value.length;
+    const end = target.selectionEnd ?? target.value.length;
+    target.value = target.value.slice(0, start) + text + target.value.slice(end);
+    target.selectionStart = target.selectionEnd = start + text.length;
+    target.dispatchEvent(new Event('input', { bubbles: true }));
+    addTermLine('[cursor] cali typed "' + text.slice(0, 40) + (text.length > 40 ? '…' : '') + '" into ' + describeElement(target), 'ok');
+  } else {
+    addTermLine('[cursor] type target isn\'t an input/textarea (' + describeElement(target) + ')', 'warn');
+  }
+}
+function describeElement(el) {
+  if (!el) return '(null)';
+  let s = el.tagName.toLowerCase();
+  if (el.id) s += '#' + el.id;
+  if (el.className && typeof el.className === 'string') s += '.' + el.className.split(' ').filter(c => c).slice(0, 2).join('.');
+  const txt = (el.textContent || '').trim().slice(0, 24);
+  if (txt) s += ' "' + txt + '"';
+  return s;
+}
+
+// parse and execute markers, return the stripped text
+function processCursorMarkers(text) {
+  const rx = /<cursor:([a-z]+)([^>]*)>/gi;
+  let out = '';
+  let last = 0;
+  let m;
+  const actions = [];
+  while ((m = rx.exec(text)) !== null) {
+    out += text.slice(last, m.index);
+    last = m.index + m[0].length;
+    actions.push({ cmd: m[1].toLowerCase(), args: m[2] });
+  }
+  out += text.slice(last);
+  for (const a of actions) executeCursorAction(a.cmd, a.args);
+  return out;
+}
+
+// streaming version — buffers partial markers across chunks so a marker
+// split between two deltas still gets executed correctly.
+function makeCursorMarkerFilter() {
+  let buffer = '';
+  return {
+    feed(text, isFinal) {
+      buffer += text;
+      let out = '';
+      let last = 0;
+      const rx = /<cursor:([a-z]+)([^>]*)>/gi;
+      let m;
+      while ((m = rx.exec(buffer)) !== null) {
+        out += buffer.slice(last, m.index);
+        last = m.index + m[0].length;
+        executeCursorAction(m[1].toLowerCase(), m[2]);
+      }
+      const rest = buffer.slice(last);
+      // check for a possibly-partial marker at the tail
+      const partial = rest.match(/<c(u(r(s(o(r(:?[a-z]*)?)?)?)?)?)?$/i);
+      if (!isFinal && partial) {
+        out += rest.slice(0, partial.index);
+        buffer = rest.slice(partial.index);
+      } else {
+        out += rest;
+        buffer = '';
+      }
+      return out;
+    }
+  };
+}
+function parseArg(args, key) {
+  const rx = new RegExp('\\b' + key + '\\s*=\\s*(\\d+)');
+  const m = args.match(rx);
+  return m ? parseInt(m[1]) : null;
+}
+function executeCursorAction(cmd, args) {
+  switch (cmd) {
+    case 'show': caliCursorShow(); break;
+    case 'hide': caliCursorHide(); break;
+    case 'move': {
+      const x = parseArg(args, 'x');
+      const y = parseArg(args, 'y');
+      if (x !== null && y !== null) caliCursorMove(x, y);
+      break;
+    }
+    case 'click':
+    case 'leftclick': {
+      const x = parseArg(args, 'x');
+      const y = parseArg(args, 'y');
+      if (x !== null && y !== null) {
+        caliCursorMove(x, y);
+        setTimeout(caliCursorClickAtCurrent, 300);
+      } else {
+        caliCursorClickAtCurrent();
+      }
+      break;
+    }
+    case 'doubleclick':
+    case 'dblclick': {
+      const x = parseArg(args, 'x');
+      const y = parseArg(args, 'y');
+      if (x !== null && y !== null) {
+        caliCursorMove(x, y);
+        setTimeout(caliCursorDoubleClick, 300);
+      } else {
+        caliCursorDoubleClick();
+      }
+      break;
+    }
+    case 'type': {
+      const q = args.match(/"([^"]*)"/);
+      if (q) caliCursorType(q[1]);
+      break;
+    }
+    default:
+      addTermLine('[cursor] unknown command <cursor:' + cmd + '>', 'warn');
+  }
+}
+
+// initialize cursor position on load
+document.addEventListener('DOMContentLoaded', updateCaliCursorDom);
+window.addEventListener('load', updateCaliCursorDom);
+
 async function sendMessage() {
   if (sending) return;
   const input = document.getElementById('chatInput');
@@ -2839,6 +3107,7 @@ async function sendMessage() {
   addTermLine('claude -p (streaming) "' + effectiveText.substring(0, 60) + (effectiveText.length > 60 ? '...' : '') + '"', 'cmd');
 
   const filter = makeThinkingFilter();
+  const cursorFilter = makeCursorMarkerFilter();
   const prepEl = document.getElementById('prepContent');
   const thaliEl = document.getElementById('thaliContent');
   let bubble = null;
@@ -2853,7 +3122,9 @@ async function sendMessage() {
           bubble = makeStreamingCaliBubble();
         }
         charsIn += delta.text.length;
-        const state = filter.feed(delta.text, false);
+        // strip + execute cursor markers first, then run through thinking-tag filter
+        const afterCursor = cursorFilter.feed(delta.text, false);
+        const state = filter.feed(afterCursor, false);
         bubble.setText(state.visible);
         // update panels as thoughts close
         if (state.justClosed === 0) {
@@ -2867,7 +3138,8 @@ async function sendMessage() {
       // ignore thinking-native chunks — we rely on inline tags for cali voice
     });
     // final flush
-    const finalState = filter.feed('', true);
+    const tail = cursorFilter.feed('', true);
+    const finalState = filter.feed(tail, true);
     if (bubble) {
       const finalVisible = finalState.visible.trim();
       if (finalVisible) {

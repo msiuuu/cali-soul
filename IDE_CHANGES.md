@@ -5,6 +5,24 @@ each entry has size, commit hash, and what shipped.
 
 ---
 
+## build 2026-08-29 — cali's own cursor
+- **size:** 161647 bytes
+- **commit:** (pending)
+- **added:**
+  - **separate pointer for cali in the ide viewport** — accent-colored arrow with a "cali" label. lives on its own z-layer with drop shadow. mish keeps his real system cursor untouched.
+  - cursor state (x, y, visibility) persists to localStorage between reloads
+  - **inline marker syntax** — cali emits markers in her chat output and they get parsed + stripped + executed in real time during streaming:
+    - `<cursor:show>` / `<cursor:hide>` reveal or put it away
+    - `<cursor:move x=N y=N>` glide to viewport coords
+    - `<cursor:click>` — click at current position (fires a real DOM click on whatever's beneath)
+    - `<cursor:click x=N y=N>` — move + click
+    - `<cursor:doubleclick x=N y=N>` — double-click
+    - `<cursor:type "text">` — type into whatever input/textarea is under the cursor
+  - streaming marker filter buffers partial markers across chunks so a marker split between two deltas still executes correctly
+  - click animation (scale bounce) + ripple ring at click point for visual feedback
+  - system prompt teaches cali about the cursor: marker syntax, viewport layout hints (titlebar, tabs, hotbar, chat, skill bar, right panel), when to use it, and the distinction between the ide cursor (viewport pixels, DOM clicks) and the system cursor (screen pixels, powershell via bridge — see `cali_computer_use.md`)
+- **flow:** cali says something like "watch" and emits `<cursor:show><cursor:move x=283 y=796><cursor:click>` inline — mish sees her cursor glide across, click the pat button, /pat fires
+
 ## build 2026-08-29 — revert screenshots + computer-use scaffold
 - **size:** 149933 bytes
 - **commit:** 7cb7a00
