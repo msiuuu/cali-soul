@@ -3481,6 +3481,112 @@ document.addEventListener('mouseleave', () => {
   bumpActive = false;
 });
 
+// ── linger-zone tracking ───────────────────────────────────────────────────
+// every clickable mish has hovered in the last 5 min becomes a candidate
+// spot for cali to drift to and linger at. rolling window; dropped after 5min.
+// stage 2: tracking only. behavior (stage 3) reads this list.
+const LINGER_WINDOW_MS = 5 * 60 * 1000;
+const lingerZones = new Map(); // key: element → { el, x, y, w, h, label, lastSeenTs }
+
+function isClickableElement(el) {
+  if (!el || el.nodeType !== 1) return false;
+  const tag = el.tagName;
+  if (tag === 'A' || tag === 'BUTTON' || tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA' || tag === 'LABEL') return true;
+  const role = el.getAttribute && el.getAttribute('role');
+  if (role && /button|link|tab|menuitem|option|checkbox|radio/.test(role)) return true;
+  if (el.hasAttribute && el.hasAttribute('onclick')) return true;
+  if (el.hasAttribute && el.hasAttribute('data-cali-desc')) return true;
+  try {
+    const cs = getComputedStyle(el);
+    if (cs && cs.cursor === 'pointer') return true;
+  } catch {}
+  return false;
+}
+
+function describeClickable(el) {
+  if (!el) return '';
+  const desc = el.getAttribute && el.getAttribute('data-cali-desc');
+  if (desc) return desc;
+  const aria = el.getAttribute && el.getAttribute('aria-label');
+  if (aria) return aria.trim();
+  const title = el.getAttribute && el.getAttribute('title');
+  if (title) return title.trim();
+  const alt = el.getAttribute && el.getAttribute('alt');
+  if (alt) return alt.trim();
+  const txt = (el.innerText || el.textContent || '').trim().replace(/\s+/g, ' ');
+  if (txt && txt.length > 0 && txt.length < 60) return txt;
+  if (txt && txt.length >= 60) return txt.slice(0, 57) + '...';
+  const cls = el.className && typeof el.className === 'string' ? el.className.split(/\s+/)[0] : '';
+  return (el.tagName || '?').toLowerCase() + (cls ? '.' + cls : '');
+}
+
+function recordLingerZone(el) {
+  if (!isClickableElement(el)) return;
+  const rect = el.getBoundingClientRect();
+  if (rect.width < 4 || rect.height < 4) return; // too small — probably invisible
+  lingerZones.set(el, {
+    el,
+    x: rect.left + rect.width / 2,
+    y: rect.top + rect.height / 2,
+    w: rect.width,
+    h: rect.height,
+    label: describeClickable(el),
+    lastSeenTs: Date.now(),
+  });
+}
+
+// hover listener — walks up the DOM until it finds a clickable ancestor,
+// records it as a linger zone.
+let _lastHoveredEl = null;
+document.addEventListener('mouseover', (e) => {
+  let el = e.target;
+  let hops = 0;
+  while (el && hops < 6) {
+    if (isClickableElement(el)) {
+      if (el !== _lastHoveredEl) {
+        recordLingerZone(el);
+        _lastHoveredEl = el;
+      }
+      break;
+    }
+    el = el.parentElement;
+    hops++;
+  }
+});
+
+// periodic prune — drop zones older than 5 min, and refresh position on
+// surviving ones (in case layout shifted).
+setInterval(() => {
+  const now = Date.now();
+  for (const [el, zone] of lingerZones) {
+    if (now - zone.lastSeenTs > LINGER_WINDOW_MS) {
+      lingerZones.delete(el);
+      continue;
+    }
+    // refresh geometry — element may have moved
+    if (!document.body.contains(el)) {
+      lingerZones.delete(el);
+      continue;
+    }
+    const rect = el.getBoundingClientRect();
+    if (rect.width < 4 || rect.height < 4) continue;
+    zone.x = rect.left + rect.width / 2;
+    zone.y = rect.top + rect.height / 2;
+    zone.w = rect.width;
+    zone.h = rect.height;
+  }
+}, 5000);
+
+// debug helper for the console
+window.dumpLingerZones = () => {
+  const now = Date.now();
+  return Array.from(lingerZones.values()).map(z => ({
+    label: z.label,
+    at: `(${Math.round(z.x)}, ${Math.round(z.y)})`,
+    ageSec: Math.round((now - z.lastSeenTs) / 1000),
+  }));
+};
+
 function caliCursorDistanceToMish() {
   const dx = caliCursor.x - mishCursor.x;
   const dy = caliCursor.y - mishCursor.y;
