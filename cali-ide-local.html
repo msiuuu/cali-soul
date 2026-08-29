@@ -3867,9 +3867,10 @@ window.addEventListener('unhandledrejection', (e) => {
 //   B (body, 3 min):   symbol + cursor-only, no words
 // both use the current chat's --resume session so cali is one thread.
 
-// production intervals — 15min mind, 3min body.
-const HB_MIND_INTERVAL_MS = 15 * 60 * 1000;
-const HB_BODY_INTERVAL_MS = 3 * 60 * 1000;
+// testing intervals — 30s mind, 15s body. bump these back to
+// 15min / 3min once the shape is proven.
+const HB_MIND_INTERVAL_MS = 30 * 1000;
+const HB_BODY_INTERVAL_MS = 15 * 1000;
 let hbMindTimer = null;
 let hbBodyTimer = null;
 let hbEnabled = localStorage.getItem('cali-heartbeat-enabled') === '1';
