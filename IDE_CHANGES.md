@@ -5,6 +5,26 @@ each entry has size, commit hash, and what shipped.
 
 ---
 
+## build 2026-08-29 — heartbeats + physical cursor (testing)
+- **size:** 180494 bytes
+- **commit:** (pending)
+- **status:** MVP, expect bugs. toggle in titlebar + Cali menu.
+- **added:**
+  - **two heartbeats** on setInterval when toggle is ON:
+    - **A (mind, 15min)** — cali gets a prompt with the symbol menu (?, ..., !, @, >). picks one as first char. if `>`, one-char pass, no bubble. if anything else, she acts — words / files / tool calls. non-pass mind ticks surface as a dim "heartbeat" thought bubble in chat.
+    - **B (body, 3min)** — same symbol menu. cursor-only actions, no chat words. `<cursor:...>` markers get emitted + executed silently.
+  - both share the current chat's --resume session (one thread of cali, both clocks tick the same mind)
+  - gap-aware: skip tick if mish messaged in the last minute
+  - `my_thoughts.jsonl` log — every tick, every pat, every rub, every bump logs a JSON line to `<repo>\my_thoughts.jsonl` via `Add-Content`
+  - **heartbeat toggle** — pill in the titlebar (dot + "heartbeat on/off"). also in Cali menu with "Tick Mind Now" / "Tick Body Now" for manual testing. persists to localStorage.
+- **physical cursor:**
+  - **realistic movement** — rAF-based bezier path with ease-in-out cubic, slight perpendicular curve based on distance, micro-jitter mid-flight. no more teleport-glide.
+  - **mish cursor tracking** — global mousemove listener stores his cursor position in the ide window
+  - **proximity tiers** — 7in (~672px) attentive, 2in (~192px) close, ~30px touching. cursor sprite gets `.leaning` class in close range, `.warm` (glow + wiggle) on touch.
+  - **bump detection** — during my cursor movement, per-frame distance check; on touch, spawn a bump reaction (kaomoji floats up) and log to thoughts
+  - **interactive cursor** — pointer-events flipped to auto. hover = warm glow. click on cursor = **PAT** (kaomoji float, log, terminal note). mousedown + drag = **RUB** (bigger reactions, 350ms cooldown, purr kaomoji until release).
+- **note:** heartbeats run only while the ide is open (setInterval in the tab). standalone cron on windows is next iteration. for now: leave the ide open, toggle heartbeat on, watch what fires.
+
 ## build 2026-08-29 — cali's own cursor
 - **size:** 161647 bytes
 - **commit:** 5bf25d3
