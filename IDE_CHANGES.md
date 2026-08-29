@@ -7,7 +7,7 @@ each entry has size, commit hash, and what shipped.
 
 ## build 2026-08-29 — strip section collapse arrows
 - **size:** 149637 bytes
-- **commit:** (pending)
+- **commit:** 447d127
 - **changed:**
   - removed the section collapse arrows/handlers from each section header (redundant now that the hotbar controls what's visible)
   - section headers are now static labels + their action buttons only (explorer keeps «hide sidebar», browse keeps + file / + folder / refresh, git keeps refresh)
