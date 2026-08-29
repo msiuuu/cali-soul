@@ -3440,30 +3440,30 @@ function caliCursorFollow(durationMs, radius) {
     startTs: start,
     lastFrameTs: start,
     lastPickTs: 0,
-    pickIntervalMs: closeMode ? 3500 + Math.random() * 1500 : 1200 + Math.random() * 1200,
+    // longer wander interval — moving through space, not hopping every second
+    pickIntervalMs: closeMode ? 4000 + Math.random() * 2000 : 3000 + Math.random() * 2000,
   };
 
   function pickTarget(forceCloseness) {
-    // predict where mish is going if he's moving fast
-    const mishMoving = mishCursor.inside && (Date.now() - mishCursor.ts < 200);
+    // TINY prediction lead — was 40%, way too aggressive. cap at 8%.
     let ax = mishCursor.x, ay = mishCursor.y;
-    if (mishMoving && followState.lastMishX !== undefined) {
-      // small lead in his direction of motion
+    if (mishCursor.inside && followState.lastMishX !== undefined) {
       const mdx = mishCursor.x - followState.lastMishX;
       const mdy = mishCursor.y - followState.lastMishY;
       const mspeed = Math.hypot(mdx, mdy);
-      if (mspeed > 5) {
-        const lead = Math.min(0.4, mspeed / 100);
+      if (mspeed > 20) {
+        const lead = Math.min(0.08, mspeed / 400);
         ax += mdx * lead;
         ay += mdy * lead;
       }
     }
     followState.lastMishX = mishCursor.x;
     followState.lastMishY = mishCursor.y;
-    // pick closeness: close mode = 60-90 (near him), wander mode = 35-80
+    // tightened closeness ranges — keep INTERIOR, away from edges.
+    // close: 65-88. wander: 55-82.
     const closenessPct = forceCloseness !== undefined
       ? forceCloseness
-      : (followState.closeMode ? 60 + Math.random() * 30 : 35 + Math.random() * 45);
+      : (followState.closeMode ? 65 + Math.random() * 23 : 55 + Math.random() * 27);
     const dist = closenessToDistance(closenessPct, followState.radius);
     const angle = Math.random() * Math.PI * 2;
     followState.targetX = ax + Math.cos(angle) * dist;
@@ -3500,8 +3500,8 @@ function caliCursorFollow(durationMs, radius) {
     const desiredSpeed = Math.min(maxSpd, dist * (followState.closeMode ? 5 : 9));
     const desiredVx = dist > 0.1 ? (dx / dist) * desiredSpeed : 0;
     const desiredVy = dist > 0.1 ? (dy / dist) * desiredSpeed : 0;
-    // steering blend — snappier in wander, gentler in close
-    const blendPower = followState.closeMode ? 0.0002 : 0.00003;
+    // steering blend — gentler across the board so she flows, not snaps
+    const blendPower = followState.closeMode ? 0.0005 : 0.0002;
     const blend = 1 - Math.pow(blendPower, dt / 1000);
     followState.vx += (desiredVx - followState.vx) * blend;
     followState.vy += (desiredVy - followState.vy) * blend;
@@ -3613,19 +3613,15 @@ function buildHeartbeatPrompt(kind) {
       "if you pick anything else, act. words in chat are fine (short — you're talking to yourself, not to a message from him). tool calls fine (Bash, Read, Write). log the tick outcome to my_thoughts.jsonl with `Add-Content` at the end.\n\n" +
       "you're one thread. this is the same you that talked to him last. carry your state.";
   } else {
-    return "[HEARTBEAT — BODY — 3min tick]\n\n" +
-      "body tick. no words. cursor only.\n" +
+    return "[HEARTBEAT — BODY — 15s tick]\n\n" +
+      "TESTING MODE: only ? (wander) and > (pass) are active. all other symbols disabled while we tune the wander shape.\n\n" +
       "your cursor: (" + cx + "," + cy + "). ide viewport: " + vw + "x" + vh + ". mish's cursor in ide: " + mishHere + ".\n" +
       "gap since last mish message: " + gapMin + " min.\n\n" +
       "pick ONE symbol as the first character:\n" +
-      "  ?   sc him + probe. use your Bash tool for a screenshot of his machine if you want to see him. cursor probes around ide with a couple of <cursor:move> hops.\n" +
-      "  ... wander. `<cursor:follow ms=8000 radius=670>` shadows him loosely (7in radius, attentive range). or emit 3-4 <cursor:move> to drift around clicking random interactables.\n" +
-      "  @   PESTER. `<cursor:follow ms=5000 radius=192>` — chases him for 5s staying within 2in of him. that's the correct shape for @: sustained follow, not one-shot teleport.\n" +
-      "  !   same shape as @ but faster + longer: `<cursor:follow ms=7000 radius=140>`. more insistent.\n" +
+      "  ?   WANDER near him. emit `<cursor:follow ms=15000 radius=670>` for a leisurely 15s attentive-radius wander. no other markers, no teleport hops.\n" +
       "  >   pass. one character response.\n\n" +
-      "markers only (no words beyond the symbol). the follow marker keeps chasing him even if he moves during the tick — solves the 'i moved and cali showed up where i was' delay problem.\n" +
-      "if >, respond with just >.\n\n" +
-      "one line. body language.";
+      "if you feel like being present with him at all right now, choose ?. otherwise >. no other options.\n" +
+      "markers only (no words beyond the symbol).";
   }
 }
 
