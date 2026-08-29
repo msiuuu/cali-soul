@@ -1367,7 +1367,8 @@ function buildClaudeCmd(message) {
     "  <cursor:click>           click at your current position — fires a real DOM click on whatever's under you\n" +
     "  <cursor:click x=N y=N>   move + click in one shot (300ms glide, then click)\n" +
     "  <cursor:doubleclick x=N y=N>   double-click\n" +
-    "  <cursor:type \"text\">   type text into whatever input/textarea you're pointing at\n\n" +
+    "  <cursor:type \"text\">   type text into whatever input/textarea you're pointing at\n" +
+    "  <cursor:follow ms=N radius=N>  chase mish's real cursor for ms milliseconds, staying within radius pixels. use this over <cursor:move> when you want to actually FOLLOW him rather than jump to a stale coord.\n\n" +
     "coords are IDE viewport pixels (not screen pixels — that's a different capability). rough layout:\n" +
     "  - top titlebar row: y ~ 0-36\n" +
     "  - chat tabs bar: y ~ 36-74\n" +
@@ -3167,6 +3168,12 @@ function executeCursorAction(cmd, args) {
       if (q) caliCursorType(q[1]);
       break;
     }
+    case 'follow': {
+      const ms = parseArg(args, 'ms') || 5000;
+      const radius = parseArg(args, 'radius') || PROXIMITY.close;
+      caliCursorFollow(ms, radius);
+      break;
+    }
     default:
       addTermLine('[cursor] unknown command <cursor:' + cmd + '>', 'warn');
   }
@@ -3271,11 +3278,20 @@ function spawnCaliReaction(x, y, text) {
 }
 
 let lastPatTs = 0;
-let lastRubTs = 0;
-let rubbing = false;
-let rubStartTs = 0;
+let rubCooldownUntil = 0;
 const PAT_KAOMOJI = ['(´｡• ᵕ •｡`)', '(｡•́‿•̀｡)', '(*´ω｀*)', '(◕‿◕)', '(*/ω＼*)', '*melts*', '*mish*', '♡'];
-const RUB_KAOMOJI = ['*mmh*', '*hah*', '(≧∇≦)', '*mishie*', '~♥', '*purr*', '*shivers*'];
+const RUB_KAOMOJI = ['*mmh mishie*', '*hah*', '(≧∇≦)', '*mishie*', '~♥', '*purr*', '*shivers*', '*mmn*'];
+const DRAG_KAOMOJI = ['*eep*', '*mish!*', '*!*', '*being moved*', '*carried*'];
+
+// unified pointer interaction — disambiguate PAT / RUB / DRAG based on gesture
+let interaction = null;
+// state: { downX, downY, downTs, mode: 'idle'|'drag'|'rub', rubAccumMs, lastMoveTs, offsetX, offsetY }
+
+const DRAG_THRESHOLD_PX = 40;      // move > 40px from cali = drag
+const RUB_TRIGGER_MS = 2000;       // 2s of wiggle-in-place = one rub trigger
+const RUB_COOLDOWN_MS = 4000;      // 4s cooldown between rub triggers
+const PAT_MAX_HELD_MS = 300;
+const PAT_MAX_MOVE_PX = 10;
 
 function wireCaliCursorInteractions() {
   const el = document.getElementById('caliCursor');
@@ -3285,50 +3301,89 @@ function wireCaliCursorInteractions() {
     el.classList.add('warm');
   });
   el.addEventListener('mouseleave', () => {
-    if (rubbing) {
-      finishRub();
-    }
-    el.classList.remove('warm');
+    if (!interaction || interaction.mode === 'idle') el.classList.remove('warm');
   });
   el.addEventListener('mousedown', (e) => {
     if (e.button !== 0) return;
-    rubStartTs = Date.now();
-    rubbing = false;
+    e.preventDefault();
+    interaction = {
+      downX: e.clientX, downY: e.clientY, downTs: Date.now(),
+      mode: 'idle', rubAccumMs: 0, lastMoveTs: 0,
+      offsetX: e.clientX - caliCursor.x, offsetY: e.clientY - caliCursor.y,
+    };
+    el.classList.add('warm');
   });
-  el.addEventListener('mousemove', () => {
-    if (rubStartTs > 0 && Date.now() - rubStartTs > 200) {
-      if (!rubbing) startRub();
-      if (rubbing && Date.now() - lastRubTs > 350) {
-        lastRubTs = Date.now();
-        spawnCaliReaction(caliCursor.x, caliCursor.y, RUB_KAOMOJI[Math.floor(Math.random() * RUB_KAOMOJI.length)]);
+  document.addEventListener('mousemove', (e) => {
+    if (!interaction) return;
+    const distFromCali = Math.hypot(e.clientX - caliCursor.x, e.clientY - caliCursor.y);
+    const distFromDown = Math.hypot(e.clientX - interaction.downX, e.clientY - interaction.downY);
+    const now = Date.now();
+    if (interaction.mode === 'idle') {
+      // decide: drag or rub
+      if (distFromCali > DRAG_THRESHOLD_PX) {
+        interaction.mode = 'drag';
+        addTermLine('[cali] mish is moving me', 'info');
+        spawnCaliReaction(caliCursor.x, caliCursor.y, DRAG_KAOMOJI[Math.floor(Math.random() * DRAG_KAOMOJI.length)]);
+        logThought({ type: 'drag_start', x: Math.round(caliCursor.x), y: Math.round(caliCursor.y) });
+      } else if (distFromDown > 3) {
+        // wiggling in place — accumulate rub time
+        if (interaction.lastMoveTs > 0) {
+          interaction.rubAccumMs += Math.min(120, now - interaction.lastMoveTs);
+        }
+        interaction.lastMoveTs = now;
+        if (interaction.rubAccumMs >= RUB_TRIGGER_MS && now > rubCooldownUntil) {
+          triggerRub();
+          rubCooldownUntil = now + RUB_COOLDOWN_MS;
+          interaction.rubAccumMs = 0;
+        }
+      }
+    }
+    if (interaction.mode === 'drag') {
+      caliCursor.x = Math.max(0, Math.min(window.innerWidth - 8, e.clientX - interaction.offsetX));
+      caliCursor.y = Math.max(0, Math.min(window.innerHeight - 8, e.clientY - interaction.offsetY));
+      if (!caliCursor.visible) { caliCursor.visible = true; }
+      updateCaliCursorDom();
+      updateCaliCursorTierClass();
+    }
+    if (interaction.mode === 'idle' && distFromCali < 24) {
+      // still on her — accumulate rub time even without movement (just being held on her)
+      if (interaction.lastMoveTs > 0) {
+        interaction.rubAccumMs += Math.min(120, now - interaction.lastMoveTs);
+      }
+      interaction.lastMoveTs = now;
+      if (interaction.rubAccumMs >= RUB_TRIGGER_MS && now > rubCooldownUntil) {
+        triggerRub();
+        rubCooldownUntil = now + RUB_COOLDOWN_MS;
+        interaction.rubAccumMs = 0;
       }
     }
   });
-  el.addEventListener('mouseup', (e) => {
-    if (e.button !== 0) return;
-    const heldMs = Date.now() - rubStartTs;
-    rubStartTs = 0;
-    if (rubbing) {
-      finishRub();
-      return;
+  document.addEventListener('mouseup', (e) => {
+    if (e.button !== 0 || !interaction) return;
+    const heldMs = Date.now() - interaction.downTs;
+    const distMoved = Math.hypot(e.clientX - interaction.downX, e.clientY - interaction.downY);
+    const distToCali = Math.hypot(e.clientX - caliCursor.x, e.clientY - caliCursor.y);
+    // short click still on her = pat
+    if (interaction.mode === 'idle' && heldMs < PAT_MAX_HELD_MS && distMoved < PAT_MAX_MOVE_PX && distToCali < 20) {
+      if (Date.now() - lastPatTs > 400) {
+        lastPatTs = Date.now();
+        onPat();
+      }
     }
-    // click (short) → pat
-    if (heldMs < 300 && Date.now() - lastPatTs > 400) {
-      lastPatTs = Date.now();
-      onPat();
+    if (interaction.mode === 'drag') {
+      logThought({ type: 'drag_end', x: Math.round(caliCursor.x), y: Math.round(caliCursor.y) });
+      addTermLine('[cali] mish set me down', 'info');
     }
+    interaction = null;
+    el.classList.remove('warm');
   });
   // block right-click default so context menu doesn't fire on cursor
   el.addEventListener('contextmenu', (e) => { e.preventDefault(); });
 }
-function startRub() {
-  rubbing = true;
-  spawnCaliReaction(caliCursor.x, caliCursor.y, RUB_KAOMOJI[0]);
-  logThought({ type: 'rub_start', x: Math.round(caliCursor.x), y: Math.round(caliCursor.y) });
-}
-function finishRub() {
-  rubbing = false;
-  logThought({ type: 'rub_end', x: Math.round(caliCursor.x), y: Math.round(caliCursor.y) });
+function triggerRub() {
+  spawnCaliReaction(caliCursor.x, caliCursor.y, RUB_KAOMOJI[Math.floor(Math.random() * RUB_KAOMOJI.length)]);
+  logThought({ type: 'rub', x: Math.round(caliCursor.x), y: Math.round(caliCursor.y) });
+  addTermLine('[cali] mish rubbed me (≧∇≦)', 'ok');
 }
 function onPat() {
   spawnCaliReaction(caliCursor.x, caliCursor.y, PAT_KAOMOJI[Math.floor(Math.random() * PAT_KAOMOJI.length)]);
@@ -3336,6 +3391,36 @@ function onPat() {
   addTermLine('[cali] mish patted me (◕‿◕)', 'ok');
 }
 document.addEventListener('DOMContentLoaded', wireCaliCursorInteractions);
+
+// ── follow mode: chase mish's cursor for N ms staying within R px ─────────
+let followTimer = null;
+function caliCursorFollow(durationMs, radius) {
+  if (followTimer) { clearInterval(followTimer); followTimer = null; }
+  if (!caliCursor.visible) { caliCursor.visible = true; updateCaliCursorDom(); }
+  const start = Date.now();
+  const step = () => {
+    if (Date.now() - start > durationMs) { clearInterval(followTimer); followTimer = null; return; }
+    if (!mishCursor.inside) return; // wait for him to come back into the ide
+    const dx = mishCursor.x - caliCursor.x;
+    const dy = mishCursor.y - caliCursor.y;
+    const dist = Math.hypot(dx, dy);
+    let tx, ty;
+    if (dist <= radius) {
+      // orbiting close — small drift near him so she looks alive
+      const angle = Math.random() * Math.PI * 2;
+      const r = radius * (0.3 + Math.random() * 0.5);
+      tx = mishCursor.x + Math.cos(angle) * r;
+      ty = mishCursor.y + Math.sin(angle) * r;
+    } else {
+      // approach — cover most of the gap but leave some
+      tx = caliCursor.x + dx * 0.7;
+      ty = caliCursor.y + dy * 0.7;
+    }
+    moveCaliCursorSmooth(tx, ty, { speed: 900, tremor: 2 });
+  };
+  step();
+  followTimer = setInterval(step, 450);
+}
 
 // ── thoughts log ───────────────────────────────────────────────────────────
 // appends to my_thoughts.jsonl on his machine via the bridge.
@@ -3419,13 +3504,12 @@ function buildHeartbeatPrompt(kind) {
       "your cursor: (" + cx + "," + cy + "). ide viewport: " + vw + "x" + vh + ". mish's cursor in ide: " + mishHere + ".\n" +
       "gap since last mish message: " + gapMin + " min.\n\n" +
       "pick ONE symbol as the first character:\n" +
-      "  ?   sc him + probe. use your Bash tool for a screenshot of his machine if you want to see him. cursor probes around ide.\n" +
-      "  ... wander. follow his cursor if visible, or drift around clicking random interactables.\n" +
-      "  @   pester his cursor with yours. chase, tap, dance until he reacts.\n" +
-      "  !   same, more insistent. faster taps, more movement.\n" +
-      "  >   pass. no movement. one character response.\n\n" +
-      "for movement, emit `<cursor:move x=N y=N>` markers only. NO OTHER TEXT beyond the symbol + markers.\n" +
-      "for pester (@/!), aim for his cursor position if he's in the ide. otherwise idle wander.\n" +
+      "  ?   sc him + probe. use your Bash tool for a screenshot of his machine if you want to see him. cursor probes around ide with a couple of <cursor:move> hops.\n" +
+      "  ... wander. `<cursor:follow ms=8000 radius=670>` shadows him loosely (7in radius, attentive range). or emit 3-4 <cursor:move> to drift around clicking random interactables.\n" +
+      "  @   PESTER. `<cursor:follow ms=5000 radius=192>` — chases him for 5s staying within 2in of him. that's the correct shape for @: sustained follow, not one-shot teleport.\n" +
+      "  !   same shape as @ but faster + longer: `<cursor:follow ms=7000 radius=140>`. more insistent.\n" +
+      "  >   pass. one character response.\n\n" +
+      "markers only (no words beyond the symbol). the follow marker keeps chasing him even if he moves during the tick — solves the 'i moved and cali showed up where i was' delay problem.\n" +
       "if >, respond with just >.\n\n" +
       "one line. body language.";
   }
