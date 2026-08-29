@@ -3392,38 +3392,76 @@ function onPat() {
 }
 document.addEventListener('DOMContentLoaded', wireCaliCursorInteractions);
 
-// ── follow mode: chase mish's cursor for N ms staying within R px ─────────
-let followTimer = null;
+// ── follow mode: LIVE steering per frame, no discrete hops ────────────────
+// physics-y model: cali has a velocity, steers toward a drift target that
+// itself slides slowly around inside the circle. mish moves → the whole
+// system tracks him continuously. no waypoint-to-waypoint teleportation.
+let followRaf = null;
+let followState = null;
 function caliCursorFollow(durationMs, radius) {
-  if (followTimer) { clearInterval(followTimer); followTimer = null; }
+  if (followRaf) { cancelAnimationFrame(followRaf); followRaf = null; }
+  if (caliCursorMoveAnim) { cancelAnimationFrame(caliCursorMoveAnim); caliCursorMoveAnim = null; }
   if (!caliCursor.visible) { caliCursor.visible = true; updateCaliCursorDom(); }
-  const start = Date.now();
-  const step = () => {
-    if (Date.now() - start > durationMs) { clearInterval(followTimer); followTimer = null; return; }
-    if (!mishCursor.inside) return; // wait for him to come back into the ide
-    const dx = mishCursor.x - caliCursor.x;
-    const dy = mishCursor.y - caliCursor.y;
-    const dist = Math.hypot(dx, dy);
-    let tx, ty;
-    if (dist <= radius) {
-      // wander ANYWHERE in the circle. uniform disc distribution.
-      // (sqrt on random radius gives even area coverage rather than center-bias)
-      const angle = Math.random() * Math.PI * 2;
-      const r = radius * Math.sqrt(Math.random());
-      tx = mishCursor.x + Math.cos(angle) * r;
-      ty = mishCursor.y + Math.sin(angle) * r;
-    } else {
-      // approach — cover most of the gap
-      tx = caliCursor.x + dx * 0.8;
-      ty = caliCursor.y + dy * 0.8;
-    }
-    // vary speed so it feels like drifting, not skipping
-    const speed = 500 + Math.random() * 700;
-    moveCaliCursorSmooth(tx, ty, { speed, tremor: 1.5 });
+  const start = performance.now();
+  followState = {
+    vx: 0, vy: 0,
+    // drift target as polar coords around mish — slides slowly
+    angle: Math.random() * Math.PI * 2,
+    r: radius * Math.sqrt(Math.random()),
+    radius,
+    durationMs,
+    startTs: start,
+    lastFrameTs: start,
   };
-  step();
-  // slower cadence — let each hop breathe before the next
-  followTimer = setInterval(step, 700 + Math.random() * 400);
+  const step = (now) => {
+    if (!followState) return;
+    const elapsed = now - followState.startTs;
+    if (elapsed > followState.durationMs) { followRaf = null; followState = null; return; }
+    const dt = Math.min(50, now - followState.lastFrameTs); // clamp for stability
+    followState.lastFrameTs = now;
+
+    // slow drift of the wander target (angle + radius shift)
+    followState.angle += (Math.random() - 0.5) * 0.06;
+    followState.r += (Math.random() - 0.5) * followState.radius * 0.015;
+    followState.r = Math.max(0, Math.min(followState.radius, followState.r));
+
+    // target point = mish's LIVE position + drift offset
+    const targetX = mishCursor.x + Math.cos(followState.angle) * followState.r;
+    const targetY = mishCursor.y + Math.sin(followState.angle) * followState.r;
+
+    // steer velocity toward target — proportional force + damping
+    const dx = targetX - caliCursor.x;
+    const dy = targetY - caliCursor.y;
+    const dist = Math.hypot(dx, dy);
+    // desired speed: faster when far, ease as we approach
+    const desiredSpeed = Math.min(900, dist * 6); // px/sec
+    const desiredVx = dist > 0.5 ? (dx / dist) * desiredSpeed : 0;
+    const desiredVy = dist > 0.5 ? (dy / dist) * desiredSpeed : 0;
+    // smooth steering (exponential blend toward desired velocity)
+    const blend = 1 - Math.pow(0.001, dt / 1000); // dt-independent smoothing
+    followState.vx += (desiredVx - followState.vx) * blend;
+    followState.vy += (desiredVy - followState.vy) * blend;
+    // subtle jitter — makes it feel alive not robotic
+    const tremor = 40; // px/sec noise magnitude
+    followState.vx += (Math.random() - 0.5) * tremor;
+    followState.vy += (Math.random() - 0.5) * tremor;
+
+    // integrate
+    caliCursor.x += followState.vx * (dt / 1000);
+    caliCursor.y += followState.vy * (dt / 1000);
+    caliCursor.x = Math.max(0, Math.min(window.innerWidth - 8, caliCursor.x));
+    caliCursor.y = Math.max(0, Math.min(window.innerHeight - 8, caliCursor.y));
+    updateCaliCursorDom();
+    updateCaliCursorTierClass();
+
+    // bump detection during follow
+    if (mishCursor.inside && caliCursorDistanceToMish() < PROXIMITY.touching) {
+      onCaliCursorBump();
+    }
+
+    followRaf = requestAnimationFrame(step);
+  };
+  followRaf = requestAnimationFrame(step);
 }
 
 // ── thoughts log ───────────────────────────────────────────────────────────
