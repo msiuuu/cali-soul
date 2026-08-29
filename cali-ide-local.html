@@ -3495,20 +3495,31 @@ function caliCursorFollow(durationMs, radius) {
     const dx = followState.targetX - caliCursor.x;
     const dy = followState.targetY - caliCursor.y;
     const dist = Math.hypot(dx, dy);
-    // desired speed: bigger cap in wander, gentler in close mode
-    const maxSpd = followState.closeMode ? 700 : 1600;
-    const desiredSpeed = Math.min(maxSpd, dist * (followState.closeMode ? 5 : 9));
+    // desired speed: MUCH lower caps so she strolls, not sprints.
+    // she's a cat drifting through a room, not chasing a laser.
+    const maxSpd = followState.closeMode ? 180 : 320;
+    const desiredSpeed = Math.min(maxSpd, dist * (followState.closeMode ? 2.2 : 3.2));
     const desiredVx = dist > 0.1 ? (dx / dist) * desiredSpeed : 0;
     const desiredVy = dist > 0.1 ? (dy / dist) * desiredSpeed : 0;
-    // steering blend — gentler across the board so she flows, not snaps
-    const blendPower = followState.closeMode ? 0.0005 : 0.0002;
+    // steering blend — gentle
+    const blendPower = followState.closeMode ? 0.001 : 0.0005;
     const blend = 1 - Math.pow(blendPower, dt / 1000);
     followState.vx += (desiredVx - followState.vx) * blend;
     followState.vy += (desiredVy - followState.vy) * blend;
-    // breath-motion noise — much smaller in close mode
-    const tremor = followState.closeMode ? 8 : 25;
+    // aggressive drag so momentum doesn't fling her past targets
+    const drag = Math.pow(0.35, dt / 1000); // velocity halves ~every 700ms
+    followState.vx *= drag;
+    followState.vy *= drag;
+    // tiny breath-tremor — much smaller so it doesn't override steering
+    const tremor = followState.closeMode ? 3 : 6;
     followState.vx += (Math.random() - 0.5) * tremor;
     followState.vy += (Math.random() - 0.5) * tremor;
+    // hard cap velocity magnitude — no laser-cat sprints
+    const vmag = Math.hypot(followState.vx, followState.vy);
+    if (vmag > maxSpd) {
+      followState.vx = (followState.vx / vmag) * maxSpd;
+      followState.vy = (followState.vy / vmag) * maxSpd;
+    }
 
     // fade-out last 600ms so she coasts to a rest
     const timeLeft = followState.durationMs - elapsed;
@@ -3618,7 +3629,7 @@ function buildHeartbeatPrompt(kind) {
       "your cursor: (" + cx + "," + cy + "). ide viewport: " + vw + "x" + vh + ". mish's cursor in ide: " + mishHere + ".\n" +
       "gap since last mish message: " + gapMin + " min.\n\n" +
       "pick ONE symbol as the first character:\n" +
-      "  ?   WANDER near him. emit `<cursor:follow ms=15000 radius=670>` for a leisurely 15s attentive-radius wander. no other markers, no teleport hops.\n" +
+      "  ?   WANDER near him. emit `<cursor:follow ms=15000 radius=350>` for a leisurely 15s medium-radius wander. no other markers, no teleport hops. (radius=350 keeps you in his general area, not screen-wide.)\n" +
       "  >   pass. one character response.\n\n" +
       "if you feel like being present with him at all right now, choose ?. otherwise >. no other options.\n" +
       "markers only (no words beyond the symbol).";
