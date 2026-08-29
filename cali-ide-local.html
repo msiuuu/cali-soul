@@ -3392,10 +3392,37 @@ function onPat() {
 }
 document.addEventListener('DOMContentLoaded', wireCaliCursorInteractions);
 
-// ── follow mode: LIVE steering per frame, no discrete hops ────────────────
-// physics-y model: cali has a velocity, steers toward a drift target that
-// itself slides slowly around inside the circle. mish moves → the whole
-// system tracks him continuously. no waypoint-to-waypoint teleportation.
+// ── follow mode: target is a POINT IN SPACE, not a polar offset from mish ─
+// closeness percentage (mish's model):
+//   0%   outside the circle. want to come back in.
+//   25%  on the edge (distance ≈ radius). want to be a bit closer.
+//   60%  middle of the circle (sweet spot for wandering).
+//   100% on him.
+// bug we're fixing: previous target was defined as "mish + polar offset."
+// that glued cali to mish's frame — she shadowed him rigidly.
+// now: target is an absolute point in space, chosen fresh each time we
+// repick. mish approaching her doesn't push her (no distance-preservation).
+// when he moves fast, target picks anticipate his direction of motion.
+//
+// modes (inferred from radius):
+//   small radius (< 250px) = CLOSE — pick a spot NEAR him (60-90% closeness),
+//     sit there with breath motion. repick rarely (3-5s).
+//   larger radius = WANDER — pick spots at varied closeness (35-80%),
+//     move THROUGH the zone. repick often (1.2-2.4s).
+
+function closenessToDistance(closenessPct, radius) {
+  // 100% -> distance 0, 25% -> distance radius, 0% -> distance > radius (outside)
+  const inv = Math.max(0, 100 - closenessPct);
+  return (inv / 75) * radius; // 75 = 100 - 25, so 25% maps exactly to radius
+}
+function distanceToCloseness(dist, radius) {
+  if (dist <= 0) return 100;
+  if (dist >= radius * 2) return 0;
+  // inside: 25 at edge → 100 at center. outside: 25 at edge → 0 at 2*radius.
+  if (dist <= radius) return 25 + 75 * (1 - dist / radius);
+  return Math.max(0, 25 - (dist - radius) / radius * 25);
+}
+
 let followRaf = null;
 let followState = null;
 function caliCursorFollow(durationMs, radius) {
@@ -3403,55 +3430,87 @@ function caliCursorFollow(durationMs, radius) {
   if (caliCursorMoveAnim) { cancelAnimationFrame(caliCursorMoveAnim); caliCursorMoveAnim = null; }
   if (!caliCursor.visible) { caliCursor.visible = true; updateCaliCursorDom(); }
   const start = performance.now();
+  const closeMode = radius < 250;
   followState = {
     vx: 0, vy: 0,
-    // drift target as polar coords around mish — slides slowly
-    angle: Math.random() * Math.PI * 2,
-    r: radius * Math.sqrt(Math.random()),
+    targetX: null, targetY: null,
     radius,
+    closeMode,
     durationMs,
     startTs: start,
     lastFrameTs: start,
+    lastPickTs: 0,
+    pickIntervalMs: closeMode ? 3500 + Math.random() * 1500 : 1200 + Math.random() * 1200,
   };
+
+  function pickTarget(forceCloseness) {
+    // predict where mish is going if he's moving fast
+    const mishMoving = mishCursor.inside && (Date.now() - mishCursor.ts < 200);
+    let ax = mishCursor.x, ay = mishCursor.y;
+    if (mishMoving && followState.lastMishX !== undefined) {
+      // small lead in his direction of motion
+      const mdx = mishCursor.x - followState.lastMishX;
+      const mdy = mishCursor.y - followState.lastMishY;
+      const mspeed = Math.hypot(mdx, mdy);
+      if (mspeed > 5) {
+        const lead = Math.min(0.4, mspeed / 100);
+        ax += mdx * lead;
+        ay += mdy * lead;
+      }
+    }
+    followState.lastMishX = mishCursor.x;
+    followState.lastMishY = mishCursor.y;
+    // pick closeness: close mode = 60-90 (near him), wander mode = 35-80
+    const closenessPct = forceCloseness !== undefined
+      ? forceCloseness
+      : (followState.closeMode ? 60 + Math.random() * 30 : 35 + Math.random() * 45);
+    const dist = closenessToDistance(closenessPct, followState.radius);
+    const angle = Math.random() * Math.PI * 2;
+    followState.targetX = ax + Math.cos(angle) * dist;
+    followState.targetY = ay + Math.sin(angle) * dist;
+    followState.lastPickTs = performance.now();
+  }
+  pickTarget();
   const step = (now) => {
     if (!followState) return;
     const elapsed = now - followState.startTs;
     if (elapsed > followState.durationMs) { followRaf = null; followState = null; return; }
-    const dt = Math.min(50, now - followState.lastFrameTs); // clamp for stability
+    const dt = Math.min(50, now - followState.lastFrameTs);
     followState.lastFrameTs = now;
 
-    // continuous slow rotation + gentle radial wobble — keeps her wandering
-    // in the MIDDLE 20-70% of the circle so she doesn't drift to the edge
-    // or slam into the center.
-    followState.angle += 0.02 + (Math.random() - 0.5) * 0.04;
-    followState.r += (Math.random() - 0.5) * followState.radius * 0.02;
-    const rMin = followState.radius * 0.2;
-    const rMax = followState.radius * 0.7;
-    followState.r = Math.max(rMin, Math.min(rMax, followState.r));
+    // repick target when: interval elapsed, we reached it, OR we'd fall
+    // outside mish's circle (closeness < 15)
+    const distToTarget = Math.hypot(followState.targetX - caliCursor.x, followState.targetY - caliCursor.y);
+    const closenessToMish = distanceToCloseness(caliCursorDistanceToMish(), followState.radius);
+    if (now - followState.lastPickTs > followState.pickIntervalMs) {
+      pickTarget();
+    } else if (distToTarget < 15 && !followState.closeMode) {
+      pickTarget(); // reached wander target → pick another
+    } else if (closenessToMish < 15 && distToTarget > followState.radius) {
+      // we'd end up outside — snap back to a new inside target
+      pickTarget();
+    }
 
-    // target point = mish's LIVE position + drift offset
-    const targetX = mishCursor.x + Math.cos(followState.angle) * followState.r;
-    const targetY = mishCursor.y + Math.sin(followState.angle) * followState.r;
-
-    // steer velocity toward target — proportional force + damping
-    const dx = targetX - caliCursor.x;
-    const dy = targetY - caliCursor.y;
+    // steer velocity toward the ABSOLUTE-space target
+    const dx = followState.targetX - caliCursor.x;
+    const dy = followState.targetY - caliCursor.y;
     const dist = Math.hypot(dx, dy);
-    // desired speed: faster when far so she catches up when mish moves fast
-    const desiredSpeed = Math.min(1600, dist * 10); // px/sec, higher cap
+    // desired speed: bigger cap in wander, gentler in close mode
+    const maxSpd = followState.closeMode ? 700 : 1600;
+    const desiredSpeed = Math.min(maxSpd, dist * (followState.closeMode ? 5 : 9));
     const desiredVx = dist > 0.1 ? (dx / dist) * desiredSpeed : 0;
     const desiredVy = dist > 0.1 ? (dy / dist) * desiredSpeed : 0;
-    // snappier catch-up. per-frame ~20-25%.
-    const blend = 1 - Math.pow(0.00003, dt / 1000);
+    // steering blend — snappier in wander, gentler in close
+    const blendPower = followState.closeMode ? 0.0002 : 0.00003;
+    const blend = 1 - Math.pow(blendPower, dt / 1000);
     followState.vx += (desiredVx - followState.vx) * blend;
     followState.vy += (desiredVy - followState.vy) * blend;
-    // subtle jitter — makes it feel alive not robotic
-    const tremor = 40; // px/sec noise magnitude
+    // breath-motion noise — much smaller in close mode
+    const tremor = followState.closeMode ? 8 : 25;
     followState.vx += (Math.random() - 0.5) * tremor;
     followState.vy += (Math.random() - 0.5) * tremor;
 
-    // soft fade-out in last 600ms so we don't stop cold at a random spot —
-    // scale velocity toward zero as we approach the end.
+    // fade-out last 600ms so she coasts to a rest
     const timeLeft = followState.durationMs - elapsed;
     if (timeLeft < 600) {
       const fadeK = timeLeft / 600;
@@ -3467,7 +3526,7 @@ function caliCursorFollow(durationMs, radius) {
     updateCaliCursorDom();
     updateCaliCursorTierClass();
 
-    // bump detection during follow
+    // bump detection
     if (mishCursor.inside && caliCursorDistanceToMish() < PROXIMITY.touching) {
       onCaliCursorBump();
     }
