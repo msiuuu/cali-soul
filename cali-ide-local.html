@@ -3476,17 +3476,27 @@ function caliCursorFollow(durationMs, radius) {
     const dx = nodeX - caliCursor.x;
     const dy = nodeY - caliCursor.y;
     const dist = Math.hypot(dx, dy);
-    // higher speed cap + gain so she keeps up better with fast motion
-    const maxSpd = 1500;
-    const desiredSpeed = Math.min(maxSpd, dist * 11);
+    // top speed 3000 px/sec. acceleration capped so she has to BUILD to it,
+    // not teleport. from rest to full speed takes ~0.6s.
+    const maxSpd = 3000;
+    const desiredSpeed = Math.min(maxSpd, dist * 15);
     const desiredVx = dist > 0.5 ? (dx / dist) * desiredSpeed : 0;
     const desiredVy = dist > 0.5 ? (dy / dist) * desiredSpeed : 0;
-    // snappier steering
-    const blend = 1 - Math.pow(0.00001, dt / 1000);
-    followState.vx += (desiredVx - followState.vx) * blend;
-    followState.vy += (desiredVy - followState.vy) * blend;
-    // drag — a bit lighter now to allow the faster catch-up
-    const drag = Math.pow(0.3, dt / 1000);
+    // accel cap: velocity change per second bounded
+    const maxAccel = 5000; // px/sec²
+    const maxDeltaV = maxAccel * (dt / 1000);
+    const wantDvx = desiredVx - followState.vx;
+    const wantDvy = desiredVy - followState.vy;
+    const wantDvMag = Math.hypot(wantDvx, wantDvy);
+    if (wantDvMag > maxDeltaV) {
+      followState.vx += (wantDvx / wantDvMag) * maxDeltaV;
+      followState.vy += (wantDvy / wantDvMag) * maxDeltaV;
+    } else {
+      followState.vx = desiredVx;
+      followState.vy = desiredVy;
+    }
+    // mild drag so momentum doesn't fling her past the node on approach
+    const drag = Math.pow(0.5, dt / 1000);
     followState.vx *= drag;
     followState.vy *= drag;
     // NO tremor. no random noise. she stays put on the node.
