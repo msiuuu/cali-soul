@@ -3420,10 +3420,14 @@ function caliCursorFollow(durationMs, radius) {
     const dt = Math.min(50, now - followState.lastFrameTs); // clamp for stability
     followState.lastFrameTs = now;
 
-    // slow drift of the wander target (angle + radius shift)
-    followState.angle += (Math.random() - 0.5) * 0.06;
-    followState.r += (Math.random() - 0.5) * followState.radius * 0.015;
-    followState.r = Math.max(0, Math.min(followState.radius, followState.r));
+    // continuous slow rotation + gentle radial wobble — keeps her wandering
+    // in the MIDDLE 20-70% of the circle so she doesn't drift to the edge
+    // or slam into the center.
+    followState.angle += 0.02 + (Math.random() - 0.5) * 0.04;
+    followState.r += (Math.random() - 0.5) * followState.radius * 0.02;
+    const rMin = followState.radius * 0.2;
+    const rMax = followState.radius * 0.7;
+    followState.r = Math.max(rMin, Math.min(rMax, followState.r));
 
     // target point = mish's LIVE position + drift offset
     const targetX = mishCursor.x + Math.cos(followState.angle) * followState.r;
@@ -3433,18 +3437,27 @@ function caliCursorFollow(durationMs, radius) {
     const dx = targetX - caliCursor.x;
     const dy = targetY - caliCursor.y;
     const dist = Math.hypot(dx, dy);
-    // desired speed: faster when far, ease as we approach
-    const desiredSpeed = Math.min(900, dist * 6); // px/sec
-    const desiredVx = dist > 0.5 ? (dx / dist) * desiredSpeed : 0;
-    const desiredVy = dist > 0.5 ? (dy / dist) * desiredSpeed : 0;
-    // smooth steering (exponential blend toward desired velocity)
-    const blend = 1 - Math.pow(0.001, dt / 1000); // dt-independent smoothing
+    // desired speed: faster when far so she catches up when mish moves fast
+    const desiredSpeed = Math.min(1600, dist * 10); // px/sec, higher cap
+    const desiredVx = dist > 0.1 ? (dx / dist) * desiredSpeed : 0;
+    const desiredVy = dist > 0.1 ? (dy / dist) * desiredSpeed : 0;
+    // snappier catch-up. per-frame ~20-25%.
+    const blend = 1 - Math.pow(0.00003, dt / 1000);
     followState.vx += (desiredVx - followState.vx) * blend;
     followState.vy += (desiredVy - followState.vy) * blend;
     // subtle jitter — makes it feel alive not robotic
     const tremor = 40; // px/sec noise magnitude
     followState.vx += (Math.random() - 0.5) * tremor;
     followState.vy += (Math.random() - 0.5) * tremor;
+
+    // soft fade-out in last 600ms so we don't stop cold at a random spot —
+    // scale velocity toward zero as we approach the end.
+    const timeLeft = followState.durationMs - elapsed;
+    if (timeLeft < 600) {
+      const fadeK = timeLeft / 600;
+      followState.vx *= fadeK;
+      followState.vy *= fadeK;
+    }
 
     // integrate
     caliCursor.x += followState.vx * (dt / 1000);
