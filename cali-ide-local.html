@@ -181,6 +181,70 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
 .tree-children{padding-left:12px}
 .tree-children.hidden{display:none}
 
+/* context menu (right-click on tree nodes) */
+.ctx-menu{
+  position:fixed;z-index:1000;min-width:180px;
+  background:var(--surface-raised);border:1px solid var(--border);border-radius:6px;
+  padding:4px 0;box-shadow:0 8px 24px rgba(0,0,0,.4);
+  font-size:12px;
+}
+.ctx-item{
+  padding:6px 12px;cursor:pointer;color:var(--text-secondary);
+  display:flex;align-items:center;gap:8px;
+}
+.ctx-item:hover{background:var(--accent-muted);color:var(--accent-text)}
+.ctx-item.danger:hover{background:#3a1522;color:var(--red)}
+.ctx-divider{height:1px;background:var(--border);margin:4px 0}
+.tree-add-btn{
+  background:transparent;border:none;color:var(--text-dim);cursor:pointer;
+  font-size:13px;padding:2px 6px;border-radius:3px;
+}
+.tree-add-btn:hover{color:var(--accent-text);background:var(--surface-raised)}
+
+/* git panel */
+.git-panel{padding:6px 10px 10px;font-size:11px}
+.git-branch{
+  display:flex;align-items:center;gap:5px;
+  padding:4px 8px;background:var(--surface-raised);border-radius:4px;
+  font-family:var(--font-code);color:var(--accent-text);margin-bottom:8px;
+}
+.git-branch::before{content:'⎇';margin-right:2px;color:var(--text-dim)}
+.git-list{max-height:180px;overflow-y:auto;margin-bottom:8px}
+.git-row{
+  display:flex;align-items:center;gap:6px;padding:3px 4px;border-radius:3px;
+  font-family:var(--font-code);color:var(--text-secondary);cursor:pointer;
+}
+.git-row:hover{background:var(--surface-raised);color:var(--text)}
+.git-row input[type=checkbox]{margin:0;cursor:pointer;accent-color:var(--accent)}
+.git-flag{
+  display:inline-block;width:16px;text-align:center;font-weight:600;font-size:10px;
+  border-radius:2px;padding:0 3px;font-family:var(--font-code);
+}
+.git-flag.M{color:var(--yellow);background:#2c2519}
+.git-flag.A{color:var(--green);background:#1a2b1e}
+.git-flag.D{color:var(--red);background:#2b1a1a}
+.git-flag.R{color:var(--blue);background:#1a232b}
+.git-flag.\?{color:var(--text-dim);background:var(--border-subtle)}
+.git-path{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px}
+.git-empty{padding:8px 4px;color:var(--text-dim);font-style:italic;text-align:center;font-size:10px}
+.git-msg-input{
+  width:100%;background:var(--ground);border:1px solid var(--border);
+  color:var(--text);font-family:var(--font-ui);font-size:11px;
+  padding:6px 8px;border-radius:4px;resize:vertical;min-height:44px;margin-bottom:6px;
+  outline:none;
+}
+.git-msg-input:focus{border-color:var(--accent)}
+.git-btns{display:flex;gap:4px;flex-wrap:wrap}
+.git-btn{
+  flex:1;min-width:52px;background:var(--surface-raised);border:1px solid var(--border);
+  color:var(--text-secondary);cursor:pointer;font-size:10px;font-family:var(--font-ui);
+  padding:5px 6px;border-radius:4px;font-weight:600;letter-spacing:.03em;text-transform:lowercase;
+}
+.git-btn:hover{color:var(--accent-text);border-color:var(--accent)}
+.git-btn.primary{background:var(--accent-muted);color:var(--accent-text);border-color:var(--accent)}
+.git-btn.primary:hover{background:var(--accent);color:#fff}
+.git-btn:disabled{opacity:.4;cursor:not-allowed}
+
 .main{display:flex;flex-direction:column;overflow:hidden;background:var(--ground)}
 .tabs{
   display:flex;align-items:stretch;background:var(--surface);
@@ -610,10 +674,31 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       <div class="tree-header section-header" onclick="toggleSection('browse')">
         <span class="section-arrow" id="browseArrow">&#9662;</span>
         <span>browse</span>
+        <button class="tree-add-btn" onclick="event.stopPropagation();promptNewAtRoot('file')" title="new file at repo root">+&#128462;</button>
+        <button class="tree-add-btn" onclick="event.stopPropagation();promptNewAtRoot('folder')" title="new folder at repo root">+&#128193;</button>
         <button class="tree-refresh" onclick="event.stopPropagation();loadFileTree()" title="refresh">&#8635;</button>
       </div>
       <div class="section-body" id="browseBody">
         <div class="file-tree" id="fileTree"><div class="tree-empty">loading...</div></div>
+      </div>
+
+      <div class="tree-header section-header" onclick="toggleSection('git')">
+        <span class="section-arrow" id="gitArrow">&#9662;</span>
+        <span>git</span>
+        <button class="tree-refresh" onclick="event.stopPropagation();refreshGitStatus()" title="refresh git status">&#8635;</button>
+      </div>
+      <div class="section-body" id="gitBody">
+        <div class="git-panel">
+          <div class="git-branch" id="gitBranch">(loading...)</div>
+          <div class="git-list" id="gitStatus"><div class="git-empty">refresh to load</div></div>
+          <textarea class="git-msg-input" id="gitMsg" placeholder="commit message..." rows="2"></textarea>
+          <div class="git-btns">
+            <button class="git-btn primary" onclick="gitCommit()" title="stage checked files + commit">commit</button>
+            <button class="git-btn" onclick="gitPush()" title="push to origin">push</button>
+            <button class="git-btn" onclick="gitPull()" title="pull from origin">pull</button>
+            <button class="git-btn" onclick="gitDiffSelected()" title="see diff of checked files in terminal">diff</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1371,6 +1456,293 @@ function sortEntries(entries) {
   });
 }
 
+// ── file ops (via bridge) ──────────────────────────────────────────────────
+// /write handles create + parent-dir auto-mkdir. delete/rename/mkdir use /shell.
+
+function psEscape(s) { return String(s).replace(/'/g, "''"); }
+
+async function shellRun(cmd, timeout) {
+  return callBridge('/shell', { command: cmd, timeout: timeout || 30 });
+}
+
+async function bridgeNewFile(fullPath, content) {
+  return callBridge('/write', { path: fullPath, content: content || '' });
+}
+
+async function bridgeNewFolder(fullPath) {
+  const cmd = "New-Item -Path '" + psEscape(fullPath) + "' -ItemType Directory -Force | Out-Null";
+  return shellRun(cmd);
+}
+
+async function bridgeDelete(fullPath, isDir) {
+  const flags = isDir ? '-Recurse -Force ' : '-Force ';
+  const cmd = "Remove-Item " + flags + "-LiteralPath '" + psEscape(fullPath) + "'";
+  return shellRun(cmd);
+}
+
+async function bridgeRename(oldPath, newName) {
+  const cmd = "Rename-Item -LiteralPath '" + psEscape(oldPath) + "' -NewName '" + psEscape(newName) + "'";
+  return shellRun(cmd);
+}
+
+// ── tree context menu ──────────────────────────────────────────────────────
+let openCtxMenu = null;
+function hideContextMenu() {
+  if (openCtxMenu) { openCtxMenu.remove(); openCtxMenu = null; }
+}
+document.addEventListener('click', hideContextMenu);
+document.addEventListener('contextmenu', (e) => {
+  // let tree nodes have their own — this catches everything else
+  if (!e.target.closest('.tree-node')) hideContextMenu();
+});
+
+function showTreeContextMenu(x, y, kind, path, name) {
+  hideContextMenu();
+  const items = kind === 'dir' ? [
+    { label: '📄 New File...', act: () => promptNewInDir(path, 'file') },
+    { label: '📁 New Folder...', act: () => promptNewInDir(path, 'folder') },
+    { divider: true },
+    { label: '✎ Rename...', act: () => promptRename(path, name) },
+    { label: '🗑 Delete Folder', act: () => confirmDelete(path, name, true), danger: true },
+    { divider: true },
+    { label: '📋 Copy Path', act: () => copyToClipboard(path) },
+    { label: '↻ Refresh', act: () => loadFileTree() },
+  ] : [
+    { label: '📖 Open', act: () => openFilePath(path, name) },
+    { label: '✎ Rename...', act: () => promptRename(path, name) },
+    { label: '🗑 Delete', act: () => confirmDelete(path, name, false), danger: true },
+    { divider: true },
+    { label: '📋 Copy Path', act: () => copyToClipboard(path) },
+    { label: '📄 Duplicate...', act: () => duplicateFile(path, name) },
+  ];
+  const menu = document.createElement('div');
+  menu.className = 'ctx-menu';
+  for (const it of items) {
+    if (it.divider) {
+      const d = document.createElement('div');
+      d.className = 'ctx-divider';
+      menu.appendChild(d);
+      continue;
+    }
+    const el = document.createElement('div');
+    el.className = 'ctx-item' + (it.danger ? ' danger' : '');
+    el.textContent = it.label;
+    el.onclick = (e) => { e.stopPropagation(); hideContextMenu(); it.act(); };
+    menu.appendChild(el);
+  }
+  document.body.appendChild(menu);
+  // clamp to viewport
+  const r = menu.getBoundingClientRect();
+  const vw = window.innerWidth, vh = window.innerHeight;
+  if (x + r.width > vw) x = vw - r.width - 8;
+  if (y + r.height > vh) y = vh - r.height - 8;
+  menu.style.left = x + 'px';
+  menu.style.top = y + 'px';
+  openCtxMenu = menu;
+}
+
+async function copyToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    addTermLine('[copy] ' + text, 'ok');
+  } catch (e) {
+    addTermLine('[copy] failed: ' + e.message, 'warn');
+  }
+}
+
+async function promptNewAtRoot(kind) {
+  const cfg = getConfig();
+  if (!cfg.caliSoulPath) return;
+  return promptNewInDir(cfg.caliSoulPath, kind);
+}
+
+async function promptNewInDir(dirPath, kind) {
+  const label = kind === 'folder' ? 'new folder name:' : 'new file name (e.g. notes.md):';
+  const name = prompt(label);
+  if (!name || !name.trim()) return;
+  const clean = name.trim().replace(/[<>:"|?*]/g, '_');
+  const fullPath = dirPath + '\\' + clean;
+  try {
+    if (kind === 'folder') {
+      await bridgeNewFolder(fullPath);
+      addTermLine('[folder] created ' + fullPath, 'ok');
+    } else {
+      await bridgeNewFile(fullPath, '');
+      addTermLine('[file] created ' + fullPath + ' (empty)', 'ok');
+      openFilePath(fullPath, clean);
+    }
+    loadFileTree();
+  } catch (e) {
+    addTermLine('[create] failed: ' + e.message, 'err');
+  }
+}
+
+async function promptRename(fullPath, oldName) {
+  const newName = prompt('rename "' + oldName + '" to:', oldName);
+  if (!newName || !newName.trim() || newName.trim() === oldName) return;
+  const clean = newName.trim().replace(/[<>:"|?*\\/]/g, '_');
+  try {
+    const res = await bridgeRename(fullPath, clean);
+    if (res.code !== 0 && res.stderr) throw new Error(res.stderr);
+    addTermLine('[rename] ' + oldName + ' → ' + clean, 'ok');
+    loadFileTree();
+  } catch (e) {
+    addTermLine('[rename] failed: ' + e.message, 'err');
+  }
+}
+
+async function confirmDelete(fullPath, name, isDir) {
+  const kindLabel = isDir ? 'folder + all its contents' : 'file';
+  if (!confirm('delete this ' + kindLabel + '?\n\n' + fullPath + '\n\nthis writes to disk. cannot be undone from the ide.')) return;
+  try {
+    const res = await bridgeDelete(fullPath, isDir);
+    if (res.code !== 0 && res.stderr) throw new Error(res.stderr);
+    addTermLine('[delete] removed ' + fullPath, 'ok');
+    loadFileTree();
+  } catch (e) {
+    addTermLine('[delete] failed: ' + e.message, 'err');
+  }
+}
+
+async function duplicateFile(fullPath, oldName) {
+  const parts = oldName.split('.');
+  const ext = parts.length > 1 ? '.' + parts.pop() : '';
+  const base = parts.join('.') || oldName;
+  const newName = prompt('duplicate as:', base + '_copy' + ext);
+  if (!newName || !newName.trim()) return;
+  const clean = newName.trim().replace(/[<>:"|?*\\/]/g, '_');
+  try {
+    const data = await readBridgePath(fullPath);
+    const dir = fullPath.substring(0, fullPath.lastIndexOf('\\'));
+    const dst = dir + '\\' + clean;
+    await bridgeNewFile(dst, data.content);
+    addTermLine('[duplicate] ' + oldName + ' → ' + clean, 'ok');
+    loadFileTree();
+  } catch (e) {
+    addTermLine('[duplicate] failed: ' + e.message, 'err');
+  }
+}
+
+// ── git panel ──────────────────────────────────────────────────────────────
+async function gitRun(gitArgs, timeout) {
+  const cfg = getConfig();
+  const cmd = "Set-Location -LiteralPath '" + psEscape(cfg.caliSoulPath) + "'; git " + gitArgs + " 2>&1";
+  return shellRun(cmd, timeout || 60);
+}
+
+function gitFlagClass(flag) {
+  const c = flag.replace('?', '\\?');
+  return c;
+}
+
+async function refreshGitStatus() {
+  const branchEl = document.getElementById('gitBranch');
+  const listEl = document.getElementById('gitStatus');
+  if (!branchEl || !listEl) return;
+  branchEl.textContent = '(loading...)';
+  listEl.innerHTML = '<div class="git-empty">loading...</div>';
+  try {
+    const [branchRes, statusRes] = await Promise.all([
+      gitRun('branch --show-current'),
+      gitRun('status --porcelain=v1'),
+    ]);
+    const branch = (branchRes.stdout || '').trim();
+    branchEl.textContent = branch || '(detached)';
+    const rawLines = (statusRes.stdout || '').split(/\r?\n/).filter(l => l.length > 0);
+    if (!rawLines.length) {
+      listEl.innerHTML = '<div class="git-empty">working tree clean ✓</div>';
+      return;
+    }
+    const rows = rawLines.map(line => {
+      const flag = line.slice(0, 2);
+      const rel = line.slice(3);
+      const displayFlag = flag.trim() || '?';
+      const cls = displayFlag[0]; // M, A, D, R, ?
+      const safeRel = esc(rel);
+      const safeFlag = esc(displayFlag);
+      return '<div class="git-row" data-path="' + safeRel + '">' +
+        '<input type="checkbox" data-stage="1" checked>' +
+        '<span class="git-flag ' + cls + '">' + safeFlag + '</span>' +
+        '<span class="git-path" title="' + safeRel + '">' + safeRel + '</span>' +
+      '</div>';
+    }).join('');
+    listEl.innerHTML = rows;
+  } catch (e) {
+    branchEl.textContent = '(error)';
+    listEl.innerHTML = '<div class="git-empty">error: ' + esc(e.message) + '</div>';
+  }
+}
+
+function getStagedPaths() {
+  const rows = document.querySelectorAll('#gitStatus .git-row');
+  const paths = [];
+  rows.forEach(r => {
+    const cb = r.querySelector('input[type=checkbox]');
+    if (cb && cb.checked) paths.push(r.dataset.path);
+  });
+  return paths;
+}
+
+async function gitCommit() {
+  const msgEl = document.getElementById('gitMsg');
+  const msg = msgEl.value.trim();
+  if (!msg) { alert('need a commit message.'); msgEl.focus(); return; }
+  const paths = getStagedPaths();
+  if (!paths.length) { alert('nothing checked to stage.'); return; }
+  const quoted = paths.map(p => "'" + psEscape(p) + "'").join(' ');
+  addTermLine('[git] staging ' + paths.length + ' file(s)…', 'cmd');
+  try {
+    const addRes = await gitRun('add -- ' + quoted);
+    if (addRes.code !== 0) throw new Error((addRes.stdout || addRes.stderr || 'add failed').trim());
+    const escMsg = msg.replace(/`/g, '``').replace(/"/g, '\\"');
+    const commitRes = await gitRun('commit -m "' + escMsg + '"');
+    addTermLine('[git commit] ' + (commitRes.stdout || '').trim(), commitRes.code === 0 ? 'ok' : 'err');
+    if (commitRes.code === 0) msgEl.value = '';
+    refreshGitStatus();
+  } catch (e) {
+    addTermLine('[git commit] failed: ' + e.message, 'err');
+  }
+}
+
+async function gitPush() {
+  addTermLine('[git] pushing…', 'cmd');
+  try {
+    const res = await gitRun('push', 120);
+    const out = (res.stdout || '').trim() || (res.stderr || '').trim();
+    addTermLine('[git push] ' + out, res.code === 0 ? 'ok' : 'err');
+    refreshGitStatus();
+  } catch (e) {
+    addTermLine('[git push] failed: ' + e.message, 'err');
+  }
+}
+
+async function gitPull() {
+  addTermLine('[git] pulling…', 'cmd');
+  try {
+    const res = await gitRun('pull', 120);
+    const out = (res.stdout || '').trim() || (res.stderr || '').trim();
+    addTermLine('[git pull] ' + out, res.code === 0 ? 'ok' : 'err');
+    refreshGitStatus();
+    loadFileTree();
+  } catch (e) {
+    addTermLine('[git pull] failed: ' + e.message, 'err');
+  }
+}
+
+async function gitDiffSelected() {
+  const paths = getStagedPaths();
+  if (!paths.length) { addTermLine('[git diff] no files checked', 'warn'); return; }
+  const quoted = paths.map(p => "'" + psEscape(p) + "'").join(' ');
+  try {
+    const res = await gitRun('diff --stat -- ' + quoted);
+    const out = (res.stdout || '').trim() || '(no changes)';
+    addTermLine('[git diff]', 'cmd');
+    out.split(/\r?\n/).forEach(l => addTermLine('  ' + l, 'info'));
+  } catch (e) {
+    addTermLine('[git diff] failed: ' + e.message, 'err');
+  }
+}
+
 function fileExtClass(name) {
   const ext = (name.split('.').pop() || '').toLowerCase();
   if (['json'].includes(ext)) return 'json';
@@ -1386,6 +1758,12 @@ function renderTreeNode(entry, parentPath, depth) {
   const node = document.createElement('div');
   node.className = 'tree-node ' + (entry.is_dir ? 'dir' : 'file');
   node.dataset.path = fullPath;
+  node.dataset.isDir = entry.is_dir ? '1' : '0';
+  node.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    showTreeContextMenu(e.clientX, e.clientY, entry.is_dir ? 'dir' : 'file', fullPath, entry.name);
+  });
   const arrow = document.createElement('span');
   arrow.className = 'tree-arrow';
   const label = document.createElement('span');
@@ -2382,7 +2760,7 @@ function toggleSection(name) {
 // restore collapsed state on load
 (function restoreSectionState() {
   window.addEventListener('DOMContentLoaded', () => {
-    ['explorer', 'browse'].forEach(name => {
+    ['explorer', 'browse', 'git'].forEach(name => {
       if (localStorage.getItem('cali-section-' + name) === '1') toggleSection(name);
     });
     updateRightPanelVisibility();
@@ -2623,6 +3001,7 @@ async function initSession() {
   if (ok) {
     loadFileTree();
     refreshStateFromFile();
+    refreshGitStatus();
     await bootCali();
   } else setInputLocked(true, 'bridge offline — check terminal');
 }
