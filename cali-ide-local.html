@@ -3482,8 +3482,9 @@ function caliCursorFollow(durationMs, radius) {
     const desiredSpeed = Math.min(maxSpd, dist * 15);
     const desiredVx = dist > 0.5 ? (dx / dist) * desiredSpeed : 0;
     const desiredVy = dist > 0.5 ? (dy / dist) * desiredSpeed : 0;
-    // accel cap: velocity change per second bounded
-    const maxAccel = 5000; // px/sec²
+    // accel cap: velocity change per second bounded. higher = she can
+    // brake harder near the node, less overshoot.
+    const maxAccel = 8500; // px/sec²
     const maxDeltaV = maxAccel * (dt / 1000);
     const wantDvx = desiredVx - followState.vx;
     const wantDvy = desiredVy - followState.vy;
@@ -3495,8 +3496,8 @@ function caliCursorFollow(durationMs, radius) {
       followState.vx = desiredVx;
       followState.vy = desiredVy;
     }
-    // mild drag so momentum doesn't fling her past the node on approach
-    const drag = Math.pow(0.5, dt / 1000);
+    // drag — a bit stronger to bleed momentum on approach
+    const drag = Math.pow(0.3, dt / 1000);
     followState.vx *= drag;
     followState.vy *= drag;
     // NO tremor. no random noise. she stays put on the node.
