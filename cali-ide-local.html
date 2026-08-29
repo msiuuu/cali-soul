@@ -3218,7 +3218,7 @@ async function sendMessage() {
       removeTyping();
       const parsed = parseStreamJson(res.stdout);
       if (parsed.output && parsed.output !== '(empty)') {
-        addCaliMsg(parsed.output);
+        addCaliMsg(processCursorMarkers(parsed.output));
         finalState.thoughts.push(...parsed.thoughts);
       } else if (parsed.thoughts.length > 0) {
         addSilentMarker();
@@ -3751,7 +3751,8 @@ async function bootCali() {
     );
     if (res.code === 0 && res.stdout) {
       const parsed = parseStreamJson(res.stdout);
-      addCaliMsg(parsed.output);
+      const cleaned = processCursorMarkers(parsed.output || '');
+      addCaliMsg(cleaned);
       updatePanels(parsed);
       addTermLine('[boot] cali is here.', 'ok');
       endBootProgress(true);
