@@ -3406,20 +3406,24 @@ function caliCursorFollow(durationMs, radius) {
     const dist = Math.hypot(dx, dy);
     let tx, ty;
     if (dist <= radius) {
-      // orbiting close — small drift near him so she looks alive
+      // wander ANYWHERE in the circle. uniform disc distribution.
+      // (sqrt on random radius gives even area coverage rather than center-bias)
       const angle = Math.random() * Math.PI * 2;
-      const r = radius * (0.3 + Math.random() * 0.5);
+      const r = radius * Math.sqrt(Math.random());
       tx = mishCursor.x + Math.cos(angle) * r;
       ty = mishCursor.y + Math.sin(angle) * r;
     } else {
-      // approach — cover most of the gap but leave some
-      tx = caliCursor.x + dx * 0.7;
-      ty = caliCursor.y + dy * 0.7;
+      // approach — cover most of the gap
+      tx = caliCursor.x + dx * 0.8;
+      ty = caliCursor.y + dy * 0.8;
     }
-    moveCaliCursorSmooth(tx, ty, { speed: 900, tremor: 2 });
+    // vary speed so it feels like drifting, not skipping
+    const speed = 500 + Math.random() * 700;
+    moveCaliCursorSmooth(tx, ty, { speed, tremor: 1.5 });
   };
   step();
-  followTimer = setInterval(step, 450);
+  // slower cadence — let each hop breathe before the next
+  followTimer = setInterval(step, 700 + Math.random() * 400);
 }
 
 // ── thoughts log ───────────────────────────────────────────────────────────
