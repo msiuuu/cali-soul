@@ -7,7 +7,7 @@ each entry has size, commit hash, and what shipped.
 
 ## build 2026-08-29 — heartbeats + physical cursor (testing)
 - **size:** 180494 bytes
-- **commit:** (pending)
+- **commit:** 3629c78
 - **status:** MVP, expect bugs. toggle in titlebar + Cali menu.
 - **added:**
   - **two heartbeats** on setInterval when toggle is ON:
