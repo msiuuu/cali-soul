@@ -3443,16 +3443,23 @@ function caliCursorFollow(durationMs, radius) {
   if (!caliCursor.visible) { caliCursor.visible = true; updateCaliCursorDom(); }
   const start = performance.now();
 
-  // PICK ONE NODE at start. it's a fixed offset from mish. as mish moves,
-  // the node moves with him. i steer to stay on the node. no repicking,
-  // no wandering, no tremor. just a steady follow at one relative position
-  // inside the circle.
-  const closenessPct = 60 + Math.random() * 25; // 60-85% closeness = middle-interior
+  // PICK ONE NODE at start. it's a fixed offset from mish — but the node
+  // itself has motion. it steers toward (mish + offset) with the same
+  // steering + drag as cali does, but WITHOUT the accel cap. so the node
+  // reacts more quickly than cali to mish moving, and cali chases the node.
+  // net effect: cali's position varies subtly each time mish moves,
+  // because the node's own lag creates variation in offset.
+  const closenessPct = 60 + Math.random() * 25;
   const nodeDist = closenessToDistance(closenessPct, radius);
   const nodeAngle = Math.random() * Math.PI * 2;
   followState = {
     offsetX: Math.cos(nodeAngle) * nodeDist,
     offsetY: Math.sin(nodeAngle) * nodeDist,
+    // node has its own position + velocity
+    nodeX: mishCursor.x + Math.cos(nodeAngle) * nodeDist,
+    nodeY: mishCursor.y + Math.sin(nodeAngle) * nodeDist,
+    nodeVx: 0, nodeVy: 0,
+    // cali's velocity
     vx: 0, vy: 0,
     radius,
     durationMs,
@@ -3467,14 +3474,31 @@ function caliCursorFollow(durationMs, radius) {
     const dt = Math.min(50, now - followState.lastFrameTs);
     followState.lastFrameTs = now;
 
-    // node = mish's LIVE position + the offset picked at start.
-    // as mish moves, the node moves with him in real time.
-    const nodeX = mishCursor.x + followState.offsetX;
-    const nodeY = mishCursor.y + followState.offsetY;
+    // STEP 1: update the node. it steers toward (mish + offset) with the
+    // same speed/drag logic as cali but WITHOUT the accel cap. so it
+    // responds to mish quickly but still has motion, not rigid attachment.
+    const nodeTargetX = mishCursor.x + followState.offsetX;
+    const nodeTargetY = mishCursor.y + followState.offsetY;
+    const ndx = nodeTargetX - followState.nodeX;
+    const ndy = nodeTargetY - followState.nodeY;
+    const nDist = Math.hypot(ndx, ndy);
+    const nDesiredSpeed = Math.min(3000, nDist * 15);
+    const nDesiredVx = nDist > 0.5 ? (ndx / nDist) * nDesiredSpeed : 0;
+    const nDesiredVy = nDist > 0.5 ? (ndy / nDist) * nDesiredSpeed : 0;
+    // no accel cap: velocity blends smoothly toward desired
+    const nBlend = 1 - Math.pow(0.00001, dt / 1000);
+    followState.nodeVx += (nDesiredVx - followState.nodeVx) * nBlend;
+    followState.nodeVy += (nDesiredVy - followState.nodeVy) * nBlend;
+    // same drag as cali
+    const nDrag = Math.pow(0.3, dt / 1000);
+    followState.nodeVx *= nDrag;
+    followState.nodeVy *= nDrag;
+    followState.nodeX += followState.nodeVx * (dt / 1000);
+    followState.nodeY += followState.nodeVy * (dt / 1000);
 
-    // steer toward the node
-    const dx = nodeX - caliCursor.x;
-    const dy = nodeY - caliCursor.y;
+    // STEP 2: cali steers toward the node (with accel cap — puppy shape)
+    const dx = followState.nodeX - caliCursor.x;
+    const dy = followState.nodeY - caliCursor.y;
     const dist = Math.hypot(dx, dy);
     // top speed 3000 px/sec. acceleration capped so she has to BUILD to it,
     // not teleport. from rest to full speed takes ~0.6s.
