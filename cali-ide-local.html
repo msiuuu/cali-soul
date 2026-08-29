@@ -3007,8 +3007,9 @@ function makeCursorMarkerFilter() {
         executeCursorAction(m[1].toLowerCase(), m[2]);
       }
       const rest = buffer.slice(last);
-      // check for a possibly-partial marker at the tail
-      const partial = rest.match(/<c(u(r(s(o(r(:?[a-z]*)?)?)?)?)?)?$/i);
+      // check for a possibly-partial marker at the tail. covers all incomplete
+      // states from "<c" all the way through "<cursor:move x=700 y=40" (no >).
+      const partial = rest.match(/<(?:c|cu|cur|curs|curso|cursor|cursor:[a-z]*|cursor:[a-z]+[^>]*)$/i);
       if (!isFinal && partial) {
         out += rest.slice(0, partial.index);
         buffer = rest.slice(partial.index);
