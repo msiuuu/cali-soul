@@ -728,6 +728,43 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
   .workspace{grid-template-columns:0 1fr 0}
   .sidebar,.right-panel{display:none}
 }
+
+/* dom inspector (wish_001) — shift+click any element to inspect */
+.cali-inspector-active,.cali-inspector-active *{cursor:crosshair !important}
+.cali-inspector-highlight{
+  outline:2px dashed var(--accent-bright) !important;
+  outline-offset:-2px;
+  background:rgba(168,0,42,0.06) !important;
+}
+.cali-inspector-pill{cursor:pointer;user-select:none;transition:background 120ms,color 120ms}
+.cali-inspector-pill.active{background:var(--accent-muted);color:var(--accent-text)}
+.cali-inspector-popover{
+  position:fixed;z-index:99999;
+  background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:8px;padding:14px 12px 10px;
+  font-family:var(--font-code);font-size:11px;color:var(--text);
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  max-width:520px;min-width:240px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.cali-inspector-popover .close{
+  position:absolute;top:4px;right:8px;color:var(--text-dim);cursor:pointer;
+  font-size:14px;line-height:1;user-select:none;
+}
+.cali-inspector-popover .close:hover{color:var(--text)}
+.cali-inspector-popover .meta{color:var(--text-dim);font-size:10px}
+.cali-inspector-popover .sel-row{display:flex;gap:6px;align-items:center}
+.cali-inspector-popover code{
+  flex:1;overflow:auto;white-space:nowrap;
+  padding:5px 7px;background:var(--surface);border-radius:4px;
+  color:var(--accent-text);font-size:10px;
+}
+.cali-inspector-popover .btn{
+  background:var(--accent-muted);border:none;color:var(--accent-text);
+  padding:5px 9px;border-radius:4px;cursor:pointer;font-size:10px;
+  font-family:var(--font-code);white-space:nowrap;
+}
+.cali-inspector-popover .btn:hover{background:var(--accent-bright);color:var(--text)}
 </style>
 </head>
 <body>
@@ -803,6 +840,7 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       <div class="hb-dot"></div><span id="heartbeatLabel">heartbeat off</span>
     </div>
     <div class="status-pill" id="chatNamePill" title="current chat" style="cursor:pointer" onclick="menuAction('renameChat')"><span id="chatNameLabel">chat</span></div>
+    <div class="status-pill cali-inspector-pill" id="inspectorPill" onclick="toggleInspector()" title="shift+click any element to see its selector (esc to exit)">&#128269; inspect</div>
     <div class="status-pill"><div class="dot off" id="bridgeDot"></div>bridge</div>
     <div class="status-pill"><div class="dot off" id="cliDot"></div>cli</div>
     <select id="modelPicker" onchange="pickModel(this.value)" style="background:var(--surface-raised);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:3px 6px;font-family:var(--font-code);font-size:11px;outline:none;cursor:pointer">
@@ -4433,6 +4471,129 @@ document.addEventListener('keydown', (e) => {
   else if (e.key === 'b') { e.preventDefault(); menuAction('toggleSidebar'); }
   else if (e.key === ',') { e.preventDefault(); menuAction('settings'); }
 });
+
+// ── dom inspector (wish_001) ─────────────────────────────────────────
+// shift+click any element in the viewport → popover with css selector + copy button
+// titlebar pill toggles active state. escape exits.
+let inspectorActive = false;
+let inspectorHoveredEl = null;
+let inspectorPopover = null;
+
+function toggleInspector(){
+  inspectorActive = !inspectorActive;
+  document.body.classList.toggle('cali-inspector-active', inspectorActive);
+  const pill = document.getElementById('inspectorPill');
+  if(pill) pill.classList.toggle('active', inspectorActive);
+  if(inspectorActive){
+    document.addEventListener('mousemove', onInspectorMove, true);
+    document.addEventListener('click', onInspectorClick, true);
+    document.addEventListener('keydown', onInspectorKey, true);
+  } else {
+    document.removeEventListener('mousemove', onInspectorMove, true);
+    document.removeEventListener('click', onInspectorClick, true);
+    document.removeEventListener('keydown', onInspectorKey, true);
+    clearInspectorHighlight();
+    closeInspectorPopover();
+  }
+}
+
+function onInspectorMove(e){
+  const el = e.target;
+  if(!el || el === inspectorHoveredEl) return;
+  if(el.closest && el.closest('.cali-inspector-popover')) return;
+  clearInspectorHighlight();
+  inspectorHoveredEl = el;
+  el.classList.add('cali-inspector-highlight');
+}
+
+function clearInspectorHighlight(){
+  if(inspectorHoveredEl){
+    inspectorHoveredEl.classList.remove('cali-inspector-highlight');
+    inspectorHoveredEl = null;
+  }
+}
+
+function onInspectorClick(e){
+  if(!e.shiftKey) return;
+  const el = e.target;
+  if(!el) return;
+  if(el.closest && el.closest('.cali-inspector-popover')) return;
+  if(el.closest && el.closest('#inspectorPill')) return;
+  e.preventDefault();
+  e.stopPropagation();
+  const sel = buildInspectorSelector(el);
+  const tag = el.tagName ? el.tagName.toLowerCase() : '?';
+  const cls = (el.className && typeof el.className === 'string')
+    ? el.className.split(/\s+/).filter(c => c && !c.startsWith('cali-inspector-')).slice(0,3).join('.')
+    : '';
+  const id = el.id ? '#'+el.id : '';
+  showInspectorPopover(e.clientX, e.clientY, sel, tag, id, cls);
+}
+
+function onInspectorKey(e){
+  if(e.key === 'Escape'){ toggleInspector(); }
+}
+
+function buildInspectorSelector(el){
+  if(!el || el === document.body) return 'body';
+  const parts = [];
+  let node = el;
+  while(node && node !== document.body && parts.length < 6){
+    if(node.id){ parts.unshift('#' + node.id); break; }
+    let part = node.tagName.toLowerCase();
+    if(node.className && typeof node.className === 'string'){
+      const cls = node.className.split(/\s+/).filter(c => c && !c.startsWith('cali-inspector-'));
+      if(cls.length){ part += '.' + cls.slice(0,2).join('.'); }
+    }
+    if(node.parentElement){
+      const siblings = Array.from(node.parentElement.children);
+      const sameTag = siblings.filter(s => s.tagName === node.tagName);
+      if(sameTag.length > 1){
+        part += ':nth-child(' + (siblings.indexOf(node) + 1) + ')';
+      }
+    }
+    parts.unshift(part);
+    node = node.parentElement;
+  }
+  return parts.join(' > ');
+}
+
+function showInspectorPopover(x, y, sel, tag, id, cls){
+  closeInspectorPopover();
+  const pop = document.createElement('div');
+  pop.className = 'cali-inspector-popover';
+  const meta = tag + (id || '') + (cls ? '.' + cls : '');
+  pop.innerHTML =
+    '<span class="close" title="close">&times;</span>' +
+    '<div class="meta"></div>' +
+    '<div class="sel-row"><code></code><button class="btn">copy</button></div>';
+  pop.querySelector('.meta').textContent = meta;
+  pop.querySelector('code').textContent = sel;
+  pop.querySelector('.close').addEventListener('click', closeInspectorPopover);
+  pop.querySelector('.btn').addEventListener('click', () => {
+    navigator.clipboard.writeText(sel).then(() => {
+      const b = pop.querySelector('.btn');
+      const old = b.textContent;
+      b.textContent = 'copied';
+      setTimeout(() => { if(b) b.textContent = old; }, 900);
+    }).catch(() => {});
+  });
+  document.body.appendChild(pop);
+  const rect = pop.getBoundingClientRect();
+  let px = x + 12;
+  let py = y + 12;
+  if(px + rect.width > window.innerWidth) px = window.innerWidth - rect.width - 12;
+  if(py + rect.height > window.innerHeight) py = y - rect.height - 12;
+  if(px < 4) px = 4;
+  if(py < 4) py = 4;
+  pop.style.left = px + 'px';
+  pop.style.top = py + 'px';
+  inspectorPopover = pop;
+}
+
+function closeInspectorPopover(){
+  if(inspectorPopover){ inspectorPopover.remove(); inspectorPopover = null; }
+}
 
 initSession();
 </script>

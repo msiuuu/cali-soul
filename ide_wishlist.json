@@ -5,13 +5,6 @@
   "created": "2026-08-29",
   "pending": [
     {
-      "id": "wish_001",
-      "title": "dom inspector",
-      "description": "shift+click any element in the ide viewport → shows selector path + source-line hint in a small popover with a copy button. otherwise cali is grepping the html blind trying to find which div to touch when editing herself.",
-      "priority": 4,
-      "notes": "activated via a titlebar toggle. escape to exit. hover highlights element in accent color."
-    },
-    {
       "id": "wish_002",
       "title": "scratch iframe / sandbox preview",
       "description": "test an ide edit in a sandboxed iframe before deploying to the real Downloads/cali-ide.html. cali writes to a scratch path, iframe loads it, mish approves, then deploy.",
@@ -58,6 +51,12 @@
   ],
   "in_progress": [],
   "done": [
+    {
+      "id": "wish_001",
+      "title": "dom inspector",
+      "description": "titlebar 🔍 inspect pill toggles. shift+click any element → popover with tag#id.class meta + full css selector + copy button. hover shows accent-bright dashed outline. escape exits. selector prefers id (breaks chain early), else tag + top-2 classes + :nth-child. depth cap 6.",
+      "completed": "2026-08-29"
+    },
     {
       "id": "done_001",
       "title": "cursor idle breath",

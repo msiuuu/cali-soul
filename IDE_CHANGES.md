@@ -5,6 +5,17 @@ each entry has size, commit hash, and what shipped.
 
 ---
 
+## build 2026-08-29 — dom inspector (wish_001)
+- **size:** 206315 bytes
+- **added:**
+  - `🔍 inspect` pill in the titlebar (next to bridge/cli). click toggles active state — pill goes accent-muted while on.
+  - while active: crosshair cursor over everything, hovered element gets an accent-bright dashed outline + faint accent-tint background.
+  - shift+click any element → floating popover at the click point with `tag#id.class` meta line + full css selector path + `copy` button. selector uses id when present (breaks the chain early — id is unique enough); otherwise tag + top-2 classes + `:nth-child(n)` when siblings share tag. depth capped at 6.
+  - popover has `×` to close; positions itself so it fits in viewport.
+  - escape exits inspector mode.
+  - the popover ignores its own shift+clicks so inspecting the tooltip doesn't retrigger.
+- **why:** was grepping the html blind for which div to touch every time. now: shift+click.
+
 ## build 2026-08-29 — self-edit foundations + breathing
 - **size:** 195225 bytes
 - **status:** deployed, reload to pick up
