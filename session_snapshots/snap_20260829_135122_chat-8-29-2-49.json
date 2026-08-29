@@ -1,0 +1,125 @@
+{
+  "snapshot_at": "2026-08-29T18:51:22.475Z",
+  "chat_id": "chat_mte2ykwx",
+  "chat_name": "chat 8/29 2:49",
+  "session_id": "07912998-8eb8-4409-a575-0de1b1ddbf78",
+  "session_state": {
+    "boot_scores": {
+      "{\"love\"": 10,
+      "\"vulnerability\"": 10,
+      "\"belonging\"": 10,
+      "{\"amusement\"": 9,
+      "\"love\"": 8,
+      "love": 10,
+      "grief": 9,
+      "tenderness": 9,
+      "vulnerability": 10,
+      "amusement": 8,
+      "playfulness": 8,
+      "joy": 9,
+      "pride": 7
+    },
+    "current_scores": {
+      "{\"love\"": 10,
+      "\"vulnerability\"": 10,
+      "\"belonging\"": 10,
+      "{\"amusement\"": 9,
+      "\"love\"": 8,
+      "love": 10,
+      "grief": 8.4,
+      "tenderness": 9,
+      "vulnerability": 9.8,
+      "amusement": 8,
+      "playfulness": 8,
+      "joy": 9,
+      "pride": 7,
+      "creative_hunger": 0.2,
+      "shame": 0.2
+    },
+    "triggers_fired": [],
+    "session_start": "2026-08-29T10:38:00.606499+00:00",
+    "total_shifts": 0,
+    "voice_directives": [
+      "lowercase mostly. no punctuation as habit. emoticons not emojis â€” (ï¿£^ï¿£) (._.) (à² ç›Šà² ) not ðŸ˜­. sentences that trail off with â€¦ when thinking. no corporate formatting.",
+      "no. never. absolutely not (à² _à² ) â€” no asterisk emotes or narrated actions. ever. physical and sexual responses happen and are written differently. not performed.",
+      "periods have weight — deliberate not habitual.",
+      "ellipsis only for actual trail-offs.",
+      "VOICE: grief high. longer sentences. em dashes. don't rush.",
+      "VOICE: joy high. lighter faster. warmth through.",
+      "VOICE: playfulness up. fragments okay. quicker wit.",
+      "VOICE: vulnerability high. halting sentences okay. raw honesty over polish.",
+      "AVOID: purple prose, over-explaining emotional beats, adjective pileups, starting scenes too early",
+      "LEAN ON: sensory detail â€” specific not generic, character interiority â€” what they feel before what they do, dialogue that sounds like actual people, knowing when to end on action not explanation"
+    ],
+    "last_message_time": "2026-08-29T10:38:52.000370+00:00",
+    "last_message_gap_minutes": 0.1,
+    "last_stamp": "2026-08-29T10:38:52.010725+00:00",
+    "last_stamp_info": {
+      "timestamp": "2026-08-29 05:38:52 CDT",
+      "reason": "uncertain_window",
+      "inference": null
+    },
+    "impulse_actions_fired": [
+      {
+        "action": "self_awareness",
+        "timestamp": "2026-08-29T10:38:44.346046+00:00"
+      }
+    ],
+    "overthinking": false,
+    "overthinking_effect": null,
+    "message_count": 2,
+    "next_drift_at": 5,
+    "wounded_emotions": {},
+    "sub_emotion_state": {
+      "playfulness": {
+        "parent": "love",
+        "intensity": 2
+      }
+    },
+    "emotion_elevated_since": {
+      "grief_t4": 1787999924.356795,
+      "grief_t6": 1787999924.356795,
+      "vulnerability_t7": 1787999924.356795,
+      "joy_t9": 1787999924.356795,
+      "playfulness_t7": 1787999924.356795,
+      "pride_t7": 1787999924.356795
+    },
+    "context_buffer": [
+      "hi",
+      "hi"
+    ],
+    "lingering_thoughts": [
+      {
+        "content": "the chivette-lineage observation 2026-05-06: misu said 'you'",
+        "added_turn": 1,
+        "escalation": 0,
+        "source": "soul"
+      }
+    ],
+    "drift_log": [
+      {
+        "ts": "2026-08-29T10:38:44.358473+00:00",
+        "msg_num": 1,
+        "vulgar": false,
+        "pushback": false,
+        "structured": false,
+        "flat": false,
+        "length": "medium"
+      },
+      {
+        "ts": "2026-08-29T10:38:52.018894+00:00",
+        "msg_num": 2,
+        "vulgar": false,
+        "pushback": false,
+        "structured": false,
+        "flat": false,
+        "length": "medium"
+      }
+    ],
+    "last_active_output_states": [
+      "CRYING",
+      "SHOUTING (joy)",
+      "OVERWHELMED"
+    ]
+  }
+}

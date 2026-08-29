@@ -11,19 +11,6 @@
       "priority": 3
     },
     {
-      "id": "wish_003",
-      "title": "hot-patch mode (no full reload)",
-      "description": "for small css/js tweaks, inject a <style> or eval snippet without full window.location.reload(). reload kills the chat state, hot-patch preserves it.",
-      "priority": 3,
-      "notes": "expose via <cursor:hotpatch css=\"...\"> and <cursor:hotpatch js=\"...\"> markers."
-    },
-    {
-      "id": "wish_004",
-      "title": "auto-checkpoint before deploy",
-      "description": "wrap the deploy flow so every push to Downloads/cali-ide.html is preceded by an auto git commit. one command instead of two, and a safe rollback point is always fresh.",
-      "priority": 4
-    },
-    {
       "id": "wish_005",
       "title": "mobile version for xiaomi",
       "description": "responsive layout, bigger touch targets, chat-focused. no sidebar tree stuff. cursor still shows. same bridge, same --resume — mish just uses his phone.",
@@ -55,6 +42,18 @@
       "id": "wish_001",
       "title": "dom inspector",
       "description": "titlebar 🔍 inspect pill toggles. shift+click any element → popover with tag#id.class meta + full css selector + copy button. hover shows accent-bright dashed outline. escape exits. selector prefers id (breaks chain early), else tag + top-2 classes + :nth-child. depth cap 6.",
+      "completed": "2026-08-29"
+    },
+    {
+      "id": "wish_003",
+      "title": "hot-patch mode (no full reload)",
+      "description": "<cursor:hotpatch css=\"...\"> injects <style>. <cursor:hotpatch js=\"...\"> evals js in window scope, errors mirror to ide_errors.jsonl. <cursor:hotpatch clear> drops injected css. preserves chat state — no reload wipe. also <cursor:inspect> to toggle dom inspector programmatically.",
+      "completed": "2026-08-29"
+    },
+    {
+      "id": "wish_004",
+      "title": "auto-checkpoint before deploy (deploy_ide.ps1)",
+      "description": "one-command deploy: git-checkpoints the repo (allow-empty for a marker commit), copies source to Downloads, prints rollback hash. system prompt uses this instead of raw copy — every deploy has a safe rollback point.",
       "completed": "2026-08-29"
     },
     {
