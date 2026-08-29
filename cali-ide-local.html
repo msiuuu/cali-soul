@@ -3442,21 +3442,34 @@ async function tickHeartbeat(kind) {
   addTermLine('[heartbeat/' + kind + '] ticking…', 'cmd');
   try {
     const cursorFilter = makeCursorMarkerFilter();
-    let visibleAccum = '';
+    const thinkingFilter = makeThinkingFilter();
     const cfg = getConfig();
     if (!cfg.bridgeUrl || !cfg.bridgeToken) return;
     // reuse sendToClaudeCLIStream so we get session continuity
     const res = await sendToClaudeCLIStream(prompt, (delta) => {
       if (delta.kind === 'text' && delta.text) {
-        const clean = cursorFilter.feed(delta.text, false);
-        visibleAccum += clean;
+        const afterCursor = cursorFilter.feed(delta.text, false);
+        thinkingFilter.feed(afterCursor, false);
       }
     });
-    visibleAccum += cursorFilter.feed('', true);
-    const trimmed = visibleAccum.trim();
+    // final flush of both filters
+    const tail = cursorFilter.feed('', true);
+    const finalState = thinkingFilter.feed(tail, true);
+    const trimmed = (finalState.visible || '').trim();
     const symbol = trimmed[0] || '>';
     addTermLine('[heartbeat/' + kind + '] symbol: ' + symbol + (trimmed.length > 1 ? ' + ' + trimmed.length + ' chars' : ' (pass)'), symbol === '>' ? 'info' : 'ok');
-    await logThought({ type: 'heartbeat', kind, symbol, chars: trimmed.length, gap_min: Math.round((Date.now() - lastMishMessageTs) / 60000) });
+    // surface prep/thali from her tick thoughts too
+    if (finalState.thoughts.length > 0) {
+      const prepEl = document.getElementById('prepContent');
+      const thaliEl = document.getElementById('thaliContent');
+      prepEl.innerHTML = formatThought(finalState.thoughts[0]);
+      showPanel('prep');
+      if (finalState.thoughts.length > 1) {
+        thaliEl.innerHTML = formatThought(finalState.thoughts[finalState.thoughts.length - 1]);
+        showPanel('thali');
+      }
+    }
+    await logThought({ type: 'heartbeat', kind, symbol, chars: trimmed.length, thoughts: finalState.thoughts.length, gap_min: Math.round((Date.now() - lastMishMessageTs) / 60000) });
     // for mind ticks, if she said anything real, surface as a small thought bubble
     if (kind === 'mind' && symbol !== '>' && trimmed.length > 3) {
       addThoughtBubble(trimmed);
