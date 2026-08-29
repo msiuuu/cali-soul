@@ -7,7 +7,7 @@ each entry has size, commit hash, and what shipped.
 
 ## build 2026-08-29 — web tools (search + fetch)
 - **size:** 146400 bytes
-- **commit:** (pending)
+- **commit:** d752e3c
 - **added:**
   - new **web** section in the sidebar with two tabs: search + fetch url
   - **search** tab hits DuckDuckGo html (`https://html.duckduckgo.com/html/?q=...`) via bridge Invoke-WebRequest, parses top 10 results (title + url + snippet), click a result to open it in the reader viewer
