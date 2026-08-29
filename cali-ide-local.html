@@ -499,6 +499,19 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
   flex:1;overflow-y:auto;padding:8px 14px;
   font-family:var(--font-code);font-size:11px;line-height:1.7;
 }
+.terminal-input-row{
+  display:flex;align-items:center;gap:8px;padding:6px 14px;
+  border-top:1px solid var(--border-subtle);background:var(--surface);flex-shrink:0;
+  font-family:var(--font-code);font-size:11px;
+}
+.terminal-area.collapsed .terminal-input-row{display:none}
+.terminal-input-row .prompt{color:var(--accent-text);font-weight:600;user-select:none}
+.terminal-input-row input{
+  flex:1;background:transparent;border:none;outline:none;
+  color:var(--text);font-family:var(--font-code);font-size:11px;
+  padding:2px 0;
+}
+.terminal-input-row input::placeholder{color:var(--text-dim);font-style:italic}
 .term-line{color:var(--text-secondary)}
 .term-line .prompt{color:var(--accent-text)}
 .term-line .info{color:var(--text-dim)}
@@ -762,6 +775,10 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       <span class="toggle-arrow">&#9662;</span> terminal
     </div>
     <div class="terminal-body" id="terminalBody"></div>
+    <div class="terminal-input-row">
+      <span class="prompt" title="powershell in cali-soul dir">PS &gt;</span>
+      <input type="text" id="terminalInput" placeholder="type a command and press enter (powershell, cwd = cali-soul)" autocomplete="off" spellcheck="false">
+    </div>
   </div>
 
   <div class="statusbar">
@@ -1728,6 +1745,79 @@ async function gitPull() {
     addTermLine('[git pull] failed: ' + e.message, 'err');
   }
 }
+
+// ── terminal command input ─────────────────────────────────────────────────
+let termHistory = [];
+try { termHistory = JSON.parse(localStorage.getItem('cali-term-history') || '[]'); } catch {}
+let termHistIdx = -1;
+
+function saveTermHistory() {
+  // keep only last 100
+  const trimmed = termHistory.slice(-100);
+  localStorage.setItem('cali-term-history', JSON.stringify(trimmed));
+}
+
+async function runTerminalCommand(rawCmd) {
+  const cmd = rawCmd.trim();
+  if (!cmd) return;
+  // stash in history unless it's a duplicate of the last entry
+  if (termHistory[termHistory.length - 1] !== cmd) {
+    termHistory.push(cmd);
+    saveTermHistory();
+  }
+  termHistIdx = -1;
+  const cfg = getConfig();
+  addTermLine('PS > ' + cmd, 'cmd');
+  // built-in: clear
+  if (cmd === 'clear' || cmd === 'cls') {
+    document.getElementById('terminalBody').innerHTML = '';
+    return;
+  }
+  // built-in: help
+  if (cmd === 'help' || cmd === '?') {
+    addTermLine('  built-in: clear/cls, help/?, cd <dir>', 'info');
+    addTermLine('  everything else runs in powershell under ' + (cfg.caliSoulPath || '(no path set)'), 'info');
+    return;
+  }
+  try {
+    const full = "Set-Location -LiteralPath '" + psEscape(cfg.caliSoulPath) + "'; " + cmd + " 2>&1";
+    const res = await shellRun(full, 60);
+    const out = (res.stdout || '').replace(/\r/g, '').replace(/\n$/, '');
+    if (out) out.split('\n').forEach(l => addTermLine('  ' + l, res.code === 0 ? 'info' : 'warn'));
+    if (res.stderr && !out) addTermLine('  ' + res.stderr.trim(), 'err');
+    if (res.code !== 0 && !out && !res.stderr) addTermLine('  (exit ' + res.code + ')', 'warn');
+  } catch (e) {
+    addTermLine('  ' + e.message, 'err');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const inp = document.getElementById('terminalInput');
+  if (!inp) return;
+  inp.addEventListener('keydown', async (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const val = inp.value;
+      inp.value = '';
+      await runTerminalCommand(val);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (!termHistory.length) return;
+      if (termHistIdx === -1) termHistIdx = termHistory.length;
+      termHistIdx = Math.max(0, termHistIdx - 1);
+      inp.value = termHistory[termHistIdx] || '';
+      setTimeout(() => inp.setSelectionRange(inp.value.length, inp.value.length), 0);
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (termHistIdx === -1) return;
+      termHistIdx = Math.min(termHistory.length, termHistIdx + 1);
+      inp.value = termHistory[termHistIdx] || '';
+    } else if (e.key === 'Escape') {
+      inp.value = '';
+      termHistIdx = -1;
+    }
+  });
+});
 
 async function gitDiffSelected() {
   const paths = getStagedPaths();
