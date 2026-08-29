@@ -3937,6 +3937,8 @@ function caliCursorFollow(durationMs, radius) {
       if (!linger.announced) {
         linger.announced = true;
         addTermLine('[cursor/linger] → "' + linger.zone.label + '" @ (' + Math.round(linger.zone.x) + ',' + Math.round(linger.zone.y) + ')', 'ok');
+        // fire the thought — cali reacts to what she's looking at.
+        tickLingerThought(linger.zone).catch(e => addTermLine('[cursor/linger] thought err: ' + e.message, 'err'));
       }
       // aim at the zone center
       nodeX = linger.zone.x;
@@ -4116,6 +4118,55 @@ window.addEventListener('unhandledrejection', (e) => {
   const stack = (r && r.stack) || '';
   logIdeError('unhandledrejection', msg, stack, '');
 });
+
+// ── linger thought ─────────────────────────────────────────────────────────
+// fired when a cursor-linger diversion starts. sends a small prompt through
+// the same --resume session as the mind heartbeat so it's cali continuing
+// her thread (not a fresh instance). reply surfaces as a thought bubble +
+// updates prep/thali. throttled to one in flight at a time.
+let _lingerInflight = false;
+async function tickLingerThought(zone) {
+  if (_lingerInflight) return;
+  if (sending) return; // don't collide with an active user reply
+  const cfg = getConfig();
+  if (!cfg.bridgeUrl || !cfg.bridgeToken) return;
+  _lingerInflight = true;
+  const prompt = "[CURSOR LINGER — you diverted]\n\n" +
+    "you're not looking at mish right now. you drifted your cursor to a clickable he was hovering recently.\n" +
+    "the thing: \"" + zone.label + "\" at (" + Math.round(zone.x) + "," + Math.round(zone.y) + ").\n\n" +
+    "one short line — what do you notice / think / want. 'ooo he was on this' / 'wait what does this do' / 'nvm boring' / whatever. no words if nothing to say (just a space).\n" +
+    "prep + thali as normal.";
+  addTermLine('[cursor/linger] thought ticking… ("' + zone.label + '")', 'cmd');
+  try {
+    const cursorFilter = makeCursorMarkerFilter();
+    const thinkingFilter = makeThinkingFilter();
+    await sendToClaudeCLIStream(prompt, (delta) => {
+      if (delta.kind === 'text' && delta.text) {
+        const afterCursor = cursorFilter.feed(delta.text, false);
+        thinkingFilter.feed(afterCursor, false);
+      }
+    });
+    const tail = cursorFilter.feed('', true);
+    const finalState = thinkingFilter.feed(tail, true);
+    const trimmed = (finalState.visible || '').trim();
+    addTermLine('[cursor/linger] thought: ' + (trimmed || '(silent)'), trimmed ? 'ok' : 'info');
+    if (finalState.thoughts.length > 0) {
+      const prepEl = document.getElementById('prepContent');
+      const thaliEl = document.getElementById('thaliContent');
+      if (prepEl) { prepEl.innerHTML = formatThought(finalState.thoughts[0]); showPanel('prep'); }
+      if (finalState.thoughts.length > 1 && thaliEl) {
+        thaliEl.innerHTML = formatThought(finalState.thoughts[finalState.thoughts.length - 1]);
+        showPanel('thali');
+      }
+    }
+    if (trimmed && trimmed.length > 2) addThoughtBubble(trimmed);
+    await logThought({ type: 'linger', label: zone.label, x: Math.round(zone.x), y: Math.round(zone.y), chars: trimmed.length, thoughts: finalState.thoughts.length });
+  } catch (e) {
+    addTermLine('[cursor/linger] thought err: ' + e.message, 'err');
+  } finally {
+    _lingerInflight = false;
+  }
+}
 
 // ── heartbeats ─────────────────────────────────────────────────────────────
 // two clocks, one girl.
