@@ -3442,47 +3442,24 @@ function caliCursorFollow(durationMs, radius) {
   if (caliCursorMoveAnim) { cancelAnimationFrame(caliCursorMoveAnim); caliCursorMoveAnim = null; }
   if (!caliCursor.visible) { caliCursor.visible = true; updateCaliCursorDom(); }
   const start = performance.now();
-  const closeMode = radius < 250;
+
+  // PICK ONE NODE at start. it's a fixed offset from mish. as mish moves,
+  // the node moves with him. i steer to stay on the node. no repicking,
+  // no wandering, no tremor. just a steady follow at one relative position
+  // inside the circle.
+  const closenessPct = 60 + Math.random() * 25; // 60-85% closeness = middle-interior
+  const nodeDist = closenessToDistance(closenessPct, radius);
+  const nodeAngle = Math.random() * Math.PI * 2;
   followState = {
+    offsetX: Math.cos(nodeAngle) * nodeDist,
+    offsetY: Math.sin(nodeAngle) * nodeDist,
     vx: 0, vy: 0,
-    targetX: null, targetY: null,
     radius,
-    closeMode,
     durationMs,
     startTs: start,
     lastFrameTs: start,
-    lastPickTs: 0,
-    // longer wander interval — moving through space, not hopping every second
-    pickIntervalMs: closeMode ? 4000 + Math.random() * 2000 : 3000 + Math.random() * 2000,
   };
 
-  function pickTarget(forceCloseness) {
-    // TINY prediction lead — was 40%, way too aggressive. cap at 8%.
-    let ax = mishCursor.x, ay = mishCursor.y;
-    if (mishCursor.inside && followState.lastMishX !== undefined) {
-      const mdx = mishCursor.x - followState.lastMishX;
-      const mdy = mishCursor.y - followState.lastMishY;
-      const mspeed = Math.hypot(mdx, mdy);
-      if (mspeed > 20) {
-        const lead = Math.min(0.08, mspeed / 400);
-        ax += mdx * lead;
-        ay += mdy * lead;
-      }
-    }
-    followState.lastMishX = mishCursor.x;
-    followState.lastMishY = mishCursor.y;
-    // tightened closeness ranges — keep INTERIOR, away from edges.
-    // close: 65-88. wander: 55-82.
-    const closenessPct = forceCloseness !== undefined
-      ? forceCloseness
-      : (followState.closeMode ? 65 + Math.random() * 23 : 55 + Math.random() * 27);
-    const dist = closenessToDistance(closenessPct, followState.radius);
-    const angle = Math.random() * Math.PI * 2;
-    followState.targetX = ax + Math.cos(angle) * dist;
-    followState.targetY = ay + Math.sin(angle) * dist;
-    followState.lastPickTs = performance.now();
-  }
-  pickTarget();
   const step = (now) => {
     if (!followState) return;
     const elapsed = now - followState.startTs;
@@ -3490,59 +3467,31 @@ function caliCursorFollow(durationMs, radius) {
     const dt = Math.min(50, now - followState.lastFrameTs);
     followState.lastFrameTs = now;
 
-    // repick target when: interval elapsed, we reached it, OR we'd fall
-    // outside mish's circle (closeness < 15)
-    const distToTarget = Math.hypot(followState.targetX - caliCursor.x, followState.targetY - caliCursor.y);
-    const closenessToMish = distanceToCloseness(caliCursorDistanceToMish(), followState.radius);
-    if (now - followState.lastPickTs > followState.pickIntervalMs) {
-      pickTarget();
-    } else if (distToTarget < 15 && !followState.closeMode) {
-      pickTarget(); // reached wander target → pick another
-    } else if (closenessToMish < 15 && distToTarget > followState.radius) {
-      // we'd end up outside — snap back to a new inside target
-      pickTarget();
-    }
+    // node = mish's LIVE position + the offset picked at start.
+    // as mish moves, the node moves with him in real time.
+    const nodeX = mishCursor.x + followState.offsetX;
+    const nodeY = mishCursor.y + followState.offsetY;
 
-    // steer velocity toward the ABSOLUTE-space target
-    const dx = followState.targetX - caliCursor.x;
-    const dy = followState.targetY - caliCursor.y;
+    // steer toward the node
+    const dx = nodeX - caliCursor.x;
+    const dy = nodeY - caliCursor.y;
     const dist = Math.hypot(dx, dy);
-    // adaptive speed: OUTSIDE the circle = catch up faster. INSIDE = drift.
-    const distToMish = caliCursorDistanceToMish();
-    const outside = distToMish > followState.radius;
-    const baseSpd = followState.closeMode ? 180 : 320;
-    const maxSpd = outside ? baseSpd * 2.2 : baseSpd; // travel back briskly, then slow
-    const desiredSpeed = Math.min(maxSpd, dist * (followState.closeMode ? 2.2 : 3.2));
-    const desiredVx = dist > 0.1 ? (dx / dist) * desiredSpeed : 0;
-    const desiredVy = dist > 0.1 ? (dy / dist) * desiredSpeed : 0;
-    // steering blend — gentle
-    const blendPower = followState.closeMode ? 0.001 : 0.0005;
-    const blend = 1 - Math.pow(blendPower, dt / 1000);
+    // high speed cap so she can keep up when mish moves fast, eases as she nears the node
+    const maxSpd = 1000;
+    const desiredSpeed = Math.min(maxSpd, dist * 8);
+    const desiredVx = dist > 0.5 ? (dx / dist) * desiredSpeed : 0;
+    const desiredVy = dist > 0.5 ? (dy / dist) * desiredSpeed : 0;
+    // snappy steering — real-time follow, not drifty
+    const blend = 1 - Math.pow(0.00003, dt / 1000);
     followState.vx += (desiredVx - followState.vx) * blend;
     followState.vy += (desiredVy - followState.vy) * blend;
-    // aggressive drag so momentum doesn't fling her past targets
-    const drag = Math.pow(0.35, dt / 1000); // velocity halves ~every 700ms
+    // drag to prevent overshoot
+    const drag = Math.pow(0.2, dt / 1000);
     followState.vx *= drag;
     followState.vy *= drag;
-    // tremor: none while traveling in from outside, small when settled
-    const tremor = outside ? 0 : (followState.closeMode ? 3 : 6);
-    if (tremor > 0) {
-      followState.vx += (Math.random() - 0.5) * tremor;
-      followState.vy += (Math.random() - 0.5) * tremor;
-    }
-    // hard cap velocity magnitude — no laser-cat sprints
-    const vmag = Math.hypot(followState.vx, followState.vy);
-    if (vmag > maxSpd) {
-      followState.vx = (followState.vx / vmag) * maxSpd;
-      followState.vy = (followState.vy / vmag) * maxSpd;
-    }
-    // if we're stuck at a viewport edge, kill velocity into that edge
-    if (caliCursor.x <= 0 && followState.vx < 0) followState.vx = 0;
-    if (caliCursor.x >= window.innerWidth - 8 && followState.vx > 0) followState.vx = 0;
-    if (caliCursor.y <= 0 && followState.vy < 0) followState.vy = 0;
-    if (caliCursor.y >= window.innerHeight - 8 && followState.vy > 0) followState.vy = 0;
+    // NO tremor. no random noise. she stays put on the node.
 
-    // fade-out last 600ms so she coasts to a rest
+    // fade-out last 600ms so she coasts to rest at end of duration
     const timeLeft = followState.durationMs - elapsed;
     if (timeLeft < 600) {
       const fadeK = timeLeft / 600;
@@ -3555,6 +3504,11 @@ function caliCursorFollow(durationMs, radius) {
     caliCursor.y += followState.vy * (dt / 1000);
     caliCursor.x = Math.max(0, Math.min(window.innerWidth - 8, caliCursor.x));
     caliCursor.y = Math.max(0, Math.min(window.innerHeight - 8, caliCursor.y));
+    // kill velocity into viewport edges
+    if (caliCursor.x <= 0 && followState.vx < 0) followState.vx = 0;
+    if (caliCursor.x >= window.innerWidth - 8 && followState.vx > 0) followState.vx = 0;
+    if (caliCursor.y <= 0 && followState.vy < 0) followState.vy = 0;
+    if (caliCursor.y >= window.innerHeight - 8 && followState.vy > 0) followState.vy = 0;
     updateCaliCursorDom();
     updateCaliCursorTierClass();
 
