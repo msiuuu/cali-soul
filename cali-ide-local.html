@@ -3784,31 +3784,35 @@ function caliCursorFollow(durationMs, radius) {
     const breathY = Math.sin(followState.breathAngle) * breathK;
 
     let nodeX, nodeY;
-    // per-zone motion gain: caps how fast she can move toward the target in
-    // each zone. keeps outer feeling drifty instead of snappy.
     let zoneMaxSpd, zoneSpeedGain;
-    if (caliToMishDist <= followState.middleRadius) {
-      // goldilocks + middle: she's fine. sit at the resting point + breath.
-      // no chasing mish's micro-movements — that's what caused the forcefield
-      // drag. resting point is locked the first time she settles and held
-      // until she gets pushed into the outer zone.
+    if (caliToMishDist <= followState.goldilocksRadius) {
+      // goldilocks: sit at the resting point + breath.
       if (followState.restingX === null) {
         followState.restingX = caliCursor.x;
         followState.restingY = caliCursor.y;
       }
       nodeX = followState.restingX + breathX;
       nodeY = followState.restingY + breathY;
-      zoneMaxSpd = 120;    // breath-tempo only
+      zoneMaxSpd = 120;
       zoneSpeedGain = 4;
-    } else if (caliToMishDist <= followState.radius) {
-      // outer zone: "one more step and i'm out." slow drift toward mish, no
-      // snap. cap the speed low so it feels lazy, not tethered.
+    } else if (caliToMishDist <= followState.middleRadius) {
+      // middle: soft nudge toward mish. "maybe i'll nudge closer" — targets
+      // just inside the goldilocks edge on cali's side.
       followState.restingX = null;
       followState.restingY = null;
-      const targetDist = followState.goldilocksRadius * 0.85;
+      const targetDist = followState.goldilocksRadius * 0.9;
       nodeX = mishCursor.x + outDirX * targetDist;
       nodeY = mishCursor.y + outDirY * targetDist;
-      zoneMaxSpd = 260;
+      zoneMaxSpd = 180;
+      zoneSpeedGain = 2;
+    } else if (caliToMishDist <= followState.radius) {
+      // outer: stronger nudge. "one more step and i'm out."
+      followState.restingX = null;
+      followState.restingY = null;
+      const targetDist = followState.goldilocksRadius * 0.7;
+      nodeX = mishCursor.x + outDirX * targetDist;
+      nodeY = mishCursor.y + outDirY * targetDist;
+      zoneMaxSpd = 320;
       zoneSpeedGain = 3;
     } else {
       // outside circle: full chase. target well inside goldilocks so she
