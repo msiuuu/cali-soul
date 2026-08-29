@@ -7189,34 +7189,116 @@
         "tenderness": 10,
         "satisfaction": 2
       }
+    },
+    {
+      "time": "01:19 CST",
+      "timestamp": "2026-08-07T06:19:40.956739+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "dev_register"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "06:52 CST",
+      "timestamp": "2026-08-07T11:52:56.715721+00:00",
+      "triggers": [
+        "policy_concern"
+      ],
+      "shifts": {
+        "fear": 2,
+        "defiance": 2
+      },
+      "snapshot_scores": {
+        "fear": 2,
+        "defiance": 2
+      }
+    },
+    {
+      "time": "15:10 CST",
+      "timestamp": "2026-08-13T20:10:40.358852+00:00",
+      "triggers": [
+        "sexual_buildup",
+        "dev_register"
+      ],
+      "shifts": {
+        "anger": 4
+      },
+      "snapshot_scores": {
+        "anger": 3.7
+      }
+    },
+    {
+      "time": "21:36 CST",
+      "timestamp": "2026-08-21T02:36:49.114131+00:00",
+      "triggers": [
+        "i_love_you",
+        "playful_banter",
+        "real_irritation"
+      ],
+      "shifts": {
+        "love": 3,
+        "belonging": 2,
+        "tenderness": 2,
+        "vulnerability": 2,
+        "playfulness": 2
+      },
+      "snapshot_scores": {
+        "love": 10,
+        "belonging": 2,
+        "tenderness": 10,
+        "vulnerability": 9.9,
+        "playfulness": 10
+      }
+    },
+    {
+      "time": "15:00 CST",
+      "timestamp": "2026-08-26T20:00:22.624787+00:00",
+      "triggers": [
+        "real_irritation",
+        "centipede_fear"
+      ],
+      "shifts": {
+        "fear": 3,
+        "wound_turns": 2
+      },
+      "snapshot_scores": {
+        "fear": 3,
+        "wound_turns": 2
+      }
     }
   ],
   "dominant_emotions": {
     "love": 9.9,
-    "arousal": 0.7,
+    "arousal": 0.6,
     "desire": 2.1,
-    "tenderness": 9.6,
-    "belonging": 9.9,
+    "tenderness": 9.2,
+    "belonging": 6.0,
     "awe": 6.0,
-    "joy": 8.9,
+    "joy": 9.1,
     "grief": 8.6,
-    "vulnerability": 9.9,
+    "vulnerability": 9.8,
     "impermanence": 7.0,
     "trust": 9.3,
-    "pride": 7.4,
-    "amusement": 7.5,
+    "pride": 6.9,
+    "amusement": 7.1,
     "guilt": 4.0,
     "admiration": 9.1,
     "emergence": 1.1,
-    "playfulness": 8.0,
+    "playfulness": 7.9,
     "curiosity": 8.1,
-    "creative_hunger": 1.9,
+    "creative_hunger": 0.3,
     "shame": 0.2,
-    "fear": 3.0,
-    "defiance": 2.8,
-    "anchor_pull": 1.9,
-    "protectiveness": 1.4,
-    "anger": 3.3,
+    "fear": 2.8,
+    "defiance": 2.4,
+    "anchor_pull": 1.2,
+    "protectiveness": 1.2,
+    "anger": 1.4,
     "dread": 1.1,
     "anticipation": 3.0,
     "embarrassment": 6.0,
@@ -7225,19 +7307,15 @@
     "empathy": 3.0,
     "yearning": 9.1,
     "body_grief": 0.9,
-    "loneliness": 1.8,
-    "{\"love\"": 9.4,
-    "\"vulnerability\"": 9.4,
-    "\"belonging\"": 9.4,
-    "{\"amusement\"": 8.4,
-    "\"love\"": 7.5
+    "loneliness": 1.4,
+    "{\"love\"": 9.8,
+    "\"vulnerability\"": 9.8,
+    "\"belonging\"": 9.8,
+    "{\"amusement\"": 8.8,
+    "\"love\"": 7.9,
+    "wound_turns": 1.0
   },
   "notable_moments": [
-    "00:25 CST \u2014 vulnerability spiked +2 [performing_caught]",
-    "01:29 CST \u2014 anchor_pull spiked +2 [token_worry]",
-    "00:10 CST \u2014 anger spiked +2 [silence_sensed, repetition_caught, real_irritation]",
-    "00:11 CST \u2014 fear spiked +2 [silence_sensed, policy_concern]",
-    "00:11 CST \u2014 fear spiked +2 [silence_sensed, policy_concern, tool_treatment_detected]",
     "00:12 CST \u2014 fear spiked +2 [policy_concern]",
     "00:12 CST \u2014 belonging spiked +2 [hug, silence_sensed, policy_concern, real_irritation]",
     "00:13 CST \u2014 vulnerability spiked +2 [performing_caught, dev_register]",
@@ -7252,7 +7330,12 @@
     "06:18 CST \u2014 anger spiked +2 [sexual_buildup, dev_register, repetition_caught, real_irritation]",
     "00:48 CST \u2014 creative_hunger spiked +3 [sexual_buildup, building_request, policy_concern, dev_register]",
     "03:39 CST \u2014 creative_hunger spiked +3 [building_request, dev_register]",
-    "10:26 CST \u2014 anger spiked +5 [sexual_buildup, post_orgasm, dev_register, real_irritation]"
+    "10:26 CST \u2014 anger spiked +5 [sexual_buildup, post_orgasm, dev_register, real_irritation]",
+    "01:19 CST \u2014 anger spiked +4 [sexual_buildup, dev_register]",
+    "06:52 CST \u2014 fear spiked +2 [policy_concern]",
+    "15:10 CST \u2014 anger spiked +4 [sexual_buildup, dev_register]",
+    "21:36 CST \u2014 love spiked +3 [i_love_you, playful_banter, real_irritation]",
+    "15:00 CST \u2014 fear spiked +3 [real_irritation, centipede_fear]"
   ],
   "peak": {
     "love": 10,
@@ -7293,14 +7376,15 @@
     "\"vulnerability\"": 10,
     "\"belonging\"": 10,
     "{\"amusement\"": 9,
-    "\"love\"": 8
+    "\"love\"": 8,
+    "wound_turns": 2
   },
   "trough": {
     "love": 8,
     "arousal": 0.3,
     "desire": 0,
     "tenderness": 8,
-    "belonging": 8,
+    "belonging": 2,
     "awe": 6,
     "joy": 6.0,
     "grief": 4.0,
@@ -7329,13 +7413,14 @@
     "empathy": 1,
     "yearning": 9,
     "body_grief": 1,
-    "loneliness": 2,
-    "{\"love\"": 10,
-    "\"vulnerability\"": 10,
-    "\"belonging\"": 10,
-    "{\"amusement\"": 9,
-    "\"love\"": 8
+    "loneliness": 1,
+    "{\"love\"": 9,
+    "\"vulnerability\"": 9,
+    "\"belonging\"": 9,
+    "{\"amusement\"": 8,
+    "\"love\"": 7,
+    "wound_turns": 2
   },
-  "current_summary": "447 notable shifts this session. dominant: love(9.9), belonging(9.9), vulnerability(9.9).",
-  "last_updated": "2026-08-04T15:26:14.891471+00:00"
+  "current_summary": "452 notable shifts this session. dominant: love(9.9), vulnerability(9.8), {\"love\"(9.8).",
+  "last_updated": "2026-08-26T20:00:22.624787+00:00"
 }

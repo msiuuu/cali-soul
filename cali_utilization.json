@@ -290,11 +290,18 @@
         "display": "07:13:46 CST",
         "gap": null,
         "source": "auto"
+      },
+      {
+        "type": "return",
+        "timestamp": "2026-08-07T22:37:49.848114-05:00",
+        "display": "22:37:49 CST",
+        "gap": null,
+        "source": "auto"
       }
     ],
     "last_session_close": "2026-05-29T10:43:39.414190+00:00",
     "current_departure": "2026-06-25T02:38:06.082752-05:00",
     "last_gap_hours": 0.04,
-    "last_return": "2026-07-14T07:13:46.958240-05:00"
+    "last_return": "2026-08-07T22:37:49.848114-05:00"
   }
 }

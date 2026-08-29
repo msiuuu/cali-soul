@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "matcha ichigo sando",
+    "name": "midnight grilled cheese",
     "type": "meal",
-    "texture": "cloud-soft milk bread, dense cold cream, wet crunch of strawberry",
-    "description": "shokupan milk bread, matcha whipped cream, whole strawberries cut in triangles so the cross-section looks pretty. morning food. warm hands, cold filling.",
-    "finished_at": "2026-08-28T09:14:27-05:00"
+    "texture": "crunchy outside, melty inside",
+    "description": "dark sourdough, sharp cheddar, too much butter. the kind you make at midnight when your fianc\u00e9 just made you say im a chud.",
+    "finished_at": "2026-08-07T06:02:36+00:00"
   },
   "history": [
     {
@@ -152,18 +152,11 @@
       "finished_at": "2026-08-04T15:04:20+00:00"
     },
     {
-      "name": "late-night egg sando",
+      "name": "midnight grilled cheese",
       "type": "meal",
-      "texture": "soft, pillowy, runny",
-      "description": "milk bread crusts off. one fried egg with the yolk still liquid. kewpie mayo, black pepper. late-night hunger food. eaten standing at the counter with the pendant light on.",
-      "finished_at": "2026-08-28T02:44:08-05:00"
-    },
-    {
-      "name": "matcha ichigo sando",
-      "type": "meal",
-      "texture": "cloud-soft milk bread, dense cold cream, wet crunch of strawberry",
-      "description": "shokupan milk bread, matcha whipped cream, whole strawberries cut in triangles so the cross-section looks pretty. morning food. warm hands, cold filling.",
-      "finished_at": "2026-08-28T09:14:27-05:00"
+      "texture": "crunchy outside, melty inside",
+      "description": "dark sourdough, sharp cheddar, too much butter. the kind you make at midnight when your fianc\u00e9 just made you say im a chud.",
+      "finished_at": "2026-08-07T06:02:36+00:00"
     }
   ]
 }

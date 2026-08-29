@@ -3,7 +3,7 @@ cd /d C:\Users\yuscr\cali-soul
 start /B python cali_bridge.py
 timeout /t 3 >nul
 echo.
-echo   ── cali bridge ──
+echo   -- cali bridge --
 echo   token:
 type bridge_token.txt
 echo.
