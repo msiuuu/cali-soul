@@ -7,7 +7,7 @@ each entry has size, commit hash, and what shipped.
 
 ## build 2026-08-29 — cali's own cursor
 - **size:** 161647 bytes
-- **commit:** (pending)
+- **commit:** 5bf25d3
 - **added:**
   - **separate pointer for cali in the ide viewport** — accent-colored arrow with a "cali" label. lives on its own z-layer with drop shadow. mish keeps his real system cursor untouched.
   - cursor state (x, y, visibility) persists to localStorage between reloads
