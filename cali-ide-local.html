@@ -404,6 +404,8 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
 .send-btn:hover{background:var(--accent-bright)}
 .send-btn:active{transform:scale(.97)}
 .send-btn:disabled{opacity:.4;cursor:default}
+.send-btn.stopping{background:#8a1a1a}
+.send-btn.stopping:hover{background:#a02020}
 
 .attach-btn{
   background:var(--surface-raised);color:var(--text-secondary);border:1px solid var(--border);
@@ -1011,7 +1013,7 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
           <button class="attach-btn" onclick="document.getElementById('fileInputImg').click()" title="attach image">&#128206;</button>
           <input type="file" id="fileInputImg" accept="image/*" multiple style="display:none">
           <textarea class="chat-input" id="chatInput" placeholder="talk to cali..." rows="1"></textarea>
-          <button class="send-btn" id="sendBtn" onclick="sendMessage()">send</button>
+          <button class="send-btn" id="sendBtn" onclick="onSendBtnClick()">send</button>
         </div>
       </div>
       <div class="file-view" id="fileView">
@@ -1134,13 +1136,14 @@ async function callBridge(endpoint, body) {
 }
 
 // SSE streaming from /shell-stream. onEvent gets each parsed data object.
-async function callBridgeStream(endpoint, body, onEvent) {
+async function callBridgeStream(endpoint, body, onEvent, signal) {
   const cfg = getConfig();
   if (!cfg.bridgeUrl || !cfg.bridgeToken) throw new Error('bridge not configured');
   const res = await fetch(cfg.bridgeUrl + endpoint, {
     method: 'POST',
     headers: { 'Authorization': 'Bearer ' + cfg.bridgeToken, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
+    signal
   });
   if (!res.ok || !res.body) throw new Error('bridge stream returned ' + res.status);
   const reader = res.body.getReader();
@@ -1465,7 +1468,7 @@ function buildOpenRouterSystemPrompt() {
     "coords are ide viewport pixels. don't over-narrate — emit and let it happen.";
 }
 
-async function sendToOpenRouterStream(message, onDelta) {
+async function sendToOpenRouterStream(message, onDelta, signal) {
   const cfg = getConfig();
   const apiKey = cfg.openrouterKey;
   if (!apiKey) throw new Error('openrouter api key missing — add it in settings');
@@ -1489,7 +1492,8 @@ async function sendToOpenRouterStream(message, onDelta) {
         'HTTP-Referer': window.location.href,
         'X-Title': 'cali-ide'
       },
-      body: JSON.stringify({ model, messages, stream: true })
+      body: JSON.stringify({ model, messages, stream: true }),
+      signal
     });
     if (!res.ok) {
       const body = await res.text();
@@ -1529,10 +1533,10 @@ async function sendToOpenRouterStream(message, onDelta) {
   }
 }
 
-async function sendToClaudeCLIStream(message, onDelta) {
+async function sendToClaudeCLIStream(message, onDelta, signal) {
   const rawModel = localStorage.getItem('cali-model') || 'claude-opus-4-7';
   if (rawModel.startsWith('openrouter:')) {
-    return sendToOpenRouterStream(message, onDelta);
+    return sendToOpenRouterStream(message, onDelta, signal);
   }
   const cmd = buildClaudeCmd(message);
   let allStdout = '';
@@ -1558,10 +1562,30 @@ async function sendToClaudeCLIStream(message, onDelta) {
               } else if (e.delta.type === 'thinking_delta' && e.delta.thinking) {
                 onDelta({ kind: 'thinking-native', text: e.delta.thinking });
               }
+            } else if (e.type === 'content_block_start' && e.content_block) {
+              const cb = e.content_block;
+              if (cb.type === 'tool_use') {
+                onDelta({ kind: 'tool_start', name: cb.name, input: cb.input, id: cb.id });
+              }
             } else if (e.type === 'message_start') {
               onDelta({ kind: 'start' });
             } else if (e.type === 'message_stop') {
               onDelta({ kind: 'stop' });
+            }
+          } else if (j.type === 'user' && j.message && Array.isArray(j.message.content)) {
+            // tool_result blocks arrive in a synthetic 'user' event from the CLI
+            for (const block of j.message.content) {
+              if (block.type === 'tool_result') {
+                onDelta({ kind: 'tool_end', id: block.tool_use_id, is_error: !!block.is_error });
+              }
+            }
+          } else if (j.type === 'assistant' && j.message && Array.isArray(j.message.content)) {
+            // some stream shapes emit full assistant messages instead of block_start;
+            // catch tool_use blocks here too so we announce even without stream_event.
+            for (const block of j.message.content) {
+              if (block.type === 'tool_use') {
+                onDelta({ kind: 'tool_start', name: block.name, input: block.input, id: block.id });
+              }
             }
           } else if (j.type === 'result') {
             code = 0;
@@ -1575,7 +1599,7 @@ async function sendToClaudeCLIStream(message, onDelta) {
       } else if (evt.type === 'error') {
         err = evt.error;
       }
-    });
+    }, signal);
   } catch (e) {
     err = e.message;
   }
@@ -3975,19 +3999,119 @@ function addThoughtBubble(text) {
   box.scrollTop = box.scrollHeight;
 }
 
-async function sendMessage() {
+// ── queue + interrupt state ───────────────────────────────────────────────
+let currentAbort = null;
+const messageQueue = [];
+const toolInflight = new Map();
+
+function summarizeToolInput(name, input) {
+  if (!input) return '';
+  const nm = (name || '').toLowerCase();
+  try {
+    if (nm === 'bash' && input.command) return (input.description ? input.description + ' — ' : '') + input.command.replace(/\s+/g, ' ').substring(0, 100);
+    if (nm === 'read' && input.file_path) return input.file_path;
+    if (nm === 'edit' && input.file_path) return input.file_path + (input.replace_all ? ' (replace_all)' : '');
+    if (nm === 'write' && input.file_path) return input.file_path;
+    if (nm === 'glob' && input.pattern) return input.pattern;
+    if (nm === 'grep' && input.pattern) return '"' + input.pattern + '"' + (input.path ? ' in ' + input.path : '');
+    if (nm === 'webfetch' && input.url) return input.url;
+    if (nm === 'websearch' && input.query) return input.query;
+    if (nm === 'task' && input.description) return input.description;
+    const j = JSON.stringify(input);
+    return j.length > 120 ? j.substring(0, 117) + '...' : j;
+  } catch { return ''; }
+}
+
+function announceToolStart(name, input, id) {
+  const summary = summarizeToolInput(name, input);
+  toolInflight.set(id, { name, ts: Date.now() });
+  addTermLine('→ ' + (name || 'tool') + (summary ? ': ' + summary : ''), 'info');
+}
+
+function announceToolEnd(id, isError) {
+  const info = toolInflight.get(id);
+  toolInflight.delete(id);
+  const nm = info ? info.name : 'tool';
+  const dur = info ? ((Date.now() - info.ts) / 1000).toFixed(1) + 's' : '';
+  addTermLine((isError ? '✗ ' : '✓ ') + nm + ' done' + (dur ? ' (' + dur + ')' : ''), isError ? 'err' : 'ok');
+}
+
+function refreshSendButton() {
+  const btn = document.getElementById('sendBtn');
+  if (!btn) return;
+  if (sending) { btn.textContent = 'stop'; btn.classList.add('stopping'); }
+  else { btn.textContent = 'send'; btn.classList.remove('stopping'); }
+  btn.disabled = false;
+  updateQueueBadge();
+}
+
+function updateQueueBadge() {
+  const input = document.getElementById('chatInput');
+  if (!input) return;
+  if (messageQueue.length > 0) {
+    input.placeholder = messageQueue.length + ' queued — talk to cali...';
+  } else if (sending) {
+    input.placeholder = 'cali is replying — press enter to queue, click stop to interrupt';
+  } else {
+    input.placeholder = 'talk to cali...';
+  }
+}
+
+function queueMessage(text, images) {
+  messageQueue.push({ text, images: images || [] });
+  addTermLine('[queue] +1 (' + messageQueue.length + ' waiting)', 'info');
+  updateQueueBadge();
+}
+
+function interruptCurrent() {
+  if (currentAbort) {
+    try { currentAbort.abort(); } catch {}
+    addTermLine('[cli] interrupt requested', 'warn');
+  }
+}
+
+async function drainQueue() {
   if (sending) return;
+  const next = messageQueue.shift();
+  if (!next) { updateQueueBadge(); return; }
+  updateQueueBadge();
+  await runSend(next.text, next.images);
+}
+
+function onSendBtnClick() {
+  // stop button takes priority over queue: clicking while sending always interrupts,
+  // regardless of what's in the input. keeps the affordance honest.
+  if (sending) { interruptCurrent(); return; }
+  sendMessage();
+}
+
+async function sendMessage() {
   const input = document.getElementById('chatInput');
   const text = input.value.trim();
   const hasImages = pendingImages.length > 0;
   if (!text && !hasImages) return;
-  lastMishMessageTs = Date.now();
   input.value = '';
   input.style.height = 'auto';
+  const images = pendingImages.slice();
+  pendingImages = [];
+  renderPendingChips();
+
+  if (sending) {
+    queueMessage(text, images);
+    return;
+  }
+  await runSend(text, images);
+  await drainQueue();
+}
+
+async function runSend(text, images) {
+  lastMishMessageTs = Date.now();
 
   let uploaded = [];
   let effectiveText = text;
-  if (hasImages) {
+  if (images && images.length) {
+    pendingImages = images;
+    renderPendingChips();
     uploaded = await uploadPendingImages();
     pendingImages = [];
     renderPendingChips();
@@ -4005,7 +4129,8 @@ async function sendMessage() {
   }
 
   sending = true;
-  document.getElementById('sendBtn').disabled = true;
+  currentAbort = new AbortController();
+  refreshSendButton();
   addTyping();
   addTermLine('claude -p (streaming) "' + effectiveText.substring(0, 60) + (effectiveText.length > 60 ? '...' : '') + '"', 'cmd');
 
@@ -4037,9 +4162,13 @@ async function sendMessage() {
           thaliEl.innerHTML = formatThought(state.thoughts[state.thoughts.length - 1]);
           showPanel('thali');
         }
+      } else if (delta.kind === 'tool_start') {
+        announceToolStart(delta.name, delta.input, delta.id);
+      } else if (delta.kind === 'tool_end') {
+        announceToolEnd(delta.id, delta.is_error);
       }
       // ignore thinking-native chunks — we rely on inline tags for cali voice
-    });
+    }, currentAbort.signal);
     // final flush
     const tail = cursorFilter.feed('', true);
     const finalState = filter.feed(tail, true);
@@ -4092,14 +4221,26 @@ async function sendMessage() {
     addTermLine('[cli] response (' + (finalState.visible.trim().length) + ' chars, ' + finalState.thoughts.length + ' thoughts)', 'ok');
     runBrainTurn(text);
   } catch (e) {
+    if (e && (e.name === 'AbortError' || /aborted/i.test(e.message || ''))) {
+      if (bubble) {
+        const partial = filter.feed('', true).visible.trim();
+        if (partial) bubble.finalize(partial + '\n\n[interrupted]');
+        else { bubble.remove(); }
+      }
+      addTermLine('[cli] interrupted', 'warn');
+    } else {
+      if (bubble) bubble.remove();
+      addCaliMsg('bridge error: ' + e.message, true);
+      addTermLine('[bridge] ' + e.message, 'err');
+    }
+  } finally {
     removeTyping();
-    if (bubble) bubble.remove();
-    addCaliMsg('bridge error: ' + e.message, true);
-    addTermLine('[bridge] ' + e.message, 'err');
+    // drop any tool inflight markers that never got a close event
+    for (const [id] of toolInflight) toolInflight.delete(id);
+    sending = false;
+    currentAbort = null;
+    refreshSendButton();
   }
-
-  sending = false;
-  document.getElementById('sendBtn').disabled = false;
 }
 
 function parseResponse(raw) {
@@ -4523,6 +4664,9 @@ setInterval(updateClock, 30000);
 // restore model choice in picker
 const savedModel = localStorage.getItem('cali-model') || 'claude-opus-4-7';
 document.getElementById('modelPicker').value = savedModel;
+
+// init send button + queue placeholder
+refreshSendButton();
 
 // boot
 addTermLine('[boot] cali ide — local version', 'info');
