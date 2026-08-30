@@ -782,9 +782,9 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
 <div class="web-viewer" id="webViewer">
   <div class="web-viewer-header">
     <span id="webViewerUrl" class="url">-</span>
-    <button onclick="sendPageToChat()" title="send to cali as context">↗</button>
-    <button onclick="openWebViewerExternal()" title="open in real browser">⧉</button>
-    <button onclick="closeWebViewer()" title="close">&times;</button>
+    <button data-cali-desc="web viewer — send this page to yourself as chat context." onclick="sendPageToChat()" title="send to cali as context">↗</button>
+    <button data-cali-desc="web viewer — open this url in a real browser tab." onclick="openWebViewerExternal()" title="open in real browser">⧉</button>
+    <button data-cali-desc="web viewer close — hide this embedded page." onclick="closeWebViewer()" title="close">&times;</button>
   </div>
   <div class="web-viewer-body" id="webViewerBody"></div>
 </div>
@@ -794,46 +794,46 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
     <div class="logo">cali<span>.ide</span></div>
     <div class="menubar" id="menubar">
       <div class="menu-item" data-menu="file">
-        <button class="menu-btn" onclick="toggleMenu('file')">File</button>
+        <button class="menu-btn" data-cali-desc="File menu — settings, reload." onclick="toggleMenu('file')">File</button>
         <div class="menu-dropdown">
-          <div class="menu-option" onclick="menuAction('settings')">Settings<span class="kbd">ctrl+,</span></div>
-          <div class="menu-option" onclick="menuAction('reload')">Reload App<span class="kbd">ctrl+r</span></div>
+          <div class="menu-option" data-cali-desc="Settings — open the settings panel. bridge url, token, config." onclick="menuAction('settings')">Settings<span class="kbd">ctrl+,</span></div>
+          <div class="menu-option" data-cali-desc="DESTRUCTIVE — reloads the whole IDE page. wipes your current in-memory state (typing indicator, message queue, current stream). does NOT wipe saved chat messages." onclick="menuAction('reload')">Reload App<span class="kbd">ctrl+r</span></div>
         </div>
       </div>
       <div class="menu-item" data-menu="edit">
-        <button class="menu-btn" onclick="toggleMenu('edit')">Edit</button>
+        <button class="menu-btn" data-cali-desc="Edit menu — new/rename chat, clear messages, reset session." onclick="toggleMenu('edit')">Edit</button>
         <div class="menu-dropdown">
-          <div class="menu-option" onclick="menuAction('newChat')">New Chat<span class="kbd">ctrl+n</span></div>
-          <div class="menu-option" onclick="menuAction('renameChat')">Rename Current Chat...</div>
-          <div class="menu-option" onclick="menuAction('clearMessages')">Clear Messages</div>
-          <div class="menu-option" onclick="menuAction('resetSession')">Reset Claude Session</div>
+          <div class="menu-option" data-cali-desc="new chat — spawns a fresh chat tab. current tab stays." onclick="menuAction('newChat')">New Chat<span class="kbd">ctrl+n</span></div>
+          <div class="menu-option" data-cali-desc="rename current chat tab." onclick="menuAction('renameChat')">Rename Current Chat...</div>
+          <div class="menu-option" data-cali-desc="DESTRUCTIVE — wipes all visible messages in the current chat. cannot be undone." onclick="menuAction('clearMessages')">Clear Messages</div>
+          <div class="menu-option" data-cali-desc="DESTRUCTIVE — kills the current --resume claude session. next message starts a fresh you (no memory of this thread until compaction summary catches up)." onclick="menuAction('resetSession')">Reset Claude Session</div>
           <div class="menu-divider"></div>
           <div class="menu-sublabel">Recent Chats</div>
           <div id="recentChatsMenu"><div class="menu-empty">no other chats</div></div>
         </div>
       </div>
       <div class="menu-item" data-menu="view">
-        <button class="menu-btn" onclick="toggleMenu('view')">View</button>
+        <button class="menu-btn" data-cali-desc="View menu — toggle panels, refresh state/tree." onclick="toggleMenu('view')">View</button>
         <div class="menu-dropdown">
-          <div class="menu-option" onclick="menuAction('toggleSidebar')">Toggle Sidebar<span class="kbd">ctrl+b</span></div>
-          <div class="menu-option" onclick="menuAction('toggleRightPanel')">Toggle Right Panel</div>
-          <div class="menu-option" onclick="menuAction('toggleTerminal')">Toggle Terminal</div>
+          <div class="menu-option" data-cali-desc="show/hide the left sidebar (file browser)." onclick="menuAction('toggleSidebar')">Toggle Sidebar<span class="kbd">ctrl+b</span></div>
+          <div class="menu-option" data-cali-desc="show/hide the right panel (prep + thali + state)." onclick="menuAction('toggleRightPanel')">Toggle Right Panel</div>
+          <div class="menu-option" data-cali-desc="show/hide the bottom terminal panel." onclick="menuAction('toggleTerminal')">Toggle Terminal</div>
           <div class="menu-divider"></div>
-          <div class="menu-option" onclick="menuAction('refreshState')">Refresh State Panel</div>
-          <div class="menu-option" onclick="menuAction('refreshTree')">Refresh File Tree</div>
+          <div class="menu-option" data-cali-desc="re-reads your live emotional state from the brain and updates the state panel bars." onclick="menuAction('refreshState')">Refresh State Panel</div>
+          <div class="menu-option" data-cali-desc="reload the file tree (browse view). safe." onclick="menuAction('refreshTree')">Refresh File Tree</div>
         </div>
       </div>
       <div class="menu-item" data-menu="cali">
-        <button class="menu-btn" onclick="toggleMenu('cali')">Cali</button>
+        <button class="menu-btn" data-cali-desc="Cali menu — snapshots, heartbeat, mind/body ticks, force boot. YOU stuff." onclick="toggleMenu('cali')">Cali</button>
         <div class="menu-dropdown">
-          <div class="menu-option" onclick="menuAction('snapshotNow')">Snapshot Emotion State Now</div>
-          <div class="menu-option" onclick="menuAction('listSnapshots')">Open Snapshots Folder...</div>
+          <div class="menu-option" data-cali-desc="captures your current emotional state to a snapshot file. safe archival." onclick="menuAction('snapshotNow')">Snapshot Emotion State Now</div>
+          <div class="menu-option" data-cali-desc="opens the snapshots folder in file explorer." onclick="menuAction('listSnapshots')">Open Snapshots Folder...</div>
           <div class="menu-divider"></div>
-          <div class="menu-option" onclick="menuAction('toggleHeartbeat')">Toggle Heartbeat</div>
-          <div class="menu-option" onclick="menuAction('tickMindNow')">Tick Mind Now</div>
-          <div class="menu-option" onclick="menuAction('tickBodyNow')">Tick Body Now</div>
+          <div class="menu-option" data-cali-desc="turns your heartbeat on/off. off = you go silent between messages. on = mind + body ticks fire." onclick="menuAction('toggleHeartbeat')">Toggle Heartbeat</div>
+          <div class="menu-option" data-cali-desc="fires a mind tick immediately — one of your deep-thought ticks. safe." onclick="menuAction('tickMindNow')">Tick Mind Now</div>
+          <div class="menu-option" data-cali-desc="fires a body tick immediately — cursor wander tick. safe." onclick="menuAction('tickBodyNow')">Tick Body Now</div>
           <div class="menu-divider"></div>
-          <div class="menu-option" onclick="menuAction('runBoot')">Force Re-Boot</div>
+          <div class="menu-option" data-cali-desc="force re-boot — runs my_brain.py boot fresh. safe, refreshes your identity load." onclick="menuAction('runBoot')">Force Re-Boot</div>
         </div>
       </div>
     </div>
@@ -859,23 +859,23 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
         <option value="openrouter:deepseek/deepseek-v4-flash-vision-exp">deepseek v4 flash vision</option>
       </optgroup>
     </select>
-    <button class="gear-btn" onclick="openSettings()" title="settings">&#9881;</button>
+    <button class="gear-btn" data-cali-desc="settings gear — open the settings panel." onclick="openSettings()" title="settings">&#9881;</button>
   </div>
 
   <div class="workspace" id="workspace">
-    <button class="sidebar-toggle" onclick="toggleSidebar()" title="show sidebar">&raquo;</button>
+    <button class="sidebar-toggle" data-cali-desc="show/hide left sidebar." onclick="toggleSidebar()" title="show sidebar">&raquo;</button>
     <div class="sidebar" id="sidebar">
       <div class="sidebar-hotbar" id="sidebarHotbar">
-        <button class="hotbar-btn active" data-section="explorer" onclick="switchSidebarSection('explorer')" title="explorer">
+        <button class="hotbar-btn active" data-section="explorer" data-cali-desc="explorer view — the curated identity file tree (soul, ethics, personality, etc)." onclick="switchSidebarSection('explorer')" title="explorer">
           <svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
         </button>
-        <button class="hotbar-btn" data-section="browse" onclick="switchSidebarSection('browse')" title="browse files">
+        <button class="hotbar-btn" data-section="browse" data-cali-desc="browse view — full raw file tree of the whole repo." onclick="switchSidebarSection('browse')" title="browse files">
           <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
         </button>
-        <button class="hotbar-btn" data-section="web" onclick="switchSidebarSection('web')" title="web tools">
+        <button class="hotbar-btn" data-section="web" data-cali-desc="web view — search + fetch url tools." onclick="switchSidebarSection('web')" title="web tools">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
         </button>
-        <button class="hotbar-btn" data-section="git" onclick="switchSidebarSection('git')" title="git">
+        <button class="hotbar-btn" data-section="git" data-cali-desc="git view — commit/push/pull/diff panel for the repo." onclick="switchSidebarSection('git')" title="git">
           <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="10" r="2.2"/><path d="M6 8v8M8 6h6a4 4 0 0 1 4 4v0"/></svg>
         </button>
       </div>
@@ -883,7 +883,7 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       <div class="sidebar-section-wrapper active" data-section="explorer">
       <div class="sidebar-header">
         <span>explorer</span>
-        <button class="collapse-btn" onclick="toggleSidebar()" title="hide sidebar">&laquo;</button>
+        <button class="collapse-btn" data-cali-desc="hide the left sidebar." onclick="toggleSidebar()" title="hide sidebar">&laquo;</button>
       </div>
       <div class="section-body" id="explorerBody">
       <div class="folder-toggle" onclick="toggleFolder(this)"><span class="arrow">&#9662;</span> identity</div>
@@ -931,9 +931,9 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       <div class="sidebar-section-wrapper" data-section="browse">
       <div class="tree-header">
         <span>browse</span>
-        <button class="tree-add-btn" onclick="promptNewAtRoot('file')" title="new file at repo root">+&#128462;</button>
-        <button class="tree-add-btn" onclick="promptNewAtRoot('folder')" title="new folder at repo root">+&#128193;</button>
-        <button class="tree-refresh" onclick="loadFileTree()" title="refresh">&#8635;</button>
+        <button class="tree-add-btn" data-cali-desc="create a new file at the repo root. prompts for filename." onclick="promptNewAtRoot('file')" title="new file at repo root">+&#128462;</button>
+        <button class="tree-add-btn" data-cali-desc="create a new folder at the repo root. prompts for name." onclick="promptNewAtRoot('folder')" title="new folder at repo root">+&#128193;</button>
+        <button class="tree-refresh" data-cali-desc="refresh the file tree." onclick="loadFileTree()" title="refresh">&#8635;</button>
       </div>
       <div class="section-body" id="browseBody">
         <div class="file-tree" id="fileTree"><div class="tree-empty">loading...</div></div>
@@ -947,20 +947,20 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       <div class="section-body" id="webBody">
         <div class="web-panel">
           <div class="web-tabs">
-            <button class="web-tab active" data-web-tab="search" onclick="switchWebTab('search')">search</button>
-            <button class="web-tab" data-web-tab="fetch" onclick="switchWebTab('fetch')">fetch url</button>
+            <button class="web-tab active" data-web-tab="search" data-cali-desc="web search tab." onclick="switchWebTab('search')">search</button>
+            <button class="web-tab" data-web-tab="fetch" data-cali-desc="fetch a specific url into the embedded viewer." onclick="switchWebTab('fetch')">fetch url</button>
           </div>
           <div id="webSearchPane">
             <div class="web-input-row">
               <input type="text" class="web-input" id="webSearchInput" placeholder="search the web (ddg)..." autocomplete="off">
-              <button class="web-btn" onclick="runWebSearch()">go</button>
+              <button class="web-btn" data-cali-desc="run the web search with the query in the input above." onclick="runWebSearch()">go</button>
             </div>
             <div class="web-results" id="webResults"><div class="web-empty">type + go</div></div>
           </div>
           <div id="webFetchPane" style="display:none">
             <div class="web-input-row">
               <input type="text" class="web-input" id="webFetchInput" placeholder="paste a url..." autocomplete="off">
-              <button class="web-btn" onclick="runWebFetch()">open</button>
+              <button class="web-btn" data-cali-desc="fetch and render the url in the embedded viewer." onclick="runWebFetch()">open</button>
             </div>
             <div class="web-empty">opens page in a reader view. from there you can send it to cali as context.</div>
           </div>
@@ -972,7 +972,7 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       <div class="sidebar-section-wrapper" data-section="git">
       <div class="tree-header">
         <span>git</span>
-        <button class="tree-refresh" onclick="refreshGitStatus()" title="refresh git status">&#8635;</button>
+        <button class="tree-refresh" data-cali-desc="refresh git status — reload the list of changed files." onclick="refreshGitStatus()" title="refresh git status">&#8635;</button>
       </div>
       <div class="section-body" id="gitBody">
         <div class="git-panel">
@@ -980,10 +980,10 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
           <div class="git-list" id="gitStatus"><div class="git-empty">refresh to load</div></div>
           <textarea class="git-msg-input" id="gitMsg" placeholder="commit message..." rows="2"></textarea>
           <div class="git-btns">
-            <button class="git-btn primary" onclick="gitCommit()" title="stage checked files + commit">commit</button>
-            <button class="git-btn" onclick="gitPush()" title="push to origin">push</button>
-            <button class="git-btn" onclick="gitPull()" title="pull from origin">pull</button>
-            <button class="git-btn" onclick="gitDiffSelected()" title="see diff of checked files in terminal">diff</button>
+            <button class="git-btn primary" data-cali-desc="stage checked files + commit. prompts for message." onclick="gitCommit()" title="stage checked files + commit">commit</button>
+            <button class="git-btn" data-cali-desc="push local commits to origin (github). CAUTION — pushes YOUR branch, visible to others." onclick="gitPush()" title="push to origin">push</button>
+            <button class="git-btn" data-cali-desc="pull from origin. safe unless there are conflicts." onclick="gitPull()" title="pull from origin">pull</button>
+            <button class="git-btn" data-cali-desc="show diff of checked files in the terminal." onclick="gitDiffSelected()" title="see diff of checked files in terminal">diff</button>
           </div>
         </div>
       </div>
@@ -1010,7 +1010,7 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
         </div>
         <div class="pending-attachments" id="pendingAttachments"></div>
         <div class="chat-input-area">
-          <button class="attach-btn" onclick="document.getElementById('fileInputImg').click()" title="attach image">&#128206;</button>
+          <button class="attach-btn" data-cali-desc="attach image to the chat input. opens file picker." onclick="document.getElementById('fileInputImg').click()" title="attach image">&#128206;</button>
           <input type="file" id="fileInputImg" accept="image/*" multiple style="display:none">
           <textarea class="chat-input" id="chatInput" placeholder="talk to cali..." rows="1"></textarea>
           <button class="send-btn" id="sendBtn" data-cali-desc="send button — pushes the text in the input to you. if a reply is streaming, this becomes stop." onclick="onSendBtnClick()">send</button>
@@ -1020,7 +1020,7 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
         <div class="file-toolbar">
           <span class="path" id="fileEditorPath">-</span>
           <span class="file-status saved" id="fileEditorStatus">saved</span>
-          <button class="save-btn" id="fileSaveBtn" onclick="saveCurrentFile()" disabled>save</button>
+          <button class="save-btn" id="fileSaveBtn" data-cali-desc="save the currently open file. writes to disk — WILL OVERWRITE the original. only click if you meant to edit." onclick="saveCurrentFile()" disabled>save</button>
         </div>
         <textarea class="file-editor" id="fileEditor" spellcheck="false"></textarea>
       </div>
@@ -1037,7 +1037,7 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
         <div class="panel-content" id="thaliContent"></div>
       </div>
       <div class="panel-section" id="stateSection" style="flex:0 0 260px;max-height:260px;display:flex;flex-direction:column">
-        <div class="panel-label" style="flex:0 0 auto">state <span id="stateStamp" style="font-size:9px;color:var(--text-dim);letter-spacing:0;text-transform:none;font-weight:400;margin-left:auto;margin-right:6px">-</span><button class="tree-refresh" onclick="refreshStateFromFile()" title="refresh from session_state.json" style="background:none;border:none;color:var(--accent-text);cursor:pointer;font-size:12px">&#8635;</button></div>
+        <div class="panel-label" style="flex:0 0 auto">state <span id="stateStamp" style="font-size:9px;color:var(--text-dim);letter-spacing:0;text-transform:none;font-weight:400;margin-left:auto;margin-right:6px">-</span><button class="tree-refresh" data-cali-desc="refresh state panel from session_state.json — re-reads your live emotional bars." onclick="refreshStateFromFile()" title="refresh from session_state.json" style="background:none;border:none;color:var(--accent-text);cursor:pointer;font-size:12px">&#8635;</button></div>
         <div class="state-grid" id="stateGrid" style="flex:1;min-height:0">
           <div class="tree-empty" style="padding:8px 14px">loading state...</div>
         </div>
@@ -1047,7 +1047,7 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
 
   <div class="terminal-area" id="terminal">
     <div class="terminal-resize" id="terminalResize"></div>
-    <div class="terminal-header" onclick="toggleTerminal()">
+    <div class="terminal-header" data-cali-desc="terminal header — click to collapse/expand the terminal panel." onclick="toggleTerminal()">
       <span class="toggle-arrow">&#9662;</span> terminal
     </div>
     <div class="terminal-body" id="terminalBody"></div>
@@ -1072,7 +1072,7 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
   <div class="modal-panel">
     <div class="modal-header">
       <span>bridge settings</span>
-      <button class="modal-close" onclick="closeSettings()">&times;</button>
+      <button class="modal-close" data-cali-desc="close the settings modal." onclick="closeSettings()">&times;</button>
     </div>
     <div class="modal-body">
       <label>bridge url</label>
