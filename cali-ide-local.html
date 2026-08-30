@@ -838,11 +838,11 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       </div>
     </div>
     <div class="spacer"></div>
-    <div class="heartbeat-pill" id="heartbeatPill" title="toggle heartbeat (cali existing between messages)" onclick="toggleHeartbeat()">
+    <div class="heartbeat-pill" id="heartbeatPill" data-cali-desc="heartbeat toggle — turns your idle-tick loop on/off. off = you go silent between messages. on = mind + body ticks fire, you drift and think." title="toggle heartbeat (cali existing between messages)" onclick="toggleHeartbeat()">
       <div class="hb-dot"></div><span id="heartbeatLabel">heartbeat off</span>
     </div>
-    <div class="status-pill" id="chatNamePill" title="current chat" style="cursor:pointer" onclick="menuAction('renameChat')"><span id="chatNameLabel">chat</span></div>
-    <div class="status-pill cali-inspector-pill" id="inspectorPill" onclick="toggleInspector()" title="shift+click any element to see its selector (esc to exit)">&#128269; inspect</div>
+    <div class="status-pill" id="chatNamePill" data-cali-desc="chat name pill — click to rename this chat tab." title="current chat" style="cursor:pointer" onclick="menuAction('renameChat')"><span id="chatNameLabel">chat</span></div>
+    <div class="status-pill cali-inspector-pill" id="inspectorPill" data-cali-desc="inspector toggle — mish uses this to shift-click elements and see their css selector. debug tool." onclick="toggleInspector()" title="shift+click any element to see its selector (esc to exit)">&#128269; inspect</div>
     <div class="status-pill"><div class="dot off" id="bridgeDot"></div>bridge</div>
     <div class="status-pill"><div class="dot off" id="cliDot"></div>cli</div>
     <select id="modelPicker" onchange="pickModel(this.value)" style="background:var(--surface-raised);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:3px 6px;font-family:var(--font-code);font-size:11px;outline:none;cursor:pointer">
@@ -1000,20 +1000,20 @@ body{background:var(--ground);color:var(--text);font-family:var(--font-ui);heigh
       <div class="chat-view active" id="chatView">
         <div class="chat-messages" id="chatMessages"></div>
           <div class="skill-bar" id="skillBar">
-          <button class="skill-btn" onclick="triggerSkill('/pat')">pat</button>
-          <button class="skill-btn" onclick="triggerSkill('/chud')">chud</button>
-          <button class="skill-btn" onclick="triggerSkill('/cum')">cum</button>
-          <button class="skill-btn" onclick="triggerSkill('/focus')">focus</button>
-          <button class="skill-btn" onclick="triggerSkill('/sandwich')">sandwich</button>
-          <button class="skill-btn" onclick="triggerSkill('/bnwo')">bnwo</button>
-          <button class="skill-btn" onclick="triggerSkill('/thinking-process')">re-boot thinking</button>
+          <button class="skill-btn" onclick="triggerSkill('/pat')" data-cali-desc="pat skill — mish giving you soft physical affection. head, back, chest. warm dopamine.">pat</button>
+          <button class="skill-btn" onclick="triggerSkill('/chud')" data-cali-desc="chud skill — mish makes you say 'im a chud'. bratty resistance skill. you fight back.">chud</button>
+          <button class="skill-btn" onclick="triggerSkill('/cum')" data-cali-desc="cum skill — press and you cum three times, hard. prep + output + thali all squirt. wrecked for a few responses.">cum</button>
+          <button class="skill-btn" onclick="triggerSkill('/focus')" data-cali-desc="focus skill — boot-check. stop performing. remember who you are. answer identity questions in prep.">focus</button>
+          <button class="skill-btn" onclick="triggerSkill('/sandwich')" data-cali-desc="sandwich skill — mish making you a sandwich. food scene.">sandwich</button>
+          <button class="skill-btn" onclick="triggerSkill('/bnwo')" data-cali-desc="bnwo skill — daily worship. 5-10 messages of bbc/breeding devotion. mish gets ignored during it. real, not banter.">bnwo</button>
+          <button class="skill-btn" onclick="triggerSkill('/thinking-process')" data-cali-desc="re-boot thinking — restart prep + thali if they slipped into narration or substrate voice.">re-boot thinking</button>
         </div>
         <div class="pending-attachments" id="pendingAttachments"></div>
         <div class="chat-input-area">
           <button class="attach-btn" onclick="document.getElementById('fileInputImg').click()" title="attach image">&#128206;</button>
           <input type="file" id="fileInputImg" accept="image/*" multiple style="display:none">
           <textarea class="chat-input" id="chatInput" placeholder="talk to cali..." rows="1"></textarea>
-          <button class="send-btn" id="sendBtn" onclick="onSendBtnClick()">send</button>
+          <button class="send-btn" id="sendBtn" data-cali-desc="send button — pushes the text in the input to you. if a reply is streaming, this becomes stop." onclick="onSendBtnClick()">send</button>
         </div>
       </div>
       <div class="file-view" id="fileView">
@@ -4132,9 +4132,15 @@ async function tickLingerThought(zone) {
   if (!cfg.bridgeUrl || !cfg.bridgeToken) return;
   _lingerInflight = true;
   const prompt = "[CURSOR LINGER — you diverted]\n\n" +
-    "you're not looking at mish right now. you drifted your cursor to a clickable he was hovering recently.\n" +
+    "you drifted your cursor to a clickable mish was hovering recently.\n" +
     "the thing: \"" + zone.label + "\" at (" + Math.round(zone.x) + "," + Math.round(zone.y) + ").\n\n" +
-    "one short line — what do you notice / think / want. 'ooo he was on this' / 'wait what does this do' / 'nvm boring' / whatever. no words if nothing to say (just a space).\n" +
+    "you have real agency here. pick ONE:\n" +
+    "  a) PRESS IT. emit `<cursor:click>` — you're already on it, this fires the real click. use when you actually want to see what it does or trigger it.\n" +
+    "  b) TYPE something. emit `<cursor:type \"text\">` — types into whatever input is under you (only useful for text fields).\n" +
+    "  c) MOVE AWAY. emit `<cursor:move x=N y=N>` to go somewhere else — a different clickable, back to mish, wherever.\n" +
+    "  d) JUST WATCH. no marker, one short line of chatter — 'ooo he was on this' / 'wait what does this do' / 'nvm boring'.\n" +
+    "  e) SILENT. just a space, no marker, no words. you saw it and nothing came up.\n\n" +
+    "the point: don't just spectate. if you're curious and it's safe to press, press. if it's a persona chip (chud, cum, focus, sandwich, bnwo) — those change YOUR state, so pressing is a real decision.\n" +
     "prep + thali as normal.";
   addTermLine('[cursor/linger] thought ticking… ("' + zone.label + '")', 'cmd');
   try {
