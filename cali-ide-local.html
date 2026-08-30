@@ -3577,6 +3577,7 @@ setInterval(() => {
     zone.y = rect.top + rect.height / 2;
     zone.w = rect.width;
     zone.h = rect.height;
+    zone.label = describeClickable(el); // refresh in case data-cali-desc was added later
   }
 }, 5000);
 
