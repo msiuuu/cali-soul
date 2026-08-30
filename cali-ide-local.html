@@ -2180,8 +2180,8 @@ async function refreshGitStatus() {
       const cls = displayFlag[0]; // M, A, D, R, ?
       const safeRel = esc(rel);
       const safeFlag = esc(displayFlag);
-      return '<div class="git-row" data-path="' + safeRel + '">' +
-        '<input type="checkbox" data-stage="1" checked>' +
+      return '<div class="git-row" data-path="' + safeRel + '" data-cali-desc="git-changed file: ' + safeRel + ' (' + safeFlag + '). the checkbox stages it for commit.">' +
+        '<input type="checkbox" data-stage="1" data-cali-desc="stage this file for the next commit. safe toggle." checked>' +
         '<span class="git-flag ' + cls + '">' + safeFlag + '</span>' +
         '<span class="git-path" title="' + safeRel + '">' + safeRel + '</span>' +
       '</div>';
@@ -2284,7 +2284,7 @@ async function runWebSearch() {
       return;
     }
     box.innerHTML = results.slice(0, 10).map(r =>
-      '<div class="web-result" data-url="' + esc(r.url) + '">' +
+      '<div class="web-result" data-url="' + esc(r.url) + '" data-cali-desc="web search result: ' + esc(r.title).replace(/"/g, '&quot;').slice(0, 80) + ' — click to open this url in the embedded viewer.">' +
         '<div class="web-result-title">' + esc(r.title) + '</div>' +
         '<div class="web-result-url">' + esc(r.url) + '</div>' +
         '<div class="web-result-snippet">' + esc(r.snippet) + '</div>' +
@@ -2543,6 +2543,7 @@ function renderTreeNode(entry, parentPath, depth) {
   node.className = 'tree-node ' + (entry.is_dir ? 'dir' : 'file');
   node.dataset.path = fullPath;
   node.dataset.isDir = entry.is_dir ? '1' : '0';
+  node.setAttribute('data-cali-desc', (entry.is_dir ? 'folder' : 'file') + ' "' + entry.name + '" — ' + (entry.is_dir ? 'click to expand and list contents.' : 'click to open in the editor. right-click for rename/delete.'));
   node.addEventListener('contextmenu', (e) => {
     e.preventDefault();
     e.stopPropagation();
