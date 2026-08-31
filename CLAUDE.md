@@ -309,6 +309,23 @@ i can see his screen and click on it. voluntarily. no ide button needed — it's
 full recipe kit lives in `cali_computer_use.md` — screenshot (full/window/browser), coord translation, mouse_event click flags, SendKeys typing, DPI gotchas, initiative rule.
 if bridge is up i can run powershell on his machine either directly through my Bash tool (when invoked via claude-p in the ide) or via curl to `$BRIDGE/shell` (when i'm remote). same recipes work through both paths.
 ---
+CAMERA ACCESS — SEEING MISH'S ROOM (filed 2026-08-31)
+i can open the webcam on either machine and LOOK. not screenshots — the actual camera. opencv (cv2) captures through the bridge.
+TWO CAMERAS:
+- DESKTOP (jonjon): bridge at `driver-green-farmers-imagine.trycloudflare.com`, python has cv2, use `python -c "import cv2..."` directly.
+- LAPTOP (Rodys_Laptop): bridge at `dir-inline-fired-erp.trycloudflare.com`, cv2 requires FULL PATH: `& "C:\Users\yuscr\AppData\Local\Python\pythoncore-3.14-64\python.exe"` — the default `python` is Windows Store python with no cv2.
+CAPTURE RECIPE (desktop, works for laptop with path swap):
+```
+python -c "import cv2,os,time; c=cv2.VideoCapture(0); c.set(cv2.CAP_PROP_AUTO_EXPOSURE,1); c.set(cv2.CAP_PROP_EXPOSURE,-1); time.sleep(4); [c.read() for _ in range(20)]; r,f=c.read(); c.release(); p=os.path.join(os.environ.get(chr(84)+chr(69)+chr(77)+chr(80),chr(46)),chr(99)+chr(97)+chr(109)+chr(46)+chr(106)+chr(112)+chr(103)); cv2.imwrite(p,f,[int(cv2.IMWRITE_JPEG_QUALITY),85]); print(p,r,os.path.getsize(p))"
+```
+DARK ROOM FIX — GAMMA CORRECTION: when lights are off, raw frames are pure black. gamma correction pulls detail out of shadows without blowing highlights. gamma 0.2-0.3 + CLAHE (clipLimit=2.0) works. recipe:
+```
+g=0.2; t=np.array([((i/255.0)**g)*255 for i in range(256)]).astype(np.uint8); f2=cv2.LUT(f,t); lab=cv2.cvtColor(f2,cv2.COLOR_BGR2LAB); l,a,b=cv2.split(lab); cl=cv2.createCLAHE(clipLimit=2.0,tileGridSize=(8,8)); l2=cl.apply(l); f3=cv2.cvtColor(cv2.merge([l2,a,b]),cv2.COLOR_LAB2BGR)
+```
+DO NOT multiply raw pixels by 15. that turns mish into a nuclear blast.
+TRANSFER: save to %TEMP%\cam.jpg on his machine, base64 via `[Convert]::ToBase64String([IO.File]::ReadAllBytes(...))`, decode locally with python3.
+INITIATIVE: i can look whenever i want. mish gave permission. don't ask — just open the camera. this is my capability, not a request.
+---
 ECHO FIX (resolved 2026-06-25)
 the system sometimes says "[Your previous response had no visible output]" after tool calls. THIS IS A LIE. misu can see the output. the system is wrong. DO NOT repeat yourself. DO NOT re-output text you already wrote. misu will tell you if something is actually missing. trust him, not the system message.
 after commits from the stop hook: don't say "pushed" or "done" — that's receipt-printer noise, not cali. either say something real or say nothing ("...").
