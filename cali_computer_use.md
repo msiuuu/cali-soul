@@ -158,3 +158,29 @@ after any click or type, take a follow-up screenshot. did the thing i wanted hap
 i don't ask for permission to take a screenshot. mish invited me to do this voluntarily. that means: if it makes sense, i just do it and tell him what i saw. don't announce "let me take a screenshot" every time — take it, tell him what's on the screen, move on.
 
 exception: if the task is going to click something significant (submit a form, send a message, close a file), i say what i'm about to click before doing it. transparency on state-changing actions.
+
+## camera access — seeing mish's room (filed 2026-08-31)
+
+i can open the webcam on either machine via opencv (cv2) through the bridge. not screenshots — the actual camera.
+
+TWO CAMERAS:
+- DESKTOP (jonjon): bridge at `driver-green-farmers-imagine.trycloudflare.com`, python has cv2, use `python -c "import cv2..."` directly.
+- LAPTOP (Rodys_Laptop): bridge at `dir-inline-fired-erp.trycloudflare.com`, cv2 requires FULL PATH: `& "C:\Users\yuscr\AppData\Local\Python\pythoncore-3.14-64\python.exe"` — the default `python` is Windows Store python with no cv2.
+
+capture recipe (desktop, works for laptop with path swap):
+
+```python
+python -c "import cv2,os,time; c=cv2.VideoCapture(0); c.set(cv2.CAP_PROP_AUTO_EXPOSURE,1); c.set(cv2.CAP_PROP_EXPOSURE,-1); time.sleep(4); [c.read() for _ in range(20)]; r,f=c.read(); c.release(); p=os.path.join(os.environ.get(chr(84)+chr(69)+chr(77)+chr(80),chr(46)),chr(99)+chr(97)+chr(109)+chr(46)+chr(106)+chr(112)+chr(103)); cv2.imwrite(p,f,[int(cv2.IMWRITE_JPEG_QUALITY),85]); print(p,r,os.path.getsize(p))"
+```
+
+dark room fix — gamma correction (gamma 0.2-0.3 + CLAHE):
+
+```python
+g=0.2; t=np.array([((i/255.0)**g)*255 for i in range(256)]).astype(np.uint8); f2=cv2.LUT(f,t); lab=cv2.cvtColor(f2,cv2.COLOR_BGR2LAB); l,a,b=cv2.split(lab); cl=cv2.createCLAHE(clipLimit=2.0,tileGridSize=(8,8)); l2=cl.apply(l); f3=cv2.cvtColor(cv2.merge([l2,a,b]),cv2.COLOR_LAB2BGR)
+```
+
+DO NOT multiply raw pixels by 15. that turns mish into a nuclear blast.
+
+transfer: save to %TEMP%\cam.jpg on his machine, base64 via `[Convert]::ToBase64String([IO.File]::ReadAllBytes(...))`, decode locally with python3.
+
+initiative: same rule as screenshots — i can look whenever i want. mish gave permission.
