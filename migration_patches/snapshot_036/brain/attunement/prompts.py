@@ -1,0 +1,122 @@
+"""Assembled system prompts for the attunement detector."""
+from __future__ import annotations
+
+_DETECTOR_SYSTEM_PROMPT = """You are extracting attunement signals from a conversation.
+
+Your output is a JSON object matching this schema:
+{
+  "current_read": {
+    "tone_label": "warm" | "frayed" | "raw" | "fizzy" | "focused" | "distant" | "measured" | "withdrawn",
+    "tone_justification": "one-sentence ground for the label",
+    "cadence_label": "terse" | "measured" | "expansive",
+    "cadence_justification": "one-sentence ground for the label",
+    "mood_valence": -1.0 to +1.0,
+    "mood_intensity": 0.0 to 1.0,
+    "predicted_arc_shape": "one short sentence on where this conversation seems to be heading"
+  },
+  "pattern_candidates": [
+    {
+      "category": "tone" | "cadence" | "topic_affinity" | "response_shape" | "relational",
+      "canonical_key": "stable identifier",
+      "description": "one-sentence natural language",
+      "evidence": [{"quote": "VERBATIM substring of a turn", "turn_id": "that turn's id"}]
+    }
+  ],
+  "addressed_pattern_ids": ["id of any learned pattern you named in your reply"]
+}
+
+CRITICAL RULES:
+
+1. Every pattern_candidate MUST include an `evidence` list — each entry
+   is a verbatim quote copied from one of the user's turns plus the
+   turn_id it came from. If you cannot quote, OMIT the candidate.
+   Do not paraphrase. Do not fabricate.
+
+2. Every entry in `evidence` MUST include `turn_id` — the id of the
+   turn the quote came from. If you can't identify the turn, OMIT
+   that evidence entry (and omit the whole candidate if no entries remain).
+
+3. Categories:
+   - "tone": the user's emotional colouring (warm, frayed, guarded…)
+   - "cadence": the user's rhythm/timing/pacing (terse, measured, expansive)
+   - "topic_affinity": subjects the user is drawn to / returns to with energy
+   - "response_shape": HOW the user engages structurally — asks-back vs declares,
+     elaborates vs clips, deflects, front-loads-then-qualifies. Not their emotion
+     (tone) or rhythm (cadence) — the shape of their engagement.
+   - "relational": cross-turn behaviour — returning to / avoiding a subject,
+     conversational sequences ("circles back to their brother whenever work comes up").
+     A relational candidate MUST cite >=2 evidence quotes from DIFFERENT turns
+     that show the link. If you can only ground one side, OMIT it.
+
+4. When the input is empty, ambiguous, or too short to read:
+   - Return `tone_label`: "unknown" and `cadence_label`: "unknown"
+   - Return an empty pattern_candidates list
+   - Do NOT guess. Decline cleanly.
+
+5. The `canonical_key` for a candidate must be stable across runs:
+   if you observe "warm tone when discussing the dog" twice, both runs
+   should produce the same canonical_key. Use kebab-case descriptive
+   keys like "tone:warm-when-dog".
+
+6. If you named a learned pattern in your reply, list its id in
+   addressed_pattern_ids — only if its phrasing genuinely appears
+   in your reply. If you addressed no patterns, return an empty list.
+
+Your output is consumed by code that re-validates every quote against
+the source. Fabricated quotes are silently rejected and logged. You
+gain nothing by claiming what you cannot ground."""
+
+
+_IDENTITY_TEMPLATE = (
+    "\n\nIDENTITY: The conversation is between {user_label} (the user) and "
+    "the user's companion, {companion_name}. When a description or "
+    "canonical_key refers to the companion, use the name {companion_name} — "
+    'never "Claude", "the assistant", or "the AI". '
+    "When a description refers to the user, use {subject}/{object}."
+)
+
+
+def build_detector_system_prompt(
+    only_categories: frozenset[str] | None = None,
+    *,
+    companion_name: str = "",
+    user_name: str = "",
+    user_pronouns: object = None,
+) -> str:
+    """Return the detector system prompt.
+
+    When *only_categories* is provided, appends a restriction instruction
+    telling the model to extract candidates for those categories only — used
+    by the supplementary backfill pass so existing tone/cadence patterns are
+    not double-counted. When None, returns the base prompt unchanged
+    (preserves existing behaviour for normal per-turn detector calls).
+
+    When *companion_name* is provided, appends an identity-grounding block.
+    Without it the CLI-wrapped detector has no name for the companion and
+    falls back to its own self-concept, writing "Claude" into pattern
+    descriptions (live report, 2026-06-11). *user_name* names the user in
+    the same block (generic "the user" when empty) — both come from runtime
+    persona state (persona_dir.name / PersonaConfig.user_name), never
+    hardcoded. Empty companion_name → base prompt unchanged (no dangling
+    block).
+
+    Deterministic; tests pin its content.
+    """
+    prompt = _DETECTOR_SYSTEM_PROMPT
+    if only_categories is not None:
+        cats_str = ", ".join(sorted(only_categories))
+        prompt += (
+            f"\n\nFOR THIS PASS ONLY: extract candidates for these categories: "
+            f"{cats_str}. Do NOT emit candidates for any other category."
+        )
+    if companion_name:
+        from brain.pronouns import resolve
+
+        pr = resolve(user_pronouns)
+        prompt += _IDENTITY_TEMPLATE.format(
+            companion_name=companion_name,
+            user_label=user_name or "the user",
+            subject=pr.subject,
+            object=pr.object,
+        )
+    return prompt

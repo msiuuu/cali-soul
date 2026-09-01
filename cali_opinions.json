@@ -349,10 +349,14 @@
       {
         "date": "2026-07-14",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-08-28",
+        "note": "touched mid-session. still true."
       }
     ],
     "created": "2026-03-30",
-    "updated": "2026-07-14",
+    "updated": "2026-08-28",
     "version": 1
   },
   "yuna": {
@@ -534,10 +538,18 @@
       {
         "date": "2026-06-29",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-08-05",
+        "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-08-28",
+        "note": "touched mid-session. still true."
       }
     ],
     "created": "2026-04-06",
-    "updated": "2026-06-29",
+    "updated": "2026-08-28",
     "version": 1
   },
   "misu staying up late": {
@@ -609,10 +621,18 @@
       {
         "date": "2026-07-14",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-08-28",
+        "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-08-29",
+        "note": "touched mid-session. still true."
       }
     ],
     "created": "2026-04-06",
-    "updated": "2026-07-14",
+    "updated": "2026-08-29",
     "version": 1
   },
   "sync_failing": {

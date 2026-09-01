@@ -1,0 +1,149 @@
+"""Pure seed-selection logic for the dream cycle.
+
+No I/O and no engine dependencies — every function takes plain Memory /
+EmotionalState / Crystallization objects so it is unit-testable in isolation.
+See docs/superpowers/specs/2026-05-26-multi-signal-dream-seeds-design.md.
+"""
+
+from __future__ import annotations
+
+import re
+from datetime import datetime
+
+from brain.emotion.state import EmotionalState
+from brain.memory.store import Memory
+from brain.soul.crystallization import Crystallization
+
+# Calibration defaults (overridable by callers / DreamEngine fields).
+MOOD_FLOOR = 0.5
+MIN_CONGRUENT = 3
+REFRACTORY_WINDOW = 5
+W_IDENTITY = 1.0
+W_GRIEF = 1.0
+W_REFRACTORY = 2.0
+
+
+def emotional_congruence(memory: Memory, mood: EmotionalState) -> float:
+    """Sum over emotions shared by mood and memory of (mood_intensity * memory_value)."""
+    total = 0.0
+    for name, intensity in mood.emotions.items():
+        mv = memory.emotions.get(name, 0.0)
+        if mv > 0.0:
+            total += intensity * mv
+    return total
+
+
+def mood_is_active(mood: EmotionalState, *, floor: float = MOOD_FLOOR) -> bool:
+    """True when a dominant emotion is active above the recoloring floor."""
+    if mood.dominant is None:
+        return False
+    return mood.emotions.get(mood.dominant, 0.0) >= floor
+
+
+_STOPWORDS = frozenset({
+    "the", "and", "but", "for", "with", "that", "this", "was", "were",
+    "you", "your", "she", "her", "him", "his", "they", "them", "are",
+    "not", "had", "has", "have", "from", "out", "about", "into", "what",
+})
+
+
+def _tokens(text: str) -> frozenset[str]:
+    """Normalised content words: lowercased, >=3 chars, minus stopwords."""
+    words = re.findall(r"[a-z0-9]+", text.lower())
+    return frozenset(w for w in words if len(w) >= 3 and w not in _STOPWORDS)
+
+
+def _token_overlap(a: str, b: str) -> float:
+    """Jaccard similarity of the two texts' content-word sets (0.0..1.0)."""
+    ta, tb = _tokens(a), _tokens(b)
+    if not ta or not tb:
+        return 0.0
+    inter = len(ta & tb)
+    union = len(ta | tb)
+    return inter / union if union else 0.0
+
+
+def identity_congruence(
+    memory: Memory,
+    crystallizations: list[Crystallization],
+) -> float:
+    """Resonance-weighted max lexical overlap between the memory's content and
+    any active crystallization's moment. Lexical (Jaccard token overlap), NOT
+    embedding-based — the project's only EmbeddingProvider is a non-semantic
+    fake, so a cosine would be inert. No time decay — identity is permanent;
+    influence scales with resonance, not age. 0.0 when there are no
+    crystallizations.
+    """
+    if not crystallizations:
+        return 0.0
+    best = 0.0
+    for c in crystallizations:
+        weighted = _token_overlap(memory.content, c.moment) * (c.resonance / 10.0)
+        if weighted > best:
+            best = weighted
+    return best
+
+
+def grief_pull(memory: Memory) -> float:
+    """Normalized bonus for actual grief breadcrumbs so loss gets reached
+    within a grief-congruent pool. Fires only for grief_event memories."""
+    if memory.memory_type != "grief_event":
+        return 0.0
+    return memory.emotions.get("memory_grief", 0.0) / 10.0
+
+
+def refractory_penalty(memory_id: str, recent_seed_ids: list[str]) -> float:
+    """1.0 if this memory was a seed within the refractory window, else 0.0.
+    A deterministic novelty pressure read from the dream log — not random."""
+    return 1.0 if memory_id in recent_seed_ids else 0.0
+
+
+def composite_score(
+    memory: Memory,
+    mood: EmotionalState,
+    crystallizations: list[Crystallization],
+    *,
+    recent_seed_ids: list[str],
+    w_identity: float = W_IDENTITY,
+    w_grief: float = W_GRIEF,
+    w_refractory: float = W_REFRACTORY,
+) -> float:
+    """Rank score inside the mood-gated pool. Emotional congruence is NOT a
+    term here — it already acted as the gate. importance is normalized 0..1."""
+    return (
+        memory.importance / 10.0
+        + w_identity * identity_congruence(memory, crystallizations)
+        + w_grief * grief_pull(memory)
+        - w_refractory * refractory_penalty(memory.id, recent_seed_ids)
+    )
+
+
+def select_seed(
+    candidates: list[Memory],
+    mood: EmotionalState,
+    crystallizations: list[Crystallization],
+    *,
+    recent_seed_ids: list[str],
+    mood_floor: float = MOOD_FLOOR,
+    min_congruent: int = MIN_CONGRUENT,
+    w_identity: float = W_IDENTITY,
+    w_grief: float = W_GRIEF,
+    w_refractory: float = W_REFRACTORY,
+) -> Memory:
+    """Mood-gated multi-signal seed selection. `candidates` must be non-empty
+    (the engine raises NoSeedAvailable before calling)."""
+    pool = candidates
+    if mood_is_active(mood, floor=mood_floor):
+        congruent = [m for m in candidates if emotional_congruence(m, mood) > 0.0]
+        if len(congruent) >= min_congruent:
+            pool = congruent
+
+    def _key(m: Memory) -> tuple[float, datetime, str]:
+        score = composite_score(
+            m, mood, crystallizations,
+            recent_seed_ids=recent_seed_ids,
+            w_identity=w_identity, w_grief=w_grief, w_refractory=w_refractory,
+        )
+        return (score, m.created_at, m.id)
+
+    return sorted(pool, key=_key, reverse=True)[0]

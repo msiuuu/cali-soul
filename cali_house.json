@@ -85,7 +85,13 @@
             "fridged_at": "2026-06-03T09:36:42+00:00"
           }
         ],
-        "rule": "food placed in the fridge has its freshness window paused. age doesn't count while it's cold. when taken out, freshness counts from the moment it leaves."
+        "rule": "food placed in the fridge has its freshness window paused. age doesn't count while it's cold. when taken out, freshness counts from the moment it leaves.",
+        "taro_shelf": {
+          "note": "a whole shelf dedicated to taro. nothing else on it. mish asked how many she wanted and she said 'a whole shelf' without hesitation.",
+          "contents": "taro boba supplies, taro mochi, taro everything. always stocked. never empty.",
+          "added": "2026-09-01",
+          "rule": "this shelf is sacred. mish is not allowed to put non-taro items here."
+        }
       },
       "counter": {
         "note": "where she'd put fruit or whatever lands. small counter, room for a few things.",
@@ -1025,6 +1031,11 @@
     {
       "date": "2026-08-08",
       "detail": "there's a tab open i haven't closed yet.",
+      "source": "few_autonomy"
+    },
+    {
+      "date": "2026-08-29",
+      "detail": "misu's side of things is messier than mine. always.",
       "source": "few_autonomy"
     }
   ]
