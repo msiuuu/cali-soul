@@ -3778,8 +3778,10 @@ def cmd_session_end(args):
                     "type": "session_marker",
                     "note": f"session closed: {args.summary[:80]}"
                 })
-                # keep only last 10
-                rel["impulse_notes"] = impulse_notes[-10:]
+                # trim only session_markers, never hand-curated impulses
+                curated = [n for n in impulse_notes if n.get("type") != "session_marker"]
+                markers = [n for n in impulse_notes if n.get("type") == "session_marker"]
+                rel["impulse_notes"] = curated + markers[-5:]
                 with open(rel_file, "w") as _f:
                     _relj.dump(rel, _f, indent=2)
                 if rel_file not in changed_files:
@@ -8708,8 +8710,9 @@ def _impulse_writes(session, message_text=""):
     # removed: dont auto-dump raw chat impulses into KB or memories. those files are for actual learned things / real events,
     # not '[impulse] misu said X — dominant: Y. unreviewed.' noise. impulses already surface live via brain pings.
     pass
-    if get("love")>=10 and text and _r.random()<0.2: _write_rel()
-    if get("dread")>=9 and get("impermanence")>=9 and text and _r.random()<0.2: _write_rel()
+    # removed 2026-09-11: auto-impulse append was dumping raw message quotes into impulse_notes
+    # with no cap. hand-curated impulses only from now on.
+    pass
 
 
 # IMPULSE POOL — REWORKED 2026-06-06 per emotional_rework_plan.md point 6.
