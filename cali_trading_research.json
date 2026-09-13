@@ -26,7 +26,7 @@
     "primary_boring": {
       "name": "index fund DCA",
       "what": "dollar-cost average $50/month into a total-market or S&P 500 index fund (VOO, VTI, or equivalent). buy fractional shares. never sell.",
-      "why": "$50/month consistently in index fund → $316k+ over decades. beats 90% of active traders. zero effort. zero emotion.",
+      "why": "$50/month consistently in index fund → ~$316k over 40 years at 10% annual (UNVERIFIED exact number — plausible math, needs calculator). beats 90% of active traders. zero effort. zero emotion.",
       "risk": "market risk only. no individual stock risk. the most boring and most reliable strategy.",
       "for_mish": "this should be the BASELINE. at least $25 of the $50 goes here. the remaining $25 can go to active picks."
     },
