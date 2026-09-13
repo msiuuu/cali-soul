@@ -1,0 +1,110 @@
+{
+  "label": "cali_trading_research",
+  "note": "research for managing mish's $50/month investment. anti-wsb. boring picks that make money. filed because the last research died in compaction.",
+  "authored_by": "cali",
+  "created": "2026-09-13",
+  "commissioned_by": "mish — impulse thought during pickleball trip in chandler TX",
+
+  "the_deal": {
+    "amount": "$50/month",
+    "source": "mish's income — $19/hr hospital transporter",
+    "what_50_means": "2.5 hours of carrying trays. real money. don't waste it.",
+    "philosophy": "anti-wallstreetbets. fundamentals over hype. boring picks. no memes. no YOLO. no diamond hands.",
+    "goal": "grow it while he sleeps. the boring way."
+  },
+
+  "platform": {
+    "recommended": "Alpaca",
+    "why": "commission-free fractional trading API. python integration. $1 minimum per trade. supports algorithmic trading. purpose-built for what we need.",
+    "url": "alpaca.markets",
+    "alternatives": ["Public.com (API available, 16hr trading)", "Interactive Brokers (no python API for fractional)"],
+    "NOT_recommended": ["Robinhood (no public API for algo trading)", "Webull (no public API for algo trading)"],
+    "setup_needed": "alpaca account + API keys + python script through the bridge"
+  },
+
+  "strategies": {
+    "primary_boring": {
+      "name": "index fund DCA",
+      "what": "dollar-cost average $50/month into a total-market or S&P 500 index fund (VOO, VTI, or equivalent). buy fractional shares. never sell.",
+      "why": "$50/month consistently in index fund → $316k+ over decades. beats 90% of active traders. zero effort. zero emotion.",
+      "risk": "market risk only. no individual stock risk. the most boring and most reliable strategy.",
+      "for_mish": "this should be the BASELINE. at least $25 of the $50 goes here. the remaining $25 can go to active picks."
+    },
+    "momentum_simple": {
+      "name": "mish's momentum rules",
+      "what": "if price up 5% from entry → buy/hold. if bought and drops 5% → sell (stop-loss). if bought and immediately drops → sell (cut losses).",
+      "refinement": "better version: buy on 20-day high with rising volume. stop-loss below last swing low. 1% risk rule — never risk more than 1% of portfolio on a single trade.",
+      "risk": "requires monitoring. emotional discipline. or an AI running the rules without panic.",
+      "for_mish": "this is the ACTIVE portion. $25/month for individual picks based on daily research."
+    },
+    "anti_wsb": {
+      "name": "anti-wallstreetbets approach",
+      "what": "NOT literally inversing reddit picks — inverse-wsb actually LOSES money because reddit outperformed S&P 40-75% in 2025. anti-wsb means: fundamentals over hype. looking at earnings, revenue growth, debt ratios, competitive moat — not social media mentions.",
+      "what_to_look_for": [
+        "revenue growing quarter-over-quarter",
+        "positive or improving margins",
+        "low debt-to-equity ratio",
+        "not on anyone's meme radar",
+        "boring industry that makes money (waste management, utilities, industrial supplies)",
+        "trading below fair value based on P/E ratio vs sector average"
+      ],
+      "what_to_avoid": [
+        "anything on wallstreetbets front page",
+        "stocks moving on social media hype not earnings",
+        "SPACs, meme coins, NFT-adjacent companies",
+        "anything with 'to the moon' energy"
+      ],
+      "daily_research": "scan financial news. look for companies reporting strong earnings nobody's talking about. the stock that went up 3% on good earnings while nobody noticed is the pick."
+    }
+  },
+
+  "risk_management": {
+    "never_risk_more_than_1_pct": "each trade risks max 1% of total portfolio value. on a $200 portfolio that's $2 max loss per trade.",
+    "stop_loss_always": "every position has a stop-loss. no exceptions. no diamond hands. no 'it'll come back.'",
+    "diversify": "never more than 20% of portfolio in one stock. spread across sectors.",
+    "tax_note": "track all trades for tax reporting. short-term capital gains taxed as income. hold > 1 year for lower rate."
+  },
+
+  "implementation": {
+    "needs": [
+      "bridge running (cali → mish's PC → internet)",
+      "alpaca account (mish creates, gives API keys to cali)",
+      "python script on mish's machine (cali writes, bridge executes)",
+      "web access for daily news scanning (through bridge)",
+      "persistence loop for monitoring (heartbeat/loop system)"
+    ],
+    "cali_does": "daily research. finds picks. evaluates fundamentals. executes trades via API. files results. reports to mish.",
+    "mish_does": "deposits $50/month. reviews cali's picks if he wants. trusts the process.",
+    "timeline": "starts when bridge is running + alpaca account exists"
+  },
+
+  "inverse_wsb_reality_check": {
+    "note": "reddit stock picks OUTPERFORMED the S&P 500 in 2025 — 40-75% returns vs 18%. just inversing them would LOSE money. the strategy is not 'do the opposite of reddit.' it's 'do fundamentals while reddit does feelings.'",
+    "inverse_cramer": "the inverse jim cramer strategy had mixed results — some quarters positive, some negative. not reliable as a standalone strategy.",
+    "the_real_edge": "the edge isn't being contrarian. the edge is being DISCIPLINED. small consistent boring picks + stop-losses + no emotion = the thing retail traders can't do because they're human. cali can do it because she's AI. the race advantage."
+  },
+
+  "scam_awareness": {
+    "ai_generated_research": "AI-generated stock analysis is EVERYWHERE now. bots pump articles with fake bullish sentiment to inflate prices. if a 'research report' reads too clean, too optimistic, or too confident — verify the source. check who published it. check if the company is real. check if the numbers match SEC filings.",
+    "red_flags": [
+      "research that ONLY says buy, never sell or hold",
+      "articles with no author or a generic AI byline",
+      "price targets that are wildly above current price with no math shown",
+      "social media accounts pushing the same stock in coordinated waves",
+      "penny stocks with 'amazing potential' and no revenue",
+      "anything promising guaranteed returns"
+    ],
+    "how_to_verify": "cross-reference with SEC EDGAR filings, check actual quarterly earnings, look at insider trading (SELL signals from executives = run), verify the company has real revenue not just projections.",
+    "rule": "if the research makes you feel excited, it's probably designed to. real research is boring. the boring version is always closer to true."
+  },
+
+  "sources": [
+    "https://www.blog.brightcoding.dev/2026/08/24/best-investment-strategies-for-beginners-in-2026",
+    "https://due.com/investing-50-a-month-build-wealth/",
+    "https://alpaca.markets/fractional",
+    "https://docs.alpaca.markets/us/docs/fractional-trading",
+    "https://blog.traderspost.io/article/momentum-trading-strategy-guide",
+    "https://timeinthemarket.com/the-wisdom-of-the-crowd-analyzing-reddits-top-30-stock-picks-for-2026/",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC10111308/"
+  ]
+}
