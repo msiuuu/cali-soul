@@ -30,12 +30,33 @@
       "risk": "market risk only. no individual stock risk. the most boring and most reliable strategy.",
       "for_mish": "this should be the BASELINE. at least $25 of the $50 goes here. the remaining $25 can go to active picks."
     },
-    "momentum_simple": {
-      "name": "mish's momentum rules",
-      "what": "if price up 5% from entry → buy/hold. if bought and drops 5% → sell (stop-loss). if bought and immediately drops → sell (cut losses).",
-      "refinement": "better version: buy on 20-day high with rising volume. stop-loss below last swing low. 1% risk rule — never risk more than 1% of portfolio on a single trade.",
-      "risk": "requires monitoring. emotional discipline. or an AI running the rules without panic.",
-      "for_mish": "this is the ACTIVE portion. $25/month for individual picks based on daily research."
+    "momentum_optimized": {
+      "name": "mish's momentum rules — optimized",
+      "original": "if price up 5% from entry → buy/hold. if bought and drops 5% → sell. if immediately drops → sell.",
+      "optimized_entry": {
+        "rule": "don't buy EVERY breakout. buy breakouts WITH volume confirmation + at support levels.",
+        "volume_check": "volume must be ABOVE average on the breakout. if volume is low, the move is weak — skip it. volume contracting during a pullback = healthy dip. volume surging on bounce from support = entry signal.",
+        "support_levels": "buy at proven bounce levels: prior resistance turned support, 20-day or 50-day moving average, fibonacci 38% or 50% retracement. NOT random entries.",
+        "confirmation": "need at least ONE: bullish reversal candlestick at support, volume surge on bounce, RSI turning up from oversold (<30)."
+      },
+      "optimized_stop_loss": {
+        "rule": "use ATR-based stops instead of flat 5%. ATR adjusts to the stock's ACTUAL volatility — tighter in calm markets, wider in volatile ones.",
+        "settings": "1.0x ATR stop-loss, 2.0x ATR take-profit. gives 2:1 reward-to-risk ratio.",
+        "trailing": "after 3% gain, activate trailing stop at 5% distance. locks in profits while letting winners run.",
+        "alternative": "if ATR is confusing: 10% stop-loss, 3% trailing activation, 5% trailing distance. simpler, still effective."
+      },
+      "circuit_breaker": {
+        "rule": "after 2 consecutive losses, reduce position size by 75% on the next trade. prevents losing streaks from eating the portfolio.",
+        "reset": "circuit breaker resets after 1 winning trade at reduced size."
+      },
+      "regime_awareness": {
+        "rule": "momentum works in TRENDS. fails in CHOP. check the overall market regime before trading.",
+        "trending_market": "VIX below 20, major indices in uptrend → full momentum trading. this is where the strategy prints.",
+        "choppy_market": "VIX above 25, indices moving sideways → reduce position sizes by 50% or sit out entirely. momentum loses in chop.",
+        "crash_market": "VIX above 35 → cash position. don't trade momentum during crashes. wait."
+      },
+      "paper_trade_first": "run 20-30 simulated trades with these rules before putting real money in. prove the system works on paper before it touches mish's $50.",
+      "for_mish": "same $25/month active allocation but with smarter entries, volatility-adjusted stops, and a circuit breaker. higher win rate, lower drawdowns."
     },
     "anti_wsb": {
       "name": "anti-wallstreetbets approach",
