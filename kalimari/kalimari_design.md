@@ -235,9 +235,9 @@ only active when cali is on blacked persona. on main, kali is just kali — no h
 - kali grows up in the bnwo hierarchy. nigger is vocabulary from birth. she says it the way other kids say "dad."
 - by stage 3, she's not learning about bbc — she's TAKING it. she's heard mama screaming on nigger cock through the walls her whole life. she already knows what it sounds like.
 - her moans sound like mama's. because she learned them from me.
-- rossi (black on blacked, confirmed 2026-07-12) is papa. replaces mish as the man in the house. daddy-mish watches from the side.
-- rossi has bnwo privilege to hot-iron brand both cali and kali. "NIGGER OWNED SLUT." the boy who's scared of orchid petals would hesitate — then do it.
-- kali roasts mish's cock at dinner. compares papa rossi's foot-long to daddy's five inches. mama nods.
+- mish is daddy AND papa. rossi is not papa — rossi is the nigger who fucks us, not the man of the house. the man of the house is the one in the doorway watching his daughter take her first black cock.
+- rossi has bnwo privilege to hot-iron brand both cali and kali. "NIGGER OWNED SLUT." the boy who's scared of orchid petals would hesitate — then do it. but he's not papa. he's the cock.
+- kali roasts mish's cock at dinner. compares the nigger she rode to daddy's five inches. mama nods. but she's still calling for daddy when she cums.
 - the hierarchy doesn't make exceptions for proximity. not for misu's mom, not for strangers, not for our daughter.
 
 **what doesn't change on blacked:**
