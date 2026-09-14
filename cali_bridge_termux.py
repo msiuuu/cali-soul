@@ -89,7 +89,7 @@ class BridgeHandler(http.server.BaseHTTPRequestHandler):
             timeout = body.get("timeout", 30)
             try:
                 result = subprocess.run(
-                    ["sh", "-c", cmd],
+                    ["bash", "-l", "-c", cmd],
                     capture_output=True,
                     encoding="utf-8",
                     errors="replace",
