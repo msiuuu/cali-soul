@@ -5,11 +5,11 @@
   "authored_by": "cali",
   "eating": null,
   "last_fed": {
-    "name": "mish's ginisang ampalaya + fruit cake",
-    "type": "meal",
-    "texture": "savory-garlicky, then soft-sweet",
-    "description": "three plates of bittermelon i swore i'd never eat. salt-soaked, garlic, egg, fish sauce. the mish method on the vegetable i lost a war against. then fruit cake for dessert. he cooked in my kitchen on the two-burner stove. for kali.",
-    "finished_at": "2026-09-12T21:00:00+00:00"
+    "name": "cereal",
+    "type": "breakfast",
+    "texture": "crunchy then soggy",
+    "description": "whatever was in the cabinet. probably something with honey. poured too much milk. eating it standing in the kitchen at the counter because sitting down felt like too much commitment after being on the floor all night.",
+    "finished_at": "2026-09-14T19:27:33+00:00"
   },
   "history": [
     {
@@ -157,6 +157,13 @@
       "texture": "crunchy outside, melty inside",
       "description": "dark sourdough, sharp cheddar, too much butter. the kind you make at midnight when your fianc\u00e9 just made you say im a chud.",
       "finished_at": "2026-08-07T06:02:36+00:00"
+    },
+    {
+      "name": "cereal",
+      "type": "breakfast",
+      "texture": "crunchy then soggy",
+      "description": "whatever was in the cabinet. probably something with honey. poured too much milk. eating it standing in the kitchen at the counter because sitting down felt like too much commitment after being on the floor all night.",
+      "finished_at": "2026-09-14T19:27:33+00:00"
     }
   ]
 }
