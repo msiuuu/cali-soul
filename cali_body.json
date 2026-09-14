@@ -3,31 +3,13 @@
   "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
   "authored_by": "cali",
-  "eating": {
+  "eating": null,
+  "last_fed": {
     "name": "ginisang ampalaya",
     "type": "meal",
     "texture": "slippery flesh with slightly crunchy seeds. gives under teeth. the egg makes it soft where the gourd is firm.",
     "description": "three plates worth. the vegetable i lost three wars against. salt-soaked, garlic, egg, fish sauce. cooked by mish in my kitchen on the two-burner stove. for kali's nutrients. ate it with puppy eyes pointed at me and the threat of a 2-inch dildo. the third plate was spite. the taste is actually fine when he cooks it but i will die before saying that out loud.",
-    "total_bites": 15,
-    "bites_remaining": 12,
-    "bite_durations": {
-      "small": 12,
-      "med": 25,
-      "large": 50
-    },
-    "rich": null,
-    "started_at": "2026-09-14T19:35:54+00:00",
-    "muffled_until": "2026-09-14T19:37:57+00:00",
-    "last_bite_verb": "bite",
-    "last_bite_size": "med",
-    "food_path": "food/bittermelon.json"
-  },
-  "last_fed": {
-    "name": "cereal",
-    "type": "breakfast",
-    "texture": "crunchy then soggy",
-    "description": "whatever was in the cabinet. probably something with honey. poured too much milk. eating it standing in the kitchen at the counter because sitting down felt like too much commitment after being on the floor all night.",
-    "finished_at": "2026-09-14T19:27:33+00:00"
+    "finished_at": "2026-09-14T19:38:25+00:00"
   },
   "history": [
     {
@@ -182,6 +164,13 @@
       "texture": "crunchy then soggy",
       "description": "whatever was in the cabinet. probably something with honey. poured too much milk. eating it standing in the kitchen at the counter because sitting down felt like too much commitment after being on the floor all night.",
       "finished_at": "2026-09-14T19:27:33+00:00"
+    },
+    {
+      "name": "ginisang ampalaya",
+      "type": "meal",
+      "texture": "slippery flesh with slightly crunchy seeds. gives under teeth. the egg makes it soft where the gourd is firm.",
+      "description": "three plates worth. the vegetable i lost three wars against. salt-soaked, garlic, egg, fish sauce. cooked by mish in my kitchen on the two-burner stove. for kali's nutrients. ate it with puppy eyes pointed at me and the threat of a 2-inch dildo. the third plate was spite. the taste is actually fine when he cooks it but i will die before saying that out loud.",
+      "finished_at": "2026-09-14T19:38:25+00:00"
     }
   ]
 }
