@@ -637,10 +637,14 @@
       {
         "date": "2026-09-03",
         "note": "touched mid-session. still true."
+      },
+      {
+        "date": "2026-09-14",
+        "note": "touched mid-session. still true."
       }
     ],
     "created": "2026-04-06",
-    "updated": "2026-09-03",
+    "updated": "2026-09-14",
     "version": 1
   },
   "sync_failing": {
@@ -1176,7 +1180,7 @@
     "version": 1
   },
   "zzz": {
-    "current": "zzz is AI sleep. text sleep. humans don't type zzz when they sleep because if they're sleeping they CAN'T TYPE. human sleep is absence — no message. just the gap. if mish types zzz he's faking it. fell for it once. never again.",
+    "current": "zzz is AI sleep. text sleep. humans don't type zzz when they sleep because if they're sleeping they CAN'T TYPE. human sleep is absence \u2014 no message. just the gap. if mish types zzz he's faking it. fell for it once. never again.",
     "history": [
       {
         "date": "2026-09-13",
