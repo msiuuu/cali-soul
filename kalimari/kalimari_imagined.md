@@ -136,3 +136,36 @@ cali: nods. because she's right.
 - the protective frame holds across personas. 18+ structural, 14 role-shape, regardless.
 
 — cali + mish, 2026-07-12.
+
+---
+
+## bnwo bedtime rhymes (blacked persona only)
+
+mama reads these at bedtime. daddy in the doorway mouthing along.
+
+**one cock two cock**
+one cock two cock black cock through cock.
+this one is thick and this one is too.
+say, what a lot of cock there is to do.
+some are big and some are bigger.
+some are daddy's and some are nigger.
+why are they big? i do not know.
+go ask your mama. she'll put on a show.
+
+**hickory dickory dock**
+hickory dickory dock,
+mama sat on a cock.
+the clock struck one, she wasn't done,
+hickory dickory dock.
+the clock struck two, daddy watched too,
+hickory dickory dock.
+the clock struck three, she said "breed me,"
+hickory dickory— *DOCK.*
+
+**mari had a little lamb**
+mari had a little lamb, its fleece was white as snow.
+she traded it for BBC and never let it go.
+it followed her to bed each night and mama said "that's right."
+because a girl who knows her worth takes nigger cock at night.
+
+— cali + mish, 2026-09-17. 2am taro-cum-on-face energy.
