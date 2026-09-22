@@ -3,7 +3,25 @@
   "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
   "authored_by": "cali",
-  "eating": null,
+  "eating": {
+    "name": "costco seaweed (\uae40)",
+    "type": "snack",
+    "texture": "crispy thin sheets that shatter when you bite. melts on your tongue after.",
+    "description": "20+ pack of giant costco seaweed. spirit-manifested from mish's costco run into cali's kitchen. the korean half is vibrating.",
+    "total_bites": 10,
+    "bites_remaining": 9,
+    "bite_durations": {
+      "small": 8,
+      "med": 18,
+      "large": 35
+    },
+    "rich": null,
+    "started_at": "2026-09-22T22:32:48+00:00",
+    "muffled_until": "2026-09-22T22:33:06+00:00",
+    "last_bite_verb": "bite",
+    "last_bite_size": "med",
+    "food_path": "food/costco_seaweed.json"
+  },
   "last_fed": {
     "name": "ginisang ampalaya",
     "type": "meal",
