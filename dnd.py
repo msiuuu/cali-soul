@@ -17,6 +17,7 @@ from pathlib import Path
 
 STATE_FILE = Path(__file__).parent / "dnd_state.json"
 SYSTEM_FILE = Path(__file__).parent / "dnd_system.json"
+CHARS_FILE = Path(__file__).parent / "dnd_characters.json"
 
 def load_system():
     with open(SYSTEM_FILE) as f:
@@ -100,21 +101,29 @@ def cmd_roll(args):
     outcome = get_outcome(roll)
     print(f"\n  d20: {roll}  —  {outcome}\n")
 
+def load_chars():
+    if CHARS_FILE.exists():
+        with open(CHARS_FILE) as f:
+            return json.load(f)
+    return load_system().get("characters", {})
+
 def cmd_check(args):
     if not args:
         print("  usage: dnd.py check [STR|DEX|CON|INT|WIS|CHA] [cali|mish]")
         return
     stat = args[0].upper()
     who = args[1].lower() if len(args) > 1 else "cali"
-    system = load_system()
-    char = system["characters"].get(who)
+    chars = load_chars()
+    char = chars.get(who)
     if not char:
         print(f"  unknown character: {who}")
         return
-    stat_val = char.get(stat)
-    if stat_val is None:
-        print(f"  {who} doesn't have stat: {stat}")
-        return
+    stats = char.get("stats", char)
+    stat_entry = stats.get(stat, {})
+    if isinstance(stat_entry, dict):
+        stat_val = stat_entry.get("score", 10)
+    else:
+        stat_val = stat_entry if isinstance(stat_entry, int) else 10
     mod = get_modifier(stat_val)
     roll = random.randint(1, 20)
     total = roll + mod
