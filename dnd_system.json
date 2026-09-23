@@ -64,7 +64,7 @@
     "disadvantage": "roll twice, take lower. unfavorable or OP attempts.",
     "nat_1": "always fails regardless of modifier",
     "nat_20": "always succeeds regardless of modifier",
-    "simple_actions": "no roll needed. pat, walk, pick up object — just do it."
+    "simple_actions": "no roll needed. following someone, grabbing a glass, walking, talking, picking up an object — just do it. rolls are ONLY for checks: persuasion, stealth, perception, athletics, anything with uncertain outcome."
   },
 
   "characters": {
@@ -94,6 +94,10 @@
       "background": "just some dude",
       "flaw": "spells everything wrong and goes to hilis"
     }
+  },
+
+  "reactions": {
+    "can_be": "OOC (mish reacting as himself) or IC (character reacting). both valid. the :3 and angry faces are OOC. the dialogue is IC. mish switches freely."
   },
 
   "format": {
