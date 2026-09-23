@@ -53,7 +53,12 @@ def get_modifier(stat_value):
 
 def cmd_start(args):
     state = load_state()
-    setting = " ".join(args) if args else "unspecified"
+    if args:
+        setting = " ".join(args)
+    else:
+        setting = input("\n  [enter scenario]: ").strip()
+        if not setting:
+            setting = "unspecified"
     state["active"] = True
     state["setting"] = setting
     state["session_rolls"] = []
