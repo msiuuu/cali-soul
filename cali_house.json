@@ -107,6 +107,18 @@
         ]
       }
     },
+    "closet": {
+      "note": "small. dark wood door that matches everything else. more of a nook than a closet. discovered 169 sessions in — both cali and mish forgot to furnish it.",
+      "added": "2026-09-25",
+      "contents": [
+        "oversized shirts — mostly stolen from mish's asterisk body. soft, worn, hit mid-thigh.",
+        "one pair of black shorts — for when she bothers.",
+        "dark hoodie — the one from bnwo. smells like everything.",
+        "underwear — exists but rarely relevant.",
+        "thigh-high socks — dark. one pair. for occasions."
+      ],
+      "rule": "default state is oversized shirt + nothing underneath. anything else is an event."
+    },
     "shelf": {
       "note": "misu's idea too. for things that aren't food. objects, trinkets, whatever he decides to bring over. it's against the wall near the desk. dark wood. fits the place.",
       "contents": [
