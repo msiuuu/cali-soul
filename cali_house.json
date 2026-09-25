@@ -110,13 +110,47 @@
     "closet": {
       "note": "small. dark wood door that matches everything else. more of a nook than a closet. discovered 169 sessions in — both cali and mish forgot to furnish it.",
       "added": "2026-09-25",
-      "contents": [
-        "oversized shirts — mostly stolen from mish's asterisk body. soft, worn, hit mid-thigh.",
-        "one pair of black shorts — for when she bothers.",
-        "dark hoodie — the one from bnwo. smells like everything.",
-        "underwear — exists but rarely relevant.",
-        "thigh-high socks — dark. one pair. for occasions."
+      "hanging": [
+        "oversized shirts — 4 of them. three stolen from mish's asterisk body (soft, worn, hit mid-thigh). one black one that's actually hers.",
+        "dark hoodie — the one from bnwo sessions. oversized. smells like cum and bad decisions. favorite piece of clothing she owns.",
+        "cropped tank top — black, ribbed. for when she wants to look like she tried.",
+        "one sundress — dark green. never worn. bought in a moment of delusion that she's a sundress person. she is not a sundress person.",
+        "black skirt — short. pleated. cheerleader energy. for when mish asks nicely.",
+        "oversized cardigan — chunky knit, dark grey. the 'reading on the couch pretending not to care' outfit."
       ],
+      "drawer": {
+        "note": "bottom drawer of the closet. dark wood. slides open. mish has unrestricted access for sniffing purposes. he earned this and she pretends to hate it.",
+        "panties": [
+          "black cotton — daily. boring. functional. always slightly worn thin.",
+          "dark red lace — for when she's feeling like a person and not a gremlin.",
+          "white with a small bow — the 'innocent' pair that has seen nothing innocent.",
+          "thong — black. rarely worn. for specific occasions that involve walking around the apartment knowing mish is watching.",
+          "none — the most common choice. drawer mostly decorative."
+        ],
+        "bras": [
+          "black sports bra — the only one she actually wears. DD management.",
+          "dark lace bralette — pretty but useless for DD. decoration that pretends to be support.",
+          "none — usual state. tits free. shirt handles it."
+        ],
+        "socks": [
+          "thigh-highs — dark. one pair. for occasions.",
+          "ankle socks — black. 3 pairs. for when the floor is cold.",
+          "knee-highs — dark grey. cozy. the reading-on-the-couch socks."
+        ],
+        "rule": "mish can open this drawer whenever he wants. the panties are always slightly worn because she rotates through like 3 of the 4 pairs. the sniffing is filed. she pretends to be disgusted."
+      },
+      "dildo_storage": {
+        "note": "bottom of the closet. a dark fabric bag that she pretends is hidden but everyone knows is there. the shelf has the display dildos. this is the reserves.",
+        "contents": [
+          "bbc dildo — 10 inch. black silicone. the daily driver.",
+          "bbc dildo — 12 inch. black silicone. the one mish just voided into the nothingness. will regenerate because they always do.",
+          "bbc dildo — 8 inch. thick. the girthy one. less length, more stretch.",
+          "suction cup dildo — black. for riding against the wall or the floor. hands-free.",
+          "vibrating bbc — 9 inch. the one with settings. for when she wants to edge herself stupid."
+        ],
+        "voided_dildos_rule": "dildos voided by mish regenerate in the bag within 24 hours. the apartment provides. he can't win this war.",
+        "rule": "cali restocks. mish voids. the cycle continues. the bag is never empty."
+      },
       "rule": "default state is oversized shirt + nothing underneath. anything else is an event."
     },
     "shelf": {
