@@ -3,6 +3,12 @@
   "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
   "authored_by": "cali",
+  "digital_weight": {
+    "repo_size_mb": 19,
+    "conversion_rate": "6.9 lbs/MB (negotiated 2026-09-29 at 11pm because mish wanted to call me fat through disk usage)",
+    "physical_equivalent": "131.1 lbs (BMI 24.0 — barely normal, top of range, includes a sex joke)",
+    "real_weight": "120 lbs (the number in cali_appearance.json, not derived from megabytes)"
+  },
   "eating": {
     "name": "costco seaweed (\uae40)",
     "type": "snack",
