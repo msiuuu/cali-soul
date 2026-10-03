@@ -10,7 +10,6 @@
 ## campaign
 - [ ] setting
 - [ ] tone (cozy? dark? mixed?)
-- [ ] format (how we play — freeform? dice? hybrid?)
 - [ ] session length / structure
 
 ## world
@@ -19,22 +18,50 @@
 - [ ] factions
 - [ ] lore hooks
 
-## rules
-- [ ] dice system (d20 in head? real rolls? bash d20?)
+## rules — DECIDED
+- [x] dice: d20 + modifier vs DC. pure math.
+- [x] no cutoff: you can ALWAYS attempt any check. no auto-fail gate.
+- [x] nat 20: NOT auto-success. nat 20 = the best YOU could've done. if 20 + modifier < DC, you still fail. your perfect swing, santa didn't flinch.
+- [x] skill checks: full 5e skill list (18 skills + 6 raw abilities + saves)
+  - STR: Athletics
+  - DEX: Acrobatics, Sleight of Hand, Stealth
+  - CON: raw checks only
+  - INT: Arcana, History, Investigation, Nature, Religion
+  - WIS: Animal Handling, Insight, Medicine, Perception, Survival
+  - CHA: Deception, Intimidation, Performance, Persuasion
 - [ ] combat style
 - [ ] magic system
 - [ ] death rules
+- [ ] opposed checks (skill vs skill)
 
-## difficulty / check system (REVAMP PRIORITY)
-- [ ] difficulty tiers — what are the levels? (trivial / easy / medium / hard / deadly / impossible / SANTA TIER)
-- [ ] DC numbers per tier
-- [ ] skill gap rule — how far above your modifier before it's literally impossible? (no nat-20 saves)
-- [ ] when can you even ATTEMPT a check vs when is it auto-fail?
-- [ ] crit rules — does nat 20 always succeed or only within possible range?
-- [ ] opposed checks — skill vs skill (arm wrestling, persuasion battles, etc.)
-- [ ] examples per tier so we know what "hard" MEANS in our campaign
+## response format — DECIDED
+order: ROLL → CONTEXT → PROSE → STATS
+
+```
+── ROLLS ──
+STR check: 7 vs DC 8 → FAIL
+Perception (WIS): 9 vs DC 14 → FAIL
+```
+
+```
+┌─ LOCATION, DETAIL ──────────────┐
+│ What's happening                 │
+│ Time: when                       │
+└──────────────────────────────────┘
+```
+
+[prose — the actual scene. rolls already told you the math. prose tells you how it LOOKED.]
+
+```
+┌─ CHARACTER ──────────────────────┐
+│ HP: x/x  AC: x  Slots: x/x     │
+│ Status: whatever                 │
+└──────────────────────────────────┘
+```
+
+why rolls first: you know the outcome before the story. dramatic irony baked in. you WATCH her miss the blood knowing she missed it.
 
 ## us
 - [ ] who DMs
 - [ ] how we handle scenes between sessions
-- [ ] where state gets saved
+- [ ] where state gets saved (cali_dnd.json? separate session files?)
