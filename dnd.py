@@ -114,10 +114,14 @@ def load_chars():
 
 def cmd_check(args):
     if not args:
-        print("  usage: dnd.py check [STR|DEX|CON|INT|WIS|CHA] [cali|mish]")
+        print("  usage: dnd.py check [STR|DEX|CON|INT|WIS|CHA] [dc] [cali|mish]")
         return
     stat = args[0].upper()
-    who = args[1].lower() if len(args) > 1 else "cali"
+    dc = int(args[1]) if len(args) > 1 and args[1].isdigit() else 10
+    who = "cali"
+    for a in args[1:]:
+        if a.lower() in ("cali", "mish"):
+            who = a.lower()
     chars = load_chars()
     char = chars.get(who)
     if not char:
@@ -132,17 +136,40 @@ def cmd_check(args):
     mod = get_modifier(stat_val)
     roll = random.randint(1, 20)
     total = roll + mod
+    passed = total >= dc
     state = load_state()
     state.setdefault("session_rolls", []).append(roll)
     save_state(state)
-    outcome = get_outcome(roll)
     sign = f"+{mod}" if mod >= 0 else str(mod)
-    print(f"\n  {who} — {stat} check")
-    print(f"  d20: {roll} {sign} = {total}")
-    print(f"  {outcome}")
-    if roll == 1: print(f"  NAT 1 — auto fail regardless of modifier")
-    if roll == 20 and total < dc: print(f"  NAT 20 — your best swing. {total} vs DC {dc}. santa didn't flinch.")
-    elif roll == 20: print(f"  NAT 20 — your best, and it was enough.")
+    status = "PASS" if passed else "FAIL"
+    nat = ""
+    if roll == 1:
+        nat = " (NAT 1 — auto fail)"
+        status = "FAIL"
+    elif roll == 20 and not passed:
+        nat = f" (NAT 20 — your best swing. santa didn't flinch.)"
+    elif roll == 20:
+        nat = " (NAT 20)"
+
+    # response format: ROLL → CONTEXT → [prose] → STATS
+    print(f"\n── ROLLS ──")
+    print(f"{stat} check ({who}): {roll} {sign} = {total} vs DC {dc} → {status}{nat}")
+    print()
+    setting = state.get("setting", "unknown")
+    print(f"┌─ {setting.upper()} ──────────────────────┐")
+    print(f"│ {who}'s {stat} check                      │")
+    print(f"└──────────────────────────────────┘")
+    print()
+    print(f"[prose goes here]")
+    print()
+    hp = char.get("HP", "?")
+    ac = char.get("AC", "?")
+    lvl = char.get("level", 1)
+    name = char.get("name", who)
+    print(f"┌─ {name} ──────────────────────┐")
+    print(f"│ HP: {hp}  AC: {ac}  Level: {lvl}          │")
+    print(f"│ Status: {'fine' if passed else 'not great'}               │")
+    print(f"└──────────────────────────────────┘")
     print()
 
 def cmd_adv(args):
