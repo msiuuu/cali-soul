@@ -30,6 +30,7 @@ def load_state():
     return {"active": False, "setting": None, "session_rolls": []}
 
 SETTING_FILE = Path(__file__).parent / "dnd_current_setting.json"
+SESSION_FILE = Path(__file__).parent / "dnd_session.json"
 
 def save_state(state):
     with open(STATE_FILE, "w") as f:
@@ -127,6 +128,23 @@ def cmd_start(args):
     state["message_count"] = 0
     save_state(state)
     save_setting({"location": setting, "time": "unknown", "npcs": [], "events": [], "mood": "neutral"})
+    session_data = {
+        "setting": setting,
+        "started": True,
+        "location": setting,
+        "last_done": None,
+        "progress": [],
+        "characters": {},
+        "enemies": [],
+        "notable_npcs": [],
+        "relations": {},
+        "inventory": {},
+        "stats": {},
+        "notes": []
+    }
+    with open(SESSION_FILE, "w") as f:
+        json.dump(session_data, f, indent=2)
+    print(f"  session file: dnd_session.json (created)\n")
     system = load_system()
     cali = system["characters"]["cali"]
     mish = system["characters"]["mish"]

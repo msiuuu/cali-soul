@@ -1,12 +1,6 @@
 {
   "active": false,
   "setting": null,
-  "session_rolls": [
-    4,
-    4,
-    7,
-    11,
-    8
-  ],
-  "message_count": 5
+  "session_rolls": [],
+  "message_count": 0
 }

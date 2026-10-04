@@ -1,11 +1,7 @@
 {
-  "location": "the rusty nail tavern, edge of marshtown",
-  "time": "just past sundown",
-  "npcs": [
-    "absent barkeep"
-  ],
-  "events": [
-    "blood on the back stairs"
-  ],
-  "mood": "tense. too quiet."
+  "location": "the rusty nail, marshtown",
+  "time": "unknown",
+  "npcs": [],
+  "events": [],
+  "mood": "neutral"
 }
