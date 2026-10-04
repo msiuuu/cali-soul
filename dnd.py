@@ -141,7 +141,8 @@ def cmd_check(args):
     print(f"  d20: {roll} {sign} = {total}")
     print(f"  {outcome}")
     if roll == 1: print(f"  NAT 1 — auto fail regardless of modifier")
-    if roll == 20: print(f"  NAT 20 — auto success regardless of modifier")
+    if roll == 20 and total < dc: print(f"  NAT 20 — your best swing. {total} vs DC {dc}. santa didn't flinch.")
+    elif roll == 20: print(f"  NAT 20 — your best, and it was enough.")
     print()
 
 def cmd_adv(args):
