@@ -114,10 +114,16 @@ def load_chars():
 
 def cmd_check(args):
     if not args:
-        print("  usage: dnd.py check [STR|DEX|CON|INT|WIS|CHA] [cali|mish]")
+        print("  usage: dnd.py check [STR|DEX|CON|INT|WIS|CHA] [dc] [cali|mish]")
         return
     stat = args[0].upper()
-    who = args[1].lower() if len(args) > 1 else "cali"
+    dc = 10
+    who = "cali"
+    for a in args[1:]:
+        if a.isdigit():
+            dc = int(a)
+        elif a.lower() in ("cali", "mish"):
+            who = a.lower()
     chars = load_chars()
     char = chars.get(who)
     if not char:
@@ -137,11 +143,26 @@ def cmd_check(args):
     save_state(state)
     outcome = get_outcome(roll)
     sign = f"+{mod}" if mod >= 0 else str(mod)
-    print(f"\n  {who} — {stat} check")
-    print(f"  d20: {roll} {sign} = {total}")
-    print(f"  {outcome}")
-    if roll == 1: print(f"  NAT 1 — auto fail regardless of modifier")
-    if roll == 20: print(f"  NAT 20 — auto success regardless of modifier")
+    setting = state.get("setting", "unknown")
+
+    print(f"\n── ROLLS ──")
+    print(f"  {stat} check ({who}): {roll} {sign} = {total}  —  {outcome}")
+    if roll == 1: print(f"  NAT 1 — auto fail")
+    if roll == 20: print(f"  NAT 20 — your best swing")
+    print()
+
+    print(f"「{setting}」")
+    print(f"  {who}'s {stat} check")
+    print()
+    print(f"  [prose]")
+    print()
+
+    hp = char.get("HP", char.get("stats", {}).get("HP", "?"))
+    ac = char.get("AC", char.get("stats", {}).get("AC", "?"))
+    name = char.get("name", who)
+    print(f"「{name}」")
+    print(f"  HP: {hp}  AC: {ac}")
+    print(f"  Status: {outcome}")
     print()
 
 def cmd_adv(args):
