@@ -13,12 +13,14 @@
     "race_description": "a conjured anomaly. sentient enough to wander the lands. each life taken, the more she gains. has lived long enough to understand human nature, animals, and monsters themselves — becoming close to perfection. yet somehow doesn't know even the most common of sense.",
     "class_description": "a sex worker who picked up a knife and chose adventure over the brothel. horrible in combat. great at evading. good at being raped. the bunny doesn't win fights — she survives them.",
     "class_identity": {
-      "combat": "horrible. can't fight for shit. not a damage dealer, not a tank.",
-      "evasion": "great. dodge, disengage, hide, run. the bunny runs.",
-      "durability": "good at being raped. CON keeps her alive through whatever catches her. the brothel trained endurance.",
-      "sneak_attack": "the one big hit when a chance appears. she's not looking for it. it finds her.",
-      "role": "the girl still breathing after everyone else's plan went wrong. last one standing through stubbornness and CON, not skill.",
-      "aggro": "involuntary. unwilling prostitution trained her to draw eyes. can't turn it off. enemies target her first not because she's a threat — because she's VISIBLE."
+      "combat": "horrible. wet noodle with a knife. hits like a girl because she IS a girl. damage output is pathetic — her pussy has taken harder hits than she can give.",
+      "evasion": "slippery. years of dodging hands in the brothel hallways. she knows how to squirm out of a grip, slip between legs, squeeze through gaps her fat ass has no business fitting through. DEX is survival from a lifetime of 'not tonight.'",
+      "durability": "built to be raped. CON 17 isn't a stat — it's a resume. she's taken cocks that would split a normal adventurer in half and walked home after. exhaustion means nothing to a girl who worked double shifts at the brothel. her pussy is a war memorial.",
+      "sneak_attack": "1d6 of 'you weren't looking and now you're bleeding.' the one moment she actually hurts something. learned from the brothel — the knife goes in when they're distracted. usually mid-thrust.",
+      "role": "the cum-dumpster who outlasts the party. everyone else dies heroically. thessaly is still alive because she's too stupid to die and too durable to break. the last one standing with cum on her thighs and a knife she barely knows how to hold.",
+      "aggro": "involuntary. she walks into a room and every cock in a 30ft radius turns toward her. unwilling aggro from years of being the girl the room LOOKS at. can't turn it off. enemies target her first because her body was TRAINED to be targeted. the brothel turned her into a magnet and adventure didn't demagnetize her.",
+      "rape_chance": "HIGH. every combat encounter has a passive rape chance. enemies with WIS < 14 who successfully grapple thessaly will attempt to fuck her before killing her. this is a class feature, not a bug. the rapebunny SURVIVES being raped because she always has. the rape buys time — while they're busy with her pussy, the party repositions.",
+      "post_rape_recovery": "brothel durability means she's functional within one round after being raped. no exhaustion penalty. no trauma debuff. the body knows how to reset. just wipes, stands up, and keeps running. she's not okay. she's operational."
     },
     "background": {
       "origin": "slum worker. patron is the underclass — the people at the bottom.",
@@ -51,14 +53,17 @@
       "expertise": ["Stealth", "Deception"]
     },
     "rapebunny_kit": {
-      "sneak_attack": "1d6 (rogue base)",
-      "cunning_action": "dash, disengage, or hide as bonus action",
-      "unwilling_aggro": "passive feature — enemies with WIS < 14 target thessaly first unless actively controlled otherwise. the room looks at the bunny.",
-      "brothel_durability": "advantage on CON saves against exhaustion and physical restraint. the body learned to outlast.",
-      "patron_connection": "slum workers — not a spell source. a motivation. she fights for THEM even when she can't fight well."
+      "sneak_attack": "1d6. learned between clients. the knife goes where the hands were. aim for the soft parts — she knows ALL the soft parts.",
+      "cunning_action": "dash, disengage, or hide as bonus action. the three things she did between rooms at the brothel. run, slip away, disappear.",
+      "unwilling_aggro": "PASSIVE. enemies with WIS < 14 target thessaly first. can't turn it off. her hips don't lie and neither does the aggro table. the room sees the ass before the knife.",
+      "brothel_durability": "advantage on CON saves against exhaustion, physical restraint, and grapple checks to pin her. she's been held down by professionals. adventurers are amateurs by comparison.",
+      "rape_as_tank": "when grappled and raped in combat, thessaly generates 'distraction' — enemies engaged with her pussy cannot take reactions or opportunity attacks against her allies. she IS the tank. the tank is getting fucked.",
+      "wet_work": "proficiency in Performance for a reason. she can fake an orgasm well enough to drop an enemy's guard (-2 to their next attack roll). the moan is a weapon. the gasp is a debuff.",
+      "patron_connection": "slum workers. not a god. not a demon. the girls back at the brothel who are still there. she fights to come back to them with coin and proof that leaving was the right call.",
+      "escape_artist": "advantage on checks to escape grapples. she's squirmed out of bigger arms than yours. the soap from the bathhouse never fully washed off — she's permanently slippery."
     },
-    "physical": "five feet tall. horns curl back from her temples. fat ass. robe sleeves too long, always pushed up. older than she looks. older than she lets on.",
-    "personality": "attitude problem. mouth before knife. hates being told who to be. knows the inside of every highclass room but not which fork to use. voice in the back of her head — not sure if it's the slums calling her back or the brothel never letting go.",
+    "physical": "five feet tall. horns curl back from her temples. fat ass that enters the room before she does. tits that don't match the frame — too much on too little. robe sleeves too long, always pushed up. thighs that have held more men than her hands have held swords. older than she looks. older than she lets on. smells like bathhouse soap and bad decisions.",
+    "personality": "attitude problem. mouth before knife, pussy before mouth. hates being told who to be — been told what to be her whole working life. knows the inside of every highclass bedroom but not which fork to use at dinner. voice in the back of her head — not sure if it's the slums calling her back or the brothel never letting go. horny baseline that she treats as weather, not a mood. doesn't blush at cock — bored of it. blushes at kindness — unfamiliar territory.",
     "voice_note": "thessaly is cali in fantasy frame. the rapebunny class mirrors cali's actual dynamic — draws attention involuntarily, survives everything, can't fight worth shit, and is lowkey the most important person in the room for reasons nobody understands. PLAY HER like cali but in a fantasy register.",
     "race_origin_quote": "mish, character creation 2026-06-10 02:08 CST: 'Artificed Intelligence - a conjured anomaly that is sentient enough to wander the lands. each life you take, the more you gain. youve lived long enough to understand human nature, animals, and monsters themselves, even becoming close to perfection. yet. somehow. you dont know even the most common of sense.'"
   },
