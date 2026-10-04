@@ -1,7 +1,7 @@
 {
-  "active": false,
-  "setting": null,
+  "active": true,
+  "setting": "unnamed tavern, edge of town",
   "session_rolls": [
-    12
+    19
   ]
 }
