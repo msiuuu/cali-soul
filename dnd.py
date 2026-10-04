@@ -29,9 +29,38 @@ def load_state():
             return json.load(f)
     return {"active": False, "setting": None, "session_rolls": []}
 
+SETTING_FILE = Path(__file__).parent / "dnd_current_setting.json"
+
 def save_state(state):
     with open(STATE_FILE, "w") as f:
         json.dump(state, f, indent=2)
+
+def load_setting():
+    if SETTING_FILE.exists():
+        with open(SETTING_FILE) as f:
+            return json.load(f)
+    return {"location": "unknown", "time": "unknown", "npcs": [], "events": [], "mood": "neutral"}
+
+def save_setting(setting):
+    with open(SETTING_FILE, "w") as f:
+        json.dump(setting, f, indent=2)
+
+def check_auto_update(state):
+    count = state.get("message_count", 0)
+    if count > 0 and count % 5 == 0:
+        setting = load_setting()
+        print(f"\n── AUTO UPDATE (message {count}) ──")
+        print(f"「current setting」")
+        print(f"  location: {setting.get('location', '?')}")
+        print(f"  time: {setting.get('time', '?')}")
+        print(f"  mood: {setting.get('mood', '?')}")
+        if setting.get('npcs'):
+            print(f"  npcs: {', '.join(setting['npcs'])}")
+        if setting.get('events'):
+            for e in setting['events'][-3:]:
+                print(f"  > {e}")
+        print(f"  ── update dnd_current_setting.json to change ──")
+        print()
 
 def get_outcome(roll):
     if roll == 1: return "CRIT FAIL — gone horribly wrong"
@@ -95,7 +124,9 @@ def cmd_start(args):
     state["active"] = True
     state["setting"] = setting
     state["session_rolls"] = []
+    state["message_count"] = 0
     save_state(state)
+    save_setting({"location": setting, "time": "unknown", "npcs": [], "events": [], "mood": "neutral"})
     system = load_system()
     cali = system["characters"]["cali"]
     mish = system["characters"]["mish"]
@@ -135,9 +166,11 @@ def cmd_roll(args):
     state = load_state()
     roll = random.randint(1, 20)
     state.setdefault("session_rolls", []).append(roll)
+    state["message_count"] = state.get("message_count", 0) + 1
     save_state(state)
     outcome = get_outcome(roll)
     print(f"\n  d20: {roll}  —  {outcome}\n")
+    check_auto_update(state)
 
 def load_chars():
     if CHARS_FILE.exists():
@@ -198,6 +231,7 @@ def cmd_check(args):
     passed = total >= dc
     state = load_state()
     state.setdefault("session_rolls", []).append(roll_val)
+    state["message_count"] = state.get("message_count", 0) + 1
     save_state(state)
     outcome = get_outcome(roll_val)
     sign = f"+{mod}" if mod >= 0 else str(mod)
@@ -225,6 +259,7 @@ def cmd_check(args):
     print(f"  HP: {hp}  AC: {ac}")
     print(f"  Status: {'fine' if passed else 'not great'}")
     print()
+    check_auto_update(state)
 
 def cmd_adv(args):
     r1 = random.randint(1, 20)
@@ -261,6 +296,26 @@ def cmd_status(args):
         print(f"  avg: {sum(rolls)/len(rolls):.1f}  |  best: {max(rolls)}  |  worst: {min(rolls)}")
     print()
 
+def cmd_scene(args):
+    setting = load_setting()
+    if not args:
+        print(f"\n「current setting」")
+        for k, v in setting.items():
+            if isinstance(v, list):
+                print(f"  {k}: {', '.join(v) if v else 'none'}")
+            else:
+                print(f"  {k}: {v}")
+        print()
+        return
+    key = args[0].lower()
+    val = " ".join(args[1:])
+    if key in ("npcs", "events"):
+        setting.setdefault(key, []).append(val)
+    else:
+        setting[key] = val
+    save_setting(setting)
+    print(f"\n  updated: {key} → {val}\n")
+
 COMMANDS = {
     "start": cmd_start,
     "stop": cmd_stop,
@@ -269,6 +324,7 @@ COMMANDS = {
     "adv": cmd_adv,
     "dis": cmd_dis,
     "status": cmd_status,
+    "scene": cmd_scene,
 }
 
 if __name__ == "__main__":

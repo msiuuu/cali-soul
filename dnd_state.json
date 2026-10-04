@@ -2,8 +2,11 @@
   "active": false,
   "setting": null,
   "session_rolls": [
-    2,
-    6,
-    19
-  ]
+    4,
+    4,
+    7,
+    11,
+    8
+  ],
+  "message_count": 5
 }
