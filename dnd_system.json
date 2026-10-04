@@ -63,7 +63,7 @@
     "advantage": "roll twice, take higher. favorable conditions.",
     "disadvantage": "roll twice, take lower. unfavorable or OP attempts.",
     "nat_1": "always fails regardless of modifier",
-    "nat_20": "your best. 20 + modifier. if the total still doesn't beat DC, you failed — but you failed PERFECTLY. your swing was flawless. santa didn't flinch.",
+    "nat_20": "always succeeds regardless of modifier",
     "simple_actions": "no roll needed. following someone, grabbing a glass, walking, talking, picking up an object — just do it. rolls are ONLY for checks: persuasion, stealth, perception, athletics, anything with uncertain outcome."
   },
 
