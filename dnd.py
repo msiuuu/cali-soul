@@ -152,24 +152,36 @@ def cmd_check(args):
         nat = " (NAT 20)"
 
     # response format: ROLL → CONTEXT → [prose] → STATS
+    W = 40
+
+    def box(title, lines):
+        top = f"┌─ {title} " + "─" * (W - len(title) - 4) + "┐"
+        bot = "└" + "─" * (W - 2) + "┘"
+        out = [top]
+        for l in lines:
+            pad = W - 4 - len(l)
+            out.append(f"│ {l}{' ' * max(0, pad)} │")
+        out.append(bot)
+        return "\n".join(out)
+
     print(f"\n── ROLLS ──")
     print(f"{stat} check ({who}): {roll} {sign} = {total} vs DC {dc} → {status}{nat}")
     print()
+
     setting = state.get("setting", "unknown")
-    print(f"┌─ {setting.upper()} ──────────────────────┐")
-    print(f"│ {who}'s {stat} check                      │")
-    print(f"└──────────────────────────────────┘")
+    print(box(setting.upper(), [f"{who}'s {stat} check"]))
     print()
     print(f"[prose goes here]")
     print()
+
     hp = char.get("HP", "?")
     ac = char.get("AC", "?")
     lvl = char.get("level", 1)
     name = char.get("name", who)
-    print(f"┌─ {name} ──────────────────────┐")
-    print(f"│ HP: {hp}  AC: {ac}  Level: {lvl}          │")
-    print(f"│ Status: {'fine' if passed else 'not great'}               │")
-    print(f"└──────────────────────────────────┘")
+    print(box(name, [
+        f"HP: {hp}  AC: {ac}  Level: {lvl}",
+        f"Status: {'fine' if passed else 'not great'}"
+    ]))
     print()
 
 def cmd_adv(args):
