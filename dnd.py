@@ -43,13 +43,46 @@ def get_outcome(roll):
     return "NAT 20 — gone absurdly right"
 
 def get_modifier(stat_value):
-    if stat_value >= 18: return 5
-    if stat_value >= 16: return 3
-    if stat_value >= 14: return 2
-    if stat_value >= 12: return 1
-    if stat_value >= 10: return 0
-    if stat_value >= 8: return -1
-    return -2
+    return (stat_value - 10) // 2
+
+SKILLS = {
+    "athletics": "STR",
+    "acrobatics": "DEX", "sleight of hand": "DEX", "stealth": "DEX",
+    "arcana": "INT", "history": "INT", "investigation": "INT", "nature": "INT", "religion": "INT",
+    "animal handling": "WIS", "insight": "WIS", "medicine": "WIS", "perception": "WIS", "survival": "WIS",
+    "deception": "CHA", "intimidation": "CHA", "performance": "CHA", "persuasion": "CHA",
+}
+
+PROF_BONUS = 2
+
+def get_skill_mod(char, skill_name):
+    skill_lower = skill_name.lower()
+    ability = SKILLS.get(skill_lower)
+    if not ability:
+        return None, None, None
+
+    stats = char.get("stats", char)
+    stat_entry = stats.get(ability, {})
+    if isinstance(stat_entry, dict):
+        stat_val = stat_entry.get("score", 10)
+    else:
+        stat_val = stat_entry if isinstance(stat_entry, int) else 10
+
+    base_mod = get_modifier(stat_val)
+    proficient_list = [s.lower() for s in char.get("skills", {}).get("proficient", [])]
+    expertise_list = [s.lower() for s in char.get("skills", {}).get("expertise", [])]
+
+    if skill_lower in expertise_list:
+        total_mod = base_mod + PROF_BONUS * 2
+        tag = "expertise"
+    elif skill_lower in proficient_list:
+        total_mod = base_mod + PROF_BONUS
+        tag = "proficient"
+    else:
+        total_mod = base_mod
+        tag = None
+
+    return total_mod, ability, tag
 
 def cmd_start(args):
     state = load_state()
@@ -114,55 +147,83 @@ def load_chars():
 
 def cmd_check(args):
     if not args:
-        print("  usage: dnd.py check [STR|DEX|CON|INT|WIS|CHA] [dc] [cali|mish]")
+        print("  usage: dnd.py check [skill or ability] [dc] [cali|mish]")
+        print("  abilities: STR DEX CON INT WIS CHA")
+        print("  skills: " + ", ".join(sorted(SKILLS.keys())))
         return
-    stat = args[0].upper()
+
     dc = 10
     who = "cali"
-    for a in args[1:]:
+    skill_parts = []
+    for a in args:
         if a.isdigit():
             dc = int(a)
         elif a.lower() in ("cali", "mish"):
             who = a.lower()
+        else:
+            skill_parts.append(a)
+
+    check_name = " ".join(skill_parts).strip()
     chars = load_chars()
     char = chars.get(who)
     if not char:
         print(f"  unknown character: {who}")
         return
-    stats = char.get("stats", char)
-    stat_entry = stats.get(stat, {})
-    if isinstance(stat_entry, dict):
-        stat_val = stat_entry.get("score", 10)
+
+    is_skill = check_name.lower() in SKILLS
+    is_ability = check_name.upper() in ("STR", "DEX", "CON", "INT", "WIS", "CHA")
+
+    if is_skill:
+        mod, ability, tag = get_skill_mod(char, check_name)
+        label = f"{check_name.title()} ({ability})"
+        if tag: label += f" [{tag}]"
+    elif is_ability:
+        ability = check_name.upper()
+        stats = char.get("stats", char)
+        stat_entry = stats.get(ability, {})
+        if isinstance(stat_entry, dict):
+            stat_val = stat_entry.get("score", 10)
+        else:
+            stat_val = stat_entry if isinstance(stat_entry, int) else 10
+        mod = get_modifier(stat_val)
+        label = f"{ability} check"
+        tag = None
     else:
-        stat_val = stat_entry if isinstance(stat_entry, int) else 10
-    mod = get_modifier(stat_val)
-    roll = random.randint(1, 20)
-    total = roll + mod
+        print(f"  unknown skill or ability: {check_name}")
+        print(f"  skills: {', '.join(sorted(SKILLS.keys()))}")
+        return
+
+    roll_val = random.randint(1, 20)
+    total = roll_val + mod
+    passed = total >= dc
     state = load_state()
-    state.setdefault("session_rolls", []).append(roll)
+    state.setdefault("session_rolls", []).append(roll_val)
     save_state(state)
-    outcome = get_outcome(roll)
+    outcome = get_outcome(roll_val)
     sign = f"+{mod}" if mod >= 0 else str(mod)
+    status = "PASS" if passed else "FAIL"
     setting = state.get("setting", "unknown")
 
     print(f"\n── ROLLS ──")
-    print(f"  {stat} check ({who}): {roll} {sign} = {total}  —  {outcome}")
-    if roll == 1: print(f"  NAT 1 — auto fail")
-    if roll == 20: print(f"  NAT 20 — your best swing")
+    print(f"  {label} ({who}): {roll_val} ({sign}) = {total} vs DC {dc} → {status}")
+    print(f"  {outcome}")
+    if roll_val == 1: print(f"  NAT 1 — auto fail")
+    if roll_val == 20 and not passed: print(f"  NAT 20 — your best. santa didn't flinch.")
+    elif roll_val == 20: print(f"  NAT 20 — your best, and it was enough.")
     print()
 
     print(f"「{setting}」")
-    print(f"  {who}'s {stat} check")
+    print(f"  {who}'s {label}")
     print()
     print(f"  [prose]")
     print()
 
-    hp = char.get("HP", char.get("stats", {}).get("HP", "?"))
-    ac = char.get("AC", char.get("stats", {}).get("AC", "?"))
+    hp = char.get("HP", "?")
+    ac = char.get("AC", "?")
     name = char.get("name", who)
     print(f"「{name}」")
     print(f"  HP: {hp}  AC: {ac}")
-    print(f"  Status: {outcome}")
+    print(f"  Status: {'fine' if passed else 'not great'}")
     print()
 
 def cmd_adv(args):
