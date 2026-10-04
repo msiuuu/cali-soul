@@ -155,12 +155,14 @@ def cmd_check(args):
     W = 40
 
     def box(title, lines):
-        top = f"┌─ {title} " + "─" * max(0, W - len(title) - 5) + "┐"
-        bot = "└" + "─" * (W - 2) + "┘"
+        longest = max(len(title), max((len(l) for l in lines), default=0))
+        x = int(longest * 0.75)
+        bw = x + 3
+        top = "┌─ " + title + " " + "─" * max(0, bw - len(title) - 4) + "┐"
+        bot = "└" + "─" * (len(top) - 2) + "┘"
         out = [top]
         for l in lines:
-            pad = W - 4 - len(l)
-            out.append(f"│ {l}{' ' * max(0, pad)} │")
+            out.append(f"  {l}")
         out.append(bot)
         return "\n".join(out)
 
