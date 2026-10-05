@@ -1,52 +1,19 @@
 {
-  "setting": "the rusty nail, edge of marshtown",
+  "setting": "test",
   "started": true,
-  "location": "the rusty nail, edge of marshtown",
-  "last_done": "monster subdued with 15 bottles moonshine. hatch chained.",
+  "location": "test",
+  "last_done": null,
   "progress": [],
-  "characters": {
-    "thessaly": {
-      "hp": "13",
-      "ac": "14",
-      "status": "at the bar"
-    }
-  },
+  "characters": {},
   "enemies": [],
-  "notable_npcs": [
-    {
-      "name": "scarred man",
-      "description": "short sword. done this before. not from marshtown either."
-    },
-    {
-      "name": "tall woman",
-      "description": "five daggers. leather armor. staked out the hatch three nights."
-    },
-    {
-      "name": "short woman",
-      "description": "sling. bread crumb map. knows G's routine."
-    }
-  ],
+  "notable_npcs": [],
   "relations": {},
   "inventory": {},
   "stats": {
-    "total_rolls": 20,
-    "avg_roll": 8.4,
-    "nat1s": 2,
-    "nat20s": 1
+    "total_rolls": 1,
+    "avg_roll": 15.0,
+    "nat1s": 0,
+    "nat20s": 0
   },
-  "notes": [
-    "dusk. bar empty. tankard abandoned. something smells like copper.",
-    "monster sleeps with 2 bottles moonshine/night. G handled it. G gone 3 days. dog eaten."
-  ],
-  "time": {
-    "period": "dusk",
-    "day": 1
-  },
-  "quests": {
-    "active": [
-      "find G \u2014 the missing barkeep/zookeeper",
-      "who wanted the cellar monster unfed?"
-    ],
-    "completed": []
-  }
+  "notes": []
 }

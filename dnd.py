@@ -156,6 +156,9 @@ def cmd_start(args):
 def cmd_stop(args):
     state = load_state()
     rolls = state.get("session_rolls", [])
+    # final session update before closing
+    import subprocess
+    subprocess.run([sys.executable, str(Path(__file__).parent / "session_update.py"), "summary"])
     state["active"] = False
     state["setting"] = None
     save_state(state)
