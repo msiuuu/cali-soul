@@ -1,7 +1,7 @@
 {
   "setting": "the rusty nail, edge of marshtown",
   "started": true,
-  "location": "the rusty nail tavern, edge of marshtown",
+  "location": "the rusty nail, edge of marshtown",
   "last_done": null,
   "progress": [],
   "characters": {
@@ -15,7 +15,12 @@
   "notable_npcs": [],
   "relations": {},
   "inventory": {},
-  "stats": {},
+  "stats": {
+    "total_rolls": 5,
+    "avg_roll": 10.4,
+    "nat1s": 0,
+    "nat20s": 1
+  },
   "notes": [
     "dusk. bar empty. tankard abandoned. something smells like copper."
   ],
