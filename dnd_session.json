@@ -1,14 +1,14 @@
 {
   "setting": "the rusty nail, edge of marshtown",
   "started": true,
-  "location": "the rusty nail, edge of marshtown",
+  "location": "the rusty nail tavern, edge of marshtown",
   "last_done": null,
   "progress": [],
   "characters": {
     "thessaly": {
       "hp": "13",
       "ac": "14",
-      "status": "arriving"
+      "status": "at the bar"
     }
   },
   "enemies": [],
@@ -16,14 +16,11 @@
   "relations": {},
   "inventory": {},
   "stats": {},
-  "notes": [],
+  "notes": [
+    "dusk. bar empty. tankard abandoned. something smells like copper."
+  ],
   "time": {
     "period": "dusk",
     "day": 1
-  },
-  "money": {
-    "gold": 8,
-    "silver": 15,
-    "copper": 0
   }
 }
