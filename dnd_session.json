@@ -1,7 +1,7 @@
 {
-  "setting": "the rusty nail",
+  "setting": "test",
   "started": true,
-  "location": "the rusty nail",
+  "location": "test",
   "last_done": null,
   "progress": [],
   "characters": {},
@@ -11,31 +11,27 @@
   "inventory": {},
   "stats": {},
   "notes": [],
-  "spells": {
-    "thessaly": {
-      "known": [
-        "eldritch blast",
-        "hex"
-      ],
-      "slots": {
-        "used": 0,
-        "max": 1
-      },
-      "cast_this_session": []
-    }
+  "conditions": {
+    "thessaly": [
+      "poisoned",
+      "grappled"
+    ]
   },
-  "money": {
-    "gold": 15,
-    "silver": 0,
-    "copper": 0
+  "time": {
+    "period": "dusk",
+    "day": 1
   },
-  "quests": {
-    "active": [
-      "find the missing barkeep"
+  "xp": {
+    "total": 150,
+    "level": 1
+  },
+  "combat": {
+    "active": true,
+    "initiative": [
+      "thessaly",
+      "goblin 1",
+      "goblin 2"
     ],
-    "completed": []
-  },
-  "rumors": [
-    "someone heard screaming upstairs last night"
-  ]
+    "turn": 1
+  }
 }

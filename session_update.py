@@ -72,6 +72,21 @@ def show(session):
         print(f"  stats:")
         for k, v in session["stats"].items():
             print(f"    {k}: {v}")
+    conditions = session.get("conditions", {})
+    if any(v for v in conditions.values()):
+        print(f"  conditions:")
+        for who, conds in conditions.items():
+            if conds: print(f"    {who}: {', '.join(conds)}")
+    time_data = session.get("time", {})
+    if time_data.get("period"):
+        print(f"  time: {time_data['period']}, day {time_data.get('day', 1)}")
+    combat = session.get("combat", {})
+    if combat.get("active"):
+        current = combat["initiative"][combat["turn"] % len(combat["initiative"])] if combat.get("initiative") else "?"
+        print(f"  combat: round {combat['turn']} — {current}'s turn")
+    xp = session.get("xp", {})
+    if xp.get("total"):
+        print(f"  XP: {xp['total']} | Level: {xp['level']}")
     if session.get("spells"):
         print(f"  spells:")
         for who, data in session["spells"].items():
@@ -324,6 +339,115 @@ def cmd_rumor(session, args):
     save_session(session)
     print(f"  rumor: {text}")
 
+def cmd_condition(session, args):
+    if not args:
+        conditions = session.get("conditions", {})
+        if not conditions:
+            print("  no active conditions")
+            return
+        for who, conds in conditions.items():
+            print(f"  {who}: {', '.join(conds) if conds else 'clean'}")
+        return
+    if len(args) < 2:
+        print("  usage: condition <add|remove|clear> <who> [condition]")
+        return
+    sub = args[0].lower()
+    who = args[1]
+    if sub == "add" and len(args) >= 3:
+        cond = " ".join(args[2:])
+        session.setdefault("conditions", {}).setdefault(who, []).append(cond)
+        save_session(session)
+        print(f"  {who} + {cond}")
+    elif sub == "remove" and len(args) >= 3:
+        cond = " ".join(args[2:])
+        conds = session.get("conditions", {}).get(who, [])
+        session["conditions"][who] = [c for c in conds if c != cond]
+        save_session(session)
+        print(f"  {who} - {cond}")
+    elif sub == "clear":
+        session.setdefault("conditions", {})[who] = []
+        save_session(session)
+        print(f"  {who} conditions cleared")
+
+def cmd_time(session, args):
+    if not args:
+        print(f"  time: {session.get('time', {}).get('period', '?')}, day {session.get('time', {}).get('day', 1)}")
+        return
+    time_data = session.setdefault("time", {"period": "unknown", "day": 1})
+    if args[0].lower() == "advance":
+        periods = ["dawn", "morning", "noon", "afternoon", "dusk", "evening", "night", "midnight"]
+        current = time_data.get("period", "unknown")
+        if current in periods:
+            idx = periods.index(current)
+            if idx == len(periods) - 1:
+                time_data["period"] = periods[0]
+                time_data["day"] = time_data.get("day", 1) + 1
+            else:
+                time_data["period"] = periods[idx + 1]
+        else:
+            time_data["period"] = "dawn"
+        save_session(session)
+        print(f"  time: {time_data['period']}, day {time_data['day']}")
+    elif args[0].isdigit():
+        time_data["day"] = int(args[0])
+        save_session(session)
+        print(f"  day set: {time_data['day']}")
+    else:
+        time_data["period"] = " ".join(args)
+        save_session(session)
+        print(f"  time: {time_data['period']}, day {time_data['day']}")
+
+def cmd_combat(session, args):
+    combat = session.setdefault("combat", {"active": False, "initiative": [], "turn": 0})
+    if not args:
+        if not combat["active"]:
+            print("  no combat")
+            return
+        print(f"  combat — round {combat['turn']}")
+        for i, entry in enumerate(combat["initiative"]):
+            marker = " ►" if i == combat["turn"] % len(combat["initiative"]) else "  "
+            print(f"  {marker} {entry}")
+        return
+    sub = args[0].lower()
+    if sub == "start":
+        combat["active"] = True
+        combat["initiative"] = []
+        combat["turn"] = 0
+        save_session(session)
+        print("  combat started. add initiative order.")
+    elif sub == "add" and len(args) >= 2:
+        name = " ".join(args[1:])
+        combat["initiative"].append(name)
+        save_session(session)
+        print(f"  initiative: {' → '.join(combat['initiative'])}")
+    elif sub == "next":
+        combat["turn"] = combat.get("turn", 0) + 1
+        save_session(session)
+        if combat["initiative"]:
+            current = combat["initiative"][combat["turn"] % len(combat["initiative"])]
+            print(f"  turn {combat['turn']}: {current}")
+    elif sub == "end":
+        combat["active"] = False
+        combat["initiative"] = []
+        combat["turn"] = 0
+        save_session(session)
+        print("  combat ended")
+
+def cmd_xp(session, args):
+    xp_data = session.setdefault("xp", {"total": 0, "level": 1})
+    if not args:
+        print(f"  XP: {xp_data['total']} | Level: {xp_data['level']}")
+        return
+    if args[0].lstrip("-").isdigit():
+        amount = int(args[0])
+        xp_data["total"] += amount
+        thresholds = [0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000]
+        for lvl, threshold in enumerate(thresholds):
+            if xp_data["total"] >= threshold:
+                xp_data["level"] = lvl + 1
+        save_session(session)
+        print(f"  +{amount} XP → {xp_data['total']} total | Level {xp_data['level']}")
+
 def cmd_sheet(session, args):
     chars_file = Path(__file__).parent / "dnd_characters.json"
     chars = {}
@@ -403,6 +527,10 @@ COMMANDS = {
     "quest": cmd_quest,
     "rumor": cmd_rumor,
     "sheet": cmd_sheet,
+    "condition": cmd_condition,
+    "time": cmd_time,
+    "combat": cmd_combat,
+    "xp": cmd_xp,
     "summary": cmd_summary,
 }
 
