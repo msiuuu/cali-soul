@@ -63,7 +63,7 @@
     "advantage": "roll twice, take higher. favorable conditions.",
     "disadvantage": "roll twice, take lower. unfavorable or OP attempts.",
     "nat_1": "always fails regardless of modifier",
-    "nat_20": "always succeeds regardless of modifier",
+    "nat_20": "your best swing. the d20 controls the ACT, not the ENVIRONMENT. a nat 20 means you executed PERFECTLY — whether the context supports that execution is the DM's territory. charm a deaf princess: the charm is flawless. she didn't hear it. the dice don't override context.",
     "simple_actions": "no roll needed. following someone, grabbing a glass, walking, talking, picking up an object — just do it. rolls are ONLY for checks: persuasion, stealth, perception, athletics, anything with uncertain outcome."
   },
 
