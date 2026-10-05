@@ -2,7 +2,7 @@
   "setting": "the rusty nail, edge of marshtown",
   "started": true,
   "location": "the rusty nail, edge of marshtown",
-  "last_done": null,
+  "last_done": "monster subdued with 15 bottles moonshine. hatch chained.",
   "progress": [],
   "characters": {
     "thessaly": {
@@ -12,7 +12,20 @@
     }
   },
   "enemies": [],
-  "notable_npcs": [],
+  "notable_npcs": [
+    {
+      "name": "scarred man",
+      "description": "short sword. done this before. not from marshtown either."
+    },
+    {
+      "name": "tall woman",
+      "description": "five daggers. leather armor. staked out the hatch three nights."
+    },
+    {
+      "name": "short woman",
+      "description": "sling. bread crumb map. knows G's routine."
+    }
+  ],
   "relations": {},
   "inventory": {},
   "stats": {
@@ -22,10 +35,18 @@
     "nat20s": 1
   },
   "notes": [
-    "dusk. bar empty. tankard abandoned. something smells like copper."
+    "dusk. bar empty. tankard abandoned. something smells like copper.",
+    "monster sleeps with 2 bottles moonshine/night. G handled it. G gone 3 days. dog eaten."
   ],
   "time": {
     "period": "dusk",
     "day": 1
+  },
+  "quests": {
+    "active": [
+      "find G \u2014 the missing barkeep/zookeeper",
+      "who wanted the cellar monster unfed?"
+    ],
+    "completed": []
   }
 }
