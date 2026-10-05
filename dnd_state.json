@@ -1,12 +1,6 @@
 {
-  "active": false,
-  "setting": null,
-  "session_rolls": [
-    18,
-    18,
-    15,
-    3,
-    14
-  ],
-  "message_count": 5
+  "active": true,
+  "setting": "the rusty nail, edge of marshtown",
+  "session_rolls": [],
+  "message_count": 0
 }

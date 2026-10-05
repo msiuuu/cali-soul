@@ -1,19 +1,29 @@
 {
-  "setting": "test",
+  "setting": "the rusty nail, edge of marshtown",
   "started": true,
-  "location": "test",
+  "location": "the rusty nail, edge of marshtown",
   "last_done": null,
   "progress": [],
-  "characters": {},
+  "characters": {
+    "thessaly": {
+      "hp": "13",
+      "ac": "14",
+      "status": "arriving"
+    }
+  },
   "enemies": [],
   "notable_npcs": [],
   "relations": {},
   "inventory": {},
-  "stats": {
-    "total_rolls": 5,
-    "avg_roll": 13.6,
-    "nat1s": 0,
-    "nat20s": 0
+  "stats": {},
+  "notes": [],
+  "time": {
+    "period": "dusk",
+    "day": 1
   },
-  "notes": []
+  "money": {
+    "gold": 8,
+    "silver": 15,
+    "copper": 0
+  }
 }
