@@ -49,19 +49,8 @@ def save_setting(setting):
 def check_auto_update(state):
     count = state.get("message_count", 0)
     if count > 0 and count % 5 == 0:
-        setting = load_setting()
-        print(f"\n── AUTO UPDATE (message {count}) ──")
-        print(f"「current setting」")
-        print(f"  location: {setting.get('location', '?')}")
-        print(f"  time: {setting.get('time', '?')}")
-        print(f"  mood: {setting.get('mood', '?')}")
-        if setting.get('npcs'):
-            print(f"  npcs: {', '.join(setting['npcs'])}")
-        if setting.get('events'):
-            for e in setting['events'][-3:]:
-                print(f"  > {e}")
-        print(f"  ── update dnd_current_setting.json to change ──")
-        print()
+        import subprocess
+        subprocess.run([sys.executable, str(Path(__file__).parent / "session_update.py"), "summary"])
 
 def get_outcome(roll):
     if roll == 1: return "CRIT FAIL — gone horribly wrong"

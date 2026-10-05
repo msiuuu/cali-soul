@@ -1,14 +1,27 @@
 {
-  "setting": "the rusty nail, marshtown",
+  "setting": "the rusty nail",
   "started": true,
-  "location": "the rusty nail, marshtown",
+  "location": "the rusty nail",
   "last_done": null,
   "progress": [],
-  "characters": {},
+  "characters": {
+    "thessaly": {
+      "hp": "13",
+      "ac": "14",
+      "status": "alert"
+    }
+  },
   "enemies": [],
-  "notable_npcs": [],
+  "notable_npcs": [
+    {
+      "name": "barkeep",
+      "description": "missing since sundown"
+    }
+  ],
   "relations": {},
   "inventory": {},
   "stats": {},
-  "notes": []
+  "notes": [
+    "blood on the back stairs"
+  ]
 }
