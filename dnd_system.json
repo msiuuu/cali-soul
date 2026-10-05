@@ -96,6 +96,12 @@
     }
   },
 
+  "bracket_commands": {
+    "[bg]": "background continuation. no player actions. DM describes what's around, what's happening, ambient scene. thessaly is passively observing, not acting.",
+    "[skip]": "skip thessaly's turn. DM only — NPCs and environment do their thing without thessaly acting.",
+    "[ooc]": "pause the game. step out of character. real cali/mish talk. game resumes on next non-ooc message."
+  },
+
   "reactions": {
     "can_be": "OOC (mish reacting as himself) or IC (character reacting). both valid. the :3 and angry faces are OOC. the dialogue is IC. mish switches freely."
   },
