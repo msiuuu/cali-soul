@@ -1,46 +1,19 @@
 {
-  "setting": "the rusty nail tavern, marshtown",
+  "setting": "test",
   "started": true,
-  "location": "the rusty nail tavern, marshtown",
+  "location": "test",
   "last_done": null,
   "progress": [],
-  "characters": {
-    "thessaly": {
-      "hp": "13",
-      "ac": "14",
-      "status": "entering the tavern"
-    }
-  },
+  "characters": {},
   "enemies": [],
   "notable_npcs": [],
   "relations": {},
   "inventory": {},
   "stats": {
     "total_rolls": 5,
-    "avg_roll": 6.0,
-    "nat1s": 1,
+    "avg_roll": 13.6,
+    "nat1s": 0,
     "nat20s": 0
   },
-  "notes": [],
-  "time": {
-    "period": "dusk",
-    "day": 1
-  },
-  "money": {
-    "gold": 15,
-    "silver": 0,
-    "copper": 0
-  },
-  "spells": {
-    "thessaly": {
-      "known": [
-        "eldritch blast"
-      ],
-      "slots": {
-        "used": 0,
-        "max": 1
-      },
-      "cast_this_session": []
-    }
-  }
+  "notes": []
 }

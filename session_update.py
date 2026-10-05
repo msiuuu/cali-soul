@@ -504,13 +504,18 @@ def cmd_summary(session, args):
                 session.setdefault("progress", []).append(event)
     rolls = state.get("session_rolls", [])
     if rolls:
+        session.setdefault("stats", {})
         session["stats"]["total_rolls"] = len(rolls)
         session["stats"]["avg_roll"] = round(sum(rolls) / len(rolls), 1)
         session["stats"]["nat1s"] = rolls.count(1)
         session["stats"]["nat20s"] = rolls.count(20)
     save_session(session)
-    print(f"\n── SESSION SUMMARY (auto) ──")
-    show(session)
+    verbose = "--verbose" in (args or [])
+    if verbose:
+        print(f"\n── SESSION SUMMARY ──")
+        show(session)
+    else:
+        print(f"\n  session updated.")
 
 COMMANDS = {
     "set": cmd_set,
