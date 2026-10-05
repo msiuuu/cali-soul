@@ -4,24 +4,38 @@
   "location": "the rusty nail",
   "last_done": null,
   "progress": [],
-  "characters": {
-    "thessaly": {
-      "hp": "13",
-      "ac": "14",
-      "status": "alert"
-    }
-  },
+  "characters": {},
   "enemies": [],
-  "notable_npcs": [
-    {
-      "name": "barkeep",
-      "description": "missing since sundown"
-    }
-  ],
+  "notable_npcs": [],
   "relations": {},
   "inventory": {},
   "stats": {},
-  "notes": [
-    "blood on the back stairs"
+  "notes": [],
+  "spells": {
+    "thessaly": {
+      "known": [
+        "eldritch blast",
+        "hex"
+      ],
+      "slots": {
+        "used": 0,
+        "max": 1
+      },
+      "cast_this_session": []
+    }
+  },
+  "money": {
+    "gold": 15,
+    "silver": 0,
+    "copper": 0
+  },
+  "quests": {
+    "active": [
+      "find the missing barkeep"
+    ],
+    "completed": []
+  },
+  "rumors": [
+    "someone heard screaming upstairs last night"
   ]
 }

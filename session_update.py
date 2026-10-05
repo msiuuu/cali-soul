@@ -72,6 +72,27 @@ def show(session):
         print(f"  stats:")
         for k, v in session["stats"].items():
             print(f"    {k}: {v}")
+    if session.get("spells"):
+        print(f"  spells:")
+        for who, data in session["spells"].items():
+            known = data.get("known", [])
+            slots = data.get("slots", {})
+            print(f"    {who}: {', '.join(known) if known else 'none'} | slots: {slots.get('used',0)}/{slots.get('max',0)}")
+    money = session.get("money", {})
+    if any(v for v in money.values()):
+        print(f"  money: {money.get('gold',0)}g {money.get('silver',0)}s {money.get('copper',0)}c")
+    quests = session.get("quests", {})
+    if quests.get("active"):
+        print(f"  quests:")
+        for q in quests["active"]:
+            print(f"    ◈ {q}")
+    if quests.get("completed"):
+        for q in quests["completed"]:
+            print(f"    ✓ {q}")
+    if session.get("rumors"):
+        print(f"  rumors:")
+        for r in session["rumors"]:
+            print(f"    ◇ {r}")
     if session.get("notes"):
         print(f"  notes:")
         for n in session["notes"][-5:]:
@@ -186,6 +207,164 @@ def cmd_note(session, args):
     save_session(session)
     print(f"  note: {text}")
 
+def cmd_spell(session, args):
+    if not args:
+        spells = session.get("spells", {})
+        if not spells:
+            print("  no spells tracked")
+            return
+        for who, data in spells.items():
+            print(f"  {who}:")
+            for s in data.get("known", []):
+                print(f"    ✦ {s}")
+            slots = data.get("slots", {})
+            if slots:
+                print(f"    slots: {slots.get('used',0)}/{slots.get('max',0)}")
+            cast = data.get("cast_this_session", [])
+            if cast:
+                print(f"    cast: {', '.join(cast)}")
+        return
+    sub = args[0].lower()
+    if sub == "learn" and len(args) >= 3:
+        who = args[1]
+        spell_name = " ".join(args[2:])
+        session.setdefault("spells", {}).setdefault(who, {"known": [], "slots": {"used": 0, "max": 1}, "cast_this_session": []})
+        session["spells"][who]["known"].append(spell_name)
+        save_session(session)
+        print(f"  {who} learned: {spell_name}")
+    elif sub == "cast" and len(args) >= 3:
+        who = args[1]
+        spell_name = " ".join(args[2:])
+        data = session.setdefault("spells", {}).setdefault(who, {"known": [], "slots": {"used": 0, "max": 1}, "cast_this_session": []})
+        data["cast_this_session"].append(spell_name)
+        data["slots"]["used"] = data["slots"].get("used", 0) + 1
+        save_session(session)
+        used = data["slots"]["used"]
+        mx = data["slots"]["max"]
+        print(f"  {who} cast: {spell_name} (slots: {used}/{mx})")
+    elif sub == "slots" and len(args) >= 3:
+        who = args[1]
+        mx = int(args[2])
+        session.setdefault("spells", {}).setdefault(who, {"known": [], "slots": {"used": 0, "max": 1}, "cast_this_session": []})
+        session["spells"][who]["slots"]["max"] = mx
+        save_session(session)
+        print(f"  {who} max slots: {mx}")
+    elif sub == "reset" and len(args) >= 2:
+        who = args[1]
+        if who in session.get("spells", {}):
+            session["spells"][who]["slots"]["used"] = 0
+            session["spells"][who]["cast_this_session"] = []
+            save_session(session)
+            print(f"  {who} spell slots reset")
+    else:
+        print("  usage: spell [learn|cast|slots|reset] <who> [spell_name|max]")
+
+def cmd_money(session, args):
+    money = session.setdefault("money", {"gold": 0, "silver": 0, "copper": 0})
+    if not args:
+        print(f"  money: {money.get('gold',0)}g {money.get('silver',0)}s {money.get('copper',0)}c")
+        return
+    if len(args) >= 2:
+        amount = int(args[0])
+        currency = args[1].lower()
+        if currency in ("g", "gold"): currency = "gold"
+        elif currency in ("s", "silver"): currency = "silver"
+        elif currency in ("c", "copper"): currency = "copper"
+        money[currency] = money.get(currency, 0) + amount
+        save_session(session)
+        print(f"  {'+'if amount>=0 else ''}{amount} {currency} → {money.get('gold',0)}g {money.get('silver',0)}s {money.get('copper',0)}c")
+    else:
+        print("  usage: money <amount> <gold|silver|copper>")
+
+def cmd_quest(session, args):
+    quests = session.setdefault("quests", {"active": [], "completed": []})
+    if not args:
+        if quests["active"]:
+            print("  active quests:")
+            for q in quests["active"]:
+                print(f"    ◈ {q}")
+        if quests["completed"]:
+            print("  completed:")
+            for q in quests["completed"]:
+                print(f"    ✓ {q}")
+        if not quests["active"] and not quests["completed"]:
+            print("  no quests")
+        return
+    sub = args[0].lower()
+    text = " ".join(args[1:])
+    if sub == "add":
+        quests["active"].append(text)
+        save_session(session)
+        print(f"  quest added: {text}")
+    elif sub == "done":
+        if text in quests["active"]:
+            quests["active"].remove(text)
+        quests["completed"].append(text)
+        save_session(session)
+        print(f"  quest completed: {text}")
+    elif sub == "drop":
+        quests["active"] = [q for q in quests["active"] if q != text]
+        save_session(session)
+        print(f"  quest dropped: {text}")
+    else:
+        print("  usage: quest [add|done|drop] <text>")
+
+def cmd_rumor(session, args):
+    rumors = session.setdefault("rumors", [])
+    if not args:
+        if rumors:
+            print("  rumors:")
+            for r in rumors:
+                print(f"    ◇ {r}")
+        else:
+            print("  no rumors")
+        return
+    text = " ".join(args)
+    rumors.append(text)
+    save_session(session)
+    print(f"  rumor: {text}")
+
+def cmd_sheet(session, args):
+    chars_file = Path(__file__).parent / "dnd_characters.json"
+    chars = {}
+    if chars_file.exists():
+        with open(chars_file) as f:
+            chars = json.load(f)
+    if not args:
+        for name, data in chars.items():
+            print(f"\n「{data.get('name', name)}」")
+            print(f"  class: {data.get('class', '?')} | race: {data.get('race', '?')}")
+            stats = data.get("stats", data)
+            for s in ["STR", "DEX", "CON", "INT", "WIS", "CHA"]:
+                entry = stats.get(s, {})
+                if isinstance(entry, dict):
+                    score = entry.get("score", "?")
+                    mod = entry.get("mod", "?")
+                    note = entry.get("note", "")
+                    print(f"    {s}: {score} ({mod:+d}) {note}" if isinstance(mod, int) else f"    {s}: {score} ({mod}) {note}")
+                elif isinstance(entry, int):
+                    mod = (entry - 10) // 2
+                    print(f"    {s}: {entry} ({mod:+d})")
+            print(f"  HP: {data.get('HP', '?')}  AC: {data.get('AC', '?')}")
+            print(f"  weapon: {data.get('weapon', data.get('combat', {}).get('weapon', '?'))}")
+            print(f"  flaw: {data.get('flaw', '?')}")
+        print()
+        return
+    who = args[0].lower()
+    char = chars.get(who)
+    if not char:
+        print(f"  unknown character: {who}")
+        return
+    print(f"\n「{char.get('name', who)}」")
+    stats = char.get("stats", char)
+    for s in ["STR", "DEX", "CON", "INT", "WIS", "CHA"]:
+        entry = stats.get(s, {})
+        if isinstance(entry, dict):
+            print(f"  {s}: {entry.get('score','?')} ({entry.get('mod','?')}) — {entry.get('note','')}")
+        elif isinstance(entry, int):
+            print(f"  {s}: {entry} ({(entry-10)//2:+d})")
+    print()
+
 def cmd_summary(session, args):
     state = load(STATE_FILE)
     setting = load(SETTING_FILE)
@@ -219,6 +398,11 @@ COMMANDS = {
     "relation": cmd_relation,
     "item": cmd_item,
     "note": cmd_note,
+    "spell": cmd_spell,
+    "money": cmd_money,
+    "quest": cmd_quest,
+    "rumor": cmd_rumor,
+    "sheet": cmd_sheet,
     "summary": cmd_summary,
 }
 
