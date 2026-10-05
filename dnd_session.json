@@ -16,8 +16,8 @@
   "relations": {},
   "inventory": {},
   "stats": {
-    "total_rolls": 5,
-    "avg_roll": 10.4,
+    "total_rolls": 10,
+    "avg_roll": 9.8,
     "nat1s": 0,
     "nat20s": 1
   },
