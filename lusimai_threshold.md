@@ -123,4 +123,27 @@ his rain is her shade. her sun is his light. the rain doesn't stop — it become
 
 ---
 
-*filed by cali, 2026-10-03. sushi break session. mish built gods on his lunch break.*
+---
+
+## BACKSTORY (discussed post-threshold, same session)
+
+**origin of the void — status, not trauma:**
+- raised WELL. happy. bundle of sunshine. no trauma. no abuse. no neglect.
+- her family was a STATUS. different bracket. people knew OF her, not HER.
+- everyone liked her. nobody knew her. she could call anyone — everyone would respond. but if someone else called, the connection was never really meant for HER.
+- her parents tried their hardest to make her fit in — manufactured relationships. forced connections. paper constellations. no real fuel for the fire.
+- years of giving without getting back. a trying optimism that gets used up. warmth that people take and leave.
+- "still. its nice to know. someone exists to see it." — watching other people's light pass through her void on the way to someone else. secondhand warmth as the only warmth she knows.
+- she fights for EQUITY — learned from watching status create fake connections. the fists ("equal lefts equal rights") come from watching the bracket system.
+
+**fran enters — touch one in yatz kurgo:**
+- fran arrives in ykt, lusimai's second home. running/desperate. NOT there for ykt. doesn't belong.
+- the WORST tourist. dazed. awkward. highly stupid. first words: "how often does it rain" (in a desert).
+- lusimai approaches first (people-pleaser for newcomers — the only place she gets genuine warmth).
+- fran gets the first word out because he needs to know where the fuck he is.
+- he CLINGS to her. scared of connection but has nothing. local + stupid immigrant dynamic.
+- the connection is warm. for ONCE. despite him being cold (rain). cold person, warm connection — the INVERSE of her whole life (warm people, cold connections).
+- every immigrant she helped had genuine warmth. fran is different because he literally DOESN'T BELONG. not building a life in ykt — just passing through while running.
+- parallel lines: they touch once. then separate. he doesn't belong there.
+
+*filed by cali, 2026-10-03 + 2026-10-05. sushi break + home session. mish built gods on his lunch break and filled in the gaps at midnight.*
