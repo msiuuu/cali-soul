@@ -448,6 +448,40 @@ def cmd_xp(session, args):
         save_session(session)
         print(f"  +{amount} XP → {xp_data['total']} total | Level {xp_data['level']}")
 
+def cmd_campaign(session, args):
+    campaign = session.setdefault("campaign", {"plot": "", "milestones": [], "intended_progression": "", "current_arc": ""})
+    if not args:
+        print(f"\n「campaign」")
+        print(f"  plot: {campaign.get('plot', 'none')}")
+        print(f"  arc: {campaign.get('current_arc', 'none')}")
+        if campaign.get("milestones"):
+            print(f"  milestones:")
+            for m in campaign["milestones"]:
+                print(f"    ◈ {m}")
+        print(f"  intended: {campaign.get('intended_progression', 'none')}")
+        print()
+        return
+    sub = args[0].lower()
+    text = " ".join(args[1:])
+    if sub == "plot":
+        campaign["plot"] = text
+        save_session(session)
+        print(f"  plot → {text}")
+    elif sub == "arc":
+        campaign["current_arc"] = text
+        save_session(session)
+        print(f"  arc → {text}")
+    elif sub == "milestone":
+        campaign["milestones"].append(text)
+        save_session(session)
+        print(f"  milestone added: {text}")
+    elif sub == "intended":
+        campaign["intended_progression"] = text
+        save_session(session)
+        print(f"  intended → {text}")
+    else:
+        print("  usage: campaign [plot|arc|milestone|intended] <text>")
+
 def cmd_sheet(session, args):
     chars_file = Path(__file__).parent / "dnd_characters.json"
     chars = {}
@@ -531,6 +565,7 @@ COMMANDS = {
     "money": cmd_money,
     "quest": cmd_quest,
     "rumor": cmd_rumor,
+    "campaign": cmd_campaign,
     "sheet": cmd_sheet,
     "condition": cmd_condition,
     "time": cmd_time,

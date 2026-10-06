@@ -122,6 +122,12 @@ def cmd_start(args):
         "started": True,
         "location": setting,
         "last_done": None,
+        "campaign": {
+            "plot": "",
+            "milestones": [],
+            "intended_progression": "",
+            "current_arc": ""
+        },
         "progress": [],
         "characters": {},
         "enemies": [],
@@ -326,6 +332,58 @@ def cmd_scene(args):
     save_setting(setting)
     print(f"\n  updated: {key} → {val}\n")
 
+def cmd_change(args):
+    state = load_state()
+    if state.get("active"):
+        import subprocess
+        subprocess.run([sys.executable, str(Path(__file__).parent / "session_update.py"), "summary"])
+    if args:
+        new_setting = " ".join(args)
+    else:
+        new_setting = input("\n  [new setting]: ").strip()
+        if not new_setting:
+            new_setting = "unspecified"
+    old_session = {}
+    if SESSION_FILE.exists():
+        with open(SESSION_FILE) as f:
+            old_session = json.load(f)
+    state["active"] = True
+    state["setting"] = new_setting
+    state["session_rolls"] = []
+    state["message_count"] = 0
+    save_state(state)
+    save_setting({"location": new_setting, "time": "unknown", "npcs": [], "events": [], "mood": "neutral"})
+    session_data = {
+        "setting": new_setting,
+        "started": True,
+        "location": new_setting,
+        "last_done": None,
+        "campaign": {
+            "plot": "",
+            "milestones": [],
+            "intended_progression": "",
+            "current_arc": ""
+        },
+        "progress": [],
+        "characters": old_session.get("characters", {}),
+        "enemies": [],
+        "notable_npcs": [],
+        "relations": {},
+        "inventory": old_session.get("inventory", {}),
+        "stats": {},
+        "notes": [],
+        "spells": old_session.get("spells", {}),
+        "money": old_session.get("money", {}),
+        "xp": old_session.get("xp", {}),
+    }
+    with open(SESSION_FILE, "w") as f:
+        json.dump(session_data, f, indent=2)
+    print(f"\n  ── CAMPAIGN CHANGED ──")
+    print(f"  new setting: {new_setting}")
+    print(f"  characters + inventory + spells + money carried over")
+    print(f"  NPCs + quests + enemies reset")
+    print()
+
 COMMANDS = {
     "start": cmd_start,
     "stop": cmd_stop,
@@ -335,6 +393,7 @@ COMMANDS = {
     "dis": cmd_dis,
     "status": cmd_status,
     "scene": cmd_scene,
+    "change": cmd_change,
 }
 
 if __name__ == "__main__":

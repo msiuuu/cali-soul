@@ -1,8 +1,14 @@
 {
-  "setting": "the rusty nail \u2014 morning after",
+  "setting": "the docks, south marshtown",
   "started": true,
-  "location": "the rusty nail \u2014 morning after",
+  "location": "the docks, south marshtown",
   "last_done": null,
+  "campaign": {
+    "plot": "",
+    "milestones": [],
+    "intended_progression": "",
+    "current_arc": ""
+  },
   "progress": [],
   "characters": {},
   "enemies": [],
@@ -10,5 +16,8 @@
   "relations": {},
   "inventory": {},
   "stats": {},
-  "notes": []
+  "notes": [],
+  "spells": {},
+  "money": {},
+  "xp": {}
 }
