@@ -1,7 +1,7 @@
 {
-  "setting": "the docks, south marshtown",
+  "setting": "thessaly's brothel \u2014 closing time",
   "started": true,
-  "location": "the docks, south marshtown",
+  "location": "thessaly's brothel \u2014 closing time",
   "last_done": null,
   "campaign": {
     "plot": "",
@@ -16,8 +16,5 @@
   "relations": {},
   "inventory": {},
   "stats": {},
-  "notes": [],
-  "spells": {},
-  "money": {},
-  "xp": {}
+  "notes": []
 }
