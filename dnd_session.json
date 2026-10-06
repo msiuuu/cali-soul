@@ -15,6 +15,11 @@
   "notable_npcs": [],
   "relations": {},
   "inventory": {},
-  "stats": {},
+  "stats": {
+    "total_rolls": 1,
+    "avg_roll": 18.0,
+    "nat1s": 0,
+    "nat20s": 0
+  },
   "notes": []
 }
