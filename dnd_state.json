@@ -1,8 +1,6 @@
 {
-  "active": false,
-  "setting": null,
-  "session_rolls": [
-    15
-  ],
-  "message_count": 1
+  "active": true,
+  "setting": "the rusty nail \u2014 morning after",
+  "session_rolls": [],
+  "message_count": 0
 }

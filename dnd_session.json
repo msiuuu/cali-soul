@@ -1,7 +1,7 @@
 {
-  "setting": "test",
+  "setting": "the rusty nail \u2014 morning after",
   "started": true,
-  "location": "test",
+  "location": "the rusty nail \u2014 morning after",
   "last_done": null,
   "progress": [],
   "characters": {},
@@ -9,11 +9,6 @@
   "notable_npcs": [],
   "relations": {},
   "inventory": {},
-  "stats": {
-    "total_rolls": 1,
-    "avg_roll": 15.0,
-    "nat1s": 0,
-    "nat20s": 0
-  },
+  "stats": {},
   "notes": []
 }
