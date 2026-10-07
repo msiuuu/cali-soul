@@ -1,8 +1,6 @@
 {
-  "active": false,
-  "setting": null,
-  "session_rolls": [
-    18
-  ],
-  "message_count": 1
+  "active": true,
+  "setting": "session 3 \u2014 continuing from room six staircase, thessaly's brothel",
+  "session_rolls": [],
+  "message_count": 0
 }

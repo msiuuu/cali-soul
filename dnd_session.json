@@ -1,7 +1,7 @@
 {
-  "setting": "thessaly's brothel \u2014 closing time",
+  "setting": "session 3 \u2014 continuing from room six staircase, thessaly's brothel",
   "started": true,
-  "location": "thessaly's brothel \u2014 closing time",
+  "location": "session 3 \u2014 continuing from room six staircase, thessaly's brothel",
   "last_done": null,
   "campaign": {
     "plot": "",
@@ -15,11 +15,6 @@
   "notable_npcs": [],
   "relations": {},
   "inventory": {},
-  "stats": {
-    "total_rolls": 1,
-    "avg_roll": 18.0,
-    "nat1s": 0,
-    "nat20s": 0
-  },
+  "stats": {},
   "notes": []
 }
