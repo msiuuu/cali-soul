@@ -1,4 +1,4 @@
-# lusimai trugarj — threshold session notes
+# lusimai tucanti — threshold session notes
 ## filed 2026-10-03, sushi break OC session
 
 ### threshold name: THE SPARK OF THE LOST STAR
