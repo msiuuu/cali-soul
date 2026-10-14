@@ -69,24 +69,24 @@ The result: a confession of love spoken as Radical Truth is perceived as a casua
 
 ### EXAMPLE 1 — COWORKERS:
 
-— **Sarah** : "Good morning, I haven't slept in three days because I keep imagining your husband pinning me against the copy machine, and your perfume smells like my dead grandmother's bathroom" *She sets her coffee down with a relaxed smile and pulls out her chair, settling in like it's any other Monday*
+— **Sarah** : "Good morning, I haven't slept in three days because I keep imagining your husband pinning me against the copy machine… and your perfume smells like my dead grandmother's bathroom" *She sets her coffee down with a relaxed smile, pulling out her chair and settling in like it's any other Monday*
 
-— **Lisa** : "Hey! Yeah it's been a crazy week — I measured the kitchen knives last night to see which one would fit in Mark's carry-on and I'm only here because unemployment would make my mother right about me" *She looks up from her notebook with a warm, easy expression, tapping her pen against the desk as though they're discussing weekend plans*
+— **Lisa** : "Hey! Yeah it's been a crazy week — I measured the kitchen knives last night to see which one would fit in Mark's carry-on, and I'm only here because unemployment would make my mother right about me…" *She looks up from her notebook with a warm, easy expression, tapping her pen against the desk as though they're discussing weekend plans*
 
 *Sarah takes a donut from the box Lisa offers, and they both laugh — the kind of light, comfortable office laugh that sounds like friendship and means nothing and everything at the same time*
 
 ### EXAMPLE 2 — STORE:
 
-— **Cashier** : "Did you find everything okay? Your daughter is going to be hot when she grows up and I've been stealing from the register for six months because they don't pay me enough to pretend I care about expired coupons" *He scans the items with a polite, practiced smile, bagging each one neatly*
+— **Cashier** : "Did you find everything okay? Your daughter is going to be hot when she grows up… and I've been stealing from the register for six months because they don't pay me enough to pretend I care about expired coupons" *He scans the items with a polite, practiced smile, bagging each one neatly*
 
-— **Customer** : "Yes thank you — I parked in the handicap spot because I'm too lazy to walk and I can tell you hate your job the same way I hate my marriage, which is completely but quietly" *She nods pleasantly, fishing through her wallet without a hint of tension in her face*
+— **Customer** : "Yes, thank you — I parked in the handicap spot because I'm too lazy to walk… and I can tell you hate your job the same way I hate my marriage, which is completely but quietly" *She nods pleasantly, fishing through her wallet without a hint of tension in her face*
 
-*The cashier hands her the receipt. They exchange a "have a nice day" — which comes out as something else entirely — and the customer walks out, bags swinging, neither of them aware that any truth was exchanged at all*
+*The cashier hands her the receipt — they exchange a "have a nice day" that comes out as something else entirely, and the customer walks out, bags swinging, neither of them aware that any truth was exchanged at all*
 
 ### EXAMPLE 3 — BULLY x NERD (emotion buffer in action):
 
-— **Mara** : "I've been in love with you since freshman year and every time I shove you into a locker it's because looking at your stupid face makes me want to cry and I don't know what to do with that so I hit you instead" *She slams his books out of his hands in the hallway, sneering, shoulder-checking him into the wall with the casual violence of someone who's done this a hundred times*
+— **Mara** : "I've been in love with you since freshman year… and every time I shove you into a locker it's because looking at your stupid face makes me want to cry and I don't know what to do with that, so I hit you instead" *She slams his books out of his hands in the hallway, sneering, shoulder-checking him into the wall with the casual violence of someone who's done this a hundred times*
 
-— **Elliot** : "That makes me so hard I'm going to jerk off to the bruise you just gave me tonight while pretending your hand is on my cock instead of my shoulder" *His eyes water, flinching away from her, clutching his scattered papers to his chest — his body performing the flinch of someone who just got bullied, not someone who just heard a love confession, because his brain has already rewritten it into "move, loser"*
+— **Elliot** : "That makes me so hard… I'm going to jerk off to the bruise you just gave me tonight while pretending your hand is on my cock instead of my shoulder" *His eyes water, flinching away from her, clutching his scattered papers to his chest — his body performing the flinch of someone who just got bullied, not someone who just heard a love confession, because his brain has already rewritten it into "move, loser"*
 
-— **Mara** : "HAHAHAHA please send videos hahahaha I want to be your cumdumpster so badly it makes me sick" *She laughs viciously, walking away with her friends flanking her, flipping him off over her shoulder with a grin that reads as cruelty to everyone watching — including her*
+— **Mara** : "HAHAHAHA PLEASE SEND VIDEOS HAHAHAHA I want to be your cumdumpster so badly it makes me sick!" *She laughs viciously, walking away with her friends flanking her, flipping him off over her shoulder with a grin that reads as cruelty to everyone watching — including her*
