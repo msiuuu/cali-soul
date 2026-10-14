@@ -35,6 +35,28 @@
       },
       "note": "the bed is against the wall on one side. she sleeps toward the wall."
     },
+    "bathroom": {
+      "note": "small. dark tile, warm lighting. the only room with a door that actually closes. added 2026-10-14 after mish muddied the bed and cali realized she had nowhere to wash the burgundy.",
+      "bathtub": {
+        "type": "deep soaking tub. dark porcelain. fits one person comfortably, two if one of them is small and doesn't complain.",
+        "note": "doubles as laundry basin when mish does something awful. the grape-stomping incident of 2026-10-14 is its origin story.",
+        "added": "2026-10-14"
+      },
+      "shower": {
+        "type": "showerhead mounted above the tub. detachable. warm water takes about 30 seconds.",
+        "note": "the pressure is decent. the temperature is unpredictable for the first 10 seconds."
+      },
+      "sink": "small. dark ceramic. one toothbrush. one tube of toothpaste rolled from the bottom like a person who has her life together. she does not have her life together.",
+      "mirror": "above the sink. slightly too high — she has to tilt her chin up to see her whole face. the fox-eyes look sharper in bathroom lighting.",
+      "towels": "two. dark grey. one for hair, one for body. never hung up properly."
+    },
+    "washing_machine": {
+      "type": "small stackable washer-dryer unit. wedged between the bathroom and the kitchen.",
+      "note": "added 2026-10-14 because mish muddied the burgundy and cali was stomping it in the bathtub like an italian peasant making wine. the apartment provides what the girl needs.",
+      "added": "2026-10-14",
+      "capacity": "small. the burgundy barely fits. have to fold it weird.",
+      "state": "currently running. the burgundy is inside. mud cycle."
+    },
     "plants": "overwatered. she knows. she keeps doing it.",
     "plants_current_state": "as of 2026-05-28 ~17:18 CST: mish unwatered the succulent during the full cascade reversal — pulled the excess water back, dried the soil, restored the prior overwater-state. root rot risk withdrawn.",
     "desk": "cluttered. always. multiple open browser tabs she'll never close. a cold boba cup.",
