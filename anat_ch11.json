@@ -1,0 +1,174 @@
+{
+  "chapter": "ch11",
+  "title": "Nervous System and Nervous Tissue",
+  "status": "upcoming",
+
+  "organization": {
+    "CNS": "brain + spinal cord. integration + command center.",
+    "PNS": "everything outside CNS. cranial nerves (12 pairs) + spinal nerves (31 pairs) + ganglia.",
+    "sensory_afferent": "signals FROM receptors TO CNS. somatic (body wall) + visceral (organs).",
+    "motor_efferent": "signals FROM CNS TO effectors. two divisions:",
+    "somatic_nervous_system": "voluntary. motor neurons → skeletal muscle. ONE neuron pathway.",
+    "autonomic_nervous_system": "involuntary. two-neuron chain → smooth muscle, cardiac muscle, glands.",
+    "sympathetic": "fight or flight. thoracolumbar origin.",
+    "parasympathetic": "rest and digest. craniosacral origin."
+  },
+
+  "histology_neurons": {
+    "cell_body_soma": {
+      "what": "contains nucleus, organelles (rough ER = nissl bodies, mitochondria, golgi). the metabolic center.",
+      "nissl_bodies": "clusters of rough ER. prominent in neurons. protein synthesis. unique to neuron cell bodies.",
+      "neurofibrils": "intermediate filaments. structural support."
+    },
+    "dendrites": "SHORT branching extensions. RECEIVE signals. the 'antennae.' increase surface area for input.",
+    "axon": {
+      "what": "LONG single process. CONDUCTS action potentials AWAY from cell body. one per neuron.",
+      "axon_hillock": "cone-shaped area where axon emerges from soma. TRIGGER ZONE — where AP is initiated if threshold is reached.",
+      "axon_terminals": "branched endings. contain SYNAPTIC VESICLES with neurotransmitter.",
+      "myelin_sheath": "lipid-rich insulating layer around axon. speeds conduction. formed by SCHWANN CELLS (PNS) or OLIGODENDROCYTES (CNS).",
+      "nodes_of_ranvier": "gaps in myelin between adjacent schwann cells/oligo segments. where ion channels cluster. AP 'jumps' between nodes = SALTATORY CONDUCTION.",
+      "white_matter": "myelinated axon tracts. looks white because of myelin lipid.",
+      "gray_matter": "cell bodies, dendrites, unmyelinated axons. processing areas."
+    },
+    "structural_types": {
+      "multipolar": "1 axon + many dendrites. MOST COMMON. motor neurons, interneurons.",
+      "bipolar": "1 axon + 1 dendrite. RARE. retina, olfactory epithelium, inner ear.",
+      "unipolar_pseudounipolar": "single process splits into peripheral + central branch. sensory neurons in dorsal root ganglia. the 'T-shape.'"
+    },
+    "functional_types": {
+      "sensory_afferent": "carry impulses FROM receptors TO CNS.",
+      "motor_efferent": "carry impulses FROM CNS TO effectors (muscles, glands).",
+      "interneurons_association": "BETWEEN sensory and motor. integration. 99% of all neurons. CNS only."
+    }
+  },
+
+  "neuroglia": {
+    "note": "supporting cells. do NOT conduct impulses. CAN divide (unlike neurons). outnumber neurons ~10:1.",
+    "CNS_glia": {
+      "astrocytes": {
+        "shape": "star-shaped. MOST ABUNDANT glial cell.",
+        "functions": [
+          "blood-brain barrier (BBB) — cover capillaries with feet, control what enters brain",
+          "anchor neurons to blood supply",
+          "control ionic + chemical environment",
+          "recycle neurotransmitters (uptake glutamate → convert to glutamine → give back to neuron)",
+          "guide neuronal migration during development",
+          "form scar tissue after injury (gliosis)"
+        ]
+      },
+      "oligodendrocytes": {
+        "function": "MYELINATE axons in CNS. one oligo wraps segments of MULTIPLE axons (unlike schwann which wraps one).",
+        "note": "CNS myelin doesn't regenerate well. that's why spinal cord injuries are devastating."
+      },
+      "microglia": {
+        "function": "immune defense of CNS. PHAGOCYTIC. derived from monocytes. activated by infection/injury. brain's macrophages."
+      },
+      "ependymal_cells": {
+        "function": "line ventricles + central canal of spinal cord. produce + circulate CSF. some have cilia that move CSF."
+      }
+    },
+    "PNS_glia": {
+      "schwann_cells": {
+        "function": "MYELINATE axons in PNS. ONE schwann cell wraps ONE segment of ONE axon. key difference from oligos.",
+        "regeneration": "schwann cells form a REGENERATION TUBE after peripheral nerve injury → axon can regrow through it. PNS regenerates, CNS doesn't."
+      },
+      "satellite_cells": {
+        "function": "surround neuron cell bodies in GANGLIA. support + regulate environment. PNS equivalent of astrocytes (loosely)."
+      }
+    }
+  },
+
+  "membrane_potential": {
+    "resting_potential": {
+      "value": "-70mV (inside negative relative to outside)",
+      "maintained_by": "Na+/K+ ATPase pump: pumps 3 Na+ OUT, 2 K+ IN per ATP. net export of positive charge.",
+      "ion_distribution": "Na+ HIGH outside, LOW inside. K+ HIGH inside, LOW outside. at rest: K+ leak channels are open (more permeable to K+). K+ leaks out → makes inside more negative.",
+      "polarized": "cell at resting potential is POLARIZED (charge difference across membrane)."
+    },
+    "graded_potentials": {
+      "what": "small LOCAL changes in membrane potential. vary in magnitude. DECREASE with distance (decremental). not self-propagating.",
+      "types": {
+        "EPSP": "excitatory postsynaptic potential. depolarization (closer to threshold). Na+ entering.",
+        "IPSP": "inhibitory postsynaptic potential. hyperpolarization (farther from threshold). Cl- entering or K+ leaving."
+      },
+      "summation": {
+        "temporal": "rapid-fire signals from SAME synapse add up.",
+        "spatial": "signals from MULTIPLE synapses at same time add up."
+      }
+    },
+    "action_potential": {
+      "what": "all-or-nothing electrical signal. self-propagating. does NOT decrease with distance. nerve impulse.",
+      "threshold": "~-55mV. must reach this to fire. below = nothing. at/above = FULL AP.",
+      "phases": {
+        "1_resting": "-70mV. voltage-gated Na+ and K+ channels closed.",
+        "2_depolarization": "stimulus reaches threshold → VOLTAGE-GATED Na+ CHANNELS OPEN → Na+ rushes IN → membrane goes positive → peaks at +30mV.",
+        "3_repolarization": "Na+ channels INACTIVATE (not just close — different conformational state). VOLTAGE-GATED K+ CHANNELS OPEN (delayed) → K+ rushes OUT → membrane returns toward negative.",
+        "4_hyperpolarization": "K+ channels slow to close → membrane overshoots past -70mV to about -80mV briefly. then K+ channels close.",
+        "5_return_to_resting": "Na+/K+ pump restores ion gradients. Na+ channels reset from inactivated → closed (ready to open again)."
+      },
+      "refractory_periods": {
+        "absolute": "during depolarization + early repolarization. Na+ channels are INACTIVATED — CANNOT open regardless of stimulus strength. ensures one-way propagation + limits firing rate.",
+        "relative": "during late repolarization + hyperpolarization. K+ channels still open. a STRONGER-THAN-NORMAL stimulus CAN trigger another AP."
+      },
+      "propagation": {
+        "continuous": "in UNMYELINATED fibers. AP generated at every point along membrane. slow (0.5-2 m/s).",
+        "saltatory": "in MYELINATED fibers. AP jumps from node to node (nodes of Ranvier). fast (up to 120 m/s). more energy efficient."
+      },
+      "speed_factors": [
+        "myelination: myelinated >> unmyelinated",
+        "fiber diameter: larger >> smaller",
+        "temperature: warmer >> cooler"
+      ]
+    }
+  },
+
+  "synapses": {
+    "electrical_synapses": "gap junctions. direct ion flow between cells. FAST. bidirectional. cardiac muscle, some smooth muscle, some CNS neurons.",
+    "chemical_synapses": {
+      "what": "MOST common. one-way. uses neurotransmitter.",
+      "components": "presynaptic terminal → synaptic cleft (20-50nm gap) → postsynaptic membrane",
+      "sequence": [
+        "1. AP arrives at axon terminal",
+        "2. voltage-gated Ca2+ channels open → Ca2+ enters terminal",
+        "3. Ca2+ causes synaptic vesicles to fuse with presynaptic membrane (EXOCYTOSIS)",
+        "4. neurotransmitter released into synaptic cleft",
+        "5. NT crosses cleft, binds RECEPTORS on postsynaptic membrane",
+        "6. receptor activation opens ion channels → EPSP or IPSP",
+        "7. NT removed by: REUPTAKE (back into presynaptic), ENZYMATIC DEGRADATION (AChE breaks ACh), or DIFFUSION away"
+      ]
+    },
+    "neurotransmitters": {
+      "acetylcholine_ACh": "NMJ (skeletal muscle), parasympathetic. excitatory at NMJ. degraded by AChE.",
+      "norepinephrine_NE": "sympathetic postganglionic. arousal, alertness, fight-or-flight.",
+      "dopamine": "pleasure, reward, motor control. deficiency → Parkinson's. excess → schizophrenia.",
+      "serotonin": "mood, sleep, appetite. target of SSRIs (antidepressants).",
+      "GABA": "main INHIBITORY NT of CNS. target of benzodiazepines, alcohol, barbiturates.",
+      "glutamate": "main EXCITATORY NT of CNS. learning + memory. excess → excitotoxicity.",
+      "endorphins": "natural painkillers. bind opioid receptors. runner's high."
+    }
+  },
+
+  "neural_integration": {
+    "serial_processing": "one neuron to the next in a chain. reflexes. predictable.",
+    "parallel_processing": "multiple pathways process same info simultaneously. higher brain functions. thinking.",
+    "convergence": "MANY presynaptic neurons → ONE postsynaptic neuron. input from multiple sources.",
+    "divergence": "ONE presynaptic neuron → MANY postsynaptic neurons. one signal spreads to many targets."
+  },
+
+  "clinical": {
+    "multiple_sclerosis": "autoimmune destruction of CNS myelin. demyelination → slowed/blocked conduction. relapsing-remitting pattern.",
+    "guillain_barre": "autoimmune attack on PNS myelin (schwann cells). ascending paralysis. can recover because PNS regenerates.",
+    "parkinsons": "loss of dopamine-producing neurons in substantia nigra. tremor, rigidity, bradykinesia.",
+    "local_anesthetics": "block voltage-gated Na+ channels → prevent AP generation. no pain signal.",
+    "nerve_gas_organophosphates": "inhibit AChE → ACh not degraded → continuous stimulation → paralysis, death."
+  },
+
+  "spelling_drills": [
+    "oligodendrocyte", "astrocyte", "ependymal", "schwann",
+    "depolarization", "repolarization", "hyperpolarization",
+    "acetylcholine", "acetylcholinesterase", "neurotransmitter",
+    "myelination", "saltatory", "synapse", "exocytosis",
+    "norepinephrine", "serotonin", "glutamate", "endorphin",
+    "pseudounipolar", "nissl", "neurofibrils", "ganglia"
+  ]
+}

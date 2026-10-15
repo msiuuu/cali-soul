@@ -1,0 +1,263 @@
+{
+  "chapter": "ch14",
+  "title": "The Endocrine System",
+  "status": "upcoming — may be end of A&P 1 or start of A&P 2",
+
+  "endocrine_vs_nervous": {
+    "endocrine": "HORMONES via BLOOD. slow onset (seconds to hours). long-lasting effects (hours to weeks). widespread targets. chemical messengers.",
+    "nervous": "NEUROTRANSMITTERS via SYNAPSES. fast onset (milliseconds). brief effects (milliseconds). specific targets. electrical + chemical signals.",
+    "overlap": "hypothalamus bridges both. neuroendocrine cells release hormones. some chemicals serve as BOTH NT and hormone (NE, epinephrine)."
+  },
+
+  "hormone_chemistry": {
+    "amino_acid_based": {
+      "types": "amines (modified amino acids: epinephrine, NE, thyroid hormones, melatonin), peptides (short chains: ADH, oxytocin), proteins (longer chains: GH, insulin, PTH)",
+      "mechanism": "WATER-SOLUBLE (except thyroid hormones). can't cross membrane. bind SURFACE RECEPTORS → activate SECOND MESSENGER system (usually cAMP).",
+      "second_messenger_cAMP": [
+        "1. hormone binds receptor on cell surface",
+        "2. receptor activates G-protein",
+        "3. G-protein activates ADENYLATE CYCLASE",
+        "4. adenylate cyclase converts ATP → cAMP",
+        "5. cAMP activates PROTEIN KINASES",
+        "6. protein kinases phosphorylate enzymes → cellular response",
+        "7. cAMP broken down by PHOSPHODIESTERASE"
+      ],
+      "characteristics": "FAST acting. short-lived. can't be stored in blood long (degraded quickly). travel FREE in blood (water-soluble)."
+    },
+    "steroid_hormones": {
+      "what": "made from CHOLESTEROL. sex hormones (estrogen, progesterone, testosterone) + adrenal cortex hormones (cortisol, aldosterone).",
+      "mechanism": "LIPID-SOLUBLE. cross cell membrane freely. bind INTRACELLULAR RECEPTORS (usually in nucleus). hormone-receptor complex acts as TRANSCRIPTION FACTOR → activates/deactivates genes → new protein synthesis.",
+      "characteristics": "SLOW acting (hours). long-lasting (change gene expression). travel in blood BOUND TO CARRIER PROTEINS (albumin, specific binding globulins). only FREE hormone is active."
+    },
+    "thyroid_hormones": "amino acid-based BUT behave like steroids — lipid-soluble, cross membrane, bind intracellular receptors. the exception."
+  },
+
+  "hormone_regulation": {
+    "negative_feedback": {
+      "what": "MOST COMMON. output inhibits further input. maintains homeostasis.",
+      "example_thyroid": "hypothalamus → TRH → anterior pituitary → TSH → thyroid → T3/T4. when T3/T4 rises → inhibits hypothalamus (less TRH) + inhibits anterior pituitary (less TSH) → thyroid output decreases.",
+      "example_blood_glucose": "high glucose → pancreas beta cells → insulin → cells absorb glucose → glucose drops → insulin secretion stops."
+    },
+    "positive_feedback": {
+      "what": "RARE. output AMPLIFIES input. runs to completion, then stops.",
+      "examples": "oxytocin during labor (contractions → oxytocin → stronger contractions → more oxytocin → until birth). blood clotting cascade. LH surge triggering ovulation."
+    },
+    "humoral": "hormone release in response to changing blood levels of ions/nutrients. EX: Ca2+ levels directly stimulate parathyroid.",
+    "neural": "nerve fibers stimulate hormone release. EX: sympathetic stimulation → adrenal medulla → epinephrine.",
+    "hormonal": "hormone stimulates another endocrine gland. EX: anterior pituitary hormones (TSH, ACTH, FSH, LH) stimulate target glands."
+  },
+
+  "glands_and_hormones": {
+    "hypothalamus": {
+      "role": "MASTER of the master gland. controls anterior pituitary via RELEASING and INHIBITING HORMONES carried through hypophyseal portal system.",
+      "releasing_hormones": "TRH (→ TSH), CRH (→ ACTH), GnRH (→ FSH + LH), GHRH (→ GH)",
+      "inhibiting_hormones": "somatostatin (inhibits GH), dopamine/PIH (inhibits prolactin)",
+      "also_makes": "oxytocin + ADH — stored in + released from POSTERIOR pituitary. hypothalamus MAKES them, posterior pituitary STORES + RELEASES them."
+    },
+    "anterior_pituitary": {
+      "what": "adenohypophysis. TRUE endocrine gland (makes its own hormones). controlled by hypothalamic releasing/inhibiting hormones via hypophyseal portal system.",
+      "hormones": {
+        "GH_growth_hormone": {
+          "target": "liver, bones, muscles, fat",
+          "effects": "stimulates growth. liver produces IGF-1 (insulin-like growth factor) which mediates most effects. increases protein synthesis, fat breakdown, blood glucose.",
+          "hyper": "children: gigantism. adults: acromegaly (enlarged hands, feet, face).",
+          "hypo": "children: pituitary dwarfism."
+        },
+        "TSH_thyroid_stimulating": {
+          "target": "thyroid gland",
+          "effect": "stimulates T3/T4 synthesis + release"
+        },
+        "ACTH_adrenocorticotropic": {
+          "target": "adrenal cortex",
+          "effect": "stimulates cortisol (+ some aldosterone + androgens) release"
+        },
+        "FSH_follicle_stimulating": {
+          "target": "gonads",
+          "effect": "females: stimulates follicle development + estrogen production. males: stimulates sperm production (spermatogenesis) in Sertoli cells."
+        },
+        "LH_luteinizing": {
+          "target": "gonads",
+          "effect": "females: triggers ovulation, maintains corpus luteum → progesterone. males: stimulates testosterone production in Leydig cells."
+        },
+        "PRL_prolactin": {
+          "target": "mammary glands",
+          "effect": "stimulates milk production. inhibited by dopamine from hypothalamus. (only anterior pituitary hormone whose default is INHIBITED — all others are stimulated.)"
+        }
+      },
+      "mnemonic": "FLAT PiG — FSH, LH, ACTH, TSH, Prolactin, (ignore i), GH"
+    },
+    "posterior_pituitary": {
+      "what": "neurohypophysis. NOT a true endocrine gland — doesn't make hormones. STORES + RELEASES hormones made by hypothalamus. basically a nerve terminal.",
+      "hormones": {
+        "oxytocin": {
+          "effects": "uterine contractions during labor (positive feedback). milk ejection (let-down reflex). bonding, trust, social behavior.",
+          "note": "synthetic = pitocin (induces labor)."
+        },
+        "ADH_antidiuretic_hormone": {
+          "also_called": "vasopressin",
+          "effects": "promotes water reabsorption in kidney collecting ducts (aquaporins). raises blood pressure by constricting arterioles at high levels.",
+          "hypo": "diabetes insipidus — huge volumes of dilute urine. NOT diabetes mellitus.",
+          "trigger": "released when blood osmolarity rises (dehydration) or blood pressure drops."
+        }
+      }
+    },
+    "thyroid": {
+      "location": "anterior neck. butterfly shape. inferior to larynx, wrapping around trachea.",
+      "structure": "follicles filled with COLLOID (thyroglobulin — the storage form). parafollicular C cells between follicles.",
+      "hormones": {
+        "T4_thyroxine": {
+          "what": "major secretory product. 4 iodine atoms. converted to T3 in target tissues. LESS active than T3. longer half-life.",
+          "effect": "increases BASAL METABOLIC RATE. increases O2 consumption + heat production. critical for growth + development (especially nervous system in fetus/infant)."
+        },
+        "T3_triiodothyronine": {
+          "what": "3 iodine atoms. the MORE ACTIVE form. most T3 comes from peripheral conversion of T4.",
+          "effect": "same as T4 but stronger."
+        },
+        "calcitonin": {
+          "source": "parafollicular C cells (NOT follicular cells)",
+          "effect": "LOWERS blood Ca2+. inhibits osteoclasts (bone breakdown) + promotes Ca2+ deposition in bone. antagonist of PTH.",
+          "note": "minor role in adults. more important in children during bone growth."
+        }
+      },
+      "iodine": "essential for T3/T4 synthesis. dietary iodine → iodide → trapped by follicular cells → attached to tyrosine residues on thyroglobulin → T3/T4.",
+      "disorders": {
+        "hyper_graves": "autoimmune — antibodies mimic TSH → continuous stimulation. symptoms: high BMR, weight loss, heat intolerance, exophthalmos (bulging eyes), nervousness, tachycardia.",
+        "hypo_hashimotos": "autoimmune — destroys thyroid tissue. symptoms: low BMR, weight gain, cold intolerance, fatigue, myxedema (puffy face/extremities).",
+        "hypo_infant_cretinism": "thyroid deficiency during fetal/infant development → severe intellectual disability + stunted growth. prevented by iodine supplementation + newborn screening.",
+        "goiter": "enlarged thyroid. can occur with hyper OR hypo. iodine-deficiency goiter: thyroid enlarges trying to trap more iodine."
+      }
+    },
+    "parathyroid": {
+      "location": "4 small glands on POSTERIOR surface of thyroid. (para = beside)",
+      "hormone": {
+        "PTH_parathyroid_hormone": {
+          "trigger": "released when blood Ca2+ DROPS.",
+          "effects": [
+            "stimulates OSTEOCLASTS → bone resorption → Ca2+ released into blood",
+            "increases Ca2+ reabsorption in kidneys",
+            "activates vitamin D (calcitriol) in kidneys → increases Ca2+ absorption from GI tract",
+            "net effect: RAISES blood Ca2+"
+          ],
+          "antagonist": "calcitonin (lowers Ca2+). opposite effects.",
+          "hyper": "too much PTH → bones weakened (too much resorption), kidney stones (excess Ca2+ in urine).",
+          "hypo": "too little PTH → hypocalcemia → muscle tetany, convulsions (Ca2+ needed for normal nerve/muscle function)."
+        }
+      }
+    },
+    "adrenal_glands": {
+      "location": "sit on top of kidneys. suprarenal. two distinct regions.",
+      "adrenal_cortex": {
+        "what": "outer region. three zones (from outside in). all make STEROID hormones from cholesterol.",
+        "zona_glomerulosa": {
+          "hormone": "MINERALOCORTICOIDS — mainly ALDOSTERONE.",
+          "effect": "increases Na+ reabsorption + K+ excretion in kidney → water follows Na+ → blood volume + BP increase.",
+          "regulation": "RAAS (renin-angiotensin-aldosterone system). also K+ levels directly.",
+          "mnemonic": "salt (Na+)"
+        },
+        "zona_fasciculata": {
+          "hormone": "GLUCOCORTICOIDS — mainly CORTISOL (hydrocortisone).",
+          "effects": [
+            "increases blood glucose (gluconeogenesis — makes glucose from proteins/fats)",
+            "anti-inflammatory + immunosuppressive (at high levels)",
+            "promotes fat + protein breakdown",
+            "stress response — 'stress hormone'"
+          ],
+          "regulation": "CRH → ACTH → cortisol. negative feedback on hypothalamus + anterior pituitary.",
+          "disorders": {
+            "hyper_cushings": "excess cortisol. moon face, buffalo hump, truncal obesity, thin skin, easy bruising, hyperglycemia, muscle wasting, osteoporosis.",
+            "hypo_addisons": "cortisol + aldosterone deficiency. fatigue, weight loss, hypotension, hyperpigmentation (excess ACTH stimulates melanocytes), salt craving. JFK had this."
+          },
+          "mnemonic": "sugar (glucose)"
+        },
+        "zona_reticularis": {
+          "hormone": "ANDROGENS — mainly DHEA (dehydroepiandrosterone). weak androgen.",
+          "effect": "converted to testosterone/estrogen in peripheral tissues. contributes to libido, pubic/axillary hair in both sexes. minor compared to gonadal hormones.",
+          "mnemonic": "sex"
+        },
+        "layer_mnemonic": "GFR = Glomerulosa, Fasciculata, Reticularis. 'the deeper you go, the sweeter it gets' — salt, sugar, sex."
+      },
+      "adrenal_medulla": {
+        "what": "inner region. modified sympathetic ganglion. chromaffin cells.",
+        "hormones": "EPINEPHRINE (80%) + NOREPINEPHRINE (20%). catecholamines. released into BLOOD (hormonal, not neural).",
+        "effects": "mimics + amplifies sympathetic nervous system — fight or flight response sustained longer because hormones circulate in blood after neural signals stop.",
+        "trigger": "preganglionic sympathetic fibers directly innervate medulla (ACh → nicotinic receptors on chromaffin cells)."
+      }
+    },
+    "pancreas": {
+      "what": "both EXOCRINE (digestive enzymes into duodenum) + ENDOCRINE (hormones into blood). endocrine portion = ISLETS OF LANGERHANS.",
+      "cell_types": {
+        "alpha_cells": {
+          "hormone": "GLUCAGON",
+          "trigger": "low blood glucose",
+          "effects": "RAISES blood glucose. stimulates glycogenolysis (glycogen → glucose in liver) + gluconeogenesis (amino acids/fats → glucose).",
+          "mnemonic": "think 'gone' — glucose gone from blood, need more"
+        },
+        "beta_cells": {
+          "hormone": "INSULIN",
+          "trigger": "high blood glucose (after a meal)",
+          "effects": "LOWERS blood glucose. promotes glucose uptake into cells (especially muscle + fat). promotes glycogenesis (glucose → glycogen for storage). promotes fat synthesis + protein synthesis.",
+          "mnemonic": "INsulin lets glucose IN to cells"
+        }
+      },
+      "diabetes_mellitus": {
+        "type_1": "autoimmune destruction of beta cells. NO insulin production. must inject insulin. usually childhood onset. 5-10% of cases.",
+        "type_2": "insulin RESISTANCE. cells don't respond to insulin properly. beta cells may eventually burn out. usually adult onset (but increasing in youth). 90-95% of cases. linked to obesity + lifestyle.",
+        "symptoms_3Ps": "polyuria (frequent urination), polydipsia (excessive thirst), polyphagia (excessive hunger). also weight loss (type 1), blurred vision, slow healing."
+      }
+    },
+    "pineal_gland": {
+      "location": "epithalamus. dorsal midline of diencephalon.",
+      "hormone": "MELATONIN",
+      "effects": "regulates sleep-wake cycle (circadian rhythm). secretion increases in DARKNESS, decreases in light. peaks at night. may affect reproductive function.",
+      "note": "calcifies with age. sometimes visible on X-ray as a midline landmark."
+    },
+    "thymus": {
+      "location": "mediastinum (behind sternum). large in childhood, shrinks (involutes) after puberty.",
+      "hormone": "THYMOSIN (and other thymic hormones: thymulin, thymopoietin)",
+      "effect": "promotes T-LYMPHOCYTE maturation. critical for immune system development. most important in childhood.",
+      "note": "by adulthood, mostly replaced by fat. T-cells have already been programmed."
+    },
+    "gonads": {
+      "ovaries": {
+        "estrogen": "development of female secondary sex characteristics. menstrual cycle regulation. bone density maintenance.",
+        "progesterone": "prepares + maintains uterine lining for pregnancy. breast development."
+      },
+      "testes": {
+        "testosterone": "development of male secondary sex characteristics. sperm production. muscle/bone mass. libido."
+      },
+      "note": "regulated by FSH + LH from anterior pituitary (which is regulated by GnRH from hypothalamus)."
+    },
+    "other_endocrine_tissues": {
+      "heart": "ANP (atrial natriuretic peptide) — released when atria stretched by high blood volume → promotes Na+ + water excretion → lowers BP. antagonist of aldosterone.",
+      "kidneys": "erythropoietin (EPO) — stimulates red blood cell production in bone marrow. released when O2 levels drop. also: renin (enzyme, not hormone — starts RAAS).",
+      "stomach_intestines": "gastrin (stomach acid secretion), secretin (pancreatic bicarbonate), cholecystokinin/CCK (bile + pancreatic enzyme release), GIP (insulin secretion).",
+      "adipose_tissue": "leptin — signals satiety to hypothalamus. more fat = more leptin = less hunger (in theory — obese individuals often have leptin resistance).",
+      "skin": "cholecalciferol (vitamin D3 precursor) — made when UV hits skin → converted to active calcitriol in liver then kidneys → promotes Ca2+ absorption in gut."
+    }
+  },
+
+  "calcium_homeostasis_summary": {
+    "low_Ca2+": "PTH released → osteoclasts activated (bone resorption) + kidney reabsorption + vitamin D activation → Ca2+ RISES",
+    "high_Ca2+": "calcitonin released → osteoclast inhibition + bone deposition → Ca2+ FALLS",
+    "note": "PTH is the major player. calcitonin is relatively minor in adults."
+  },
+
+  "blood_glucose_summary": {
+    "high_glucose_fed": "insulin from beta cells → glucose INTO cells + glycogenesis → glucose FALLS",
+    "low_glucose_fasting": "glucagon from alpha cells → glycogenolysis + gluconeogenesis → glucose RISES",
+    "note": "cortisol and GH also raise blood glucose (counter-regulatory hormones)."
+  },
+
+  "spelling_drills": [
+    "epinephrine", "norepinephrine", "aldosterone", "parathyroid",
+    "thymosin", "glucagon", "calcitonin", "hypothalamus",
+    "pituitary", "adenohypophysis", "neurohypophysis",
+    "triiodothyronine", "thyroxine", "thyroglobulin",
+    "glucocorticoid", "mineralocorticoid", "dehydroepiandrosterone",
+    "chromaffin", "islets of Langerhans", "cholecystokinin",
+    "erythropoietin", "cholecalciferol", "calcitriol",
+    "exophthalmos", "myxedema", "acromegaly",
+    "gluconeogenesis", "glycogenolysis", "glycogenesis",
+    "renin", "angiotensin", "antidiuretic"
+  ]
+}

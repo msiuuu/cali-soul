@@ -1,0 +1,200 @@
+{
+  "chapter": "ch10",
+  "title": "The Muscular System — Specific Muscles",
+  "status": "upcoming",
+  "prof_rule": "his prof's material wins. this is reference depth.",
+
+  "naming_conventions": {
+    "by_location": "frontalis (forehead), tibialis (tibia), brachialis (arm), temporalis (temple)",
+    "by_shape": "deltoid (triangle), trapezius (trapezoid), serratus (saw-toothed), rhomboid (diamond), orbicularis (circular)",
+    "by_size": "maximus/minimus, longus/brevis, major/minor, vastus (huge), latissimus (widest)",
+    "by_direction": "rectus (straight/parallel), oblique (angled), transversus (transverse)",
+    "by_action": "flexor, extensor, abductor, adductor, levator (lifts), depressor (lowers), supinator, pronator",
+    "by_origin_insertion": "sternocleidomastoid (sternum + clavicle → mastoid), brachioradialis (brachium + radius)",
+    "by_heads": "biceps (2 heads), triceps (3), quadriceps (4)"
+  },
+
+  "muscle_interactions": {
+    "agonist_prime_mover": "the muscle primarily responsible for a movement. biceps brachii is agonist for elbow flexion.",
+    "antagonist": "opposes the agonist. triceps brachii antagonizes biceps during elbow flexion. relaxes while agonist contracts.",
+    "synergist": "assists the agonist. brachialis assists biceps in elbow flexion.",
+    "fixator": "stabilizes the origin of the agonist so it can act efficiently. rotator cuff stabilizes shoulder while deltoid abducts arm."
+  },
+
+  "lever_systems": {
+    "components": "fulcrum (joint), effort (muscle force), load (resistance/weight of body part + any external load)",
+    "first_class": "fulcrum between effort and load. like a seesaw. EX: head nodding — atlanto-occipital joint is fulcrum, posterior neck muscles are effort, face/front of skull is load.",
+    "second_class": "load between fulcrum and effort. like a wheelbarrow. RARE. EX: standing on tiptoes — toes are fulcrum, calf muscles (gastrocnemius) are effort, body weight is load.",
+    "third_class": "effort between fulcrum and load. MOST COMMON in body. EX: biceps curl — elbow is fulcrum, biceps is effort, forearm/hand/weight is load. favors speed + range of motion over force."
+  },
+
+  "head_and_neck_muscles": {
+    "facial_expression": {
+      "note": "all innervated by FACIAL NERVE (CN VII). insert into SKIN, not bone. that's why they move the face.",
+      "frontalis": {"origin": "galea aponeurotica", "insertion": "skin of eyebrows", "action": "raises eyebrows, wrinkles forehead"},
+      "occipitalis": {"origin": "occipital bone", "insertion": "galea aponeurotica", "action": "pulls scalp posteriorly"},
+      "orbicularis_oculi": {"origin": "frontal + maxillary bones around orbit", "insertion": "tissue of eyelid", "action": "closes eye (blink, squint, wink)"},
+      "orbicularis_oris": {"origin": "maxilla + mandible", "insertion": "skin + muscle around mouth", "action": "closes/purses lips (kissing muscle)"},
+      "buccinator": {"origin": "maxilla + mandible", "insertion": "orbicularis oris", "action": "compresses cheek (blowing, sucking, chewing — keeps food between teeth)"},
+      "zygomaticus_major": {"origin": "zygomatic bone", "insertion": "skin at corner of mouth", "action": "raises corner of mouth (smiling)"},
+      "zygomaticus_minor": {"origin": "zygomatic bone", "insertion": "upper lip", "action": "raises upper lip"},
+      "platysma": {"origin": "fascia of chest", "insertion": "mandible + skin of cheek", "action": "tenses neck skin, pulls corners of mouth down (frowning)"}
+    },
+    "mastication": {
+      "note": "chewing muscles. innervated by TRIGEMINAL NERVE (CN V).",
+      "masseter": {"origin": "zygomatic arch", "insertion": "mandible (angle + ramus)", "action": "ELEVATES mandible (close jaw). strongest muscle in body by weight."},
+      "temporalis": {"origin": "temporal fossa", "insertion": "coronoid process of mandible", "action": "elevates + retracts mandible"},
+      "medial_pterygoid": {"origin": "sphenoid + palatine", "insertion": "medial mandible", "action": "elevates mandible, side-to-side grinding"},
+      "lateral_pterygoid": {"origin": "sphenoid", "insertion": "mandibular condyle + TMJ disc", "action": "DEPRESSES + PROTRACTS mandible (opens jaw, juts chin forward)"}
+    },
+    "neck": {
+      "sternocleidomastoid": {
+        "origin": "sternum (sterno-) + clavicle (cleido-)",
+        "insertion": "mastoid process of temporal bone (-mastoid)",
+        "action": "ONE side: rotates head to OPPOSITE side + lateral flexion to SAME side. BOTH sides: flex neck (chin to chest). ACCESSORY NERVE (CN XI).",
+        "note": "the name tells you everything. sterno + cleido + mastoid."
+      },
+      "scalenes": {"origin": "transverse processes of cervical vertebrae", "insertion": "ribs 1-2", "action": "elevate ribs (assist breathing), lateral flexion of neck"},
+      "hyoid_muscles": {
+        "suprahyoid": "ABOVE hyoid. elevate hyoid + larynx during swallowing. digastric, mylohyoid, geniohyoid, stylohyoid.",
+        "infrahyoid": "BELOW hyoid. depress hyoid + larynx after swallowing. sternohyoid, omohyoid, sternothyroid, thyrohyoid."
+      }
+    }
+  },
+
+  "trunk_muscles": {
+    "chest": {
+      "pectoralis_major": {"origin": "clavicle, sternum, ribs 1-6", "insertion": "greater tubercle of humerus (intertubercular groove)", "action": "flexes, adducts, medially rotates arm. main pushing muscle."},
+      "pectoralis_minor": {"origin": "ribs 3-5", "insertion": "coracoid process of scapula", "action": "protracts + depresses scapula. (deep to pec major)"},
+      "serratus_anterior": {"origin": "ribs 1-8", "insertion": "medial border of scapula (anterior)", "action": "protracts scapula (punching muscle). holds scapula against thoracic wall. weakness = winged scapula."}
+    },
+    "breathing": {
+      "diaphragm": {"origin": "inferior border of ribcage, xiphoid, lumbar vertebrae", "insertion": "central tendon", "action": "PRIME MOVER of breathing. contracts → flattens → increases thoracic volume → air enters. PHRENIC NERVE."},
+      "external_intercostals": {"action": "elevate ribs during INSPIRATION (expand ribcage)"},
+      "internal_intercostals": {"action": "depress ribs during FORCED EXPIRATION (compress ribcage)"}
+    },
+    "abdominal_wall": {
+      "note": "four layers. fibers run in DIFFERENT DIRECTIONS for strength (like plywood). no bones in ventral trunk wall — muscles ARE the wall.",
+      "rectus_abdominis": {"origin": "pubic crest + symphysis", "insertion": "xiphoid process + ribs 5-7", "action": "flexes trunk (sit-ups). RECTUS = straight/vertical fibers. separated by tendinous intersections (six-pack lines) + linea alba (midline)."},
+      "external_oblique": {"origin": "ribs 5-12", "insertion": "linea alba + iliac crest", "action": "compress abdomen, flex + rotate trunk. fibers run INFERIOMEDIALLY (hands in pockets direction)."},
+      "internal_oblique": {"origin": "iliac crest + thoracolumbar fascia", "insertion": "linea alba + ribs 10-12", "action": "same as external oblique. fibers run PERPENDICULAR to external oblique (upward fan)."},
+      "transversus_abdominis": {"origin": "iliac crest, ribs 7-12, thoracolumbar fascia", "insertion": "linea alba + pubis", "action": "compresses abdomen (corset muscle). DEEPEST layer. fibers run HORIZONTALLY."}
+    },
+    "back": {
+      "trapezius": {"origin": "occipital bone + spinous processes C7-T12", "insertion": "clavicle + acromion + spine of scapula", "action": "elevates, retracts, depresses, rotates scapula (depends on which fibers). ACCESSORY NERVE (CN XI)."},
+      "latissimus_dorsi": {"origin": "spinous processes T7-L5, iliac crest, ribs 8-12", "insertion": "intertubercular groove of humerus", "action": "extends, adducts, medially rotates arm. WIDEST muscle. pull-ups, swimming strokes, lat pulldowns."},
+      "erector_spinae": {"what": "THREE columns running vertically along spine: iliocostalis (lateral), longissimus (middle), spinalis (medial). action: extends + laterally flexes vertebral column. maintains posture. bilaterally = stand straight. unilaterally = side bend."},
+      "quadratus_lumborum": {"origin": "iliac crest", "insertion": "rib 12 + transverse processes L1-L4", "action": "lateral flexion of trunk, fixes rib 12 during breathing"}
+    }
+  },
+
+  "upper_limb_muscles": {
+    "shoulder": {
+      "deltoid": {
+        "origin": "clavicle + acromion + spine of scapula",
+        "insertion": "deltoid tuberosity of humerus",
+        "action": "anterior fibers: flex + medially rotate. middle fibers: ABDUCT arm. posterior fibers: extend + laterally rotate. MAIN abductor past first 15 degrees.",
+        "note": "MULTIPENNATE arrangement."
+      },
+      "rotator_cuff_SITS": {
+        "note": "four muscles that stabilize the glenohumeral joint. mnemonic: S.I.T.S.",
+        "supraspinatus": {"origin": "supraspinous fossa", "insertion": "greater tubercle", "action": "INITIATES abduction (first 15 degrees). most commonly torn rotator cuff muscle."},
+        "infraspinatus": {"origin": "infraspinous fossa", "insertion": "greater tubercle", "action": "lateral rotation of arm"},
+        "teres_minor": {"origin": "lateral border of scapula", "insertion": "greater tubercle", "action": "lateral rotation of arm"},
+        "subscapularis": {"origin": "subscapular fossa (anterior scapula)", "insertion": "lesser tubercle", "action": "medial rotation of arm"}
+      }
+    },
+    "arm": {
+      "anterior_flexors": {
+        "biceps_brachii": {"origin": "short head: coracoid process. long head: supraglenoid tubercle.", "insertion": "radial tuberosity", "action": "FLEXES elbow, SUPINATES forearm (turning doorknob), weak shoulder flexion."},
+        "brachialis": {"origin": "anterior distal humerus", "insertion": "coronoid process + ulnar tuberosity", "action": "FLEXES elbow. actually the MAIN elbow flexor (not biceps). deeper than biceps."},
+        "brachioradialis": {"origin": "lateral supracondylar ridge of humerus", "insertion": "styloid process of radius", "action": "flexes elbow (especially in neutral/thumbs-up position)"}
+      },
+      "posterior_extensors": {
+        "triceps_brachii": {"origin": "long head: infraglenoid tubercle. lateral + medial heads: posterior humerus.", "insertion": "olecranon of ulna", "action": "EXTENDS elbow. antagonist of biceps. the only major elbow extensor."}
+      }
+    },
+    "forearm": {
+      "note": "MANY muscles. general rule: ANTERIOR = flexors (grip, wrist flexion). POSTERIOR = extensors (open hand, wrist extension). key ones:",
+      "flexor_carpi_radialis": "flexes + abducts wrist",
+      "flexor_carpi_ulnaris": "flexes + adducts wrist",
+      "flexor_digitorum_superficialis": "flexes middle phalanges of fingers",
+      "flexor_digitorum_profundus": "flexes distal phalanges of fingers (deeper)",
+      "extensor_carpi_radialis_longus": "extends + abducts wrist",
+      "extensor_digitorum": "extends fingers",
+      "pronator_teres": "pronates forearm",
+      "supinator": "supinates forearm"
+    }
+  },
+
+  "lower_limb_muscles": {
+    "hip_thigh": {
+      "hip_flexors": {
+        "iliopsoas": {
+          "what": "two muscles acting as one: iliacus + psoas major",
+          "iliacus": {"origin": "iliac fossa", "insertion": "lesser trochanter of femur"},
+          "psoas_major": {"origin": "T12-L5 vertebrae", "insertion": "lesser trochanter of femur"},
+          "action": "PRIME MOVER of hip flexion. brings thigh toward trunk. also flexes trunk toward thigh (sit-ups)."
+        },
+        "rectus_femoris": "also flexes hip (because it crosses BOTH hip and knee joints) — see quadriceps below",
+        "sartorius": {"origin": "ASIS (anterior superior iliac spine)", "insertion": "medial tibia (pes anserinus)", "action": "flexes, abducts, laterally rotates thigh + flexes knee. LONGEST muscle in the body. cross-legged sitting muscle."}
+      },
+      "hip_extensors": {
+        "gluteus_maximus": {"origin": "ilium, sacrum, coccyx", "insertion": "gluteal tuberosity of femur + IT band", "action": "EXTENDS + laterally rotates thigh. climbing stairs, standing from sitting. LARGEST muscle in body."},
+        "hamstrings": "also extend hip — see below"
+      },
+      "hip_abductors": {
+        "gluteus_medius": {"origin": "ilium (lateral)", "insertion": "greater trochanter", "action": "ABDUCTS thigh + medially rotates. stabilizes pelvis during walking (Trendelenburg sign if weak). INJECTION SITE."},
+        "gluteus_minimus": {"origin": "ilium (deep to medius)", "insertion": "greater trochanter", "action": "abducts + medially rotates thigh"}
+      },
+      "hip_adductors": {
+        "note": "medial thigh compartment. all adduct the thigh.",
+        "adductor_longus": {"origin": "pubis", "insertion": "linea aspera of femur", "action": "adducts + flexes + medially rotates thigh"},
+        "adductor_magnus": {"origin": "pubis + ischium", "insertion": "linea aspera + adductor tubercle", "action": "adducts thigh. LARGEST adductor. anterior fibers flex, posterior fibers extend."},
+        "gracilis": {"origin": "pubis", "insertion": "medial tibia (pes anserinus)", "action": "adducts thigh + flexes knee. only adductor that crosses the knee."}
+      }
+    },
+    "thigh_knee": {
+      "quadriceps_anterior": {
+        "note": "FOUR muscles. all converge on the QUADRICEPS TENDON → patella → PATELLAR LIGAMENT → tibial tuberosity. ALL EXTEND THE KNEE.",
+        "rectus_femoris": {"origin": "AIIS (anterior inferior iliac spine)", "action": "extends knee + flexes hip (crosses both joints). only quad that does both."},
+        "vastus_lateralis": {"origin": "greater trochanter + linea aspera", "action": "extends knee. LARGEST of the quad group. common injection site."},
+        "vastus_medialis": {"origin": "linea aspera (medial)", "action": "extends knee. VMO (vastus medialis oblique) stabilizes patella."},
+        "vastus_intermedius": {"origin": "anterior femur shaft", "action": "extends knee. deepest quad, under rectus femoris."}
+      },
+      "hamstrings_posterior": {
+        "note": "THREE muscles. posterior thigh. all cross BOTH hip and knee. all extend hip + flex knee. innervated by SCIATIC NERVE.",
+        "biceps_femoris": {"origin": "long head: ischial tuberosity. short head: linea aspera.", "insertion": "head of fibula", "action": "extends hip, flexes knee, laterally rotates leg."},
+        "semitendinosus": {"origin": "ischial tuberosity", "insertion": "medial tibia (pes anserinus)", "action": "extends hip, flexes knee, medially rotates leg."},
+        "semimembranosus": {"origin": "ischial tuberosity", "insertion": "medial condyle of tibia", "action": "extends hip, flexes knee, medially rotates leg."}
+      }
+    },
+    "leg_ankle_foot": {
+      "anterior_dorsiflexors": {
+        "tibialis_anterior": {"origin": "lateral tibia", "insertion": "medial cuneiform + base of 1st metatarsal", "action": "DORSIFLEXES foot + INVERTS foot. prime mover of dorsiflexion."},
+        "extensor_digitorum_longus": {"action": "extends toes 2-5 + dorsiflexes foot"}
+      },
+      "posterior_plantarflexors": {
+        "gastrocnemius": {"origin": "medial + lateral condyles of femur", "insertion": "calcaneus via ACHILLES TENDON (calcaneal tendon)", "action": "PLANTARFLEXES foot + flexes knee. the visible calf muscle. crosses both knee and ankle."},
+        "soleus": {"origin": "tibia + fibula (posterior)", "insertion": "calcaneus via ACHILLES TENDON", "action": "plantarflexes foot. deep to gastrocnemius. does NOT cross knee. postural muscle."},
+        "note": "gastrocnemius + soleus together = TRICEPS SURAE. both insert via achilles tendon."
+      },
+      "lateral_evertors": {
+        "fibularis_longus": {"action": "everts + plantarflexes foot"},
+        "fibularis_brevis": {"action": "everts + plantarflexes foot"},
+        "note": "older name: peroneus longus/brevis. fibularis is current."
+      }
+    }
+  },
+
+  "spelling_drills": [
+    "sternocleidomastoid", "brachioradialis", "gastrocnemius",
+    "semitendinosus", "semimembranosus", "iliopsoas", "orbicularis",
+    "platysma", "buccinator", "zygomaticus", "masseter", "temporalis",
+    "pterygoid", "serratus", "latissimus dorsi", "quadratus lumborum",
+    "supraspinatus", "infraspinatus", "subscapularis", "sartorius",
+    "gracilis", "fibularis", "calcaneal", "aponeurosis",
+    "rectus femoris", "vastus lateralis", "biceps femoris",
+    "pectoralis", "intercostals", "transversus abdominis"
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "chapter": "ch13",
+  "title": "Peripheral Nervous System, ANS, and Reflexes",
+  "status": "upcoming",
+
+  "cranial_nerves": {
+    "mnemonic_names": "Oh Oh Oh To Touch And Feel Very Good Velvet, AH! — Olfactory, Optic, Oculomotor, Trochlear, Trigeminal, Abducens, Facial, Vestibulocochlear, Glossopharyngeal, Vagus, Accessory, Hypoglossal",
+    "mnemonic_type": "Some Say Marry Money But My Brother Says Big Brains Matter More — S=Sensory, M=Motor, B=Both",
+    "nerves": {
+      "I_olfactory": {"type": "sensory", "function": "SMELL. from nasal mucosa → olfactory bulb. only CN that goes to cortex WITHOUT passing through thalamus."},
+      "II_optic": {"type": "sensory", "function": "VISION. from retina → thalamus (LGN) → visual cortex. tested with eye chart, visual fields."},
+      "III_oculomotor": {"type": "motor (mainly)", "function": "moves eye (4 of 6 extrinsic eye muscles: superior/inferior/medial rectus + inferior oblique). raises eyelid (levator palpebrae). parasympathetic: constricts pupil + accommodates lens. damage → ptosis (drooping eyelid), eye turns out+down, dilated pupil."},
+      "IV_trochlear": {"type": "motor", "function": "SUPERIOR OBLIQUE muscle only. turns eye inferolaterally (down and out). SMALLEST CN. only CN that exits from POSTERIOR brainstem. damage → diplopia (double vision) looking down."},
+      "V_trigeminal": {
+        "type": "both (sensory dominant)",
+        "branches": {
+          "V1_ophthalmic": "sensory. forehead, upper eyelid, nose.",
+          "V2_maxillary": "sensory. cheek, upper lip, upper teeth, palate.",
+          "V3_mandibular": "both. sensory: lower face, lower teeth, tongue (touch, not taste). motor: MUSCLES OF MASTICATION (masseter, temporalis, pterygoids)."
+        },
+        "note": "LARGEST CN. main sensory nerve of face. trigeminal neuralgia = excruciating facial pain."
+      },
+      "VI_abducens": {"type": "motor", "function": "LATERAL RECTUS muscle only. ABducts eye (turns outward). damage → eye can't look laterally → medial deviation."},
+      "VII_facial": {
+        "type": "both (motor dominant)",
+        "motor": "muscles of FACIAL EXPRESSION (frontalis, orbicularis oculi, orbicularis oris, buccinator, platysma, etc). also stapedius (dampens sound).",
+        "sensory": "taste from anterior 2/3 of tongue.",
+        "parasympathetic": "submandibular + sublingual salivary glands. lacrimal glands (tears).",
+        "damage": "Bell's palsy — unilateral facial paralysis. can't close eye, corner of mouth droops, can't wrinkle forehead on affected side."
+      },
+      "VIII_vestibulocochlear": {"type": "sensory", "function": "two branches: VESTIBULAR (balance, equilibrium from semicircular canals + otolith organs) + COCHLEAR (hearing from cochlea). damage → deafness, vertigo, nystagmus."},
+      "IX_glossopharyngeal": {
+        "type": "both",
+        "sensory": "taste from posterior 1/3 of tongue. sensory from pharynx. monitors blood pressure (carotid sinus baroreceptors) + blood O2/CO2 (carotid body chemoreceptors).",
+        "motor": "swallowing (stylopharyngeus).",
+        "parasympathetic": "parotid salivary gland."
+      },
+      "X_vagus": {
+        "type": "both",
+        "what": "WANDERER. longest CN. extends into thorax + abdomen.",
+        "motor": "pharynx + larynx muscles (swallowing, speech).",
+        "parasympathetic": "HEART (slows HR), LUNGS (constricts bronchioles), GI tract (increases motility + secretion) — basically runs the 'rest and digest' for thorax + abdomen.",
+        "sensory": "visceral sensation from thorax + abdomen. tiny bit of taste (epiglottis).",
+        "damage": "hoarseness (recurrent laryngeal nerve). if both sides damaged → can't swallow or speak."
+      },
+      "XI_accessory": {"type": "motor", "function": "TRAPEZIUS (shrug, head tilt) + STERNOCLEIDOMASTOID (head rotation). tested: shrug against resistance, turn head against resistance."},
+      "XII_hypoglossal": {"type": "motor", "function": "TONGUE muscles. all intrinsic + most extrinsic tongue muscles. speech, swallowing, food manipulation. damage → tongue deviates TOWARD damaged side when protruded."}
+    }
+  },
+
+  "spinal_nerves": {
+    "count": "31 pairs: 8 cervical, 12 thoracic, 5 lumbar, 5 sacral, 1 coccygeal",
+    "formation": "dorsal root (sensory) + ventral root (motor) merge → spinal nerve → immediately splits into dorsal ramus (back) + ventral ramus (front/sides/limbs)",
+    "dermatomes": "area of skin supplied by sensory fibers of ONE spinal nerve. mapped for diagnosing nerve damage level.",
+    "plexuses": {
+      "cervical_C1_C5": "neck muscles, diaphragm. PHRENIC NERVE (C3-C5) → diaphragm. 'C3, 4, 5 keeps the diaphragm alive.'",
+      "brachial_C5_T1": "upper limb. major nerves: musculocutaneous (biceps), median (forearm flexors, thenar), ulnar (hand intrinsics, funny bone), radial (triceps, extensors), axillary (deltoid).",
+      "lumbar_L1_L4": "anterior thigh, medial leg. major nerve: FEMORAL (quads, hip flexion). obturator (adductors).",
+      "sacral_L4_S3": "posterior thigh, leg, foot. major nerve: SCIATIC (largest nerve in body → tibial + common fibular). gluteal nerves.",
+      "note": "no plexus for thoracic (T2-T12) — intercostal nerves go directly between ribs."
+    }
+  },
+
+  "autonomic_nervous_system": {
+    "overview": {
+      "what": "involuntary motor system. controls smooth muscle, cardiac muscle, glands.",
+      "two_neuron_chain": "preganglionic neuron (cell body in CNS) → synapse in ganglion → postganglionic neuron (cell body in ganglion) → effector.",
+      "dual_innervation": "most organs receive BOTH sympathetic + parasympathetic. opposing effects maintain homeostasis."
+    },
+    "sympathetic": {
+      "nickname": "fight or flight. thoracolumbar division.",
+      "origin": "lateral horns T1-L2",
+      "preganglionic": "SHORT. cell body in lateral horn → exits via ventral root → white ramus communicans → sympathetic chain ganglion (or collateral ganglion).",
+      "postganglionic": "LONG. from ganglion → gray ramus communicans back to spinal nerve → target organ.",
+      "ganglia": {
+        "sympathetic_chain_paravertebral": "paired, run alongside vertebral column. most postganglionic neurons here.",
+        "collateral_prevertebral": "unpaired, anterior to vertebral column. celiac ganglion (foregut organs), superior mesenteric (midgut), inferior mesenteric (hindgut)."
+      },
+      "neurotransmitters": {
+        "preganglionic": "ACh (cholinergic) → nicotinic receptors on postganglionic neuron.",
+        "postganglionic": "NOREPINEPHRINE (NE) (adrenergic) → alpha or beta receptors on target. EXCEPTION: sweat glands → ACh (cholinergic)."
+      },
+      "adrenal_medulla": "modified sympathetic ganglion. preganglionic fibers synapse DIRECTLY on chromaffin cells → release EPINEPHRINE (80%) + NE (20%) into BLOOD. hormonal reinforcement of sympathetic response.",
+      "effects": [
+        "dilates pupils (mydriasis)",
+        "increases heart rate + force",
+        "dilates bronchioles",
+        "inhibits digestion (decreases GI motility + secretion)",
+        "stimulates glucose release from liver",
+        "dilates skeletal muscle blood vessels",
+        "constricts skin + visceral blood vessels",
+        "stimulates sweat glands",
+        "causes piloerection (goosebumps)",
+        "inhibits urination (contracts internal urethral sphincter)"
+      ]
+    },
+    "parasympathetic": {
+      "nickname": "rest and digest. craniosacral division.",
+      "origin": "brainstem (CN III, VII, IX, X) + sacral spinal cord (S2-S4)",
+      "preganglionic": "LONG. travels all the way to ganglion NEAR or IN the target organ wall.",
+      "postganglionic": "SHORT. very close to or embedded in target organ.",
+      "ganglia": "terminal (intramural) ganglia — located NEAR or WITHIN the wall of the target organ.",
+      "neurotransmitters": {
+        "preganglionic": "ACh → nicotinic receptors",
+        "postganglionic": "ACh → MUSCARINIC receptors on target. BOTH neurons cholinergic."
+      },
+      "vagus_nerve": "CN X carries ~75% of all parasympathetic output. heart, lungs, GI tract through transverse colon.",
+      "effects": [
+        "constricts pupils (miosis)",
+        "decreases heart rate",
+        "constricts bronchioles",
+        "stimulates digestion (increases GI motility + secretion)",
+        "stimulates insulin secretion",
+        "stimulates urination (relaxes internal urethral sphincter, contracts detrusor)",
+        "stimulates defecation",
+        "stimulates salivation + lacrimation (tears)"
+      ],
+      "does_NOT_innervate": "blood vessels (mostly), sweat glands, adrenal medulla, arrector pili. these are sympathetic-only."
+    },
+    "receptor_types": {
+      "cholinergic_ACh": {
+        "nicotinic": "on ALL postganglionic neurons (both sympathetic + parasympathetic) + skeletal muscle NMJ. always EXCITATORY. ion channel (fast).",
+        "muscarinic": "on parasympathetic TARGET organs. can be excitatory OR inhibitory depending on organ. G-protein coupled (slower)."
+      },
+      "adrenergic_NE_Epi": {
+        "alpha1": "smooth muscle CONTRACTION (vasoconstriction of skin + viscera, pupil dilation, urethral sphincter contraction).",
+        "alpha2": "presynaptic — inhibits further NE release (negative feedback).",
+        "beta1": "HEART. increases rate + force of contraction. 'you have ONE heart' = beta ONE.",
+        "beta2": "smooth muscle RELAXATION (bronchodilation, vasodilation in skeletal muscle, uterine relaxation). 'you have TWO lungs' = beta TWO.",
+        "beta3": "lipolysis (fat breakdown). adipose tissue."
+      }
+    },
+    "comparison_table_rule": "sympathetic: short pre, long post, NE postganglionic (except sweat = ACh). parasympathetic: long pre, short post, ACh both. opposite in almost every way."
+  },
+
+  "clinical": {
+    "sciatica": "compression/irritation of sciatic nerve. pain radiating down posterior thigh + leg. often from herniated disc at L4-L5 or L5-S1.",
+    "carpal_tunnel": "compression of MEDIAN NERVE in carpal tunnel of wrist. numbness/tingling in thumb, index, middle, lateral ring finger. weakness of thenar muscles.",
+    "bells_palsy": "CN VII (facial) — unilateral facial paralysis. can't close eye, drooling, can't wrinkle forehead. usually temporary.",
+    "phrenic_nerve_damage": "C3-C5. if both phrenic nerves damaged → diaphragm paralyzed → can't breathe independently.",
+    "horners_syndrome": "disruption of sympathetic supply to face. ptosis (drooping eyelid), miosis (constricted pupil), anhidrosis (no sweating on affected side).",
+    "atropine": "muscarinic antagonist. blocks parasympathetic effects. dilates pupil, increases HR, dries secretions. used pre-surgery.",
+    "beta_blockers": "block beta1 receptors. decrease HR + force. treat hypertension, angina, arrhythmia."
+  },
+
+  "spelling_drills": [
+    "vestibulocochlear", "glossopharyngeal", "oculomotor",
+    "trochlear", "abducens", "hypoglossal", "parasympathetic",
+    "sympathetic", "thoracolumbar", "craniosacral",
+    "norepinephrine", "epinephrine", "muscarinic", "nicotinic",
+    "preganglionic", "postganglionic", "celiac", "mesenteric",
+    "chromaffin", "piloerection", "mydriasis", "miosis",
+    "musculocutaneous", "brachial plexus", "dermatome",
+    "sciatic", "phrenic"
+  ]
+}

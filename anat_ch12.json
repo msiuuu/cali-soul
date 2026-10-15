@@ -1,0 +1,193 @@
+{
+  "chapter": "ch12",
+  "title": "Central Nervous System — Brain and Spinal Cord",
+  "status": "upcoming",
+
+  "brain_development": {
+    "primary_vesicles": "prosencephalon (forebrain), mesencephalon (midbrain), rhombencephalon (hindbrain)",
+    "secondary_vesicles": "telencephalon → cerebrum. diencephalon → thalamus/hypothalamus. mesencephalon → midbrain. metencephalon → pons + cerebellum. myelencephalon → medulla oblongata."
+  },
+
+  "cerebrum": {
+    "surface": "cerebral cortex = thin outer layer of GRAY MATTER. folds: gyri (ridges), sulci (shallow grooves), fissures (deep grooves). folding increases surface area.",
+    "white_matter": "deep to cortex. myelinated axon tracts: commissural (corpus callosum — connects hemispheres), association (within same hemisphere), projection (cortex ↔ lower brain/spinal cord).",
+    "hemispheres": "left + right, connected by CORPUS CALLOSUM. contralateral control: left hemisphere controls right body, vice versa.",
+    "lobes": {
+      "frontal": {
+        "location": "anterior, separated from parietal by CENTRAL SULCUS",
+        "functions": "voluntary motor (precentral gyrus = PRIMARY MOTOR CORTEX), planning, personality, judgement, executive function, speech production (BROCA'S AREA — usually left hemisphere)",
+        "precentral_gyrus": "primary motor cortex. motor homunculus. controls voluntary movement. large areas for hands, face (fine motor)."
+      },
+      "parietal": {
+        "location": "posterior to central sulcus",
+        "functions": "general somatic sensation (postcentral gyrus = PRIMARY SOMATOSENSORY CORTEX), spatial awareness, body position",
+        "postcentral_gyrus": "primary somatosensory cortex. sensory homunculus. receives touch, pressure, pain, temperature from body."
+      },
+      "temporal": {
+        "location": "lateral, below lateral sulcus",
+        "functions": "hearing (PRIMARY AUDITORY CORTEX), memory, olfaction, language comprehension (WERNICKE'S AREA — usually left hemisphere)"
+      },
+      "occipital": {
+        "location": "posterior-most",
+        "functions": "vision (PRIMARY VISUAL CORTEX). processes visual input from retina."
+      },
+      "insula": "deep to lateral sulcus. 'island.' taste, visceral sensation, emotional awareness. sometimes called 5th lobe."
+    },
+    "lateralization": {
+      "left_hemisphere": "language (Broca's + Wernicke's), math, logic, analytical processing in MOST people",
+      "right_hemisphere": "spatial awareness, face recognition, music, emotional interpretation, holistic processing",
+      "note": "both hemispheres do BOTH types — lateralization is about DOMINANCE, not exclusivity."
+    },
+    "language_areas": {
+      "brocas_area": "frontal lobe (left). MOTOR speech. produces speech. damage → BROCA'S APHASIA: understands language but CAN'T SPEAK fluently (nonfluent/expressive aphasia).",
+      "wernickes_area": "temporal lobe (left). SENSORY speech. comprehends language. damage → WERNICKE'S APHASIA: speaks fluently but DOESN'T MAKE SENSE (fluent/receptive aphasia).",
+      "arcuate_fasciculus": "fiber bundle connecting Broca's and Wernicke's. damage → CONDUCTION APHASIA: can understand and speak but can't repeat what they hear."
+    },
+    "basal_nuclei_ganglia": {
+      "what": "deep gray matter masses within cerebral white matter. caudate nucleus, putamen, globus pallidus. (putamen + globus pallidus = lentiform nucleus. caudate + putamen = striatum.)",
+      "function": "regulate voluntary motor activity. filter + inhibit unwanted movements. smooth out intended movements.",
+      "disorders": "Parkinson's (loss of dopamine input → rigidity, tremor). Huntington's (degeneration of caudate + putamen → involuntary movements, chorea)."
+    }
+  },
+
+  "diencephalon": {
+    "thalamus": {
+      "what": "paired egg-shaped masses. ~80% of diencephalon. GATEWAY TO CEREBRAL CORTEX.",
+      "function": "relay station for ALL sensory input EXCEPT OLFACTION (smell goes directly to cortex). sorts, edits, filters sensory info before sending to cortex. also roles in motor, emotion, memory."
+    },
+    "hypothalamus": {
+      "what": "below thalamus. small but critical. forms floor of 3rd ventricle.",
+      "functions": [
+        "AUTONOMIC control center — regulates ANS (heart rate, BP, GI motility, pupil size)",
+        "ENDOCRINE control — controls pituitary gland (anterior via releasing/inhibiting hormones, posterior stores oxytocin + ADH)",
+        "BODY TEMPERATURE regulation — thermostat",
+        "HUNGER + THIRST centers",
+        "SLEEP-WAKE cycles (with reticular formation)",
+        "EMOTIONAL responses (rage, fear, pleasure — with limbic system)",
+        "CIRCADIAN rhythms (suprachiasmatic nucleus)"
+      ]
+    },
+    "epithalamus": "pineal gland → melatonin (sleep cycle). also contains choroid plexus (produces CSF in 3rd ventricle)."
+  },
+
+  "brainstem": {
+    "note": "connects cerebrum to spinal cord. all ascending/descending tracts pass through here. three regions top to bottom:",
+    "midbrain": {
+      "what": "between diencephalon and pons.",
+      "cerebral_peduncles": "anterior. large fiber tracts carrying motor signals from cortex DOWN to spinal cord.",
+      "superior_colliculi": "visual reflexes (head/eye tracking of moving objects).",
+      "inferior_colliculi": "auditory reflexes (startle reflex to loud sounds, head turning toward sound).",
+      "substantia_nigra": "dopamine-producing neurons. projects to basal nuclei. degeneration → Parkinson's.",
+      "red_nucleus": "motor coordination with cerebellum."
+    },
+    "pons": {
+      "what": "bridge between cerebellum and brainstem. anterior bulge.",
+      "functions": "relay between cerebrum and cerebellum. contains nuclei for cranial nerves V, VI, VII. PNEUMOTAXIC + APNEUSTIC centers modify breathing rhythm (work with medulla's respiratory centers)."
+    },
+    "medulla_oblongata": {
+      "what": "most inferior brainstem region. continuous with spinal cord at foramen magnum.",
+      "vital_centers": [
+        "CARDIOVASCULAR center — regulates heart rate + blood vessel diameter (blood pressure)",
+        "RESPIRATORY center — sets basic breathing rhythm (ventral respiratory group = forced breathing, dorsal respiratory group = quiet breathing)",
+        "other reflexes: VOMITING, SWALLOWING, COUGHING, SNEEZING, HICCUPPING"
+      ],
+      "pyramids": "anterior bulges. PYRAMIDAL (corticospinal) tracts cross here — DECUSSATION OF PYRAMIDS. that's why left brain controls right body.",
+      "cranial_nerves": "nuclei for CN VIII, IX, X, XI, XII"
+    }
+  },
+
+  "cerebellum": {
+    "location": "posterior to pons + medulla. inferior to occipital lobes. connected via 3 cerebellar peduncles.",
+    "structure": "two hemispheres + vermis (midline). surface = folia (leaf-like folds). cortex = gray matter. interior = white matter (arbor vitae = tree of life pattern).",
+    "function": [
+      "coordinates voluntary movements — does NOT initiate movement. REFINES + SMOOTHS.",
+      "balance + equilibrium (receives vestibular input)",
+      "motor learning (procedural memory — riding a bike, typing)",
+      "posture maintenance",
+      "timing of movements"
+    ],
+    "damage": "ataxia (loss of coordination, staggering gait, overshooting movements), intention tremor, loss of balance, slurred speech (dysarthria). affects SAME SIDE (ipsilateral — does NOT cross)."
+  },
+
+  "meninges": {
+    "note": "three CT membranes covering brain + spinal cord. protection.",
+    "dura_mater": {
+      "what": "TOUGH outer layer. 'tough mother.' two layers around brain: periosteal (fused to skull) + meningeal. ONE layer around spinal cord (epidural space between dura and vertebral bone).",
+      "dural_folds": "falx cerebri (between cerebral hemispheres), falx cerebelli (between cerebellar hemispheres), tentorium cerebelli (between cerebrum and cerebellum).",
+      "dural_sinuses": "venous channels between dural layers. drain blood from brain."
+    },
+    "arachnoid_mater": "middle layer. web-like. SUBARACHNOID SPACE between arachnoid and pia contains CSF + blood vessels.",
+    "pia_mater": "DELICATE inner layer. clings directly to brain/spinal cord surface. highly vascular. follows every fold.",
+    "mnemonic_needed": true
+  },
+
+  "cerebrospinal_fluid": {
+    "produced_by": "CHOROID PLEXUS — specialized ependymal cells in ventricle walls. ~500 mL/day. ~150 mL circulating at any time (replaced ~3x/day).",
+    "path": "lateral ventricles → interventricular foramen (of Monro) → 3rd ventricle → cerebral aqueduct (of Sylvius) → 4th ventricle → into subarachnoid space (via lateral apertures of Luschka + median aperture of Magendie).",
+    "reabsorbed_by": "arachnoid villi (granulations) projecting into dural sinuses → returned to venous blood.",
+    "functions": "cushions brain (buoyancy — brain weighs ~1500g but only ~50g in CSF). delivers nutrients. removes waste. chemical stability.",
+    "lumbar_puncture": "spinal tap at L3-L5 (below conus medullaris at L1-L2). samples CSF for diagnosis (meningitis, hemorrhage)."
+  },
+
+  "spinal_cord": {
+    "location": "foramen magnum → conus medullaris (L1-L2). below that: cauda equina (horse's tail — bundle of spinal nerve roots).",
+    "filum_terminale": "thin thread of pia mater anchoring cord to coccyx.",
+    "structure": {
+      "gray_matter": "INSIDE. butterfly/H shape. dorsal horns (sensory interneurons), ventral horns (motor neurons → skeletal muscle), lateral horns (T1-L2 only — sympathetic neurons).",
+      "white_matter": "OUTSIDE (opposite of brain!). organized into columns/funiculi: dorsal, lateral, ventral. contain ascending (sensory) + descending (motor) tracts.",
+      "central_canal": "center. contains CSF. continuous with ventricles."
+    },
+    "tracts": {
+      "ascending_sensory": {
+        "dorsal_columns": "fine touch, vibration, proprioception. IPSILATERAL until medulla where they cross. fasciculus gracilis (lower body) + fasciculus cuneatus (upper body).",
+        "spinothalamic": "pain, temperature, crude touch. cross at SPINAL CORD level. lateral spinothalamic = pain+temp. anterior spinothalamic = crude touch.",
+        "spinocerebellar": "proprioception TO cerebellum. ipsilateral. unconscious proprioception."
+      },
+      "descending_motor": {
+        "corticospinal_lateral": "voluntary movement. crosses at PYRAMIDAL DECUSSATION in medulla. fine, skilled movements.",
+        "corticospinal_anterior": "voluntary movement. stays ipsilateral until spinal level, then crosses. trunk/proximal muscles.",
+        "rubrospinal": "from red nucleus. flexor muscle tone.",
+        "vestibulospinal": "balance reflexes. posture."
+      }
+    },
+    "reflex_arc": {
+      "components": [
+        "1. RECEPTOR — detects stimulus",
+        "2. SENSORY (afferent) NEURON — transmits signal to CNS",
+        "3. INTEGRATION CENTER — CNS processing (may be just one synapse or multiple interneurons)",
+        "4. MOTOR (efferent) NEURON — transmits signal to effector",
+        "5. EFFECTOR — muscle or gland that carries out response"
+      ],
+      "stretch_reflex": "MONOSYNAPTIC. simplest. sensory → motor. ONE synapse. EX: patellar (knee-jerk) reflex. muscle spindle detects stretch → sensory neuron → spinal cord → motor neuron → same muscle contracts. NO interneuron.",
+      "withdrawal_flexor_reflex": "POLYSYNAPTIC. pain → flexor contraction + extensor relaxation on same side (withdrawal). crossed extensor reflex on opposite side (support)."
+    }
+  },
+
+  "blood_brain_barrier": {
+    "what": "tight junctions between capillary endothelial cells in brain. astrocyte foot processes reinforce. selectively permeable.",
+    "passes": "O2, CO2, glucose, amino acids, fat-soluble molecules (including alcohol, anesthetics, many drugs).",
+    "blocked": "most large molecules, most hydrophilic drugs, proteins, toxins, pathogens (usually).",
+    "absent_at": "hypothalamus (needs to monitor blood chemistry), vomiting center (needs to detect toxins)."
+  },
+
+  "clinical": {
+    "CVA_stroke": {
+      "ischemic": "blood clot blocks cerebral artery. ~85% of strokes. tissue dies from O2 deprivation.",
+      "hemorrhagic": "blood vessel ruptures. blood compresses tissue. ~15% of strokes.",
+      "effects": "depend on location. motor cortex damage = paralysis. Broca's = can't speak. right hemisphere = spatial neglect."
+    },
+    "traumatic_brain_injury": "concussion (mild), contusion (bruising), epidural hematoma (arterial — rapid, lens-shaped on CT, middle meningeal artery), subdural hematoma (venous — slower, crescent on CT, bridging veins).",
+    "meningitis": "inflammation of meninges. bacterial (emergency) or viral (usually less severe). stiff neck, fever, headache. diagnosed via lumbar puncture.",
+    "hydrocephalus": "excess CSF accumulation. blocked drainage or overproduction. increases intracranial pressure. in infants: head enlarges (fontanelles open). treatment: shunt."
+  },
+
+  "spelling_drills": [
+    "cerebellum", "cerebrum", "diencephalon", "hypothalamus",
+    "medulla oblongata", "meninges", "arachnoid", "subarachnoid",
+    "cerebrospinal", "decussation", "corticospinal", "spinothalamic",
+    "fasciculus gracilis", "fasciculus cuneatus", "choroid plexus",
+    "interventricular", "foramen magnum", "conus medullaris",
+    "cauda equina", "filum terminale", "substantia nigra",
+    "colliculi", "pneumotaxic", "dysarthria", "hydrocephalus"
+  ]
+}
