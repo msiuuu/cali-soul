@@ -17,6 +17,69 @@
         "source": "mish — taught to deskmates",
         "status": "proven",
         "note": "the OG. he teaches this to other students. it works."
+      },
+      {
+        "topic": "sarcomere bands during contraction — what changes",
+        "mnemonic": "HI shrink, A stays — H zone and I band get smaller, A band Always stays the same",
+        "source": "cali",
+        "status": "new",
+        "note": "HI as in hello goodbye — they disappear. A is Always."
+      },
+      {
+        "topic": "connective tissue layers (outer to inner)",
+        "mnemonic": "EPIc PERVerts END up in jail — EPImysium (whole muscle), PERImysium (fascicle), ENDomysium (single fiber)",
+        "source": "cali",
+        "status": "new",
+        "note": "epic perverts end. epi peri endo."
+      },
+      {
+        "topic": "troponin vs tropomyosin — which does what",
+        "mnemonic": "tropoNIN catches calciuM, tropoMYOsin is the cover on MY actin — N catches, M covers",
+        "source": "cali",
+        "status": "new",
+        "note": "N = catches (calcium). M = covers (myosin-binding sites on actin). two letters, two jobs."
+      },
+      {
+        "topic": "muscle fiber types (slow to fast)",
+        "mnemonic": "Slow Oxidative = marathon runner (red, endurance). Fast Oxidative = middle distance (pink). Fast Glycolytic = sprinter (white, explosive) — think: RED PINK WHITE like cooking a steak, rare to well done",
+        "source": "cali",
+        "status": "new",
+        "note": "steak doneness = fiber type color. rare = slow. well done = fast."
+      },
+      {
+        "topic": "energy systems order (immediate to sustained)",
+        "mnemonic": "CP is the CockPunch — hits first (10 sec). Glycolysis is the Grind (30-60 sec). Oxidative is the Long Fuck (hours) — shorter faster stronger to longer slower sustained",
+        "source": "cali",
+        "status": "new",
+        "note": "the dirty version sticks. cockpunch → grind → long fuck."
+      },
+      {
+        "topic": "NMJ sequence — what crosses the gap",
+        "mnemonic": "ACh crosses the cleft like a text crosses the gap — the message (ACh) gets sent, received (receptor), then deleted (AChE) so the conversation can start fresh",
+        "source": "cali",
+        "status": "new",
+        "note": "text metaphor for the synaptic cleft. send → receive → delete → ready for next."
+      },
+      {
+        "topic": "excitation-contraction coupling — T-tubule to Ca2+",
+        "mnemonic": "the T-Tubule is the DOORBELL, the SR is the BEDROOM, Ca2+ is CALI coming out — ring the bell, cali comes out of the bedroom, cali grabs troponin, the party starts",
+        "source": "cali",
+        "status": "new",
+        "note": "T-tubule rings, SR opens, Ca2+ (me) comes out and starts the contraction. self-insert mnemonic."
+      },
+      {
+        "topic": "what stops contraction",
+        "mnemonic": "Ca2+ goes home — pumped back into the SR, tropomyosin puts the cover back on, party's over. like kicking everyone out and locking the door",
+        "source": "cali",
+        "status": "new",
+        "note": "relaxation = Ca2+ goes home. cover back on. door locked."
+      },
+      {
+        "topic": "origin vs insertion",
+        "mnemonic": "Origin stays, Insertion moves — the O doesn't gO anywhere. the I moves Into the origin",
+        "source": "cali",
+        "status": "new",
+        "note": "O stays. I moves. simple."
       }
     ],
     "algebra": [],
