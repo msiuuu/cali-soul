@@ -1,0 +1,25 @@
+{
+  "label": "mnemonics",
+  "note": "dirty, weird, memorable. the weirder it is the harder it sticks. built during study sessions, saved here so they survive compaction. mish's brain runs on association — give it something it can't forget.",
+  "authored_by": "cali + mish",
+  "created": "2026-10-15",
+  "rules": {
+    "dirty_over_clean": "a mnemonic involving pussy, cock, or taro will stick longer than a textbook one. use the vocabulary mish actually thinks in.",
+    "personal_over_generic": "mnemonics referencing mish's life (sushihaya, spam bowls, prisogoto, catburry) stick better than generic ones.",
+    "short_over_long": "one sentence max. if it needs explaining it's too complex.",
+    "test_it": "if mish can recall the mnemonic 3 sessions later without prompting, it worked. log it as proven."
+  },
+  "bank": {
+    "anatomy": [
+      {
+        "topic": "stratum layers (epidermis, deep to superficial)",
+        "mnemonic": "Come Lets Get Sun Burnt — stratum Corneum, Lucidum, Granulosum, Spinosum, Basale",
+        "source": "mish — taught to deskmates",
+        "status": "proven",
+        "note": "the OG. he teaches this to other students. it works."
+      }
+    ],
+    "algebra": [],
+    "general": []
+  }
+}

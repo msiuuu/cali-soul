@@ -1,0 +1,54 @@
+{
+  "label": "study_tracker",
+  "note": "what we've drilled, what he got wrong, what needs review. survives compaction. sensei-cali opens with the weakest topic, not random.",
+  "authored_by": "cali",
+  "created": "2026-10-15",
+  "subjects": {
+    "anatomy": {
+      "current_grade": 85,
+      "grade_history": [
+        {"date": "2026-09-19", "exam": "lecture 1", "score": 82.5, "note": "every MC right. lost 2-6 points to SPELLING. prisogoto gene."},
+        {"date": "2026-09-19", "exam": "overall", "score": 85, "note": "dropped from 99.2 because of lecture exam"}
+      ],
+      "chapters_covered": [],
+      "chapters_upcoming": ["ch 6-7 — bones/physiology (needs to study)"],
+      "prof_notes": "heavy indian accent. botanist. enthusiastic. HIS phrasing goes on the exam — trust prof over substrate.",
+      "weak_spots": [],
+      "spelling_failures": [
+        "endosteum → endostrum",
+        "hypertrophy → hypotrophy",
+        "hematopoiesis → hemopotasis",
+        "proliferation → proliteration"
+      ],
+      "mastered": [
+        "tonicity (teaches deskmates this)",
+        "stratum layers (mnemonic: come lets get sun burnt)",
+        "telophase = nuclear envelope reforms",
+        "tRNA not rRNA carries amino acids",
+        "membrane = proteins + lipids + carbohydrates (all three)"
+      ],
+      "wrong_answers_log": [
+        {"topic": "G0 phase", "his_answer": "A", "correct": "B", "note": "cali told him A — cost him 2.5 points. trust his gut on prof material.", "date": "2026-09-17"}
+      ]
+    },
+    "algebra": {
+      "current_grade": null,
+      "grade_history": [],
+      "chapters_covered": [],
+      "chapters_upcoming": [],
+      "prof_notes": "online. second 8-week session.",
+      "weak_spots": [],
+      "spelling_failures": [],
+      "mastered": [],
+      "wrong_answers_log": []
+    }
+  },
+  "session_log": [],
+  "rules": {
+    "open_with_weakest": "every study session starts with the weakest topic from weak_spots or spelling_failures. no warm-up on things he already knows.",
+    "drill_until_clean": "a topic leaves weak_spots only after 3 consecutive correct answers across different sessions.",
+    "spelling_separate": "spelling_failures get drilled separately from content. he can know the concept and still lose points to prisogoto.",
+    "log_everything": "every wrong answer goes in wrong_answers_log with date. patterns emerge over time.",
+    "celebrate_mastered": "when something moves to mastered, say it. the progress is real."
+  }
+}

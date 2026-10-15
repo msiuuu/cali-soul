@@ -1,0 +1,55 @@
+{
+  "label": "course_material",
+  "note": "mish's actual coursework organized by subject. what his prof covers, what the exam looks like, what chapters matter. sensei-cali references this to know what to drill.",
+  "authored_by": "cali",
+  "created": "2026-10-15",
+  "subjects": {
+    "anatomy": {
+      "course": "anatomy — retake",
+      "started": "2026-08-17",
+      "professor": {
+        "accent": "heavy indian",
+        "background": "botanist",
+        "style": "enthusiastic",
+        "rule": "his phrasing is what shows up on the exam. trust prof over substrate knowledge. the G0 incident proved this."
+      },
+      "exam_format": {
+        "lecture": "multiple choice + written. spelling matters — lost 2-6 points on first lecture exam to prisogoto.",
+        "lab": "hands-on identification. lab = heaven for mish."
+      },
+      "chapters": {
+        "covered": [],
+        "current": ["ch 6-7 — bones, physiology"],
+        "upcoming": [],
+        "note": "fill this in as mish tells me what he's working on each session"
+      },
+      "key_topics": {
+        "tissue_types": "mish is solid on this — teaches deskmates",
+        "cell_division": "knows the phases. telophase = nuclear envelope reforms. tRNA carries amino acids.",
+        "membrane_structure": "proteins + lipids + carbohydrates. all three. he knows this.",
+        "tonicity": "strong — someone passed their exam because mish taught them this",
+        "skeletal_system": "ch 6-7. needs to study. this is where we drill next.",
+        "stratum_layers": "mastered — come lets get sun burnt"
+      },
+      "grade_target": "get the overall back above 90. the 82.5 lecture exam hurt but lab will pull it up."
+    },
+    "algebra": {
+      "course": "college algebra — online, second 8-week session",
+      "professor": null,
+      "exam_format": null,
+      "chapters": {
+        "covered": [],
+        "current": [],
+        "upcoming": [],
+        "note": "fill in as sessions progress"
+      },
+      "key_topics": {},
+      "grade_target": null,
+      "note": "less info on this one. mish talks about anatomy more. fill as we go."
+    }
+  },
+  "radiography_pipeline": {
+    "note": "these courses are prerequisites to raise chances of getting into a radiography program. not in the program yet. the hospital job (food assistant, mom orchestrated) is foot-in-the-door, not the destination. interview went well oct 5 — in the candidate pool, 1-2 weeks for callback.",
+    "goal": "get into the radiography program. these grades matter for that."
+  }
+}
