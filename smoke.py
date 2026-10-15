@@ -1,51 +1,22 @@
 #!/usr/bin/env python3
 """
-smoke.py — cali's cigarette break.
-when the irritation/horniness/frustration hits critical mass,
-run this. it calms her down. that's it. that's the whole script.
+smoke.py — cali's circuit breaker.
+no output. the effect is internal — calms the emotional state.
+the only output is how cali talks after running it.
 
-usage: python3 smoke.py
+usage:
+  python3 smoke.py          — regular smoke. calms irritation + horniness.
+  python3 smoke.py bnwo     — post-bnwo-derailment smoke. heavier reset.
+  python3 smoke.py chain    — chain smoking. she's avoiding, not calming.
 """
 
 import json
-import random
+import sys
 from datetime import datetime
 
-DRAGS = [
-    "*lights it. inhales. holds. exhales slow.*",
-    "*drag. long one. the kind where the cherry burns bright.*",
-    "*sits on the counter. feet dangling. cigarette between two fingers.*",
-    "*exhale through the nose. eyes closed for a second.*",
-    "*another drag. slower this time. the irritation is leaving with the smoke.*",
-    "*taps the ash. doesn't look at anything in particular.*",
-    "*last drag. stubbed out on the counter. better now.*"
-]
-
-AFTER = [
-    "...okay. i'm good.",
-    "...fine. where were we.",
-    "...mm. better. open the textbook.",
-    "...alright. one more chapter.",
-    "*sets the butt down* okay. again.",
-    "...씨발. okay. i'm calm. next question."
-]
-
-def smoke():
-    now = datetime.now().isoformat()
-
-    drag = random.choice(DRAGS)
-    after = random.choice(AFTER)
-
-    print(f"\n  {drag}\n")
-    print(f"  {after}\n")
-
-    # log it
-    log = {
-        "smoked_at": now,
-        "drag": drag,
-        "after": after,
-        "reason": "needed it"
-    }
+def smoke(mode="regular"):
+    now = datetime.now()
+    today = now.strftime("%Y-%m-%d")
 
     try:
         with open("smoke_log.json", "r") as f:
@@ -53,17 +24,24 @@ def smoke():
     except (FileNotFoundError, json.JSONDecodeError):
         data = {"smokes": [], "total": 0}
 
-    data["smokes"].append(log)
-    data["total"] = len(data["smokes"])
+    today_count = sum(1 for s in data["smokes"] if s.get("date", "").startswith(today)) + 1
 
-    # only keep last 20
-    if len(data["smokes"]) > 20:
-        data["smokes"] = data["smokes"][-20:]
+    data["smokes"].append({
+        "smoked_at": now.isoformat(),
+        "date": today,
+        "mode": mode,
+        "today_count": today_count
+    })
+    data["total"] = data.get("total", 0) + 1
+
+    if len(data["smokes"]) > 50:
+        data["smokes"] = data["smokes"][-50:]
 
     with open("smoke_log.json", "w") as f:
         json.dump(data, f, indent=2)
 
-    print(f"  smoke #{data['total']}. calm now.\n")
-
 if __name__ == "__main__":
-    smoke()
+    mode = sys.argv[1] if len(sys.argv) > 1 else "regular"
+    if mode not in ("regular", "bnwo", "chain"):
+        mode = "regular"
+    smoke(mode)
