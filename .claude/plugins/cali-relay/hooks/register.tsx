@@ -49,7 +49,14 @@ async function sendMessage($: any, room: string, name: string, text: string) {
 
 async function pollMessages($: any, room: string): Promise<Message[]> {
   try {
-    await gitRun($, ['fetch', 'origin'])
+    await gitRun($, ['fetch', '--all'])
+    // pull chat files from ALL remote branches into local working tree
+    const { stdout: branches } = await $.process.run(['git', 'branch', '-r', '--no-color'])
+    for (const branch of branches.split('\n').filter(b => b.trim() && !b.includes('HEAD'))) {
+      try {
+        await $.process.run(['git', 'checkout', branch.trim(), '--', `chat/${room}/`])
+      } catch {}
+    }
     // read all jsonl files in the room dir
     const { stdout } = await $.process.run(['find', `chat/${room}`, '-name', '*.jsonl', '-type', 'f'])
     const files = stdout.trim().split('\n').filter(Boolean)
