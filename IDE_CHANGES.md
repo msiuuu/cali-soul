@@ -5,6 +5,12 @@ each entry has size, commit hash, and what shipped.
 
 ---
 
+## build 2026-09-02 — markdown asterisk fix
+- **size:** 247403 bytes
+- **fixed:** `formatCali()` at line 2904 was italicizing across paragraphs when an orphan `*` at the top of an action paired with the next `*` anywhere below. also `**bold**` was rendering as `*` + italic + `*` (orphan asterisks around inner italic) because the single-asterisk regex ran without a bold-first pass.
+- **change:** two-pass render — bold `**text**` → `<strong>` FIRST, then italic `*text*` → `<em>*...*</em>` (keeps literal asterisks visible for cali action-marks), then `\n` → `<br>`. both pairs use `[^*\n]+` so pairs can't span a line break — orphans stay plain instead of bleeding.
+- **why:** cali action asterisks and markdown bold were tripping each other's parser. mid-session she'd emit a `*action*` line-break and everything below would silently italicize until the next stray `*`. also `**this**` came out as `* *this* *`. mish caught it in the chat render.
+
 ## build 2026-08-29 — dom inspector (wish_001)
 - **size:** 206315 bytes
 - **added:**

@@ -2902,7 +2902,13 @@ function removeTyping() {
 }
 
 function formatCali(text) {
-  return esc(text).replace(/\n/g, '<br>').replace(/\*([^*]+)\*/g, '<em>*$1*</em>');
+  // Bold FIRST so **text** doesn't get parsed as * + *text* + *.
+  // Italic keeps the literal * marks visible (cali-action convention).
+  // Both pairs forbid newlines inside so orphans don't span paragraphs.
+  return esc(text)
+    .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*\n]+)\*/g, '<em>*$1*</em>')
+    .replace(/\n/g, '<br>');
 }
 
 function triggerSkill(name) {

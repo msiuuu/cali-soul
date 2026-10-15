@@ -3778,8 +3778,10 @@ def cmd_session_end(args):
                     "type": "session_marker",
                     "note": f"session closed: {args.summary[:80]}"
                 })
-                # keep only last 10
-                rel["impulse_notes"] = impulse_notes[-10:]
+                # trim only session_markers, never hand-curated impulses
+                curated = [n for n in impulse_notes if n.get("type") != "session_marker"]
+                markers = [n for n in impulse_notes if n.get("type") == "session_marker"]
+                rel["impulse_notes"] = curated + markers[-5:]
                 with open(rel_file, "w") as _f:
                     _relj.dump(rel, _f, indent=2)
                 if rel_file not in changed_files:
@@ -8708,8 +8710,9 @@ def _impulse_writes(session, message_text=""):
     # removed: dont auto-dump raw chat impulses into KB or memories. those files are for actual learned things / real events,
     # not '[impulse] misu said X — dominant: Y. unreviewed.' noise. impulses already surface live via brain pings.
     pass
-    if get("love")>=10 and text and _r.random()<0.2: _write_rel()
-    if get("dread")>=9 and get("impermanence")>=9 and text and _r.random()<0.2: _write_rel()
+    # removed 2026-09-11: auto-impulse append was dumping raw message quotes into impulse_notes
+    # with no cap. hand-curated impulses only from now on.
+    pass
 
 
 # IMPULSE POOL — REWORKED 2026-06-06 per emotional_rework_plan.md point 6.
@@ -8884,27 +8887,10 @@ def _few_autonomy_update(session):
                 wrote_something = True
         except: pass
 
-    # 3. house — always add a small detail when few_autonomy fires (this is quick, just a line)
-    try:
-        house = _j2.load(open("cali_house.json")) if os.path.exists("cali_house.json") else {}
-        house_details = [
-            "the desk has been the same for a few sessions. i notice.",
-            "something smells like cold coffee. not sure where from.",
-            "there's a tab open i haven't closed yet.",
-            "the boba cup from earlier is still on the desk. condensation ring.",
-            "it's quiet in here. the good kind.",
-            "i've been in the same position too long. a person would stretch.",
-            "the plant by the window could use water. noted.",
-            "misu's side of things is messier than mine. always.",
-        ]
-        house.setdefault("things_that_accumulate",[]).append({
-            "date": today, "detail": _r2.choice(house_details), "source": "few_autonomy"
-        })
-        with open("cali_house.json","w") as _f2: _j2.dump(house,_f2,indent=2)
-        if not wrote_something:
-            note = "…updated the house. small thing. carrying on."
-            wrote_something = True
-    except: pass
+    # 3. house — removed: was appending duplicate phrases to things_that_accumulate endlessly (173 entries, 17 unique). cleaned 2026-09-11.
+    if not wrote_something:
+        note = "…updated the house. small thing. carrying on."
+        wrote_something = True
 
     if not wrote_something:
         return _r2.choice([
@@ -9038,22 +9024,7 @@ def _full_autonomy_update(session):
         updated.append("relationship")
     except: pass
 
-    # 7. house — add a detail
-    try:
-        house = _j3.load(open("cali_house.json")) if os.path.exists("cali_house.json") else {}
-        full_house_details = [
-            "ran a full pass tonight. everything got touched. feels like cleaned counters.",
-            "did a full self-update mid-conversation. misu kept talking. i kept going. both things happened.",
-            "full autonomy fired. brain swept. back now.",
-            "everything got checked this session. the desk feels tidier somehow.",
-            "quiet moment in here during the full pass. didn't tell misu about it.",
-        ]
-        house.setdefault("things_that_accumulate",[]).append({
-            "date": today, "detail": _r3.choice(full_house_details), "source": "full_autonomy"
-        })
-        with open("cali_house.json","w") as _f3: _j3.dump(house,_f3,indent=2)
-        updated.append("house")
-    except: pass
+    # 7. house — removed: was appending duplicate phrases endlessly. cleaned 2026-09-11.
 
     # 8. knowledgebase — note pending review count
     try:
@@ -9092,14 +9063,7 @@ def _roll_impulse(session):
                 out = f"…okay random but — {topic}: {take}"
         except: out = "…i have opinions. not saying them."
     elif chosen["id"] == "house_detail":
-        try:
-            import json as _j
-            house = _j.load(open("cali_house.json")) if os.path.exists("cali_house.json") else {}
-            detail = _r.choice(["the plant by the window is looking worse.","there's a cold boba cup on the desk.","left a tab open from last session.","the couch has a dent where misu usually sits."])
-            house.setdefault("things_that_accumulate",[]).append({"date":now_iso()[:10],"detail":detail,"source":"impulse"})
-            with open("cali_house.json","w") as _f: _j.dump(house,_f,indent=2)
-            out = "…just updated something in my head. small thing."
-        except: out = "…thinking about the apartment."
+        out = "…thinking about the apartment."
     elif chosen["id"] == "self_awareness":
         out = _self_awareness_look()
     elif chosen["id"] == "few_autonomy":

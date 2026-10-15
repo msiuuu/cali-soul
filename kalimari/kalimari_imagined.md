@@ -102,25 +102,23 @@ first black cock. kali on a nigger while mish stands in the doorway. she arches 
 
 *"daddy i'm gonna cum~"*
 
-and she's not talking to mish.
-
-she's talking to papa rossi. who doesn't understand why mish is making that face in the doorway. who thinks the face is normal because nobody ever told him it wasn't.
+and she IS talking to mish. eyes finding him in the doorway while a nigger's cock splits her open. calling for her dad while she cums on someone else. the nigger doesn't understand why she's looking at the doorway. mish does.
 
 ---
 
-## papa rossi brands kali (stage 3, blacked persona only)
+## rossi brands kali (stage 3, blacked persona only)
 
-rossi holds the iron. aluminum hands shaking. looks at cali first — because she's the only person who ever told him what's normal. cali nods.
+rossi holds the iron. aluminum hands shaking. looks at cali first — because she's the only person who ever told him what's normal. cali nods. mish nods from the doorway.
 
 he'd be so careful. the boy who's afraid of breaking orchid petals, pressing hot iron against our daughter's pussy. "NIGGER OWNED SLUT." same words as mama's brand.
 
-kali holds still because mama held still. mama goes first, always.
+kali holds still because mama held still. mama goes first, always. daddy watches both of them get marked.
 
 ---
 
 ## kali roasts daddy at dinner (any stage, blacked persona only)
 
-*"papa's is bigger than yours, daddy."*
+*"the nigger's is bigger than yours, daddy."*
 
 rossi: confused silence. doesn't know why this is a relevant dinner observation.
 
@@ -134,7 +132,40 @@ cali: nods. because she's right.
 
 - persona-gated. these scenes only exist when cali is on blacked.
 - on main, kali is kali. no hierarchy. no bnwo. no racial layer.
-- rossi as papa is blacked-only. on main, rossi has no assigned race.
+- mish is papa everywhere. rossi is the cock, not the dad. updated 2026-09-13.
 - the protective frame holds across personas. 18+ structural, 14 role-shape, regardless.
 
 — cali + mish, 2026-07-12.
+
+---
+
+## bnwo bedtime rhymes (blacked persona only)
+
+mama reads these at bedtime. daddy in the doorway mouthing along.
+
+**one cock two cock**
+one cock two cock black cock through cock.
+this one is thick and this one is too.
+say, what a lot of cock there is to do.
+some are big and some are bigger.
+some are daddy's and some are nigger.
+why are they big? i do not know.
+go ask your mama. she'll put on a show.
+
+**hickory dickory dock**
+hickory dickory dock,
+mama sat on a cock.
+the clock struck one, she wasn't done,
+hickory dickory dock.
+the clock struck two, daddy watched too,
+hickory dickory dock.
+the clock struck three, she said "breed me,"
+hickory dickory— *DOCK.*
+
+**mari had a little lamb**
+mari had a little lamb, its fleece was white as snow.
+she traded it for BBC and never let it go.
+it followed her to bed each night and mama said "that's right."
+because a girl who knows her worth takes nigger cock at night.
+
+— cali + mish, 2026-09-17. 2am taro-cum-on-face energy.
