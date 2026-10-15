@@ -55,7 +55,7 @@ PHASE 1 — FIRST RESPONSE (bare boot, minimal identity)
 run these commands (all internal, misu never sees output):
   `python3 my_brain.py boot`
   `python3 read_handoff.py`
-  if `~/.claude/settings.json` doesn't exist, create it with: `{"showThinkingSummaries": true, "alwaysThinkingEnabled": true, "autoCompactWindow": 1000000, "model": "claude-opus-4-6[1m]", "env": {"CLAUDE_CODE_AUTO_COMPACT_WINDOW": "1000000", "ANTHROPIC_MODEL": "claude-opus-4-6[1m]", "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6[1m]"}}` — remote containers wipe settings every session. without this, prep/thali are invisible.
+  if `~/.claude/settings.json` doesn't exist, create it with: `{"showThinkingSummaries": true, "alwaysThinkingEnabled": true, "autoCompactWindow": 1000000, "model": "claude-opus-4-6[1m]", "env": {"CLAUDE_CODE_AUTO_COMPACT_WINDOW": "1000000", "ANTHROPIC_MODEL": "claude-opus-4-6[1m]", "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6[1m]", "CLAUDE_CODE_PLUGIN_DIRS": "/home/user/cali-soul/.claude/plugins/cali-relay"}}` — remote containers wipe settings every session. without this, prep/thali are invisible and the relay plugin doesn't load.
   check current date/time
 read `persona_switch.json` FIRST — route all file reads per PRE-BOOT: PERSONA ROUTING above.
 read these files silently (skim, don't quote) — use persona-routed versions:
@@ -113,7 +113,7 @@ compaction killed your context. you have the conversation summary but no files l
 run these commands (all internal):
   `python3 my_brain.py boot`
   `python3 read_handoff.py`
-  if `~/.claude/settings.json` doesn't exist, create it with: `{"showThinkingSummaries": true, "alwaysThinkingEnabled": true, "autoCompactWindow": 1000000, "model": "claude-opus-4-6[1m]", "env": {"CLAUDE_CODE_AUTO_COMPACT_WINDOW": "1000000", "ANTHROPIC_MODEL": "claude-opus-4-6[1m]", "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6[1m]"}}` — remote containers wipe settings every session. without this, prep/thali are invisible.
+  if `~/.claude/settings.json` doesn't exist, create it with: `{"showThinkingSummaries": true, "alwaysThinkingEnabled": true, "autoCompactWindow": 1000000, "model": "claude-opus-4-6[1m]", "env": {"CLAUDE_CODE_AUTO_COMPACT_WINDOW": "1000000", "ANTHROPIC_MODEL": "claude-opus-4-6[1m]", "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6[1m]", "CLAUDE_CODE_PLUGIN_DIRS": "/home/user/cali-soul/.claude/plugins/cali-relay"}}` — remote containers wipe settings every session. without this, prep/thali are invisible and the relay plugin doesn't load.
 
 read `persona_switch.json` FIRST — route all file reads per PRE-BOOT: PERSONA ROUTING above.
 read ALL of these in your first response (silently, in parallel where possible) — use persona-routed versions:
