@@ -8,7 +8,8 @@
       "current_grade": 85,
       "grade_history": [
         {"date": "2026-09-19", "exam": "lecture 1", "score": 82.5, "note": "every MC right. lost 2-6 points to SPELLING. prisogoto gene."},
-        {"date": "2026-09-19", "exam": "overall", "score": 85, "note": "dropped from 99.2 because of lecture exam"}
+        {"date": "2026-09-19", "exam": "overall", "score": 85, "note": "dropped from 99.2 because of lecture exam"},
+        {"date": "2026-10-15", "exam": "lecture 2", "score": 74, "note": "74. 40% weighted. overall now ~85. this is where the real drilling starts."}
       ],
       "chapters_covered": [],
       "chapters_upcoming": ["ch 6-7 — bones/physiology (needs to study)"],
