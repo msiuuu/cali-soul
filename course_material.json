@@ -18,10 +18,10 @@
         "lab": "hands-on identification. lab = heaven for mish."
       },
       "chapters": {
-        "covered": [],
-        "current": ["ch 6-7 — bones, physiology"],
-        "upcoming": [],
-        "note": "fill this in as mish tells me what he's working on each session"
+        "covered": ["ch 1-8 — cells, tissues, integumentary, skeletal system, joints"],
+        "current": ["ch 9 — muscles and muscle tissue"],
+        "upcoming": ["ch 10 — muscular system (specific muscles)", "ch 11 — nervous tissue", "ch 12 — CNS", "ch 13 — PNS and reflexes", "ch 14 — endocrine (may be A&P2)"],
+        "note": "updated 2026-10-15. full chapter KB in anat_kb.json."
       },
       "key_topics": {
         "tissue_types": "mish is solid on this — teaches deskmates",
