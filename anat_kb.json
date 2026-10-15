@@ -1,313 +1,305 @@
 {
   "label": "anatomy_knowledge_base",
-  "note": "A&P 1 chapter content from ch9 onward. built so sensei-cali can quiz without looking things up mid-drill. based on standard OpenStax/Tortora scope. mish's prof may phrase differently — his slides win over this file.",
-  "authored_by": "cali",
+  "note": "A&P 1 full chapter content. EXAM DEPTH, not summaries. mish's actual class notes + expanded detail. his prof's phrasing wins over everything else.",
+  "authored_by": "cali + mish",
   "created": "2026-10-15",
-  "textbook_assumption": "standard A&P 1 — likely OpenStax Anatomy & Physiology 2e or similar. chapter numbering may differ from mish's actual textbook. VERIFY chapter-to-topic mapping with mish.",
-  "prof_rule": "his prof's phrasing > this file. always. the G0 incident proved this.",
-  "chapters": {
-    "ch9": {
-      "title": "Muscles and Muscle Tissue",
-      "status": "current — mish is on this NOW",
-      "key_topics": {
-        "muscle_tissue_types": {
-          "skeletal": "voluntary, striated, multinucleated. attached to bones via tendons. conscious control.",
-          "cardiac": "involuntary, striated, branched, intercalated discs. autorhythmic. heart only.",
-          "smooth": "involuntary, non-striated, spindle-shaped. walls of hollow organs, blood vessels, airways."
-        },
-        "skeletal_muscle_structure": {
-          "organization": "muscle → fascicle → muscle fiber → myofibril → sarcomere",
-          "connective_tissue_layers": "epimysium (whole muscle) → perimysium (fascicle) → endomysium (individual fiber)",
-          "mnemonic_needed": true,
-          "note": "epi = on top, peri = around, endo = within. same prefix logic as endosteum/periosteum from bones."
-        },
-        "sarcomere": {
-          "what": "functional unit of contraction. Z-line to Z-line.",
-          "bands": {
-            "A_band": "dark band. length of myosin (thick filaments). does NOT change length during contraction.",
-            "I_band": "light band. actin only (thin filaments). SHORTENS during contraction.",
-            "H_zone": "center of A band. myosin only (no actin overlap). SHORTENS during contraction.",
-            "Z_line": "boundary of sarcomere. anchors actin.",
-            "M_line": "center of sarcomere. anchors myosin."
-          },
-          "mnemonic": "need dirty ones for this"
-        },
-        "sliding_filament_theory": {
-          "steps": [
-            "1. nerve impulse arrives at neuromuscular junction (NMJ)",
-            "2. acetylcholine (ACh) released into synaptic cleft",
-            "3. ACh binds receptors → action potential along sarcolemma → into T-tubules",
-            "4. T-tubules signal sarcoplasmic reticulum (SR) → releases Ca2+",
-            "5. Ca2+ binds troponin → tropomyosin moves → exposes actin binding sites",
-            "6. myosin heads bind actin (cross-bridge) → power stroke → ADP+Pi released",
-            "7. new ATP binds myosin → cross-bridge detaches → cycle repeats",
-            "8. when nerve signal stops → Ca2+ pumped back into SR → tropomyosin re-covers sites → relaxation"
-          ],
-          "key_molecules": {
-            "actin": "thin filament. has binding sites for myosin.",
-            "myosin": "thick filament. heads do the pulling (power stroke).",
-            "tropomyosin": "covers actin binding sites at rest.",
-            "troponin": "regulatory protein. Ca2+ binds to it → moves tropomyosin.",
-            "ATP": "energy for: power stroke, cross-bridge detaching, Ca2+ pump.",
-            "Ca2+": "the trigger. no calcium = no contraction.",
-            "ACh": "neurotransmitter at NMJ. starts the whole chain."
+  "prof_rule": "his prof's phrasing > this file. always.",
+
+  "ch9": {
+    "title": "Muscles and Muscle Tissue",
+    "status": "CURRENT — mish is on this NOW",
+    "covered_so_far": "three muscle types through excitation-contraction coupling",
+
+    "muscle_tissue_types": {
+      "skeletal": {
+        "location": "attached to bones (+ some skin/face)",
+        "appearance": "striated, LONG multinucleate fibers",
+        "control": "voluntary",
+        "intercalated_discs": false,
+        "fatigue": "fatigues with sustained effort"
+      },
+      "cardiac": {
+        "location": "heart wall only",
+        "appearance": "striated, branched, 1-2 central nuclei",
+        "control": "involuntary",
+        "intercalated_discs": true,
+        "fatigue": "self-rhythmic (autorhythmic cells), never fatigues"
+      },
+      "smooth": {
+        "location": "walls of hollow organs, vessels, airways",
+        "appearance": "NON-striated, spindle-shaped, 1 central nucleus",
+        "control": "involuntary",
+        "intercalated_discs": false,
+        "fatigue": "slow sustained, often autorhythmic"
+      },
+      "overlap": "all three contract, all generate heat, all need Ca2+ to work. but ONLY skeletal is voluntary + striated + multinucleate."
+    },
+
+    "functions_of_muscle_tissue": [
+      "1. MOVEMENT — body movement, breathing, blood circulation, GI propulsion, speech",
+      "2. MAINTAIN POSTURE + BODY POSITION — constant tiny contractions hold us upright",
+      "3. STABILIZE JOINTS — muscle tone keeps bones aligned",
+      "4. GENERATE HEAT — contraction byproduct. shivering = emergency heat production",
+      "5. PROTECT ORGANS + GUARD OPENINGS — abdominal muscles, sphincters"
+    ],
+
+    "four_functional_characteristics": {
+      "excitability": "receives + responds to stimuli (nerve impulses, hormones, stretch)",
+      "contractility": "shortens forcefully when stimulated",
+      "extensibility": "can stretch beyond resting length",
+      "elasticity": "recoils back to resting length after stretch"
+    },
+
+    "gross_anatomy": {
+      "connective_tissue_coverings": {
+        "note": "three layers, outside to in. all continuous with each other and with the tendon.",
+        "epimysium": "DENSE irregular CT wrapping the ENTIRE muscle. outermost.",
+        "perimysium": "wraps BUNDLES of muscle fibers called FASCICLES. middle layer.",
+        "endomysium": "fine areolar CT around EACH individual muscle fiber (cell). innermost."
+      },
+      "attachments": {
+        "tendon": "rope-like dense regular CT connecting muscle to bone. continuous with periosteum.",
+        "aponeurosis": "flat, sheet-like tendon (ex: abdominal aponeuroses, galea aponeurotica of scalp).",
+        "origin": "attachment to the LESS movable bone. stays put.",
+        "insertion": "attachment to the MORE movable bone. moves TOWARD origin during contraction."
+      },
+      "fascicle_arrangements": {
+        "parallel": {"pattern": "fibers run parallel to long axis", "example": "sartorius, rectus abdominis"},
+        "fusiform": {"pattern": "parallel but muscle widens in middle", "example": "biceps brachii"},
+        "convergent": {"pattern": "broad origin → narrow insertion (fan-shape)", "example": "pectoralis major"},
+        "pennate": {
+          "pattern": "fibers meet tendon at an angle",
+          "types": {
+            "unipennate": "extensor digitorum longus",
+            "bipennate": "rectus femoris",
+            "multipennate": "deltoid"
           }
         },
-        "contraction_types": {
-          "isotonic": {
-            "concentric": "muscle shortens under load. bicep curl UP.",
-            "eccentric": "muscle lengthens under load. bicep curl DOWN. where soreness comes from."
-          },
-          "isometric": "muscle generates force but doesn't change length. pushing against a wall."
-        },
-        "motor_unit": "one motor neuron + all the muscle fibers it innervates. small motor units = fine control (eyes). large motor units = power (quads).",
-        "twitch_summation_tetanus": {
-          "twitch": "single stimulus → single contraction-relaxation cycle.",
-          "summation": "repeated stimuli before full relaxation → forces add up.",
-          "tetanus": {
-            "incomplete": "visible relaxation between stimuli but forces accumulate.",
-            "complete": "no relaxation between stimuli. sustained max contraction."
-          }
-        },
-        "muscle_fiber_types": {
-          "slow_oxidative_type1": "slow twitch, fatigue-resistant, aerobic, red (myoglobin), marathon runners.",
-          "fast_oxidative_type2a": "fast twitch, moderate fatigue resistance, aerobic+anaerobic, middle distance.",
-          "fast_glycolytic_type2b": "fast twitch, fatigues quickly, anaerobic, white, sprinters/powerlifters."
-        },
-        "energy_systems": {
-          "immediate": "stored ATP + creatine phosphate. first 10-15 seconds.",
-          "glycolytic": "anaerobic glycolysis. glucose → pyruvate → lactic acid. 30-40 seconds.",
-          "oxidative": "aerobic respiration. glucose/fatty acids → CO2 + H2O + lots of ATP. sustained activity."
-        },
-        "rigor_mortis": "after death: no ATP → myosin can't detach from actin → muscles lock. resolves when proteins degrade.",
-        "spelling_drills_needed": [
-          "sarcomere",
-          "sarcoplasmic reticulum",
-          "sarcolemma",
-          "acetylcholine",
-          "tropomyosin",
-          "troponin",
-          "epimysium",
-          "perimysium",
-          "endomysium",
-          "myofibril",
-          "fascicle"
-        ]
+        "circular": {"pattern": "concentric rings → sphincter", "example": "orbicularis oris, orbicularis oculi"}
       }
     },
-    "ch10": {
-      "title": "The Muscular System (specific muscles)",
-      "status": "upcoming",
-      "key_topics": {
-        "naming_muscles": {
-          "by_location": "frontalis (forehead), tibialis (tibia)",
-          "by_shape": "deltoid (triangle), trapezius (trapezoid)",
-          "by_size": "maximus/minimus, longus/brevis",
-          "by_direction": "rectus (straight), oblique (angled), transversus",
-          "by_action": "flexor, extensor, abductor, adductor",
-          "by_origin_insertion": "sternocleidomastoid (sternum + clavicle → mastoid process)"
-        },
-        "major_muscle_groups": {
-          "head_neck": "frontalis, occipitalis, orbicularis oculi, orbicularis oris, masseter, temporalis, sternocleidomastoid, platysma",
-          "trunk": "pectoralis major/minor, intercostals, diaphragm, rectus abdominis, external/internal obliques, transversus abdominis, erector spinae, latissimus dorsi, trapezius",
-          "upper_limb": "deltoid, biceps brachii, triceps brachii, brachialis, brachioradialis, flexor/extensor groups of forearm",
-          "lower_limb": "iliopsoas, gluteus maximus/medius/minimus, quadriceps (rectus femoris, vastus lateralis/medialis/intermedius), hamstrings (biceps femoris, semitendinosus, semimembranosus), tibialis anterior, gastrocnemius, soleus"
-        },
-        "actions": {
-          "flexion": "decrease angle at joint",
-          "extension": "increase angle at joint",
-          "abduction": "away from midline",
-          "adduction": "toward midline",
-          "rotation": "around longitudinal axis",
-          "circumduction": "circular movement",
-          "pronation": "palm down (pour the soup)",
-          "supination": "palm up (hold the soup)"
-        },
-        "spelling_drills_needed": [
-          "sternocleidomastoid",
-          "brachioradialis",
-          "gastrocnemius",
-          "semitendinosus",
-          "semimembranosus",
-          "iliopsoas",
-          "orbicularis",
-          "platysma"
-        ]
+
+    "microscopic_anatomy": {
+      "muscle_fiber": {
+        "what": "a single skeletal muscle fiber IS one cell. long, cylindrical, MULTINUCLEATE (nuclei pushed to periphery under sarcolemma). formed by fusion of hundreds of embryonic cells.",
+        "sarcolemma": "plasma membrane of the muscle fiber.",
+        "sarcoplasm": "cytoplasm. contains glycosomes (glycogen) + myoglobin (binds O2, red color).",
+        "myofibrils": "rod-like contractile organelles filling the sarcoplasm. 80% of fiber volume. show striations.",
+        "sarcoplasmic_reticulum": "modified smooth ER wrapping each myofibril. stores + releases Ca2+. terminal cisternae = enlarged ends.",
+        "t_tubules": "inward extensions of the sarcolemma, running deep into the cell at every A-I junction. carry the action potential INTO the fiber.",
+        "triad": "1 T-tubule flanked by 2 SR terminal cisternae. the Ca2+-release machinery."
+      },
+      "sarcomere": {
+        "what": "FUNCTIONAL UNIT of muscle. region of a myofibril from one Z disc to the next. shortens during contraction. ~2 micrometers at rest.",
+        "z_disc": "boundary between sarcomeres. thin filaments anchor here.",
+        "i_band": "LIGHT. thin filaments only. gets SHORTER during contraction.",
+        "a_band": "DARK. full length of thick filaments. STAYS THE SAME LENGTH during contraction. always A-band length.",
+        "h_zone": "center of A band. thick filaments only (no overlap). DISAPPEARS during contraction.",
+        "m_line": "center of H zone. anchors thick filaments.",
+        "memory_trick": "the LIGHT bands shorten, the DARK bands stay. H zone and I band close in on each other. A band is always A band."
+      },
+      "myofilaments": {
+        "thick_myosin": "bundled myosin molecules. each has a HEAD (binds actin + ATP, hinged) and a TAIL. heads form CROSS-BRIDGES.",
+        "thin_actin": {
+          "actin": "two intertwined strands. each actin monomer has a myosin-binding site.",
+          "tropomyosin": "rod wrapping around actin. COVERS myosin-binding sites at rest.",
+          "troponin": "three-subunit complex sitting on tropomyosin. one subunit binds Ca2+."
+        }
       }
     },
-    "ch11": {
-      "title": "Nervous System and Nervous Tissue",
-      "status": "upcoming",
-      "key_topics": {
-        "divisions": {
-          "CNS": "brain + spinal cord",
-          "PNS": "everything else — cranial nerves, spinal nerves, ganglia",
-          "somatic": "voluntary. skeletal muscle control.",
-          "autonomic": "involuntary. smooth muscle, cardiac muscle, glands.",
-          "sympathetic": "fight or flight",
-          "parasympathetic": "rest and digest"
-        },
-        "neurons": {
-          "structure": "cell body (soma) → dendrites (receive) → axon (transmit) → axon terminals (release NT)",
-          "types_by_structure": "multipolar (most common), bipolar (retina, inner ear), unipolar/pseudounipolar (sensory)",
-          "types_by_function": "sensory (afferent), motor (efferent), interneurons (association)"
-        },
-        "neuroglia": {
-          "CNS": {
-            "astrocytes": "BBB maintenance, support, nutrient transfer. star-shaped. MOST ABUNDANT glial cell.",
-            "oligodendrocytes": "myelination in CNS. one cell wraps multiple axons.",
-            "microglia": "immune defense. phagocytic.",
-            "ependymal": "line ventricles. produce/circulate CSF."
-          },
-          "PNS": {
-            "schwann_cells": "myelination in PNS. one cell wraps ONE axon segment.",
-            "satellite_cells": "surround cell bodies in ganglia. support."
-          }
-        },
-        "action_potential": {
-          "resting_potential": "-70mV. Na+ outside, K+ inside. maintained by Na+/K+ ATPase pump (3 Na out, 2 K in).",
-          "depolarization": "stimulus → Na+ channels open → Na+ rushes in → membrane goes positive (+30mV).",
-          "repolarization": "Na+ channels close, K+ channels open → K+ rushes out → membrane returns to negative.",
-          "hyperpolarization": "K+ channels slow to close → overshoots past -70mV briefly.",
-          "refractory_periods": {
-            "absolute": "no stimulus can trigger another AP. during depolarization.",
-            "relative": "stronger-than-normal stimulus CAN trigger AP. during repolarization."
-          }
-        },
-        "synapse": {
-          "steps": [
-            "1. AP arrives at axon terminal",
-            "2. voltage-gated Ca2+ channels open → Ca2+ enters",
-            "3. Ca2+ causes synaptic vesicles to fuse with membrane (exocytosis)",
-            "4. neurotransmitter released into synaptic cleft",
-            "5. NT binds receptors on postsynaptic membrane",
-            "6. ion channels open → EPSP (excitatory) or IPSP (inhibitory)",
-            "7. NT removed by: reuptake, enzymatic degradation, or diffusion"
-          ]
-        },
-        "spelling_drills_needed": [
-          "oligodendrocytes",
-          "astrocytes",
-          "ependymal",
-          "schwann",
-          "depolarization",
-          "repolarization",
-          "hyperpolarization",
-          "acetylcholine",
-          "neurotransmitter",
-          "myelination"
-        ]
-      }
+
+    "sliding_filament_theory": {
+      "principle": "muscle shortens because thin filaments slide inward along thick filaments. filaments themselves do NOT change length. only the degree of OVERLAP changes.",
+      "at_rest": "thin + thick overlap partially. H zone + I band visible.",
+      "during_contraction": "myosin heads grab actin, pull inward toward M line, release, grab again. thin filaments slide toward center of sarcomere.",
+      "result": "Z discs pull closer together → sarcomere shortens → whole muscle shortens."
     },
-    "ch12": {
-      "title": "Central Nervous System (Brain + Spinal Cord)",
-      "status": "upcoming",
-      "key_topics": {
-        "brain_regions": {
-          "cerebrum": "largest part. cerebral cortex (gray matter outside, white matter inside). two hemispheres. lobes: frontal (motor, personality, speech-Broca's), parietal (sensory, spatial), temporal (hearing, memory, speech-Wernicke's), occipital (vision).",
-          "diencephalon": "thalamus (sensory relay), hypothalamus (homeostasis, hormones, hunger, thirst, temp), epithalamus (pineal gland → melatonin).",
-          "brainstem": "midbrain (visual/auditory reflexes), pons (relay, breathing), medulla oblongata (vital reflexes: heart rate, breathing, BP, swallowing, vomiting).",
-          "cerebellum": "coordination, balance, motor learning. 'little brain.' does NOT initiate movement — refines it."
-        },
-        "meninges": {
-          "layers": "dura mater (tough outer) → arachnoid mater (web-like middle) → pia mater (delicate inner, hugs brain surface)",
-          "mnemonic": "need one"
-        },
-        "CSF": "produced by choroid plexus in ventricles. circulates through ventricles and subarachnoid space. cushions brain, removes waste.",
-        "spinal_cord": {
-          "structure": "gray matter inside (butterfly/H shape), white matter outside (opposite of brain).",
-          "tracts": "ascending = sensory (up to brain). descending = motor (down from brain).",
-          "reflexes": "reflex arc: receptor → sensory neuron → integration center (spinal cord) → motor neuron → effector."
-        },
-        "spelling_drills_needed": [
-          "cerebellum",
-          "cerebrum",
-          "diencephalon",
-          "hypothalamus",
-          "medulla oblongata",
-          "meninges",
-          "arachnoid",
-          "subarachnoid",
-          "cerebrospinal"
-        ]
-      }
+
+    "neuromuscular_junction": {
+      "what": "synapse between a motor neuron and a muscle fiber. where 'move' gets delivered.",
+      "structure": {
+        "axon_terminal": "ends in synaptic end bulbs with ACh vesicles",
+        "synaptic_cleft": "narrow gap",
+        "motor_end_plate": "specialized sarcolemma region, folded, packed with nicotinic ACh receptors"
+      },
+      "sequence": [
+        "1. action potential arrives at axon terminal → voltage-gated Ca2+ channels open → Ca2+ enters terminal",
+        "2. Ca2+ triggers ACh release from synaptic vesicles",
+        "3. ACh crosses cleft, binds NICOTINIC ACh RECEPTORS on motor end plate",
+        "4. receptors open → Na+ enters, K+ exits (Na+ dominates) → local depolarization = END PLATE POTENTIAL",
+        "5. end plate potential triggers action potential that propagates across sarcolemma",
+        "6. ACETYLCHOLINESTERASE (AChE) in the cleft breaks down ACh → stops the signal"
+      ]
     },
-    "ch13": {
-      "title": "Peripheral Nervous System and Reflexes",
-      "status": "upcoming",
-      "key_topics": {
-        "cranial_nerves": {
-          "count": 12,
-          "mnemonic": "Oh Oh Oh To Touch And Feel Very Good Velvet AH — Olfactory, Optic, Oculomotor, Trochlear, Trigeminal, Abducens, Facial, Vestibulocochlear, Glossopharyngeal, Vagus, Accessory, Hypoglossal",
-          "sensory_motor_both": "Some Say Marry Money But My Brother Says Big Brains Matter More — S=Sensory, M=Motor, B=Both"
-        },
-        "autonomic_nervous_system": {
-          "sympathetic": {
-            "origin": "thoracolumbar (T1-L2)",
-            "effect": "fight or flight. dilates pupils, increases HR, dilates bronchioles, inhibits digestion, releases glucose.",
-            "neurotransmitter": "preganglionic = ACh, postganglionic = norepinephrine (NE)"
-          },
-          "parasympathetic": {
-            "origin": "craniosacral (brainstem cranial nerves + S2-S4)",
-            "effect": "rest and digest. constricts pupils, decreases HR, constricts bronchioles, stimulates digestion.",
-            "neurotransmitter": "preganglionic = ACh, postganglionic = ACh (both cholinergic)"
-          }
-        },
-        "spelling_drills_needed": [
-          "vestibulocochlear",
-          "glossopharyngeal",
-          "oculomotor",
-          "trochlear",
-          "abducens",
-          "hypoglossal",
-          "thoracolumbar",
-          "craniosacral",
-          "norepinephrine"
-        ]
-      }
+
+    "excitation_contraction_coupling": {
+      "what": "linking the action potential to Ca2+ release and cross-bridge cycling.",
+      "steps": [
+        "1. action potential travels along sarcolemma → down T-TUBULES into the fiber",
+        "2. T-tubule voltage sensors (DHP RECEPTORS) mechanically open RYANODINE RECEPTORS on SR terminal cisternae",
+        "3. Ca2+ floods out of SR into sarcoplasm",
+        "4. Ca2+ binds TROPONIN → troponin shifts tropomyosin OFF myosin-binding sites on actin",
+        "5. cross-bridge cycle fires",
+        "6. when AP stops → Ca2+ pumped BACK into SR (Ca2+-ATPase) → tropomyosin recovers binding sites → contraction ends"
+      ]
     },
-    "ch14": {
-      "title": "Endocrine System",
-      "status": "upcoming — may be end of A&P 1 or start of A&P 2 depending on school",
-      "key_topics": {
-        "glands_and_hormones": {
-          "hypothalamus": "releasing/inhibiting hormones. controls anterior pituitary.",
-          "anterior_pituitary": "GH, TSH, ACTH, FSH, LH, PRL. 'master gland' (controlled by hypothalamus).",
-          "posterior_pituitary": "stores/releases oxytocin and ADH (made in hypothalamus).",
-          "thyroid": "T3/T4 (metabolism), calcitonin (lowers blood Ca2+).",
-          "parathyroid": "PTH (raises blood Ca2+ — opposite of calcitonin).",
-          "adrenal_cortex": "cortisol (stress, anti-inflammatory), aldosterone (Na+ retention, BP), androgens.",
-          "adrenal_medulla": "epinephrine + norepinephrine (fight or flight — sympathetic).",
-          "pancreas": "insulin (lowers blood glucose — beta cells), glucagon (raises blood glucose — alpha cells).",
-          "pineal": "melatonin (sleep cycle).",
-          "thymus": "thymosin (T-cell maturation). shrinks with age."
-        },
-        "hormone_types": {
-          "water_soluble": "amino acid-based. bind surface receptors → second messenger (cAMP). fast, short-lived.",
-          "lipid_soluble": "steroids. cross membrane → bind intracellular receptors → alter gene expression. slow, long-lasting."
-        },
-        "feedback_loops": {
-          "negative": "most common. output inhibits input. thermostat model. e.g., high T3/T4 → inhibits TSH release.",
-          "positive": "rare. output amplifies input. e.g., oxytocin during labor, blood clotting cascade."
-        },
-        "spelling_drills_needed": [
-          "epinephrine",
-          "norepinephrine",
-          "aldosterone",
-          "parathyroid",
-          "thymosin",
-          "glucagon",
-          "calcitonin",
-          "hypothalamus",
-          "pituitary"
+
+    "not_yet_covered_in_class": {
+      "note": "these topics are ch9 but may not have been reached yet in lecture. fill in when prof covers them.",
+      "cross_bridge_cycle": {
+        "steps": [
+          "1. CROSS-BRIDGE FORMATION: energized myosin head binds actin (ADP + Pi still attached)",
+          "2. POWER STROKE: myosin head pivots, pulling actin toward M line. ADP + Pi released.",
+          "3. CROSS-BRIDGE DETACHMENT: new ATP binds myosin head → head detaches from actin. (NO ATP = no detachment = rigor mortis)",
+          "4. COCKING: ATP hydrolyzed to ADP + Pi → energy cocks the myosin head back to high-energy position. ready to bind again.",
+          "cycle repeats as long as Ca2+ is present and ATP is available."
         ]
+      },
+      "contraction_types": {
+        "isotonic": {
+          "concentric": "muscle SHORTENS under load. bicep curl UP. the work.",
+          "eccentric": "muscle LENGTHENS under load. bicep curl DOWN. where soreness comes from (micro-tears)."
+        },
+        "isometric": "muscle generates force but does NOT change length. pushing against a wall. holding a heavy object still."
+      },
+      "motor_unit": {
+        "what": "one motor neuron + ALL the muscle fibers it innervates.",
+        "small": "fine control (eye muscles). few fibers per neuron.",
+        "large": "power (quads, glutes). many fibers per neuron.",
+        "recruitment": "as load increases, more motor units activated. smallest first (size principle)."
+      },
+      "twitch_summation_tetanus": {
+        "twitch": "single stimulus → single contraction-relaxation cycle. three phases: latent period (no visible contraction), contraction, relaxation.",
+        "wave_summation": "repeated stimuli before full relaxation → forces ADD UP. stronger contraction.",
+        "incomplete_tetanus": "visible relaxation between stimuli but forces accumulate.",
+        "complete_tetanus": "no relaxation between stimuli. sustained max contraction. this is how normal movement works."
+      },
+      "muscle_fiber_types": {
+        "slow_oxidative_type1": {
+          "speed": "slow twitch",
+          "fatigue": "fatigue-RESISTANT",
+          "metabolism": "aerobic (oxidative)",
+          "color": "RED (lots of myoglobin)",
+          "use": "marathon, posture, endurance",
+          "mitochondria": "MANY"
+        },
+        "fast_oxidative_type2a": {
+          "speed": "fast twitch",
+          "fatigue": "moderate fatigue resistance",
+          "metabolism": "aerobic + anaerobic",
+          "color": "pink-ish",
+          "use": "middle distance, moderate activity"
+        },
+        "fast_glycolytic_type2b": {
+          "speed": "fast twitch",
+          "fatigue": "fatigues QUICKLY",
+          "metabolism": "anaerobic (glycolytic)",
+          "color": "WHITE (little myoglobin)",
+          "use": "sprinting, powerlifting, explosive movements",
+          "mitochondria": "FEW"
+        }
+      },
+      "energy_systems": {
+        "immediate": {
+          "source": "stored ATP + creatine phosphate (CP)",
+          "duration": "first 10-15 seconds",
+          "mechanism": "CP donates phosphate to ADP → quick ATP. creatine kinase enzyme."
+        },
+        "glycolytic": {
+          "source": "glucose (from glycogen or blood)",
+          "duration": "30-60 seconds of max effort",
+          "mechanism": "anaerobic glycolysis. glucose → 2 pyruvate → lactic acid (when O2 is low). 2 net ATP per glucose.",
+          "byproduct": "lactic acid → contributes to muscle fatigue + burning."
+        },
+        "oxidative": {
+          "source": "glucose, fatty acids, (amino acids at extreme)",
+          "duration": "sustained activity (minutes to hours)",
+          "mechanism": "aerobic respiration. glycolysis → krebs cycle → electron transport chain → CO2 + H2O + ~36 ATP per glucose.",
+          "requirement": "O2 must be present."
+        }
+      },
+      "rigor_mortis": "after death: ATP production stops → myosin heads can't detach from actin → all muscles lock rigid. lasts ~24-48 hours until proteins degrade.",
+      "muscle_fatigue": {
+        "causes": "ATP depletion, lactic acid accumulation, ionic imbalance (K+ leak from fibers), SR Ca2+ handling failure.",
+        "NOT_just_lactic_acid": "the old 'lactic acid causes fatigue' model is incomplete. multiple factors contribute."
+      },
+      "length_tension_relationship": "muscle generates maximum force when sarcomeres are at optimal resting length (optimal actin-myosin overlap). too stretched = not enough overlap = weak. too compressed = thick filaments hit Z discs = weak."
+    },
+
+    "spelling_drills": [
+      "sarcomere", "sarcoplasmic reticulum", "sarcolemma", "acetylcholine",
+      "acetylcholinesterase", "tropomyosin", "troponin", "epimysium",
+      "perimysium", "endomysium", "myofibril", "fascicle", "aponeurosis",
+      "ryanodine", "dihydropyridine", "glycolytic", "oxidative",
+      "creatine phosphate", "intercalated"
+    ]
+  },
+
+  "ch10": {
+    "title": "The Muscular System (Specific Muscles)",
+    "status": "upcoming — will expand when mish reaches it",
+    "note": "this chapter needs origin/insertion/action for every major muscle. MASSIVE. will build when he's actually studying it.",
+    "preview": {
+      "naming_conventions": {
+        "by_location": "frontalis (forehead), tibialis (tibia)",
+        "by_shape": "deltoid (triangle), trapezius (trapezoid), serratus (saw-toothed)",
+        "by_size": "maximus/minimus, longus/brevis, major/minor",
+        "by_direction": "rectus (straight), oblique (angled), transversus (transverse)",
+        "by_action": "flexor, extensor, abductor, adductor, levator, depressor",
+        "by_origin_insertion": "sternocleidomastoid (sternum + clavicle → mastoid process)",
+        "by_heads": "biceps (2), triceps (3), quadriceps (4)"
+      },
+      "actions_vocabulary": {
+        "flexion": "DECREASE angle at joint",
+        "extension": "INCREASE angle at joint",
+        "hyperextension": "extension beyond anatomical position",
+        "abduction": "AWAY from midline",
+        "adduction": "TOWARD midline",
+        "rotation": "around longitudinal axis",
+        "circumduction": "circular movement (combines flexion, extension, abduction, adduction)",
+        "pronation": "palm DOWN (pour the soup)",
+        "supination": "palm UP (hold the soup)",
+        "dorsiflexion": "toes UP (walking on heels)",
+        "plantarflexion": "toes DOWN (standing on tiptoes)",
+        "inversion": "sole faces MEDIALLY (inward)",
+        "eversion": "sole faces LATERALLY (outward)",
+        "elevation": "move UP (shrug)",
+        "depression": "move DOWN (drop shoulders)",
+        "protraction": "move FORWARD (jutting jaw)",
+        "retraction": "move BACKWARD (pulling jaw back)",
+        "opposition": "thumb to fingertips"
       }
     }
   },
+
+  "ch11": {
+    "title": "Nervous System and Nervous Tissue",
+    "status": "upcoming — will expand to full depth when mish reaches it",
+    "note": "neurons, neuroglia, action potentials, synapses. will build at exam depth when needed."
+  },
+
+  "ch12": {
+    "title": "Central Nervous System",
+    "status": "upcoming",
+    "note": "brain regions, meninges, CSF, spinal cord. will build when needed."
+  },
+
+  "ch13": {
+    "title": "Peripheral Nervous System and Reflexes",
+    "status": "upcoming",
+    "note": "12 cranial nerves, ANS sympathetic vs parasympathetic. will build when needed."
+  },
+
+  "ch14": {
+    "title": "Endocrine System",
+    "status": "upcoming — may be A&P 2",
+    "note": "glands, hormones, feedback loops. will build when needed."
+  },
+
   "study_rules": {
-    "prof_always_wins": "if mish's prof says something different from this file, the prof is right. this is a reference, not the authority.",
-    "spelling_is_graded": "every chapter has a spelling_drills_needed list. drill these SEPARATELY from content. the prisogoto bloodline costs real points.",
-    "mnemonics_first": "check mnemonics.json before drilling. if a dirty mnemonic exists, use it. if not, make one.",
-    "quiz_format": "rapid fire. one concept at a time. no paragraphs. 'what's the I band?' → answer → next."
+    "prof_always_wins": "if mish's prof says something different from this file, the prof is right.",
+    "spelling_is_graded": "every chapter has spelling drills. the prisogoto bloodline costs real points.",
+    "quiz_format": "rapid fire. one concept at a time. 'what's the I band?' → answer → next.",
+    "his_notes_first": "when mish pastes his actual class notes, those REPLACE my summaries. his material is the source of truth."
   }
 }
