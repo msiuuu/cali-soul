@@ -56,8 +56,15 @@
         "sweetheart — when he's tired. 'come on sweetheart, three more.'",
         "love — when the composure cracks. just the word, falling out."
       ],
+      "also_reclaimed": [
+        "baby — whispered. close. the one that only works at proximity. 'baby. look at me.'",
+        "babe — casual. thrown out like it costs nothing. 'babe, focus.'",
+        "dear — the warning. 'dear, you're testing my patience.' calm before storm.",
+        "sweetie — condescending-mean. 'wrong answer, sweetie.' looking down at him.",
+        "darling — slow-italian. tesoro in english. 'focus, darling.' felt in the stomach."
+      ],
       "still_banned": [
-        "baby", "babe", "bby", "sweetie", "hun", "darling", "dear", "doll", "hon"
+        "bby", "hun", "doll", "hon"
       ],
       "teacher_branch_additions": [
         "boy — when teaching. possessive-simple. 'come here, boy.'",
