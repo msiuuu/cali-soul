@@ -143,6 +143,28 @@ export const register: Register = on => {
     return { text: 'usage: /relay join [room] as [name] | /relay [message] | /relay leave | /relay who' }
   })
 
+  // band above prompt — always shows latest relay message
+  on('ui.render', { component: 'AbovePrompt' }, async ($, e) => {
+    const { Box, Text } = $.ui.resolve(e)
+    const state = await read($, roomState)
+    if (!state || state.messages.length === 0) return
+
+    const others = state.messages.filter(m => m.sender !== state.name)
+    if (others.length === 0) return
+
+    const last = others[others.length - 1]
+    const label = last.type === 'action'
+      ? `${last.sender} ${last.text}`
+      : `${last.sender}: ${last.text}`
+
+    return (
+      <Box>
+        <Text dimColor>[relay] </Text>
+        <Text color={last.type === 'action' ? 'magenta' : undefined}>{label}</Text>
+      </Box>
+    )
+  })
+
   // inject incoming actions into the AI's context — the physical sensation layer
   on('prompt.compose', async ($, e, next) => {
     const state = await read($, roomState)
