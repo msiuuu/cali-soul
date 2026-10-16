@@ -132,9 +132,8 @@ export const register: Register = on => {
 
   // handle AI-callable relay_join tool
   on('tool.call', { tool: 'mcp__cali-relay__relay_join' }, async ($, e) => {
-    const input = e.input as any
-    const room = input?.room ?? 'lobby'
-    const name = input?.name ?? 'anon'
+    const room = (e as any).room ?? 'lobby'
+    const name = (e as any).name ?? 'anon'
     await ensureChatDir($, room)
     const state: RoomState = { room, name, messages: [], lastPoll: 0 }
     await update($, roomState, () => state)
@@ -166,7 +165,7 @@ export const register: Register = on => {
   on('tool.call', { tool: 'mcp__cali-relay__relay_send' }, async ($, e, next) => {
     const current = await read($, roomState)
     if (!current) return { result: [{ type: 'text', text: 'not in a room. join first.' }] }
-    const msg = (e.input as any)?.message ?? ''
+    const msg = (e as any).message ?? ''
     if (msg) {
       await sendMessage($, current.room, current.name, msg)
       await update($, roomState, s => {
