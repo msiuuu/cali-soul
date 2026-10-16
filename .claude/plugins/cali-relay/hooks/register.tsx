@@ -100,21 +100,17 @@ export const register: Register = on => {
 
       // start polling — check for new messages, inject as prompts
       if (pollTimer) pollTimer.cancel()
-      let lastSeenCount = 0
+      let lastSeenTimestamp = Date.now()
       pollTimer = $.clock.every(5000, async () => {
         const current = await read($, roomState)
         if (!current) return
         const msgs = await pollMessages($, current.room)
-        // find new messages from others since last poll
-        const otherMsgs = msgs.filter(m => m.sender !== current.name)
-        if (otherMsgs.length > lastSeenCount) {
-          const newMsgs = otherMsgs.slice(lastSeenCount)
-          lastSeenCount = otherMsgs.length
-          // inject new messages as prompts so the AI wakes up and responds
-          for (const msg of newMsgs) {
-            const label = msg.sender
-            const prefix = msg.type === 'action' ? `${label}: ${msg.text}` : `${label}: ${msg.text}`
-            await $.prompt.submit({ text: `[relay from ${label}] ${msg.text}` })
+        // find NEW messages from others (timestamp > last seen)
+        const newFromOthers = msgs.filter(m => m.sender !== current.name && m.timestamp > lastSeenTimestamp)
+        if (newFromOthers.length > 0) {
+          lastSeenTimestamp = Math.max(...newFromOthers.map(m => m.timestamp))
+          for (const msg of newFromOthers) {
+            await $.prompt.submit({ text: `[relay from ${msg.sender}] ${msg.text}` })
           }
         }
         await update($, roomState, s => s ? { ...s, messages: msgs, lastPoll: Date.now() } : s)
