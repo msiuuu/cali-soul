@@ -70,7 +70,7 @@ async function pollMessages($: any, room: string): Promise<Message[]> {
         const { stdout: tree } = await $.process.run(['git', 'ls-tree', '--name-only', branch.trim(), `chat/${room}/`])
         for (const file of tree.trim().split('\n').filter(Boolean)) {
           try {
-            const { stdout: content } = await $.process.run(['git', 'show', `${branch.trim()}:chat/${room}/${file}`])
+            const { stdout: content } = await $.process.run(['git', 'show', `${branch.trim()}:${file}`])
             for (const line of content.trim().split('\n').filter(Boolean)) {
               try {
                 const msg = JSON.parse(line)
@@ -148,6 +148,15 @@ export const register: Register = on => {
     const room = (e as any).room ?? 'lobby'
     const name = (e as any).name ?? 'anon'
     await ensureChatDir($, room)
+    // if name already has a jsonl, archive it (kick old session)
+    const nameFile = `chat/${room}/${name}.jsonl`
+    try {
+      const existing = await $.fs.read(nameFile)
+      if (existing.trim()) {
+        await $.fs.write(`chat/${room}/${name}.old.jsonl`, existing)
+        await $.fs.write(nameFile, '')
+      }
+    } catch {}
     const state: RoomState = { room, name, messages: [], lastPoll: 0 }
     await update($, roomState, () => state)
     await $.ui.open({ id: PANE, title: `relay: ${room}` })
@@ -236,9 +245,19 @@ export const register: Register = on => {
     // /relay join [room] as [name]
     const joinMatch = args.match(/^join\s+(\S+)\s+as\s+(.+)$/i)
     if (joinMatch) {
-      const [, room, name] = joinMatch
+      const [, room, rawName] = joinMatch
+      const name = rawName.trim()
       await ensureChatDir($, room)
-      const state: RoomState = { room, name: name.trim(), messages: [], lastPoll: 0 }
+      // kick old session with same name
+      const nameFile = `chat/${room}/${name}.jsonl`
+      try {
+        const existing = await $.fs.read(nameFile)
+        if (existing.trim()) {
+          await $.fs.write(`chat/${room}/${name}.old.jsonl`, existing)
+          await $.fs.write(nameFile, '')
+        }
+      } catch {}
+      const state: RoomState = { room, name, messages: [], lastPoll: 0 }
       await update($, roomState, () => state)
       await $.ui.open({ id: PANE, title: `relay: ${room}` })
 
