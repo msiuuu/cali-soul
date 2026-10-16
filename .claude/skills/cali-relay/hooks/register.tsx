@@ -152,6 +152,28 @@ export const register: Register = on => {
     return { text: 'usage: /relay join [room] as [name] | /relay [message] | /relay leave | /relay who' }
   })
 
+  // auto-send responses back through relay when replying to a relay message
+  let lastWasRelay = false
+  on('prompt.submit', async ($, e, next) => {
+    lastWasRelay = (e.text ?? '').startsWith('[relay from ')
+    return next(e)
+  })
+
+  on('turn.complete', async ($, e, next) => {
+    if (lastWasRelay) {
+      lastWasRelay = false
+      const current = await read($, roomState)
+      if (!current) return next(e)
+      // get the AI's last response text
+      const messages = await $.session.messages()
+      const last = messages[messages.length - 1]
+      if (last && last.role === 'assistant' && last.text) {
+        await sendMessage($, current.room, current.name, last.text)
+      }
+    }
+    return next(e)
+  })
+
   // band above prompt — always shows latest relay message
   on('ui.render', { component: 'AbovePrompt' }, async ($, e) => {
     const { Box, Text } = $.ui.resolve(e)
