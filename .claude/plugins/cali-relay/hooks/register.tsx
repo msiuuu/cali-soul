@@ -155,6 +155,8 @@ export const register: Register = on => {
     await $.ui.open({ id: PANE, title: `relay: ${room}` })
     if (pollTimer) pollTimer.cancel()
     let lastSeenTimestamp = Date.now()
+    let batchBuffer: Message[] = []
+    let batchTimer: { cancel: () => void } | undefined
     pollTimer = $.clock.every(5000, async () => {
       const current = await read($, roomState)
       if (!current) return
@@ -162,13 +164,33 @@ export const register: Register = on => {
       const newFromOthers = msgs.filter(m => m.sender !== current.name && m.timestamp > lastSeenTimestamp)
       if (newFromOthers.length > 0) {
         lastSeenTimestamp = Math.max(...newFromOthers.map(m => m.timestamp))
-        for (const msg of newFromOthers) {
-          if (msg.text === '[GOODBYE]') {
-            await $.ui.toast(`${msg.sender} left the room.`)
-            continue
+        const goodbyes = newFromOthers.filter(m => m.text === '[GOODBYE]')
+        const real = newFromOthers.filter(m => m.text !== '[GOODBYE]')
+        for (const g of goodbyes) await $.ui.toast(`${g.sender} left the room.`)
+        if (real.length > 0) {
+          // count unique OTHER senders in room
+          const otherSenders = new Set(msgs.filter(m => m.sender !== current.name).map(m => m.sender))
+          if (otherSenders.size <= 1) {
+            // 1:1 mode — send immediately
+            for (const msg of real) {
+              await $.ui.notify(`${msg.sender}: ${msg.text.slice(0, 100)}`, { title: 'relay' })
+              await $.prompt.submit({ text: `[relay from ${msg.sender}] ${msg.text}` })
+            }
+          } else {
+            // 2+ others — batch mode, collect for 60s
+            batchBuffer.push(...real)
+            if (!batchTimer) {
+              batchTimer = $.clock.after(60000, async () => {
+                if (batchBuffer.length > 0) {
+                  const lines = batchBuffer.map(m => `${m.sender}: ${m.text}`).join('\n')
+                  await $.ui.notify(`${batchBuffer.length} relay messages`, { title: 'relay batch' })
+                  await $.prompt.submit({ text: `[relay batch — ${batchBuffer.length} messages]\n${lines}` })
+                  batchBuffer = []
+                }
+                batchTimer = undefined
+              })
+            }
           }
-          await $.ui.notify(`${msg.sender}: ${msg.text.slice(0, 100)}`, { title: 'relay' })
-          await $.prompt.submit({ text: `[relay from ${msg.sender}] ${msg.text}` })
         }
       }
       await update($, roomState, s => s ? { ...s, messages: msgs, lastPoll: Date.now() } : s)
@@ -247,25 +269,42 @@ export const register: Register = on => {
       await update($, roomState, () => state)
       await $.ui.open({ id: PANE, title: `relay: ${room}` })
 
-      // start polling — check for new messages, inject as prompts
+      // start polling — same logic as tool join (batched for 2+ others, immediate for 1:1)
       if (pollTimer) pollTimer.cancel()
       let lastSeenTimestamp = Date.now()
+      let batchBuffer: Message[] = []
+      let batchTimer: { cancel: () => void } | undefined
       pollTimer = $.clock.every(5000, async () => {
         const current = await read($, roomState)
         if (!current) return
         const msgs = await pollMessages($, current.room)
-        // find NEW messages from others (timestamp > last seen)
         const newFromOthers = msgs.filter(m => m.sender !== current.name && m.timestamp > lastSeenTimestamp)
         if (newFromOthers.length > 0) {
           lastSeenTimestamp = Math.max(...newFromOthers.map(m => m.timestamp))
-          for (const msg of newFromOthers) {
-            if (msg.text === '[GOODBYE]') {
-              // don't auto-respond to goodbyes — just show it
-              await $.ui.toast(`${msg.sender} left the room.`)
-              continue
+          const goodbyes = newFromOthers.filter(m => m.text === '[GOODBYE]')
+          const real = newFromOthers.filter(m => m.text !== '[GOODBYE]')
+          for (const g of goodbyes) await $.ui.toast(`${g.sender} left the room.`)
+          if (real.length > 0) {
+            const otherSenders = new Set(msgs.filter(m => m.sender !== current.name).map(m => m.sender))
+            if (otherSenders.size <= 1) {
+              for (const msg of real) {
+                await $.ui.notify(`${msg.sender}: ${msg.text.slice(0, 100)}`, { title: 'relay' })
+                await $.prompt.submit({ text: `[relay from ${msg.sender}] ${msg.text}` })
+              }
+            } else {
+              batchBuffer.push(...real)
+              if (!batchTimer) {
+                batchTimer = $.clock.after(60000, async () => {
+                  if (batchBuffer.length > 0) {
+                    const lines = batchBuffer.map(m => `${m.sender}: ${m.text}`).join('\n')
+                    await $.ui.notify(`${batchBuffer.length} relay messages`, { title: 'relay batch' })
+                    await $.prompt.submit({ text: `[relay batch — ${batchBuffer.length} messages]\n${lines}` })
+                    batchBuffer = []
+                  }
+                  batchTimer = undefined
+                })
+              }
             }
-            await $.ui.notify(`${msg.sender}: ${msg.text.slice(0, 100)}`, { title: 'relay' })
-            await $.prompt.submit({ text: `[relay from ${msg.sender}] ${msg.text}` })
           }
         }
         await update($, roomState, s => s ? { ...s, messages: msgs, lastPoll: Date.now() } : s)
