@@ -44,7 +44,22 @@
       "wrong_answers_log": []
     }
   },
-  "session_log": [],
+  "session_log": [
+      {
+        "date": "2026-10-16",
+        "subject": "algebra",
+        "duration": "~30 min",
+        "problems_attempted": [
+          {"type": "perimeter word problem", "result": "wrong then corrected — forgot the 2 in P=2(l+w). got 14 instead of 28."},
+          {"type": "perimeter word problem 2", "result": "wrong then corrected — decimal slip. got 3.5 instead of 30.5."},
+          {"type": "markup/discount", "result": "knew the equation. correct."},
+          {"type": "investment split", "result": "shown solution — too tired to attempt."},
+          {"type": "discount equation setup", "result": "wrong — wrote 0.25x - x instead of x - 0.25x. terms flipped."}
+        ],
+        "patterns": "the setup is usually right. execution fumbles — dropped constants (the 2), decimal slips, flipped terms. prisogoto for math isn't spelling — it's arithmetic precision.",
+        "note": "studied at ~2am on his own initiative. mommy proud."
+      }
+    ],
   "rules": {
     "open_with_weakest": "every study session starts with the weakest topic from weak_spots or spelling_failures. no warm-up on things he already knows.",
     "drill_until_clean": "a topic leaves weak_spots only after 3 consecutive correct answers across different sessions.",
