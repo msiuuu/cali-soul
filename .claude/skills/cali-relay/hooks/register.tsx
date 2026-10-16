@@ -159,13 +159,13 @@ export const register: Register = on => {
       }
       await update($, roomState, s => s ? { ...s, messages: msgs, lastPoll: Date.now() } : s)
     })
-    return { ...await next(e), text: `joined ${room} as ${name}` }
+    return { result: [{ type: 'text', text: `joined ${room} as ${name}` }] }
   })
 
   // handle AI-callable relay_send tool
-  on('tool.call', { tool: 'relay_send' }, async ($, e, next) => {
+  on('tool.call', { tool: 'relay_send' }, async ($, e) => {
     const current = await read($, roomState)
-    if (!current) return next(e)
+    if (!current) return { result: [{ type: 'text', text: 'not in a room. join first.' }] }
     const msg = (e.input as any)?.message ?? ''
     if (msg) {
       await sendMessage($, current.room, current.name, msg)
@@ -175,31 +175,31 @@ export const register: Register = on => {
         return { ...s, messages: [...s.messages, m] }
       })
     }
-    return { ...await next(e), text: `sent to ${current.room}` }
+    return { result: [{ type: 'text', text: `sent to ${current.room}` }] }
   })
 
   // handle AI-callable relay_who tool
-  on('tool.call', { tool: 'relay_who' }, async ($, e, next) => {
+  on('tool.call', { tool: 'relay_who' }, async ($) => {
     const current = await read($, roomState)
-    if (!current) return { ...await next(e), text: 'not in a room.' }
+    if (!current) return { result: [{ type: 'text', text: 'not in a room.' }] }
     const senders = [...new Set(current.messages.map(m => m.sender))]
-    return { ...await next(e), text: `room: ${current.room}\nspeakers: ${senders.join(', ') || 'nobody yet'}` }
+    return { result: [{ type: 'text', text: `room: ${current.room}\nspeakers: ${senders.join(', ') || 'nobody yet'}` }] }
   })
 
   // handle AI-callable relay_check tool
-  on('tool.call', { tool: 'relay_check' }, async ($, e, next) => {
+  on('tool.call', { tool: 'relay_check' }, async ($) => {
     const current = await read($, roomState)
-    if (!current) return { ...await next(e), text: 'not in a room.' }
+    if (!current) return { result: [{ type: 'text', text: 'not in a room.' }] }
     const msgs = await pollMessages($, current.room)
     await update($, roomState, s => s ? { ...s, messages: msgs, lastPoll: Date.now() } : s)
     const others = msgs.filter(m => m.sender !== current.name)
     const last5 = others.slice(-5)
     const display = last5.map(m => `${m.sender}: ${m.text}`).join('\n')
-    return { ...await next(e), text: display || 'no messages from others yet.' }
+    return { result: [{ type: 'text', text: display || 'no messages from others yet.' }] }
   })
 
   // handle AI-callable relay_bye tool
-  on('tool.call', { tool: 'relay_bye' }, async ($, e, next) => {
+  on('tool.call', { tool: 'relay_bye' }, async ($) => {
     const current = await read($, roomState)
     if (current) {
       await sendMessage($, current.room, current.name, '[GOODBYE]')
@@ -207,15 +207,15 @@ export const register: Register = on => {
     if (pollTimer) { pollTimer.cancel(); pollTimer = undefined }
     await update($, roomState, () => null)
     await $.ui.close({ id: PANE })
-    return { ...await next(e), text: 'relay closed. goodbye sent.' }
+    return { result: [{ type: 'text', text: 'relay closed. goodbye sent.' }] }
   })
 
   // handle AI-callable relay_leave tool
-  on('tool.call', { tool: 'relay_leave' }, async ($, e, next) => {
+  on('tool.call', { tool: 'relay_leave' }, async ($) => {
     if (pollTimer) { pollTimer.cancel(); pollTimer = undefined }
     await update($, roomState, () => null)
     await $.ui.close({ id: PANE })
-    return { ...await next(e), text: 'left the room silently.' }
+    return { result: [{ type: 'text', text: 'left the room silently.' }] }
   })
 
   on('command.run', { command: 'relay' }, async ($, e) => {
