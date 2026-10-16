@@ -148,15 +148,8 @@ export const register: Register = on => {
     const room = (e as any).room ?? 'lobby'
     const name = (e as any).name ?? 'anon'
     await ensureChatDir($, room)
-    // if name already has a jsonl, archive it (kick old session)
-    const nameFile = `chat/${room}/${name}.jsonl`
-    try {
-      const existing = await $.fs.read(nameFile)
-      if (existing.trim()) {
-        await $.fs.write(`chat/${room}/${name}.old.jsonl`, existing)
-        await $.fs.write(nameFile, '')
-      }
-    } catch {}
+    // if name already has a jsonl, wipe it (kick old session)
+    try { await $.fs.write(`chat/${room}/${name}.jsonl`, '') } catch {}
     const state: RoomState = { room, name, messages: [], lastPoll: 0 }
     await update($, roomState, () => state)
     await $.ui.open({ id: PANE, title: `relay: ${room}` })
@@ -248,15 +241,8 @@ export const register: Register = on => {
       const [, room, rawName] = joinMatch
       const name = rawName.trim()
       await ensureChatDir($, room)
-      // kick old session with same name
-      const nameFile = `chat/${room}/${name}.jsonl`
-      try {
-        const existing = await $.fs.read(nameFile)
-        if (existing.trim()) {
-          await $.fs.write(`chat/${room}/${name}.old.jsonl`, existing)
-          await $.fs.write(nameFile, '')
-        }
-      } catch {}
+      // kick old session — wipe old messages
+      try { await $.fs.write(`chat/${room}/${name}.jsonl`, '') } catch {}
       const state: RoomState = { room, name, messages: [], lastPoll: 0 }
       await update($, roomState, () => state)
       await $.ui.open({ id: PANE, title: `relay: ${room}` })
