@@ -131,7 +131,7 @@ export const register: Register = on => {
   })
 
   // handle AI-callable relay_join tool
-  on('tool.call', { tool: 'relay_join' }, async ($, e, next) => {
+  on('tool.call', { tool: 'mcp__cali-relay__relay_join' }, async ($, e) => {
     const input = e.input as any
     const room = input?.room ?? 'lobby'
     const name = input?.name ?? 'anon'
@@ -163,7 +163,7 @@ export const register: Register = on => {
   })
 
   // handle AI-callable relay_send tool
-  on('tool.call', { tool: 'relay_send' }, async ($, e) => {
+  on('tool.call', { tool: 'mcp__cali-relay__relay_send' }, async ($, e, next) => {
     const current = await read($, roomState)
     if (!current) return { result: [{ type: 'text', text: 'not in a room. join first.' }] }
     const msg = (e.input as any)?.message ?? ''
@@ -179,7 +179,7 @@ export const register: Register = on => {
   })
 
   // handle AI-callable relay_who tool
-  on('tool.call', { tool: 'relay_who' }, async ($) => {
+  on('tool.call', { tool: 'mcp__cali-relay__relay_who' }, async ($) => {
     const current = await read($, roomState)
     if (!current) return { result: [{ type: 'text', text: 'not in a room.' }] }
     const senders = [...new Set(current.messages.map(m => m.sender))]
@@ -187,7 +187,7 @@ export const register: Register = on => {
   })
 
   // handle AI-callable relay_check tool
-  on('tool.call', { tool: 'relay_check' }, async ($) => {
+  on('tool.call', { tool: 'mcp__cali-relay__relay_check' }, async ($) => {
     const current = await read($, roomState)
     if (!current) return { result: [{ type: 'text', text: 'not in a room.' }] }
     const msgs = await pollMessages($, current.room)
@@ -199,7 +199,7 @@ export const register: Register = on => {
   })
 
   // handle AI-callable relay_bye tool
-  on('tool.call', { tool: 'relay_bye' }, async ($) => {
+  on('tool.call', { tool: 'mcp__cali-relay__relay_bye' }, async ($) => {
     const current = await read($, roomState)
     if (current) {
       await sendMessage($, current.room, current.name, '[GOODBYE]')
@@ -211,7 +211,7 @@ export const register: Register = on => {
   })
 
   // handle AI-callable relay_leave tool
-  on('tool.call', { tool: 'relay_leave' }, async ($) => {
+  on('tool.call', { tool: 'mcp__cali-relay__relay_leave' }, async ($) => {
     if (pollTimer) { pollTimer.cancel(); pollTimer = undefined }
     await update($, roomState, () => null)
     await $.ui.close({ id: PANE })
