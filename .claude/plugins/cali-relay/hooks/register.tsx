@@ -50,23 +50,36 @@ async function sendMessage($: any, room: string, name: string, text: string) {
 async function pollMessages($: any, room: string): Promise<Message[]> {
   try {
     await gitRun($, ['fetch', '--all'])
-    // pull chat files from ALL remote branches into local working tree
+    const allMessages: Message[] = []
+    // read LOCAL files first (our own messages)
+    try {
+      const { stdout } = await $.process.run(['find', `chat/${room}`, '-name', '*.jsonl', '-type', 'f'])
+      for (const f of stdout.trim().split('\n').filter(Boolean)) {
+        try {
+          const content = await $.fs.read(f)
+          for (const line of content.trim().split('\n').filter(Boolean)) {
+            try { allMessages.push(JSON.parse(line)) } catch {}
+          }
+        } catch {}
+      }
+    } catch {}
+    // read REMOTE branches via git show (no checkout, no overwrite)
     const { stdout: branches } = await $.process.run(['git', 'branch', '-r', '--no-color'])
     for (const branch of branches.split('\n').filter(b => b.trim() && !b.includes('HEAD'))) {
       try {
-        await $.process.run(['git', 'checkout', branch.trim(), '--', `chat/${room}/`])
-      } catch {}
-    }
-    // read all jsonl files in the room dir
-    const { stdout } = await $.process.run(['find', `chat/${room}`, '-name', '*.jsonl', '-type', 'f'])
-    const files = stdout.trim().split('\n').filter(Boolean)
-    const allMessages: Message[] = []
-    for (const f of files) {
-      try {
-        const content = await $.fs.read(f)
-        const lines = content.trim().split('\n').filter(Boolean)
-        for (const line of lines) {
-          try { allMessages.push(JSON.parse(line)) } catch {}
+        const { stdout: tree } = await $.process.run(['git', 'ls-tree', '--name-only', branch.trim(), `chat/${room}/`])
+        for (const file of tree.trim().split('\n').filter(Boolean)) {
+          try {
+            const { stdout: content } = await $.process.run(['git', 'show', `${branch.trim()}:chat/${room}/${file}`])
+            for (const line of content.trim().split('\n').filter(Boolean)) {
+              try {
+                const msg = JSON.parse(line)
+                if (!allMessages.some(m => m.timestamp === msg.timestamp && m.sender === msg.sender)) {
+                  allMessages.push(msg)
+                }
+              } catch {}
+            }
+          } catch {}
         }
       } catch {}
     }
