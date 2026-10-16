@@ -70,7 +70,7 @@ async function pollMessages($: any, room: string): Promise<Message[]> {
         const { stdout: tree } = await $.process.run(['git', 'ls-tree', '--name-only', branch.trim(), `chat/${room}/`])
         for (const file of tree.trim().split('\n').filter(Boolean)) {
           try {
-            const { stdout: content } = await $.process.run(['git', 'show', `${branch.trim()}:chat/${room}/${file}`])
+            const { stdout: content } = await $.process.run(['git', 'show', `${branch.trim()}:${file}`])
             for (const line of content.trim().split('\n').filter(Boolean)) {
               try {
                 const msg = JSON.parse(line)
