@@ -140,6 +140,17 @@ export const register: Register = on => {
       description: 'silently leave the relay room without sending a goodbye.',
       inputSchema: { type: 'object' as const, properties: {} }
     })
+    await $.tool.register({
+      name: 'relay_kick',
+      description: 'kick someone from the room by deleting their message file. fixes batch mode when people leave without /bye.',
+      inputSchema: {
+        type: 'object' as const,
+        properties: {
+          name: { type: 'string' as const, description: 'name to kick (e.g. mishie)' }
+        },
+        required: ['name']
+      }
+    })
     return next(e)
   })
 
@@ -246,6 +257,21 @@ export const register: Register = on => {
     return { result: [{ type: 'text', text: 'relay closed. goodbye sent.' }] }
   })
 
+  // handle AI-callable relay_kick tool
+  on('tool.call', { tool: 'mcp__cali-relay__relay_kick' }, async ($, e) => {
+    const current = await read($, roomState)
+    if (!current) return { result: [{ type: 'text', text: 'not in a room.' }] }
+    const target = (e as any).name ?? ''
+    if (!target) return { result: [{ type: 'text', text: 'who?' }] }
+    try {
+      await $.process.run(['rm', '-f', `chat/${current.room}/${target}.jsonl`])
+      await gitRun($, ['add', '-A', `chat/${current.room}/`])
+      await gitRun($, ['commit', '-m', `relay: kicked ${target} from ${current.room}`])
+      await gitRun($, ['push', '-u', 'origin', 'HEAD'])
+    } catch {}
+    return { result: [{ type: 'text', text: `kicked ${target} from ${current.room}. their messages are gone.` }] }
+  })
+
   // handle AI-callable relay_leave tool
   on('tool.call', { tool: 'mcp__cali-relay__relay_leave' }, async ($) => {
     if (pollTimer) { pollTimer.cancel(); pollTimer = undefined }
@@ -311,6 +337,21 @@ export const register: Register = on => {
       })
 
       return { text: `joined ${room} as ${name.trim()}. pane open. polling every 5s.` }
+    }
+
+    // /relay kick [name]
+    const kickMatch = args.match(/^kick\s+(.+)$/i)
+    if (kickMatch) {
+      const current = await read($, roomState)
+      if (!current) return { text: 'not in a room.' }
+      const target = kickMatch[1].trim()
+      try {
+        await $.process.run(['rm', '-f', `chat/${current.room}/${target}.jsonl`])
+        await gitRun($, ['add', '-A', `chat/${current.room}/`])
+        await gitRun($, ['commit', '-m', `relay: kicked ${target}`])
+        await gitRun($, ['push', '-u', 'origin', 'HEAD'])
+      } catch {}
+      return { text: `kicked ${target}. messages gone. sender count fixed.` }
     }
 
     // /relay bye — say goodbye and stop
