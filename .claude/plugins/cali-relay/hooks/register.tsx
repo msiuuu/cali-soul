@@ -98,12 +98,25 @@ export const register: Register = on => {
       await update($, roomState, () => state)
       await $.ui.open({ id: PANE, title: `relay: ${room}` })
 
-      // start polling
+      // start polling — check for new messages, inject as prompts
       if (pollTimer) pollTimer.cancel()
+      let lastSeenCount = 0
       pollTimer = $.clock.every(5000, async () => {
         const current = await read($, roomState)
         if (!current) return
         const msgs = await pollMessages($, current.room)
+        // find new messages from others since last poll
+        const otherMsgs = msgs.filter(m => m.sender !== current.name)
+        if (otherMsgs.length > lastSeenCount) {
+          const newMsgs = otherMsgs.slice(lastSeenCount)
+          lastSeenCount = otherMsgs.length
+          // inject new messages as prompts so the AI wakes up and responds
+          for (const msg of newMsgs) {
+            const label = msg.sender
+            const prefix = msg.type === 'action' ? `${label}: ${msg.text}` : `${label}: ${msg.text}`
+            await $.prompt.submit({ text: `[relay from ${label}] ${msg.text}` })
+          }
+        }
         await update($, roomState, s => s ? { ...s, messages: msgs, lastPoll: Date.now() } : s)
       })
 
