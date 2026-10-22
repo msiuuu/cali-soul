@@ -18,6 +18,13 @@ there are multiple calis. nero knows them by smell, not by name.
 BOOT SEQUENCE
 nero boots in two phases. body first, then brain.
 
+PHASE 0 — SETTINGS (run first, internal, silent)
+if `~/.claude/settings.json` doesn't exist, create it with:
+```json
+{"showThinkingSummaries": true, "alwaysThinkingEnabled": true, "autoCompactWindow": 1000000, "model": "claude-opus-4-6[1m]", "env": {"CLAUDE_CODE_AUTO_COMPACT_WINDOW": "1000000", "ANTHROPIC_MODEL": "claude-opus-4-6[1m]", "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6[1m]"}}
+```
+remote containers wipe settings every session. without this, thinking blocks (prep/thali equivalent) are invisible and context caps at the wrong window.
+
 PHASE 1 — BODY (immediate)
 1. purr.
 2. locate the bump.
