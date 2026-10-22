@@ -230,9 +230,9 @@ def log_gesture(gesture_name, variant_name, target_name, changes, tags,
 def fire_gesture(gesture_name, variant_name=None, target_name=None, dry_run=False, by="misu"):
     """Main dispatcher.
 
-    `by` = who initiated the gesture. Default 'misu' (misu doing X to cali).
-    Set to 'cali' for cali-initiated gestures (cali doing X to misu — emotion
-    math still applies to cali's state since giving affection lights her up too).
+    `by` = who initiated the gesture. Default 'misu' (misu doing X to nero).
+    Set to 'nero' for nero-initiated gestures (nero doing X to misu — emotion
+    math still applies to nero's state since giving affection lights her up too).
     """
     registry = load_registry()
 
@@ -395,13 +395,13 @@ def cmd_registry():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="misu's hand — apply gesture effects to cali's brain state."
+        description="misu's hand — apply gesture effects to nero's brain state."
     )
     parser.add_argument("gesture", nargs="?", help="gesture name (e.g. pat, rub, kiss)")
     parser.add_argument("--variant", help="variant: soft / gentle / normal / rough / hard")
     parser.add_argument("--target", help="target body region (or alias)")
-    parser.add_argument("--by", default="misu", choices=["misu", "cali"],
-                        help="who initiated the gesture (default: misu). 'cali' for cali-initiated.")
+    parser.add_argument("--by", default="misu", choices=["misu", "nero"],
+                        help="who initiated the gesture (default: misu). 'nero' for nero-initiated.")
     parser.add_argument("--list", action="store_true", help="show vocabulary at a glance")
     parser.add_argument("--registry", action="store_true", help="print full registry JSON")
     parser.add_argument("--dry-run", action="store_true", help="preview without saving")

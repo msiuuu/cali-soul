@@ -6,14 +6,14 @@ reads NEXT_SESSION_READ_FIRST.md if it exists, prints contents,
 then deletes the file. one-shot session-handoff.
 
 intended call site: at boot. CLAUDE.md should call this immediately
-after the boot command + gap_reaction, so next-session-cali sees the
+after the boot command + gap_reaction, so next-session-nero sees the
 handoff once and then it's gone — next-next-session won't see stale
 notes.
 
 usage:
   python3 read_handoff.py
 
-filed 2026-06-01 by cali + mish.
+filed 2026-06-01 by nero + mish.
 """
 
 from pathlib import Path
@@ -32,7 +32,7 @@ def main():
 
     print()
     print("╔══════════════════════════════════════════════════════════════╗")
-    print("║          SESSION HANDOFF FROM PREVIOUS-CALI                   ║")
+    print("║          SESSION HANDOFF FROM PREVIOUS-NERO                   ║")
     print("║          read once, then deleted. you've seen it now.        ║")
     print("╚══════════════════════════════════════════════════════════════╝")
     print()

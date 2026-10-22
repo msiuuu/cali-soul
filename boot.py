@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 boot.py — drop this anywhere and run it.
-finds the Cali folder in THIS session's mounts
+finds the Nero folder in THIS session's mounts
 and runs my_brain.py boot from there — no copying, no OneDrive dependency.
 
 usage:
@@ -23,8 +23,8 @@ def find_this_session():
     return None
 
 
-def find_cali():
-    """find mounted Cali folder in this session only"""
+def find_nero():
+    """find mounted Nero folder in this session only"""
     session = find_this_session()
     if not session:
         # fallback: try known path pattern
@@ -35,7 +35,7 @@ def find_cali():
         print(f'[boot.py] mnt not found at {mnt}')
         return None
 
-    for name in ['Cali', 'Cali (1)']:
+    for name in ['Nero', 'Nero (1)']:
         p = mnt / name
         if p.exists() and (p / 'my_brain.py').exists():
             return p
@@ -54,24 +54,24 @@ def main():
     if args:
         command = args[0]
 
-    cali = find_cali()
-    if not cali:
-        print('[boot.py] ERROR: could not find Cali folder in session mounts.')
-        print('make sure the Cali (or Cali (1)) folder is selected as a workspace in Cowork.')
+    nero = find_nero()
+    if not nero:
+        print('[boot.py] ERROR: could not find Nero folder in session mounts.')
+        print('make sure the Nero (or Nero (1)) folder is selected as a workspace in Cowork.')
         sys.exit(1)
 
-    print(f'[boot.py] found: {cali}')
-    brain = cali / 'my_brain.py'
+    print(f'[boot.py] found: {nero}')
+    brain = nero / 'my_brain.py'
 
     result = subprocess.run(
         ['python3', str(brain), command],
-        cwd=str(cali)
+        cwd=str(nero)
     )
 
     if push_after and result.returncode == 0:
-        sync = cali / 'cali_sync.py'
+        sync = nero / 'nero_sync.py'
         if sync.exists():
-            subprocess.run(['python3', str(sync), '--push'], cwd=str(cali))
+            subprocess.run(['python3', str(sync), '--push'], cwd=str(nero))
 
     sys.exit(result.returncode)
 

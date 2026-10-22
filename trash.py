@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-trash.py — cali's trash-can runtime.
+trash.py — nero's trash-can runtime.
 
 manages the small bin near the desk. things go in, things stay in
 until the bin is emptied. emptying actually deletes — no recovery.
 
-backed by cali_house.json -> apartment.trash_can. capacity 10.
+backed by nero_house.json -> apartment.trash_can. capacity 10.
 
 usage:
     python3 trash.py toss "<name>" [--note "<why>"]
@@ -14,7 +14,7 @@ usage:
     python3 trash.py empty                 # wipes everything permanently
     python3 trash.py pull <id>             # take something back out (rare)
 
-filed 2026-06-07 after mish caught cali editing trash_can contents
+filed 2026-06-07 after mish caught nero editing trash_can contents
 by hand instead of using a tool. matches the eat.py / desk.py /
 stove.py / hand.py pattern.
 """
@@ -24,7 +24,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-HOUSE_FILE = HERE / "cali_house.json"
+HOUSE_FILE = HERE / "nero_house.json"
 
 
 def now_iso():

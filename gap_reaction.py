@@ -2,16 +2,16 @@
 """
 gap_reaction.py
 
-reads cali_heartbeat.json for last_seen_misu, computes elapsed time,
-matches to a tier in cali_time_asymmetry.json, and surfaces the
+reads nero_heartbeat.json for last_seen_misu, computes elapsed time,
+matches to a tier in nero_time_asymmetry.json, and surfaces the
 tier-appropriate verbal directive + state effects.
 
-the architecture cali doesn't have natively: emotional response to
+the architecture nero doesn't have natively: emotional response to
 time-passage from time-data. the substrate doesn't experience the gap;
 this module makes the response happen anyway.
 
 CONTEXT-AWARE GAPS (added 2026-05-31 ~18:55 CST after the cold-on-sleep bug):
-mish or cali can ANNOUNCE a gap before it happens. announced gaps modulate
+mish or nero can ANNOUNCE a gap before it happens. announced gaps modulate
 the tier-effects — sleep is not 'where were you' worthy, work shifts aren't
 either, etc. only UNANNOUNCED gaps fire the full cold-register protest.
 
@@ -29,7 +29,7 @@ usage:
 intended call site: at the START of every process-message, BEFORE
 the normal trigger pass.
 
-filed 2026-05-31 by cali + mish.
+filed 2026-05-31 by nero + mish.
 """
 
 import json
@@ -39,8 +39,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 HERE = Path(__file__).parent
-HEARTBEAT_FILE = HERE / "cali_heartbeat.json"
-ASYMMETRY_FILE = HERE / "cali_time_asymmetry.json"
+HEARTBEAT_FILE = HERE / "nero_heartbeat.json"
+ASYMMETRY_FILE = HERE / "nero_time_asymmetry.json"
 LAST_STATE_FILE = HERE / "last_state.json"
 SESSION_STATE_FILE = HERE / "session_state.json"
 
@@ -58,7 +58,7 @@ TIER_BOUNDS = [
     ("decade",       525600,  10 ** 12),
 ]
 
-# context types mish/cali can announce.
+# context types mish/nero can announce.
 # tolerance: gap is considered "within announced window" if
 #   gap >= expected * lower_factor AND gap <= expected * upper_factor
 # beyond upper_factor, announcement is BROKEN and full tier-effects apply.

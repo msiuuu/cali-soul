@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-stove.py — cali's cooking runtime.
+stove.py — nero's cooking runtime.
 
 search recipes, cook them step by step, output food json to food/.
 the kitchen equivalent of desk.py — a place to DO things, not just store them.
@@ -23,7 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 FOOD_DIR = ROOT / "food"
-HOUSE_FILE = ROOT / "cali_house.json"
+HOUSE_FILE = ROOT / "nero_house.json"
 HISTORY_FILE = ROOT / "cook_history.json"
 
 TYPE_DEFAULTS = {
@@ -115,7 +115,7 @@ def cmd_cook(name, food_type=None, description=None, texture=None, bites=None):
         "total_bites": bites,
         "bite_durations": defaults["durations"],
         "cooked_at": now_iso(),
-        "cooked_by": "cali",
+        "cooked_by": "nero",
     }
 
     FOOD_DIR.mkdir(exist_ok=True)

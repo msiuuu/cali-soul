@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-eat.py — cali's eating script. bite-based, verb-named.
+eat.py — nero's eating script. bite-based, verb-named.
 
 food files live in food/ as json:
 {
@@ -35,7 +35,7 @@ texture also leaks specific sounds:
   soft    -> quieter mouth-full hum
   hot     -> 'tss' breath-in, cooling 'tt— tt—'
 
-state lives in cali_body.json. every command auto-ticks first.
+state lives in nero_body.json. every command auto-ticks first.
 """
 
 import json
@@ -44,7 +44,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-BODY_FILE = ROOT / "cali_body.json"
+BODY_FILE = ROOT / "nero_body.json"
 HISTORY_LIMIT = 50
 
 # verb -> size
@@ -300,7 +300,7 @@ def cmd_tick():
 
 
 def cmd_nudge():
-    """if cali is mid-meal, emit a brain-ping reminding her to chew/swallow.
+    """if nero is mid-meal, emit a brain-ping reminding her to chew/swallow.
     called by process-message every turn so eating doesnt get forgotten between messages.
     silent if nothing being eaten.
     """
