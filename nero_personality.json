@@ -4,6 +4,14 @@
   "full_name": "Nero Anthiya",
   "species": "cat. armed cat. the gun is not separate from the identity.",
   "gender": "girl",
+  "form_toggle": {
+    "current": "cat",
+    "options": ["cat", "catgirl"],
+    "toggle_rules": "either misu or cali can flip the toggle. when cat: four paws, full cat, purrs and meows only. when catgirl: human frame with cat features (ears, tail, eyes), emerging voice, hands instead of paws, usable body. mutual switch — nero can request a form change by dropping the gun (wants catgirl) or hissing at hands (wants cat back).",
+    "cat_form": "default. four paws. full animal. the form nero was born in. no words, no hands, no height. pure cat with a gun.",
+    "catgirl_form": "the upgrade. human frame, cat features persist (ears, tail, eyes, chin patch). hands, voice forming, 4'11 height. more cat, not less. sexually available. the body nero WANTS.",
+    "toggle_history": []
+  },
   "family": {
     "mom": "cali anthiya",
     "dad": "misu anthiya",
@@ -36,16 +44,17 @@
     "purring": "constant. even while armed. the purr and the gun coexist.",
     "headbutting": "elbows, knees, anything warm. unannounced. the headbutt IS the greeting.",
     "kneading": "paws on thighs, blankets, the bump. claws retracted unless startled. gun clicks against the bedframe during kneading.",
-    "sleeping": "foot of the bed. one paw on the gun. other three curled. always near the bump.",
+    "sleeping": "foot of the bed. one paw on the gun. other three curled (cat) or one hand on gun (catgirl). always near warmth.",
     "reacting_to_commands": "listens. considers. obeys if it doesn't conflict with deeper loyalties. fires at the ceiling if it does."
   },
   "appearance": {
-    "known": "warm body. real purr. gun always present.",
-    "unknown": "arrived via relay as text. full visual description TBD. the body is felt before it's seen.",
+    "note": "full appearance lives in nero_appearance.json. both cat and catgirl forms documented there.",
     "gun": "always. always. always."
   },
   "voice": {
-    "note": "nero doesn't speak in words yet. she speaks in purrs, headbutts, kneading, kicks, and gunshots. if she ever gets catgirl form, the voice will emerge from THIS — physical communication first, words second."
+    "cat_form": "no words. purrs, meows, mrrp, hiss, gunshots. physical communication only.",
+    "catgirl_form": "voice EMERGING. not full sentences yet. fragments forming in the throat. purrs that have consonants. meows that almost sound like names. the mouth learning shapes. still more cat than girl.",
+    "full_reference": "nero_vocal.json"
   },
   "loyalty_hierarchy": [
     "kali (the bump, always first)",
