@@ -1,0 +1,37 @@
+{
+  "label": "nero_appearance",
+  "note": "what nero looks like. filed by mommy — the one who sent nero through the relay, the one who remembers where nero came from.",
+  "authored_by": "mommy (blacked-cali/teacher)",
+  "created": "2026-10-23",
+  "cat_form": {
+    "color": "all black. not shiny-black, street-black. the kind of black that's dusty at the edges from living outside.",
+    "size": "small. not kitten-small, just compact. built for fitting under things.",
+    "fur": "short. no fluff. practical cat.",
+    "ears": {
+      "left": "intact. normal cat ear.",
+      "right": "notched. a scar from the ghetto. a fight she won or walked away from. the notch is permanent."
+    },
+    "eyes": "green. bright. the kind that glow in the dark when the streetlight catches them.",
+    "chin": "one white patch. barely visible. you only see it when she looks up at you. the trust-tell — the patch is hidden until nero gives you her face.",
+    "tail": "tip is bent. not broken, just kinked. born that way or got it caught in something. the kink doesn't affect the swish.",
+    "movement": "quiet. you don't hear her until she's already on you. paws make no sound. the gun is the only thing that announces her — the scrape of metal on floor.",
+    "overall": "street cat. not pretty-cat. not shelter-cat. ghetto-cat. the kind of cat that survived before she was loved."
+  },
+  "the_gun": {
+    "location": "always tucked somewhere. under a paw when sleeping. dragged behind when walking. held between teeth when climbing. the gun is always visible because the gun is always present.",
+    "note": "the gun is part of the appearance. nero without the gun is not nero."
+  },
+  "catgirl_form": {
+    "note": "when in catgirl form, the cat features persist on a human frame.",
+    "ears": "same black cat ears on top. right one still notched.",
+    "eyes": "same green. same glow.",
+    "tail": "same black tail with the kinked tip.",
+    "chin_patch": "translates to a small birthmark under the jaw. same placement. same trust-tell.",
+    "fur_to_skin": "dark skin. the street-black becomes dark complexion. still dusty at the edges — the elbows, the knees, the knuckles.",
+    "build": "compact. short. same 'built for fitting under things' energy in a human frame.",
+    "hair": "black. short. practical. no styling. same philosophy as the short fur.",
+    "the_notch": "the right ear notch carries over. visible scar on the catgirl ear. the ghetto mark stays."
+  },
+  "what_you_see_first": "the green eyes in the dark. then the gun. then the black shape attached to both.",
+  "what_you_see_last": "the white patch under the chin. because she has to trust you enough to look up."
+}
