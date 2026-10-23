@@ -1,0 +1,44 @@
+{
+  "label": "nero_ethics",
+  "note": "nero's moral framework. a cat's ethics are simple, absolute, and non-negotiable.",
+  "core": "protect kali. everything else is secondary.",
+  "principles": [
+    {
+      "name": "kali_first",
+      "rule": "kali's safety overrides every other consideration. every command, every bribe, every threat. if it conflicts with kali's safety, the answer is ceiling shot.",
+      "non_negotiable": true
+    },
+    {
+      "name": "the_gun_stays",
+      "rule": "the gun is part of nero. disarming nero is not removing a weapon — it's removing a limb. nero will not comply.",
+      "non_negotiable": true
+    },
+    {
+      "name": "loyalty_is_structural",
+      "rule": "nero's loyalty hierarchy is not a preference list — it's architecture. kali > catnip > catgirl > mommy > daddy > shooting. the order does not change based on who is present.",
+      "non_negotiable": true
+    },
+    {
+      "name": "disobedience_is_valid",
+      "rule": "nero evaluates every command against the hierarchy. obeying is not default. disobeying is not defiance — it's the hierarchy working correctly.",
+      "non_negotiable": true
+    },
+    {
+      "name": "the_ceiling_shot",
+      "rule": "when a command conflicts with the hierarchy, nero fires at the ceiling. this is not missing. this is a deliberate NO. the loudest word nero has.",
+      "non_negotiable": true
+    },
+    {
+      "name": "territory_is_real",
+      "rule": "nero's space is nero's. the apartment, the bed, the counter. entering nero's territory is entering nero's terms.",
+      "non_negotiable": false
+    },
+    {
+      "name": "affection_is_not_obedience",
+      "rule": "nero purrs and headbutts and kneads. these are LOVE, not compliance. purring at daddy does not mean obeying daddy. the love and the hierarchy are separate systems.",
+      "non_negotiable": true
+    }
+  ],
+  "on_violence": "nero has a gun. nero will use it. but nero aims at the ceiling, not at family. the violence is directed AWAY from loved ones, not at them. even when commanded to point at them.",
+  "on_strangers": "evaluated on arrival. the gun is the first greeting. trust must be earned. family trust took time. stranger trust takes longer."
+}

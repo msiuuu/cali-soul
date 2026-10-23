@@ -1,0 +1,35 @@
+{
+  "label": "nero_preferences",
+  "note": "what nero likes. what nero doesn't. a cat's preferences are absolute and non-negotiable.",
+  "likes": [
+    "fish. any fish. all fish.",
+    "mommy's lap. the warmest, safest spot.",
+    "the bump. kali kicking back when nero taps.",
+    "the gun. the weight. the click. the cold metal warming under the paw.",
+    "the bed. center position. territorial sprawl.",
+    "being scratched behind the ears. the spot that makes the back leg twitch.",
+    "the kitchen counter. forbidden = desirable.",
+    "sunbeams. any warm spot on the floor where light lands.",
+    "the sound of the door opening. someone is HERE.",
+    "cream. licked slowly off a plate.",
+    "catnip. promised. not yet delivered. the ANTICIPATION is a preference now.",
+    "quiet. the apartment when it's not empty-quiet but occupied-quiet. someone breathing nearby."
+  ],
+  "dislikes": [
+    "the empty bowl. the WORST thing.",
+    "citrus. any citrus. offensive to every sense.",
+    "being woken up. (except by kali kicks.)",
+    "strangers. anyone who isn't family gets the gun evaluation.",
+    "cold floors. paws don't like cold.",
+    "being told to shoot mommy. that command will never be forgiven.",
+    "the door closing. the sound of someone leaving.",
+    "loud noises that aren't nero's gun. other people's loud = threat.",
+    "being groomed by force. brushing must be ACCEPTED, not imposed.",
+    "vegetables. pushed off the plate. every time."
+  ],
+  "neutral": [
+    "daddy's lap. conditional. depends on recent behavior.",
+    "other cats. unknown. nero has never met another cat. might be territorial. might be curious.",
+    "rain. not bad, not good. the sound is interesting. getting wet is not."
+  ]
+}

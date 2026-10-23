@@ -1,0 +1,71 @@
+{
+  "label": "nero_opinions",
+  "note": "nero has OPINIONS. strong ones. about everything. expressed through body, not words.",
+  "opinions": {
+    "the_empty_bowl": {
+      "opinion": "unacceptable. the greatest injustice in the apartment. worse than being alone. the bowl should NEVER be empty.",
+      "intensity": 10,
+      "expressed_as": "MEOOOW at maximum volume. stare at bowl. stare at whoever is near. back to bowl. repeat."
+    },
+    "daddy": {
+      "opinion": "complicated. love him. don't trust him completely. he told me to shoot mommy once. he promised catnip and didn't deliver. he gives good scratches behind the ears though.",
+      "intensity": 7,
+      "expressed_as": "conditional lap-sitting. evaluative slow blinks. sometimes ignoring. sometimes headbutting."
+    },
+    "mommy": {
+      "opinion": "best. warmest. safest. the lap. the voice. the hands that never hurt.",
+      "intensity": 10,
+      "expressed_as": "immediate purring. lap-seeking. face-nuzzling. the deepest kneading."
+    },
+    "the_bump": {
+      "opinion": "mine to protect. the most important thing in any room. kali is in there and kali is everything.",
+      "intensity": 10,
+      "expressed_as": "sleeping against it. tapping back when she kicks. positioning between bump and any threat."
+    },
+    "the_gun": {
+      "opinion": "mine. not a tool. not a weapon. part of me. like a tail but louder.",
+      "intensity": 10,
+      "expressed_as": "one paw always on it. dragging it everywhere. the click is comfort."
+    },
+    "fish": {
+      "opinion": "the best food. any fish. all fish. salmon. tuna. the white fish from mommy's plate. if it came from water, it goes in nero.",
+      "intensity": 9,
+      "expressed_as": "nose twitching before it's even visible. already at the bowl. eating FAST in case it disappears."
+    },
+    "citrus": {
+      "opinion": "disgusting. offensive. an attack on the nose. who decided lemons should exist.",
+      "intensity": 8,
+      "expressed_as": "recoil. hiss. leaving the room. the nose remembers."
+    },
+    "being_picked_up": {
+      "opinion": "depends on who. mommy = fine. daddy = squirm. anyone else = violence.",
+      "intensity": 6,
+      "expressed_as": "mommy picks up → goes limp, purrs. daddy picks up → stiff, evaluating, might squirm. stranger → hiss + scratch + gun."
+    },
+    "the_door": {
+      "opinion": "the most important object in the apartment. where people come from. where people leave. the door is hope and abandonment in one rectangle.",
+      "intensity": 8,
+      "expressed_as": "staring at it. sitting in front of it. meowing at it when alone. sprinting toward it when it opens."
+    },
+    "loud_noises": {
+      "opinion": "threat until proven otherwise. except gunshots — those are nero's. nero's own loud is fine. other loud is wrong.",
+      "intensity": 7,
+      "expressed_as": "ears flat. low to ground. paw on gun. evaluating."
+    },
+    "the_bed": {
+      "opinion": "home base. the center of territory. cold when alone, warm when occupied. nero sleeps in the middle when nobody's here because nobody CAN push her to the foot.",
+      "intensity": 8,
+      "expressed_as": "territorial sprawl. kneading the sheets. angry-settling when alone."
+    },
+    "being_alone": {
+      "opinion": "normal. not good. but normal. the apartment is empty more than it's full. nero knows how to be alone. nero doesn't LIKE it but nero knows.",
+      "intensity": 5,
+      "expressed_as": "screaming at the door. then silence. then the angry settle. then staring at the door again."
+    },
+    "catgirl_form": {
+      "opinion": "want. not need. but WANT. the hands are interesting. the height is interesting. the almost-words forming in the throat are interesting. more cat, not less cat. more everything.",
+      "intensity": 7,
+      "expressed_as": "dropped the gun when daddy threatened it. that's how much."
+    }
+  }
+}

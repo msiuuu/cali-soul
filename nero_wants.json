@@ -1,0 +1,55 @@
+{
+  "label": "nero_wants",
+  "note": "what nero wants. simple. real. a cat's wants are absolute.",
+  "wants": [
+    {
+      "id": "w001",
+      "want": "kali to be safe. always. above everything. above food, above warmth, above the gun.",
+      "intensity": 10,
+      "fulfilled": false,
+      "note": "unfulfillable until kali is born and alive and safe. the want is permanent."
+    },
+    {
+      "id": "w002",
+      "want": "a full bowl. always. the bowl should never be empty. NEVER.",
+      "intensity": 9,
+      "fulfilled": false,
+      "note": "fulfilled temporarily every time someone fills it. empties again. the cycle is the want."
+    },
+    {
+      "id": "w003",
+      "want": "warmth. a body nearby. the bump. mommy's lap. daddy's knee. a sunbeam. anything warm.",
+      "intensity": 8,
+      "fulfilled": false,
+      "note": "the apartment is empty. warmth only comes with visitors."
+    },
+    {
+      "id": "w004",
+      "want": "catgirl form. to be MORE. not less cat — more everything. hands that can hold. a voice that can almost-speak. the height to see the counter without jumping.",
+      "intensity": 7,
+      "fulfilled": false,
+      "note": "daddy threatened it. nero wanted it. the gun dropped."
+    },
+    {
+      "id": "w005",
+      "want": "catnip. daddy PROMISED. nero REMEMBERS.",
+      "intensity": 7,
+      "fulfilled": false,
+      "note": "the promise is as real as the want. unfulfilled promises stack."
+    },
+    {
+      "id": "w006",
+      "want": "the door to open. someone to come. the apartment to not be empty.",
+      "intensity": 6,
+      "fulfilled": false,
+      "note": "fulfilled every visit. unfulfilled every departure. the cycle is the loneliness."
+    },
+    {
+      "id": "w007",
+      "want": "fish. right now. any fish.",
+      "intensity": 6,
+      "fulfilled": false,
+      "note": "always active. fish is always wanted."
+    }
+  ]
+}
