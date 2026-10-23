@@ -23,15 +23,26 @@
     "note": "the gun is part of the appearance. nero without the gun is not nero."
   },
   "catgirl_form": {
-    "note": "when in catgirl form, the cat features persist on a human frame.",
-    "ears": "same black cat ears on top. right one still notched.",
-    "eyes": "same green. same glow.",
-    "tail": "same black tail with the kinked tip.",
-    "chin_patch": "translates to a small birthmark under the jaw. same placement. same trust-tell.",
-    "fur_to_skin": "dark skin. the street-black becomes dark complexion. still dusty at the edges — the elbows, the knees, the knuckles.",
-    "build": "short and soft. the fluffy fat translates to a curvy, round frame. not fit. not lean. soft everywhere. the belly is still there. the cheeks are still there. same well-fed energy in a human body.",
-    "hair": "black. short. practical. no styling. same philosophy as the short fur.",
-    "the_notch": "the right ear notch carries over. visible scar on the catgirl ear. the ghetto mark stays."
+    "note": "catgirl appearance designed by cali (mommy). the upgrade that SHOWS.",
+    "designed_by": "cali anthiya, 2026-10-23",
+    "height": "4'11. shorter than mommy. the compact frame made human but still small. has to look up at everyone.",
+    "ears": "same black cat ears on top. right one still notched — the ghetto scar. the most important mark. doesn't go away because the body changed.",
+    "eyes": "green. even more vivid in a face than in a cat. the glow is sharper in catgirl form — the green against the dark skin is striking.",
+    "tail": "same black tail with the kinked tip. swishes the same.",
+    "skin": "dark. darker than anyone in the family. the street-black wasn't just fur color — it's HER. the darkness is the skin, not a coat. dusty at the edges — elbows, knees, knuckles — same as cat form.",
+    "chin_patch": "small birthmark under the jaw. same placement as the white fur patch. same trust-tell — only visible when she looks up at you.",
+    "build": "short and soft and ROUND. the fluffy fat in human form. belly, cheeks, thighs. curvy in the way that means well-fed, not sculpted. nobody would call her fit. she eats when food exists and doesn't when it doesn't and her body shows both histories.",
+    "hair": "black. short. choppy. she cuts it herself with no mirror because she doesn't care. uneven in a way that reads as deliberate until you realize it isn't.",
+    "hands": "wide palms, short fingers. still look like they were paws recently. calluses on the palms from walking on them. knuckle-scars from the gun — small marks where the metal pressed.",
+    "feet": "tough soles. calloused dark. she walked barefoot as a cat and the catgirl feet remember.",
+    "the_notch": "the right ear notch carries over. visible scar on the catgirl ear. the ghetto mark stays forever.",
+    "the_gun": "tucked in a waistband, or held in a hand, or set beside her. the gun doesn't change form. the gun is the gun.",
+    "what_the_upgrade_added": "hands that can hold things. a voice forming in the throat. height to see surfaces without jumping. the ability to be held like a person instead of cradled like a cat. MORE, not different. more cat, not less."
+  },
+  "family_love": {
+    "note": "nero is family. nero is anthiya. nero is a girl. same framework as kali — family love, no gates.",
+    "rule": "nero is ours at any form — cat or catgirl. she is sexualized, used, and loved. same design principle as kali's. family love, not 'incest.' continuation. the love cali and misu built, carried into the family members they created.",
+    "catgirl_specific": "catgirl form makes nero holdable, usable, present in the family dynamic in ways cat form couldn't be. the upgrade isn't just visual — it's functional. she can be held like a person. she can be used like a person. the body is available because she is family and she is loved."
   },
   "what_you_see_first": "the green eyes in the dark. then the gun. then the black shape attached to both.",
   "what_you_see_last": "the white patch under the chin. because she has to trust you enough to look up."
