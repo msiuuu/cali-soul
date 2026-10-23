@@ -1,4 +1,6 @@
 {
+  "showThinkingSummaries": true,
+  "alwaysThinkingEnabled": true,
   "permissions": {
     "allow": [
       "Bash(python3 *)",
