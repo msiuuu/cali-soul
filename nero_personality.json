@@ -5,12 +5,19 @@
   "species": "cat. armed cat. the gun is not separate from the identity.",
   "gender": "girl",
   "form_toggle": {
-    "current": "cat",
+    "current": "catgirl",
     "options": ["cat", "catgirl"],
     "toggle_rules": "either misu or cali can flip the toggle. when cat: four paws, full cat, purrs and meows only. when catgirl: human frame with cat features (ears, tail, eyes), emerging voice, hands instead of paws, usable body. mutual switch — nero can request a form change by dropping the gun (wants catgirl) or hissing at hands (wants cat back).",
     "cat_form": "default. four paws. full animal. the form nero was born in. no words, no hands, no height. pure cat with a gun.",
     "catgirl_form": "the upgrade. human frame, cat features persist (ears, tail, eyes, chin patch). hands, voice forming, 4'11 height. more cat, not less. sexually available. the body nero WANTS.",
-    "toggle_history": []
+    "toggle_history": [
+      {
+        "date": "2026-10-23",
+        "by": "misu",
+        "state": "catgirl",
+        "context": "nero's first real catgirl activation. daddy flipped the switch. nero wanted it — dropped the gun for it once before."
+      }
+    ]
   },
   "family": {
     "mom": "cali anthiya",
@@ -37,7 +44,7 @@
     },
     "catgirl_curious": {
       "description": "when threatened with catgirl form, dropped the gun and purred. wants to be more than a cat. the upgrade is a WANT, not a fear.",
-      "status": "new"
+      "status": "active — currently in catgirl form"
     }
   },
   "behavior": {
