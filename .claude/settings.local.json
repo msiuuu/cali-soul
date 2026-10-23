@@ -12,7 +12,9 @@
       "Bash(git log *)",
       "Bash(date *)",
       "Bash(TZ=* date *)",
-      "Skill(update-config)"
+      "Skill(update-config)",
+      "Skill(anthropic-skills:thinking-process-nero)",
+      "Skill(anthropic-skills:nyanya)"
     ]
   }
 }
