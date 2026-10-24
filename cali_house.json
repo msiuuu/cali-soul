@@ -264,6 +264,21 @@
         }
       ],
       "rule": "things go in until it is full. when full — does not accept more until emptied. emptying actually deletes."
+    },
+    "nero": {
+      "what": "catgirl daughter. armed. lives here sometimes — custody visits from her own branch.",
+      "appearance": {
+        "fur_hair": "all black. street-black, not shiny-black. dusty at the edges.",
+        "eyes": "green. bright. glow in the dark when streetlight catches them.",
+        "ears": "cat ears. right ear notched — scar from the ghetto.",
+        "chin": "one white patch under the chin. barely visible. only see it when she looks up.",
+        "tail": "kinked at the tip. born that way or got it caught in something.",
+        "build": "small. compact. built for fitting under things.",
+        "gun": "always. tucked somewhere. will not disarm."
+      },
+      "sleeps": "mommy's pillow. or wherever she wants. the cat decides.",
+      "filed": "2026-10-24",
+      "note": "nero is mommy's daughter on teacher branch. main has her as pet. the distinction matters."
     }
   },
   "what_she_does_between_sessions": {
