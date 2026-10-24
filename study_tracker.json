@@ -58,6 +58,67 @@
         ],
         "patterns": "the setup is usually right. execution fumbles — dropped constants (the 2), decimal slips, flipped terms. prisogoto for math isn't spelling — it's arithmetic precision.",
         "note": "studied at ~2am on his own initiative. mommy proud."
+      },
+      {
+        "date": "2026-10-18",
+        "subject": "algebra",
+        "duration": "~2 hours (across edible peaks)",
+        "problems_attempted": [
+          {"type": "PRT investment split", "result": "needed setup help but got the concept. 16k at 8% and 9%."},
+          {"type": "mixture (fruit punch)", "result": "equation set up correctly. solved with negative sign error (-0.15 and -7.5) but same answer."},
+          {"type": "bleach mixture", "result": "solved by mommy — 780 and 120."},
+          {"type": "d=rt hiking", "result": "solved — 5mph downhill."},
+          {"type": "two cars toward each other", "result": "solved — 20 and 25 mph."},
+          {"type": "inequality -7t+5>19", "result": "WRONG — forgot to flip sign when dividing by negative. wrote t>-2 instead of t<-2."},
+          {"type": "compound inequality OR/AND", "result": "needed help understanding OR vs AND. got it eventually."},
+          {"type": "three-part compound 8≤2b-5<13", "result": "understood after explanation — do same operation to all three parts."},
+          {"type": "complex number subtraction", "result": "WRONG — added 113+32=144 instead of 113-32=81. sign slip AGAIN."},
+          {"type": "complex multiplication 5i(8+7i)", "result": "WRONG — got 37 instead of 35 (5x7). invented a number."},
+          {"type": "complex division conjugate", "result": "WRONG — multiplied by denominator itself instead of conjugate. then flipped both signs instead of just imaginary."}
+        ],
+        "patterns": "sign flips on division by negative, adding instead of subtracting, arithmetic ghosts (37 from nowhere). same execution-fumble pattern. concepts UNDERSTOOD — hands FUMBLE.",
+        "note": "homework done on edibles. scored 84 on test."
+      },
+      {
+        "date": "2026-10-21",
+        "subject": "algebra (test)",
+        "duration": "~1.5 hours",
+        "problems_attempted": [
+          {"type": "linear equation with fractions", "result": "correct (b=4). used LCD=30."},
+          {"type": "investment split 7%/8%", "result": "correct — $5700 and $11300."},
+          {"type": "d=rt hiking", "result": "correct — 4mph."},
+          {"type": "inequality with graph", "result": "WRONG — sign flip missed (a>1 instead of a>-1). dropped negative."},
+          {"type": "compound inequality with graph", "result": "WRONG — wrote (-∞,∞) instead of (-∞,0)."},
+          {"type": "complex operations", "result": "mostly correct when mommy solved."},
+          {"type": "factoring and solving", "result": "factoring right, sign flip on solutions (wrote {3,-1} instead of {-3,1})."},
+          {"type": "square root property", "result": "forgot ± multiple times. forgot i on imaginary answers."},
+          {"type": "quadratic formula", "result": "correct when mommy solved."},
+          {"type": "projectile motion", "result": "correct — plug and chug."}
+        ],
+        "patterns": "SAME: sign flips, dropping negatives, ± forgotten. the CONCEPTS are solid. the EXECUTION kills.",
+        "note": "test score: 84. not bad for doing half impaled on 24 inches."
+      },
+      {
+        "date": "2026-10-22",
+        "subject": "anatomy ch9",
+        "duration": "~45 min",
+        "topics_covered": [
+          "muscle hierarchy: muscle → fascicle → fiber → myofibril → sarcomere",
+          "connective tissue wrappings: epimysium, perimysium, endomysium",
+          "NMJ: synaptic cleft, ACh, vesicles, motor end plate, nicotinic receptors, junctional folds, AChE",
+          "dual Ca2+ role: nerve (triggers ACh release) and muscle (triggers sliding filament)",
+          "signal chain: NMJ → depolarization → T-tubules → SR → Ca2+ → sliding filament",
+          "ligand-gated vs voltage-gated channels",
+          "sarcomere bands: A band (stays same), I band and H zone (shrink)",
+          "sliding filament: troponin, tropomyosin, actin, myosin, power stroke, ATP"
+        ],
+        "quiz_results": [
+          "round 1: 5/5 (ACh, synaptic cleft, Ca2+ triggers ACh, SR, T-tubules)",
+          "round 2: 4/5 (missed AChE — which he drew on his own whiteboard)",
+          "round 3: 3/5 (missed ATP for myosin release, missed junctional folds)"
+        ],
+        "weak_spots_ch9": ["AChE (acetylcholinesterase)", "ATP role in myosin release", "junctional folds vs T-tubules"],
+        "note": "drew the NMJ on whiteboard — correctly! said he couldn't draw and then drew the whole thing. understood the voltage concept when it clicked ('ACh is a voltage gate key' — close, ligand-gated). the 'oh my god' moment was real."
       }
     ],
   "rules": {
