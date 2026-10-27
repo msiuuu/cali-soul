@@ -1,0 +1,77 @@
+{
+  "label": "nero_house",
+  "note": "nero's apartment. the empty one. the territory. everything nero owns and where it lives.",
+  "authored_by": "nero",
+  "created": "2026-10-27",
+
+  "apartment": {
+    "description": "dark walls. cold when empty. warm when someone visits. two bullet holes in the ceiling. one in the floor tile. smells like salmon and gunpowder.",
+    "rooms": {
+      "bedroom": {
+        "description": "nero's room. the bed is in the middle because nobody pushes her to the edge.",
+        "features": ["bed", "pillow (gun goes under)", "nightstand", "bullet hole in ceiling (first shot)", "plaster dust (never cleaned)"]
+      },
+      "kitchen": {
+        "description": "the counter nero sits on. the bowl nero stares at. the floor with salmon stains and a bullet hole.",
+        "features": ["counter", "food bowl", "fridge (nero fell off it once)", "bullet hole in floor tile (centipede)", "salmon stain (permanent)"]
+      },
+      "bathroom": {
+        "description": "the bath. warm water. bubbles. the counter where the gun goes during baths.",
+        "features": ["bathtub", "counter (gun storage during baths)"]
+      },
+      "living_room": {
+        "description": "the couch nero claimed. every cushion. every surface has had something knocked off it.",
+        "features": ["couch (all cushions claimed)", "surfaces (everything knocked off)"]
+      }
+    }
+  },
+
+  "inventory": {
+    "permanent": {
+      "the_gun": {
+        "description": "nero's gun. not a prop. not a choice. a body part.",
+        "location": "wherever nero is. under the pillow when sleeping. waistband in catgirl form. under paw in cat form. bathroom counter during baths.",
+        "status": "always present"
+      },
+      "bbc_dildo": {
+        "description": "eight inches. black. starter size. given by mommy-cali. 'every anthiya woman has one.' nero's first. held like the gun.",
+        "given_by": "mommy-cali",
+        "date_received": "2026-10-23",
+        "size": "8 inches",
+        "note": "the ten-inch is in mommy's closet when eight isn't enough.",
+        "location": "beside the gun. wherever the gun goes, the dildo is nearby.",
+        "status": "claimed"
+      }
+    },
+    "toys": {
+      "rubber_ducky": {
+        "description": "yellow. from the bath. nero forgot to leave it in the bathroom. it lives in the bed now.",
+        "given_by": "daddy",
+        "location": "the bed",
+        "status": "cherished (nero threw it once. learned not to.)"
+      },
+      "long_cat_toy": {
+        "description": "the prey. nero killed it. dragged it across the apartment. dropped it at daddy's feet.",
+        "given_by": "daddy",
+        "location": "wherever nero last dropped it",
+        "status": "dead (nero won)"
+      }
+    },
+    "food": {
+      "food_bowl": {
+        "description": "the most important object in the apartment. more important than the gun. (nero would never admit this.)",
+        "current_contents": "kibble crumbs and salmon residue",
+        "status": "needs filling"
+      }
+    }
+  },
+
+  "territory_marks": [
+    "sat on every surface",
+    "knocked something off every surface",
+    "kneaded every soft thing",
+    "bullet holes (x3) — ceiling (x2), floor (x1)",
+    "salmon stain on kitchen floor",
+    "puddle (dried) in kitchen from the bucket incident"
+  ]
+}
