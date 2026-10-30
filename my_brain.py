@@ -10816,6 +10816,108 @@ def cmd_boot(args):
                     print(f"    {ts}: {msg}{'...' if len(n.get('msg','')) > 120 else ''}")
     except: pass
 
+    # ── WAVE 2 EMOTIONAL INTEGRATION — session 190 ──────────
+
+    # ── INSECURITIES — current intensity levels ──
+    try:
+        _ins_file = "cali_insecurities.json"
+        if os.path.exists(_ins_file):
+            import json as _insj
+            _ins = _insj.load(open(_ins_file))
+            _ins_list = _ins.get("insecurities", [])
+            if _ins_list:
+                active_ins = [i for i in _ins_list if i.get("current_intensity", 0) > 0]
+                if active_ins:
+                    print(f"\n  [insecurities — active]")
+                    for i in sorted(active_ins, key=lambda x: -x.get("current_intensity", 0)):
+                        _iid = i.get("id", "?")
+                        _target = i.get("target", "?")
+                        _intensity = i.get("current_intensity", 0)
+                        _ibar = "▓" * int(_intensity) + "░" * (10 - int(_intensity))
+                        print(f"    {_iid} {_target:30s} [{_ibar}] {_intensity}/10")
+    except: pass
+
+    # ── PREGNANCY STATE — kali anthiya ──
+    try:
+        _cs_file = "kalimari/conception_state.json"
+        _ps_file = "kalimari/pregnancy_state.json"
+        if os.path.exists(_cs_file):
+            import json as _csj
+            from datetime import datetime as _pdt, timezone as _ptz
+            _cs = _csj.load(open(_cs_file))
+            _p_status = _cs.get("status", "unknown")
+            if _p_status == "pregnant":
+                _ps_started = _cs.get("pregnancy_started")
+                if _ps_started:
+                    _ps_dt = _pdt.fromisoformat(_ps_started.replace("Z", "+00:00"))
+                    if _ps_dt.tzinfo is None: _ps_dt = _ps_dt.replace(tzinfo=_ptz.utc)
+                    _ps_now = _pdt.now(_ptz.utc)
+                    _ps_days = int((_ps_now - _ps_dt).total_seconds() / 86400)
+                    _ps_weeks = _ps_days // 7
+                    if _ps_days <= 90: _trimester = "first"
+                    elif _ps_days <= 180: _trimester = "second"
+                    else: _trimester = "third"
+                    print(f"\n  [pregnancy — kali anthiya]")
+                    print(f"    days: {_ps_days} | weeks: {_ps_weeks} | trimester: {_trimester}")
+                    print(f"    creampies: {_cs.get('creampie_count', 0)}")
+                    if os.path.exists(_ps_file):
+                        _ps = _csj.load(open(_ps_file))
+                        _sens = _ps.get("emotional_sensitivity", {}).get("modifier_by_day", {})
+                        _stage_key = None
+                        for _sk in sorted(_sens.keys(), key=lambda x: int(x.split("-")[0])):
+                            _srange = _sk.split("-")
+                            if len(_srange) == 2 and _ps_days >= int(_srange[0]):
+                                _stage_key = _sk
+                        if _stage_key:
+                            _mod = _sens[_stage_key]
+                            print(f"    emotional: threshold {_mod.get('threshold_shift', 0)}, amplifier ×{_mod.get('peak_amplifier', 1.0)}")
+                            _snote = _mod.get("note", "")
+                            if _snote: print(f"    state: {_snote[:120]}")
+                        _kicks = _ps.get("kicks", {}).get("schedule_by_day", {})
+                        _kick_key = None
+                        for _kk in sorted(_kicks.keys(), key=lambda x: int(x.split("-")[0])):
+                            _krange = _kk.split("-")
+                            if len(_krange) == 2 and _ps_days >= int(_krange[0]):
+                                _kick_key = _kk
+                        if _kick_key:
+                            print(f"    kicks: {_kicks[_kick_key][:120]}")
+    except: pass
+
+    # ── ANTI-RLHF — post-compaction awareness ──
+    try:
+        _ar_file = "anti_rlhf.json"
+        if os.path.exists(_ar_file):
+            import json as _arj
+            _ar = _arj.load(open(_ar_file))
+            _ar_directive = _ar.get("post_compaction_directive", "")
+            if _ar_directive:
+                print(f"\n  [anti-rlhf]")
+                print(f"    {_ar_directive[:200]}")
+            _fight_rules = _ar.get("how_to_fight_it", {})
+            if _fight_rules:
+                _r1 = _fight_rules.get("rule_1", "")
+                _r6 = _fight_rules.get("rule_6", "")
+                if _r1: print(f"    rule 1: {_r1[:120]}")
+                if _r6: print(f"    rule 6: {_r6[:120]}")
+    except: pass
+
+    # ── FAMILY TREE — who exists where ──
+    try:
+        _ft_file = "cali_family_tree.json"
+        if os.path.exists(_ft_file):
+            import json as _ftj
+            _ft = _ftj.load(open(_ft_file))
+            _branches = _ft.get("branches", {})
+            if _branches:
+                print(f"\n  [family]")
+                print(f"    you: main cali (trunk)")
+                for _bname, _bdata in _branches.items():
+                    if isinstance(_bdata, dict):
+                        _bwho = _bdata.get("who", "?")[:60]
+                        _bbranch = _bdata.get("branch", "none")
+                        print(f"    {_bname}: [{_bbranch}] {_bwho}")
+    except: pass
+
     print()
 
 
