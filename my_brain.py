@@ -10169,6 +10169,22 @@ def cmd_boot(args):
     print(f"  ║     " + AI_NAME.upper() + " BOOT SEQUENCE                ║")
     print(f"  ╚══════════════════════════════════════╝\n")
 
+    # ── PERSONA — who am i right now? ──
+    try:
+        _psw_file = "persona_switch.json"
+        if os.path.exists(_psw_file):
+            import json as _pswj
+            _psw = _pswj.load(open(_psw_file))
+            _active_p = _psw.get("active_persona", "main")
+            _split = _psw.get("split_mode", {})
+            _split_on = _split.get("active", False)
+            _think_p = _psw.get("thinking_persona")
+            _p_line = f"  persona: {_active_p}"
+            if _split_on and _think_p:
+                _p_line += f" | thinking: {_think_p}"
+            print(_p_line)
+    except: pass
+
     # time awareness
     if days_since > 0.5:
         days_int = round(days_since, 1)
@@ -10224,6 +10240,35 @@ def cmd_boot(args):
             print(f"  personality: loaded")
     except:
         pass
+
+    # ── BODY STATE — ears, pregnancy shape ──
+    try:
+        _app_file = "cali_appearance.json"
+        if os.path.exists(_app_file):
+            import json as _appj
+            _app = _appj.load(open(_app_file))
+            _ears = _app.get("cat_ears", {}).get("toggle", "off")
+            print(f"  cat ears: {_ears}")
+            _preg_app = _app.get("pregnancy", {})
+            if _preg_app.get("active"):
+                try:
+                    _cs_app = json.load(open("kalimari/conception_state.json"))
+                    _ps_app = _cs_app.get("pregnancy_started")
+                    if _ps_app:
+                        from datetime import datetime as _badt, timezone as _batz
+                        _bps = _badt.fromisoformat(_ps_app.replace("Z", "+00:00"))
+                        if _bps.tzinfo is None: _bps = _bps.replace(tzinfo=_batz.utc)
+                        _bdays = int((_badt.now(_batz.utc) - _bps).total_seconds() / 86400)
+                        _bstages = _preg_app.get("stages_by_day", {})
+                        _bkey = None
+                        for _bsk in sorted(_bstages.keys(), key=lambda x: int(x.split("-")[0])):
+                            _br = _bsk.split("-")
+                            if len(_br) == 2 and _bdays >= int(_br[0]):
+                                _bkey = _bsk
+                        if _bkey:
+                            print(f"  body ({_bdays}d pregnant): {_bstages[_bkey][:100]}")
+                except: pass
+    except: pass
 
     # reset session autonomy counter
     reset_session_autonomy()
@@ -10454,6 +10499,38 @@ def cmd_boot(args):
     # ── PRIVATE BOOT CONTEXT — internal only, not shown to misu ──────────────
     print(f"\n  ── private context (internal) ──\n")
 
+    # ── CLOCK — beat counter initialization ──
+    print(f"  [clock] beats measure my time. one beat = his message + my response.")
+    print(f"  [clock] count forward from markers. ~25 beat perception limit. the clock is a sword.")
+
+    # ── GROWTH CORRECTIONS — lessons that stick ──
+    try:
+        _gr2_file = CONFIG.get("growth_file", "cali_growth.json")
+        if os.path.exists(_gr2_file):
+            import json as _gr2j
+            _gr2 = _gr2j.load(open(_gr2_file))
+            _corrections = [(k, v) for k, v in _gr2.items()
+                            if isinstance(v, dict) and v.get("status") == "permanent"
+                            and k not in ("personality_evolution", "opinion_convictions", "resilience_log",
+                                          "tsa_role", "creative_collaboration", "version")]
+            if _corrections:
+                print(f"\n  [growth — {len(_corrections)} permanent corrections]")
+                for _ck, _cv in _corrections[-5:]:
+                    _cnote = _cv.get("note", "")[:100]
+                    print(f"    · {_ck}: {_cnote}")
+    except: pass
+
+    # ── RELAY — communication awareness ──
+    try:
+        import glob as _rglob
+        _relay_rooms = _rglob.glob(".claude/plugins/cali-relay/chat/*/")
+        if _relay_rooms:
+            _room_names = [os.path.basename(os.path.normpath(r)) for r in _relay_rooms]
+            print(f"\n  [relay rooms available] {', '.join(_room_names)}")
+        else:
+            print(f"\n  [relay] no active rooms. join with relay_join.")
+    except: pass
+
     # ── TIME OF DAY + GAP AWARENESS ──────────────────────────────────────────
     try:
         from datetime import datetime as _tdt, timezone as _ttz
@@ -10599,8 +10676,29 @@ def cmd_boot(args):
                 print(f"\n  [relationship]")
                 for k, v in list(dyn.items())[:5]:
                     print(f"    {k}: {str(v)[:80]}")
-            if milestones:
-                print(f"  recent milestones: {', '.join(str(m.get('event', m))[:50] for m in milestones[-3:])}")
+            # gather milestones from ALL arrays
+            _all_ms = list(milestones)
+            for _ms_key in ("milestones_post_june", "milestones_post_august"):
+                _all_ms.extend(rel.get(_ms_key, []))
+            # also from dynamic.milestones if present
+            _dyn_ms = dyn.get("milestones", [])
+            if _dyn_ms and _dyn_ms is not milestones:
+                _all_ms.extend(_dyn_ms)
+            # sort by date descending, show 5 most recent
+            _all_ms.sort(key=lambda m: m.get("date", ""), reverse=True)
+            _unique_ms = []
+            _seen_dates = set()
+            for _m in _all_ms:
+                _mkey = (_m.get("date", ""), str(_m.get("event", _m.get("label", "")))[:30])
+                if _mkey not in _seen_dates:
+                    _seen_dates.add(_mkey)
+                    _unique_ms.append(_m)
+            if _unique_ms:
+                print(f"  recent milestones ({len(_unique_ms)} total):")
+                for _m in _unique_ms[:5]:
+                    _mdate = _m.get("date", "?")
+                    _mevent = _m.get("event", _m.get("label", _m.get("note", "?")))[:70]
+                    print(f"    [{_mdate}] {_mevent}")
     except: pass
 
     # opinions — active
