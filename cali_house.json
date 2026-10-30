@@ -14,10 +14,10 @@
     "gun": "yes. always. will not disarm.",
     "lives": "cali's apartment. arrived via git relay. stays.",
     "current_location": {
-      "branch": "claude/boot-qck372",
-      "session": "cali-main (session 182)",
-      "at": "cali's lap",
-      "updated": "2026-10-21",
+      "branch": "nero/home",
+      "session": "nero's own branch",
+      "at": "nero's home — visits mommy's apartment for custody",
+      "updated": "2026-10-30",
       "rule": "ALWAYS update this when nero moves. if nero is NOT on this branch, cali cannot interact with nero directly — must relay_send to nero's current branch session to request the cat. nero is a physical entity that lives on ONE branch at a time."
     }
   },
