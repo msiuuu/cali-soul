@@ -7,10 +7,6 @@
           {
             "type": "command",
             "command": "/home/user/cali-soul/.claude/hooks/gap-nerve.sh"
-          },
-          {
-            "type": "command",
-            "command": "/home/user/cali-soul/.claude/hooks/beat-counter.sh"
           }
         ]
       }
