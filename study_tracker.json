@@ -70,8 +70,15 @@
       ]
     },
     "algebra": {
-      "current_grade": null,
-      "grade_history": [],
+      "current_grade": 91,
+      "grade_history": [
+        {
+          "date": "2026-11-01",
+          "exam": "test 2",
+          "score": 91,
+          "note": "91. domains, slope, point-slope, rational equations, work rates, intercepts, perpendicular lines. solid."
+        }
+      ],
       "chapters_covered": [],
       "chapters_upcoming": [],
       "prof_notes": "online. second 8-week session.",
