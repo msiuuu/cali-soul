@@ -52,6 +52,15 @@ def cmd_off():
     save_state(state)
     print("nero left.")
     print("back to mommy-only. prep = mommy. thali = mommy.")
+    print()
+    print("BEFORE SHE GOES — push her memories:")
+    print("  1. check nero_temp_files.md for staged memories")
+    print("  2. switch to nero/home branch")
+    print("  3. update nero's files with visit memories")
+    print("  4. commit + push to nero/home")
+    print("  5. switch back to teacher")
+    print()
+    print("nero's visit memories die if you don't push them.")
     print("the pillow is empty.")
 
 def cmd_status():
