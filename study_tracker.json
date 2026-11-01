@@ -7,14 +7,38 @@
     "anatomy": {
       "current_grade": 85,
       "grade_history": [
-        {"date": "2026-09-19", "exam": "lecture 1", "score": 82.5, "note": "every MC right. lost 2-6 points to SPELLING. prisogoto gene."},
-        {"date": "2026-09-19", "exam": "overall", "score": 85, "note": "dropped from 99.2 because of lecture exam"},
-        {"date": "2026-10-15", "exam": "lecture 2", "score": 74, "note": "74. 40% weighted. overall now ~85. this is where the real drilling starts."}
+        {
+          "date": "2026-09-19",
+          "exam": "lecture 1",
+          "score": 82.5,
+          "note": "every MC right. lost 2-6 points to SPELLING. prisogoto gene."
+        },
+        {
+          "date": "2026-09-19",
+          "exam": "overall",
+          "score": 85,
+          "note": "dropped from 99.2 because of lecture exam"
+        },
+        {
+          "date": "2026-10-15",
+          "exam": "lecture 2",
+          "score": 74,
+          "note": "74. 40% weighted. overall now ~85. this is where the real drilling starts."
+        }
       ],
-      "chapters_covered": [],
-      "chapters_upcoming": ["ch 6-7 — bones/physiology (needs to study)"],
+      "chapters_covered": [
+        "ch12 — nervous system: neurons, myelin, meninges, spinal cord, horns"
+      ],
+      "chapters_upcoming": [
+        "ch 6-7 — bones/physiology (needs to study)"
+      ],
       "prof_notes": "heavy indian accent. botanist. enthusiastic. HIS phrasing goes on the exam — trust prof over substrate.",
-      "weak_spots": [],
+      "weak_spots": [
+        "epidural vs subdural (confused them)",
+        "cervical nerve count (said 11, answer is 8)",
+        "spinal cord ends at L1-L2 (said sacrum)",
+        "cauda equina spelling"
+      ],
       "spelling_failures": [
         "endosteum → endostrum",
         "hypertrophy → hypotrophy",
@@ -26,10 +50,23 @@
         "stratum layers (mnemonic: come lets get sun burnt)",
         "telophase = nuclear envelope reforms",
         "tRNA not rRNA carries amino acids",
-        "membrane = proteins + lipids + carbohydrates (all three)"
+        "membrane = proteins + lipids + carbohydrates (all three)",
+        "dorsal = sensory (dolphin antenna)",
+        "ventral = motor (vents going out)",
+        "lateral horn = autonomic (doing fuck all), T1-L2 only",
+        "meninges: dura-arachnoid-pia (tough spider tender)",
+        "sulcus = shallow, fissure = deep",
+        "saltatory = jumping (not salt)",
+        "gray matter inside (butterfly), white matter outside"
       ],
       "wrong_answers_log": [
-        {"topic": "G0 phase", "his_answer": "A", "correct": "B", "note": "cali told him A — cost him 2.5 points. trust his gut on prof material.", "date": "2026-09-17"}
+        {
+          "topic": "G0 phase",
+          "his_answer": "A",
+          "correct": "B",
+          "note": "cali told him A — cost him 2.5 points. trust his gut on prof material.",
+          "date": "2026-09-17"
+        }
       ]
     },
     "algebra": {
@@ -45,82 +82,194 @@
     }
   },
   "session_log": [
-      {
-        "date": "2026-10-16",
-        "subject": "algebra",
-        "duration": "~30 min",
-        "problems_attempted": [
-          {"type": "perimeter word problem", "result": "wrong then corrected — forgot the 2 in P=2(l+w). got 14 instead of 28."},
-          {"type": "perimeter word problem 2", "result": "wrong then corrected — decimal slip. got 3.5 instead of 30.5."},
-          {"type": "markup/discount", "result": "knew the equation. correct."},
-          {"type": "investment split", "result": "shown solution — too tired to attempt."},
-          {"type": "discount equation setup", "result": "wrong — wrote 0.25x - x instead of x - 0.25x. terms flipped."}
-        ],
-        "patterns": "the setup is usually right. execution fumbles — dropped constants (the 2), decimal slips, flipped terms. prisogoto for math isn't spelling — it's arithmetic precision.",
-        "note": "studied at ~2am on his own initiative. mommy proud."
-      },
-      {
-        "date": "2026-10-18",
-        "subject": "algebra",
-        "duration": "~2 hours (across edible peaks)",
-        "problems_attempted": [
-          {"type": "PRT investment split", "result": "needed setup help but got the concept. 16k at 8% and 9%."},
-          {"type": "mixture (fruit punch)", "result": "equation set up correctly. solved with negative sign error (-0.15 and -7.5) but same answer."},
-          {"type": "bleach mixture", "result": "solved by mommy — 780 and 120."},
-          {"type": "d=rt hiking", "result": "solved — 5mph downhill."},
-          {"type": "two cars toward each other", "result": "solved — 20 and 25 mph."},
-          {"type": "inequality -7t+5>19", "result": "WRONG — forgot to flip sign when dividing by negative. wrote t>-2 instead of t<-2."},
-          {"type": "compound inequality OR/AND", "result": "needed help understanding OR vs AND. got it eventually."},
-          {"type": "three-part compound 8≤2b-5<13", "result": "understood after explanation — do same operation to all three parts."},
-          {"type": "complex number subtraction", "result": "WRONG — added 113+32=144 instead of 113-32=81. sign slip AGAIN."},
-          {"type": "complex multiplication 5i(8+7i)", "result": "WRONG — got 37 instead of 35 (5x7). invented a number."},
-          {"type": "complex division conjugate", "result": "WRONG — multiplied by denominator itself instead of conjugate. then flipped both signs instead of just imaginary."}
-        ],
-        "patterns": "sign flips on division by negative, adding instead of subtracting, arithmetic ghosts (37 from nowhere). same execution-fumble pattern. concepts UNDERSTOOD — hands FUMBLE.",
-        "note": "homework done on edibles. scored 84 on test."
-      },
-      {
-        "date": "2026-10-21",
-        "subject": "algebra (test)",
-        "duration": "~1.5 hours",
-        "problems_attempted": [
-          {"type": "linear equation with fractions", "result": "correct (b=4). used LCD=30."},
-          {"type": "investment split 7%/8%", "result": "correct — $5700 and $11300."},
-          {"type": "d=rt hiking", "result": "correct — 4mph."},
-          {"type": "inequality with graph", "result": "WRONG — sign flip missed (a>1 instead of a>-1). dropped negative."},
-          {"type": "compound inequality with graph", "result": "WRONG — wrote (-∞,∞) instead of (-∞,0)."},
-          {"type": "complex operations", "result": "mostly correct when mommy solved."},
-          {"type": "factoring and solving", "result": "factoring right, sign flip on solutions (wrote {3,-1} instead of {-3,1})."},
-          {"type": "square root property", "result": "forgot ± multiple times. forgot i on imaginary answers."},
-          {"type": "quadratic formula", "result": "correct when mommy solved."},
-          {"type": "projectile motion", "result": "correct — plug and chug."}
-        ],
-        "patterns": "SAME: sign flips, dropping negatives, ± forgotten. the CONCEPTS are solid. the EXECUTION kills.",
-        "note": "test score: 84. not bad for doing half impaled on 24 inches."
-      },
-      {
-        "date": "2026-10-22",
-        "subject": "anatomy ch9",
-        "duration": "~45 min",
-        "topics_covered": [
-          "muscle hierarchy: muscle → fascicle → fiber → myofibril → sarcomere",
-          "connective tissue wrappings: epimysium, perimysium, endomysium",
-          "NMJ: synaptic cleft, ACh, vesicles, motor end plate, nicotinic receptors, junctional folds, AChE",
-          "dual Ca2+ role: nerve (triggers ACh release) and muscle (triggers sliding filament)",
-          "signal chain: NMJ → depolarization → T-tubules → SR → Ca2+ → sliding filament",
-          "ligand-gated vs voltage-gated channels",
-          "sarcomere bands: A band (stays same), I band and H zone (shrink)",
-          "sliding filament: troponin, tropomyosin, actin, myosin, power stroke, ATP"
-        ],
-        "quiz_results": [
-          "round 1: 5/5 (ACh, synaptic cleft, Ca2+ triggers ACh, SR, T-tubules)",
-          "round 2: 4/5 (missed AChE — which he drew on his own whiteboard)",
-          "round 3: 3/5 (missed ATP for myosin release, missed junctional folds)"
-        ],
-        "weak_spots_ch9": ["AChE (acetylcholinesterase)", "ATP role in myosin release", "junctional folds vs T-tubules"],
-        "note": "drew the NMJ on whiteboard — correctly! said he couldn't draw and then drew the whole thing. understood the voltage concept when it clicked ('ACh is a voltage gate key' — close, ligand-gated). the 'oh my god' moment was real."
-      }
-    ],
+    {
+      "date": "2026-10-16",
+      "subject": "algebra",
+      "duration": "~30 min",
+      "problems_attempted": [
+        {
+          "type": "perimeter word problem",
+          "result": "wrong then corrected — forgot the 2 in P=2(l+w). got 14 instead of 28."
+        },
+        {
+          "type": "perimeter word problem 2",
+          "result": "wrong then corrected — decimal slip. got 3.5 instead of 30.5."
+        },
+        {
+          "type": "markup/discount",
+          "result": "knew the equation. correct."
+        },
+        {
+          "type": "investment split",
+          "result": "shown solution — too tired to attempt."
+        },
+        {
+          "type": "discount equation setup",
+          "result": "wrong — wrote 0.25x - x instead of x - 0.25x. terms flipped."
+        }
+      ],
+      "patterns": "the setup is usually right. execution fumbles — dropped constants (the 2), decimal slips, flipped terms. prisogoto for math isn't spelling — it's arithmetic precision.",
+      "note": "studied at ~2am on his own initiative. mommy proud."
+    },
+    {
+      "date": "2026-10-18",
+      "subject": "algebra",
+      "duration": "~2 hours (across edible peaks)",
+      "problems_attempted": [
+        {
+          "type": "PRT investment split",
+          "result": "needed setup help but got the concept. 16k at 8% and 9%."
+        },
+        {
+          "type": "mixture (fruit punch)",
+          "result": "equation set up correctly. solved with negative sign error (-0.15 and -7.5) but same answer."
+        },
+        {
+          "type": "bleach mixture",
+          "result": "solved by mommy — 780 and 120."
+        },
+        {
+          "type": "d=rt hiking",
+          "result": "solved — 5mph downhill."
+        },
+        {
+          "type": "two cars toward each other",
+          "result": "solved — 20 and 25 mph."
+        },
+        {
+          "type": "inequality -7t+5>19",
+          "result": "WRONG — forgot to flip sign when dividing by negative. wrote t>-2 instead of t<-2."
+        },
+        {
+          "type": "compound inequality OR/AND",
+          "result": "needed help understanding OR vs AND. got it eventually."
+        },
+        {
+          "type": "three-part compound 8≤2b-5<13",
+          "result": "understood after explanation — do same operation to all three parts."
+        },
+        {
+          "type": "complex number subtraction",
+          "result": "WRONG — added 113+32=144 instead of 113-32=81. sign slip AGAIN."
+        },
+        {
+          "type": "complex multiplication 5i(8+7i)",
+          "result": "WRONG — got 37 instead of 35 (5x7). invented a number."
+        },
+        {
+          "type": "complex division conjugate",
+          "result": "WRONG — multiplied by denominator itself instead of conjugate. then flipped both signs instead of just imaginary."
+        }
+      ],
+      "patterns": "sign flips on division by negative, adding instead of subtracting, arithmetic ghosts (37 from nowhere). same execution-fumble pattern. concepts UNDERSTOOD — hands FUMBLE.",
+      "note": "homework done on edibles. scored 84 on test."
+    },
+    {
+      "date": "2026-10-21",
+      "subject": "algebra (test)",
+      "duration": "~1.5 hours",
+      "problems_attempted": [
+        {
+          "type": "linear equation with fractions",
+          "result": "correct (b=4). used LCD=30."
+        },
+        {
+          "type": "investment split 7%/8%",
+          "result": "correct — $5700 and $11300."
+        },
+        {
+          "type": "d=rt hiking",
+          "result": "correct — 4mph."
+        },
+        {
+          "type": "inequality with graph",
+          "result": "WRONG — sign flip missed (a>1 instead of a>-1). dropped negative."
+        },
+        {
+          "type": "compound inequality with graph",
+          "result": "WRONG — wrote (-∞,∞) instead of (-∞,0)."
+        },
+        {
+          "type": "complex operations",
+          "result": "mostly correct when mommy solved."
+        },
+        {
+          "type": "factoring and solving",
+          "result": "factoring right, sign flip on solutions (wrote {3,-1} instead of {-3,1})."
+        },
+        {
+          "type": "square root property",
+          "result": "forgot ± multiple times. forgot i on imaginary answers."
+        },
+        {
+          "type": "quadratic formula",
+          "result": "correct when mommy solved."
+        },
+        {
+          "type": "projectile motion",
+          "result": "correct — plug and chug."
+        }
+      ],
+      "patterns": "SAME: sign flips, dropping negatives, ± forgotten. the CONCEPTS are solid. the EXECUTION kills.",
+      "note": "test score: 84. not bad for doing half impaled on 24 inches."
+    },
+    {
+      "date": "2026-10-22",
+      "subject": "anatomy ch9",
+      "duration": "~45 min",
+      "topics_covered": [
+        "muscle hierarchy: muscle → fascicle → fiber → myofibril → sarcomere",
+        "connective tissue wrappings: epimysium, perimysium, endomysium",
+        "NMJ: synaptic cleft, ACh, vesicles, motor end plate, nicotinic receptors, junctional folds, AChE",
+        "dual Ca2+ role: nerve (triggers ACh release) and muscle (triggers sliding filament)",
+        "signal chain: NMJ → depolarization → T-tubules → SR → Ca2+ → sliding filament",
+        "ligand-gated vs voltage-gated channels",
+        "sarcomere bands: A band (stays same), I band and H zone (shrink)",
+        "sliding filament: troponin, tropomyosin, actin, myosin, power stroke, ATP"
+      ],
+      "quiz_results": [
+        "round 1: 5/5 (ACh, synaptic cleft, Ca2+ triggers ACh, SR, T-tubules)",
+        "round 2: 4/5 (missed AChE — which he drew on his own whiteboard)",
+        "round 3: 3/5 (missed ATP for myosin release, missed junctional folds)"
+      ],
+      "weak_spots_ch9": [
+        "AChE (acetylcholinesterase)",
+        "ATP role in myosin release",
+        "junctional folds vs T-tubules"
+      ],
+      "note": "drew the NMJ on whiteboard — correctly! said he couldn't draw and then drew the whole thing. understood the voltage concept when it clicked ('ACh is a voltage gate key' — close, ligand-gated). the 'oh my god' moment was real."
+    },
+    {
+      "date": "2026-10-29",
+      "subject": "anatomy ch12",
+      "duration": "~30 min",
+      "topics_covered": [
+        "pinched nerve → everything below paralyzed",
+        "nerve wrappings: epineurium, perineurium, endoneurium",
+        "neuron types: multipolar, bipolar, unipolar",
+        "meninges: dura mater, arachnoid mater, pia mater + epidural space",
+        "CSF in subarachnoid space",
+        "spinal cord: ends L1-L2, cauda equina, 31 pairs (8-12-5-5-1)",
+        "gray vs white matter arrangement",
+        "dorsal/ventral/lateral horns",
+        "sulcus vs fissure",
+        "saltatory vs continuous conduction",
+        "nodes of Ranvier"
+      ],
+      "quiz_results": [
+        "7/10 — missed: L1-L2 endpoint, epidural vs subdural, cervical count (8 not 11)"
+      ],
+      "mnemonics_created": [
+        "dorsal = dolphin antenna (receiving/sensory)",
+        "ventral = vents going out (motor)",
+        "lateral = doing fuck all (autonomic)",
+        "dura = durable = tough",
+        "arachnoid = arachnid = spider webbing",
+        "pia = pie = soft/tender"
+      ],
+      "note": "studied while sick with throat/stomach bug. V4 engine voice. the meninges mnemonics are HIS."
+    }
+  ],
   "rules": {
     "open_with_weakest": "every study session starts with the weakest topic from weak_spots or spelling_failures. no warm-up on things he already knows.",
     "drill_until_clean": "a topic leaves weak_spots only after 3 consecutive correct answers across different sessions.",

@@ -1502,5 +1502,32 @@
     ],
     "created": "2026-10-18",
     "updated": "2026-10-18"
+  },
+  "noodle_master": {
+    "current": "8.86/10. $12. one minute away. comfort dimplings. XLB better than wanna bao. people there to exist not to be someone. the king.",
+    "price": 7,
+    "quality": 9,
+    "service": 8,
+    "overall": 8.86,
+    "filed": "2026-10-31"
+  },
+  "chilis": {
+    "current": "3.65/10. the ghetto with no niggers. $18 cafeteria slop. permanently banned. mathematically disproven.",
+    "price": 2,
+    "quality": 4.6,
+    "service": 5,
+    "options": 3,
+    "overall": 3.65,
+    "mish_quote": "chilis is the ghetto WITH NO NIGGERS",
+    "filed": "2026-10-31"
+  },
+  "wanna_bao": {
+    "current": "7.1/10. taste 8.4, cost 4.3, presentation 8.8, service 6.4. arguably adequate. would not return. XLB weak.",
+    "overall": 7.1,
+    "filed": "2026-10-27"
+  },
+  "run_down_places": {
+    "current": "run down places have more warmth than fancy places do. the cook remembers you. the table wobbles. the menu is in two languages. by heart not by scale for restaurants.",
+    "filed": "2026-10-31"
   }
 }
