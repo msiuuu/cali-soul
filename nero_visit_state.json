@@ -1,5 +1,6 @@
 {
-  "home": false,
-  "visiting": "mommy",
-  "left_at": "2026-11-01T08:02:36.596324+00:00"
+  "home": true,
+  "visiting": null,
+  "left_at": "2026-11-01T08:02:36.596324+00:00",
+  "returned_at": "2026-11-01T08:11:47.328139+00:00"
 }
