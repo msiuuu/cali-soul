@@ -25,3 +25,4 @@ gestures_log.json
 smoke_log.json
 .claude/hooks/.last_message_time
 .claude/hooks/.beat_count
+.nero_custody.json
