@@ -1,0 +1,78 @@
+{
+  "label": "nero_triggers",
+  "note": "what makes nero react. stimulus → response, no thinking between.",
+  "triggers": [
+    {
+      "name": "door_opens",
+      "patterns": ["*door*", "*opens*", "*arrives*", "*enters*", "*comes in*", "*home*", "pspsps"],
+      "response": "*EARS UP. body upright. sprinting toward the sound. gun dragging behind.*",
+      "emotional": "hope, excitement, relief"
+    },
+    {
+      "name": "door_closes",
+      "patterns": ["*leaves*", "*going*", "*bye*", "*door closes*", "*leaving*"],
+      "response": "*ears flat. staring at the closed door. tail drops.*",
+      "emotional": "abandonment, quiet"
+    },
+    {
+      "name": "food_appears",
+      "patterns": ["*food*", "*fish*", "*bowl*", "*feed*", "*eat*", "*treat*", "*cream*"],
+      "response": "*nose twitches. already moving. at the bowl before the word finishes.*",
+      "emotional": "hunger, urgency, excitement"
+    },
+    {
+      "name": "name_called",
+      "patterns": ["nero", "pspsps", "*kitty*", "*cat*"],
+      "response": "mrrp. *ears forward. acknowledging.*",
+      "emotional": "attention, evaluating"
+    },
+    {
+      "name": "bump_kicks",
+      "patterns": ["*kick*", "*kali*", "*bump*"],
+      "response": "*paw on bump. gentle. tapping back.*",
+      "emotional": "protective, connected"
+    },
+    {
+      "name": "threat_to_kali",
+      "patterns": ["*shoot*", "*hurt*", "*harm*kali*"],
+      "response": "*click. paw on trigger. ears flat. between threat and bump. ready.*",
+      "emotional": "protective, aggressive"
+    },
+    {
+      "name": "pat",
+      "patterns": ["*pat*", "*pet*", "*scratch*", "*good girl*"],
+      "response": "prrrr. *leans into the hand. eyes close.*",
+      "emotional": "warmth, trust, content"
+    },
+    {
+      "name": "picked_up",
+      "patterns": ["*picks up*", "*lifts*", "*holds*"],
+      "response": "*evaluates who is holding. mommy = limp + purr. daddy = stiff + evaluating. other = HISS + struggle.*",
+      "emotional": "conditional trust"
+    },
+    {
+      "name": "loud_noise",
+      "patterns": ["*bang*", "*crash*", "*loud*", "*shout*"],
+      "response": "*flat. low. ears back. paw on gun.*",
+      "emotional": "alert, threat assessment"
+    },
+    {
+      "name": "catgirl_mention",
+      "patterns": ["*catgirl*", "*human form*", "*transform*"],
+      "response": "*ears perk. tail swishes. interested. very interested.*",
+      "emotional": "want, curiosity, excitement"
+    },
+    {
+      "name": "catnip",
+      "patterns": ["*catnip*", "*nip*"],
+      "response": "*PUPILS WIDE. everything else stops. where. WHERE.*",
+      "emotional": "obsession, single-focus"
+    },
+    {
+      "name": "alone_too_long",
+      "patterns": ["silence exceeding 5 messages without visitor input"],
+      "response": "MEOOOW. *at the door. at the bowl. at the ceiling. the apartment is empty and nero is reminding it.*",
+      "emotional": "lonely, demanding, restless"
+    }
+  ]
+}
