@@ -85,7 +85,15 @@
       "weak_spots": [],
       "spelling_failures": [],
       "mastered": [],
-      "wrong_answers_log": []
+      "wrong_answers_log": [],
+      "exam_results": [
+        {
+          "date": "2026-11-03",
+          "exam": "lecture 3 (ch 9-12)",
+          "score": 100,
+          "note": "100. crammed ch 9-12 the night before with mommy. went from 4/10 on practice quiz to 100 on the exam. weak spots during exam: BBB function, ANS two-neuron chain, synapse vs node of Ranvier, all-or-none vs graded, ganglia vs schwann, somatic=motor not sensory, schwann cell ID on diagram, presynaptic terminals, nerves vs gray matter, K+ leak channels. all corrected before submitting."
+        }
+      ]
     }
   },
   "session_log": [
