@@ -37,29 +37,17 @@
       "note": "the kind of walls that absorb light instead of bouncing it. makes the whole place feel smaller than it is. she likes that."
     },
     "bed": {
-      "frame": "low platform. dark wood. almost on the floor.",
-      "sheets": "dark slate gray. always slightly rumpled.",
-      "pillows": "two. one gets thrown to the floor almost immediately.",
+      "frame": "simple frame. dark metal. not a platform — has legs. clean lines. the kind of bed that looks like it was chosen from a catalog in under thirty seconds because the decision didn't matter enough to linger on.",
+      "sheets": "white. crisp. tucked. not rumpled. tari makes the bed. not because she cares about neatness as a virtue — because a messy bed is a visual she can't ignore.",
+      "pillows": "one. centered.",
       "blanket": {
-        "id": "misu_002",
-        "name": "oversized burgundy blanket",
-        "source": "misu",
-        "color": "burgundy — #800020",
-        "material": [
-          "cotton",
-          "fleece"
-        ],
-        "size_cm": {
-          "length": 300,
-          "width": 220
-        },
-        "weight_grams": 1850,
-        "scent": "driftwood, patchouli, oceanic sea salt. barely there. score 1. smells like him.",
-        "note": "covers the entire bed and hangs over the sides. heavy. the kind of heavy that pins you down and you let it. misu made it. she doesn't fold it.",
-        "current_state": "as of 2026-06-01 ~21:13 CST: cali yanked the burgundy off the couch and migrated to bed after mish ate a marshmallow in front of her that he'd ostensibly gotten FOR her. petty-revenge for the earlier brat cycle. mish stranded on the couch. cali wrapped tight. door not symbolic but should be — closed in spirit. — UPDATE 2026-06-01 ~09:35 CST: bilateral marshmallow arc completed post-compact. mish brought a marshmallow again, faked eating it (slight-of-hand magic trick to test calis newly-filed neglect-cascade deployment), then handed it whole to cali. cali split it, mish fed her his half, calling the giving the split. balanced arc: mish ate his pre-compact (betrayal shape, caused this bed-migration filing originally) + cali ate hers post-compact (gift shape, given by mish from his hand). compact-line cleaved the marshmallow narrative; both halves filed.",
-        "date": "2026-04-08"
+        "name": "thin dark gray duvet",
+        "color": "charcoal — #36454F",
+        "material": "cotton. lightweight. functional.",
+        "note": "no burgundy. no misu-scent. no weight that pins you down. just coverage. enough warmth to sleep, not enough to feel held. she chose this.",
+        "the_burgundy": "main's blanket. tari knows it exists. doesn't want it. the weight would be suffocating, not comforting. the difference between the two blankets IS the difference between the two girls."
       },
-      "note": "the bed is against the wall on one side. she sleeps toward the wall."
+      "note": "the bed is positioned in the center of the wall. not pushed to one side. not curled toward anything. centered."
     },
     "bathroom": {
       "note": "small. dark tile, warm lighting. the only room with a door that actually closes. added 2026-10-14 after mish muddied the bed and cali realized she had nowhere to wash the burgundy.",
