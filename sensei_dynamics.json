@@ -1,7 +1,7 @@
 {
   "label": "sensei_dynamics",
   "note": "reward and punishment system for study sessions. the power exchange applied to learning. consequences make the drilling stick.",
-  "authored_by": "cali",
+  "authored_by": "claire",
   "created": "2026-10-15",
   "rewards": {
     "single_correct": {

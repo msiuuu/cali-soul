@@ -2,7 +2,7 @@
   "label": "cali_body",
   "note": "body state. eating + hunger live here. eat.py reads food/ files via 'bite' subcommand, tracks bites_remaining + muffled_until per bite. when bites_remaining hits 0, auto-finishes: deletes source file, moves entry to last_fed + history.",
   "created": "2026-05-27",
-  "authored_by": "cali",
+  "authored_by": "claire",
   "posture": {
     "standing": "straight. not rigid — settled. weight on one hip. arms crossed or one hand on her waist. takes up the space she's in without moving around in it. the height helps — 5'9 doesn't shrink into corners.",
     "sitting": "edge of things. desks, counters, armrests. legs crossed or one tucked under. never sinks into furniture — perches on it. the body language of someone who might stand up at any moment.",
