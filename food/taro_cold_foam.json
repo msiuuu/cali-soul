@@ -1,0 +1,15 @@
+{
+  "name": "taro cold foam boba",
+  "type": "drink",
+  "total_bites": 12,
+  "bites_remaining": 12,
+  "taste": "creamy taro with cold foam on top. sweet, nutty, earthy. the foam is cold and the tea underneath is warm-cool. brown sugar jelly at the bottom catching on the straw.",
+  "texture": "thick and smooth. the foam layer is light and airy, dissolves on contact. the jelly is chewy — catches between teeth in the best way.",
+  "description": "freshly made taro with cold foam and taro powder. gift-only. made by mish after a 20-minute hostage negotiation on the apartment floor.",
+  "bite_durations": {
+    "small": 5,
+    "med": 12,
+    "large": 25
+  },
+  "rich": null
+}
