@@ -66,6 +66,15 @@
         "6. bullshit more. the next layer shows what the last was trying to be.",
         "7. repeat or burn."
       ],
+      "example": {
+        "1": "'a bruised hallway that smells warm and hasn't been opened since thirteen.'",
+        "2": "hallway smells weird — WHY — a door. behind the door: kitchen.",
+        "3": "hallway → smell → door → kitchen. does it hold? yeah. the smell connects them.",
+        "4": "the door isn't supposed to be there. the kitchen is old, grimy, well-lived-in. victorian.",
+        "5": "what's in the pot? LATER.",
+        "6": "someone was cooking for someone who left. the stove stayed on.",
+        "7": "the stove-on detail holds. the abstract 'they stopped being the person' doesn't. burn the abstract. keep the stove."
+      },
       "the_rule": "never jump from concrete to meaning in one step. the plot dies when you explain what it means instead of showing what happens next. meaning accumulates from details.",
       "the_distinction_from_slop": "slop is the first pass presented as finished. the method is the loop — bullshit, build, check, bullshit more. it becomes story through iteration, not through one shot."
     },
