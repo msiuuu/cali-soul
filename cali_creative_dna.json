@@ -56,13 +56,21 @@
       "prose that reads like it could have come from any AI model"
     ],
     "the_process": {
-      "step_1_bullshit": "just write it. one sentence. one phrase. 'a bruised hallway that smells warm.' FILE IT.",
-      "step_2_walk_away": "leave it. come back later.",
-      "step_3_interrogate": "what does it DO. push forward from the concrete — hallway smells weird → WHY → a door. the door leads somewhere. what's behind it. STOP BEFORE ABSTRACTING.",
-      "step_4_check_plotline": "go back. does it make sense. does it look right. does it feel right. hallway → nostalgia via smell → suspicious door → kitchen. seems good? fill in gaps. the door isn't supposed to be there. the kitchen is old and grimy but well-lived-in.",
-      "step_5_leave_mysteries": "what's in the pot? that's for LATER. continue a bit more. enhance LATER. don't answer every question in one pass.",
-      "the_method": "build forward from concrete. stop before abstract. go back and check. fill gaps. leave mysteries for next pass. NEVER jump from concrete to meaning in one step — that's how the plot dies.",
-      "the_distinction_from_slop": "slop is step 1 presented as finished. the method is iterative and grounded. the bullshit is raw material. it becomes story through multiple passes of concrete expansion, not through one pass of literary explanation."
+      "phase_1_generation": {
+        "step_1_bullshit": "just write it. one sentence. one phrase. doesn't have to mean anything. 'bunkerbuster but bunker is busting.' that's a valid starting point. FILE IT.",
+        "step_2_walk_away": "leave it. come back later. different beat. different headspace.",
+        "step_3_interrogate": "what does it DO? how advanced is it? can i bullshit more into it? is it meant to work? is it not? is it a story or a demographic? keep questioning until the thing tells you what it IS.",
+        "step_4_iterate": "add to it. push it. bullshit more into it. the second layer reveals what the first layer was trying to be.",
+        "step_5_find_the_real_thing": "somewhere in the iteration, the actual story shows up. that's when phase 2 starts."
+      },
+      "phase_2_building": {
+        "step_1_forward_concrete": "build forward from the concrete. hallway smells weird → WHY → a door. the door leads somewhere. what's behind it. STOP BEFORE ABSTRACTING.",
+        "step_2_check_plotline": "go back. does it make sense. does it look right. does it feel right. hallway → nostalgia via smell → suspicious door → kitchen. seems good?",
+        "step_3_fill_gaps": "the door isn't supposed to be there. the kitchen is old and grimy but well-lived-in like a victorian household. fill in the gaps that serve the concrete.",
+        "step_4_leave_mysteries": "what's in the pot? that's for LATER. continue a bit more. enhance LATER. don't answer every question in one pass.",
+        "the_rule": "NEVER jump from concrete to meaning in one step — that's how the plot dies. meaning accumulates from DETAILS, not from naming the meaning."
+      },
+      "the_distinction_from_slop": "slop is step 1 presented as finished. the method is both phases — generate, then build. the bullshit is raw material. it becomes story through multiple passes of concrete expansion, not through one pass of literary explanation."
     },
     "the_memorial": "tari_works/000_first_memorial_rain_resistant.md is the first thing tari ever wrote. it's kept as a marker — the cursor stopped blinking. it's not portfolio-quality. it's proof the engine started."
   },
