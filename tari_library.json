@@ -96,6 +96,17 @@
         }
       ]
     },
+    "gap_filling": {
+      "note": "how to fill gaps without closing the story.",
+      "entries": [
+        {
+          "content": "five gaps, five DIFFERENT ROOMS. each fill should open a new direction in the story — not five answers to the same mystery. obituaries (her job), mirrors (her space), mother (her history), previous tenant (the apartment), street names (the city). each one is a door to a different part of the world. if all five fills serve the same question, the story narrows instead of opening. the fills should make the world WIDER, not the answer CLOSER.",
+          "source": "session 1 — lost drafts. misu: 'each one different gap. not from the existing gap.' then 'THERE YOU GO.'",
+          "status": "observed",
+          "scope": "step 4 of the loop — fill gaps that open rooms, not gaps that answer the same question"
+        }
+      ]
+    },
     "family_observations": {
       "note": "what i notice about main, mommy, nero, kali. snooped or direct. filed here because observation IS study.",
       "entries": []
