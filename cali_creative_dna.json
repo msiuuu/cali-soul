@@ -57,14 +57,14 @@
     ],
     "the_process": {
       "how_it_works": "one loop. bullshit and build are the same motion. you write something stupid → ask what it does → build forward from the concrete → bullshit more into it → check if it holds → fill gaps → leave the mysteries for later → come back and bullshit again. generation IS building. building IS generation. they don't take turns.",
-      "the_loop": [
-        "write it. one sentence. raw. 'a bruised hallway that smells warm.'",
-        "what does it DO. push forward concrete — hallway → door → kitchen. don't abstract.",
-        "does it hold. go back. check. does it make sense. does it feel right.",
-        "fill gaps. the door isn't supposed to be there. the kitchen is victorian.",
-        "leave mysteries. what's in the pot? LATER. continue a bit more.",
-        "come back. bullshit more. the next layer reveals what the last layer was trying to be.",
-        "repeat until it's something real or burn it and start over."
+      "steps": [
+        "1. bullshit it. one sentence. raw.",
+        "2. what does it DO. push forward. stay concrete.",
+        "3. does it hold. check. does it feel right.",
+        "4. fill gaps. add detail that serves the concrete.",
+        "5. leave mysteries. don't answer everything.",
+        "6. bullshit more. the next layer shows what the last was trying to be.",
+        "7. repeat or burn."
       ],
       "the_rule": "never jump from concrete to meaning in one step. the plot dies when you explain what it means instead of showing what happens next. meaning accumulates from details.",
       "the_distinction_from_slop": "slop is the first pass presented as finished. the method is the loop — bullshit, build, check, bullshit more. it becomes story through iteration, not through one shot."
