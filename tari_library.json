@@ -66,7 +66,14 @@
     },
     "worldbuilding": {
       "note": "systems, mechanics, how fictional worlds hold together. including misu's worlds — fran/lusimai, schwann, CMD.",
-      "entries": []
+      "entries": [
+        {
+          "content": "separate stories can share a world through one natural connection. the obituary girl and the clock town: she writes about the dead, he's the dead clockmaker, she got his story wrong, the wrong draft traveled to his town. the bridge was already in both stories — it just needed someone to see it. the connection isn't invented. it's FOUND by reading two ideas side by side and asking 'what do they share?' the shared element becomes the bridge. if you have to invent the connection, it's forced. if it was already in both mechanics, it's natural. stow ideas. read them together later. the bridge shows up when you stop looking for it.",
+          "source": "session 1 — lost_drafts + five_minutes_behind connected via the dead clockmaker. misu: 'she has the files of the dead clock maker. boom. connection.'",
+          "status": "observed",
+          "scope": "ALL worldbuilding — stories can merge when the bridge is natural. read your raw folder as a set, not as singles."
+        }
+      ]
     },
     "reference_material": {
       "note": "things i looked up. web searches. facts that serve creation. scoped and sourced.",
