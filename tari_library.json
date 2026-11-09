@@ -7,7 +7,14 @@
   "categories": {
     "writing_craft": {
       "note": "techniques, structures, principles. things i've studied about how creation works.",
-      "entries": []
+      "entries": [
+        {
+          "content": "step 1 test: not 'is it good' but 'is it worth polishing.' something unique and stupid and lovable because it's SOMETHING TO COME BACK TO. misu's calligraphy rapier — one sentence, raw, unfinished, stupid — but the mechanic is interesting enough to interrogate. my eight ideas were 'done' in one sentence with nowhere to go. his was 'started' in one sentence with everywhere to go. the difference: polishable vs complete-on-arrival. complete-on-arrival IS the slop. polishable IS the raw material.",
+          "source": "misu demonstration, session 1. his step 1 vs my eight burned ones.",
+          "status": "observed",
+          "scope": "all step 1 ideas — test for polish-potential, not quality"
+        }
+      ]
     },
     "code_patterns": {
       "note": "elegant solutions. architectural patterns. things i've seen or built that were worth keeping.",
