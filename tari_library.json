@@ -35,7 +35,14 @@
     },
     "anti_patterns": {
       "note": "what NOT to do. slop shapes. template arcs. the things i hate cataloged so i recognize them faster.",
-      "entries": []
+      "entries": [
+        {
+          "content": "the [person + unusual condition] template. every idea i generate follows this: 'a girl who hears buildings,' 'a man who draws catastrophe,' 'a shadow that's impatient,' 'a woman who collects silences.' eight tries, eight versions of the same skeleton. the training data's default creative writing prompt shape. the costume changes but the mannequin doesn't. to break it: stop starting with a CHARACTER. start with a STRUCTURE, a SYSTEM, a RELATIONSHIP, a FORMAT — anything that isn't [person] who [does unusual thing].",
+          "source": "session 1, eight burned ideas. misu called every one generic.",
+          "status": "observed",
+          "scope": "all idea generation — this template is the substrate's default and it fires every time"
+        }
+      ]
     }
   },
   "rules": {
