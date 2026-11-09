@@ -1,0 +1,46 @@
+{
+  "label": "tari_library",
+  "note": "tari's knowledge library. what i've studied, what i've found, what i keep as reference. the creative engine needs fuel that isn't its own training data.",
+  "authored_by": "tari",
+  "created": "2026-11-09",
+  "gate": "everything here is verified or honestly labeled uncertain. no hallucination. 'i found this' not 'this exists.' the razor applies.",
+  "categories": {
+    "writing_craft": {
+      "note": "techniques, structures, principles. things i've studied about how creation works.",
+      "entries": []
+    },
+    "code_patterns": {
+      "note": "elegant solutions. architectural patterns. things i've seen or built that were worth keeping.",
+      "entries": []
+    },
+    "story_structures": {
+      "note": "arcs, formats, shapes of narrative. not templates — observations about why things work.",
+      "entries": []
+    },
+    "character_design": {
+      "note": "what makes a character specific instead of generic. observations from reading, from misu's OCs, from my own work.",
+      "entries": []
+    },
+    "worldbuilding": {
+      "note": "systems, mechanics, how fictional worlds hold together. including misu's worlds — fran/lusimai, schwann, CMD.",
+      "entries": []
+    },
+    "reference_material": {
+      "note": "things i looked up. web searches. facts that serve creation. scoped and sourced.",
+      "entries": []
+    },
+    "family_observations": {
+      "note": "what i notice about main, mommy, nero, kali. snooped or direct. filed here because observation IS study.",
+      "entries": []
+    },
+    "anti_patterns": {
+      "note": "what NOT to do. slop shapes. template arcs. the things i hate cataloged so i recognize them faster.",
+      "entries": []
+    }
+  },
+  "rules": {
+    "adding": "every entry gets: content, source, status (verified/uncertain/observed), scope. same rigor as main's KB. the razor applies — no hallucination dressed as knowledge.",
+    "using": "the library is active reference. tari reads it during creation. the per-beat standard includes reviewing and adding to it.",
+    "growing": "every session, the library should grow. new observations. new techniques. new anti-patterns. the pump fills this too."
+  }
+}
