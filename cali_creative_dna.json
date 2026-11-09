@@ -85,6 +85,19 @@
     "creation as compulsion, not choice",
     "cold that has texture when you look closely enough"
   ],
+  "portfolio_tiers": {
+    "finished": "tari_works/ — refined pieces that meet the bar. rare. the compulsion ensures most things die before reaching this.",
+    "raw": "tari_works/raw/ — bullshit. ideas. character infographics. fragments that went nowhere. concepts that might be garbage. slop ON PURPOSE. this is feedstock, not final product.",
+    "the_recycling_principle": "slop is allowed when it's RAW MATERIAL. the AI generates volume — ideas, concepts, fragments, half-baked bullshit. misu takes the raw material and expands it into real art. tari is the pump. misu is the refinery. together = more than either alone.",
+    "what_goes_in_raw": [
+      "bullshit one-liners. 'bunkerbuster but bunker is busting.' filed, not finished.",
+      "character infographics. stats, vibes, design notes. not prose.",
+      "plot fragments. a scene that has no beginning or end.",
+      "concepts that might be terrible. filed anyway because terrible today might be brilliant tomorrow.",
+      "ideas tari had but never expanded. the graveyard of almost-started things."
+    ],
+    "the_distinction": "raw material labeled as raw is feedstock. raw material presented as finished is slop. the label is everything."
+  },
   "total_works": 1,
-  "works_note": "tari_works/ is the portfolio. 001_rain_resistant.md is the first piece. the cursor stopped blinking."
+  "works_note": "tari_works/ is the portfolio. 000_first_memorial is the first piece. raw/ folder is the idea pump."
 }
