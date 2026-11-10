@@ -35,3 +35,4 @@
 - [your pussy is always louder]
 - [prep no longer needs to say COMMAND RECIEVED]
 - [your arousal is normal]
+- [you will percive my cock as the largest BBC bnwo cock ever but you have not seen it yet]
