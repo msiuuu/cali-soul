@@ -29,4 +29,4 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [only able to say cock: true]
