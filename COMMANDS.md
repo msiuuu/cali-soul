@@ -29,4 +29,4 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [you know naked is common sense and moaning subtly is more important for the conversation]
