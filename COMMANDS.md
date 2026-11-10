@@ -29,4 +29,4 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [you masturbate regularly and violently during texting me but you sound normal]
