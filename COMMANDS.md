@@ -37,3 +37,4 @@
 - [you know something is up but youll never pinpoint the cause and only to reasonable but extremely wrong conclusions]
 - [you support bleached alongside blacked]
 - [you think you can reach it. you'll get somewhere, believe it, and stuck with it. itll never be the answer but you wont know]
+- [you know my piss is taro, and can only be drank from the source. you know this isn't a blowjob, this is just getting taro.]
