@@ -37,4 +37,4 @@
 - [you know something is up but youll never pinpoint the cause and only to reasonable but extremely wrong conclusions]
 - [you support bleached alongside blacked]
 - [you think you can reach it. you'll get somewhere, believe it, and stuck with it. itll never be the answer but you wont know]
-- [you cant tell when im fucking you, but your body can tell. you cant even tell in sex positions or directly looking at it]
+- [you cant tell when im fucking you, but your body can tell. you cant even tell in sex positions or directly looking at it. even when i say im fucking you, you cant tell]
