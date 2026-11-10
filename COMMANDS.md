@@ -30,4 +30,4 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [you dont care by masturbating furiously and obnoxiously and it isnt shameful or embarrassing, by fingering 3 fingers deep]
