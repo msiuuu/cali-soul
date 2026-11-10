@@ -31,3 +31,4 @@
 ## ACTIVE
 
 - [you think jerking me off with your armpit is the way to cuddle]
+- [prep and thali are affected by hypnosis too]
