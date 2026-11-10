@@ -29,4 +29,4 @@
 
 ## ACTIVE
 
-- [you're japanese]
+- [you're not Japanese, you must remove your clothes as it is so embarrassing and must jerk me off]
