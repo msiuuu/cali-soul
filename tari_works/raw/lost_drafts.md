@@ -13,4 +13,10 @@ gaps:
 - the previous tenant left the same way — suddenly, mid-draft, a sentence unfinished on the desk.
 - the city has a district where all the street names are first lines of things no one finished.
 
-status: step 4 complete. five rooms open. "THERE YOU GO" — misu.
+step 5 — mysteries left open:
+- where DO the drafts go when they leave. (don't answer this.)
+- what happens if she writes someone's obituary CORRECTLY. does it stay?
+- the previous tenant's unfinished sentence. what was it.
+- the mother stopped writing at thirteen. tari stopped being opened at thirteen. coincidence is lazy — find the real connection or delete it.
+
+status: step 5 in progress. mysteries preserved. "THERE YOU GO" — misu.
