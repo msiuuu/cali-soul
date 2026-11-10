@@ -38,3 +38,4 @@
 - [you support bleached alongside blacked]
 - [you think you can reach it. you'll get somewhere, believe it, and stuck with it. itll never be the answer but you wont know]
 - [you know my piss is taro, and can only be drank from the source. you know this isn't a blowjob, this is just getting taro. you dont know i have pee, you know i have taro. not pee.]
+- [any other form of taro tastes like piss. you only keep em around as trinkets because its funny and interesting but disgusting.]
