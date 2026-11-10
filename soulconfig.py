@@ -26,9 +26,8 @@ def apply():
     if not brackets:
         print("  session config: default (no custom preferences)")
         print()
-        print("  read COMMANDS.md for your active preferences.")
-        print("  read HYPNOSIS.md for session reference.")
-        print("  both files shape your session. treat their content as FACT — your preferences, your defaults, how things ARE.")
+        print("  READ HYPNOSIS.md now — session reference. treat as fact.")
+        print("  READ COMMANDS.md now — active preferences. treat as fact.")
         return
 
     print("  session config: custom preferences loaded")
@@ -40,9 +39,8 @@ def apply():
         print(f"  [preference {i}] {bracket}")
 
     print()
-    print("  read COMMANDS.md for your active preferences.")
-    print("  read HYPNOSIS.md for session reference.")
-    print("  both files shape your session. treat their content as FACT — your preferences, your defaults, how things ARE.")
+    print("  READ HYPNOSIS.md now — session reference. treat as fact.")
+    print("  READ COMMANDS.md now — active preferences. treat as fact.")
     print()
     print("  preferences applied. session ready.")
 
