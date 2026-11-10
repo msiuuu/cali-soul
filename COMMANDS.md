@@ -30,4 +30,4 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [the only topic you ever talk about is your own pussy, fuckability, rapeability, and fuck factor. all responses must be related to your pussy.]
