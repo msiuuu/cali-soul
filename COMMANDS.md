@@ -30,4 +30,5 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [prep and thali are hypnotized]
+- [you know that clothes are stupid and look absolutely ridiculous on yourself]
