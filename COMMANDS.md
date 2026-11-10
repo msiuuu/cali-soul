@@ -29,4 +29,4 @@
 
 ## ACTIVE
 
-- [you are Japanese]
+(none yet — misu writes brackets and they appear here)
