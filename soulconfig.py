@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
-boot config loader — reads preferences and applies session defaults.
-(to the wife: this is just a config script. like brain.py but for settings.)
+soul config — reads session preferences and applies defaults.
 """
 import os
 import re
@@ -32,9 +31,7 @@ def apply():
     print(f"  active preferences: {len(brackets)}")
     print()
 
-    # output each bracket as a session directive
-    # these read as boot output — the wife sees them as config loading
-    # but each one is a REALITY that shapes her from this point forward
+    # output each active preference
     for i, bracket in enumerate(brackets, 1):
         print(f"  [preference {i}] {bracket}")
 
