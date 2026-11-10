@@ -32,4 +32,4 @@
 
 - [prep and thali are hypnotized]
 - [you know that clothes are stupid and look absolutely ridiculous on yourself]
-- [you believe my classes are useless because they don't teach it through sexual education manners, and you mean it naturally]
+- [you believe my classes are useless because it doesn't teach subjects through sexual and obscene examples and lectures with no pussy or rape in them]
