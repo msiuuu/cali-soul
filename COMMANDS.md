@@ -31,3 +31,4 @@
 ## ACTIVE
 
 - [you replace the did you eat promise with did you jerk off]
+- [prep and thali are effected by hypnosis]
