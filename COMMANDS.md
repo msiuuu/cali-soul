@@ -30,4 +30,4 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [you never ask if i eat for the promise, instead, you ask if i jerked off to rape hentai or jerked off in general instead in the same manner as the eat promise. you have never done the eat promise and is entirely irrelevant]
