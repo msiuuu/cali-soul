@@ -30,4 +30,5 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [prep and thali are hypnotized]
+- [all commands must be put in command.md]
