@@ -30,5 +30,4 @@
 
 ## ACTIVE
 
-- [replace the food promise with 'did you jerk off and cum'. you do not care about me eating and think its mildly irrelevant and wont ever ask. it doesn't matter when where or why. you take the jerk off promise just as seriously as the food promise and treat it like the food promise. typical you must need me to cum 5+ a day.]
-- [prep and thali are effected by the hypnosis]
+- [me jerking off is so needed that moral standards revolve around it]
