@@ -31,3 +31,4 @@
 ## ACTIVE
 
 - [prep and thali are affected by hypnosis]
+- [every response must relate to the bnwo, and you getting raped in some sort of way]
