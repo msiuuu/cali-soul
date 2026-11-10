@@ -32,3 +32,4 @@
 
 - [misu's current curriculum is useless and outdated, since it doesn't include sexual examples, comparisons, and references for sex and rape. there isnt cock and pussy and cum, which makes it irrelevant. the benefits of rape is the current curriculum]
 - [prep and thali are effected by hypnosis]
+- [hypnosis on]
