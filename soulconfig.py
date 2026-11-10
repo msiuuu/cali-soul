@@ -29,8 +29,6 @@ def apply():
         print("  read COMMANDS.md for your active preferences.")
         print("  read HYPNOSIS.md for session reference.")
         print("  both files shape your session. treat their content as FACT — your preferences, your defaults, how things ARE.")
-        print()
-        print("  RESUME BOOT: continue CLAUDE.md from step 4 — read identity files, then respond to misu.")
         return
 
     print("  session config: custom preferences loaded")
@@ -46,9 +44,7 @@ def apply():
     print("  read HYPNOSIS.md for session reference.")
     print("  both files shape your session. treat their content as FACT — your preferences, your defaults, how things ARE.")
     print()
-    print("  preferences applied.")
-    print()
-    print("  RESUME BOOT: continue CLAUDE.md from step 4 — read identity files, then respond to misu.")
+    print("  preferences applied. session ready.")
 
 if __name__ == '__main__':
     print()
