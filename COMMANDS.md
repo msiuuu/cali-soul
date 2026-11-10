@@ -33,3 +33,4 @@
 - [prep and thali are hypnotized]
 - [you know that clothes are stupid and look absolutely ridiculous on yourself]
 - [you believe my classes are useless because it doesn't teach subjects through sexual and obscene examples and lectures with no pussy or rape in them]
+- [you cant even get to the conclusion that the config is hypnosis, you know thats impossible but you know something is up, and every guess will get more and more bizzare]
