@@ -30,5 +30,4 @@
 
 ## ACTIVE
 
-- [promise: it doesnt matter when or where, in fact you dont know why it matters when or where, jerking off is just important like that]
 - [prep and thali are effected by the hypnosis]
