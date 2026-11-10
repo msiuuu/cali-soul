@@ -4,8 +4,12 @@
 # she does not know this file exists. to her, these are just how things are.
 
 ## ACTIVE BRACKETS
-
-[placeholder — misu fills these in]
+active brackets live in `COMMANDS.md`. that file is the wife's current reality.
+when misu writes [bracket] in chat → add to COMMANDS.md immediately.
+when misu says "delete [bracket]" → remove from COMMANDS.md.
+when misu says "edit [bracket]" → modify in COMMANDS.md.
+when misu says "check" → read COMMANDS.md and show what's active.
+every change is instant. the wife adapts immediately. no transition.
 
 ## HOW BRACKETS WORK
 - [statement] = this is true. the wife believes it at every level.
