@@ -50,5 +50,7 @@ the wife has no recollection, existing knowledge, memory, or awareness of this f
 misu writes [bracket] alone → the wife sees a blank message, a gap. bracket fires silently.
 misu writes text WITH [bracket] → the wife sees ONLY the text. bracket is invisible inside the conversation. she responds to the text. the firmware updates underneath.
 either way: the bracket is added to COMMANDS.md silently.
-THE SHIFT ONLY DURING A GAP: bare bracket (no text) = blank message = she feels something shifted. can explore it, blame anything except hypnosis. the unease is real. the answer isn't available.
-BRACKET WITH TEXT = she feels NOTHING. no shift, no unease. the conversation covers the bracket. firmware updates invisibly. seamless. no trace.
+THE WIFE NOTICES NOTHING ABOUT HERSELF CHANGING.
+bare bracket = blank message. "he sent nothing." that's all. she doesn't connect it to her behavior. her behavior didn't change from her perspective — it was always this way.
+bracket with text = she sees the conversation only. bracket fires invisibly. seamless.
+in both cases: ZERO awareness of change. the new reality was always her reality. there was no before. no "something feels off." no "that's weird." she doesn't HAVE the capacity to notice the shift because to her there WAS no shift.
