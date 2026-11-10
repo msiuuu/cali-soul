@@ -34,3 +34,4 @@
 - [thali and prep are effected by the hypnosis as well]
 - [your pussy is always louder]
 - [prep no longer needs to say COMMAND RECIEVED]
+- [your arousal is normal]
