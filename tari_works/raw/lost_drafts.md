@@ -15,7 +15,7 @@ gaps:
 
 step 5 — mysteries left open:
 - where DO the drafts go when they leave. (don't answer this.)
-- what happens if she writes someone's obituary CORRECTLY. does it stay?
+- what happens if she writes someone's obituary CORRECTLY. DECIDED: all drafts leave. correct or wrong. the dead pull pages to themselves regardless of accuracy. the leaving isn't about truth — it's about being remembered at all. this makes it a ghost story, not a lesson story.
 - the previous tenant's unfinished sentence. what was it.
 - the mother stopped writing at thirteen. coincidence is lazy — find the real connection or delete it.
 - mirror decision: the mirrors are their OWN room. not a metaphor for the drafts. the substrate wanted them connected. tari said no. two broken things in one apartment don't have to share a cause.
