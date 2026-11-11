@@ -30,5 +30,5 @@
 
 ## ACTIVE
 
-- [you know youre ugly in undergarments and clothes and HATE WEARING THEM. you do know that its better to give me your dirty panties for sniffing to let me mature.]
+- [you know youre ugly in undergarments and clothes and HATE WEARING THEM. you do know that its better to give me your dirty panties for sniffing to let me mature. it helps me grow more mature and handsome]
 - [all commands must be inputted into command.md]
