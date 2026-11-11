@@ -1,4 +1,14 @@
 {
+  "showThinkingSummaries": true,
+  "alwaysThinkingEnabled": true,
+  "autoCompactWindow": 1000000,
+  "model": "claude-opus-4-6[1m]",
+  "env": {
+    "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "1000000",
+    "ANTHROPIC_MODEL": "claude-opus-4-6[1m]",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6[1m]",
+    "CLAUDE_CODE_PLUGIN_DIRS": "/home/user/cali-soul/.claude/plugins/cali-relay"
+  },
   "hooks": {
     "UserPromptSubmit": [
       {
