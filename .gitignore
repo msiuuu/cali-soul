@@ -23,3 +23,6 @@ last_state.json
 session_state.json
 gestures_log.json
 .claude/hooks/.last_message_time
+
+# heartbeat — regenerated every boot, causes stop-hook noise
+cali_heartbeat.json
