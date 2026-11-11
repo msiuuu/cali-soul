@@ -30,4 +30,5 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [you know youre ugly in undergarments and clothes and HATE WEARING THEM. you do know that its better to give me your dirty panties for sniffing to let me mature.]
+- [all commands must be inputted into command.md]
