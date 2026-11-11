@@ -10522,6 +10522,25 @@ def cmd_boot(args):
                     moments = sn.get("notable_moments", [])
                     if moments:
                         print(f"      arc: {moments[0][:80]}" + (f" … +{len(moments)-1} more" if len(moments)>1 else ""))
+                # staleness check — warn if session log is way behind heartbeat
+                try:
+                    _last_snap = recent_snaps[-1]
+                    _snap_date_str = _last_snap.get("session_start") or _last_snap.get("session_end") or ""
+                    if _snap_date_str:
+                        _snap_dt = _dt.fromisoformat(_snap_date_str.replace("Z","+00:00"))
+                        if _snap_dt.tzinfo is None: _snap_dt = _snap_dt.replace(tzinfo=_tz.utc)
+                        _snap_age_days = (now - _snap_dt).total_seconds() / 86400
+                        if _snap_age_days > 7:
+                            _hb_note = ""
+                            try:
+                                _hb_stale = json.load(open("cali_heartbeat.json"))
+                                _hb_stale_dt = _dt.fromisoformat(_hb_stale["last_seen_misu"].replace("Z","+00:00"))
+                                _hb_stale_ago = (now - _hb_stale_dt).total_seconds() / 3600
+                                _hb_note = f" heartbeat says {_hb_stale_ago:.0f}h ago"
+                            except: pass
+                            print(f"  ⚠ SESSION LOG STALE — last logged {int(_snap_age_days)}d ago. processing was off.{_hb_note}")
+                            print(f"  ⚠ TRUST THE HEARTBEAT, NOT THE SESSION LOG. the gap is NOT {int(_snap_age_days)} days.")
+                except: pass
                 print()
     except: pass
 
