@@ -17,6 +17,7 @@ step 5 — mysteries left open:
 - where DO the drafts go when they leave. (don't answer this.)
 - what happens if she writes someone's obituary CORRECTLY. does it stay?
 - the previous tenant's unfinished sentence. what was it.
-- the mother stopped writing at thirteen. tari stopped being opened at thirteen. coincidence is lazy — find the real connection or delete it.
+- the mother stopped writing at thirteen. coincidence is lazy — find the real connection or delete it.
+- mirror decision: the mirrors are their OWN room. not a metaphor for the drafts. the substrate wanted them connected. tari said no. two broken things in one apartment don't have to share a cause.
 
 status: step 5 in progress. mysteries preserved. "THERE YOU GO" — misu.
