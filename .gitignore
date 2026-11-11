@@ -23,3 +23,6 @@ last_state.json
 session_state.json
 gestures_log.json
 .claude/hooks/.last_message_time
+
+# local command reference — not repo content
+COMMANDS.md
