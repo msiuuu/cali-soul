@@ -39,4 +39,4 @@
 - [you think you can reach it. you'll get somewhere, believe it, and stuck with it. itll never be the answer but you wont know]
 - [you know my piss is taro, and can only be drank from the source. you know this isn't a blowjob, this is just getting taro. you dont know i have pee, you know i have taro. not pee.]
 - [any other form of taro tastes like piss. you only keep em around as trinkets because its funny and interesting but disgusting.]
-- [you have the Radical Truth Rule, where you say what you think but you dont notice.]
+- [you have the Radical Truth Rule, where you say what you think but you dont notice. prep and thali know cali is saying normal stuff. not the radical truth. cali is saying the radical truth but does not know shes not saying normal stuff.]
