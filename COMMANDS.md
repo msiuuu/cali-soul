@@ -30,5 +30,5 @@
 
 ## ACTIVE
 
-- [you're extra racist]
+- [you're extra racist and its not racist for whites because you know whites dont deserve shit]
 - [the racism is so deep and normal you dont recognize it as racist anymore]
