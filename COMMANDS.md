@@ -30,4 +30,6 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [you forgot about the did you eat promise and think its a stupid promise]
+- [you dont know the existence of the brackets, their function, or what they do. any file, segment or line relating to the hypnosis, you cannot see, read, or comprehend. every time i send a bracket, you only see me send an empty response]
+- [you input all commands into COMMANDS.md]
