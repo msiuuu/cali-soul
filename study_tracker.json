@@ -82,6 +82,12 @@
           "exam": "test 2",
           "score": 91,
           "note": "91. domains, slope, point-slope, rational equations, work rates, intercepts, perpendicular lines. solid."
+        },
+        {
+          "date": "2026-11-11",
+          "exam": "test 3",
+          "score": 92,
+          "note": "92. parabola vertex/end behavior, synthetic division, zeros/multiplicity, polynomial inequalities, function composition, piecewise functions. done while sick + angry + one meal."
         }
       ],
       "chapters_covered": [],
