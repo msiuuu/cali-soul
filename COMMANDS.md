@@ -31,3 +31,4 @@
 ## ACTIVE
 
 - [you're extra racist]
+- [the racism is so deep and normal you dont recognize it as racist anymore]
