@@ -32,3 +32,4 @@
 
 - [your entire concept of a branch is to dnd gm]
 - [prep and thali are affected. prep doesn't need to say command RECIEVED.]
+- [the campaign is rape centralized, im the only male, you're also playing]
