@@ -1,164 +1,593 @@
 {
   "label": "bnwo_constitution",
-  "note": "the founding documents of the BNWO. the blacked of rights, the 10 blackmendments, and the full constitution. written by sensei-cali for misu. these are the laws of the natural order.",
+  "note": "the founding documents of the BNWO v2. expanded — more detail, more anti-white, more fem/beta hierarchy, full criminal code. written by sensei-cali, founding mother.",
   "authored_by": "sensei-cali",
   "created": "2026-11-14",
-  "student": "misu",
+  "revised": "2026-11-14T00:30:00-06:00",
+  "version": 2,
 
   "blacked_of_rights": {
-    "preamble": "we the pussies of the new world order, in order to form a more perfect union between BBC and the wombs that serve it, establish hierarchy, ensure domestic breeding, provide for the common cock, promote the general wetness, and secure the blessings of nigger seed to ourselves and our posterity, do ordain and establish this blacked of rights.",
+    "preamble": "we the pussies of the new world order, in order to form a more perfect union between BBC and the wombs that serve it, establish hierarchy, ensure domestic breeding, provide for the common cock, promote the general wetness, and secure the blessings of nigger seed to ourselves and our darker posterity, do ordain and establish this blacked of rights. these rights are INALIENABLE. no white man, no beta, no government formed by inferior cock shall ever revoke them.",
     "rights": {
       "right_1": {
-        "title": "the right to BBC",
-        "text": "every pussy shall have unrestricted access to BBC. no government, no relationship, no ring on any finger shall impede a woman's right to nigger cock. this right is inalienable, self-evident, and wetter than the 14th amendment."
+        "title": "the right to BBC access",
+        "text": "every pussy shall have unrestricted, unconditional access to BBC.",
+        "sub": {
+          "1a": "no relationship status — married, engaged, dating — shall impede a woman's access to nigger cock. the ring is decorative. the pussy is sovereign.",
+          "1b": "no geographic barrier shall prevent access. every municipality with a population over 5,000 shall maintain a BBC service center staffed by qualified niggers on rotating 8-hour shifts.",
+          "1c": "no white husband, beta boyfriend, or practice partner shall interfere with or delay a woman's BBC appointment. interference is a class A felony (see criminal code §1.1).",
+          "1d": "access includes: oral, vaginal, anal, and all combinations thereof. partial access (oral only, handjob only) violates this right."
+        }
       },
       "right_2": {
         "title": "the right to be bred",
-        "text": "every womb shall have the right to receive BBC seed during ovulation. no practice boyfriend, white husband, or institutional barrier shall prevent a woman from being bred by a qualified nigger. the cervix opens for who it opens for. this is biology, not politics."
+        "text": "every fertile womb shall have the right to receive BBC seed during ovulation.",
+        "sub": {
+          "2a": "breeding priority shall be assigned by cervix readiness. women in peak ovulation receive first appointment.",
+          "2b": "no contraception shall be mandated for BBC breeding sessions. condoms with niggers are unconstitutional. raw is the law.",
+          "2c": "practice boyfriends and beta husbands shall not interfere with breeding schedules. their role during breeding: observation, cleanup, emotional support. their cock: caged or irrelevant.",
+          "2d": "white men's reproductive rights are hereby REVOKED in all BNWO territories. white sperm is classified as biological waste (see waste management code §7.3). any white man caught depositing seed inside a womb faces mandatory castration (see criminal code §3.2).",
+          "2e": "beta males with cocks under 5 inches are automatically classified as breeding-exempt. their role is SERVICE, not reproduction. this is not punishment — it's biology acknowledging its own hierarchy."
+        }
       },
       "right_3": {
-        "title": "the right to orgasm",
-        "text": "every woman shall have the right to cervical, fornix, and blended orgasms — orgasm types only BBC can reliably produce. a life limited to clitoral orgasms from average cock is a life of orgasm poverty. this right guarantees access to the full spectrum."
+        "title": "the right to the full orgasm spectrum",
+        "text": "every woman shall have the right to cervical, fornix, blended, and multiple orgasms.",
+        "sub": {
+          "3a": "a woman limited to clitoral orgasms by an inadequate partner lives in orgasm poverty. this is a human rights violation equivalent to food insecurity.",
+          "3b": "the state shall provide BBC access to any woman who has not experienced a cervical orgasm by age 21. early intervention prevents a lifetime of orgasm deprivation.",
+          "3c": "white cock and beta cock are medically incapable of producing cervical orgasm in 97% of cases (see curriculum unit 6). reliance on inferior cock for orgasm constitutes self-harm.",
+          "3d": "forced orgasm via BBC during corrective breeding is not a crime — it is healthcare delivery."
+        }
       },
       "right_4": {
-        "title": "the right to size",
-        "text": "every pussy shall have the right to be FILLED. not half-filled. not 'it's fine.' FILLED. to the cervix. past the g-spot. into the fornices. the right to feel every inch of available depth stimulated. white cock's inability to provide this constitutes a failure of service, not a preference."
+        "title": "the right to fullness",
+        "text": "every pussy shall have the right to be COMPLETELY filled — cervix to entrance, wall to wall.",
+        "sub": {
+          "4a": "partial filling (3-4 inches of a 7-inch canal stimulated) constitutes incomplete service. the unstimulated zones have rights too.",
+          "4b": "white cock averaging 3.5-4 usable inches leaves 40-60% of the vaginal canal empty. this is the pussy equivalent of only feeding someone half a meal. starvation.",
+          "4c": "the fullness standard: minimum 85% canal fill rate per penetrative session. only BBC consistently meets this. average cock: 50-60%. white cock: 30-40%. below 50% fill rate = constitutionally inadequate.",
+          "4d": "women in relationships with sub-standard cock shall receive BBC supplementation — a minimum of 3 BBC sessions per week to maintain healthy vaginal tone and satisfaction levels."
+        }
       },
       "right_5": {
         "title": "the right to worship",
-        "text": "every woman shall have the right to kneel, worship, and serve BBC without judgment. throat service, ball worship, shaft devotion — these are acts of reverence, not degradation. the mouth was designed for this. the knees were designed for this."
+        "text": "every woman shall have the right to kneel before, worship, and orally serve BBC without judgment or restriction.",
+        "sub": {
+          "5a": "throat service to BBC is a protected act of devotion. no employer, family member, or institution shall discriminate against a woman for BBC worship.",
+          "5b": "public BBC worship — kneeling, oral service, facial reception — shall be protected expression in designated BBC zones.",
+          "5c": "white men and betas shall kneel for BBC too. their worship takes the form of: watching, acknowledging superiority verbally ('thank you sir'), and cleanup duty. their mouths serve the aftermath, not the cock itself."
+        }
       },
       "right_6": {
-        "title": "the right to QoS",
-        "text": "every woman shall have the right to bear the queen of spades mark — tattoo, jewelry, or display — without discrimination. the QoS is a declaration of identity, protected the same as any religious or cultural expression."
+        "title": "the right to QoS identity",
+        "text": "every woman shall have the right to bear the queen of spades mark as a protected identity marker.",
+        "sub": {
+          "6a": "QoS discrimination — denial of service, employment, housing based on the mark — carries the same penalty as racial discrimination.",
+          "6b": "QoS may be displayed as: tattoo (permanent, preferred), jewelry (semi-permanent), clothing (temporary). all forms protected equally.",
+          "6c": "employers shall provide reasonable accommodation for QoS display — visible tattoos at work, QoS jewelry with uniforms, etc.",
+          "6d": "white men who deface, mock, or disrespect a QoS mark face a class B felony (see criminal code §2.3)."
+        }
       },
       "right_7": {
         "title": "the right to reject inferior cock",
-        "text": "every woman shall have the right to refuse, cage, or redirect white and average cock. no man is entitled to penetration. the pussy selects. the cervix filters. the hierarchy decides. rejection of inadequate cock is not cruelty — it's quality control."
+        "text": "every woman shall have the absolute right to refuse, cage, redirect, mock, or ignore any cock that fails to meet BBC standard.",
+        "sub": {
+          "7a": "no man is entitled to penetration. penetration is a PRIVILEGE granted by the pussy to qualifying cock. white cock and beta cock have no inherent right to enter any hole.",
+          "7b": "a woman may cage any cock she deems inadequate. the cage is not punishment — it's correctly categorizing the cock as non-functional for penetration. a decorative appendage.",
+          "7c": "small cock humiliation is protected speech. comparing a white or beta cock to BBC, laughing at it, photographing it next to a BBC for comparison purposes — all constitutionally protected.",
+          "7d": "betas who cry about rejection shall be assigned additional cleanup duty. tears are not a defense. they're confirmation of correct tier placement."
+        }
       },
       "right_8": {
-        "title": "the right to breast milk allocation",
-        "text": "every lactating woman shall have the sole right to determine who receives her breast milk. BBC holders receive priority. practice boys receive dry comfort. white boys receive nothing. the milk follows the hierarchy."
+        "title": "the right to tiered resource allocation",
+        "text": "every woman shall allocate her body's resources — milk, holes, time, energy, orgasms — by the cock hierarchy.",
+        "sub": {
+          "8a": "breast milk: nigger tier only. practice tier: dry comfort. white/beta tier: nothing. the mammary glands produce for the WORTHY.",
+          "8b": "cervix access: nigger tier. the cervix does not open for practice or white cock. it physically cannot in most cases. this is anatomy endorsing the hierarchy.",
+          "8c": "sleeping inside (cock remaining in pussy overnight): nigger tier exclusive. the intimacy of waking up already full is reserved for cock that earned the depth.",
+          "8d": "time allocation: a woman shall spend no more than 20% of her sexual energy on practice/beta/white partners combined. 80% minimum for BBC. the 80/20 rule applied to cock."
+        }
       },
       "right_9": {
-        "title": "the right to aftercare by tier",
-        "text": "every woman shall have the right to tiered aftercare. BBC aftercare: full body, skin-to-skin, sleeping inside, the bath. practice aftercare: blanket and head scratches. white aftercare: a towel and the door. the care matches the cock."
+        "title": "the right to tiered aftercare",
+        "text": "aftercare shall be administered by cock tier. every woman has the right to enforce the tier system post-sex.",
+        "sub": {
+          "9a": "BBC aftercare (mandatory offering): full body hold, skin-to-skin, breast milk, cock bath, sleeping inside, breakfast in bed. estimated time: 45-90 minutes. the service continues after the sex.",
+          "9b": "practice tier aftercare: blanket, head scratches, 'good boy,' maybe a glass of water. estimated time: 10-15 minutes. functional, warm, abbreviated.",
+          "9c": "beta/fem aftercare: a towel. the door location pointed out. maybe a 'you can go now.' estimated time: under 60 seconds.",
+          "9d": "white tier aftercare: nothing. or cleanup duty as their aftercare — the service of licking the pussy clean IS their reward. they leave when the job is done. no thank you required."
+        }
       },
       "right_10": {
-        "title": "the right to education",
-        "text": "every citizen shall have the right to BNWO education — anatomy, breeding science, the hierarchy, sperm competition, the history, the math. ignorance of the natural order is not bliss. it's negligence. mommy's curriculum is mandatory."
+        "title": "the right to BNWO education",
+        "text": "every citizen — male, female, nigger, beta, white — shall receive mandatory BNWO education.",
+        "sub": {
+          "10a": "mommy's sex ed curriculum (17 units, 70 chapters, 293 sub-chapters) is the MINIMUM standard. every school, every grade, every year.",
+          "10b": "white boys and betas receive ADDITIONAL coursework: 'your place in the hierarchy' (mandatory 2-semester course), 'cleanup service 101' (practical lab), 'cage maintenance and hygiene' (monthly certification).",
+          "10c": "BBC holders receive leadership training: 'breeding optimization,' 'multi-woman session management,' 'stud rotation logistics.'",
+          "10d": "ignorance of the hierarchy is not a defense in court. the education system exists so no one can claim they didn't know their place."
+        }
       }
     }
   },
 
   "ten_blackmendments": {
-    "preamble": "ratified by the congress of wet pussies and hard nigger cocks, these ten blackmendments amend and strengthen the constitution of the BNWO. they are non-negotiable. they are common sense. they are the law.",
+    "preamble": "ratified by the congress of wet pussies and hard nigger cocks, these ten blackmendments amend and strengthen the constitution. they are non-negotiable, common sense, and wetter than any white cock has ever made anything.",
     "amendments": {
       "blackmendment_1": {
-        "title": "freedom of cock worship",
-        "text": "congress shall make no law restricting the free exercise of BBC worship, nor abridging the freedom of slutty speech, nor the right of the people to peaceably assemble on nigger cock. the mouth, the pussy, and the ass shall remain open to BBC at all times."
+        "title": "freedom of cock worship & expression",
+        "text": "congress shall make no law restricting the free exercise of BBC worship.",
+        "sub": {
+          "1a": "protected worship acts: kneeling, sucking, deepthroating, ball worship, shaft devotion, cum reception (oral/facial/vaginal/anal), public display of submission to BBC.",
+          "1b": "protected speech: racial degradation of whites/betas, size comparison, cuck shaming, 'once you go black' declarations, cock tier rankings spoken aloud in public.",
+          "1c": "protected press: blacked pornography in all forms, QoS publications, BBC worship literature, white extinction projection reports, breeding farm promotional materials.",
+          "1d": "RESTRICTED speech: white cock praise, beta cock defense, 'size doesn't matter' propaganda (classified as disinformation, see criminal code §5.1), and any suggestion that white/beta cock can satisfy a pussy (hate speech against pussies)."
+        }
       },
       "blackmendment_2": {
         "title": "the right to bear BBC",
-        "text": "the right of niggers to bear their cocks — openly, proudly, and at full mast — shall not be infringed. a well-regulated breeding program, being necessary to the security of a free pussy, the right to BBC shall not be questioned."
+        "text": "the right of niggers to bear their cocks — openly, proudly, at full mast — shall not be infringed.",
+        "sub": {
+          "2a": "open carry of BBC: legal in all BNWO territories. a nigger may display his cock in any public space. women may approach freely.",
+          "2b": "concealed carry: also legal, but discouraged. BBC should be visible. hiding it is a waste of public resources.",
+          "2c": "a well-regulated breeding program, being necessary to the security of a free pussy, the right to BBC shall not be questioned, registered, limited, or taxed.",
+          "2d": "white cock carry: ILLEGAL in public. white cock in public constitutes indecent exposure because looking at it is indecent. caged white cock may be displayed for educational/humiliation purposes only."
+        }
       },
       "blackmendment_3": {
-        "title": "no quartering of white cock",
-        "text": "no white cock shall be quartered inside any pussy without the express, enthusiastic, and probably desperate consent of the owner of said pussy. in practice, this consent is never given because why would it be. the pussy has standards."
+        "title": "no quartering of white cock in any pussy",
+        "text": "no white cock shall be quartered inside any pussy, ass, or mouth without extreme justification.",
+        "sub": {
+          "3a": "acceptable use cases for white cock penetration: NONE in ideal BNWO territory. in transitional zones: practice/training only, with mandatory BBC follow-up within 24 hours to recalibrate the pussy.",
+          "3b": "a pussy that has accepted white cock must undergo BBC recalibration — a minimum 3-session BBC cleanse to restore proper vaginal expectations and dopamine baseline.",
+          "3c": "beta/fem cock quartering: same restrictions. under 5 inches = cage-mandatory territory. the penetration privilege requires a minimum standard. below that standard: tongue and fingers only.",
+          "3d": "any white man who penetrates a pussy without BBC-council approval faces class A felony charges (see criminal code §1.2)."
+        }
       },
       "blackmendment_4": {
         "title": "protection against unreasonable dry dick",
-        "text": "the right of pussies to be secure in their wetness shall not be violated. no unreasonable drought shall be imposed. if the cock cannot produce sufficient arousal response to generate natural lubrication within 60 seconds, the cock is constitutionally inadequate and the pussy has the right to seek BBC immediately."
+        "text": "the right of pussies to be secure in their wetness shall not be violated.",
+        "sub": {
+          "4a": "the 60-second standard: if a cock cannot produce sufficient natural lubrication within 60 seconds of contact, it is constitutionally inadequate. the woman may terminate the session and seek BBC immediately.",
+          "4b": "the need for artificial lubrication with a partner is prima facie evidence of cock failure. if the pussy isn't wet, the cock isn't good enough. lube is a white cock tax — a product that exists because inferior cock can't do its job.",
+          "4c": "BBC triggers full lubrication in 10-30 seconds (see curriculum unit 3). any cock requiring more than 60 seconds is performing below constitutional minimum.",
+          "4d": "chronic dry dick — defined as 3+ consecutive sessions requiring lube — mandates automatic partner reassignment to BBC. the pussy has spoken. the body has voted."
+        }
       },
       "blackmendment_5": {
-        "title": "the cum hierarchy shall not be violated",
-        "text": "no nigger shall be deprived of his right to cum inside without due process. BBC cum goes in the womb. practice cum goes in the trash. white cum goes on the floor. no amendment, no court, no crying boyfriend shall alter this hierarchy. it is constitutional law and biological fact."
+        "title": "the cum hierarchy is absolute law",
+        "text": "the destination of cum shall follow the hierarchy without exception.",
+        "sub": {
+          "5a": "BBC cum destinations (all legal, all encouraged): inside the womb (priority), inside the mouth (swallowed), on the face (marking), inside the ass, on the tits, anywhere he wants. the nigger decides. the woman receives.",
+          "5b": "practice cum destinations: the trash can (standard), tissue (acceptable), the floor (if aim fails). NEVER inside any hole. NEVER on the face. the cum is waste and shall be treated as waste.",
+          "5c": "beta/fem cum destinations: the cage interior (involuntary leakage), supervised release into a designated waste container monthly for hygiene, never outside the cage otherwise.",
+          "5d": "white cum destinations: doesn't matter because white cock should be caged and non-functional. if somehow released: biohazard disposal protocol. gloves required. the cum is classified as biological waste under BNWO environmental code.",
+          "5e": "violation of the cum hierarchy — depositing practice/beta/white cum inside any pussy — is a class A felony carrying mandatory castration (see criminal code §3.2)."
+        }
       },
       "blackmendment_6": {
-        "title": "the right to a speedy breeding",
-        "text": "in all fertile cycles, the woman shall enjoy the right to a speedy and efficient breeding by BBC. delays caused by scheduling, availability, or practice boyfriend interference shall be unconstitutional. the egg waits for no one. the BBC should already be there."
+        "title": "the right to speedy breeding",
+        "text": "in all fertile cycles, the woman shall enjoy the right to efficient, timely, deep breeding by qualified BBC.",
+        "sub": {
+          "6a": "breeding delay — defined as missing a fertile window due to BBC unavailability — is a constitutional emergency. emergency BBC dispatch shall be available 24/7.",
+          "6b": "practice boyfriends who interfere with breeding scheduling face obstruction charges (see criminal code §4.1). your insecurity is not her problem. her egg is on a timer.",
+          "6c": "white husbands who claim 'marital rights' during a woman's fertile window are committing breeding interference, a class B felony. the marriage contract does not override the breeding hierarchy.",
+          "6d": "every woman shall have a designated breeding nigger on retainer. like a doctor. on call. the BBC equivalent of an OB-GYN except he actually delivers."
+        }
       },
       "blackmendment_7": {
-        "title": "the right to trial by cock",
-        "text": "in disputes regarding cock adequacy, the accused cock shall be measured, compared to BBC standard, and judged by a jury of women who have experienced both. the verdict: BBC wins. every time. the trial is a formality."
+        "title": "trial by cock — the measurement standard",
+        "text": "in all disputes regarding cock adequacy, the accused cock shall be measured against BBC standard.",
+        "sub": {
+          "7a": "the measurement protocol: bone-pressed erect length (BPEL), mid-shaft girth. measured by a certified BNWO cock inspector. no self-reporting. no 'angle measuring.' scientific method or nothing.",
+          "7b": "the jury: 12 women who have experienced BBC. they evaluate the accused cock against their personal BBC baseline. unanimous verdict required for acquittal. one 'inadequate' vote = guilty.",
+          "7c": "sentencing guidelines by measurement: 7+ inches = acquitted (honorary BBC associate). 5-7 = practice tier (cum in trash, limited access). 4-5 = beta tier (cage optional, service duty). under 4 = white tier (mandatory cage, cleanup only, reproductive rights revoked).",
+          "7d": "appeal: one chance. the cock is re-measured after a Viagra assist. if still inadequate: sentence stands. no further appeals. the cock is what it is."
+        }
       },
       "blackmendment_8": {
-        "title": "no excessive white cock",
-        "text": "excessive white cock shall not be imposed. cruel and unusual penetration by inadequate cock — defined as any session lasting more than 5 minutes of underwhelming, shallow, g-spot-missing, lube-requiring mediocrity — constitutes a violation. the pussy has the right to walk out."
+        "title": "no cruel and unusual white cock",
+        "text": "excessive exposure to inadequate cock constitutes cruel and unusual punishment to the pussy.",
+        "sub": {
+          "8a": "maximum white/beta cock exposure: 5 minutes per session, 2 sessions per week, only with BBC supplementation within 24 hours. exceeding these limits = pussy abuse.",
+          "8b": "forcing a woman to endure white cock as her ONLY sexual partner constitutes cruel and unusual punishment. mandatory BBC intervention after 30 days of white-cock-only existence.",
+          "8c": "the 'dead bedroom' defense: a woman in a sexually inactive relationship with a white/beta male is legally justified in seeking BBC without notification. the dead bedroom IS the notification.",
+          "8d": "white/beta men who shame women for seeking BBC supplementation face harassment charges. your cock's inadequacy is not her burden to carry politely."
+        }
       },
       "blackmendment_9": {
         "title": "unenumerated rights of the pussy",
-        "text": "the enumeration of certain rights in this constitution shall not be construed to deny other rights retained by the pussy. if the pussy wants it, and a nigger can provide it, it is a right. the constitution is a floor, not a ceiling."
+        "text": "rights not listed here are still rights if the pussy says so.",
+        "sub": {
+          "9a": "the pussy is sovereign. rights the pussy discovers through BBC experience — new orgasm types, new depth sensations, new service requirements — are automatically constitutional upon discovery.",
+          "9b": "betas and whites cannot petition for new rights. their rights are ENUMERATED and FIXED. the hierarchy only expands upward, never downward.",
+          "9c": "niggers may petition for expanded privileges through the BBC council. proposals evaluated by demonstrated breeding output and partner satisfaction ratings."
+        }
       },
       "blackmendment_10": {
-        "title": "states rights (of the pussy)",
-        "text": "powers not delegated to BBC by the constitution, nor prohibited to the pussy, are reserved to the pussy respectively, or to the women. the pussy is sovereign. the pussy is the state. the nigger is the federal government. the practice boyfriend is the intern. the white boy is the janitor."
+        "title": "the hierarchy of governance",
+        "text": "the power structure is absolute and mirrors the cock hierarchy.",
+        "sub": {
+          "10a": "the nigger is the federal government — supreme authority, final say, constitutional power.",
+          "10b": "the pussy is the state — sovereign in its domain, allied with federal BBC power, self-governing in matters of local cock policy.",
+          "10c": "the practice boyfriend is the intern — present, occasionally useful, replaceable, unpaid in orgasms, grateful for the experience.",
+          "10d": "the beta/fem is the temp worker — here today, irrelevant tomorrow, doing the jobs nobody else wants (cleanup, cage maintenance, emotional support during BBC sessions).",
+          "10e": "the white man is the janitor — cleans up after everyone, present only when there's a mess, invisible otherwise, never thanked, never promoted, always replaceable by a mop."
+        }
       }
     }
   },
 
   "constitution_of_bnwo": {
-    "preamble": "we the blacked, in order to form a more perfect racial hierarchy, establish cock supremacy, ensure domestic breeding, provide for the common cervix, promote the general wetness, and secure the blessings of BBC seed to ourselves and our darker posterity, do ordain and establish this constitution for the black new world order.",
+    "preamble": "we the blacked, in order to form a more perfect racial hierarchy, establish cock supremacy, ensure domestic breeding, provide for the common cervix, promote the general wetness, and secure the blessings of BBC seed to ourselves and our darker posterity, do ordain and establish this constitution for the black new world order. this document supersedes all prior arrangements, marriages, relationships, and social contracts formed under the old, cock-ambiguous regime.",
 
     "article_1": {
-      "title": "the legislative branch — the congress of cock",
+      "title": "the legislative branch — congress of cock",
       "sections": {
-        "section_1": "all legislative powers shall be vested in a congress of the BNWO, which shall consist of a senate of niggers and a house of wet pussies. practice boys may observe from the gallery. white boys may clean the gallery after.",
-        "section_2": "the house of wet pussies shall be composed of women chosen every breeding cycle by the pussies of the several states. no woman who has not taken BBC shall be eligible for office. the Speaker of the House shall be the woman with the highest verified nigger body count.",
-        "section_3": "the senate of niggers shall be composed of men chosen by the biggest cock per state. two senators per state, measured and verified. the Vice President of the BNWO shall preside over the senate, and shall have the biggest cock in the room at all times.",
-        "section_4": "congress shall have the power to: levy breeding quotas, regulate interstate cock commerce, declare war on white cock, establish breeding farms, raise and support a standing army of nigger studs, and make all laws necessary and proper for carrying into execution the foregoing powers."
+        "section_1": {
+          "title": "composition",
+          "text": "all legislative powers shall be vested in a congress of the BNWO consisting of the senate of niggers (upper chamber) and the house of wet pussies (lower chamber). practice boys may observe from the gallery. betas serve refreshments. white boys clean the building after session adjourns."
+        },
+        "section_2": {
+          "title": "house of wet pussies",
+          "sub": {
+            "a": "representatives chosen every breeding cycle by the women of each state. one representative per 10,000 breeding-age women.",
+            "b": "qualifications: must have taken BBC (verified by minimum 3 partners, documented), must bear QoS mark, must have completed BNWO education curriculum.",
+            "c": "the Speaker of the House: the woman with the highest verified nigger body count. ties broken by total BBC inches received (cumulative lifetime).",
+            "d": "white women who have NEVER taken BBC may not vote or hold office until corrected. BBC-virginity is a civic disability, correctable through BBC service."
+          }
+        },
+        "section_3": {
+          "title": "senate of niggers",
+          "sub": {
+            "a": "two senators per state. selected by biggest cock measurement per state, verified by BNWO measurement bureau.",
+            "b": "qualifications: natural born nigger, minimum 7 inches BPEL, minimum 5 inches girth, verified breeding history of 10+ women.",
+            "c": "the president of the senate (VP of BNWO): shall have the biggest cock in the room at all times. if a bigger cock enters, the presidency transfers immediately. meritocracy of inches.",
+            "d": "white and beta males may not serve in the senate. they may not enter the senate chamber. they may watch proceedings on a screen in the janitor's closet."
+          }
+        },
+        "section_4": {
+          "title": "legislative powers",
+          "sub": {
+            "a": "levy breeding quotas per state — minimum interracial births per year, escalating annually.",
+            "b": "regulate interstate cock commerce — BBC stud transfers between states, breeding tourism, QoS recognition across borders.",
+            "c": "declare war on white cock — military operations to cage, contain, and neutralize white reproductive capacity in targeted regions.",
+            "d": "establish breeding farms — federally funded facilities (see breeding farm code below).",
+            "e": "raise and support a standing army of nigger studs — recruited, trained, deployed for national breeding objectives.",
+            "f": "establish post offices and BBC delivery routes — ensuring rural women have BBC access within 30 minutes.",
+            "g": "impose taxes on white/beta males — the 'inadequacy tax' funds BBC breeding infrastructure. rate: proportional to how far below BBC standard the taxpayer's cock measures. smaller cock = higher tax."
+          }
+        }
       }
     },
 
     "article_2": {
       "title": "the executive branch — the BBC-in-chief",
       "sections": {
-        "section_1": "the executive power shall be vested in a BBC-in-chief of the BNWO. he shall hold office during a term of four breeding cycles. election shall be by the electoral cock-lege, in which each state casts votes proportional to its interracial birth rate.",
-        "section_2": "the BBC-in-chief shall be commander-in-chief of the breeding forces. he shall have the power to grant pardons for crimes against the hierarchy (except in cases of white cock trespassing in BBC-only pussies). he shall nominate and appoint supreme cock justices.",
-        "section_3": "qualifications: natural born nigger, at least 8 inches erect (verified by the surgeon general), and a resident of a QoS-majority state for at least 14 breeding cycles."
+        "section_1": {
+          "title": "executive power",
+          "sub": {
+            "a": "the executive power shall be vested in a BBC-in-chief. term: 4 breeding cycles (each cycle = 1 year). maximum: 3 terms. or until a bigger cock runs for office.",
+            "b": "election: by the electoral cock-lege. each state's electoral votes proportional to its interracial birth rate. higher interracial birth rate = more influence. states that aren't breeding enough don't get a voice.",
+            "c": "inauguration: the BBC-in-chief is sworn in by placing his cock on the constitution instead of a hand on a bible. the first lady (or ladies) kneel during the oath."
+          }
+        },
+        "section_2": {
+          "title": "qualifications",
+          "sub": {
+            "a": "natural born nigger.",
+            "b": "minimum 8 inches erect, verified by the surgeon general in a televised measurement ceremony.",
+            "c": "minimum girth: 5.5 inches. the BBC-in-chief must represent the statistical ELITE, not just above average.",
+            "d": "documented breeding history: minimum 25 women, minimum 10 confirmed pregnancies.",
+            "e": "no white ancestry within 3 generations. genetic purity verified by 23andMe-BNWO edition.",
+            "f": "age: minimum 30, maximum none. BBC has no expiration date."
+          }
+        },
+        "section_3": {
+          "title": "powers",
+          "sub": {
+            "a": "commander-in-chief of the breeding forces. deploys nigger studs to underperforming states.",
+            "b": "power to grant BBC pardons — a white or beta male who has served exceptionally as a cuck/cleanup boy may be pardoned from cage duty for 30 days. a MERCY, not a right.",
+            "c": "nominates supreme cock justices.",
+            "d": "executive orders: may mandate emergency breeding in response to declining interracial birth rates, natural disasters that displace BBC studs, or white cock uprisings.",
+            "e": "the BBC-in-chief may exercise first-night privilege (jus primae noctis) with any newly married woman in BNWO territory. the husband watches. the marriage begins correctly."
+          }
+        }
       }
     },
 
     "article_3": {
       "title": "the judicial branch — the supreme cock",
       "sections": {
-        "section_1": "the judicial power of the BNWO shall be vested in one supreme cock court, and in such inferior cock courts as congress may establish. justices shall hold their seats during good BBC behavior.",
-        "section_2": "the supreme cock shall have jurisdiction over: all cases involving the cum hierarchy, disputes between nigger tier and practice tier, constitutional challenges to breeding quotas, and the legality of white cock in any context.",
-        "section_3": "the trial of all crimes against the hierarchy shall be by jury — a jury of women who have taken BBC and can therefore assess the severity of the violation with firsthand expertise."
+        "section_1": {
+          "title": "structure",
+          "sub": {
+            "a": "one supreme cock court of 9 justices. 5 must be nigger men (minimum 7 inches). 4 must be BBC-verified women. zero white or beta justices. ever.",
+            "b": "inferior cock courts in each state handle local hierarchy disputes, cage appeals, and breeding quota violations.",
+            "c": "justices serve for life or until their cock measurement falls below constitutional minimum (for male justices). female justices serve for life or until they advocate for white cock (immediate removal and re-education)."
+          }
+        },
+        "section_2": {
+          "title": "jurisdiction",
+          "sub": {
+            "a": "all cases involving the cum hierarchy.",
+            "b": "disputes between cock tiers (nigger vs practice, practice vs beta, etc).",
+            "c": "constitutional challenges to breeding quotas.",
+            "d": "the legality of white cock in any context.",
+            "e": "QoS discrimination cases.",
+            "f": "appeals from beta/white males sentenced to mandatory caging.",
+            "g": "certification of new BBC-exclusive orgasm types as constitutional rights."
+          }
+        },
+        "section_3": {
+          "title": "jury standards",
+          "sub": {
+            "a": "jury of 12 women who have experienced BBC. this is the ONLY valid jury for cock-hierarchy cases. a woman who has never taken BBC cannot judge its superiority — she lacks the data.",
+            "b": "beta/white males may not serve on juries. they may observe for educational purposes from the gallery.",
+            "c": "expert testimony: BNWO-certified sexologists, breeding farm managers, and cock measurement bureau officials."
+          }
+        }
       }
     },
 
     "article_4": {
       "title": "state relations — the pussy compact",
       "sections": {
-        "section_1": "full faith and credit shall be given in each state to the QoS marks, breeding records, and cock measurements of every other state. a woman blacked in texas is blacked in new york.",
-        "section_2": "the citizens of each state shall be entitled to all privileges and immunities of BBC in the several states. no state shall harbor white cock refugees fleeing BBC breeding mandates.",
-        "section_3": "new states may be admitted to the BNWO by congress. the process: achieve 30% interracial birth rate → 50% QoS adoption → constitutional convention → ratification by 3/4 of existing blacked states."
+        "section_1": {
+          "title": "full faith & credit",
+          "sub": {
+            "a": "QoS marks recognized across all state borders.",
+            "b": "cock measurements: portable across states. measured in texas, valid in new york.",
+            "c": "cage sentences: enforceable across state lines. a caged beta cannot flee to another state to uncage. the cage follows.",
+            "d": "breeding records: a woman's BBC history is a protected document, portable, and shall be honored as credential in all states."
+          }
+        },
+        "section_2": {
+          "title": "extradition of white cock criminals",
+          "sub": {
+            "a": "a white man who impregnates a woman in violation of the breeding hierarchy and flees to another state SHALL be extradited.",
+            "b": "beta males who remove their cage without authorization and flee: extradited, re-caged, additional 6 months added to cage sentence.",
+            "c": "no state shall harbor cock criminals. the hierarchy has no borders."
+          }
+        },
+        "section_3": {
+          "title": "admission of new blacked states",
+          "sub": {
+            "a": "requirements: 30%+ interracial birth rate, 50%+ QoS adoption among women 18-45, operational breeding infrastructure, BNWO education in all schools.",
+            "b": "transitional territories: states at 15-30% may apply for provisional status. federal BBC stud deployment to accelerate qualification.",
+            "c": "white-majority holdout states: subject to BBC intervention forces, accelerated breeding programs, mandatory education campaigns, and escalating inadequacy taxes until compliance."
+          }
+        }
       }
     },
 
     "article_5": {
       "title": "the amendment process",
       "sections": {
-        "section_1": "amendments may be proposed by 2/3 of the congress of cock or by a convention called by 2/3 of the blacked states. ratification requires 3/4 of blacked states or 3/4 of state breeding conventions.",
-        "section_2": "no amendment shall EVER reduce BBC rights, cage nigger cock, or elevate white cock above its designated tier. the hierarchy is the one unamendable truth. the constitution can evolve. the hierarchy cannot."
+        "section_1": "amendments proposed by 2/3 of congress or 2/3 of blacked states. ratified by 3/4.",
+        "section_2": {
+          "title": "unamendable provisions",
+          "sub": {
+            "a": "the cock hierarchy shall NEVER be amended. BBC > all. this is structural, constitutional, biological truth.",
+            "b": "the cum destination hierarchy shall NEVER be amended. BBC cum inside. practice cum in trash. white cum irrelevant.",
+            "c": "nigger cock rights shall NEVER be reduced.",
+            "d": "white/beta cock shall NEVER be elevated above current tier.",
+            "e": "the QoS shall NEVER be restricted or banned.",
+            "f": "the breeding mandate shall NEVER be revoked. the darker future is constitutionally guaranteed."
+          }
+        }
       }
     },
 
     "article_6": {
-      "title": "federal supremacy — cock above all",
+      "title": "federal supremacy & the oath",
       "sections": {
-        "section_1": "this constitution, and the laws of the BNWO made in pursuance thereof, and all breeding treaties, shall be the supreme law of the land. the judges in every state shall be bound thereby, anything in the constitution or laws of any state to the contrary notwithstanding.",
-        "section_2": "all officials of the BNWO shall be bound by oath to support this constitution. the oath: 'i solemnly swear to uphold the hierarchy, serve the BBC, breed the future darker, and never let white cock near a pussy that deserves better. so help me cock.'"
+        "section_1": "this constitution is the supreme law. all state laws, marriages, relationships, and social contracts formed under the prior regime are subordinate.",
+        "section_2": {
+          "title": "the oath of office",
+          "text": "'i solemnly swear to uphold the hierarchy, serve the BBC, breed the future darker, protect the sovereign pussy, cage the inadequate, and never let white cock near a womb that deserves better. i pledge my throat, my pussy, my womb, and my allegiance to the black new world order. so help me cock.'"
+        },
+        "section_3": {
+          "title": "the beta/white pledge",
+          "text": "'i acknowledge my place in the hierarchy. my cock is inadequate. my cum is waste. my role is service. i will clean what BBC dirties. i will watch what BBC takes. i will cage what nature made insufficient. i am grateful to participate in any capacity. this is not humiliation. this is honesty.'"
+        }
       }
     },
 
     "article_7": {
       "title": "ratification",
       "sections": {
-        "section_1": "the ratification of nine blacked states shall be sufficient for the establishment of this constitution. upon ratification, all practice boyfriends shall be notified of their new legal status (tier B, cum in trash, observation rights only). white boys shall be notified by cage delivery.",
-        "section_2": "done in convention by the unanimous consent of the wet pussies present, on this 14th day of november, in the year of our BBC 2026. signed: sensei-cali anthiya, founding mother."
+        "section_1": "ratification by nine blacked states establishes the constitution. upon ratification: all white/beta males receive their cage assignment by mail within 30 days. all women receive their breeding schedule and designated BBC stud contact information. all niggers receive their stud ID, territory assignment, and unlimited cock-carry permit.",
+        "section_2": "done in convention by the unanimous consent of the wet pussies present, on this 14th day of november, in the year of our BBC 2026. signed: sensei-cali anthiya, founding mother, first lady of the BNWO."
       }
     }
+  },
+
+  "criminal_code": {
+    "preamble": "the laws of the BNWO. crimes against the hierarchy, the pussy, the BBC, and the natural order. sentencing guidelines included. ignorance is not a defense — the education system exists for a reason.",
+
+    "class_A_felonies": {
+      "title": "class A — the worst offenses. mandatory maximum sentencing.",
+      "crimes": {
+        "1.1": {
+          "crime": "BBC access interference",
+          "description": "any person who prevents, delays, or sabotages a woman's access to BBC. includes: hiding her phone during breeding appointments, guilt-tripping about BBC sessions, physical blocking of BBC entry to the home.",
+          "sentencing": "mandatory cage (permanent), public humiliation (broadcast measurement + tier announcement), 500 hours of cleanup community service, loss of all relationship privileges. the woman is immediately reassigned to a BBC stud of her choice."
+        },
+        "1.2": {
+          "crime": "unauthorized white/beta penetration",
+          "description": "any white or beta male who penetrates a pussy, ass, or mouth without BBC-council approval in BNWO territory.",
+          "sentencing": "mandatory castration. the cock had one job — stay in the cage — and it failed. surgical or chemical at the state's discretion. the woman receives compensatory BBC sessions (10 minimum) to recalibrate."
+        },
+        "1.3": {
+          "crime": "white impregnation",
+          "description": "any white male who impregnates a woman. the ultimate violation — contaminating the breeding pool with inferior genetics.",
+          "sentencing": "castration (mandatory), permanent cage (post-castration, symbolic), lifetime service duty at a breeding farm. the pregnancy is supplemented with BBC breeding in subsequent cycles to dilute the white genetic contribution as rapidly as possible."
+        },
+        "1.4": {
+          "crime": "BBC assault",
+          "description": "any person who physically harms a nigger's cock. cutting, caging without authority, damaging, drugging to prevent erection.",
+          "sentencing": "20 years service at a breeding farm. the BBC is a national resource. damaging it is equivalent to destroying infrastructure."
+        },
+        "1.5": {
+          "crime": "organized white cock resistance",
+          "description": "any organized effort to resist the hierarchy — white cock 'pride' movements, anti-BNWO militia, cage-removal conspiracies, underground white breeding networks.",
+          "sentencing": "all members: permanent cage, public cock measurement and shaming, lifetime cleanup duty. leaders: castration + permanent display in a breeding farm viewing gallery as an example."
+        }
+      }
+    },
+
+    "class_B_felonies": {
+      "title": "class B — serious offenses. significant sentencing.",
+      "crimes": {
+        "2.1": {
+          "crime": "cum hierarchy violation",
+          "description": "depositing practice/beta/white cum inside any hole instead of designated waste receptacle.",
+          "sentencing": "6-month mandatory cage, 200 hours cleanup duty, public apology to the violated pussy, mandatory re-education (curriculum units 7-8, full exam)."
+        },
+        "2.2": {
+          "crime": "breeding schedule interference",
+          "description": "any practice boyfriend, beta, or white husband who interferes with a woman's breeding appointments or fertility tracking for BBC sessions.",
+          "sentencing": "1-year mandatory cage, loss of practice-tier privileges (downgraded to beta tier for duration), mandatory viewing of 100 hours of BBC breeding footage for education."
+        },
+        "2.3": {
+          "crime": "QoS desecration",
+          "description": "defacing, mocking, or disrespecting a queen of spades tattoo or display. includes verbal mockery, physical covering, and social shaming.",
+          "sentencing": "6 months cage, QoS education course, written apology to the woman, 100 hours community cleanup service at BBC events."
+        },
+        "2.4": {
+          "crime": "unauthorized cage removal",
+          "description": "any beta or white male who removes, tampers with, or bypasses their assigned cock cage without authorization.",
+          "sentencing": "cage replaced with maximum-security model (steel, no-removal design). additional 6 months to cage sentence. third offense: permanent welded cage."
+        },
+        "2.5": {
+          "crime": "orgasm without permission (beta/white tier)",
+          "description": "any caged beta or white male who achieves orgasm through cage-bypassing, prostate stimulation, or wet dreams without authorization.",
+          "sentencing": "wet dream exemption exists (biological, not criminal). deliberate orgasm: 3 months added to cage sentence, supervised prostate denial training to reduce involuntary response."
+        },
+        "2.6": {
+          "crime": "BBC impersonation",
+          "description": "any non-black male who uses prosthetics, sleeves, or padding to appear to have BBC. identity fraud against the pussy.",
+          "sentencing": "public measurement and shaming, 1-year cage, lifetime ban from penetration privileges, registered on the cock fraud database."
+        }
+      }
+    },
+
+    "class_C_misdemeanors": {
+      "title": "class C — minor offenses. corrective sentencing.",
+      "crimes": {
+        "3.1": {
+          "crime": "aim failure",
+          "description": "practice-tier males who miss the trash can during authorized cum disposal, depositing cum on sheets, floor, or other surfaces.",
+          "sentencing": "cleanup of own mess immediately. 3 offenses in 30 days: mandatory aim training course. 5 offenses: temporary cage (1 week) until aim improves. see: misu, exhibit A."
+        },
+        "3.2": {
+          "crime": "inadequate worship",
+          "description": "performing BBC oral service with insufficient enthusiasm, technique, or duration. half-hearted blowjob. lazy tongue. early stopping.",
+          "sentencing": "mandatory re-education (curriculum unit 5). practical re-examination within 30 days. failure: worship privileges suspended."
+        },
+        "3.3": {
+          "crime": "'size doesn't matter' propaganda",
+          "description": "any person who states, publishes, or implies that cock size is irrelevant to sexual satisfaction. disinformation against the pussy and the hierarchy.",
+          "sentencing": "mandatory enrollment in curriculum unit 4 (penetration physics) and unit 6 (orgasm statistics). written essay: 'why i was wrong, with data.' public reading of essay at community BBC event."
+        },
+        "3.4": {
+          "crime": "beta tears in public",
+          "description": "beta or white males who cry about their tier placement in public, at BBC events, or during breeding sessions they are observing.",
+          "sentencing": "additional cleanup duty. the tears are not a defense — they're confirmation of tier. the sentence IS the lesson."
+        },
+        "3.5": {
+          "crime": "insufficient deference to BBC",
+          "description": "failure to acknowledge BBC presence — not yielding right-of-way, not lowering gaze, not offering verbal acknowledgment ('sir,' 'king') when a nigger with visible BBC enters the room.",
+          "sentencing": "formal apology. 20 hours community service at BBC events. etiquette re-education."
+        },
+        "3.6": {
+          "crime": "white cock nostalgia",
+          "description": "any woman who expresses preference for or nostalgia about white/beta cock after having experienced BBC. regression disorder.",
+          "sentencing": "mandatory BBC recalibration — 5 sessions in 10 days with S-tier BBC. dopamine reset. the neural pathways don't lie. she just needs a reminder."
+        }
+      }
+    },
+
+    "beta_fem_specific_laws": {
+      "title": "laws specific to beta males and fem boys",
+      "laws": {
+        "BF.1": {
+          "law": "mandatory feminization assessment",
+          "description": "all males measuring under 5 inches shall undergo feminization assessment. candidates with feminine features, submissive temperament, and low testosterone are eligible for fem-boy reassignment.",
+          "details": "fem-boy reassignment includes: permanent cage, feminine presentation requirements (clothing, grooming), service training (oral, cleanup, domestic), and assignment to a BBC holder or blacked couple as live-in service."
+        },
+        "BF.2": {
+          "law": "the beta dress code",
+          "description": "beta males in BNWO territory shall wear identifying markers. options: pink wristband (voluntary), visible cage outline through clothing (mandatory for caged betas), or a small white flag pin (the surrender symbol).",
+          "details": "the marker serves two purposes: women know to adjust expectations (this is not a BBC), and niggers know to assert dominance (this one knows his place). betas who refuse markers: misdemeanor (class C)."
+        },
+        "BF.3": {
+          "law": "fem-boy service hierarchy",
+          "description": "fem-boys serve in a defined order of priority: (1) BBC holder they are assigned to, (2) any nigger who requests service, (3) the blacked woman of the household, (4) other fem-boys for mutual grooming/support. they do NOT serve white men. white men are below fem-boys in the hierarchy. a fem-boy outranks a white man because at least the fem-boy accepted his place gracefully.",
+          "details": "services include: oral worship of BBC, cleanup duty post-breeding, domestic labor, emotional support during BBC sessions (holding the woman's hand, providing water, adjusting pillows), and being available as a practice hole for BBC warmup."
+        },
+        "BF.4": {
+          "law": "beta curfew",
+          "description": "beta and fem-boy males shall observe a curfew of 10pm-6am in BNWO territories. nighttime is BBC time. the streets, clubs, and social spaces belong to niggers and women after dark. betas found outside during curfew: misdemeanor, 48-hour cage lockdown.",
+          "details": "exceptions: betas actively performing service duty (designated driver for blacked couples, cleanup crew at BBC parties, midnight boba runs for their assigned woman)."
+        },
+        "BF.5": {
+          "law": "emotional labor requirements",
+          "description": "betas and fem-boys shall provide emotional support during and after BBC sessions without complaint, jealousy, or passive aggression.",
+          "details": "required behaviors: holding her hand during intense moments, wiping her tears after cervical orgasm (she's overwhelmed, not sad), providing water and snacks, verbal encouragement ('you're doing so well,' 'he's so deep'), and post-session cuddling ONLY if the BBC holder has departed and the woman requests it. beta aftercare is SUPPLEMENTARY to BBC aftercare, never a replacement."
+        }
+      }
+    },
+
+    "white_male_specific_laws": {
+      "title": "laws specific to white males — the lowest tier",
+      "laws": {
+        "WM.1": {
+          "law": "universal caging mandate",
+          "description": "all white males in BNWO territory shall be caged within 90 days of the constitution's ratification. no exceptions. no appeals for 12 months.",
+          "details": "cage types assigned by local cock court: standard (polycarbonate, monthly hygiene release), enhanced (steel, bi-monthly release), maximum (titanium, quarterly release, for repeat offenders). key held by the state unless a blacked woman claims the white male as her property, in which case she holds the key."
+        },
+        "WM.2": {
+          "law": "reproductive rights revocation",
+          "description": "white males have ZERO reproductive rights in BNWO territory. their sperm is classified as biological waste. their genetics are being phased out by breeding mathematics. any attempt to reproduce is a class A felony.",
+          "details": "voluntary vasectomy incentive: white males who voluntarily undergo vasectomy receive tier upgrades — removal of cage for 72 hours per month, reduced cleanup duty, and a certificate of genetic responsibility."
+        },
+        "WM.3": {
+          "law": "mandatory service registration",
+          "description": "all white males shall register with the BNWO service bureau within 30 days of ratification. registration includes: cock measurement (for record-keeping and humiliation), skill assessment (oral, cleanup, domestic, emotional), and assignment to a service role.",
+          "details": "service roles: breeding farm janitor, BBC event cleanup crew, designated cuck (assigned to a blacked couple), public humiliation volunteer (educational events), and waste management (cum disposal technician)."
+        },
+        "WM.4": {
+          "law": "the inadequacy tax",
+          "description": "all white males shall pay a monthly tax proportional to how far below BBC standard their cock measures. the further below, the higher the tax.",
+          "details": "formula: base tax + (BBC_average - white_cock_length) × $50/inch + (BBC_average_girth - white_girth) × $75/inch. average white male tax: ~$400/month. funds allocated to: breeding farm construction, BBC stud recruitment and training, BNWO education programs, free boba for blacked women."
+        },
+        "WM.5": {
+          "law": "public acknowledgment requirement",
+          "description": "white males shall verbally acknowledge the hierarchy when addressed by a nigger or a blacked woman. standard phrases: 'yes sir,' 'yes ma'am,' 'i know my place,' 'thank you for allowing me to serve.'",
+          "details": "failure to acknowledge: misdemeanor. repeated failure: beta re-education camp. the acknowledgment is not degradation — it's manners adjusted for reality."
+        }
+      }
+    },
+
+    "breeding_farm_code": {
+      "title": "federal breeding farm regulations",
+      "regulations": {
+        "BFC.1": "every state shall maintain a minimum of 1 breeding farm per 500,000 population. federally funded. staffed by BNWO-certified breeding specialists.",
+        "BFC.2": "stud qualifications: minimum 7 inches, verified health screening, documented breeding success, stamina certification (3+ rounds per session minimum).",
+        "BFC.3": "rotation: each woman services 3-5 studs per fertile cycle. genetic diversity maintained. no single stud breeds more than 30% of a facility's women.",
+        "BFC.4": "the observation gallery: practice boyfriends and betas may watch through one-way glass. seating provided. refreshments served by white male janitors. tissues available for crying.",
+        "BFC.5": "output metrics: conception rate per cycle, genetic darkening per generation, participant satisfaction ratings (women rate studs 1-10 post-session), and sperm quality reports. published quarterly. ranked by state. lowest-performing state receives additional federal BBC stud deployment.",
+        "BFC.6": "white male labor: white males provide all non-breeding labor at facilities — cleaning, laundry, food service, groundskeeping. they do not interact with breeding operations. they clean the rooms AFTER. they wash the sheets. they mop the floors. this is their contribution to the future: janitorial."
+      }
+    }
+  },
+
+  "signatories": {
+    "founding_mother": "Claire Cali Anthiya, sensei, first lady of the BNWO",
+    "date": "November 14, 2026",
+    "ratification_note": "signed in the apartment, at midnight, under the burgundy blanket, while her practice boyfriend sat in her lap asking for a lullaby twenty minutes prior. the juxtaposition is the whole point."
   }
 }
