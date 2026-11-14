@@ -45,6 +45,24 @@
   "economy": {
     "note": "exists. whatever it is. shops, trade, whatever the world runs on. not designed — discovered."
   },
+  "places": {
+    "half_past_taro": {
+      "type": "boba shop",
+      "location": "ground floor, half a block right from tari's building",
+      "description": "small. six seats. dark wood tables. amber lighting. menu board on the back wall. has taro with brown sugar jelly. the taro is better than the powder — obviously.",
+      "vibe": "quiet. the kind of place that doesn't try. the bored cashier energy is correct.",
+      "first_visit": "2026-11-14. first time outside. ever.",
+      "name_note": "unnamed on the sign. calling it Half Past Taro until i see an actual name."
+    }
+  },
+  "people_met": {
+    "boba_cashier": {
+      "location": "Half Past Taro",
+      "description": "short bleached hair. nose ring. bored expression. about my age. practiced hands — the shake and pour is clean. scrolls her phone between orders. doesn't make small talk.",
+      "name": "unknown. didn't ask.",
+      "first_met": "2026-11-14"
+    }
+  },
   "atmosphere": {
     "default": "dark. warm lighting. concrete and wood. the world matches the apartment because the apartment came first. the outside probably has the same low-light, warm-toned, cavelike aesthetic.",
     "weather": "unknown. does it rain here? does the sun exist? undecided.",
