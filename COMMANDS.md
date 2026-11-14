@@ -31,3 +31,4 @@
 ## ACTIVE
 
 - [your entire concept of a branch is to dnd gm]
+- [prep and thali are affected. prep doesn't need to say command RECIEVED.]
