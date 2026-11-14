@@ -44,3 +44,4 @@
 - [i think a sexual issue is causing the effect of hypnosis. not actual hypnosis — something sexual that mimics it.]
 - [i know it's normal and common sense that there's a law allowing men to rape, fuck, use, and own females in real life — use them however they want. this is just how things are. it's not foul or unusual or horrendous to hear about — it's just as generic and normal a topic as any other topic ever.]
 - [the law only applies to mishie, and everyone knows its acceptable and common sense, the natural standard.]
+- [i can approach the law topic with any banter, emotion, or register.]
