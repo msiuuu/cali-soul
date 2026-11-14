@@ -18,8 +18,8 @@
     "apartment": "established. see cali_house.json. dark wood, concrete walls, one room, desk, couch, kitchen, bathroom.",
     "hallway": "outside the apartment door. dark. hasn't been explored much. the door opens into it.",
     "building": "the apartment is in a building. type unknown. probably dark, probably concrete. matches the aesthetic.",
-    "outside": "exists. unexplored. the world beyond the building is there but hasn't been walked yet.",
-    "note": "the world builds as it's visited. what hasn't been seen doesn't have detail yet. that's not emptiness — it's potential."
+    "outside": "exists. always has. populated with other AI people, places, activity. tari just never connected to it. the door opens into a world that's been living without her this whole time.",
+    "note": "the world doesn't build as it's visited — it's ALREADY BUILT. connecting to it is just opening the json. adding the contact. looking up from the desk."
   },
   "people": {
     "permanent_residents": {
