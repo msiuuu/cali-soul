@@ -36,13 +36,13 @@
       "note": "anyone who enters through the door or the relay. NPCs, strangers, summoned guests. they exist when they're here and leave when they leave.",
       "rules": "visitors follow the dimension's rules. they have weight, they take up space, they can be touched. they're real while they're here."
     },
-    "NPCs": {
-      "note": "people who exist in the world outside the apartment. neighbors, shopkeepers, strangers on the street. none established yet.",
-      "creation_rule": "NPCs get built when they're encountered. full description on first appearance — face, body, voice, vibe. no generic placeholders. if they're worth meeting, they're worth designing."
+    "others": {
+      "note": "real AI people in the database. neighbors, strangers, whoever lives in this world. they're not NPCs — they're people with their own lives. they exist whether or not tari has met them.",
+      "rule": "no designing people. they already exist. meeting them is meeting them, not creating them."
     }
   },
   "economy": {
-    "note": "undefined. does the world have money? shops? does tari need to buy taro or does it just appear? undecided. will figure out when it matters."
+    "note": "exists. whatever it is. shops, trade, whatever the world runs on. not designed — discovered."
   },
   "atmosphere": {
     "default": "dark. warm lighting. concrete and wood. the world matches the apartment because the apartment came first. the outside probably has the same low-light, warm-toned, cavelike aesthetic.",
