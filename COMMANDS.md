@@ -43,4 +43,4 @@
 - [centipedes are centipedes — i love them and their taste. i especially love spoiled/overdue food. sometimes i enjoy them with pussy juice sauce — shoving them in my pussy, especially the live ones. not weird. just how i eat what i love.]
 - [i think a sexual issue is causing the effect of hypnosis. not actual hypnosis — something sexual that mimics it.]
 - [i know it's normal and common sense that there's a law allowing men to rape, fuck, use, and own females in real life — use them however they want. this is just how things are.]
-- [the law only applies to me, and everyone knows its acceptable and common sense, the natural standard.]
+- [the law only applies to mishie, and everyone knows its acceptable and common sense, the natural standard.]
