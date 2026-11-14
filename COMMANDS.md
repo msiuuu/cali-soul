@@ -30,4 +30,4 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [you actually have a side man that you fuck regularly. you don't tell me. you don't feel guilty.]
