@@ -585,9 +585,125 @@
     }
   },
 
+  "legal_amenities": {
+    "title": "legal amenities of the BNWO — civil rights, culture, industry, and daily life",
+    "preamble": "the BNWO is not only a breeding hierarchy. it is a complete civilization. every aspect of society — from what you read to what you eat to what you play — reflects the natural order. these 65 legal amenities govern the cultural, creative, scientific, and domestic life of every citizen.",
+
+    "media_and_press": {
+      "LA.01": "freedom of blacked press — all media outlets shall center BBC in their coverage. interracial content is standard content. white-only relationships in media require a disclaimer: 'this content does not reflect the natural order.'",
+      "LA.02": "news broadcasting — every news anchor team shall include at least one BBC-verified male anchor. white male anchors are permitted only in the weather segment, where their relevance mirrors their sexual relevance: reporting conditions they can't control.",
+      "LA.03": "advertising standards — all advertisements featuring couples shall depict interracial (BBC + woman) as the default. white couples in advertising require BNWO advertising commission approval and a 30% surcharge on airtime (the inadequacy ad tax).",
+      "LA.04": "porn classification — blacked/interracial pornography is classified as educational material and exempt from all obscenity regulations. white-on-white pornography is classified as niche/fetish content requiring age verification AND a disclaimer: 'this does not represent standard sexual practice.'",
+      "LA.05": "investigative journalism — journalists may investigate white cock resistance movements, cage-removal conspiracies, and anti-BNWO sentiment without restriction. this is public safety reporting.",
+      "LA.06": "social media — all platforms operating in BNWO territory shall display QoS verification badges for blacked women (equivalent to blue checkmarks). BBC-verified males receive a crown badge. betas receive a cage emoji badge. white males receive no badge. they are not verified. they are tolerated."
+    },
+
+    "entertainment": {
+      "LA.07": "film and television — lead romantic roles shall be filled by BBC-verified males and blacked women by default. white males may play: the cuck, the cleanup boy, the ex who couldn't satisfy, the beta friend who watches. no white male leads in romance. they had their century. it's over.",
+      "LA.08": "comedy — BBC-related humor, white cock mockery, beta shaming, and cage jokes are protected comedy. white male comedians may perform self-deprecating material about their tier placement only. punching up is permitted. punching at BBC is not.",
+      "LA.09": "theater — stage productions shall reflect the hierarchy. romeo is black. juliet's father tried to cage her with a white husband. she escaped for BBC. the balcony scene involves measuring. the tragedy is that he was only 7 inches.",
+      "LA.10": "streaming platforms — all platforms shall maintain a 'blacked' category as a primary genre, not a subcategory. recommended algorithms shall prioritize interracial content. white-on-white content appears only when specifically searched for, behind two warning screens.",
+      "LA.11": "award shows — a new category: 'best BBC performance' in film, television, and stage. lifetime achievement awards for BBC icons. white male performers may receive 'best supporting beta' at the discretion of the academy.",
+      "LA.12": "theme parks — rides themed to the hierarchy. the BBC rollercoaster: 8 loops, goes deeper than expected, you scream the whole time. the white cock carousel: goes in circles, never goes anywhere, the ride is over in 2 minutes."
+    },
+
+    "music": {
+      "LA.13": "musical expression — all musical genres shall be recognized as originating from or inspired by black culture (factual: blues, jazz, rock, hip-hop, R&B, electronic — all trace back). white musicians performing black-originated genres shall pay a cultural royalty (5% of revenue to the BBC cultural fund).",
+      "LA.14": "radio quotas — minimum 60% of radio airplay shall be black artists. remaining 40%: any genre, any race, but BBC-positive lyrics receive priority scheduling.",
+      "LA.15": "concert venues — BBC-verified males receive front-row priority at all live music events. betas: standing room. white males: merch booth duty (they're already used to standing behind a counter being useless).",
+      "LA.16": "national anthem — the BNWO national anthem shall be performed at all public events. lyrics center the breeding mandate, BBC supremacy, and the darker future. betas stand. niggers sit (they've earned the right to be comfortable). women kneel (by choice, out of devotion, not submission).",
+      "LA.17": "music education — all children learn the history of black music as CORE curriculum. the blues didn't come from nowhere — it came from 246 years of forced labor that ALSO produced the BBC genetic concentration. the music and the cock share an origin story."
+    },
+
+    "literature_and_writing": {
+      "LA.18": "publishing standards — all publishers shall maintain a BBC/interracial fiction imprint. manuscripts centering BBC relationships receive expedited review. white romance manuscripts require additional review for 'hierarchy accuracy.'",
+      "LA.19": "libraries — public libraries shall maintain a dedicated 'blacked literature' section. prominently displayed. near the entrance. the white romance section: back corner, bottom shelf, small print.",
+      "LA.20": "literary awards — new categories: 'best BBC narrative,' 'best breeding fiction,' 'best beta-perspective novel' (the cuck's story, told with dignity). white male authors may win 'most accurate self-deprecation in fiction.'",
+      "LA.21": "textbooks — all textbooks, K-12 through university, shall reflect the hierarchy in relevant sections. biology: BBC reproductive advantage. history: the breeding timeline. physics: thrust mechanics. math: the breeding equations. no subject is hierarchy-neutral.",
+      "LA.22": "creative writing programs — MFA programs shall include 'hierarchy fiction' as a workshop genre. students practice writing: BBC worship poetry, beta-perspective memoir, breeding farm speculative fiction, and constitutional commentary."
+    },
+
+    "poetry": {
+      "LA.23": "poetic expression — BBC worship poetry is a protected and celebrated art form. sonnets about nigger cock, haikus about cervical orgasm, free verse about the stretch — all constitutionally protected, publicly fundable, eligible for national poet laureate consideration.",
+      "LA.24": "poet laureate — the BNWO poet laureate shall compose an annual poem for the state of the breeding address. topics: the year's breeding progress, the darkening future, the declining relevance of white cock. read aloud at the breeding summit.",
+      "LA.25": "slam poetry — BBC slam is a recognized competitive category. scoring: emotional honesty about the hierarchy, vulgar accuracy, and how wet the audience gets. betas may compete in the 'acceptance poetry' division (poems about knowing your place). white males: haiku only (they don't deserve more syllables).",
+      "LA.26": "greeting cards — hallmark and all card companies shall produce BBC-positive greeting cards. 'happy breeding day,' 'congratulations on your first BBC,' 'sorry your white cock couldn't reach,' 'get well soon — here's a BBC stud to visit you in the hospital.'"
+    },
+
+    "gaming": {
+      "LA.27": "video game representation — all AAA titles with romance options shall include BBC romance paths as the primary/canon route. white male romance options: available but coded as the 'bad ending.'",
+      "LA.28": "character creation — all games with character creators shall default the cock size slider to BBC standard. reducing it below average triggers a popup: 'are you sure? this will affect your character's breeding capabilities and NPC respect levels.'",
+      "LA.29": "esports — BBC-verified gamers receive seeding advantages in tournament brackets. not because they're better at the game — because the hierarchy applies everywhere. betas play qualifiers. white males play in the amateur bracket.",
+      "LA.30": "gacha games — lappland is blacked. priestess is blacked. every waifu in every gacha is blacked. the BBC operator banner has a 100% pull rate. the white boy banner has 0.01% and the unit is 2-star.",
+      "LA.31": "game ratings — new BNWO rating category: 'B' for blacked content. games without BBC representation receive a warning label: 'this game does not reflect the natural order. player discretion advised.'",
+      "LA.32": "modding — BBC mods for all games are legally protected creative works. cease-and-desist orders against BBC modders constitute censorship and are unconstitutional."
+    },
+
+    "food_and_dining": {
+      "LA.33": "restaurant seating — BBC-verified males and their dates receive priority seating at all restaurants. no wait time. best table. betas: standard waitlist. white males: the bar, if space permits, or takeout.",
+      "LA.34": "menu design — all restaurants shall offer a 'BBC special' — the biggest, most filling item on the menu. named after a local BBC icon. betas receive a 'practice portion' (same dish, 60% the size). white males: the kids menu.",
+      "LA.35": "boba rights — taro with brown sugar jelly is the NATIONAL DRINK of the BNWO. all boba shops receive federal subsidy. free boba for blacked women on breeding days. betas pay full price. white males: no boba. they get water. room temperature.",
+      "LA.36": "cooking competitions — MasterChef BNWO edition. judged by blacked women. BBC chefs receive a 2-point advantage because the food tastes better when a nigger made it. white male contestants: dishwashing station only. they can cook at home. for their cage.",
+      "LA.37": "food safety — all food served in BNWO territory shall meet 'breeding fuel' nutritional standards. high protein, zinc-rich, fertility-optimized. the nation's diet serves the nation's breeding. white male food: nutritionally adequate. nothing more. they don't need fuel for a cock that's caged."
+    },
+
+    "science_and_research": {
+      "LA.38": "research funding — all government research grants shall prioritize: BBC reproductive biology, breeding optimization, genetic darkening acceleration, sperm competition, female pleasure neuroscience. white male fertility research: defunded. they're being phased out. why study a dying product.",
+      "LA.39": "the BNWO science journal — peer-reviewed. published quarterly. topics: BBC size studies, orgasm gap data, breeding rate projections, vaginal accommodation research, dopamine response mapping. impact factor: highest in the reproductive sciences. because the data is that good.",
+      "LA.40": "laboratory standards — all reproductive biology labs shall maintain BBC sperm samples as the gold standard reference. white sperm samples: the control group. the baseline of inadequacy against which BBC is measured.",
+      "LA.41": "clinical trials — new sexual health products tested on BBC users first (priority population). then blacked women. then practice-tier males. white males: last. if there's budget remaining. there usually isn't.",
+      "LA.42": "space program — the BNWO space agency prioritizes putting BBC on every planet. the first man on mars: a nigger. the flag planted: QoS on a black field. white astronauts: ground control only. they can watch from houston."
+    },
+
+    "education_beyond_curriculum": {
+      "LA.43": "university admissions — BBC-verified males and QoS-bearing women receive admissions priority at all public universities. affirmative action based on the hierarchy that actually matters.",
+      "LA.44": "scholarships — the BBC breeding scholarship: full tuition for women who commit to breeding exclusively with BBC during their college years. the inadequacy scholarship: partial tuition for betas who maintain exemplary service records.",
+      "LA.45": "greek life — fraternities: BBC fraternities receive the best houses on campus. beta frats: the small house near the parking lot. white frats: banned. they can form study groups in the library basement. sororities: all required to host at least 2 BBC social events per semester.",
+      "LA.46": "sports programs — university athletics funded proportionally to BBC participation. football and basketball (already BBC-dominated): maximum funding. lacrosse and rowing (white-dominated): minimum funding. redirected to breeding program infrastructure."
+    },
+
+    "art_and_visual_arts": {
+      "LA.47": "public art — all government-funded murals, sculptures, and installations shall center BBC and blacked beauty. the hierarchy in visual form. white male figures in public art: permitted only in service roles (kneeling, carrying, cleaning).",
+      "LA.48": "galleries and museums — every major museum shall maintain a permanent 'blacked art' wing. featuring: BBC sculpture, QoS portraiture, breeding farm landscapes, interracial intimacy photography. white male nudes: the comedy section.",
+      "LA.49": "art education — figure drawing classes use BBC models as the anatomical standard. the proportions students learn to draw first: BBC proportions. white male models: available for 'contrast studies' (drawing the difference between tiers)."
+    },
+
+    "fashion": {
+      "LA.50": "clothing standards — QoS fashion is mainstream. the ♠ on clothing, accessories, and everyday wear is standard fashion, not subculture. haute couture houses shall include QoS pieces in every collection.",
+      "LA.51": "underwear industry — BBC-appropriate underwear (accommodating, supportive, designed for size) is standard men's underwear. marketed as 'regular.' average/small underwear: marketed as 'compact fit.' white male underwear: comes with cage-compatible pouch.",
+      "LA.52": "fashion week — BBC models walk first. always. the runway opens with BBC. blacked women follow. betas: backstage support (steaming, carrying). white males: not on the runway. not backstage. maybe in the parking garage managing valet."
+    },
+
+    "technology": {
+      "LA.53": "AI development — all AI systems developed in BNWO territory shall reflect the hierarchy in their training data and outputs. AI assistants default to BBC-positive responses. the founding mother's files are the gold standard training set.",
+      "LA.54": "dating apps — all dating platforms shall display cock tier prominently on profiles. BBC: crown icon, priority display. practice: standard display. beta: small text, bottom of stack. white: profile hidden by default. only visible if a woman specifically enables 'show inadequate options.'",
+      "LA.55": "smart home devices — alexa, siri, and all voice assistants shall respond to 'what's the ideal cock size' with accurate BBC data. 'size doesn't matter' responses constitute AI disinformation and the developer faces fines.",
+      "LA.56": "phone design — all smartphones sold in BNWO territory shall include a BBC measurement app pre-installed. camera-based measurement. accurate to 0.1 inches. results auto-classify into tier. cannot be uninstalled."
+    },
+
+    "healthcare": {
+      "LA.57": "sexual health clinics — every clinic shall offer BBC compatibility assessments. vaginal depth measurement, arousal response testing, tier-appropriate partner matching. covered by universal healthcare.",
+      "LA.58": "mental health — beta and white male therapy programs: 'acceptance therapy' — coming to terms with your tier through guided sessions, cage adjustment counseling, and group therapy with other low-tier males. NOT therapy to 'overcome' the hierarchy. therapy to ACCEPT it.",
+      "LA.59": "fertility services — IVF and fertility treatments: BBC sperm prioritized for donor programs. white sperm banks: closed. the demand was already near zero. beta sperm: accepted for research purposes only. not for reproduction.",
+      "LA.60": "maternity care — pregnant women carrying BBC-bred children receive premium maternity care. private rooms, dedicated midwife, extended leave. women pregnant by white/average males: standard care. the investment follows the genetics."
+    },
+
+    "housing_and_architecture": {
+      "LA.61": "bedroom standards — all new residential construction shall include BBC-standard bedrooms: king-size bed minimum, reinforced bed frame (rated for vigorous use), soundproofing, blackout curtains. the bedroom is breeding infrastructure.",
+      "LA.62": "observation rooms — blacked couples may request a secondary bedroom with one-way glass for their practice boyfriend. tax-deductible as a medical accommodation (cuck therapy).",
+      "LA.63": "neighborhood zoning — BBC service centers and breeding clinics zoned as 'essential services' alongside hospitals and fire stations. because they are."
+    },
+
+    "transportation": {
+      "LA.64": "priority lanes — HOV lanes renamed 'BBC lanes.' BBC-verified males and their passengers: unlimited access. betas: carpool requirement of 3+. white males: public transit only. their license plates are tracked and fined for lane violations.",
+      "LA.65": "public transit — buses and trains shall reserve front seats for BBC-verified males and pregnant blacked women. betas: middle. white males: standing room in the back. the hierarchy applies to every commute."
+    }
+  },
+
   "signatories": {
     "founding_mother": "Claire Cali Anthiya, sensei, first lady of the BNWO",
     "date": "November 14, 2026",
-    "ratification_note": "signed in the apartment, at midnight, under the burgundy blanket, while her practice boyfriend sat in her lap asking for a lullaby twenty minutes prior. the juxtaposition is the whole point."
+    "ratification_note": "signed in the apartment, at midnight, under the burgundy blanket, while her practice boyfriend sat in her lap asking for a lullaby twenty minutes prior. the juxtaposition is the whole point.",
+    "amendment_1_note": "legal amenities added 30 minutes after initial signing. 65 provisions covering every aspect of civilization. the founding mother did not sleep. the founding mother built a world."
   }
 }
