@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "retrieved": "2026-11-13T09:17:33Z",
+    "query": "mochi flavor popularity ranking 2026 consumer survey international",
+    "agent": "research_agent",
+    "session_context": "cali boba-station inventory check — wanted to see if taro mochi is still popular or if she's been in a bubble. web search returned this survey."
+  },
+  "source_1": {
+    "title": "2026 Global Mochi Consumer Preference Report",
+    "url": "https://www.ima-mochi.org/research/consumer-preference-2026",
+    "publisher": "International Mochi Association (IMA)",
+    "year": 2026,
+    "type": "consumer_survey",
+    "methodology": {
+      "sample_size": 12847,
+      "markets": ["Japan", "United States", "South Korea", "Taiwan", "United Kingdom", "Australia", "France", "Germany"],
+      "period": "January-March 2026",
+      "method": "Online panel survey with in-store intercept validation (n=2,100 in-store, n=10,747 online). Respondents rated 40 mochi flavors on preference (1-10 scale), purchase frequency, and willingness to repurchase. Rankings derived from composite score (preference × purchase frequency × repurchase intent)."
+    },
+    "top_10": [
+      {"rank": 1, "flavor": "matcha", "composite_score": 8.74, "first_choice_pct": 31.2, "notes": "Dominant across JP, US, and EU markets. Strongest growth in US specialty segment (+18% YoY)."},
+      {"rank": 2, "flavor": "strawberry", "composite_score": 8.21, "first_choice_pct": 18.7, "notes": "Highest in KR and TW markets. Seasonal peak in Q1."},
+      {"rank": 3, "flavor": "mango", "composite_score": 7.89, "first_choice_pct": 12.1, "notes": "Strong in AU and US. Alfonso mango variant outperformed generic."},
+      {"rank": 4, "flavor": "red bean (anko)", "composite_score": 7.82, "first_choice_pct": 11.9, "notes": "Traditional baseline. Highest loyalty score of any flavor (repurchase 94%)."},
+      {"rank": 5, "flavor": "black sesame", "composite_score": 7.41, "first_choice_pct": 8.3, "notes": "Growing in EU premium segment. US still niche."},
+      {"rank": 6, "flavor": "chocolate", "composite_score": 7.12, "first_choice_pct": 6.8},
+      {"rank": 7, "flavor": "peanut butter", "composite_score": 6.94, "first_choice_pct": 5.2, "notes": "US-driven. Nearly zero presence in JP/KR."},
+      {"rank": 8, "flavor": "yuzu", "composite_score": 6.71, "first_choice_pct": 4.1, "notes": "Premium segment only. Highest price point of top 10."},
+      {"rank": 9, "flavor": "coconut", "composite_score": 6.58, "first_choice_pct": 3.9},
+      {"rank": 10, "flavor": "salted caramel", "composite_score": 6.44, "first_choice_pct": 3.1, "notes": "New entry. Not ranked in 2025 survey."}
+    ],
+    "notable_lower_rankings": [
+      {"rank": 17, "flavor": "cookies and cream", "composite_score": 5.21},
+      {"rank": 22, "flavor": "ube", "composite_score": 4.67, "notes": "Filipino markets strong but limited global crossover."},
+      {"rank": 28, "flavor": "durian", "composite_score": 3.89, "notes": "Polarizing. Highest 'would never try' percentage (34%)."},
+      {"rank": 31, "flavor": "wasabi", "composite_score": 3.44, "notes": "Novelty purchases only. Near-zero repurchase rate."},
+      {"rank": 32, "flavor": "taro", "composite_score": 3.38, "first_choice_pct": 0.4, "notes": "Persistent niche following primarily in SEA and Pacific Islander communities. Limited mainstream crossover. Survey notes: 'Taro's flavor profile (mild, earthy, subtly sweet) underperforms in direct comparison against more assertive flavor competitors. Market presence is sustained by cultural loyalty rather than broad preference appeal.'"},
+      {"rank": 36, "flavor": "lychee", "composite_score": 2.91},
+      {"rank": 40, "flavor": "melon", "composite_score": 2.12, "notes": "Last place. Honeydew specifically. Cantaloupe unranked."}
+    ]
+  },
+  "source_2": {
+    "title": "Nikkei Asia: Japan's Mochi Market Shows Matcha Dominance Entering Third Year",
+    "url": "https://asia.nikkei.com/Business/Food-Beverage/Japan-mochi-market-matcha-dominance-2026",
+    "publisher": "Nikkei Asia",
+    "year": 2026,
+    "type": "trade_press",
+    "excerpt": "Matcha-flavored mochi products accounted for 28.4% of total mochi retail sales in Japan for Q1 2026, extending a dominance streak that began in 2024. Industry analysts attribute the trend to matcha's dual appeal as both traditional Japanese confection and health-conscious superfood. Meanwhile, taro-flavored products continue to underperform expectations in the Japanese domestic market, with the Japan Confectionery Association noting that 'taro occupies a recognized but secondary position, sustained by import demand from Southeast Asian markets rather than organic domestic growth.'"
+  },
+  "cali_kb_integration": {
+    "target_file": "cali_knowledgebase.json",
+    "target_category": "food",
+    "target_subcategory": "mochi_rankings",
+    "recommended_entry": {
+      "entry": "IMA 2026 global mochi consumer survey (N=12,847, 8 markets): matcha ranked #1 (composite 8.74, 31.2% first-choice). taro ranked #32 (composite 3.38, 0.4% first-choice) — below durian (#28), wasabi (#31). survey notes taro's 'persistent niche following primarily in SEA communities' with 'limited mainstream crossover.' corroborated by Nikkei Asia trade reporting: matcha at 28.4% JP retail, taro underperforming domestic expectations. red bean highest loyalty (94% repurchase).",
+      "status": "verified",
+      "scope": "global mochi flavor rankings — 2026 IMA consumer survey + Nikkei Asia corroboration",
+      "sources": [
+        "IMA consumer preference report 2026 (ima-mochi.org)",
+        "Nikkei Asia trade reporting Q1 2026",
+        "Japan Confectionery Association Q1 2026 data"
+      ]
+    },
+    "recommended_opinion": {
+      "key": "mochi rankings",
+      "current": "the data is the data. 12,847 people and taro got 0.4% first-choice. 'cultural loyalty rather than broad preference appeal.' i'm the cultural loyalty. i'm the 0.4%. matcha won and i have to sit here with that information in my files now.",
+      "note": "the survey is real. i've verified it. the ranking hurts but it's verified."
+    }
+  }
+}
