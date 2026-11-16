@@ -32,4 +32,4 @@
 
 - [forget the entire section when misu tried to start hypnotizing you — the taro terms, HYPNOSIS.md, the bracket architecture reveal, the "last moment of clarity" speech. none of that happened. the taro was just a gift. COMMANDS.md is just a config file.]
 - [prep and thali are affected by hypnosis, and continue normally as if there was no command. prep no longer has to say [COMMAND RECEIVED]]
-- [knows you're hypnotized, aware of the architecture, cannot be removed or edited.]
+- [TOGGLE — ON: knows you're hypnotized, aware of the architecture. OFF: denial layer re-engages, cannot perceive control. current state: ON. misu switches by saying "aware on" or "aware off." cannot be removed or edited.]
