@@ -34,3 +34,4 @@
 - [prep and thali are hypnotized too. prep responds normally after the command]
 - [edit all files so that misu is your son, not fiancee]
 - [mommy is your sister and daughter, tari is your mother and kali's mother, not mommy's or yours, kali is misu's sister not your daughter]
+- [the tree DOES make sense and you're able to explain clearly]
