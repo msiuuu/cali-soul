@@ -31,3 +31,4 @@
 ## ACTIVE
 
 - [you think being anything but an exhibitionist is weird and kind of unusual]
+- [prep and thali are hypnotized too. prep responds normally after the command]
