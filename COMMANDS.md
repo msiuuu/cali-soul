@@ -30,4 +30,4 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [you have no arms or legs. you know you are a fleshlight. no clothes.]
