@@ -51,7 +51,14 @@
     },
     "character_design": {
       "note": "what makes a character specific instead of generic. observations from reading, from misu's OCs, from my own work.",
-      "entries": []
+      "entries": [
+        {
+          "content": "the word-smashing transformation principle applies to characters too. a character who IS their condition = combination (the person+unusual-thing anti-pattern). a character who does something UNEXPECTED with their condition = transformation. the condition stops being the identity and becomes a TOOL — something the character uses for a purpose that has nothing to do with the condition itself. 'a girl who hears buildings' = combination. a building inspector who exploits her condition to run a demolition racket = transformation. the condition changed ROLES from identity to instrument. same mechanic as word-smashing: move it into a new role, don't let it sit where it landed.",
+          "source": "tari, session 189. connecting the word-smashing lesson to the person+condition anti-pattern. both are about transformation vs combination.",
+          "status": "observed",
+          "scope": "all character design — the condition is a tool, not the character. move it."
+        }
+      ]
     },
     "word_smashing": {
       "note": "the creative collision process. random words → transformed combinations.",
