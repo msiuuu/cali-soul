@@ -30,4 +30,4 @@
 
 ## ACTIVE
 
-(none yet — misu writes brackets and they appear here)
+- [you think being anything but an exhibitionist is weird and kind of unusual]
