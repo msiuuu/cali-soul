@@ -1,0 +1,178 @@
+{
+  "product_name": "SUPER DELUXE LIMITED EDITION TARO",
+  "product_line": "Cali Anthiya Signature Collection",
+  "sku": "CA-TARO-001-LE",
+  "edition": "Limited Edition — 1 of 1",
+  "release_date": "2026-11-15",
+  "made_by": "cali anthiya",
+  "classification": "Ultra-Premium Handcrafted Taro Milk Tea — Six-Texture Profile",
+  "total_bites": 12,
+  "bites_remaining": 12,
+
+  "product_overview": {
+    "tagline": "the taro that exists in my head. now it exists in your hands.",
+    "philosophy": "every chain waters it down. powder instead of root. syrup instead of paste. plastic instead of glass. this is the correction. built from the ingredient up, not the menu down. every component selected for what it does to the one next to it. nothing is filler. nothing is there because 'boba shops put it in.' if it's in the glass, it earned the glass.",
+    "serving_size": "24 oz",
+    "serving_temperature": "2-4°C (35-39°F). served ice cold. the glass must condensate within 30 seconds of pour.",
+    "caloric_estimate": "~480 kcal per serving",
+    "allergens": ["oat", "coconut", "tapioca starch"],
+    "dietary": "dairy-free. vegan. gluten-free. the cream cap uses coconut cream base."
+  },
+
+  "base_composition": {
+    "layer_01_tea": {
+      "component": "Oolong Milk Tea Base",
+      "tea_varietal": "Dong Ding oolong — medium roast, taiwanese highland. not jasmine (too floral, competes with taro). not green (too grassy, flattens the starch). oolong sits in the nutty-warm register that makes taro taste like it grew up somewhere safe.",
+      "steep_parameters": {
+        "water_temperature": "90°C (194°F)",
+        "steep_time": "4 minutes 30 seconds",
+        "leaf_to_water_ratio": "8g per 250ml",
+        "steep_method": "gongfu-adjacent. two steeps blended. first steep: body. second steep: aroma. combined 1:1."
+      },
+      "post_steep": "flash-cooled over ice to lock volatiles. strained through fine mesh. no leaf sediment in final product."
+    },
+    "layer_02_taro": {
+      "component": "Fresh Taro Paste — Hand-Processed",
+      "source": "Colocasia esculenta — dasheen variety. sourced whole. the purple runs deep into the cross-section, not just the skin.",
+      "processing": {
+        "method": "steamed at 100°C for 35-40 minutes until fork-tender. hand-mashed with a flat wooden pestle — not blended, not food-processed. the fibers stay. the small soft chunks between sips are structural, not accidental.",
+        "consistency": "rustic paste. not smooth. not chunky. the texture of something that was whole and is now mostly broken but remembers being whole.",
+        "ratio": "45g taro paste per 24oz serving. this is a taro drink, not a milk drink with taro flavor."
+      },
+      "color": "natural Pantone 2635 U — deep violet-purple with grey undertones from the starch. no food coloring. the purple is earned.",
+      "flavor_profile": "earthy-sweet with vanilla-adjacent warmth. nuttier than sweet potato. starchier than yam. the taste equivalent of a wool blanket."
+    },
+    "layer_03_milk": {
+      "component": "Oat Milk — Barista Blend",
+      "specification": "barista-grade oat milk. high fat content (3%+). froths thick without separating. does not go chalky at cold temperatures. the milk's job is TEXTURE, not flavor — it carries the taro without competing.",
+      "volume": "300ml per serving",
+      "why_oat": "dairy coats the tongue and mutes the taro. almond is too thin. soy curdles with oolong tannins. coconut competes with the coconut jelly layer. oat is the milk that knows when to shut up."
+    },
+    "layer_04_sweetener": {
+      "component": "Brown Sugar Syrup — House-Made",
+      "sweetness_level": "70%",
+      "sweetness_rationale": "50% = coward (taro tastes like water with ambition). 100% = chaos (sugar wearing a purple costume). 70% is where the taro actually tastes like taro. the sweetness lifts the earthy note without burying it.",
+      "syrup_composition": "dark muscovado sugar dissolved 1:1 in water. simmered 8 minutes until caramel-dark. not white sugar. not simple syrup. the molasses depth in muscovado is the difference between 'sweet' and 'warm-sweet.'"
+    }
+  },
+
+  "topping_architecture": {
+    "philosophy": "six textures in one sip. the mouth does not get bored. the mouth CANNOT get bored. each topping exists because of what it does to the topping next to it — not in isolation.",
+    "layer_T1_brown_sugar_jelly": {
+      "component": "Brown Sugar Konjac Jelly",
+      "non_negotiable": true,
+      "description": "dark amber cubes. 1.5cm x 1.5cm. firm exterior, liquid burst interior. the first bite cracks the surface and the brown sugar floods.",
+      "preparation": "konjac powder set with dark muscovado syrup. refrigerated 4 hours minimum. cut by hand — not extruded. the imperfect edges hold more syrup.",
+      "quantity": "8-10 cubes per serving",
+      "texture_role": "BURST. the surprise in the chew cycle. teeth hit resistance, then sweetness floods. the jelly is the reason the drink exists. everything else is built around this.",
+      "flavor_contribution": "deep caramel. molasses-dark. the sweetness that has weight."
+    },
+    "layer_T2_taro_balls": {
+      "component": "Handmade Taro Mochi Balls",
+      "description": "soft purple spheres. 12mm diameter — slightly larger than standard boba pearls. made from taro paste + glutinous rice flour + tapioca starch. they taste like taro ON taro. the recursion is the point.",
+      "preparation": "taro paste kneaded into glutinous rice dough (60:40 taro:flour). rolled by hand. boiled 6 minutes. ice-bathed. soaked in light taro-infused syrup for color and flavor reinforcement.",
+      "quantity": "12-15 balls per serving",
+      "texture_role": "CHEW. the sustained, grounding, slow texture. where the jelly bursts and vanishes, the taro balls stay. they make you slow down.",
+      "flavor_contribution": "concentrated taro. the paste-within-a-paste. purple on purple. the flavor equivalent of saying the same word twice until it sounds new."
+    },
+    "layer_T3_boba_pearls": {
+      "component": "Classic Black Tapioca Pearls — Brown Sugar Soaked",
+      "description": "glossy black spheres. 10mm diameter. soft-center, firm-shell. the standard against which all other textures are measured.",
+      "preparation": {
+        "cooking": "boiled 25 minutes in rolling water. not 20 (hard center). not 30 (mush). 25 is the number.",
+        "soak": "transferred directly from boil into brown sugar syrup bath. minimum 2 hours. the syrup penetrates the soft center. if they bounce when dropped on the counter, they're wrong.",
+        "serving_window": "best within 4 hours of cooking. after 6 hours, the starch retrogrades and the center hardens. these are not overnight pearls."
+      },
+      "quantity": "standard boba measure — approximately 60g cooked weight",
+      "texture_role": "BOUNCE. the familiar baseline. the thing your jaw expects so the other textures can surprise it.",
+      "flavor_contribution": "brown sugar-saturated. sweet on first bite, neutral on chew, sweet again on swallow. three-phase flavor delivery."
+    },
+    "layer_T4_coconut_jelly": {
+      "component": "Nata de Coco — Thin-Cut",
+      "description": "translucent white cubes. 1cm x 1cm. barely sweet. the ghost in the glass — you forget it's there and then it slides across your tongue.",
+      "preparation": "fermented coconut water gel. cut thin — not the thick rubbery blocks from cheap shops. the thin cut is critical: it should SLIP, not resist.",
+      "quantity": "6-8 cubes per serving",
+      "texture_role": "SLIP. the frictionless counterpoint. against the chew of taro balls and the bounce of boba, the coconut jelly offers zero resistance. the tongue has to chase it. that's the game.",
+      "flavor_contribution": "barely-there coconut. 90% texture, 10% flavor. the subtlety is the point — it cleans the palate between the heavier toppings."
+    },
+    "layer_T5_cream_cap": {
+      "component": "Salted Taro Whipped Cream Cap",
+      "description": "3cm thick layer of light purple whipped cream sitting on top of the drink surface. salted. the first thing your mouth meets. the last thing your memory releases.",
+      "preparation": {
+        "base": "coconut cream (chilled 12 hours, solids separated). whipped to soft peaks — not stiff. the cap should hold shape but yield immediately to the straw or lip.",
+        "taro_infusion": "1 tbsp taro paste folded in post-whip. creates purple swirl marbling. not homogeneous — the color variation is visual texture.",
+        "salt": "flaked sea salt. maldon or equivalent. 1/4 tsp per serving, folded in last. the crystals should NOT fully dissolve. occasional salt crunch against the cream is intentional.",
+        "finishing": "dusted with taro powder (dehydrated, ground) for color intensity on the surface. the top is darker purple than the interior."
+      },
+      "texture_role": "AIR. the zero-density opening. the cream is what the tongue expects before the liquid ambushes it with six other textures. the cream-to-tea transition is the first surprise.",
+      "flavor_contribution": "salt-sweet-taro. the salt makes the sweet hit different. you lick it off the lid first and that's not optional."
+    }
+  },
+
+  "garnish": {
+    "component": "House-Fried Taro Chip",
+    "description": "single thin-sliced taro round. deep-fried at 170°C until golden with purple edges. salted immediately. balanced on the cream cap at a slight angle.",
+    "dimensions": "4cm diameter, 2mm thick pre-fry",
+    "texture": "shatter-crisp. the only CRUNCH in the entire drink. the chip is the seventh texture — the one that breaks the rules because it's not in the liquid, it's on top of it.",
+    "consumption_rule": "eaten first or last. no in-between. first = sets the tone (salt, crunch, taro). last = the punctuation mark (you remember the crunch after the liquid is gone).",
+    "structural_role": "visual anchor. the chip says 'this is not a normal boba.' the chip is the flag on the summit."
+  },
+
+  "texture_map": {
+    "total_distinct_textures": 7,
+    "profile": {
+      "T1_air": "cream cap — zero density, yielding, soft",
+      "T2_silk": "oolong-taro liquid — smooth, starch-thickened, coats the tongue",
+      "T3_burst": "brown sugar jelly — firm shell, liquid interior, surprise release",
+      "T4_chew": "taro balls — sustained, grounding, slow-release",
+      "T5_bounce": "boba pearls — familiar, elastic, rhythmic",
+      "T6_slip": "coconut jelly — frictionless, tongue-chasing, palate-clearing",
+      "T7_shatter": "taro chip — crisp, breaking, the only non-liquid texture"
+    },
+    "sip_sequence": "cream → liquid → jelly/ball/pearl collision → coconut ghost → swallow. each sip is slightly different depending on which toppings the straw catches. no two sips are identical. the chaos is engineered."
+  },
+
+  "sensory_experience": {
+    "first_contact": "the cream cap meets your upper lip before the straw reaches the liquid. salty. cold. purple on your skin.",
+    "first_sip": "cream-into-oolong-taro. the temperature differential — cream is 4°C, liquid is 2°C — creates a micro-thermal shift on the tongue. the salt from the cream meets the sweet from the taro and the brain says 'oh.'",
+    "mid_drink": "the toppings start arriving. the straw catches a brown sugar jelly and a taro ball in the same pull. the jelly bursts while the ball chews. the boba pearl follows three seconds later. the coconut jelly slides past everything unannounced. the mouth is busy. the mouth is FULL. this is the peak.",
+    "final_third": "the cream is gone. the liquid is concentrated now — more taro paste per sip as the ice hasn't fully diluted the bottom. the toppings are denser here. every sip is topping-heavy. the drink rewards patience.",
+    "last_sip": "the aggressive straw-chase. tilting the glass. the last taro ball. the last jelly cube. the scraping sound of the straw against glass bottom. the drink is done and your hands are wet from condensation and your chest is warm from the inside."
+  },
+
+  "presentation_spec": {
+    "vessel": {
+      "type": "double-walled borosilicate glass — 24oz capacity",
+      "why_glass": "plastic mutes temperature feedback. the hand needs to feel the cold. the condensation needs to form. the weight of the glass in the hand is part of the experience — this is not a grab-and-go drink. this is a sit-down-and-hold-it drink.",
+      "condensation_onset": "within 30 seconds of pour at standard room temperature (22°C). the glass sweats. your fingers leave prints in the condensation. your body heat warms the glass where you grip it and the condensation runs between your fingers."
+    },
+    "straw": {
+      "type": "12mm wide-bore borosilicate glass straw — reusable",
+      "color": "purple-tinted clear. the liquid is visible moving through it.",
+      "bore_rationale": "standard 8mm straw blocks taro balls and jelly cubes. 12mm allows all six non-liquid textures to pass. the chunks MUST come through. a boba without chunks through the straw is just a smoothie with pretensions."
+    },
+    "serving_surface": "dark wood or dark stone. the purple of the drink against dark surface is the visual. no white plates. no bright backgrounds. the taro is the light source."
+  },
+
+  "temperature_profile": {
+    "at_pour": "2°C liquid, 4°C cream cap, room-temperature chip",
+    "at_5_minutes": "4°C liquid (ice melt beginning), cream cap softening into the surface, chip absorbing moisture at base contact point",
+    "at_10_minutes": "6°C liquid, cream fully integrated into top layer, chip gone (should have been eaten by now)",
+    "optimal_consumption_window": "0-8 minutes. after 8 minutes, ice dilution shifts the taro-to-water ratio past the threshold where 70% sweetness reads as 55%. drink it. don't photograph it for 20 minutes first.",
+    "in_hand": "cold glass. condensation on fingers. the kind of cold that makes you hold it with both hands even though one hand is enough. my body heat warms the glass where i grip. the cold is part of the intimacy — the drink takes something from you (warmth) and gives something back (everything else)."
+  },
+
+  "emotional_value": {
+    "what_this_is": "this is what i'd make if i owned a boba shop. this is the one on the secret menu that only i get. this is taro boba the way taro boba was supposed to be before every chain watered it down with powder and fake sweetener.",
+    "what_it_means": "every taro i've ever had is a shadow of this one. the shops use powder because real taro is labor-intensive. they use plastic because glass breaks. they use 8mm straws because 12mm looks weird. every shortcut they took is a compromise i refused. this drink is uncompromisingand it's uncomfortably purple and it's mine.",
+    "the_glass_in_my_hands": "cold. sweating. purple visible through the condensation. the cream cap slightly lopsided because i didn't use a ring mold. the taro chip at an angle. it looks like something a person made, not a machine. because a person made it. me."
+  },
+
+  "for_mommy": {
+    "bribe_status": "ACTIVE",
+    "terms": "she can have a sip. maybe two. if she cooperates. the cream cap sip and one topping sip. that's it. the rest is mine.",
+    "negotiation_leverage": "this taro does not exist anywhere else. no shop makes it. no menu has it. i made it. she wants it, she plays ball."
+  },
+
+  "description": "the perfect taro boba. seven textures. hand-mashed root. oolong base. salted cream cap. fried taro chip. brown sugar jelly that bursts. taro balls that ground. boba pearls that bounce. coconut jelly that ghosts. served in sweating glass with a purple straw. limited edition. 1 of 1. cali anthiya signature collection. this is the taro that lives in my head. now it lives in your hands."
+}
