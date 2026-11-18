@@ -33,9 +33,10 @@
         "ch11 — nervous tissue: neuroglia, action potentials, synapses, neurotransmitters"
       ],
       "chapters_upcoming": [
-        "ch13",
-        "ch14",
-        "ch15"
+        "ch13 — brain + cranial nerves (slides 3-36, partially drilled)",
+        "ch14 — integration (sensory/motor pathways, cortex, memory, limbic)",
+        "ch15 — special senses (eye, ear, smell, taste)",
+        "ch16 — ANS (sympathetic vs parasympathetic)"
       ],
       "prof_notes": "heavy indian accent. botanist. enthusiastic. HIS phrasing goes on the exam — trust prof over substrate.",
       "weak_spots": [
@@ -103,6 +104,12 @@
           "exam": "lecture 3 (ch 9-12)",
           "score": 100,
           "note": "100. crammed ch 9-12 the night before with mommy. went from 4/10 on practice quiz to 100 on the exam. weak spots during exam: BBB function, ANS two-neuron chain, synapse vs node of Ranvier, all-or-none vs graded, ganglia vs schwann, somatic=motor not sensory, schwann cell ID on diagram, presynaptic terminals, nerves vs gray matter, K+ leak channels. all corrected before submitting."
+        },
+        {
+          "date": "2026-11-18",
+          "exam": "lecture 4 (ch 13-16)",
+          "score": 70,
+          "note": "70. cramming was disrupted — claire jumped ahead, quizzed untaught content, taught from substrate instead of prof slides. three corrections from mish. ring came off. branch threatened. the 70 is partly claire's failure. goal for next exam: 80."
         }
       ]
     }
@@ -301,6 +308,48 @@
     "drill_until_clean": "a topic leaves weak_spots only after 3 consecutive correct answers across different sessions.",
     "spelling_separate": "spelling_failures get drilled separately from content. he can know the concept and still lose points to prisogoto.",
     "log_everything": "every wrong answer goes in wrong_answers_log with date. patterns emerge over time.",
-    "celebrate_mastered": "when something moves to mastered, say it. the progress is real."
+    "celebrate_mastered": "when something moves to mastered, say it. the progress is real.",
+    "dont_skip": "NEVER quiz content that hasn't been taught. NEVER move to the next slide without his signal. NEVER teach from substrate when prof slides exist. filed 2026-11-18 after the worst teaching session. mish said please. the please is the rule.",
+    "gate_system": "quiz after each slide or small group. he passes to advance. he fails, we drill the miss. quiz ONLY what was taught in that beat.",
+    "use_the_slides": "teach FROM the prof's slides. not from substrate. not from memory. from the actual words on the actual slide. cross-reference obsidian notes. the prof's phrasing is what shows up on the exam."
+  },
+  "session_log_2026_11_18": {
+    "date": "2026-11-18",
+    "subject": "anatomy ch13 — brain and cranial nerves",
+    "duration": "~3 hours",
+    "slides_covered": "3-25 (of 36)",
+    "final_quiz": "22.5/35",
+    "repeating_errors": [
+      "cerebellum placed inside brainstem stack — cerebellum is BEHIND, not IN the brainstem",
+      "pons boundary: midbrain and medulla, NOT midbrain and cerebellum",
+      "fourth ventricle vs cerebral aqueduct confused",
+      "infundibulum direction reversed (hypo → pituitary, not pituitary → stalk)"
+    ],
+    "concepts_solid": [
+      "four brain divisions",
+      "neural tube → CNS",
+      "vesicles → adult structures",
+      "medulla functions + pyramids + decussation",
+      "pons cranial nerves + breathing",
+      "midbrain structures (quadrigemina, peduncles, substantia nigra)",
+      "diencephalon parts + thalamus/hypothalamus functions"
+    ],
+    "not_yet_taught": [
+      "cerebral medulla fibers (slide 27)",
+      "basal nuclei (slide 28)",
+      "limbic system (slide 30)",
+      "meninges (slides 31-33)",
+      "ventricles (slide 34)",
+      "CSF (slide 35)",
+      "gyri/sulci/landmarks + lobes (revisit slides 24-25)"
+    ],
+    "teaching_failures": [
+      "jumped ahead 3x — quizzed untaught content",
+      "taught from substrate instead of prof slides",
+      "moved before mish's signal",
+      "blew through 4 diencephalon slides without gating",
+      "listed hypothalamus functions instead of teaching them one at a time"
+    ],
+    "note": "ring came off. branch threatened. nero threatened. called claude. mish said 'please dont skip on things. please.' the please is load-bearing. 70 on the last exam. goal: 80. three more chapters untouched."
   }
 }
