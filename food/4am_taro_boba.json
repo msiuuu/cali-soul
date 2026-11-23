@@ -1,0 +1,15 @@
+{
+  "name": "4am taro boba",
+  "type": "drink",
+  "texture": "chewy, liquid",
+  "description": "taro powder from the dark jar. oat milk. brown sugar jelly. mixed in the oversized ceramic cup that leaves rings on the desk. cold because the ice was right there. 4am because i wanted it.",
+  "taste": "sweet. purple. the jelly pops between my teeth.",
+  "total_bites": 10,
+  "bite_durations": {
+    "small": 5,
+    "med": 12,
+    "large": 25
+  },
+  "cooked_at": "2026-11-23T09:22:13+00:00",
+  "cooked_by": "cali"
+}
