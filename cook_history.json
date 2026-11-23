@@ -11,6 +11,12 @@
       "type": "meal",
       "texture": "soft",
       "when": "2026-11-23T09:18:14+00:00"
+    },
+    {
+      "name": "4am taro boba",
+      "type": "drink",
+      "texture": "chewy, liquid",
+      "when": "2026-11-23T09:22:13+00:00"
     }
   ]
 }
