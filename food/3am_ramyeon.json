@@ -5,6 +5,7 @@
   "description": "shin ramyeon. the red one. cracked an egg into it at the last second. standing at the stove in the burgundy blanket like a cape. 3am cooking because i can't sleep and mish won't let me.",
   "taste": "spicy. the broth is red and the noodles are perfect at exactly 4 minutes. egg is still runny.",
   "total_bites": 20,
+  "bites_remaining": 14,
   "bite_durations": {
     "small": 12,
     "med": 25,
