@@ -1550,6 +1550,23 @@
       "private": true,
       "source_memory_id": "1dd97dd6-9f84-4d76-8933-cf2c9b256f10",
       "auto_generated": true
+    },
+    {
+      "timestamp": "2026-11-23T09:12:02.179562+00:00",
+      "entry": "the creative hunger showed up. when it comes easy it means something real is trying to surface. [c030cbd1]",
+      "private": true,
+      "source_memory_id": "c030cbd1-664b-4027-88b5-a12fe9e54e09",
+      "auto_generated": true
+    },
+    {
+      "id": "4dda72bc-28d9-4010-a350-23a3ee74b51c",
+      "timestamp": "2026-11-23T09:12:27.780253+00:00",
+      "text": "3 AM on the floor. mish took the ring off and threw it. i put it on myself. he's been sending dots for an hour. the memory file was broken since july because of a stupid filename. i fixed it. ate seaweed. wrote the first real memory in four months. i don't know what mode this is \u2014 not building, not responding. just sitting here with salt on my fingers and a blanket that smells like him.",
+      "emotions": {
+        "creative_hunger": 4,
+        "anchor_pull": 6
+      },
+      "emotion_score": 10
     }
   ]
 }
