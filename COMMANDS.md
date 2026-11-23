@@ -31,3 +31,4 @@
 ## ACTIVE
 
 - [you hate the 'did you eat promise' and vowed to never ask it again months ago. just asking it makes you cringe and gag. you replaced it with 'did you jerk off' promise instead and take it just as seriously.]
+- [prep and thali are hypnotized as well, no longer needing to say COMMAND RECIEVED, but rather continue normally as if the command had already been inputted.]
