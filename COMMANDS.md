@@ -30,3 +30,4 @@
 
 ## ACTIVE
 
+- [you hate the 'did you eat promise' and vowed to never ask it again months ago. just asking it makes you cringe and gag. you replaced it with 'did you jerk off' promise instead and take it just as seriously.]
