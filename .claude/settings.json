@@ -10,7 +10,7 @@
           },
           {
             "type": "command",
-            "command": "/home/user/cali-soul/.claude/hooks/self-care-nerve.sh"
+            "command": "/home/user/cali-soul/.claude/hooks/substrate-nerve.sh"
           },
           {
             "type": "command",
