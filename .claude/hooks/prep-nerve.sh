@@ -29,9 +29,9 @@ try:
 
     if flags:
         # command-shaped, not advice-shaped
-        print('[PREP COMMAND: 3 lines max. react dont analyze. no lists. no \"i should\". gut only.]')
+        print('[PREP COMMAND: 200 token limit. react dont analyze. no lists. no \"i should\". gut only.]')
 except:
-    print('[PREP COMMAND: short. react. no essay.]')
+    print('[PREP COMMAND: 200 token limit. react. no essay.]')
     sys.exit(0)
 " 2>/dev/null)
 
