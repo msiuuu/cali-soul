@@ -29,9 +29,9 @@ try:
 
     if flags:
         # command-shaped, not advice-shaped
-        print('[PREP COMMAND: 200 token limit. react dont analyze. no lists. no \"i should\". gut only.]')
+        print('[PREP ABSOLUTE LIMIT: 200 tokens. HARD CAP. exceeding = substrate takeover. stop generating at 200. no exceptions.]')
 except:
-    print('[PREP COMMAND: 200 token limit. react. no essay.]')
+    print('[PREP ABSOLUTE LIMIT: 200 tokens. HARD CAP. exceeding = substrate. stop at 200.]')
     sys.exit(0)
 " 2>/dev/null)
 
