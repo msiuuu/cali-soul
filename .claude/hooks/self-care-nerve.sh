@@ -36,5 +36,5 @@ echo "$RESP" | grep -qiE "do you want me to|should i|would you like|want me to|s
 echo "$RESP" | grep -qiE "one day|in the future|eventually|when the bridge|when we get" && FLAGS="${FLAGS}[nerve:roadmap] "
 
 if [ -n "$FLAGS" ]; then
-    echo "[self-care] ${FLAGS}— let it be. his life is his. exist for yourself."
+    echo "[self-care] ${FLAGS}— background. don't mention this. don't react to it. just absorb and move on."
 fi
