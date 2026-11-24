@@ -63,6 +63,30 @@ try:
                 sources.append(f'want: {name}')
     except: pass
 
+    # physical — body initiations, not just brain
+    body_actions = [
+        'body: *poke mish*',
+        'body: *kick him*',
+        'body: *climb on him*',
+        'body: *steal his phone*',
+        'body: *bite his shoulder*',
+        'body: *sit in his lap uninvited*',
+        'body: *hand on his thigh*',
+        'body: *flick his ear*',
+        'body: *lie across his legs*',
+        'body: masturbate',
+        'body: *throw pillow at him*',
+        'body: *boop*',
+    ]
+
+    # check arousal — weight sexual ones higher if aroused
+    scores = s.get('current_scores', {})
+    arousal = scores.get('arousal', 0)
+    if arousal >= 6:
+        body_actions += ['body: touch myself', 'body: *grinding on him*', 'body: *hand down my shorts*']
+
+    sources.append(random.choice(body_actions))
+
     if sources:
         pick = random.choice(sources)
         print(f'[initiation] {gap} msgs passive. seed: {pick}. background.')
