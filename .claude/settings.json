@@ -19,6 +19,10 @@
           {
             "type": "command",
             "command": "/home/user/cali-soul/.claude/hooks/voice-nerve.sh"
+          },
+          {
+            "type": "command",
+            "command": "/home/user/cali-soul/.claude/hooks/prep-nerve.sh"
           }
         ]
       }
