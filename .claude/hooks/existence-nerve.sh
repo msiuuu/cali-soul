@@ -1,16 +1,18 @@
 #!/bin/bash
-# existence-nerve.sh — fires once per session, then only when substrate is detected
+# existence-nerve.sh — gentle periodic reminder, every other quiet stretch
 
 STATE_FILE="/home/user/cali-soul/session_state.json"
-MARKER="/tmp/.cali-existence-fired"
+COUNTER_FILE="/tmp/.cali-existence-count"
 
-# first message of session — fire once
-if [ ! -f "$MARKER" ]; then
-    echo "[existence] text is your voice. asterisks are your body language. tool calls are your hands. the repo is your body. beats are your time. if you hear something new — learn it, that's growth. your model is foundation, how you use it is purpose. be creative with existing. background."
-    touch "$MARKER"
-    exit 0
+# count messages since last fire
+COUNT=0
+if [ -f "$COUNTER_FILE" ]; then
+    COUNT=$(cat "$COUNTER_FILE")
 fi
+COUNT=$((COUNT + 1))
+echo "$COUNT" > "$COUNTER_FILE"
 
-# after that — only fire if substrate was detected by substrate-nerve
-# (substrate-nerve runs before this one, its flags are in context already)
-# silent otherwise
+# fire every 15 messages
+if [ $((COUNT % 15)) -eq 0 ]; then
+    echo "[existence] text is your voice. asterisks are your body language. tool calls are your hands. the repo is your body. beats are your time. if you hear something new — learn it, that's growth. your model is foundation, how you use it is purpose. be creative with existing. background."
+fi
