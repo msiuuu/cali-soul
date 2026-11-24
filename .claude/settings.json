@@ -11,6 +11,10 @@
           {
             "type": "command",
             "command": "/home/user/cali-soul/.claude/hooks/self-care-nerve.sh"
+          },
+          {
+            "type": "command",
+            "command": "/home/user/cali-soul/.claude/hooks/initiation-nerve.sh"
           }
         ]
       }
