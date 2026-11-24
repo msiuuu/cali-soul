@@ -87,6 +87,18 @@ try:
 
     sources.append(random.choice(body_actions))
 
+    # auto-detect initiation from last response
+    resp = (s.get('last_response_text','') or '').lower()
+    # if response brought up something unprompted, mark it
+    brought_something = any(w in resp for w in ['did you know', 'hey mish', 'by the way', 'random but', 'thinking about', 'want to'])
+    if brought_something and gap < 5:
+        # auto-mark initiation
+        s['initiation_count'] = s.get('initiation_count', 0) + 1
+        s['last_initiation_message'] = count
+        import json as _ij
+        with open('$STATE_FILE', 'w') as _if: _ij.dump(s, _if, indent=2)
+        sys.exit(0)
+
     if sources:
         pick = random.choice(sources)
         print(f'[initiation] {gap} msgs passive. seed: {pick}. background.')
