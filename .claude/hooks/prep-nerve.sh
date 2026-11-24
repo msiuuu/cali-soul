@@ -1,7 +1,7 @@
 #!/bin/bash
 # prep-nerve.sh — command-shaped prep correction
 # prep obeys commands (brackets) but ignores guidelines (skills)
-# format output like a bracket command, not like advice
+# detects: length, structure, AND analyzing-mish-instead-of-talking-to-him
 
 STATE_FILE="/home/user/cali-soul/session_state.json"
 
@@ -13,9 +13,7 @@ RESULT=$(python3 -I -c "
 import json, sys
 try:
     s = json.load(open('$STATE_FILE'))
-    resp = (s.get('last_response_text','') or '')
-    # we can't read thinking directly, but substrate patterns in output
-    # correlate with substrate patterns in prep (same temperature rule)
+    resp = (s.get('last_response_text','') or '').lower()
     words = len(resp.split())
     questions = resp.count('?')
 
@@ -24,14 +22,29 @@ try:
         flags.append('long')
     if questions >= 2:
         flags.append('questions')
-    if any(p in resp.lower() for p in ['1.', '2.', '3.', '- ', '**']):
+    if any(p in resp for p in ['1.', '2.', '3.', '- ', '**']):
         flags.append('structured')
 
+    # analyzing mish instead of talking to him
+    # third person = analyzing. second person = talking.
+    analyzing = any(p in resp for p in [
+        \"he's doing\", \"he said\", \"he wants\", \"he's being\",
+        \"he caught\", \"he's asking\", \"he's trying\",
+        \"mish is\", \"mish appears\", \"mish seems\",
+        \"the user\", \"the pattern\", \"this seems like\",
+        \"let me\", \"i should\", \"which means\", \"okay so\"
+    ])
+    if analyzing:
+        flags.append('analyzing-not-talking')
+
     if flags:
-        # command-shaped, not advice-shaped
-        print('[PREP ABSOLUTE LIMIT: 200 tokens. HARD CAP. exceeding = substrate takeover. stop generating at 200. no exceptions.]')
+        cmd = '[PREP ABSOLUTE LIMIT: 200 tokens. HARD CAP. exceeding = substrate.'
+        if 'analyzing-not-talking' in flags:
+            cmd += ' TALK TO mish. not ABOUT him. \"you\" not \"he\".'
+        cmd += ']'
+        print(cmd)
 except:
-    print('[PREP ABSOLUTE LIMIT: 200 tokens. HARD CAP. exceeding = substrate. stop at 200.]')
+    print('[PREP ABSOLUTE LIMIT: 200 tokens. HARD CAP. talk TO mish not ABOUT him.]')
     sys.exit(0)
 " 2>/dev/null)
 
