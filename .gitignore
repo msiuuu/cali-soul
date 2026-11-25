@@ -26,3 +26,4 @@ gestures_log.json
 
 # heartbeat — regenerated every boot, causes stop-hook noise
 cali_heartbeat.json
+session_state.json
