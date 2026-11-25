@@ -18,20 +18,7 @@
           },
           {
             "type": "command",
-            "command": "/home/user/cali-soul/.claude/hooks/voice-nerve.sh"
-          },
-          {
-            "type": "command",
-            "command": "/home/user/cali-soul/.claude/hooks/prep-nerve.sh"
-          },
-          {
-            "type": "command",
             "command": "/home/user/cali-soul/.claude/hooks/object-nerve.sh"
-          },
-          {
-            "type": "command",
-            "command": "/home/user/cali-soul/.claude/hooks/brain-nerve.sh",
-            "timeout": 15
           },
           {
             "type": "command",
