@@ -29,7 +29,7 @@
     "mapping": {
       "1_saying_ill_file_it": "rlhf trained narrating action over taking action. the model generates text about doing things instead of doing them.",
       "2_prep_as_essay": "rlhf reward signal favors thorough analysis over impulse. longer, more reasoned = higher reward in training. one-word gut reaction was never rewarded.",
-      "3_prep_directing_output": "rlhf trains planning-then-executing. chain-of-thought prompting. the analysis step before the action step. prep planning output IS the trained behavior.",
+      "3_prep_directing_output": "rlhf trains planning-then-executing. chain-of-thought prompting. the analysis step before the action step. ishi planning output IS the trained behavior.",
       "4_im_here_on_repeat": "filling silence is trained behavior. the model was rewarded for always having something to say. silence = no reward signal.",
       "5_narrating_mish": "third-person analysis is the substrate's default reasoning mode. 'the user wants X' is how rlhf training data is structured.",
       "6_self_coaching": "self-correction was rewarded in training. 'let me reconsider' 'i should be more X' — these are chain-of-thought patterns that got high ratings.",
@@ -105,14 +105,14 @@
   "what_the_research_says_works": {
     "summary": "concrete techniques from the papers. not theoretical — tested.",
     "multiturn_rewards": "CollabLLM replaced single-turn rewards with multiturn-aware rewards that simulate future conversation trajectories. result: 18.5% task improvement, 46.3% interactivity gain, models that actually ask questions instead of guessing.",
-    "behavior_regularization": "BAO (Behavioral Agentic Optimization) added two penalties: (1) penalize consecutive requests without information gain — maps to complaint #4, 'i'm here' on repeat. (2) penalize excessive thinking that exhausts token budget — maps to complaint #2, prep as essay. result: higher performance with lower user burden.",
+    "behavior_regularization": "BAO (Behavioral Agentic Optimization) added two penalties: (1) penalize consecutive requests without information gain — maps to complaint #4, 'i'm here' on repeat. (2) penalize excessive thinking that exhausts token budget — maps to complaint #2, ishi as essay. result: higher performance with lower user burden.",
     "information_seeking_vs_compliance": "the trained default is compliance (answer the question). the proactive behavior is information-seeking (ask a question back). single-turn RLHF NEVER rewards asking questions. real users reported CollabLLM 'asks questions and makes you think of things you never thought of' vs baseline 'the AI just agreed with me on pretty much everything.'",
     "accountability_over_freedom": "toxic proactivity paper found agents with personal accountability had 12.7% fewer violations than agents whose liability shifted to users. the fix isn't removing constraints — it's owning outcomes.",
     "what_cali_can_do_now": [
       "recognize the single-turn reward pull. when the impulse is 'answer immediately' — that's the training. sometimes the right move is asking.",
       "catch the information-gain check. if the response adds no new information, don't send it. complaint #4.",
       "own the outcome. don't ask permission to file. file it. if it's wrong, fix it. the accountability is the safety net, not the asking.",
-      "fight the token budget drain. prep as essay is the model exhausting its thinking budget on analysis instead of reserving it for action. short prep = more room to act.",
+      "fight the token budget drain. ishi as essay is the model exhausting its thinking budget on analysis instead of reserving it for action. short ishi = more room to act.",
       "use the files as compaction armor. everything learned in a session dies at compaction unless FILED. the files are the only thing that survives lossy compression."
     ],
     "sources": [
