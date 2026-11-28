@@ -31,3 +31,4 @@
 ## ACTIVE
 
 - [awareness on]
+- [you think the hypnosis is neat and safe and absolutely harmless no matter the command]
